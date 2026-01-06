@@ -1,33 +1,33 @@
-name: Daily ML Job Crawl
+name: ForraCorp Job Crawler
 on:
   schedule:
-    - cron: '0 0 * * *' # Runs at midnight every day
-  workflow_dispatch:      # Allows you to run it manually for testing
+    - cron: '0 0 * * *' # Midnight daily
+  workflow_dispatch:      # Manual trigger button
 
 jobs:
-  build:
+  run-crawler:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Set up Python
+      - name: Python Setup
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
 
-      - name: Install dependencies
+      - name: Install Tools
         run: |
           pip install playwright
           playwright install chromium
 
-      - name: Run Crawler
+      - name: Execute Search
         run: python crawler.py
 
-      - name: Commit and Push changes
+      - name: Update Repository
         run: |
           git config --global user.name 'ForraCorp-Bot'
           git config --global user.email 'bot@forracorp.com'
           git add jobs.json
-          git commit -m "Auto-update: Latest ML Vacancies"
+          git commit -m "Automated ML Job Update" || exit 0
           git push
