@@ -1,0 +1,37 @@
+name: ForraCorp Live Pipeline
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs automatically at midnight
+  workflow_dispatch:  # Allows you to trigger it manually via the "Actions" tab
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # Grant permissions to allow the bot to write data back to your repo
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Libraries/ Tools
+        # This installs the actual Chromium engine and the Linux system libs
+        run: |
+          pip install playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Execute ForraCorp Crawler (Intelligence Engine)
+        run: python crawler_script.py
+
+      - name: Sync to Website Repo
+        run: |
+          git config --global user.name 'Ubi-Fredrick-Bot'
+          git config --global user.email 'eveeubi@gmail.com'
+          git add last_run.json
+          # The next line prevents errors if no new data was found
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Live Update: $(date)" && git push)
