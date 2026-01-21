@@ -937,6 +937,68 @@
             margin-top: -50px;
 
         }
+
+/*----- Web Crawler Display -------*/
+.devOps{
+    padding: 25px;
+    margin: 20px 0 20px 0;
+    border-radius: 12px; 
+    background: var(--background-main);
+    border: 2px solid var(--glass-border);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+    font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-white);
+} 
+.devOps h5{
+    margin-top:0;  
+    text-align: center;
+    padding-bottom: 10px;
+    color: var(--secondary-color); 
+    border-bottom: 2px solid var(--other-color); 
+}
+
+.sitrep{
+    margin-bottom: 20px;
+}
+.sitrep span{
+    font-weight: 600;
+}
+.sitrep img{
+    vertical-align: middle; 
+    margin-left: 10px;
+}
+
+.crawler{
+    padding: 15px; 
+    border-radius: 8px; 
+    border-left: 5px solid red;
+    background: var(--opaque);
+}
+.crawl_a{
+    margin-bottom: 8px;
+}
+.crawl_a strong{
+    color: var(--primary-cyan);
+}
+.crawl_a span{
+    margin-left: 10px; 
+    font-weight: 500;
+}
+.crawl_b{
+    margin-bottom: 8px;
+}
+.crawl_b strong{
+    color: var(--primary-cyan);
+}
+.crawl_b span{
+    font-style: italic; color: var(--text-white);
+}
+.crawl_c{
+    margin-top: 10px; 
+    font-size: 0.9em; 
+    color: #2c3e50;
+}
+
         
     </style>
 </head>
@@ -1382,6 +1444,29 @@
                  </p>                
             </div><br>
         </div>
+        
+        <h5>The ForraCorp Intelligence Pipeline: Live DevOps Automation</h5>
+        <div class="devOps">
+            
+            <h5>System Health Sitrep</h5>
+            <div class="sitrep">
+                <span>Operational Status:</span> 
+                <img src="https://github.com/fofem/fofem.github.io/actions/workflows/main.yml/badge.svg" alt="Indicatior">
+            </div>
+
+            <div class="crawler">
+                <div class="crawl_a">
+                    <strong>Last Synchronization: </strong> 
+                    <span id="update-time">Connecting...</span>
+                </div>
+                <div class="crawl_b">
+                    <strong>Search Focus: </strong> 
+                    <span>ML, Front-End, Creative & Grant Writing, Songwriting, VA</span>
+                </div>
+                <div id="job-summary" class="crawl_c">
+                    </div>
+            </div>
+        </div>
     </section>
 
 <!-----------------~~~~~~ FOOTER ~~~~~~----------------->    
@@ -1501,7 +1586,20 @@
         }
 
         window.onload = runTensorFlowDemo;
-
+    </script>
+    <script>  //The Web Crawler
+        // This script pulls the timestamp from your last_run.json file
+        fetch('last_run.json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('update-time').innerText = data.last_update;
+                if(data.status === "Success") {
+                    document.getElementById('job-summary').innerText = "✓ " + data.message;
+                }
+            })
+            .catch(err => {
+                document.getElementById('update-time').innerText = "Synchronizing data...";
+            });
     </script>
 </body>
 </html>
