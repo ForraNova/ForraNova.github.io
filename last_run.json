@@ -1,55 +1,6 @@
 {
-    "last_update": "January 22, 2026 | 01:17 AM",
+    "last_update": "January 22, 2026 | 10:04 PM",
     "status": "Success",
-    "message": "Market surveillance complete across 7 sectors.",
-    "findings": [
-        {
-            "category": [
-                "Machine",
-                "Learning"
-            ],
-            "results": []
-        },
-        {
-            "category": [
-                "Front",
-                "End"
-            ],
-            "results": []
-        },
-        {
-            "category": [
-                "Grant",
-                "Writing"
-            ],
-            "results": []
-        },
-        {
-            "category": [
-                "Creative",
-                "Storytelling"
-            ],
-            "results": []
-        },
-        {
-            "category": [
-                "Systems",
-                "Support"
-            ],
-            "results": []
-        },
-        {
-            "category": [
-                "Work"
-            ],
-            "results": []
-        },
-        {
-            "category": [
-                "Assistant",
-                "jobs"
-            ],
-            "results": []
-        }
-    ]
+    "total_found": 0,
+    "findings": []
 }
