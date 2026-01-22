@@ -2,9 +2,11 @@ name: Scheduled Intelligence Gathering
 
 on:
   schedule:
-    # This is "Cron" syntax for every 3 hours starting at Midnight
     - cron: '0 0,3,6,9,12,15,18,21 * * *'
-  workflow_dispatch: # Allows you to run it manually for testing
+  workflow_dispatch: 
+
+permissions:
+  contents: write  # Allows the bot to push JSON changes to your repo
 
 jobs:
   scrape:
@@ -20,16 +22,18 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          pip install playwright schedule
+          pip install playwright requests
           playwright install chromium
 
       - name: Run Crawler
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }} # Map secret to Env var
         run: python crawler_script.py
 
       - name: Commit and Push Results
         run: |
-          git config --global user.name "ForraCorp-Sentinel-Bot"
-          git config --global user.email "bot@forracorp.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add last_run.json
-          git commit -m "Automated Intelligence Update: $(date)" || echo "No changes to commit"
+          git commit -m "Automated Intel Update: $(date)" || exit 0
           git push
