@@ -938,16 +938,20 @@
 
         }
 
-/*----- Web Crawler Display -------*/
+/*----- Web Crawler Display: The Sentinel Dashboard Styling -----*/
 .devOps{
     padding: 25px;
     margin: 20px 0 20px 0;
     border-radius: 12px; 
-    background: var(--background-dark);
     border: 2px solid var(--glass-border);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+    box-shadow: 0 4px 6px var(--opaque); 
     font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: var(--text-light);
+    color: var(--text-white); 
+    background: radial-gradient(circle at 20% 80%, rgba(0, 51, 0, 0.74) 20%, transparent 80%),
+                radial-gradient(circle at 40% 60%, rgba(57, 19, 19, 1.75) 20%, transparent 80%),
+                radial-gradient(circle at 60% 40%, rgba(25, 25, 77, 1.74) 20%, transparent 80%),
+                radial-gradient(circle at 80% 20%, rgba(0, 77, 77, 0.75) 20%, transparent 80%);
+    
 } 
 .devOps h5{
     margin-top:0;  
@@ -967,37 +971,75 @@
     vertical-align: middle; 
     margin-left: 10px;
 }
+#sentinel-feed {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 20px;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+.sentinel-header h2 {
+    color: #d4af37; /* ForraCorp Gold */
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
 
-.crawler{
-    padding: 15px; 
-    border-radius: 8px; 
-    border-left: 5px solid red;
-    background: var(--glass);
+#update-time {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 25px;
 }
-.crawl_a{
-    margin-bottom: 8px;
+
+.job-category h3 {
+    border-left: 3px solid #d4af37;
+    padding-left: 10px;
+    margin-top: 30px;
+    color: #eee;
 }
-.crawl_a strong{
-    color: var(--primary-color);
+
+.job-card {
+    background: #252525;
+    border: 1px solid #333;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
-.crawl_a span{
-    margin-left: 10px; 
-    font-weight: 500;
+
+.job-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    border-color: #d4af37;
 }
-.crawl_b{
-    margin-bottom: 8px;
+
+.job-card strong {
+    color: #d4af37;
+    font-size: 1.1rem;
 }
-.crawl_b strong{
-    color: var(--primary-color);
+
+.job-card p {
+    font-size: 0.9rem;
+    color: #ccc;
+    line-height: 1.4;
+    margin: 10px 0;
 }
-.crawl_b span{
-    font-style: italic; 
-    color: var(--text-light);
+
+.job-card a {
+    display: inline-block;
+    color: #1a1a1a;
+    background-color: #d4af37;
+    padding: 6px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.8rem;
+    border-radius: 3px;
+    text-transform: uppercase;
 }
-.crawl_c{
-    margin-top: 10px; 
-    font-size: 0.9em; 
-    color: var(--text-light);
+
+.job-card a:hover {
+    background-color: #f1c40f;
 }
 
         
@@ -1445,30 +1487,27 @@
                  </p>                
             </div><br>
         </div>
-        
-        
-        <div class="devOps">
-            <h5>The ForraCorp Intelligence Pipeline: Live DevOps Automation</h5>
-            <h4>System Health Sitrep</h4>
-            <div class="sitrep">
-                <span>Operational Status:</span> 
-                <img src="https://github.com/fofem/fofem.github.io/actions/workflows/main.yml/badge.svg" alt="Indicatior">
-            </div>
-
-            <div class="crawler">
-                <div class="crawl_a">
-                    <strong>Last Synchronization: </strong> 
-                    <span id="update-time">Connecting...</span>
-                </div>
-                <div class="crawl_b">
-                    <strong>Search Focus: </strong> 
-                    <span>ML, Front-End, Creative & Grant Writing, Songwriting, VA</span>
-                </div>
-                <div id="job-summary" class="crawl_c">
-                    </div>
-            </div>
-        </div>
+       
     </section>
+    <!-----------------~~~~~~ CONTACT ME ~~~~~~----------------->  
+    <section id="sentinel-feed">
+        <div class="devOps">
+                <h5>The ForraCorp Intelligence Pipeline: Live DevOps Automation</h5>
+                <h4>System Health Sitrep</h4>
+                <div class="sitrep">
+                    <span>Operational Status:</span> 
+                    <img src="https://github.com/fofem/fofem.github.io/actions/workflows/main.yml/badge.svg" alt="Indicatior">
+                </div>
+                <div class="sentinel-header">
+                    <h2>🛡️ Digital Sentinel Intelligence</h2>
+                    <p id="update-time">Syncing with ForraCorp Servers...</p>
+                </div>
+                <div id="job-container">
+                    <div class="loader">Scanning Sectors...</div>
+                </div>
+            </div>
+        </section>
+        
 
 <!-----------------~~~~~~ FOOTER ~~~~~~----------------->    
     <footer>
@@ -1589,18 +1628,45 @@
         window.onload = runTensorFlowDemo;
     </script>
     <script>  //The Web Crawler
-        // This script pulls the timestamp from your last_run.json file
-        fetch('last_run.json')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('update-time').innerText = data.last_update;
-                if(data.status === "Success") {
-                    document.getElementById('job-summary').innerText = "✓ " + data.message;
-                }
-            })
-            .catch(err => {
-                document.getElementById('update-time').innerText = "Synchronizing data...";
-            });
+        // This script pulls the timestamp from the last_run.json file
+        async function fetchSentinelData() {
+            const url = 'https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/last_run.json';
+            
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                // Update the "Last Updated" timestamp on site
+                document.getElementById('update-time').innerText = `Intelligence Last Synced: ${data.last_update}`;
+                
+                const container = document.getElementById('job-container');
+                container.innerHTML = ''; // Clear loading text
+        
+                data.findings.forEach(category => {
+                    const section = document.createElement('div');
+                    section.className = 'job-category';
+                    section.innerHTML = `<h3>${category.query}</h3>`;
+                    
+                    category.jobs.forEach(job => {
+                        const jobEl = document.createElement('div');
+                        jobEl.className = 'job-card';
+                        jobEl.innerHTML = `
+                            <strong>${job.position}</strong> at ${job.company}<br>
+                            <p>${job.details}</p>
+                            <a href="${job.link}" target="_blank">View Opportunity</a>
+                        `;
+                        section.appendChild(jobEl);
+                    });
+                    container.appendChild(section);
+                });
+            } catch (error) {
+                console.error('Error fetching Sentinel data:', error);
+                document.getElementById('update-time').innerText = 'Sentinel Offline';
+            }
+        }
+        
+        // This runs the function when the page loads
+        fetchSentinelData();
     </script>
 </body>
 </html>
