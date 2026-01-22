@@ -1,37 +1,35 @@
-name: ForraCorp Live Pipeline
+name: Scheduled Intelligence Gathering
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Runs automatically at midnight
-  workflow_dispatch:  # Allows you to trigger it manually via the "Actions" tab
+    # This is "Cron" syntax for every 3 hours starting at Midnight
+    - cron: '0 0,3,6,9,12,15,18,21 * * *'
+  workflow_dispatch: # Allows you to run it manually for testing
 
 jobs:
-  build:
+  scrape:
     runs-on: ubuntu-latest
-
-    # Grant permissions to allow the bot to write data back to your repo
-    permissions:
-      contents: write
-
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
-      - name: Install Libraries/ Tools
-        # This installs the actual Chromium engine and the Linux system libs
+      - name: Install Dependencies
         run: |
-          pip install playwright
-          python -m playwright install --with-deps chromium
+          pip install playwright schedule
+          playwright install chromium
 
-      - name: Execute ForraCorp Crawler (Intelligence Engine)
+      - name: Run Crawler
         run: python crawler_script.py
 
-      - name: Sync to Website Repo
+      - name: Commit and Push Results
         run: |
-          git config --global user.name 'Ubi-Fredrick-Bot'
-          git config --global user.email 'eveeubi@gmail.com'
+          git config --global user.name "ForraCorp-Sentinel-Bot"
+          git config --global user.email "bot@forracorp.com"
           git add last_run.json
-          # The next line prevents errors if no new data was found
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Live Update: $(date)" && git push)
+          git commit -m "Automated Intelligence Update: $(date)" || echo "No changes to commit"
+          git push
