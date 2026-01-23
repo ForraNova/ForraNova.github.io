@@ -1,30 +1,54 @@
 {
-    "last_update": "January 23, 2026 | 01:32 PM",
-    "status": "Success",
-    "total_found": 0,
+    "last_update": "January 23, 2026 | 02:23 PM",
+    "status": "Online",
+    "total_found": 6,
+    "logs": [
+        "[14:23:07] SUCCESS: Machine Learning (3 found)",
+        "[14:23:09] SUCCESS: Front-End / React (3 found)",
+        "[14:23:12] SUCCESS: Writing / Creative (0 found)",
+        "[14:23:15] SUCCESS: Virtual Assistant (0 found)"
+    ],
     "findings": [
         {
-            "query": "Remote Machine Learning jobs",
+            "query": "Machine Learning",
+            "jobs": [
+                {
+                    "position": "Coding Bootcamp\ufe63Job Guaranteed",
+                    "link": "https://remoteok.com/remote-jobs/remote-coding-bootcamp-job-guaranteed-metana-1129395"
+                },
+                {
+                    "position": "Crypto Trading Trainee Market Analysis Associate",
+                    "link": "https://remoteok.com/remote-jobs/remote-crypto-trading-trainee-market-analysis-associate-whitebridge-ltd-1129668"
+                },
+                {
+                    "position": "Senior Marketing Manager Paid Ads",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
+                }
+            ]
+        },
+        {
+            "query": "Front-End / React",
+            "jobs": [
+                {
+                    "position": "Senior Lead Designer Web & Interactive",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-lead-designer-web-amp-interactive-bullish-us-llc-1129708"
+                },
+                {
+                    "position": "Senior React Native Developer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-react-native-developer-orium-1129706"
+                },
+                {
+                    "position": "FrontEnd Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-frontend-engineer-clearscore-technology-limited-1129691"
+                }
+            ]
+        },
+        {
+            "query": "Writing / Creative",
             "jobs": []
         },
         {
-            "query": "Remote Front End Developer jobs React Tailwind",
-            "jobs": []
-        },
-        {
-            "query": "Remote Grant Writing jobs",
-            "jobs": []
-        },
-        {
-            "query": "Remote Creative Storytelling and Songwriting opportunities",
-            "jobs": []
-        },
-        {
-            "query": "Remote Systems Support",
-            "jobs": []
-        },
-        {
-            "query": "Virtual Assistant jobs vacancy",
+            "query": "Virtual Assistant",
             "jobs": []
         }
     ]
