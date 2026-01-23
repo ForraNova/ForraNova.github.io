@@ -1625,64 +1625,55 @@
         window.onload = runTensorFlowDemo;
     </script>
     
-    <script>  //The Web Crawler
-            // This script pulls the timestamp from the last_run.json file
-        async function fetchSentinelData() {
-            // 1. UPDATE THESE TWO FIELDS
-            const username = 'fofem'; 
-            const repo = 'fofem.github.io'; 
-            
-            // Added a 'cache buster' (?t=...) so you see updates instantly
-            const url = `https://raw.githubusercontent.com/${username}/${repo}/main/last_run.json?t=${new Date().getTime()}`;
-            
-            try {
-                const response = await fetch(url);
-                if (!response.ok) throw new Error('Network response was not ok');
-                
-                const data = await response.json();
-                
-                // Update timestamp
-                document.getElementById('update-time').innerText = data.last_update;
-                
-                const container = document.getElementById('job-container');
-                container.innerHTML = ''; // Clear loading text
+     //The Web Crawler
+            // This is  the script
+        <script>
+async function fetchSentinelData() {
+    // CHANGE THESE TO YOUR GITHUB INFO
+    const user = 'fofem'; 
+    const repo = 'fofem.github.io'; 
+    const url = `https://raw.githubusercontent.com/${user}/${repo}/main/last_run.json?t=${new Date().getTime()}`;
     
-                // Verify if there are findings
-                if (!data.findings || data.findings.length === 0) {
-                    container.innerHTML = '<div class="no-data">No active leads in last 24h.</div>';
-                    return;
-                }
-    
-                data.findings.forEach(category => {
-                    // Only show categories that actually have jobs
-                    if (category.jobs && category.jobs.length > 0) {
-                        const section = document.createElement('div');
-                        section.className = 'job-category';
-                        section.innerHTML = `<h4 style="color: #00ff00; margin-top:15px;">🔍 ${category.query}</h4>`;
-                        
-                        category.jobs.forEach(job => {
-                            const jobEl = document.createElement('div');
-                            jobEl.className = 'job-card';
-                            jobEl.style = "border-left: 2px solid #444; padding-left: 10px; margin-bottom: 10px;";
-                            jobEl.innerHTML = `
-                                <strong>${job.position}</strong> <br>
-                                <small>Source: ${job.company}</small>
-                                <p style="font-size: 0.85em; color: #ccc;">${job.details}</p>
-                                <a href="${job.link}" target="_blank" style="color: #00bcff; text-decoration: none; font-size: 0.8em;">View Intelligence →</a>
-                            `;
-                            section.appendChild(jobEl);
-                        });
-                        container.appendChild(section);
-                    }
-                });
-            } catch (error) {
-                console.error('Error fetching Sentinel data:', error);
-                document.getElementById('update-time').innerText = 'Sentinel Offline (Check Connection)';
-                document.getElementById('job-container').innerHTML = '⚠️ Waiting for pipeline synchronization...';
-            }
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log("Data Payload:", data); // Check your F12 Console for this!
+
+        document.getElementById('update-time').innerText = data.last_update;
+        const container = document.getElementById('job-container');
+        container.innerHTML = ''; 
+
+        if (!data.findings || data.total_found === 0) {
+            container.innerHTML = '<div class="no-data">No active leads in last 24h.</div>';
+            return;
         }
-    
-        fetchSentinelData();
+
+        data.findings.forEach(category => {
+            if (category.jobs && category.jobs.length > 0) {
+                const section = document.createElement('div');
+                section.className = 'job-category';
+                section.innerHTML = `<h4 style="color:#00ff00; margin-top:20px;">${category.query}</h4>`;
+                
+                category.jobs.forEach(job => {
+                    const jobEl = document.createElement('div');
+                    jobEl.className = 'job-card';
+                    jobEl.style = "background:#111; padding:10px; margin:5px 0; border-radius:5px; border-left:3px solid #00ff00;";
+                    jobEl.innerHTML = `
+                        <strong style="color:#fff;">${job.position}</strong><br>
+                        <a href="${job.link}" target="_blank" style="color:#00bcff; font-size:0.9em;">Access Intel →</a>
+                    `;
+                    section.appendChild(jobEl);
+                });
+                container.appendChild(section);
+            }
+        });
+    } catch (error) {
+        console.error('Fetch Error:', error);
+        document.getElementById('update-time').innerText = 'Sentinel Offline';
+    }
+}
+fetchSentinelData();
+
     </script>
 </body>
 </html>
