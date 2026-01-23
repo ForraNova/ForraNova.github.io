@@ -984,7 +984,84 @@
     @keyframes fadeIn {
         from { opacity: 0; transform: translateX(-10px); }
         to { opacity: 1; transform: translateX(0); }
-    }      
+    } 
+
+     /* Sentinel Dashboard Theme */
+    .devOps {
+        background: #080808;
+        color: #00ff41; /* Classic Terminal Green */
+        padding: 25px;
+        font-family: 'Courier New', monospace;
+        border: 2px solid #1a1a1a;
+        border-radius: 10px;
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .dashboard-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #00ff41;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+    .counter-box {
+        text-align: right;
+        background: #00ff41;
+        color: #000;
+        padding: 5px 15px;
+        font-weight: bold;
+        border-radius: 4px;
+    }
+
+    /* Glow Cards */
+    .job-card {
+        background: #111;
+        padding: 15px;
+        margin: 12px 0;
+        border-radius: 5px;
+        border-left: 4px solid #00ff41;
+        transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 0 8px rgba(0, 255, 65, 0.05);
+    }
+
+    .job-card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+        background: #1a1a1a;
+    }
+
+    .sector-label {
+        font-size: 0.75em;
+        color: #888;
+        letter-spacing: 2px;
+        margin-top: 25px;
+    }
+
+    .secure-link {
+        color: #00d4ff;
+        text-decoration: none;
+        font-size: 0.85em;
+        font-weight: bold;
+    }
+
+    .secure-link:hover { text-decoration: underline; }
+
+    /* Log Style */
+    #activity-log {
+        list-style: none;
+        padding: 10px;
+        background: #000;
+        font-size: 0.75em;
+        color: #00ff41;
+        opacity: 0.8;
+        max-height: 150px;
+        overflow-y: auto;
+    }
+
+        
     </style>
 </head>
 <body>
@@ -1430,26 +1507,23 @@
             </div><br>
         </div>
         
-        <div class="devOps" id="sentinel-feed" style="background: #000; color: #00ff00; padding: 20px; font-family: 'Courier New', Courier, monospace;">
-            <h4>Digital Sentinel Intelligence</h4>
-            <div class="sitrep">
-                <span>Operational Status:</span> 
-                <img src="https://github.com/fofem/fofem.github.io/actions/workflows/main.yml/badge.svg" alt="Status">
+        <div class="devOps" id="sentinel-feed">
+            <div class="dashboard-header">
+                <div>
+                    <h3 style="margin:0;">THE FORRACORP DIGITAL SENTINEL</h3>
+                    <span style="font-size:0.7em;">SYNC: <span id="update-time">PENDING...</span></span>
+                </div>
+                <div class="counter-box">
+                    <span id="job-count">0</span> LEADS FOUND
+                </div>
             </div>
-        
-            <div class="crawler">
-                <p><strong>Last Synchronization:</strong> <span id="update-time">Syncing...</span></p>
-                
-                <div id="job-container">
-                    <div class="loader">Scanning Sectors...</div>
+            
+            <div id="job-container">
                 </div>
         
-                <div class="crawl_c" style="margin-top: 20px; border-top: 1px solid #222; padding-top: 15px;">
-                    <strong style="font-size: 0.9em; color: #fff;">SYSTEM ACTIVITY LOG:</strong>
-                    <ul id="activity-log" style="list-style: none; padding: 0; font-size: 0.8em; color: #00ff00; opacity: 0.7;">
-                        <li>[00:00:00] Initializing Sentinel...</li>
-                    </ul>
-                </div>
+            <div style="margin-top:30px;">
+                <p style="font-size:0.7em; margin-bottom:5px;">// ACTIVITY_LOG.TXT</p>
+                <ul id="activity-log"></ul>
             </div>
         </div>
     </section>
@@ -1572,7 +1646,7 @@
         window.onload = runTensorFlowDemo;
     </script>
 
-    <script>  //The Web Crawler. This is  the script
+    <script>  //The Web Crawler Script
         async function fetchSentinelData() {
             const user = 'fofem'; 
             const repo = 'fofem.github.io'; 
@@ -1580,11 +1654,14 @@
             
             try {
                 const response = await fetch(url);
+                if (!response.ok) throw new Error("Connection Refused");
                 const data = await response.json();
-                
+        
+                // 1. Update Metadata
                 document.getElementById('update-time').innerText = data.last_update;
-                
-                // 1. Update Activity Logs
+                document.getElementById('job-count').innerText = data.total_found;
+        
+                // 2. Update Logs
                 const logList = document.getElementById('activity-log');
                 logList.innerHTML = '';
                 if (data.logs) {
@@ -1595,40 +1672,44 @@
                     });
                 }
         
-                // 2. Update Job Cards
+                // 3. Render Jobs
                 const container = document.getElementById('job-container');
                 container.innerHTML = ''; 
         
-                let hasJobs = data.findings && data.findings.some(f => f.jobs && f.jobs.length > 0);
-        
-                if (!hasJobs) {
-                    container.innerHTML = '<div style="color: #666; padding: 20px;">🛰️ No new leads indexed. Sentinel is currently patrolling.</div>';
+                if (!data.findings || data.total_found === 0) {
+                    container.innerHTML = '<div style="padding:20px; color:#555;">NO NEW INTELLIGENCE RECORDED.</div>';
                     return;
                 }
         
-                data.findings.forEach(category => {
-                    if (category.jobs && category.jobs.length > 0) {
-                        const section = document.createElement('div');
-                        section.innerHTML = `<h5 style="color: #fff; margin-bottom: 5px; text-transform: uppercase;">// Sector: ${category.query}</h5>`;
+                data.findings.forEach(sector => {
+                    if (sector.jobs && sector.jobs.length > 0) {
+                        const sectorHeader = document.createElement('div');
+                        sectorHeader.className = 'sector-label';
+                        sectorHeader.innerText = `[ SECTOR: ${sector.query.toUpperCase()} ]`;
+                        container.appendChild(sectorHeader);
                         
-                        category.jobs.forEach(job => {
+                        sector.jobs.forEach(job => {
                             const jobEl = document.createElement('div');
                             jobEl.className = 'job-card';
                             jobEl.innerHTML = `
-                                <strong style="color: #00ff00;">${job.position}</strong><br>
-                                <a href="${job.link}" target="_blank" style="color: #00bcff; font-size: 0.85em; text-decoration: none;">[ACCESS SECURE LINK]</a>
+                                <div style="color:#fff; margin-bottom:8px;">${job.position}</div>
+                                <a href="${job.link}" target="_blank" class="secure-link">VIEW OPPORTUNITY_</a>
                             `;
-                            section.appendChild(jobEl);
+                            container.appendChild(jobEl);
                         });
-                        container.appendChild(section);
                     }
                 });
+        
             } catch (error) {
-                console.error('Fetch Error:', error);
+                console.error('Sentinel Error:', error);
                 document.getElementById('update-time').innerText = 'OFFLINE';
             }
         }
+        
+        // Initial Launch
         fetchSentinelData();
+        // Periodic Update every 5 minutes
+        setInterval(fetchSentinelData, 300000);
     </script>
 </body>
 </html>
