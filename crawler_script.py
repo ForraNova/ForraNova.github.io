@@ -14,7 +14,6 @@ def send_discord_alert(webhook_url, message):
 def run_forracorp_intelligence_gathering():
     DISCORD_URL = os.getenv("DISCORD_WEBHOOK_URL")
     
-    # Targeting specific remote job boards is more reliable for DevOps bots than Google
     targets = [
         {"name": "Machine Learning", "url": "https://remoteok.com/remote-ml-jobs"},
         {"name": "Front-End / React", "url": "https://remoteok.com/remote-react-jobs"},
@@ -23,58 +22,50 @@ def run_forracorp_intelligence_gathering():
     ]
     
     findings = []
+    logs = [] 
     total_jobs_found = 0
     
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
-        context = browser.new_context(
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-        )
+        context = browser.new_context(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0")
         page = context.new_page()
         
         for target in targets:
-            print(f"📡 Scanning Sector: {target['name']}...")
+            start_time = datetime.datetime.now().strftime("%H:%M:%S")
             try:
                 page.goto(target['url'], timeout=60000, wait_until="domcontentloaded")
-                page.wait_for_timeout(3000) # Allow JS to settle
+                page.wait_for_timeout(2000)
 
-                # Extraction logic for RemoteOK and Jobspresso (standardized)
-                # We look for common link patterns in job boards
                 job_links = page.locator("a[href*='/remote-jobs/'], a[href*='/job/']").all()
                 
-                category_findings = []
+                count_before = total_jobs_found
                 unique_links = set()
-                
+                category_findings = []
+
                 for link_el in job_links:
                     if len(category_findings) >= 3: break
-                    
                     url = link_el.get_attribute("href")
                     if url.startswith("/"): url = f"https://remoteok.com{url}"
-                    
                     title = link_el.inner_text().split('\n')[0].strip()
                     
                     if len(title) > 10 and url not in unique_links:
-                        category_findings.append({
-                            "position": title,
-                            "company": "Remote Global",
-                            "link": url,
-                            "details": f"New {target['name']} opportunity identified."
-                        })
+                        category_findings.append({"position": title, "link": url})
                         unique_links.add(url)
                         total_jobs_found += 1
 
                 findings.append({"query": target['name'], "jobs": category_findings})
+                logs.append(f"[{start_time}] SUCCESS: {target['name']} ({total_jobs_found - count_before} found)")
 
             except Exception as e:
-                print(f"⚠️ Failed to scan {target['name']}: {e}")
+                logs.append(f"[{start_time}] ERROR: Could not reach {target['name']}")
                 continue
 
-        # Metadata Update
         timestamp_display = datetime.datetime.now().strftime("%B %d, %Y | %I:%M %p")
         update_data = {
             "last_update": timestamp_display,
-            "status": "Success" if total_jobs_found > 0 else "Limited Data",
+            "status": "Online",
             "total_found": total_jobs_found,
+            "logs": logs[-5:], 
             "findings": findings
         }
         
