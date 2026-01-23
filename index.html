@@ -1624,9 +1624,9 @@
 
         window.onload = runTensorFlowDemo;
     </script>
-   <script> //The Web Crawler. This is  the script
+
+    <script>    //The Web Crawler. This is  the script
         async function fetchSentinelData() {
-            // CHANGE THESE TO YOUR GITHUB INFO
             const user = 'fofem'; 
             const repo = 'fofem.github.io'; 
             const url = `https://raw.githubusercontent.com/${user}/${repo}/main/last_run.json?t=${new Date().getTime()}`;
@@ -1634,30 +1634,32 @@
             try {
                 const response = await fetch(url);
                 const data = await response.json();
-                console.log("Data Payload:", data); // Check your F12 Console for this!
-        
+                
                 document.getElementById('update-time').innerText = data.last_update;
                 const container = document.getElementById('job-container');
                 container.innerHTML = ''; 
-        
-                if (!data.findings || data.total_found === 0) {
-                    container.innerHTML = '<div class="no-data">No active leads in last 24h.</div>';
+
+                // DevOps Check: See if we actually have jobs in any category
+                let hasJobs = data.findings && data.findings.some(f => f.jobs && f.jobs.length > 0);
+
+                if (!hasJobs) {
+                    container.innerHTML = '<div class="no-data">🛰️ No new leads indexed in the last 24h. The Sentinel is still scanning.</div>';
                     return;
                 }
-        
+
                 data.findings.forEach(category => {
                     if (category.jobs && category.jobs.length > 0) {
                         const section = document.createElement('div');
                         section.className = 'job-category';
-                        section.innerHTML = `<h4 style="color:#00ff00; margin-top:20px;">${category.query}</h4>`;
+                        section.innerHTML = `<h4 style="color:#00ff00; margin-top:20px; border-bottom: 1px solid #333; padding-bottom:5px;">${category.query}</h4>`;
                         
                         category.jobs.forEach(job => {
                             const jobEl = document.createElement('div');
                             jobEl.className = 'job-card';
-                            jobEl.style = "background:#111; padding:10px; margin:5px 0; border-radius:5px; border-left:3px solid #00ff00;";
+                            jobEl.style = "background:#111; padding:12px; margin:8px 0; border-radius:5px; border-left:3px solid #00ff00; box-shadow: 0 2px 5px rgba(0,0,0,0.5);";
                             jobEl.innerHTML = `
-                                <strong style="color:#fff;">${job.position}</strong><br>
-                                <a href="${job.link}" target="_blank" style="color:#00bcff; font-size:0.9em;">Access Intel →</a>
+                                <strong style="color:#fff; display:block; margin-bottom:5px;">${job.position}</strong>
+                                <a href="${job.link}" target="_blank" style="color:#00bcff; font-size:0.85em; text-decoration:none;">🔗 Access Secure Intelligence →</a>
                             `;
                             section.appendChild(jobEl);
                         });
