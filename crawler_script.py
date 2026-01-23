@@ -5,22 +5,14 @@ import requests
 from playwright.sync_api import sync_playwright
 
 def send_discord_alert(webhook_url, message):
-    """Sends a notification to Discord."""
-    if not webhook_url:
-        print("⚠️ No Discord Webhook URL found. Skipping notification.")
-        return
-    
-    data = {"content": message}
+    if not webhook_url: return
     try:
-        response = requests.post(webhook_url, json=data)
-        response.raise_for_status()
-    except Exception as e:
-        print(f"❌ Failed to send Discord alert: {e}")
+        requests.post(webhook_url, json={"content": message})
+    except:
+        pass
 
 def run_forracorp_intelligence_gathering():
-    # Load Webhook from Environment Variable (Set in GitHub Secrets)
     DISCORD_URL = os.getenv("DISCORD_WEBHOOK_URL")
-
     search_queries = [
         "Remote Machine Learning jobs",
         "Remote Front End Developer jobs React Tailwind",
@@ -32,15 +24,10 @@ def run_forracorp_intelligence_gathering():
     
     findings = []
     total_jobs_found = 0
-    timestamp_log = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    print(f"\n--- 🛡️ Intelligence Gathering Started: {timestamp_log} ---")
-
+    
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
-        # Added a real User Agent to avoid being flagged as a bot
-        context = browser.new_context(
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
-        )
+        context = browser.new_context(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/121.0.0.0")
         page = context.new_page()
         
         try:
@@ -49,54 +36,50 @@ def run_forracorp_intelligence_gathering():
                 search_url = f"https://www.google.com/search?q={query.replace(' ', '+')}&tbs=qdr:d"
                 page.goto(search_url, timeout=60000)
                 
-                # Handle Google Consent Pop-up if it appears
-                if page.get_by_role("button", name="Accept all").is_visible():
-                    page.get_by_role("button", name="Accept all").click()
-
-                page.wait_for_timeout(2000) 
-
-                # Wait for results or skip
+                # Handle Google Cookie Consent
                 try:
-                    page.wait_for_selector("div.g", timeout=5000)
+                    page.get_by_role("button", name="Accept all").click(timeout=3000)
                 except:
-                    continue
+                    pass
 
-                results = page.locator("div.g").all() 
+                page.wait_for_timeout(2000)
+                
+                # BROAD SELECTOR: Grab all H3 headers (usually titles)
+                titles = page.locator("h3").all()
                 category_findings = []
                 
-                for result in results[:3]: 
+                count = 0
+                for title_el in titles:
+                    if count >= 3: break
+                    text = title_el.inner_text()
+                    
+                    # Ignore generic Google headers (like "People also ask")
+                    if len(text) < 15 or "People also" in text: continue
+                    
                     try:
-                        title_el = result.locator("h3")
-                        link_el = result.locator("a").first
-                        
-                        position = title_el.inner_text()
-                        link = link_el.get_attribute("href")
-                        
-                        details = "No extra details."
-                        if result.locator("div.VwiC3b").count() > 0:
-                            details = result.locator("div.VwiC3b").first.inner_text()
-                        
-                        company = link.split('.')[1].capitalize() if "http" in link else "Source"
+                        # Find the parent link
+                        link = "https://google.com"
+                        parent_a = title_el.locator("xpath=./ancestor::a")
+                        if parent_a.count() > 0:
+                            link = parent_a.get_attribute("href")
 
                         category_findings.append({
-                            "position": position,
-                            "company": company,
+                            "position": text,
+                            "company": "Intelligence Source",
                             "link": link,
-                            "details": details[:150] + "..." 
+                            "details": "Lead identified via ForraCorp Sentinel."
                         })
                         total_jobs_found += 1
+                        count += 1
                     except:
                         continue
 
                 findings.append({"query": query, "jobs": category_findings})
 
             status = "Success"
-            message = f"Found {total_jobs_found} new opportunities."
-            
         except Exception as e:
             status = "Failed"
-            message = str(e)
-            print(f"❌ Error: {e}")
+            print(f"Error: {e}")
             
         finally:
             timestamp_display = datetime.datetime.now().strftime("%B %d, %Y | %I:%M %p")
@@ -110,12 +93,9 @@ def run_forracorp_intelligence_gathering():
             with open("last_run.json", "w") as f:
                 json.dump(update_data, f, indent=4)
             
-            # Send the Discord notification if jobs were found
             if total_jobs_found > 0:
-                notification_text = f"🚀 **ForraCorp Intel Update**: {total_jobs_found} new jobs identified at {timestamp_display}."
-                send_discord_alert(DISCORD_URL, notification_text)
+                send_discord_alert(DISCORD_URL, f"🛡️ **Intel Synced**: {total_jobs_found} leads found at {timestamp_display}")
             
-            print(f"✅ Process Complete. Results saved.")
             browser.close()
 
 if __name__ == "__main__":
