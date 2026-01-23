@@ -13,13 +13,13 @@ def send_discord_alert(webhook_url, message):
 
 def run_forracorp_intelligence_gathering():
     DISCORD_URL = os.getenv("DISCORD_WEBHOOK_URL")
-    search_queries = [
-        "Remote Machine Learning jobs",
-        "Remote Front End Developer jobs React Tailwind",
-        "Remote Grant Writing jobs",
-        "Remote Creative Storytelling and Songwriting opportunities",
-        "Remote Systems Support",
-        "Virtual Assistant jobs vacancy"
+    
+    # Targeting specific remote job boards is more reliable for DevOps bots than Google
+    targets = [
+        {"name": "Machine Learning", "url": "https://remoteok.com/remote-ml-jobs"},
+        {"name": "Front-End / React", "url": "https://remoteok.com/remote-react-jobs"},
+        {"name": "Writing / Creative", "url": "https://jobspresso.co/remote-writing-editing-jobs/"},
+        {"name": "Virtual Assistant", "url": "https://jobspresso.co/remote-virtual-assistant-jobs/"}
     ]
     
     findings = []
@@ -27,76 +27,64 @@ def run_forracorp_intelligence_gathering():
     
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
-        context = browser.new_context(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/121.0.0.0")
+        context = browser.new_context(
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        )
         page = context.new_page()
         
-        try:
-            for query in search_queries:
-                print(f"📡 Scanning: {query}...")
-                search_url = f"https://www.google.com/search?q={query.replace(' ', '+')}&tbs=qdr:d"
-                page.goto(search_url, timeout=60000)
-                
-                # Handle Google Cookie Consent
-                try:
-                    page.get_by_role("button", name="Accept all").click(timeout=3000)
-                except:
-                    pass
+        for target in targets:
+            print(f"📡 Scanning Sector: {target['name']}...")
+            try:
+                page.goto(target['url'], timeout=60000, wait_until="domcontentloaded")
+                page.wait_for_timeout(3000) # Allow JS to settle
 
-                page.wait_for_timeout(2000)
+                # Extraction logic for RemoteOK and Jobspresso (standardized)
+                # We look for common link patterns in job boards
+                job_links = page.locator("a[href*='/remote-jobs/'], a[href*='/job/']").all()
                 
-                # BROAD SELECTOR: Grab all H3 headers (usually titles)
-                titles = page.locator("h3").all()
                 category_findings = []
+                unique_links = set()
                 
-                count = 0
-                for title_el in titles:
-                    if count >= 3: break
-                    text = title_el.inner_text()
+                for link_el in job_links:
+                    if len(category_findings) >= 3: break
                     
-                    # Ignore generic Google headers (like "People also ask")
-                    if len(text) < 15 or "People also" in text: continue
+                    url = link_el.get_attribute("href")
+                    if url.startswith("/"): url = f"https://remoteok.com{url}"
                     
-                    try:
-                        # Find the parent link
-                        link = "https://google.com"
-                        parent_a = title_el.locator("xpath=./ancestor::a")
-                        if parent_a.count() > 0:
-                            link = parent_a.get_attribute("href")
-
+                    title = link_el.inner_text().split('\n')[0].strip()
+                    
+                    if len(title) > 10 and url not in unique_links:
                         category_findings.append({
-                            "position": text,
-                            "company": "Intelligence Source",
-                            "link": link,
-                            "details": "Lead identified via ForraCorp Sentinel."
+                            "position": title,
+                            "company": "Remote Global",
+                            "link": url,
+                            "details": f"New {target['name']} opportunity identified."
                         })
+                        unique_links.add(url)
                         total_jobs_found += 1
-                        count += 1
-                    except:
-                        continue
 
-                findings.append({"query": query, "jobs": category_findings})
+                findings.append({"query": target['name'], "jobs": category_findings})
 
-            status = "Success"
-        except Exception as e:
-            status = "Failed"
-            print(f"Error: {e}")
+            except Exception as e:
+                print(f"⚠️ Failed to scan {target['name']}: {e}")
+                continue
+
+        # Metadata Update
+        timestamp_display = datetime.datetime.now().strftime("%B %d, %Y | %I:%M %p")
+        update_data = {
+            "last_update": timestamp_display,
+            "status": "Success" if total_jobs_found > 0 else "Limited Data",
+            "total_found": total_jobs_found,
+            "findings": findings
+        }
+        
+        with open("last_run.json", "w") as f:
+            json.dump(update_data, f, indent=4)
+        
+        if total_jobs_found > 0:
+            send_discord_alert(DISCORD_URL, f"🛡️ **Intel Synced**: {total_jobs_found} leads found.")
             
-        finally:
-            timestamp_display = datetime.datetime.now().strftime("%B %d, %Y | %I:%M %p")
-            update_data = {
-                "last_update": timestamp_display,
-                "status": status,
-                "total_found": total_jobs_found,
-                "findings": findings
-            }
-            
-            with open("last_run.json", "w") as f:
-                json.dump(update_data, f, indent=4)
-            
-            if total_jobs_found > 0:
-                send_discord_alert(DISCORD_URL, f"🛡️ **Intel Synced**: {total_jobs_found} leads found at {timestamp_display}")
-            
-            browser.close()
+        browser.close()
 
 if __name__ == "__main__":
     run_forracorp_intelligence_gathering()
