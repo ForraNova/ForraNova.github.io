@@ -6,1135 +6,25 @@
     <title>Fredrick Ubi- ML, IT, EEE Portfolio</title>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.4.0/dist/tf.min.js"></script>
 
-    <style>
-        
-        /* CSS Styling */
-        :root {
-            --background-dark: #1e1e1e;
-            --background-light: #2c2c2c;     
-            --background-dull: #1a1a1a;    /* Dull Background color [Ash Blue] */
-            --background-main: #05070a;     /* Primary Background color [Dark Background] */
-            --primary-color: #00bcd4; /* Cyan/Turquoise for modern look */
-            --secondary-color: #ff9800; /* Orange/Amber for accents */
-            --other-color: #5c5c8a; /* Header Color */
-            --code-green: #00ff41;          /* Classic Terminal Green */
-            --text-dip: #888;           /* Regulare  Dull-Ashe Text*/     
-            --text-norm: #b3bdcc;           /* Regulare  Mild-Ashe Paragraph Text*/     
-            --text-white: #ffff;          /* Bright White Paragraph Text [Bright White]*/
-            --text-light: #ffffff;
-            --text-muted: #9e9e9e;
-            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            --border-radius: 8px;
-            --padding-base: 20px;
-            --glass: rgba(255, 255, 255, 0.05);    
-            --opaque: rgba(255, 255, 255, 0.05);       /* Opaque Glass Effect */
-            --font-family: 'Orbitron', sans-serif; /* Futuristic font */
-            --glass-border: rgba(255, 255, 255, 0.1);
-        }
-
-        /* General Reset and Container */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-family);
-            color: var(--text-light);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-            background-image: url("cloud.jpg");
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            margin-top:-50px;
-            margin-bottom:-50px;
-        }
-        
-        /* --- General Section Styling --- */
-        section {
-            padding: 80px var(--padding-base);
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Utility Classes */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-/* --- HEADER STYLES --- */
-        header {
-            background-color: var(--other-color); /* Dark background for the header */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-            padding: 15px 0;
-            position: fixed;
-            width: 100%;
-            height: 100px;
-            top: 5px;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo img {
-            float: left;
-            margin-left: 20px;
-            width: 80px; /* Reduced size for better fit */
-            height: 80px;
-        }
-
-        .logo {
-            text-decoration: none;
-            color: white;
-            font-size: 1.5em;
-            display: block;
-        }
-
-        /* --- NAVIGATION STYLES (Default: Large Screen) --- */
-        #main-nav ul {
-            list-style: none;
-            display: flex; /* Display items side-by-side */
-            /* Added margin-right to pull ul away from lang selector */
-            margin-right: 20px; 
-        }
-
-        #main-nav ul li a {
-            text-decoration: none;
-            color: var(--text-light);
-            padding: 15px 20px;
-            display: block;
-            transition: color 0.3s, background-color 0.3s;
-            border-radius: 5px;
-            font-weight: 400;
-        }
-
-        #main-nav ul li a:hover {
-            color: var(--background-dark);
-            background-color: var(--primary-color);
-        }
-
-        /* --- HAMBURGER MENU STYLES --- */
-        .hamburger {
-            display: none; /* Hidden by default on large screens */
-            cursor: pointer;
-            padding: 10px;
-            z-index: 100; /* Ensure it's above other content */
-        }
-
-        .bar {
-            display: block;
-            width: 25px;
-            height: 3px;
-            margin: 5px auto;
-            background-color: var(--secondary-color);
-            transition: all 0.3s ease-in-out;
-        }
-
-        /* --- MEDIA QUERY: SMALL SCREEN (Mobile View) --- */
-        /* Mobile-First Navigation Toggle (Small Screen) */
-        @media (max-width: 768px) {
-            /* 1. Show the Hamburger Icon */
-            .hamburger {
-                display: block;
-            }
-
-            /* 2. Hide the regular navigation links */
-            #main-nav {
-                position: absolute;
-                top: 100px; /* Position below the header/logo */
-                left: 0;
-                width: 100%;
-                background-color: rgb(133, 133, 173); /* Background for the dropdown */
-                max-height: 0; /* Start hidden */
-                overflow: hidden; /* Hide overflow content */
-                transition: max-height 0.3s ease-in-out;
-                z-index: 50; /* Lower z-index than the language dropdown */
-            }
-
-            /* 3. Stack links vertically when displayed */
-            #main-nav ul {
-                flex-direction: column;
-                text-align: center;
-                padding: 10px 0;
-                margin-right: 0;
-            }
-
-            #main-nav ul li a {
-                padding: 10px;
-                border-bottom: 1px solid #555;
-            }
-
-            /* 4. Class added by JavaScript to display the menu */
-            #main-nav.active {
-                max-height: 500px; /* Arbitrarily large enough value to show all links */
-            }
-
-            /* 5. Hamburger Icon Animation (The "X" or "bar-collapse" effect) */
-            .hamburger.active .bar:nth-child(2) {
-                opacity: 0; /* Hide the middle bar */
-            }
-
-            .hamburger.active .bar:nth-child(1) {
-                transform: translateY(8px) rotate(45deg); /* Top bar rotates */
-            }
-
-            .hamburger.active .bar:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg); /* Bottom bar rotates */
-            }
-        }
-
-        /* --- Language Selector ---- */
-        .lang {
-            /* Key change: Position relative for absolute positioning of the dropdown list */
-            position: relative; 
-            display: inline-block;
-            cursor: pointer;
-            /* Key change: Push to the right and above other elements */
-            margin-left: auto; /* Pushes the element to the far right */
-            z-index: 100; /* Ensure it's above the nav menu (nav z-index is 50 in mobile) */
-        }
-
-        .langdrop {
-            width: 50px; /*Adjust size as needed*/ 
-            height: 50px;
-            cursor: pointer;
-            display: block; /* Make it block level for better sizing */
-            transition: transform 0.3s ease; /* Keep the hover effect */
-        }
-
-        .langdrop:hover {
-            transform: scale(1.1); /* Slightly more subtle hover */
-        }
-
-        .llist {
-            display: none;
-            /* Key change: Position absolute relative to .lang parent */
-            position: absolute; 
-            /* Key change: Align to the right edge of the icon */
-            right: 0; 
-            top: 100%; /* Position just below the icon */
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
-            /* Key change: Ensure it's above the navigation menu */
-            z-index: 200; 
-            border-radius: var(--border-radius);
-            overflow: hidden;
-        }
-
-        .llist a {
-            color: var(--background-dark); /* Changed to dark for contrast on light background */
-            background-color: #a5a5c0; 
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left; /* Align text to the left for better readability */
-            float: none; /* Removed float to stack links vertically */
-            transition: background-color 0.2s;
-        }
-
-        .llist a:hover {
-            background-color: var(--primary-color);
-            color: var(--background-dark);
-        }
-
-        /*----Class to show the dropdown----*/
-        .show {
-            display: block;
-        }
-
-        h2 {
-            color: var(--primary-color);
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 2.5em;
-            text-transform: capitalize;
-            letter-spacing: 2px;
-        }
-
-        h3 {
-            color: var(--secondary-color);
-            margin-top: 20px;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-        }
-        
-        h4 {
-            font-size: 1.0rem; 
-            color: var(--secondary-color);
-            margin: 10px;
-        }
-
-
-/* --- Hero Section --- */
-        #hero {
-            box-shadow: 5px 5px 4px 5px #888888; 
-            border-radius: 0px 0px 5px 5px; 
-            border-top:ridge blueviolet; 
-            text-align: justify; 
-            height: auto; 
-            display: block;
-            position: relative;
-            font-size: 12px;
-            margin-top: 90px;
-            margin-bottom: 15px;
-            text-align: center;
-            padding: 150px var(--padding-base);
-        }
-
-        #hero h1 {
-            font-size: 3.5em;
-            color: var(--text-light);
-            margin-bottom: 10px;
-        }
-
-        #hero p {
-            font-size: 1.5em;
-            color: var(--primary-color);
-            margin-top: 10px;
-        }
-
-/* --- About Me Section --- */
-        #about {
-            background-color: var(--background-light);
-        }
-
-        #about .bio {
-            font-size: 1.1em;
-            text-align: justify;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .glass-home {
-            background: var(--background-dark);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(120px);
-            margin: 2rem auto;
-            max-width: 900px;
-            border-radius: 15px;
-            width: 90vw; /* 90% of screen width */
-            box-shadow: 0 10px 20px rgba(0,0,0,0.7);
-        }
-        
-        .glass-card{
-            padding: 30px; 
-            background:  var(--background-dark);
-            border: 1px solid var(--glass-border);
-            border-radius: 10px;
-        }
-
-        /* Simple Way To Animate: The glass-home element */
-        .glass-home::after, .glass-home::before {
-            content: '';
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            background-image: conic-gradient(from var(--angle), #ff0000, #ff9800, #ffff00, #00ff00, #00bcd4, #0000ff, #8b00ff, #ff0000 );
-            top: 50%;
-            left: 50%;
-            translate: -50% -50%;
-            z-index: -1;
-            padding: 3px;
-            border-radius: 10px;
-            animation: 3s spin linear infinite;
-        }
-
-        @property --angle{
-            syntax: "<angle>";
-            initial-value: 0deg;
-            inherits: false;
-       }
-        .glass-home::before {
-            filter: blur(1.5rem);
-            opacity: 0.5;
-        }
-
-        @keyframes spin{
-            from{
-                --angle: 360deg;
-            }
-            to{
-                --angle: 0deg;
-            }
-        }
-
-        
-    /* --- Infograghic --- */
-        /* Existing Global Styles (For context) */
-        :root {
-            --primary-color: #00bcd4;
-            --secondary-color: #ff9800;
-            /* ... other vars ... */
-        }
-
-        /* --- Infographic Wrapper (NEW - handles scrolling) --- */
-        /* This container ensures that even on mobile, the content inside is scrollable. */
-        #mid-wrapper {
-            overflow-x: auto; /* Enables horizontal scrolling when content is too wide */
-            padding-bottom: 10px; /* Optional: adds space for scrollbar visual */
-        }
-
-        /* --- Infographic Grid Container --- */
-        #mid {
-            margin-top: 45px;
-            display: grid;
-            /* On wider screens (default): Use auto-fit to make the columns flexible and responsive */
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
-            gap: 20px;
-            text-align: center;
-            border-radius: 80px;
-            /* IMPORTANT: Ensure it takes full width when content is small */
-            width: 100%; 
-        }
-
-        /* --- Media Query for Small Screens (Max-width 768px, typical for phones/small tablets) --- */
-        @media (max-width: 768px) {
-            #mid {
-                /* * On small screens, force the grid to create columns for ALL items 
-                 * side-by-side, making the container much wider than the viewport.
-                 * The 4 items need 150px each, so 600px total width. 
-                 */
-                grid-template-columns: repeat(4, 150px);
-                /* * Force the grid container to be the minimum size required for all 
-                 * columns, enabling the scroll on the wrapper.
-                 */
-                width: 620px; /* 4 columns * 150px wide + 3 gaps * 20px = 660px. Adjust as needed. */
-                justify-content: start; /* Align content to the start */
-            }
-        }
-
-        /* --- Item Styling (Kept as is for context) --- */
-        #info {
-            padding: 5px;
-            border-bottom: 3px solid var(--primary-color);
-            border-right: 3px solid var(--secondary-color);
-            height: 70px;
-            width: 70px;
-            border-radius: 35px;
-        }
-
-
-        #low {
-            padding: 5px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            border-bottom: 3px solid var(--primary-color);
-            height: 150px;
-        }
-/* --- Skills Section --- */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            text-align: left;
-        }
-
-        .skill-category {
-            background-color: var(--background-dark);
-            padding: var(--padding-base);
-            border-radius: var(--border-radius);
-            border-top: 4px solid var(--primary-color);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .skill-category:hover {
-            transform: translateY(-5px);
-            border: 5px solid var(--glass-border);
-        }
-
-        .skill-category ul {
-            list-style: none;
-        }
-
-        .skill-category .subhead {
-            grid-column: 1 / -1;
-            font-weight: bold;
-            margin-top: 10px;
-            color: var(--secondary-color);
-        }
-
-        .skill-category h3 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-        }
-
-        .skill-category li {
-            padding: 5px 0;
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .skill-category li::before {
-            content: '•';
-            color: var(--secondary-color);
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-        }
-
-        .skill-cat {
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            padding: var(--padding-base); /* Kept consistent with other cards*/
-            backdrop-filter: blur(120px);
-            border-radius: var(--border-radius);
-            width: auto; /* Responsiveness, not a fix like 90vw restriction */
-            grid-column: 1 / -1; /* To make it span across all available grid columns */
-            background-color: var(--background-dark);
-            border-top: 4px solid var(--primary-color);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .skill-cat:hover {
-            transform: translateY(-5px);
-            border: 5px solid var(--glass-border);
-        }
-
-
-        /* Adjustments for the list inside to make better use of the wide space */
-        .skill-cat ul {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 10px;
-        }
-
-        /* Ensure the sub-headers (Automation/Design) still look good */
-        .skill-cat .subhead {
-            grid-column: 1 / -1;
-            font-weight: bold;
-            margin-top: 10px;
-            color: var(--secondary-color);
-        }
-
-        .skill-cat h3 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-        }
-
-        .skill-cat li {
-            padding: 5px 0;
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .skill-cat li::before {
-            content: '•';
-            color: var(--secondary-color);
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-        }
-
-/* --- Projects Section --- */
-        .projects-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .project-card {
-            position: relative; /* Required for pseudo-elements */
-            background-color: var(--background-light);
-            border-radius: var(--border-radius);
-            padding: var(--padding-base);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-            /* We remove the fixed border-left to allow the animation to
-        surround the card */
-            border: none;
-            overflow: hidden; /* Clips the rotating gradient */
-            z-index: 1;
-            transition: transform 0.3s;
-        }
-
-        /* The Animated Background Layer */
-        .project-card::before {
-            content: '';
-            position: absolute;
-            /* Centered larger than the card to ensure corners are covered
-        during rotation */
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            /* Default: Moving your 3 specific colors Right to Left
-        (Counter-Clockwise) */
-            background: conic-gradient(
-                var(--primary-color),
-                var(--secondary-color),
-                var(--other-color),
-                var(--primary-color)
-        );
-             animation: revolveRightToLeft 4s linear infinite;
-            z-index: -2;
-        }
-        /* The Inner Mask (Makes the center dark so only the edge shows as a
-        border) */
-        .project-card::after {
-            content: '';
-            position: absolute;
-            inset: 4px; /* Thickness of the border */
-            background: var(--background-light);
-            border-radius: calc(var(--border-radius) - 2px);
-            z-index: -1;
-        }
-        /* Ensure text stays visible and white */
-        .project-card h3, .project-card h4, .project-card p {
-            position: relative;
-        z-index: 2; }
-        /* --- HOVER STATE --- */
-        .project-card:hover::before {
-            /* Full Rainbow Colors */
-            background: conic-gradient(
-                #ff0000, #ff9800, #ffff00, #00ff00, #00bcd4, #0000ff, #8b00ff,
-        #ff0000 );
-            /* Reverse direction: Left to Right (Clockwise) */
-            animation: revolveLeftToRight 2s linear infinite;
-        }
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-        /* --- ANIMATIONS --- */
-        /* Right to Left (Counter-Clockwise) */
-        @keyframes revolveRightToLeft {
-            from { transform: rotate(360deg); }
-            to { transform: rotate(0deg); }
-        }
-        /* Left to Right (Clockwise) */
-        @keyframes revolveLeftToRight {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-
-        }
-
-/* --- Experience Section --- */
-
-        .datemark {
-            color: var(--text-muted);
-            font-style: italic;
-            margin-bottom: 15px;
-            font-size: 0.9em;
-         }
-
-         /* --- Experience Section --- */
-        .experience-timeline {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .experience-timeline::after {
-            content: '';
-            position: absolute;
-            width: 3px;
-            background-color: var(--primary-color);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-        }
-
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            background-color: inherit;
-            width: 50%;
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            right: -17px;
-            background-color: var(--background-light);
-            border: 4px solid var(--secondary-color);
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-        }
-        .left {
-            left: 0;
-        }
-
-        .right {
-            left: 50%;
-        }
-
-        .left::before {
-            content: " ";
-            height: 0;
-            position: absolute;
-            top: 22px;
-            width: 0;
-            z-index: 1;
-            right: 30px;
-            border: medium solid var(--background-light);
-            border-width: 10px 0 10px 10px;
-            border-color: transparent transparent transparent var(--background-light);
-        }
-
-        .right::before {
-            content: " ";
-            height: 0;
-            position: absolute;
-            top: 22px;
-            width: 0;
-            z-index: 1;
-            left: 30px;
-            border: medium solid var(--background-light);
-            border-width: 10px 10px 10px 0;
-            border-color: transparent var(--background-light) transparent transparent;
-        }
-
-        .right::after {
-            left: -17px;
-        }
-
-        .timeline-content {
-            padding: 20px 30px;
-            background-color: var(--background-light);
-            position: relative;
-            border-radius: var(--border-radius);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-        }
-
-        .timeline-content h4 {
-            color: var(--secondary-color);
-            margin-bottom: 5px;
-        }
-
-        .timeline-content .date {
-            color: var(--primary-color);
-            display: block;
-            margin-bottom: 10px;
-            font-style: italic;
-        }
-        
-        .timeline-content ul {
-            list-style-type: disc;
-            margin-left: 20px;
-        }
-
-        .timeline-content li {
-            margin-bottom: 5px;
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            #hero h1 {
-                font-size: 2.5em;
-            }
-
-            #hero p {
-                font-size: 1.2em;
-            }
-
-            h2 {
-                font-size: 2em;
-            }
-
-            .experience-timeline::after {
-                left: 31px;
-            }
-
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-
-            .timeline-item::before {
-                left: 60px;
-                border: medium solid var(--background-light);
-                border-width: 10px 10px 10px 0;
-                border-color: transparent var(--background-light) transparent transparent;
-            }
-
-            .left::after, .right::after {
-                left: 15px;
-            }
-
-            .right {
-                left: 0%;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    
-/* --- Education Section --- */
-
-        .edu-cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .edu-card {
-            background-color: var(--background-dark);
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            border-bottom: 3px solid var(--primary-color);
-            z-index: 1;
-        }
-        
-        .edu-card h4 {
-            color: var(--secondary-color);
-            font-size: 1.3em;
-            margin-bottom: 5px;
-        }
-        
-        .edu-card p {
-            font-size: 0.95em;
-            margin-bottom: 15px;
-            color: var(--text-muted);
-        }
-
-
-    /* --- Educate-Contact ---*/ 
-
-        .Educate-Contact {
-            font-size: 2.5em;
-            color: var(--primary-color);
-            margin-bottom: 40px;
-            text-align: center;
-            text-transform: none;
-            letter-spacing: 2px;
-            padding-top: 60px; /* Space for fixed header */
-        }
-
-        .contact-grid {
-            display: flex;
-            gap: 10px;
-            padding-bottom: 60px;
-        }
-        
-
-/* --- Contact Me Section ----*/
-
-        .contact-info {
-            list-style: none;
-            padding: 0;
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .contact-info li {
-            padding: 10px;
-            border-left: 3px solid var(--secondary-color);
-        }
-
-        .contact-info a {
-            color: var(--text-light);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .contact-info a:hover {
-            color: var(--primary-color);
-        }
-
-        .info-contact{
-            flex: 1;
-            padding: 20px;
-            background-color: var(--surface-dark);
-            border-radius: 8px;
-            border-top: 3px solid var(--primary-color);
-        }
-        
-        .info-contact h3 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 1.5em;
-        }
-        
-       .info-contact p {
-            margin-bottom: 10px;
-        }
-
-
-    /* --- Comment Form ----*/
-
-        .comment-form {
-            flex: 2;
-            padding: 20px;
-            background-color: var(--background-light);
-            border-radius: 8px;
-            border-top: 3px solid var(--secondary-color);
-            align-items: center;
-            border-radius: var(--border-radius);
-        }
-
-        .comment-form input[type="text"],
-        .comment-form input[type="email"],
-        .comment-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #555;
-            border-radius: 4px var(--text-muted);
-            background-color: #333;
-            color: var(--text-light);
-            font-family: var(--font-family);
-        }
-
-        .comment-form textarea {
-            resize: vertical;
-        }
-
-        .comment-form button {
-            background-color: var(--primary-color);
-            color: var(--background-dark);
-            border: none;
-            padding: 12px 20px;
-            cursor: pointer;
-            border-radius: 4px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .comment-form button:hover {
-            background-color: var(--secondary-color);
-        }
-
-        .glass-do {
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            padding: 30px;
-            backdrop-filter: blur(120px);
-            margin-bottom: 2rem auto;
-            width: auto; /* Responsiveness, not a fix like 90vw restriction */
-            grid-column: 1 / -1; /* To make it span across all available grid columns */
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.7);
-        }
-
-/* --- Footer --- */
-        footer {
-            text-align: center;
-            padding: 20px var(--padding-base);
-            background-color: var(--background-dark);
-            border-top: 1px solid #333;
-            font-size: 0.9em;
-            color: #aaa;
-            margin-top: -50px;
-
-        }
-
-/*----- Sentinel Dashboard Theme For The Web Crawler Display -------*/
-
-.devOps{
-    max-height: 740px;
-    padding: 25px;
-    margin: 20px 0 20px 0;
-    border-radius: 12px; 
-    border: 2px solid var(--glass-border);
-    box-shadow: 0 4px 6px var(--opaque); 
-    font-family:  'Courier New', monospace !important;
-    font-size: 16px;
-    overflow-x: scroll;
-    background-color: var(--background-main) !important;
-    background-image: 
-        radial-gradient(circle at 20% 30%, rgba(112, 0, 255, 0.15) 0%, transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(0, 242, 255, 0.1) 0%, transparent 40%) !important;
-} 
-.devOps h4{
-    margin-top: 0;  
-    text-align: center;
-    padding-bottom: 15px;
-    color: var(--primary-color); 
-    border-bottom: 2px solid var(--other-color); 
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 1.7em;
-    font-family: 'impact', sans-serif;
-}
-.devOps hr{
-    margin: 10px  0 20px 0;  
-    border-bottom: 2px solid var(--code-green); 
-}
-
-.devOps h5 {
-    border-left: 5px solid var(--code-green);    
-    border-radius: 8px; 
-    padding-left: 10px;
-    margin: 20px 0 10px 0;
-    color: var(--primary-cyan);
-    font-size: 1.0em;
-    font-family: 'Courier New', monospace;
-
-}
-
-/* ForraCorp Logo Active Pulse Effect */
-#devOpsImg{
-    max-width: 50px;
-    max-height: 50px;
-    filter: drop-shadow(0 0 15px var(--primary-cyan));
-    margin-bottom: -15px;
-    animation: blink 3s infinite;
-}
-    @keyframes blink {
-        0% { opacity: 1; }
-        50% { opacity: 0.3; }
-        100% { opacity: 1; }
-    }
-
-.sitrep span{
-    font-size: 1.0rem;
-    font-weight: 700;
-    font-family: 'Courier New', monospace;
-    color: var(--code-green);
-    text-transform: uppercase;
-}
-
-#update-time {
-    font-size: 0.95rem;
-    color: var(--text-white);
-    margin-bottom: 25px;
-    font-family: 'Courier New', monospace;
-}
-#job-count {
-    font-size: 0.95rem;
-    color: var(--text-white);
-    margin-bottom: 25px;
-    font-family: 'Courier New', monospace;
-}
-.crawler{
-    padding: 10px 25px 10px 25px; 
-    border-radius: 8px; 
-    border-left: 5px solid var(--code-green);
-    background: rgba(255, 255, 255, 0.05);
-    margin-bottom: 20px;
-    max-height: 300px;
-    overflow: scroll;
-}
-.sector-label {
-    font-size: 0.95em;
-    color: var(--text-dull);
-    letter-spacing: 2px;
-    margin-top: 20px;
-    border-left: 5px solid var(--other-color);    
-    border-radius: 8px; 
-    padding-left: 10px;
-}
-
- /* -- Glow Cards -- */
-.job-card {
+    <link rel="stylesheet" href="static/css/fofem.css" />
+
+
+<style>
+  #info-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1 row); /* Adjust grid as needed */
+    gap: 20px;
+  }
+  .info-card {
     padding: 15px;
-    margin: 12px 0;
-    transition: all 0.3s ease 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 0 8px rgba(0, 255, 65, 0.05);
-    border: 2px solid var(--glass-border);
-    border-right: 4px solid var(--code-green);
-    background: var(--opaque);
-    border-radius: 6px;
-    position: relative;
-    overflow: hidden;
-}
-.job-card:hover {
-    box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);   
-    transform: scale(1.03);
-    background: var(--background-dull);
-}
+    border-radius: 8px;
+    background: #808080;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    animation: fadeIn 0.8s ease-in;
+  }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; } }
+</style>
 
-.job-card p {
-    font-size: 0.99rem;
-    color: var(--text-norm);
-    line-height: 1.4;
-    margin: 10px 0;
-}
-.job-card a {
-    display: inline-block;
-    color: var(--code-green);
-    background-color: var(--background-dull);
-    padding: 6px 12px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.95rem;
-    border-radius: 3px;
-    text-transform: uppercase;
-    max-width: 100%;
-}
-.job-card a:hover {
-    
-}
-
-/* "job-card" Active Scanner Effect */
-.job-card::after {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(to bottom, transparent, rgba(0, 255, 0, 0.05), transparent);
-    transform: rotate(45deg);
-    animation: scan 3s infinite linear;
-}
-@keyframes scan {
-    from { transform: translateY(-100%) rotate(45deg); }
-    to { transform: translateY(100%) rotate(45deg); }
-}
-
-.secure-link {
-    text-decoration: none !important;
-    font-style: normal !important;
-    font-size: 0.85em !important;
-    font-weight: bold !important;
-    cursor: progress !important;
-    color: var(--code-green) !important;
-    font-family: 'Courier New', monospace !important;
-}
-.secure-link:hover { 
-    text-decoration: none !important;
-    font-style: normal !important;
-    font-size: 0.85em !important;
-    font-weight: bold !important;
-    cursor: progress !important;
-    color: var(--code-green) !important;
-    font-family: 'Courier New', monospace !important;
- }
-
-#activity-log {
-    list-style: none;
-    padding: 10px;
-    background: var(--background-main);
-    font-size: 0.75em;
-    color: var(--code-green);
-    opacity: 0.8;
-    max-height: 150px;
-    overflow: scroll;
-    font-family: 'Courier New', monospace;
-    margin-left: -10px;
-}   
-
-    </style>
 </head>
 <body>
   <!-------------------~~~~~~ HEADER ~~~~~~--------------------->
@@ -1142,14 +32,14 @@
 <header>
         <div class="container nav-container">
             
-           <a href="#hero" class="logo"><img src="logo.jpg" alt=" ForraCorp. Logo" style="float:left; margin-left:20px; width:120px; height:120px;" /></a>
+           <a href="#hero" class="logo"><img src="static/images/logoF.png" alt=" ForraCorp. Logo" style="float:left; margin-left:20px; width:120px; height:120px;" /></a>
             
             <nav id="main-nav">
                 <ul>
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="templates/forracorp.html">Projects</a></li>
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#education">Education</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -1188,7 +78,7 @@
 
         <div id="loginform">
             <div id="formcontainer">
-                <img src="Fred.jpg" alt="Mr. Ubi Fredrick"/>
+                <img src="static/images/Fred.png" alt="Portrait of Fredrick O. Ubi, Principal Engineer"/>
             </div>  
             <div class="" style="position:relative; margin:5px; padding:8px;padding-left:30px; padding-top:10px; padding-bottom:10px;">
                      
@@ -1221,14 +111,18 @@
                 <div class="glass-card">
                     <h3 style="font-size: 1.5rem; color: var(--primary-color);">Why Hire Me?</h3>
 
-                    <p  style="font-size: 1.2rem; text-align: justify; color: #94a3b8;">I specialize in bridging the gap between Physical Hardware and Digital Intelligence. I provide end-to-end technical solutions by:</p>
-                        <ul style="margin: 10px 10px 10px 40px; font-size: 1.2rem;  text-align: justify; color: #94a3b8;">
-                            <li>Building the <b>Hardware Systems</b> (Electrical/Electronics Engineering).</li>
-                            <li>Networking them for <b> Communication</b>  (IT Infrastructure).</li>
-                            <li>Providing <b> Intelligence</b>  to make them smart (Machine Learning & Data Science).</li>
-                            <li>Creating <b> User Interfaces & Controls</b>  (Web Development).</li>
-                        </ul>
-                     <p style="font-size: 1.2rem;  text-align: justify; color: #94a3b8;">My goal is to build smart, efficient systems for the energy, industrial, and commercial sectors.</p>
+                    <p  style="font-size: 1.2rem; text-align: justify; color: #94a3b8;">My mission is to architect high-impact solutions rooted in structural integrity and creative intelligence. By fusing technical precision with narrative depth, I transform complex data into insight, raw materials into machinery, and abstract concepts into compelling stories and soundscapes. Whether engineering an industrial system or crafting a literary world, I am committed to building resilient structures that ensure durable service delivery and profound human impact.
+
+                    <br><br>I specialize in bridging the gap between physical hardware and digital intelligence, operating on the principle that resilience in innovation and precision in design yield durable service delivery. I provide end-to-end solutions by:</p>
+                    <ul style="margin: 10px 10px 10px 40px; font-size: 1.2rem;  text-align: justify; color: #94a3b8;">
+                       <b><li>Engineering & Industrial Logic (The Hardware Layer): </b> Designing and building the physical hardware and automation systems that serve as the heartbeat of modern industry.</li>
+
+                       <b><li>Digital Architecture & AI (The Communication & Intelligence Layer): </b> Developing sophisticated code, predictive machine learning models, and secure IT infrastructures that enable seamless global connectivity.</li>
+
+                        <b><li>Narrative & Sonic Craft (The Creative Layer): </b> Constructing immersive worlds through epic storytelling, forensic-level research, and professional audio production—treating every creative project as a precision-engineered asset.</li>
+
+                        <b><li>Knowledge Transfer & User Empowerment (The Interface Layer): </b> Empowering private and public sector teams through high-level technical training, coding education, and leadership development.</li>
+                    </ul>
                 </div>
             </div>
 
@@ -1238,25 +132,25 @@
                 <div id="mid">
 
                     <div id="low">
-                        <img id="info" src="fragile-80x80.png" 
+                        <img id="info" src="static/images/infograph1.png" 
                             alt="Reliable"/>
                             <p>I'm Reliable</p>
                     </div>
                             
                     <div id="low">
-                        <img id="info" src="scan-80x80.png" 
+                        <img id="info" src="static/images/infograph2.png" 
                             alt="Diligent"/>
                              <p>I'm Diligent</p>
                     </div>
                             
                     <div id="low">
-                        <img id="info" src="special-80x80.png" 
+                        <img id="info" src="static/images/infograph3.png" 
                             alt="Precise"/>
                              <p>I'm Precise</p>
                     </div>
                             
                     <div id="low">
-                        <img id="info" src="transporter-80x80.png" 
+                        <img id="info" src="static/images/infograph4.png" 
                             alt="Good Timing"/>
                              <p>I'm Punctual</p>
                     </div>
@@ -1267,7 +161,7 @@
 <!--Forra Corp. Slogan  -->       
   
             <h3 style="text-align: center; color: var(--other-color);">
-            Resilience in Innovations and Precision in Designs, yield Durable Service Delivery.
+            Resilience in innovation and precision in design yield durable service delivery.
             </h3>
         </div>
     </section>
@@ -1292,7 +186,7 @@
                     <li>Full-Stack (Frontend/Backend)</li>
                     <li>Python (Django)</li>
                     <li>PHP</li>
-                    <li>Nest.JS</li>
+                    <li>NestJS</li>
                     <li>React/Redux</li>
                     <li>MySQL</li>
                 </ul>
@@ -1306,7 +200,7 @@
                     <li>Inventory and Expiration Forecasting</li>
                     <li>Advanced Time-Series</li> 
                     <li>Financial Forecasting Model</li>
-                    <li>Deep Learning Long Short-Term Memory (LSTM)</li>
+                    <li>Deep Learning (LSTM Architectures)</li>
                 <br>
                     <p class="subhead">Tools:</p>
                     <li>Data Normalization</li>
@@ -1360,76 +254,20 @@
   <!-------------------~~~~~~ PROJECTS DONE ~~~~~~--------------------->
     <section id="projects">
         <h2 style="margin-top:50px;">Accomplished Projects</h2>
-        <div class="projects-list">
-            
-            <div class="project-card">
-                <h3>Machine Learning (ML)</h3>
-                    <br><h4 style="text-align: left; margin-top: -40px;">Predictive Maintenance (PdM) Model</h4>
-                <p>Engineered an ML model to forecast the "Next Maintenance Time" for a production conveyor belt system, demonstrating capability in condition-based monitoring and improving asset uptime through condition-based monitoring.
-                </p>
-            </div>
-            
-            <div class="project-card">
-                <h3>Machine Learning (ML)</h3>
-                    <br><h4 style="text-align: left; margin-top: -40px;">Inventory and Expiration Prediction Model</h4>
-                <p>Developed a Machine Learning model to predict item expiration dates and optimize inventory restocking/purchase requirements, directly addressing loss prevention and supply chain efficiency in the retail industry.
-                </p>
-            </div>
-            
-            <div class="project-card">
-                <h3>Machine Learning (ML)</h3>
-                    <br><h4 style="text-align: left; margin-top: -40px;">Advanced Time-Series and Financial Forecasting Model</h4>
-                <p>Engineered a Deep Learning architecture utilizing Long Short-Term Memory (LSTM) networks to forecast complex financial metrics, to process multi-variate datasets—including currency pairs and market volatility indices for data-driven strategic planning and risk management.
-                </p>
-            </div>
+        <h4 style="text-align:center;"><a href="templates/forracorp.html">Click to see <i>All Projects</i></a></h4>
 
-            <!-- <p>Engineered a Deep Learning architecture utilizing Long Short-Term Memory (LSTM) networks to forecast complex financial metrics, such as profitability factors and market trends. Developed an end-to-end data pipeline using Python (TensorFlow/Keras, Scikit-learn) to process multi-variate datasets—including currency pairs and market volatility indices—through custom sequence generation and normalization techniques. The model   by capturing non-linear dependencies in historical data, directly supporting data-driven strategic planning and risk management.</p>-->
-
-            <div class="project-card">
-                <h3>Web Development</h3>
-                    <br><h4 style="text-align: left; margin-top: -40px;">Responsive Web Design</h4>
-                <p>Designed and built a Full Stack Website using Python (Django). I designed and built this responsive single-page portfolio using HTML5, CSS3, and JavaScript, to demonstrate my skills. I have handled E-commerce website and the backend connections. 
-                </p>
-            </div>
-
-            <div class="project-card">
-                <h3>Robotics</h3>
-                    <br><h4 style="text-align: left; margin-top: -40px;">Automated Systems</h4>
-                <p>Contributed to the design and construction of programmable robots (robotic arm, human-interactive machine, etc), using ATmega microprocessors and Proximity Sensors for enhanced control systems.
-                </p>
-            </div>
-
-            <div class="project-card">
-                <h3>Electronics</h3>
-                    <br><h4 style="text-align: left; margin-top: -40px;">Design and Construction</h4>
-                <p>Square Wave Inverter (using 4013 flip-flop IC, 555 Timer, MOSFETs), demonstrating hands-on competence in power management. Automatic Voltage Regulator (AVR), Automatic Power Changeover system, and anti-theft trigger alarm systems.
-                </p>
-            </div>
-
-            <div class="project-card">
-                <h3>Power Machines</h3>
-                    <br><h4 style="text-align: left; margin-top: -40px;">
-                    Low Power Transformers</h4>
-                <p>Designed and constructed various low Power Step - Transformers including Single Phase (Step-up, Step-down, Auto, Manual),  3-Phase (Delta-Star, Star-Star, Delta-Delta).
-                </p>
-            </div>
-
-            <div class="project-card">
-                <h3>Technical Drawings</h3>
-                    <br><h4 style="text-align: left; margin-top: -40px;">
-                    Schematics and Layouts</h4>
-                <p>I read, understand and draw schematic diagrams of projects playbook. This includes Electricals, Electronics, Mechanical, Geographical, Signage and more. All my projects begin on the drawing board  and climax on delivery or exhibition.
-                </p>
-            </div>
-
-            <div class="project-card">
-                <h3>Electrical</h3>
-                    <br><h4 style="text-align: left; margin-top: -40px;">
-                   Building Installations</h4>
-                <p>Accomplished series of Electrical Installations on domestic building, and partly with a team on Industrial building. CCTV Installation from startup to climax. Handle maintenance services too.
-                </p>
-            </div>
+        <div id="project-grid" class="projects-list">
         </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <button onclick="handlePrevious()" class="nav-btn">← Previous Set</button>
+            <button onclick="handleNext()" class="nav-btn">Load Next Set (3m Hold) →</button>
+        </div>
+        <div class="timer-container">
+            <div id="global-progress-bar" class="timer-bar"></div>
+        </div>
+        <p id="timer-text" style="text-align:center; font-size: inherit; color: black;">Next Rotation in 5:00 </p>
+        <p style="text-align:center; font-size: inherit; color: black;">Click here to view full <a href="templates/forracorp.html"><b>Projects Gallery.</b></a></p>
+    
     </section>
 
   <!-------------------~~~~~~ WORKING EXPERIENCE ~~~~~~--------------------->
@@ -1439,7 +277,7 @@
 
             <div class="timeline-item left">
                 <div class="timeline-content">
-                    <h4>I C T  Manager / Operations / Admin</h4>
+                    <h4>ICT Manager / Operations / Admin</h4>
                     <span class="date">Gain More Retail Outlet | Owerri, Imo State</span>
                     <p class="datemark">July 2023 – September 2025 (Retail Outlet)</p>
                     <ul>
@@ -1449,20 +287,20 @@
 
                         <li>IT Infrastructure & IoT Management: Managed entire IT infrastructure, troubleshooting network problems, managing system upgrades, and ensuring smooth operation of CCTV and IoT devices.</li>
 
-                        <li>Administration & HR: Coordinated daily operational flow, managed and conduct training for the CCTV team, and assisted with HR functions (recruitment, training).</li>
+                        <li>Administration & HR: Coordinated daily operational flow, managed and conducting training for the CCTV team, and assisted with HR functions (recruitment, training).</li>
                     </ul>
                 </div>
             </div>
 
             <div class="timeline-item right">
                 <div class="timeline-content">
-                    <h4>I C T  Manager/ Computer Analyst</h4>
+                    <h4>ICT Manager/ Computer Analyst</h4>
                     <span class="date">Reagan Remedies Limited | Owerri, Imo State</span>
                     <p class="datemark">September 2020 – July 2023 (Pharmaceutical)</p>
                     <ul>
-                        <li>Systems Management: Provided comprehensive System Support Analysis, including hardware diagnostics, OS installations, and troubleshooting network, printers and scanners challenges.</li>
+                        <li>Systems Management: Provided comprehensive System Support Analysis, including hardware diagnostics, OS installations, and troubleshooting network, printer and scanner challenges.</li>
 
-                        <li>Predictive Maintenance (PdM) Model: Engineered an ML model to forecast the Next Maintenance Time for a production conveyor belt system, demonstrating capability in condition-based monitoring and improving asset uptime.</li>
+                        <li>Predictive Maintenance (PdM) Model: Engineered an ML model to forecast the Next Maintenance Time for a production conveyor belt system, demonstrating capability in Condition-Based Monitoring and improving asset uptime.</li>
 
                         <li>Data Analytics & Reporting: Executed monthly staff attendance log retrieval and analysis from embedded IoT devices, analyzing and generating critical reports for staff assessment. Conducted training for staff on the proper use of IT systems and new technologies.</li>
 
@@ -1473,11 +311,11 @@
             
             <div class="timeline-item left">
                 <div class="timeline-content">
-                    <h4>Head of I C T Department</h4>
+                    <h4>Head of ICT Department</h4>
                     <span class="date">Mbaitoli Microfinance Bank  | Owerri, Imo State</span>
                     <p class="datemark">January 2019 – December 2019 (Banking)</p>
                     <ul>
-                        <li>Core Systems Management: Acted as the primary interface for Core Banking Software providers, resolving critical operational issues. Managing and maintaining bank servers, networks, and applications.</li>
+                        <li>Core Systems Management: Acted as the primary interface for Core Banking Software providers, resolving critical operational issues. Managed and maintained bank servers, networks, and applications.</li>
                         
                         <li>Data & Compliance: Performed banking data analysis and ensured regulatory compliance by conducting creditworthiness checks via the Credit Bureau database on customers who applied for loans.</li>
                         
@@ -1573,62 +411,192 @@
                         <li>Operational: Licensed driver, proficient swimmer, and safety-trained team player.</li>
                         <li>Reliable Lead: Experienced in managing teams (CCTV, HR, and I.C.T. departments).</li>
                         <li>Soft Skills: Resilient, analytical, self-motivated, and able to prioritize tasks with high reliability in fast paced environments.</li>
-                        <li>Book Writing: Author to many books. (Series, epic, true-to-life, Sci-Fi and forensics / crime fighting, etc.)</li>
+                        <li>Book Writing: Published author across multiple genres, including Science Fiction, Forensics, and Epic Narratives.</li>
                     </ul>
                  </p>                
             </div><br>
-        </div>
-        <div class="devOps">
-            <h4><img id="devOpsImg" src="logo.png"> Digital Sentinel</h4>
-            <h5>ForraCorp Intelligence Pipeline: Live DevOps Automation.</h5>
-            <div class="sitrep">
-                <span>SITREP: </span> 
-                <img src="https://github.com/fofem/fofem.github.io/actions/workflows/main.yml/badge.svg" alt="Status"><br>
-                <span>LAST SYNC: </span><strong id="update-time"><strong>🚀 CONNECTING. . .</strong></strong><br>
-                <span>LEADS FOUND: </span><strong id="job-count"> ⚠️ </strong><br>
-            </div><hr>
-            <div class="crawler">
-                <div id="job-container"><strong>📡 Retrieving Synchronization Data. . .</strong>
-                </div>
-            </div>
-            <div class="crawler">
-                // ACTIVITY_LOG.TXT
-                <ul id="activity-log">🔍 Scanning Sector Log. . . </ul>
-            </div>
         </div>
     </section>
 <!-----------------~~~~~~ FOOTER ~~~~~~----------------->    
     <footer>
         <p>&copy; <span id="currentYear"></span> Fredrick Ubi Portfolio</p>
-            <a href="forra.html"><img  src="logo.png" 
+            <a href="forra.html"><img  src="static/images/logo.png" 
                 style="float:left; position: relative; z-index: -0.3; margin-left:40px; margin-top:-40px; width:80px; height:80px; border-radius:25px;" alt="Forra Corporation Logo"/></a>
              <hr/>
 
-        <p>Built with HTML5, CSS3, & JavaScript | fofem2@gmail.com | +234 702 597 4815</p>
+        <p>Forra Corporation | fofem2@gmail.com | +234 702 597 4815</p>
     </footer>
 <!-----------------~~~~~~  ~~~~~~----------------->  
+
+    <script> // The Project Ares backend that handles the randomizing, the 5-minute (standard) / 3-minute (button hold) logic, and the 6-card grid injection.
+        const projectData = {
+            "trove1a": { "title": "Time-Series / Financial Forecasting", "text": "I developed advanced machine learning models tailored for time-series analysis and financial forecasting. I leverage sophisticated algorithms to predict market trends and economic shifts, providing actionable insights that drive strategic decision-making and optimize financial performance through high-precision, data-driven predictive modeling.", "image": "static/images/model$.png" },
+            "trove1b": { "title": "Inventory and Expiration Prediction", "text": "Specializing in machine learning solutions for inventory management, I design models that accurately predict stock requirements and product expiration. This work optimizes supply chain efficiency, significantly reduces waste, and ensures seamless operational flow by anticipating inventory needs through robust, proactive predictive analytics.", "image": "static/images/modelInventry.png" },
+            "trove1c": { "title": "Predictive Maintenance (PdM)", "text": "I develop high-impact machine learning models dedicated to Predictive Maintenance (PdM), focusing on equipment health and longevity. By analyzing operational data to anticipate failures before they occur, my solutions minimize downtime, reduce repair costs, and enhance the overall reliability of industrial machinery.", "image": "static/images/modelPDM0.png" },
+            "trove1d": { "title": "Data Manipulations and Visualisations", "text": "I excel in comprehensive data manipulations and the creation of compelling visualizations. By transforming complex datasets into intuitive graphical formats, I enable stakeholders to grasp intricate patterns and insights quickly, bridging the gap between raw data and informed, strategic business decision-making processes.", "image": "static/images/dataV0.png" },
+            "trove1e": { "title": "Responsive Web Development (Django)", "text": "I deliver robust fullstack solutions using Django, specializing in the development of responsive, user-centric web applications. My work focuses on seamless back-end integration and fluid front-end design, ensuring high performance, scalability, and an optimal user experience across all modern digital devices.", "image": "static/images/djangoWeb.png" },
+             "trove1f": { "title": "Automated Web Intelligence (Python)", "text": "Leveraging advanced Python engineering, I build sophisticated tools for automated web intelligence and data crawling. These systems autonomously gather and process vast amounts of digital information, providing businesses with a competitive edge through real-time data acquisition and intelligent, automated web-based research.", "image": "static/images/crawler.png" },
+             "trove1g": { "title": "Python Coding (Email Automation)", "text": "By developing efficient scripts to handle high-volume messaging and triggered responses, I streamline communication workflows through custom Python-based email automation systems. I enhanced productivity, ensuring timely information delivery while reducing the manual overhead associated with routine and complex digital correspondence tasks.", "image": "static/images/email.png" },
+             "trove1h": { "title": "Stand-Alone Apps (Tkinter): Digital Clock", "text": "Using Tkinter, I design and develop functional stand-alone desktop applications  such as custom digital time-and-date interfaces. My focus was to creat clean, intuitive user experiences and reliable software architecture that provides precise utility and seamless performance for specialized, local computing tasks.", "image": "static/images/clock.png" },
+
+            "trove2a": { "title": "Automated Robotic Systems: Robotic Arm", "text": "As a team member, I assisted to engineer a high-precision robotic arm, an automated robotic system. My work was focused on enhancing mechanical efficiency and  accuracy, allowing for seamless integration into complex industrial workflows or specialized tasks requiring sophisticated, reliable, and repetitive automated physical movements.", "image": "static/images/arm.png" },
+            "trove2b": { "title": ": Human Interactive Robotic Machine", "text": "Together with a team, I specialize in developing human-interactive machines within the realm of automated robotic systems. My focus is on creating intuitive interfaces and responsive behaviors that allow for seamless collaboration between humans and robots, enhancing user engagement and functional utility in various interactive environments.", "image": "static/images/robot.png" },
+            "trove2c": { "title": "Control Systems-Proximity Sensors", "text": "Integrated with proximity sensors to enhance situational awareness, I design and implement sophisticated control systems that provide precise detection and reactive capabilities, improving safety and automation accuracy by allowing machines to interact intelligently with their immediate physical environment in real-time scenarios.", "image": "static/images/distance.png" },
+            "trove2d": { "title": "Dual-Tune Multi-Frequency Signal System", "text": "I develop robust Dual-Tune Multi-Frequency (DTMF) signaling systems for precise communication and control. My work involves engineering reliable circuitry and software to decode frequency signals, enabling secure and efficient remote command execution across various telecommunications and automated hardware interface applications globally.", "image": "static/images/dtmf.png" },
+            "trove2e": { "title": "Mechatronics: Robotic Minitricycle", "text": "In the field of mechatronics, I worked with a team of expert and successfully designed and constructed a functional robotic minitricycle. This project showcases my ability to integrate mechanical engineering with electronic control systems, resulting in a mobile autonomous platform that demonstrates precision movement and intelligent navigation.", "image": "static/images/keke.png" },
+            "trove2f": { "title": "Printed Circuit Board (PCB) - Etching", "text": "I possess specialized expertise in the design and physical fabrication of Printed Circuit Boards (PCBs) through professional etching processes. This ensures the creation of durable, high-quality circuitry for custom electronic devices, maintaining strict standards for signal integrity and overall hardware reliability.", "image": "static/images/etching.png" },
+
+            "trove3a": { "title": "Custom Inverter Systems Design", "text": "I design high-performance custom inverter systems, producing both square and pure sine wave outputs. My work focuses on engineering efficient power conversion solutions that provide stable, reliable electricity for sensitive equipment, ensuring optimal performance and safety across various residential and industrial applications.", "image": "static/images/inverter.png" },
+            "trove3b": { "title": "Automatic Voltage Regulator (AVR)", "text": "I engineer advanced Automatic Voltage Regulators (AVR) designed to maintain stable voltage levels and protect sensitive electronic equipment from fluctuations. My designs focus on rapid response times and reliability, ensuring a consistent power supply and extending the operational lifespan of electrical hardware.", "image": "static/images/avr.png" },
+            "trove3c": { "title": "Automatic Power Change Over System", "text": "I designed and implemented an automatic power change-over systems. This solution ensure seamless transitions between power sources during outages, maintaining continuous electrical supply for critical systems while eliminating manual intervention and minimizing downtime in both residential and commercial environments.", "image": "static/images/changeover.png" },
+            "trove3d": { "title": "Power Transformers (Custom Winding)", "text": "I offer specialized expertise in the design and custom winding of power transformers. My work ensures that electrical components are precisely calibrated to meet specific voltage and current requirements, delivering high-efficiency power distribution and robust performance for unique and demanding electrical applications.", "image": "static/images/transformer.png" },
+            "trove3e": { "title": "Building Installations", "text": "I provide professional electrical installation and comprehensive maintenance services for diverse infrastructure. My work prioritizes safety, efficiency, and compliance with technical standards, ensuring that electrical systems remain fully operational, reliable, and optimized for long-term performance through regular inspections and expert repairs.", "image": "static/images/maintenance.png" },
+            "trove3f": { "title": "Technical Drawings & Schematics", "text": "I create detailed technical drawings and electrical schematics that serve as the blueprint for complex engineering projects. My work ensures clear communication of system architecture, facilitating precise installation, troubleshooting, and future modifications while adhering to rigorous professional standards and industry-specific documentation.", "image": "static/images/tpn.png" },
+
+            "trove4a": { "title": "CCTV System Installations and Operations", "text": "I specialize in the professional installation and operational management of CCTV systems. My work focuses on strategic camera placement, network integration, and high-definition monitoring to provide comprehensive surveillance solutions that enhance security, ensure constant vigilance, and protect valuable assets for diverse clients.", "image": "static/images/cctv.png" },
+            "trove4b": { "title": "Anti-Theft Trigger Alarm System", "text": "I design and deploy sophisticated anti-theft trigger alarm systems tailored for high-security requirements. By integrating sensitive detection hardware with reliable alerting mechanisms, my systems provide immediate notification of unauthorized access, serving as a powerful deterrent and a critical layer of property protection.", "image": "static/images/thyristor.png" },
+            "trove4c": { "title": "Automated Door Opening Systems", "text": "I engineer automated door opening systems that combine convenience with advanced security. I utilized proximity sensors and intelligent control logic to facilitate seamless access for authorized users while maintaining controlled entry, enhancing modern building automation and improving overall facility access and safety standards.", "image": "static/images/gate.png" },
+            "trove4d": { "title": "Dark / Light Detectors Switching Systems", "text": "I develop efficient switching systems utilizing dark and light detectors for automated environmental response. These systems optimize energy consumption by automatically controlling lighting based on ambient conditions, providing smart, responsive illumination for both indoor and outdoor spaces without the need for manual intervention.", "image": "static/images/photo.png" },
+            "trove4e": { "title": "Audio Video System Connectivity", "text": "I provide expert audio-video system connectivity solutions, including complex satellite and cable integrations. My work ensures high-quality signal transmission and seamless interface between diverse media components, delivering a superior viewing and listening experience through meticulous hardware setup and precise system calibration.", "image": "static/images/av.png" },
+            "trove4f": { "title": "Virtual/ Remote Admin Support", "text": "I offer professional systems support through remote administration tools like AnyDesk, providing rapid troubleshooting and technical assistance. My work ensures minimal downtime for clients by resolving software issues, performing updates, and managing configurations remotely, regardless of the user's physical geographic location.", "image": "static/images/remote.png" },
+            "trove4g": { "title": "Computer Hardware Diagnose & Maintain", "text": "I provide comprehensive computer hardware diagnoses and maintenance services to ensure optimal system performance. By identifying hardware failures and performing expert repairs or upgrades, I extend the lifespan of computing equipment and maintain the reliability of essential digital infrastructure for individual users.", "image": "static/images/HWcheck.png" },
+
+            "trove5a": { "title": "Project and Management", "text": "I bring professional expertise to project management, overseeing complex workflows from inception to successful completion. My focus is on strategic planning, resource allocation, and timeline management, ensuring that all project objectives are met efficiently while maintaining the highest standards of quality performance.", "image": "static/images/pro-manage.png" },
+            "trove5b": { "title": "Human Resources Manager (HRM) Duties", "text": "I perform comprehensive Human Resources Manager duties, focusing on talent acquisition, employee relations, and organizational development. My work ensures the effective management of personnel, the implementation of fair workplace policies, and the fostering of a productive environment that aligns with company goals.", "image": "static/images/hrm.png" },
+            "trove5c": { "title": "Supervision Duties", "text": "I excel in professional supervision, providing leadership and oversight to ensure operational excellence. My approach focuses on team coordination, performance monitoring, and quality control, ensuring that all tasks are executed safely, on schedule, and in strict accordance with established organizational standards.", "image": "static/images/super.png" },
+
+            "trove6a": { "title": "Novelist, Writing, Editor and Authorship", "text": "As an accomplished novelist and editor, I specialize in professional writing and comprehensive authorship. I craft compelling narratives and refine manuscripts with precision, ensuring high-quality storytelling and clear communication that resonates with audiences while maintaining a professional standard in all literary endeavors.", "image": "static/images/books.png" }, 
+            "trove6b": { "title": "Song Writing and Production", "text": "I provide professional songwriting and music production services, blending creative lyrical composition with technical studio expertise. My work encompasses the entire creative process, from initial melody development to final audio engineering, resulting in high-quality musical products tailored for various artistic platforms.", "image": "static/images/song.png" },
+            "trove6c": { "title": " \"The Graillandic\" Cipher Text Scripting", "text": "I have developed \"The Graillandic\" cipher text scripting system, showcasing advanced skills in cryptography and unique script design. This work involves creating complex encryption methods and aesthetic textual structures, providing a sophisticated means of secure communication and creative linguistic expression through custom-engineered.", "image": "static/images/graillandic02.png" },
+            "trove6d": { "title": "Multilingual/Inclusive (Sign Lang, Braille)", "text": "I am committed to inclusive communication, offering proficiency in Sign Language and Braille. My multilingual capabilities bridge accessibility gaps, ensuring that information is shared effectively across diverse communities and fostering an environment where everyone can engage fully regardless of their physical communication needs.", "image": "static/images/sl.png" }, 
+            "trove6e": { "title": "Carpentry Works (Modular Furniture)", "text": "I specialize in professional carpentry, focusing on the design and construction of modern modular furniture, such as floating TV stands. My work combines aesthetic appeal with functional utility, utilizing precision craftsmanship to create high-quality, contemporary pieces that enhance modern living and office.", "image": "static/images/mbf.png" },
+            "trove6f": { "title": "Defensive Driving (Tactical & Evasive)", "text": "I am trained in professional defensive driving, specializing in tactical and evasive techniques. My skills focus on maintaining vehicle control under high-pressure situations, ensuring the safety of passengers and assets through advanced situational awareness, hazard anticipation, and expert maneuvering in various environments.", "image": "static/images/drive.png" },
+            "trove6g": { "title": "Professional Swimming / Life Saver", "text": "As a professional swimmer and a lifesaver, I possess advanced water safety and rescue skills. I am dedicated to maintaining peak physical conditioning and mastery of aquatic techniques, ensuring the ability to perform high-stakes rescues and provide critical assistance. As a first respondent, I can contain an emergency situation till help comes.", "image": "static/images/swim.png" },
+        };
+
+         // 2. STATE VARIABLES
+        let currentSet = [];
+        let previousSet = [];
+        let timerSeconds = 300; 
+        let maxTime = 300;
+        let rotationInterval;
+
+        // 3. CORE FUNCTIONS
+        function shuffle(array) {
+            let keys = Object.keys(array);
+            for (let i = keys.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [keys[i], keys[j]] = [keys[j], keys[i]];
+            }
+            return keys;
+        }
+
+        function renderCards(set) {
+            const grid = document.getElementById('project-grid');
+            if (!grid) {
+                console.error("ID 'project-grid' not found in HTML!");
+                return;
+            }
+            grid.innerHTML = ''; 
+            
+            set.forEach(key => {
+                const item = projectData[key];
+                if (item) {
+                    // Append '?id=' followed by the trove key to the URL (?id=${key}) to help linking to Projects Gallery (forracorp.html)
+                    const card = `
+                        <a href="templates/forracorp.html?id=${key}" style="text-decoration: none; color: inherit; overflow: scroll;"> <!--- SIGNAL TRANSMITTER: Projects Card Nav Link -->
+                            <div class="project-card" style="margin-bottom: 20px; border: 1px solid #ddd; padding: 15px; border-radius: 8px;">
+                                <h4 style="margin: 0 0 10px 0; text-align: center;">${item.title}</h4>
+                                <img src="${item.image}" alt="${item.title}" 
+                                     style="width: 100%; height: 150px; object-fit: cover; border-radius: 5px; margin-bottom: 10px;">
+                                <p style="text-align: justify; font-size: 0.9em;">${item.text}</p>
+                            </div>
+                        </a>
+                    `;
+                    grid.innerHTML += card;
+                }
+            });
+        }
+
+        function loadNewSet(seconds = 300) {
+            const keys = shuffle(projectData);
+            previousSet = [...currentSet];
+            currentSet = keys.slice(0, 6); // Takes up to 6
+            
+            maxTime = seconds;
+            timerSeconds = seconds;
+            renderCards(currentSet);
+        }
+
+        // 4. TIMER LOGIC
+        function initRotation() {
+            if (rotationInterval) clearInterval(rotationInterval); // Clear if already running
+            
+            rotationInterval = setInterval(() => {
+                timerSeconds--;
+                
+                const bar = document.getElementById('global-progress-bar');
+                const timerText = document.getElementById('timer-text');
+                
+                if (bar) bar.style.width = (timerSeconds / maxTime * 100) + "%";
+                
+                if (timerText) {
+                    let mins = Math.floor(timerSeconds / 60);
+                    let secs = timerSeconds % 60;
+                    timerText.innerText = `These cards will dynamically refresh in ${mins}:${secs < 10 ? '0' : ''}${secs}. Click any to explore more. OR`;
+                }
+
+                if (timerSeconds <= 0) {
+                    loadNewSet(300); 
+                }
+            }, 1000);
+        }
+
+        // 5. BUTTON HANDLERS
+        window.handleNext = function() {
+            loadNewSet(180); 
+        };
+
+        window.handlePrevious = function() {
+            if (previousSet.length > 0) {
+                currentSet = [...previousSet];
+                renderCards(currentSet);
+                timerSeconds = 300; 
+                maxTime = 300;
+            }
+        };
+
+        // 6. INITIALIZE
+        document.addEventListener('DOMContentLoaded', () => {
+            loadNewSet(300);
+            initRotation();
+        });
+                
+    </script>
+
 
     <script>
       /* JavaScript for dropdown Language Selector */
       // Get the elements
-    const langicon = document.getElementById('langicon');
-    const ldrop = document.getElementById('ldrop');
+        const langicon = document.getElementById('langicon');
+        const ldrop = document.getElementById('ldrop');
 
-    // Toggle the 'show' class when the icon is clicked
-    langicon.onclick = function() {
-      ldrop.classList.toggle('show');
-    }
-
-    // Close the dropdown if the user clicks outside of it
-    window.onclick = function(event) {
-      if (!event.target.matches('#langicon')) {
-        if (ldrop.classList.contains('show')) {
-          ldrop.classList.remove('show');
+        // Toggle the 'show' class when the icon is clicked
+        langicon.onclick = function() {
+          ldrop.classList.toggle('show');
         }
-      }
-    }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+          if (!event.target.matches('#langicon')) {
+            if (ldrop.classList.contains('show')) {
+              ldrop.classList.remove('show');
+            }
+          }
+        }
 
     </script>
+
     <script>
         // Get the elements
         const hamburger = document.getElementById('hamburger-menu');
@@ -1716,70 +684,5 @@
         window.onload = runTensorFlowDemo;
     </script>
 
-    <script>  //The Web Crawler Script
-        async function fetchSentinelData() {
-            const user = 'fofem'; 
-            const repo = 'fofem.github.io'; 
-            const url = `https://raw.githubusercontent.com/${user}/${repo}/main/last_run.json?t=${new Date().getTime()}`;
-            
-            try {
-                const response = await fetch(url);
-                if (!response.ok) throw new Error("Connection Refused");
-                const data = await response.json();
-
-                // 1. Update Metadata
-                document.getElementById('update-time').innerText = data.last_update;
-                document.getElementById('job-count').innerText = data.total_found;
-
-                // 2. Update Logs
-                const logList = document.getElementById('activity-log');
-                logList.innerHTML = '';
-                if (data.logs) {
-                    data.logs.forEach(log => {
-                        const li = document.createElement('li');
-                        li.innerText = `> ${log}`;
-                        logList.appendChild(li);
-                    });
-                }
-
-                // 3. Render Jobs
-                const container = document.getElementById('job-container');
-                container.innerHTML = ''; 
-
-                if (!data.findings || data.total_found === 0) {
-                    container.innerHTML = '<div style="padding:20px; color:#555;">NO NEW INTELLIGENCE RECORDED.</div>';
-                    return;
-                }
-
-                data.findings.forEach(sector => {
-                    if (sector.jobs && sector.jobs.length > 0) {
-                        const sectorHeader = document.createElement('div');
-                        sectorHeader.className = 'sector-label';
-                        sectorHeader.innerText = ` SECTOR: ${sector.query.toUpperCase()} `;
-                        container.appendChild(sectorHeader);
-                        
-                        sector.jobs.forEach(job => {
-                            const jobEl = document.createElement('div');
-                            jobEl.className = 'job-card';
-                            jobEl.innerHTML = `
-                                <div style="color:#fff; margin-bottom:8px;">${job.position}</div>
-                                <a href="${job.link}" target="_blank" class="secure-link"> CLICK TO VIEW OPPORTUNITY → </a>
-                            `;
-                            container.appendChild(jobEl);
-                        });
-                    }
-                });
-
-            } catch (error) {
-                console.error('Sentinel Error:', error);
-                document.getElementById('update-time').innerText = 'OFFLINE';
-            }
-        }
-
-        // Initial Launch
-        fetchSentinelData();
-        // Periodic Update every 5 minutes
-        setInterval(fetchSentinelData, 300000);
-    </script>
 </body>
 </html>
