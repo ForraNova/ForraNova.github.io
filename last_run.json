@@ -1,17 +1,21 @@
 {
-    "last_update": "January 25, 2026 | 01:22 AM",
+    "last_update": "January 26, 2026 | 01:21 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[01:21:56] SUCCESS: Machine Learning (3 found)",
-        "[01:21:59] SUCCESS: Front-End / React (3 found)",
-        "[01:22:01] SUCCESS: Writing / Creative (0 found)",
-        "[01:22:04] SUCCESS: Virtual Assistant (0 found)"
+        "[01:20:52] SUCCESS: Machine Learning (3 found)",
+        "[01:20:55] SUCCESS: Front-End / React (3 found)",
+        "[01:20:57] SUCCESS: Writing / Creative (0 found)",
+        "[01:21:00] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
             "jobs": [
+                {
+                    "position": "$1k Weekly Work from Home Assistant",
+                    "link": "https://remoteok.com/remote-jobs/remote-1k-weekly-work-from-home-assistant-best-estimate-pro-1129763"
+                },
                 {
                     "position": "Coding Bootcamp\ufe63Job Guaranteed",
                     "link": "https://remoteok.com/remote-jobs/remote-coding-bootcamp-job-guaranteed-metana-1129395"
@@ -19,10 +23,6 @@
                 {
                     "position": "Crypto Trading Trainee Market Analysis Associate",
                     "link": "https://remoteok.com/remote-jobs/remote-crypto-trading-trainee-market-analysis-associate-whitebridge-ltd-1129668"
-                },
-                {
-                    "position": "Senior Marketing Manager Paid Ads",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
                 }
             ]
         },
