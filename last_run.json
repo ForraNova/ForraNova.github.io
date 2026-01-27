@@ -1,12 +1,12 @@
 {
-    "last_update": "January 27, 2026 | 03:22 PM",
+    "last_update": "January 27, 2026 | 06:27 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[15:22:36] SUCCESS: Machine Learning (3 found)",
-        "[15:22:38] SUCCESS: Front-End / React (3 found)",
-        "[15:22:41] SUCCESS: Writing / Creative (0 found)",
-        "[15:22:44] SUCCESS: Virtual Assistant (0 found)"
+        "[18:26:32] SUCCESS: Machine Learning (3 found)",
+        "[18:26:43] SUCCESS: Front-End / React (3 found)",
+        "[18:26:45] SUCCESS: Writing / Creative (0 found)",
+        "[18:27:18] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-coding-bootcamp-job-guaranteed-metana-1129395"
                 },
                 {
-                    "position": "Crypto Trading Trainee Market Analysis Associate",
-                    "link": "https://remoteok.com/remote-jobs/remote-crypto-trading-trainee-market-analysis-associate-whitebridge-ltd-1129668"
+                    "position": "Platform & Enterprise Full Stack Sr Staff Software Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-platform-enterprise-full-stack-sr-staff-software-engineer-bnsf-railway-1129835"
                 }
             ]
         },
