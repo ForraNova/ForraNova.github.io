@@ -1,12 +1,12 @@
 {
-    "last_update": "January 27, 2026 | 09:11 PM",
+    "last_update": "January 28, 2026 | 01:03 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:11:25] SUCCESS: Machine Learning (3 found)",
-        "[21:11:28] SUCCESS: Front-End / React (3 found)",
-        "[21:11:30] SUCCESS: Writing / Creative (0 found)",
-        "[21:11:34] SUCCESS: Virtual Assistant (0 found)"
+        "[01:03:14] SUCCESS: Machine Learning (3 found)",
+        "[01:03:17] SUCCESS: Front-End / React (3 found)",
+        "[01:03:19] SUCCESS: Writing / Creative (0 found)",
+        "[01:03:22] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-coding-bootcamp-job-guaranteed-metana-1129395"
                 },
                 {
-                    "position": "Principal Software Architect",
-                    "link": "https://remoteok.com/remote-jobs/remote-principal-software-architect-toshiba-global-commerce-solutions-1129836"
+                    "position": "Business Development Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-business-development-manager-unlimit-1129848"
                 }
             ]
         },
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Full Stack Developer",
+                    "link": "https://remoteok.com/remote-jobs/remote-full-stack-developer-patrick-j-mcgovern-foundation-1129840"
+                },
+                {
                     "position": "Senior Lead Designer Web & Interactive",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-lead-designer-web-amp-interactive-bullish-us-llc-1129708"
                 },
                 {
                     "position": "Senior React Native Developer",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-react-native-developer-orium-1129706"
-                },
-                {
-                    "position": "FrontEnd Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-frontend-engineer-clearscore-technology-limited-1129691"
                 }
             ]
         },
