@@ -1,12 +1,12 @@
 {
-    "last_update": "January 28, 2026 | 03:23 PM",
+    "last_update": "January 28, 2026 | 06:26 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[15:23:43] SUCCESS: Machine Learning (3 found)",
-        "[15:23:45] SUCCESS: Front-End / React (3 found)",
-        "[15:23:48] SUCCESS: Writing / Creative (0 found)",
-        "[15:23:51] SUCCESS: Virtual Assistant (0 found)"
+        "[18:26:40] SUCCESS: Machine Learning (3 found)",
+        "[18:26:43] SUCCESS: Front-End / React (3 found)",
+        "[18:26:46] SUCCESS: Writing / Creative (0 found)",
+        "[18:26:49] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-coding-bootcamp-job-guaranteed-metana-1129395"
                 },
                 {
-                    "position": "Senior Product Designer T\u00fcrkiye",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-product-designer-turkiye-jumpcloud-1129854"
+                    "position": "Senior Engineer Confluent Marketplace Partner Applied Solution",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-engineer-confluent-marketplace-partner-applied-solution-confluent-1129855"
                 }
             ]
         },
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Senior Engineer Confluent Marketplace Partner Applied Solution",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-engineer-confluent-marketplace-partner-applied-solution-confluent-1129855"
+                },
+                {
                     "position": "Senior Product Designer T\u00fcrkiye",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-product-designer-turkiye-jumpcloud-1129854"
                 },
                 {
                     "position": "Full Stack Developer",
                     "link": "https://remoteok.com/remote-jobs/remote-full-stack-developer-patrick-j-mcgovern-foundation-1129840"
-                },
-                {
-                    "position": "Senior Lead Designer Web & Interactive",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-lead-designer-web-amp-interactive-bullish-us-llc-1129708"
                 }
             ]
         },
