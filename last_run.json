@@ -1,12 +1,12 @@
 {
-    "last_update": "January 28, 2026 | 12:30 PM",
+    "last_update": "January 28, 2026 | 03:23 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[12:30:10] SUCCESS: Machine Learning (3 found)",
-        "[12:30:13] SUCCESS: Front-End / React (3 found)",
-        "[12:30:15] SUCCESS: Writing / Creative (0 found)",
-        "[12:30:18] SUCCESS: Virtual Assistant (0 found)"
+        "[15:23:43] SUCCESS: Machine Learning (3 found)",
+        "[15:23:45] SUCCESS: Front-End / React (3 found)",
+        "[15:23:48] SUCCESS: Writing / Creative (0 found)",
+        "[15:23:51] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-coding-bootcamp-job-guaranteed-metana-1129395"
                 },
                 {
-                    "position": "Manager User Group Program 11132",
-                    "link": "https://remoteok.com/remote-jobs/remote-manager-user-group-program-11132-coupa-software-inc-1129853"
+                    "position": "Senior Product Designer T\u00fcrkiye",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-product-designer-turkiye-jumpcloud-1129854"
                 }
             ]
         },
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Senior Product Designer T\u00fcrkiye",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-product-designer-turkiye-jumpcloud-1129854"
+                },
+                {
                     "position": "Full Stack Developer",
                     "link": "https://remoteok.com/remote-jobs/remote-full-stack-developer-patrick-j-mcgovern-foundation-1129840"
                 },
                 {
                     "position": "Senior Lead Designer Web & Interactive",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-lead-designer-web-amp-interactive-bullish-us-llc-1129708"
-                },
-                {
-                    "position": "Senior React Native Developer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-react-native-developer-orium-1129706"
                 }
             ]
         },
