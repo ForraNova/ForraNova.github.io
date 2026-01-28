@@ -1,12 +1,12 @@
 {
-    "last_update": "January 28, 2026 | 06:26 PM",
+    "last_update": "January 28, 2026 | 09:22 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[18:26:40] SUCCESS: Machine Learning (3 found)",
-        "[18:26:43] SUCCESS: Front-End / React (3 found)",
-        "[18:26:46] SUCCESS: Writing / Creative (0 found)",
-        "[18:26:49] SUCCESS: Virtual Assistant (0 found)"
+        "[21:22:08] SUCCESS: Machine Learning (3 found)",
+        "[21:22:11] SUCCESS: Front-End / React (3 found)",
+        "[21:22:14] SUCCESS: Writing / Creative (0 found)",
+        "[21:22:17] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-coding-bootcamp-job-guaranteed-metana-1129395"
                 },
                 {
-                    "position": "Senior Engineer Confluent Marketplace Partner Applied Solution",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-engineer-confluent-marketplace-partner-applied-solution-confluent-1129855"
+                    "position": "Request for Proposal Policy review on Brazil\u2019s Vessel Data Reporting",
+                    "link": "https://remoteok.com/remote-jobs/remote-request-for-proposal-policy-review-on-brazils-vessel-data-reporting-global-fishing-watch-1129857"
                 }
             ]
         },
