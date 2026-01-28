@@ -1,12 +1,12 @@
 {
-    "last_update": "January 28, 2026 | 06:24 AM",
+    "last_update": "January 28, 2026 | 09:26 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[06:24:27] SUCCESS: Machine Learning (3 found)",
-        "[06:24:29] SUCCESS: Front-End / React (3 found)",
-        "[06:24:32] SUCCESS: Writing / Creative (0 found)",
-        "[06:24:36] SUCCESS: Virtual Assistant (0 found)"
+        "[09:26:19] SUCCESS: Machine Learning (3 found)",
+        "[09:26:21] SUCCESS: Front-End / React (3 found)",
+        "[09:26:24] SUCCESS: Writing / Creative (0 found)",
+        "[09:26:27] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-coding-bootcamp-job-guaranteed-metana-1129395"
                 },
                 {
-                    "position": "Business Development Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-business-development-manager-unlimit-1129848"
+                    "position": "Manager User Group Program 11132",
+                    "link": "https://remoteok.com/remote-jobs/remote-manager-user-group-program-11132-coupa-software-inc-1129853"
                 }
             ]
         },
