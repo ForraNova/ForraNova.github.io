@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Teacher Pro</title>
+    <title>ForraNova | Web AI Teacher Pro</title>
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
@@ -13,7 +13,8 @@
     <div id="app">
         <header>
             <div class="header-top">
-                <h1>🎓 AI Teacher Pro</h1>
+                <h1>ForraNova</h1>
+                <h2>🎓 Web AI Teacher Pro.</h2>
                 <div id="status-dot"></div>
             </div>
             <p id="status-text">Waking up the brain...</p>
@@ -37,10 +38,8 @@
             <h3>📒 Saved Lessons</h3>
             <div id="notes-list"></div>
         </div>
+        <p id="status-text">Waking up the brain... <button onclick="forceReset()" style="font-size: 8px;">Reset</button></p>
     </div>
-
     <script type="module" src="app.js"></script>
-
-   
 </body>
 </html>
