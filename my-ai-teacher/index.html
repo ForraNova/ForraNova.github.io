@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Teacher Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3429/3429149.png">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div class="header-top">
+                <h1>🎓 AI Teacher Pro</h1>
+                <div id="status-dot"></div>
+            </div>
+            <p id="status-text">Initializing Engine...</p>
+            <progress id="load-progress" value="0" max="100"></progress>
+        </header>
+
+        <div id="chat-history"></div>
+
+        <div class="controls-bar">
+            <label><input type="checkbox" id="voice-toggle" checked> Auto-Speak</label>
+            <button id="clear-notes">🗑️ Clear Notebook</button>
+        </div>
+
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="Ask or speak a question...">
+            <button id="mic-btn" title="Speak to Teacher">🎤</button>
+            <button id="send-btn">Send</button>
+        </div>
+
+        <div id="notebook-section">
+            <h3>📒 Saved Lessons</h3>
+            <div id="notes-list"></div>
+        </div>
+    </div>
+    <script type="module" src="app.js"></script>
+    <script>
+        // First-Run Greeting Logic
+        const hasVisited = localStorage.getItem('teacher_onboarded');
+        if (!hasVisited) {
+            const welcomeText = "Hello! Dear, Welcome to ForraCorp Academy, a place where we believe knowledge is for the living. I am your AI Personal Teacher. I'm now fully downloaded into your browser, which means I can teach you even when you're offline. What would you like to learn today?";
+            
+            // Display the message
+            setTimeout(() => {
+                appendMessage('Teacher', welcomeText, 'bot-msg');
+                speak(welcomeText);
+                localStorage.setItem('teacher_onboarded', 'true');
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
