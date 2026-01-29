@@ -3,6 +3,10 @@ import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers
 // --- GITHUB PAGES COMPATIBILITY OVERRIDE ---
 env.allowLocalModels = false; 
 env.useBrowserCache = true;
+
+/** * CRITICAL FIX: GitHub Pages often blocks 'resolve' links.
+ * We force the engine to use the most direct CDN path.
+ */
 env.remoteHost = 'https://huggingface.co';
 env.remotePathComponent = 'models';
 
@@ -27,14 +31,15 @@ let lastResponse = "";
 async function init() {
     try {
         elements.progress.style.display = 'block';
-        elements.status.innerText = "Connecting to Brain Engine...";
+        elements.status.innerText = "Waking up the brain engine...";
 
-        // Load the specialized teaching model
+        // Load the model with 'revision' to bypass cache-redirect blocks
         teacher = await pipeline('text2text-generation', 'Xenova/LaMini-Flan-T5-78M', {
+            revision: 'main', 
             progress_callback: (data) => {
                 if (data.status === 'progress') {
                     elements.progress.value = data.progress;
-                    elements.status.innerText = `Downloading Brain: ${Math.round(data.progress)}%`;
+                    elements.status.innerText = `Connecting: ${Math.round(data.progress)}%`;
                 }
                 if (data.status === 'ready') {
                     elements.status.innerText = "Teacher is Ready ✅";
@@ -42,7 +47,6 @@ async function init() {
                     const dot = document.getElementById('status-dot');
                     if(dot) dot.style.background = '#22c55e';
                     
-                    // Welcome sequence
                     checkFirstRun();
                 }
             }
@@ -51,9 +55,10 @@ async function init() {
         renderNotes();
     } catch (e) {
         console.error("Critical AI Load Error:", e);
+        // Error handling for 401/403 Unauthorized
         elements.status.innerHTML = `
-            Load Failed. <button onclick="forceReset()" style="background:#ef4444; color:white; border:none; padding:2px 8px; border-radius:4px; cursor:pointer;">Reset Brain Cache</button>
-            <p style="font-size:10px; color:gray; margin-top:5px;">Error: ${e.message}</p>
+            Brain Blocked. <button onclick="forceReset()" style="background:#ef4444; color:white; border:none; padding:4px 10px; border-radius:4px; cursor:pointer;">Clear Cache & Retry</button>
+            <p style="font-size:10px; color:gray; margin-top:5px;">Check if you're in Incognito mode or have AdBlock on.</p>
         `;
     }
 }
@@ -68,7 +73,6 @@ async function askTeacher() {
     appendMessage('You', question, 'user-msg');
     elements.input.value = '';
 
-    // Specialized System Instruction for the model
     const prompt = `Instruction: Act as a professional teacher. Explain this concept simply: ${question}`;
 
     try {
@@ -80,7 +84,6 @@ async function askTeacher() {
         
         lastResponse = result[0].generated_text;
         
-        // Render Markdown for standard formatting
         const html = marked.parse(lastResponse);
         const saveBtn = `<br><button onclick="saveNote('${question.replace(/'/g, "\\'")}')" class="save-btn">💾 Save Lesson</button>`;
         
@@ -145,7 +148,6 @@ function checkFirstRun() {
     }
 }
 
-// Global Force Reset for Troubleshooting
 window.forceReset = async function() {
     if (confirm("Delete brain cache and restart? (Fixes most errors)")) {
         localStorage.clear();
@@ -165,7 +167,6 @@ if (elements.input) {
     elements.input.onkeypress = (e) => { if (e.key === 'Enter') askTeacher(); };
 }
 
-// Microphone / Speech Recognition
 const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 if (Recognition && elements.mic) {
     const rec = new Recognition();
@@ -179,5 +180,13 @@ if (Recognition && elements.mic) {
     };
 }
 
-// Initial Kickoff
+if (elements.clearNotes) {
+    elements.clearNotes.onclick = () => {
+        if(confirm("Wipe all saved lessons?")) {
+            localStorage.removeItem('pro_teacher_notes');
+            renderNotes();
+        }
+    };
+}
+
 init();
