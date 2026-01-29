@@ -1,12 +1,12 @@
 {
-    "last_update": "January 29, 2026 | 03:27 PM",
+    "last_update": "January 29, 2026 | 06:33 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[15:27:22] SUCCESS: Machine Learning (3 found)",
-        "[15:27:25] SUCCESS: Front-End / React (3 found)",
-        "[15:27:27] SUCCESS: Writing / Creative (0 found)",
-        "[15:27:31] SUCCESS: Virtual Assistant (0 found)"
+        "[18:32:52] SUCCESS: Machine Learning (3 found)",
+        "[18:32:55] SUCCESS: Front-End / React (3 found)",
+        "[18:32:57] SUCCESS: Writing / Creative (0 found)",
+        "[18:33:00] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-coding-bootcamp-job-guaranteed-metana-1129395"
                 },
                 {
-                    "position": "Member of Technical Staff Dev Extension {FRONTEND",
-                    "link": "https://remoteok.com/remote-jobs/remote-member-of-technical-staff-dev-extension-frontend-devrev-1129867"
+                    "position": "Infrastructure & Capital Projects Senior CSA Estimator ANS",
+                    "link": "https://remoteok.com/remote-jobs/remote-infrastructure-amp-capital-projects-senior-csa-estimator-ans-accenture-infrastructure-amp-capital-projects-llc-1129869"
                 }
             ]
         },
