@@ -1,12 +1,8 @@
 import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.1';
 
-// --- GITHUB PAGES COMPATIBILITY OVERRIDE ---
+// --- BYPASS SECURITY HEADERS ---
 env.allowLocalModels = false; 
 env.useBrowserCache = true;
-
-/** * CRITICAL FIX: GitHub Pages often blocks 'resolve' links.
- * We force the engine to use the most direct CDN path.
- */
 env.remoteHost = 'https://huggingface.co';
 env.remotePathComponent = 'models';
 
@@ -31,15 +27,18 @@ let lastResponse = "";
 async function init() {
     try {
         elements.progress.style.display = 'block';
-        elements.status.innerText = "Waking up the brain engine...";
+        elements.status.innerText = "Requesting Brain Access...";
 
-        // Load the model with 'revision' to bypass cache-redirect blocks
+        // Load the model with fetch_kwargs to prevent 401 Unauthorized errors
         teacher = await pipeline('text2text-generation', 'Xenova/LaMini-Flan-T5-78M', {
-            revision: 'main', 
+            fetch_kwargs: {
+                mode: 'cors',
+                credentials: 'omit' // CRITICAL: Fixes Edge/Chrome 401 errors
+            },
             progress_callback: (data) => {
                 if (data.status === 'progress') {
                     elements.progress.value = data.progress;
-                    elements.status.innerText = `Connecting: ${Math.round(data.progress)}%`;
+                    elements.status.innerText = `Downloading Brain: ${Math.round(data.progress)}%`;
                 }
                 if (data.status === 'ready') {
                     elements.status.innerText = "Teacher is Ready ✅";
@@ -55,10 +54,13 @@ async function init() {
         renderNotes();
     } catch (e) {
         console.error("Critical AI Load Error:", e);
-        // Error handling for 401/403 Unauthorized
+        // Informative error display
         elements.status.innerHTML = `
-            Brain Blocked. <button onclick="forceReset()" style="background:#ef4444; color:white; border:none; padding:4px 10px; border-radius:4px; cursor:pointer;">Clear Cache & Retry</button>
-            <p style="font-size:10px; color:gray; margin-top:5px;">Check if you're in Incognito mode or have AdBlock on.</p>
+            Brain Blocked. <button onclick="forceReset()" style="background:#ef4444; color:white; border:none; padding:4px 8px; border-radius:4px; cursor:pointer;">Reset & Retry</button>
+            <div style="font-size:10px; color:gray; margin-top:8px; line-height:1.2;">
+                <b>Technical Error:</b> ${e.message}<br>
+                <p>Try: Edge Settings > Privacy > Tracking Prevention > Set to "Balanced" (not Strict).</p>
+            </div>
         `;
     }
 }
@@ -149,7 +151,7 @@ function checkFirstRun() {
 }
 
 window.forceReset = async function() {
-    if (confirm("Delete brain cache and restart? (Fixes most errors)")) {
+    if (confirm("Delete brain cache and restart?")) {
         localStorage.clear();
         if ('caches' in window) {
             const keys = await caches.keys();
@@ -160,7 +162,7 @@ window.forceReset = async function() {
 };
 
 /**
- * INPUT LISTENERS
+ * LISTENERS
  */
 if (elements.send) elements.send.onclick = askTeacher;
 if (elements.input) {
