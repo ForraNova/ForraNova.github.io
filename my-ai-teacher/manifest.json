@@ -1,0 +1,17 @@
+{
+  "name": "AI Teacher Pro",
+  "short_name": "TeacherAI",
+  "description": "Offline-first personal education assistant.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4f46e5",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3429/3429149.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
