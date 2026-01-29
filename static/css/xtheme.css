@@ -4,6 +4,9 @@
     --text-color: #e0d5c3; /* Off-white/gold tint from image */
     --accent-blue: #00b4d8;
     --btn-bg: #2b3a67;
+    --text-white: #ffff;          /* Bright White Paragraph Text [Bright White]*/
+    --glass: rgba(255, 255, 255, 0.01);        /* Transparent Glass Effect */
+    --glass-border: rgba(168, 255, 158, 0.2);  /* Glass Border Effect */
 }
 
 .theme-light {
@@ -43,6 +46,7 @@ body {
 
 .controls {
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .theme-selector {
@@ -105,3 +109,23 @@ button {
 
 input:checked + .slider { background-color: var(--accent-blue); }   
 input:checked + .slider:before { transform: translateX(24px); }
+
+/* Button Styling */
+.click {
+    background: var(--glass-border);
+    color: var(--text-white);
+    border: none;
+    border-radius:  20px;
+    cursor: pointer;
+    margin-top: 50px;
+    font-weight: bold;
+    transition: background 0.3s;
+    padding: 10px;
+    text-decoration: none;
+    border-style: outset;
+}
+
+.click:hover {
+    background: var(--glass);
+    border-style: inset;
+}
