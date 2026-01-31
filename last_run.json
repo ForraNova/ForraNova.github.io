@@ -1,12 +1,12 @@
 {
-    "last_update": "January 31, 2026 | 01:09 AM",
+    "last_update": "January 31, 2026 | 04:22 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[01:09:13] SUCCESS: Machine Learning (3 found)",
-        "[01:09:15] SUCCESS: Front-End / React (3 found)",
-        "[01:09:18] SUCCESS: Writing / Creative (0 found)",
-        "[01:09:21] SUCCESS: Virtual Assistant (0 found)"
+        "[04:21:48] SUCCESS: Machine Learning (3 found)",
+        "[04:21:51] SUCCESS: Front-End / React (3 found)",
+        "[04:21:54] SUCCESS: Writing / Creative (0 found)",
+        "[04:21:57] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-coding-bootcamp-job-guaranteed-metana-1129395"
                 },
                 {
-                    "position": "Wattpad Director of Design",
-                    "link": "https://remoteok.com/remote-jobs/remote-wattpad-director-of-design-webtoon-entertainment-inc-wattpad-amp-webtoon-family-of-brands-1129901"
+                    "position": "Senior Software Developer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-developer-capintel-1129902"
                 }
             ]
         },
