@@ -1,12 +1,12 @@
 {
-    "last_update": "January 31, 2026 | 03:14 PM",
+    "last_update": "January 31, 2026 | 06:20 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[15:14:32] SUCCESS: Machine Learning (3 found)",
-        "[15:14:35] SUCCESS: Front-End / React (3 found)",
-        "[15:14:38] SUCCESS: Writing / Creative (0 found)",
-        "[15:14:41] SUCCESS: Virtual Assistant (0 found)"
+        "[18:19:54] SUCCESS: Machine Learning (3 found)",
+        "[18:19:57] SUCCESS: Front-End / React (3 found)",
+        "[18:19:59] SUCCESS: Writing / Creative (0 found)",
+        "[18:20:02] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-coding-bootcamp-job-guaranteed-metana-1129395"
                 },
                 {
-                    "position": "Technical Writer",
-                    "link": "https://remoteok.com/remote-jobs/remote-technical-writer-saronic-1129906"
+                    "position": "Executive Assistant",
+                    "link": "https://remoteok.com/remote-jobs/remote-executive-assistant-formlabs-1129908"
                 }
             ]
         },
