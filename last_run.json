@@ -1,12 +1,12 @@
 {
-    "last_update": "January 31, 2026 | 06:27 AM",
+    "last_update": "January 31, 2026 | 09:19 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[06:26:56] SUCCESS: Machine Learning (3 found)",
-        "[06:26:58] SUCCESS: Front-End / React (3 found)",
-        "[06:27:01] SUCCESS: Writing / Creative (0 found)",
-        "[06:27:04] SUCCESS: Virtual Assistant (0 found)"
+        "[09:19:39] SUCCESS: Machine Learning (3 found)",
+        "[09:19:41] SUCCESS: Front-End / React (3 found)",
+        "[09:19:44] SUCCESS: Writing / Creative (0 found)",
+        "[09:19:47] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-coding-bootcamp-job-guaranteed-metana-1129395"
                 },
                 {
-                    "position": "Senior Software Developer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-developer-capintel-1129902"
+                    "position": "Senior Product Analyst",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-product-analyst-atlan-1129903"
                 }
             ]
         },
