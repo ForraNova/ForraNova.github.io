@@ -1,12 +1,12 @@
 {
-    "last_update": "January 30, 2026 | 09:20 PM",
+    "last_update": "January 31, 2026 | 01:09 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:20:12] SUCCESS: Machine Learning (3 found)",
-        "[21:20:15] SUCCESS: Front-End / React (3 found)",
-        "[21:20:17] SUCCESS: Writing / Creative (0 found)",
-        "[21:20:20] SUCCESS: Virtual Assistant (0 found)"
+        "[01:09:13] SUCCESS: Machine Learning (3 found)",
+        "[01:09:15] SUCCESS: Front-End / React (3 found)",
+        "[01:09:18] SUCCESS: Writing / Creative (0 found)",
+        "[01:09:21] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-coding-bootcamp-job-guaranteed-metana-1129395"
                 },
                 {
-                    "position": "Software Engineer I Secret Clearance Required On site Colorado Springs CO",
-                    "link": "https://remoteok.com/remote-jobs/remote-software-engineer-i-secret-clearance-required-on-site-colorado-springs-co-trace3-1129887"
+                    "position": "Wattpad Director of Design",
+                    "link": "https://remoteok.com/remote-jobs/remote-wattpad-director-of-design-webtoon-entertainment-inc-wattpad-amp-webtoon-family-of-brands-1129901"
                 }
             ]
         },
