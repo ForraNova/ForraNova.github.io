@@ -1,12 +1,12 @@
 {
-    "last_update": "February 01, 2026 | 09:22 AM",
+    "last_update": "February 01, 2026 | 12:29 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[09:21:59] SUCCESS: Machine Learning (3 found)",
-        "[09:22:02] SUCCESS: Front-End / React (3 found)",
-        "[09:22:04] SUCCESS: Writing / Creative (0 found)",
-        "[09:22:07] SUCCESS: Virtual Assistant (0 found)"
+        "[12:29:10] SUCCESS: Machine Learning (3 found)",
+        "[12:29:13] SUCCESS: Front-End / React (3 found)",
+        "[12:29:16] SUCCESS: Writing / Creative (0 found)",
+        "[12:29:19] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-1k-weekly-work-from-home-assistant-best-estimate-pro-1129763"
                 },
                 {
-                    "position": "Coding Bootcamp\ufe63Job Guaranteed",
-                    "link": "https://remoteok.com/remote-jobs/remote-coding-bootcamp-job-guaranteed-metana-1129395"
+                    "position": "Customer Success Digital Programs Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-customer-success-digital-programs-manager-mixpanel-1129965"
                 },
                 {
-                    "position": "Senior UX Designer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-ux-designer-success-academy-charter-schools-1129942"
+                    "position": "Customer Success Specialist",
+                    "link": "https://remoteok.com/remote-jobs/remote-customer-success-specialist-newsela-1129964"
                 }
             ]
         },
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Senior Software Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-zenbusiness-inc-1129947"
+                },
+                {
                     "position": "Social Media Manager",
                     "link": "https://remoteok.com/remote-jobs/remote-social-media-manager-oliver-agency-1129923"
                 },
                 {
                     "position": "Senior Engineer Confluent Marketplace Partner Applied Solution",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-engineer-confluent-marketplace-partner-applied-solution-confluent-1129855"
-                },
-                {
-                    "position": "Senior Product Designer T\u00fcrkiye",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-product-designer-turkiye-jumpcloud-1129854"
                 }
             ]
         },
