@@ -1,12 +1,12 @@
 {
-    "last_update": "February 01, 2026 | 01:24 AM",
+    "last_update": "February 01, 2026 | 04:56 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[01:24:08] SUCCESS: Machine Learning (3 found)",
-        "[01:24:11] SUCCESS: Front-End / React (3 found)",
-        "[01:24:13] SUCCESS: Writing / Creative (0 found)",
-        "[01:24:16] SUCCESS: Virtual Assistant (0 found)"
+        "[04:56:09] SUCCESS: Machine Learning (3 found)",
+        "[04:56:11] SUCCESS: Front-End / React (3 found)",
+        "[04:56:14] SUCCESS: Writing / Creative (0 found)",
+        "[04:56:17] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-coding-bootcamp-job-guaranteed-metana-1129395"
                 },
                 {
-                    "position": "Stelo Support Engineer Database Administrator",
-                    "link": "https://remoteok.com/remote-jobs/remote-stelo-support-engineer-database-administrator-stelo-1129919"
+                    "position": "Senior Site Reliability Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-site-reliability-engineer-cloudbeds-1129921"
                 }
             ]
         },
