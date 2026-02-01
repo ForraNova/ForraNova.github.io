@@ -1,12 +1,12 @@
 {
-    "last_update": "February 01, 2026 | 06:39 AM",
+    "last_update": "February 01, 2026 | 09:22 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[06:38:49] SUCCESS: Machine Learning (3 found)",
-        "[06:38:52] SUCCESS: Front-End / React (3 found)",
-        "[06:38:55] SUCCESS: Writing / Creative (0 found)",
-        "[06:38:57] SUCCESS: Virtual Assistant (0 found)"
+        "[09:21:59] SUCCESS: Machine Learning (3 found)",
+        "[09:22:02] SUCCESS: Front-End / React (3 found)",
+        "[09:22:04] SUCCESS: Writing / Creative (0 found)",
+        "[09:22:07] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-coding-bootcamp-job-guaranteed-metana-1129395"
                 },
                 {
-                    "position": "Director Sales",
-                    "link": "https://remoteok.com/remote-jobs/remote-director-sales-eulerity-1129924"
+                    "position": "Senior UX Designer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-ux-designer-success-academy-charter-schools-1129942"
                 }
             ]
         },
