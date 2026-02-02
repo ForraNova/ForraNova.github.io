@@ -1,12 +1,12 @@
 {
-    "last_update": "February 02, 2026 | 06:52 AM",
+    "last_update": "February 02, 2026 | 09:38 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[06:52:44] SUCCESS: Machine Learning (3 found)",
-        "[06:52:47] SUCCESS: Front-End / React (3 found)",
-        "[06:52:49] SUCCESS: Writing / Creative (0 found)",
-        "[06:52:52] SUCCESS: Virtual Assistant (0 found)"
+        "[09:37:37] SUCCESS: Machine Learning (3 found)",
+        "[09:37:40] SUCCESS: Front-End / React (3 found)",
+        "[09:37:42] SUCCESS: Writing / Creative (0 found)",
+        "[09:37:57] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-1k-weekly-work-from-home-assistant-best-estimate-pro-1129763"
                 },
                 {
-                    "position": "Senior Full Stack Software Engineer ClickPipes Platform",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-full-stack-software-engineer-clickpipes-platform-clickhouse-1129992"
+                    "position": "Product Marketing Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-product-marketing-manager-crypto-com-1129996"
                 },
                 {
-                    "position": "Car Partnerships Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-car-partnerships-manager-soum-1129991"
+                    "position": "Product Designer II Actions",
+                    "link": "https://remoteok.com/remote-jobs/remote-product-designer-ii-actions-datadog-1129995"
                 }
             ]
         },
