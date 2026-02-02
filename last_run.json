@@ -1,12 +1,12 @@
 {
-    "last_update": "February 02, 2026 | 09:38 AM",
+    "last_update": "February 02, 2026 | 12:37 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[09:37:37] SUCCESS: Machine Learning (3 found)",
-        "[09:37:40] SUCCESS: Front-End / React (3 found)",
-        "[09:37:42] SUCCESS: Writing / Creative (0 found)",
-        "[09:37:57] SUCCESS: Virtual Assistant (0 found)"
+        "[12:37:04] SUCCESS: Machine Learning (3 found)",
+        "[12:37:06] SUCCESS: Front-End / React (3 found)",
+        "[12:37:09] SUCCESS: Writing / Creative (0 found)",
+        "[12:37:12] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-1k-weekly-work-from-home-assistant-best-estimate-pro-1129763"
                 },
                 {
-                    "position": "Product Marketing Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-product-marketing-manager-crypto-com-1129996"
+                    "position": "Staff Software Engineer Frontend",
+                    "link": "https://remoteok.com/remote-jobs/remote-staff-software-engineer-frontend-sigma-computing-1130002"
                 },
                 {
-                    "position": "Product Designer II Actions",
-                    "link": "https://remoteok.com/remote-jobs/remote-product-designer-ii-actions-datadog-1129995"
+                    "position": "Data & Technology Program Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-data-technology-program-manager-cottingham-butler-1130001"
                 }
             ]
         },
