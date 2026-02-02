@@ -1,12 +1,12 @@
 {
-    "last_update": "February 01, 2026 | 09:15 PM",
+    "last_update": "February 02, 2026 | 01:16 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:15:22] SUCCESS: Machine Learning (3 found)",
-        "[21:15:24] SUCCESS: Front-End / React (3 found)",
-        "[21:15:27] SUCCESS: Writing / Creative (0 found)",
-        "[21:15:30] SUCCESS: Virtual Assistant (0 found)"
+        "[01:16:21] SUCCESS: Machine Learning (3 found)",
+        "[01:16:24] SUCCESS: Front-End / React (3 found)",
+        "[01:16:26] SUCCESS: Writing / Creative (0 found)",
+        "[01:16:29] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-1k-weekly-work-from-home-assistant-best-estimate-pro-1129763"
                 },
                 {
-                    "position": "Business Development Representative USA",
-                    "link": "https://remoteok.com/remote-jobs/remote-business-development-representative-usa-storyblok-1129988"
+                    "position": "Car Partnerships Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-car-partnerships-manager-soum-1129991"
                 },
                 {
-                    "position": "Senior Software Engineer I II Route Execution US",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-i-ii-route-execution-us-samsara-1129987"
+                    "position": "Sales Operations Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-sales-operations-manager-inspira-education-1129989"
                 }
             ]
         },
