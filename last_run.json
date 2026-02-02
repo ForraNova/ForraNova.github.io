@@ -1,12 +1,12 @@
 {
-    "last_update": "February 02, 2026 | 03:31 PM",
+    "last_update": "February 02, 2026 | 06:31 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[15:31:00] SUCCESS: Machine Learning (3 found)",
-        "[15:31:03] SUCCESS: Front-End / React (3 found)",
-        "[15:31:05] SUCCESS: Writing / Creative (0 found)",
-        "[15:31:08] SUCCESS: Virtual Assistant (0 found)"
+        "[18:31:21] SUCCESS: Machine Learning (3 found)",
+        "[18:31:24] SUCCESS: Front-End / React (3 found)",
+        "[18:31:26] SUCCESS: Writing / Creative (0 found)",
+        "[18:31:29] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-1k-weekly-work-from-home-assistant-best-estimate-pro-1129763"
                 },
                 {
-                    "position": "Google Cloud Platform Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-google-cloud-platform-engineer-lightfeather-io-llc-1130011"
+                    "position": "Head of Customer Success Engineering",
+                    "link": "https://remoteok.com/remote-jobs/remote-head-of-customer-success-engineering-hightouch-1130014"
                 }
             ]
         },
