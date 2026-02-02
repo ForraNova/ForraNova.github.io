@@ -1,12 +1,12 @@
 {
-    "last_update": "February 02, 2026 | 01:16 AM",
+    "last_update": "February 02, 2026 | 04:52 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[01:16:21] SUCCESS: Machine Learning (3 found)",
-        "[01:16:24] SUCCESS: Front-End / React (3 found)",
-        "[01:16:26] SUCCESS: Writing / Creative (0 found)",
-        "[01:16:29] SUCCESS: Virtual Assistant (0 found)"
+        "[04:52:03] SUCCESS: Machine Learning (3 found)",
+        "[04:52:06] SUCCESS: Front-End / React (3 found)",
+        "[04:52:08] SUCCESS: Writing / Creative (0 found)",
+        "[04:52:11] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-1k-weekly-work-from-home-assistant-best-estimate-pro-1129763"
                 },
                 {
-                    "position": "Car Partnerships Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-car-partnerships-manager-soum-1129991"
+                    "position": "Senior Full Stack Software Engineer ClickPipes Platform",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-full-stack-software-engineer-clickpipes-platform-clickhouse-1129992"
                 },
                 {
-                    "position": "Sales Operations Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-sales-operations-manager-inspira-education-1129989"
+                    "position": "Car Partnerships Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-car-partnerships-manager-soum-1129991"
                 }
             ]
         },
