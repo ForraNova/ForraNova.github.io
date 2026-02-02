@@ -1,28 +1,28 @@
 {
-    "last_update": "February 02, 2026 | 12:37 PM",
+    "last_update": "February 02, 2026 | 03:31 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[12:37:04] SUCCESS: Machine Learning (3 found)",
-        "[12:37:06] SUCCESS: Front-End / React (3 found)",
-        "[12:37:09] SUCCESS: Writing / Creative (0 found)",
-        "[12:37:12] SUCCESS: Virtual Assistant (0 found)"
+        "[15:31:00] SUCCESS: Machine Learning (3 found)",
+        "[15:31:03] SUCCESS: Front-End / React (3 found)",
+        "[15:31:05] SUCCESS: Writing / Creative (0 found)",
+        "[15:31:08] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
             "jobs": [
                 {
+                    "position": "Junior Crypto Analyst & Trader",
+                    "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-elemental-terra-1130008"
+                },
+                {
                     "position": "$1k Weekly Work from Home Assistant",
                     "link": "https://remoteok.com/remote-jobs/remote-1k-weekly-work-from-home-assistant-best-estimate-pro-1129763"
                 },
                 {
-                    "position": "Staff Software Engineer Frontend",
-                    "link": "https://remoteok.com/remote-jobs/remote-staff-software-engineer-frontend-sigma-computing-1130002"
-                },
-                {
-                    "position": "Data & Technology Program Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-data-technology-program-manager-cottingham-butler-1130001"
+                    "position": "Google Cloud Platform Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-google-cloud-platform-engineer-lightfeather-io-llc-1130011"
                 }
             ]
         },
