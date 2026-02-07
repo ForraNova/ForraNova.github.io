@@ -1,12 +1,12 @@
 {
-    "last_update": "February 06, 2026 | 09:22 PM",
+    "last_update": "February 07, 2026 | 01:11 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:22:10] SUCCESS: Machine Learning (3 found)",
-        "[21:22:13] SUCCESS: Front-End / React (3 found)",
-        "[21:22:15] SUCCESS: Writing / Creative (0 found)",
-        "[21:22:20] SUCCESS: Virtual Assistant (0 found)"
+        "[01:11:07] SUCCESS: Machine Learning (3 found)",
+        "[01:11:10] SUCCESS: Front-End / React (3 found)",
+        "[01:11:13] SUCCESS: Writing / Creative (0 found)",
+        "[01:11:16] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -34,12 +34,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-full-stack-product-engineer-jiga-1129403"
                 },
                 {
-                    "position": "Senior Full Stack AI Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-full-stack-ai-engineer-askvinny-1130110"
+                    "position": "UI Developer R01560583",
+                    "link": "https://remoteok.com/remote-jobs/remote-ui-developer-r01560583-brillio-1130131"
                 },
                 {
-                    "position": "Staff Frontend Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-staff-frontend-engineer-alpaca-1130038"
+                    "position": "Web Developer",
+                    "link": "https://remoteok.com/remote-jobs/remote-web-developer-epoch-ai-1130118"
                 }
             ]
         },
