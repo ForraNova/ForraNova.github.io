@@ -1,21 +1,47 @@
 {
-    "last_update": "February 09, 2026 | 09:31 PM",
+    "last_update": "February 10, 2026 | 01:27 AM",
     "status": "Online",
-    "total_found": 0,
+    "total_found": 6,
     "logs": [
-        "[21:31:16] SUCCESS: Machine Learning (0 found)",
-        "[21:31:18] SUCCESS: Front-End / React (0 found)",
-        "[21:31:20] SUCCESS: Writing / Creative (0 found)",
-        "[21:31:23] SUCCESS: Virtual Assistant (0 found)"
+        "[01:26:57] SUCCESS: Machine Learning (3 found)",
+        "[01:26:59] SUCCESS: Front-End / React (3 found)",
+        "[01:27:02] SUCCESS: Writing / Creative (0 found)",
+        "[01:27:05] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
-            "jobs": []
+            "jobs": [
+                {
+                    "position": "Junior Crypto Analyst & Trader",
+                    "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-elemental-terra-1130008"
+                },
+                {
+                    "position": "Virtual Assistant $1k Weekly Pay",
+                    "link": "https://remoteok.com/remote-jobs/remote-virtual-assistant-1k-weekly-pay-lance-bridges-estimate-and-quotation-company-dba-best-estimate-pro-1129763"
+                },
+                {
+                    "position": "Language instructor",
+                    "link": "https://remoteok.com/remote-jobs/remote-language-instructor-ae-virtual-class-s-a-1129176"
+                }
+            ]
         },
         {
             "query": "Front-End / React",
-            "jobs": []
+            "jobs": [
+                {
+                    "position": "Senior Full stack Developer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-full-stack-developer-lemon-io-1130153"
+                },
+                {
+                    "position": "UI Developer R01560583",
+                    "link": "https://remoteok.com/remote-jobs/remote-ui-developer-r01560583-brillio-1130131"
+                },
+                {
+                    "position": "Web Developer",
+                    "link": "https://remoteok.com/remote-jobs/remote-web-developer-epoch-ai-1130118"
+                }
+            ]
         },
         {
             "query": "Writing / Creative",
