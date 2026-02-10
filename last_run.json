@@ -1,12 +1,12 @@
 {
-    "last_update": "February 10, 2026 | 03:58 PM",
+    "last_update": "February 10, 2026 | 06:55 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[15:58:25] SUCCESS: Machine Learning (3 found)",
-        "[15:58:27] SUCCESS: Front-End / React (3 found)",
-        "[15:58:30] SUCCESS: Writing / Creative (0 found)",
-        "[15:58:33] SUCCESS: Virtual Assistant (0 found)"
+        "[18:54:22] SUCCESS: Machine Learning (3 found)",
+        "[18:54:55] SUCCESS: Front-End / React (3 found)",
+        "[18:54:57] SUCCESS: Writing / Creative (0 found)",
+        "[18:55:00] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "React Native Developer",
+                    "link": "https://remoteok.com/remote-jobs/remote-react-native-developer-bluelight-consulting-1130182"
+                },
+                {
                     "position": "Senior Full stack Developer",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-full-stack-developer-lemon-io-1130153"
                 },
                 {
                     "position": "UI Developer R01560583",
                     "link": "https://remoteok.com/remote-jobs/remote-ui-developer-r01560583-brillio-1130131"
-                },
-                {
-                    "position": "Web Developer",
-                    "link": "https://remoteok.com/remote-jobs/remote-web-developer-epoch-ai-1130118"
                 }
             ]
         },
