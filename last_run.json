@@ -1,12 +1,12 @@
 {
-    "last_update": "February 23, 2026 | 09:36 PM",
+    "last_update": "February 24, 2026 | 01:14 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:36:08] SUCCESS: Machine Learning (3 found)",
-        "[21:36:11] SUCCESS: Front-End / React (3 found)",
-        "[21:36:14] SUCCESS: Writing / Creative (0 found)",
-        "[21:36:17] SUCCESS: Virtual Assistant (0 found)"
+        "[01:14:33] SUCCESS: Machine Learning (3 found)",
+        "[01:14:36] SUCCESS: Front-End / React (3 found)",
+        "[01:14:38] SUCCESS: Writing / Creative (0 found)",
+        "[01:14:41] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,8 +17,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-elemental-terra-1130008"
                 },
                 {
-                    "position": "URGENTLY HIRING $1K Weekly Virtual Assistant",
-                    "link": "https://remoteok.com/remote-jobs/remote-urgently-hiring-1k-weekly-virtual-assistant-lance-bridges-estimate-and-quotation-company-dba-best-estimate-pro-1129763"
+                    "position": "Senior Amazon Brand Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-amazon-brand-manager-gno-partners-1129050"
                 },
                 {
                     "position": "Senior Marketing Manager Paid Ads",
