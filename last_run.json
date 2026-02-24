@@ -1,12 +1,12 @@
 {
-    "last_update": "February 24, 2026 | 03:47 PM",
+    "last_update": "February 24, 2026 | 06:49 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[15:47:34] SUCCESS: Machine Learning (3 found)",
-        "[15:47:37] SUCCESS: Front-End / React (3 found)",
-        "[15:47:39] SUCCESS: Writing / Creative (0 found)",
-        "[15:47:42] SUCCESS: Virtual Assistant (0 found)"
+        "[18:49:38] SUCCESS: Machine Learning (3 found)",
+        "[18:49:41] SUCCESS: Front-End / React (3 found)",
+        "[18:49:43] SUCCESS: Writing / Creative (0 found)",
+        "[18:49:46] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-elemental-terra-1130008"
                 },
                 {
-                    "position": "Subtitle Localization Specialist",
-                    "link": "https://remoteok.com/remote-jobs/remote-subtitle-localization-specialist-tsmg-1130524"
+                    "position": "Senior Software Engineer Live",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-live-cast-ai-1130527"
                 },
                 {
-                    "position": "Senior Product Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-product-manager-infuse-1130523"
+                    "position": "Senior Fullstack Developer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-fullstack-developer-kodify-media-group-1130526"
                 }
             ]
         },
