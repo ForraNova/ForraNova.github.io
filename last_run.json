@@ -1,12 +1,12 @@
 {
-    "last_update": "February 24, 2026 | 09:26 PM",
+    "last_update": "February 25, 2026 | 01:20 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:26:04] SUCCESS: Machine Learning (3 found)",
-        "[21:26:07] SUCCESS: Front-End / React (3 found)",
-        "[21:26:09] SUCCESS: Writing / Creative (0 found)",
-        "[21:26:12] SUCCESS: Virtual Assistant (0 found)"
+        "[01:20:09] SUCCESS: Machine Learning (3 found)",
+        "[01:20:12] SUCCESS: Front-End / React (3 found)",
+        "[01:20:14] SUCCESS: Writing / Creative (0 found)",
+        "[01:20:17] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-elemental-terra-1130008"
                 },
                 {
-                    "position": "Senior Software Engineer Live",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-live-cast-ai-1130527"
+                    "position": "Senior Technical Program Manager Money Movement",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-technical-program-manager-money-movement-human-interest-1130528"
                 },
                 {
-                    "position": "Senior Fullstack Developer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-fullstack-developer-kodify-media-group-1130526"
+                    "position": "Senior Software Engineer Live",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-live-cast-ai-1130527"
                 }
             ]
         },
