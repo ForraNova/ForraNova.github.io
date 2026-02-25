@@ -1,12 +1,12 @@
 {
-    "last_update": "February 25, 2026 | 09:43 AM",
+    "last_update": "February 25, 2026 | 12:41 PM",
     "status": "Online",
-    "total_found": 3,
+    "total_found": 6,
     "logs": [
-        "[09:43:50] SUCCESS: Machine Learning (3 found)",
-        "[09:43:53] ERROR: Could not reach Front-End / React",
-        "[09:43:53] ERROR: Could not reach Writing / Creative",
-        "[09:43:54] ERROR: Could not reach Virtual Assistant"
+        "[12:41:38] SUCCESS: Machine Learning (3 found)",
+        "[12:41:40] SUCCESS: Front-End / React (3 found)",
+        "[12:41:42] SUCCESS: Writing / Creative (0 found)",
+        "[12:41:45] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -25,6 +25,31 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-technical-program-manager-money-movement-human-interest-1130528"
                 }
             ]
+        },
+        {
+            "query": "Front-End / React",
+            "jobs": [
+                {
+                    "position": "Software Engineer UI",
+                    "link": "https://remoteok.com/remote-jobs/remote-software-engineer-ui-brave-1130515"
+                },
+                {
+                    "position": "Software Engineer Apps",
+                    "link": "https://remoteok.com/remote-jobs/remote-software-engineer-apps-headout-1130216"
+                },
+                {
+                    "position": "React Native Developer",
+                    "link": "https://remoteok.com/remote-jobs/remote-react-native-developer-bluelight-consulting-1130182"
+                }
+            ]
+        },
+        {
+            "query": "Writing / Creative",
+            "jobs": []
+        },
+        {
+            "query": "Virtual Assistant",
+            "jobs": []
         }
     ]
 }
