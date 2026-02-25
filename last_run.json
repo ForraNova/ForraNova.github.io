@@ -1,12 +1,12 @@
 {
-    "last_update": "February 25, 2026 | 06:52 AM",
+    "last_update": "February 25, 2026 | 09:43 AM",
     "status": "Online",
-    "total_found": 6,
+    "total_found": 3,
     "logs": [
-        "[06:52:27] SUCCESS: Machine Learning (3 found)",
-        "[06:52:29] SUCCESS: Front-End / React (3 found)",
-        "[06:52:32] SUCCESS: Writing / Creative (0 found)",
-        "[06:52:35] SUCCESS: Virtual Assistant (0 found)"
+        "[09:43:50] SUCCESS: Machine Learning (3 found)",
+        "[09:43:53] ERROR: Could not reach Front-End / React",
+        "[09:43:53] ERROR: Could not reach Writing / Creative",
+        "[09:43:54] ERROR: Could not reach Virtual Assistant"
     ],
     "findings": [
         {
@@ -17,39 +17,14 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-elemental-terra-1130008"
                 },
                 {
+                    "position": "Senior Database Reliability Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-database-reliability-engineer-okta-inc-1130537"
+                },
+                {
                     "position": "Senior Technical Program Manager Money Movement",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-technical-program-manager-money-movement-human-interest-1130528"
-                },
-                {
-                    "position": "Senior Software Engineer Live",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-live-cast-ai-1130527"
                 }
             ]
-        },
-        {
-            "query": "Front-End / React",
-            "jobs": [
-                {
-                    "position": "Software Engineer UI",
-                    "link": "https://remoteok.com/remote-jobs/remote-software-engineer-ui-brave-1130515"
-                },
-                {
-                    "position": "Software Engineer Apps",
-                    "link": "https://remoteok.com/remote-jobs/remote-software-engineer-apps-headout-1130216"
-                },
-                {
-                    "position": "React Native Developer",
-                    "link": "https://remoteok.com/remote-jobs/remote-react-native-developer-bluelight-consulting-1130182"
-                }
-            ]
-        },
-        {
-            "query": "Writing / Creative",
-            "jobs": []
-        },
-        {
-            "query": "Virtual Assistant",
-            "jobs": []
         }
     ]
 }
