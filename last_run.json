@@ -1,12 +1,12 @@
 {
-    "last_update": "February 25, 2026 | 03:53 PM",
+    "last_update": "February 25, 2026 | 06:54 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[15:53:38] SUCCESS: Machine Learning (3 found)",
-        "[15:53:41] SUCCESS: Front-End / React (3 found)",
-        "[15:53:43] SUCCESS: Writing / Creative (0 found)",
-        "[15:53:46] SUCCESS: Virtual Assistant (0 found)"
+        "[18:54:02] SUCCESS: Machine Learning (3 found)",
+        "[18:54:05] SUCCESS: Front-End / React (3 found)",
+        "[18:54:07] SUCCESS: Writing / Creative (0 found)",
+        "[18:54:10] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-elemental-terra-1130008"
                 },
                 {
-                    "position": "Chief of Staff",
-                    "link": "https://remoteok.com/remote-jobs/remote-chief-of-staff-garden3d-1130542"
+                    "position": "Product Designer Creators",
+                    "link": "https://remoteok.com/remote-jobs/remote-product-designer-creators-vrchat-1130544"
                 },
                 {
-                    "position": "Senior Database Reliability Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-database-reliability-engineer-okta-inc-1130537"
+                    "position": "Global Administrative Assistant",
+                    "link": "https://remoteok.com/remote-jobs/remote-global-administrative-assistant-crisp-recruit-1130543"
                 }
             ]
         },
