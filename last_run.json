@@ -1,12 +1,12 @@
 {
-    "last_update": "February 25, 2026 | 12:41 PM",
+    "last_update": "February 25, 2026 | 03:53 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[12:41:38] SUCCESS: Machine Learning (3 found)",
-        "[12:41:40] SUCCESS: Front-End / React (3 found)",
-        "[12:41:42] SUCCESS: Writing / Creative (0 found)",
-        "[12:41:45] SUCCESS: Virtual Assistant (0 found)"
+        "[15:53:38] SUCCESS: Machine Learning (3 found)",
+        "[15:53:41] SUCCESS: Front-End / React (3 found)",
+        "[15:53:43] SUCCESS: Writing / Creative (0 found)",
+        "[15:53:46] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-elemental-terra-1130008"
                 },
                 {
-                    "position": "Senior Database Reliability Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-database-reliability-engineer-okta-inc-1130537"
+                    "position": "Chief of Staff",
+                    "link": "https://remoteok.com/remote-jobs/remote-chief-of-staff-garden3d-1130542"
                 },
                 {
-                    "position": "Senior Technical Program Manager Money Movement",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-technical-program-manager-money-movement-human-interest-1130528"
+                    "position": "Senior Database Reliability Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-database-reliability-engineer-okta-inc-1130537"
                 }
             ]
         },
