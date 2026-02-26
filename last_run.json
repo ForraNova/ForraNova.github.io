@@ -1,12 +1,12 @@
 {
-    "last_update": "February 26, 2026 | 09:39 AM",
+    "last_update": "February 26, 2026 | 12:41 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[09:39:40] SUCCESS: Machine Learning (3 found)",
-        "[09:39:43] SUCCESS: Front-End / React (3 found)",
-        "[09:39:45] SUCCESS: Writing / Creative (0 found)",
-        "[09:39:48] SUCCESS: Virtual Assistant (0 found)"
+        "[12:41:41] SUCCESS: Machine Learning (3 found)",
+        "[12:41:43] SUCCESS: Front-End / React (3 found)",
+        "[12:41:46] SUCCESS: Writing / Creative (0 found)",
+        "[12:41:49] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-elemental-terra-1130008"
                 },
                 {
-                    "position": "Senior 3D Artist Monopoly GO",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-3d-artist-monopoly-go-scopely-1130551"
+                    "position": "Senior Security Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-security-engineer-nansen-ai-1130555"
                 },
                 {
-                    "position": "Platform & Enterprise Full Stack Sr Staff Software Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-platform-enterprise-full-stack-sr-staff-software-engineer-bnsf-railway-1129835"
+                    "position": "Product Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-product-engineer-fronted-as-1130554"
                 }
             ]
         },
