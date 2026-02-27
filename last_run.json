@@ -1,12 +1,12 @@
 {
-    "last_update": "February 26, 2026 | 09:25 PM",
+    "last_update": "February 27, 2026 | 01:12 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:25:05] SUCCESS: Machine Learning (3 found)",
-        "[21:25:07] SUCCESS: Front-End / React (3 found)",
-        "[21:25:10] SUCCESS: Writing / Creative (0 found)",
-        "[21:25:13] SUCCESS: Virtual Assistant (0 found)"
+        "[01:12:35] SUCCESS: Machine Learning (3 found)",
+        "[01:12:38] SUCCESS: Front-End / React (3 found)",
+        "[01:12:40] SUCCESS: Writing / Creative (0 found)",
+        "[01:12:43] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-elemental-terra-1130008"
                 },
                 {
-                    "position": "AI Engineer I",
-                    "link": "https://remoteok.com/remote-jobs/remote-ai-engineer-i-sezzle-1130557"
+                    "position": "Social Media Video Creator Intern",
+                    "link": "https://remoteok.com/remote-jobs/remote-social-media-video-creator-intern-cathoven-1130559"
                 },
                 {
-                    "position": "Member of Technical Staff Financial Infrastructure",
-                    "link": "https://remoteok.com/remote-jobs/remote-member-of-technical-staff-financial-infrastructure-anchorage-digital-1130556"
+                    "position": "AI Engineer I",
+                    "link": "https://remoteok.com/remote-jobs/remote-ai-engineer-i-sezzle-1130557"
                 }
             ]
         },
