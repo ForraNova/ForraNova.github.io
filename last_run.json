@@ -1,12 +1,12 @@
 {
-    "last_update": "February 27, 2026 | 12:37 PM",
+    "last_update": "February 27, 2026 | 03:31 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[12:36:57] SUCCESS: Machine Learning (3 found)",
-        "[12:37:00] SUCCESS: Front-End / React (3 found)",
-        "[12:37:02] SUCCESS: Writing / Creative (0 found)",
-        "[12:37:05] SUCCESS: Virtual Assistant (0 found)"
+        "[15:31:07] SUCCESS: Machine Learning (3 found)",
+        "[15:31:10] SUCCESS: Front-End / React (3 found)",
+        "[15:31:12] SUCCESS: Writing / Creative (0 found)",
+        "[15:31:15] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-elemental-terra-1130008"
                 },
                 {
-                    "position": "Senior Software Engineer Prime",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-prime-alpaca-1130563"
+                    "position": "Growth Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-growth-engineer-bitmex-1130564"
                 },
                 {
-                    "position": "Technical Writer",
-                    "link": "https://remoteok.com/remote-jobs/remote-technical-writer-allen-control-systems-1130562"
+                    "position": "Senior Software Engineer Prime",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-prime-alpaca-1130563"
                 }
             ]
         },
