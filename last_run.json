@@ -1,12 +1,12 @@
 {
-    "last_update": "February 27, 2026 | 06:41 AM",
+    "last_update": "February 27, 2026 | 09:32 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[06:40:59] SUCCESS: Machine Learning (3 found)",
-        "[06:41:02] SUCCESS: Front-End / React (3 found)",
-        "[06:41:04] SUCCESS: Writing / Creative (0 found)",
-        "[06:41:07] SUCCESS: Virtual Assistant (0 found)"
+        "[09:32:11] SUCCESS: Machine Learning (3 found)",
+        "[09:32:13] SUCCESS: Front-End / React (3 found)",
+        "[09:32:16] SUCCESS: Writing / Creative (0 found)",
+        "[09:32:19] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-elemental-terra-1130008"
                 },
                 {
-                    "position": "Lead VFX Artist",
-                    "link": "https://remoteok.com/remote-jobs/remote-lead-vfx-artist-insomniac-games-1130561"
+                    "position": "Senior Software Engineer Prime",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-prime-alpaca-1130563"
                 },
                 {
-                    "position": "Senior Facial Character TD",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-facial-character-td-insomniac-games-1130560"
+                    "position": "Technical Writer",
+                    "link": "https://remoteok.com/remote-jobs/remote-technical-writer-allen-control-systems-1130562"
                 }
             ]
         },
