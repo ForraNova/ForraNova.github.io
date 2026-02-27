@@ -1,12 +1,12 @@
 {
-    "last_update": "February 27, 2026 | 06:30 PM",
+    "last_update": "February 27, 2026 | 09:20 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[18:30:04] SUCCESS: Machine Learning (3 found)",
-        "[18:30:07] SUCCESS: Front-End / React (3 found)",
-        "[18:30:09] SUCCESS: Writing / Creative (0 found)",
-        "[18:30:12] SUCCESS: Virtual Assistant (0 found)"
+        "[21:20:36] SUCCESS: Machine Learning (3 found)",
+        "[21:20:39] SUCCESS: Front-End / React (3 found)",
+        "[21:20:42] SUCCESS: Writing / Creative (0 found)",
+        "[21:20:45] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-elemental-terra-1130008"
                 },
                 {
-                    "position": "Growth Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-growth-engineer-bitmex-1130564"
+                    "position": "Early Career Software Engineer Warfighter Systems",
+                    "link": "https://remoteok.com/remote-jobs/remote-early-career-software-engineer-warfighter-systems-anduril-industries-1130565"
                 },
                 {
-                    "position": "Senior Software Engineer Prime",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-prime-alpaca-1130563"
+                    "position": "Growth Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-growth-engineer-bitmex-1130564"
                 }
             ]
         },
