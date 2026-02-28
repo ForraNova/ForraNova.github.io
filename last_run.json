@@ -1,12 +1,12 @@
 {
-    "last_update": "February 28, 2026 | 09:17 AM",
+    "last_update": "February 28, 2026 | 12:27 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[09:17:42] SUCCESS: Machine Learning (3 found)",
-        "[09:17:45] SUCCESS: Front-End / React (3 found)",
-        "[09:17:47] SUCCESS: Writing / Creative (0 found)",
-        "[09:17:50] SUCCESS: Virtual Assistant (0 found)"
+        "[12:26:56] SUCCESS: Machine Learning (3 found)",
+        "[12:26:59] SUCCESS: Front-End / React (3 found)",
+        "[12:27:02] SUCCESS: Writing / Creative (0 found)",
+        "[12:27:05] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-elemental-terra-1130008"
                 },
                 {
-                    "position": "Technical Product Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-technical-product-manager-arize-ai-1130568"
+                    "position": "Program Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-program-manager-nava-1130574"
                 },
                 {
-                    "position": "Middle Project Manager Internal Systems and Processes",
-                    "link": "https://remoteok.com/remote-jobs/remote-middle-project-manager-internal-systems-and-processes-infuse-1130567"
+                    "position": "AI Engineer I",
+                    "link": "https://remoteok.com/remote-jobs/remote-ai-engineer-i-sezzle-1130573"
                 }
             ]
         },
