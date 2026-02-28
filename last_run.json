@@ -1,12 +1,12 @@
 {
-    "last_update": "February 27, 2026 | 09:20 PM",
+    "last_update": "February 28, 2026 | 01:07 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:20:36] SUCCESS: Machine Learning (3 found)",
-        "[21:20:39] SUCCESS: Front-End / React (3 found)",
-        "[21:20:42] SUCCESS: Writing / Creative (0 found)",
-        "[21:20:45] SUCCESS: Virtual Assistant (0 found)"
+        "[01:07:20] SUCCESS: Machine Learning (3 found)",
+        "[01:07:22] SUCCESS: Front-End / React (3 found)",
+        "[01:07:25] SUCCESS: Writing / Creative (0 found)",
+        "[01:07:28] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-elemental-terra-1130008"
                 },
                 {
-                    "position": "Early Career Software Engineer Warfighter Systems",
-                    "link": "https://remoteok.com/remote-jobs/remote-early-career-software-engineer-warfighter-systems-anduril-industries-1130565"
+                    "position": "Technical Product Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-technical-product-manager-arize-ai-1130568"
                 },
                 {
-                    "position": "Growth Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-growth-engineer-bitmex-1130564"
+                    "position": "Middle Project Manager Internal Systems and Processes",
+                    "link": "https://remoteok.com/remote-jobs/remote-middle-project-manager-internal-systems-and-processes-infuse-1130567"
                 }
             ]
         },
