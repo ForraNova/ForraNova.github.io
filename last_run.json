@@ -1,12 +1,12 @@
 {
-    "last_update": "February 28, 2026 | 12:27 PM",
+    "last_update": "February 28, 2026 | 03:13 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[12:26:56] SUCCESS: Machine Learning (3 found)",
-        "[12:26:59] SUCCESS: Front-End / React (3 found)",
-        "[12:27:02] SUCCESS: Writing / Creative (0 found)",
-        "[12:27:05] SUCCESS: Virtual Assistant (0 found)"
+        "[15:13:41] SUCCESS: Machine Learning (3 found)",
+        "[15:13:44] SUCCESS: Front-End / React (3 found)",
+        "[15:13:46] SUCCESS: Writing / Creative (0 found)",
+        "[15:13:49] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-elemental-terra-1130008"
                 },
                 {
-                    "position": "Program Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-program-manager-nava-1130574"
+                    "position": "Engineering Manager International",
+                    "link": "https://remoteok.com/remote-jobs/remote-engineering-manager-international-justworks-1130575"
                 },
                 {
-                    "position": "AI Engineer I",
-                    "link": "https://remoteok.com/remote-jobs/remote-ai-engineer-i-sezzle-1130573"
+                    "position": "Program Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-program-manager-nava-1130574"
                 }
             ]
         },
