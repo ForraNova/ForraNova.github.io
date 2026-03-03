@@ -1,17 +1,21 @@
 {
-    "last_update": "March 03, 2026 | 12:35 PM",
+    "last_update": "March 03, 2026 | 03:39 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[12:35:30] SUCCESS: Machine Learning (3 found)",
-        "[12:35:33] SUCCESS: Front-End / React (3 found)",
-        "[12:35:36] SUCCESS: Writing / Creative (0 found)",
-        "[12:35:38] SUCCESS: Virtual Assistant (0 found)"
+        "[15:39:31] SUCCESS: Machine Learning (3 found)",
+        "[15:39:33] SUCCESS: Front-End / React (3 found)",
+        "[15:39:36] SUCCESS: Writing / Creative (0 found)",
+        "[15:39:39] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
             "jobs": [
+                {
+                    "position": "Crypto Market Operations Trainee",
+                    "link": "https://remoteok.com/remote-jobs/remote-crypto-market-operations-trainee-begini-1130604"
+                },
                 {
                     "position": "Junior Crypto Analyst & Trader",
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-elemental-terra-1130008"
@@ -19,10 +23,6 @@
                 {
                     "position": "Product Design Intern",
                     "link": "https://remoteok.com/remote-jobs/remote-product-design-intern-mercury-1130603"
-                },
-                {
-                    "position": "Senior Associate Institutional Giving",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-associate-institutional-giving-team-rubicon-1130601"
                 }
             ]
         },
