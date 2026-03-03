@@ -1,12 +1,12 @@
 {
-    "last_update": "March 02, 2026 | 09:24 PM",
+    "last_update": "March 03, 2026 | 01:17 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:24:40] SUCCESS: Machine Learning (3 found)",
-        "[21:24:43] SUCCESS: Front-End / React (3 found)",
-        "[21:24:45] SUCCESS: Writing / Creative (0 found)",
-        "[21:24:48] SUCCESS: Virtual Assistant (0 found)"
+        "[01:17:04] SUCCESS: Machine Learning (3 found)",
+        "[01:17:07] SUCCESS: Front-End / React (3 found)",
+        "[01:17:09] SUCCESS: Writing / Creative (0 found)",
+        "[01:17:12] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-elemental-terra-1130008"
                 },
                 {
-                    "position": "Junior Live Ops Game Designer",
-                    "link": "https://remoteok.com/remote-jobs/remote-junior-live-ops-game-designer-a-thinking-ape-1130577"
+                    "position": "Engineering Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-engineering-manager-energyhub-1130596"
                 },
                 {
-                    "position": "Senior Game Designer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-game-designer-mob-entertainment-1130576"
+                    "position": "Senior Human Resources Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-human-resources-manager-flatiron-energy-1130595"
                 }
             ]
         },
