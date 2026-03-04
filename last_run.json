@@ -1,12 +1,12 @@
 {
-    "last_update": "March 04, 2026 | 06:35 PM",
+    "last_update": "March 04, 2026 | 09:26 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[18:35:43] SUCCESS: Machine Learning (3 found)",
-        "[18:35:46] SUCCESS: Front-End / React (3 found)",
-        "[18:35:48] SUCCESS: Writing / Creative (0 found)",
-        "[18:35:51] SUCCESS: Virtual Assistant (0 found)"
+        "[21:26:08] SUCCESS: Machine Learning (3 found)",
+        "[21:26:11] SUCCESS: Front-End / React (3 found)",
+        "[21:26:13] SUCCESS: Writing / Creative (0 found)",
+        "[21:26:16] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-crypto-market-operations-trainee-begini-1130604"
                 },
                 {
-                    "position": "DevOps Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-devops-engineer-memx-1130637"
+                    "position": "Account Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-account-manager-datakind-1130641"
                 }
             ]
         },
