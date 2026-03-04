@@ -1,12 +1,12 @@
 {
-    "last_update": "March 04, 2026 | 06:35 AM",
+    "last_update": "March 04, 2026 | 09:31 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[06:35:45] SUCCESS: Machine Learning (3 found)",
-        "[06:35:48] SUCCESS: Front-End / React (3 found)",
-        "[06:35:51] SUCCESS: Writing / Creative (0 found)",
-        "[06:35:54] SUCCESS: Virtual Assistant (0 found)"
+        "[09:31:44] SUCCESS: Machine Learning (3 found)",
+        "[09:31:47] SUCCESS: Front-End / React (3 found)",
+        "[09:31:49] SUCCESS: Writing / Creative (0 found)",
+        "[09:31:52] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-crypto-market-operations-trainee-begini-1130604"
                 },
                 {
-                    "position": "VP Data and Analytics",
-                    "link": "https://remoteok.com/remote-jobs/remote-vp-data-and-analytics-cobalt-service-partners-1130633"
+                    "position": "Senior Full Stack Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-full-stack-engineer-cybrid-1130635"
                 }
             ]
         },
