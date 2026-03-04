@@ -1,12 +1,12 @@
 {
-    "last_update": "March 03, 2026 | 09:25 PM",
+    "last_update": "March 04, 2026 | 01:13 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:25:45] SUCCESS: Machine Learning (3 found)",
-        "[21:25:48] SUCCESS: Front-End / React (3 found)",
-        "[21:25:50] SUCCESS: Writing / Creative (0 found)",
-        "[21:25:53] SUCCESS: Virtual Assistant (0 found)"
+        "[01:12:55] SUCCESS: Machine Learning (3 found)",
+        "[01:12:58] SUCCESS: Front-End / React (3 found)",
+        "[01:13:01] SUCCESS: Writing / Creative (0 found)",
+        "[01:13:04] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-crypto-market-operations-trainee-begini-1130604"
                 },
                 {
-                    "position": "Junior Crypto Analyst & Trader",
-                    "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-elemental-terra-1130008"
+                    "position": "VP Data and Analytics",
+                    "link": "https://remoteok.com/remote-jobs/remote-vp-data-and-analytics-cobalt-service-partners-1130633"
                 }
             ]
         },
@@ -34,12 +34,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "Software Engineer UI",
-                    "link": "https://remoteok.com/remote-jobs/remote-software-engineer-ui-brave-1130515"
+                    "position": "Software Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-software-engineer-pomelo-care-1130627"
                 },
                 {
-                    "position": "Software Engineer Apps",
-                    "link": "https://remoteok.com/remote-jobs/remote-software-engineer-apps-headout-1130216"
+                    "position": "Software Engineer UI",
+                    "link": "https://remoteok.com/remote-jobs/remote-software-engineer-ui-brave-1130515"
                 }
             ]
         },
