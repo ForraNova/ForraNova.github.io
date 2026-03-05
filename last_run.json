@@ -1,12 +1,12 @@
 {
-    "last_update": "March 05, 2026 | 03:41 PM",
+    "last_update": "March 05, 2026 | 07:09 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[15:41:41] SUCCESS: Machine Learning (3 found)",
-        "[15:41:44] SUCCESS: Front-End / React (3 found)",
-        "[15:41:46] SUCCESS: Writing / Creative (0 found)",
-        "[15:41:50] SUCCESS: Virtual Assistant (0 found)"
+        "[19:09:23] SUCCESS: Machine Learning (3 found)",
+        "[19:09:26] SUCCESS: Front-End / React (3 found)",
+        "[19:09:28] SUCCESS: Writing / Creative (0 found)",
+        "[19:09:32] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -34,12 +34,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "Software Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-software-engineer-pomelo-care-1130627"
+                    "position": "Senior Software Engineer React",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-react-creative-chaos-1130645"
                 },
                 {
-                    "position": "Software Engineer UI",
-                    "link": "https://remoteok.com/remote-jobs/remote-software-engineer-ui-brave-1130515"
+                    "position": "Software Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-software-engineer-pomelo-care-1130627"
                 }
             ]
         },
