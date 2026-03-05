@@ -1,12 +1,12 @@
 {
-    "last_update": "March 04, 2026 | 09:26 PM",
+    "last_update": "March 05, 2026 | 01:15 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:26:08] SUCCESS: Machine Learning (3 found)",
-        "[21:26:11] SUCCESS: Front-End / React (3 found)",
-        "[21:26:13] SUCCESS: Writing / Creative (0 found)",
-        "[21:26:16] SUCCESS: Virtual Assistant (0 found)"
+        "[01:15:14] SUCCESS: Machine Learning (3 found)",
+        "[01:15:17] SUCCESS: Front-End / React (3 found)",
+        "[01:15:20] SUCCESS: Writing / Creative (0 found)",
+        "[01:15:23] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "Crypto Market Operations Trainee",
-                    "link": "https://remoteok.com/remote-jobs/remote-crypto-market-operations-trainee-begini-1130604"
+                    "position": "Senior Software Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-stellar-ai-1128869"
                 },
                 {
-                    "position": "Account Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-account-manager-datakind-1130641"
+                    "position": "Crypto Market Operations Trainee",
+                    "link": "https://remoteok.com/remote-jobs/remote-crypto-market-operations-trainee-begini-1130604"
                 }
             ]
         },
