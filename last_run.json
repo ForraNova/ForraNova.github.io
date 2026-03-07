@@ -1,17 +1,30 @@
 {
-    "last_update": "March 07, 2026 | 09:20 AM",
+    "last_update": "March 07, 2026 | 12:27 PM",
     "status": "Online",
-    "total_found": 3,
+    "total_found": 6,
     "logs": [
-        "[09:20:40] SUCCESS: Machine Learning (0 found)",
-        "[09:20:43] SUCCESS: Front-End / React (3 found)",
-        "[09:20:45] SUCCESS: Writing / Creative (0 found)",
-        "[09:20:48] SUCCESS: Virtual Assistant (0 found)"
+        "[12:27:45] SUCCESS: Machine Learning (3 found)",
+        "[12:27:48] SUCCESS: Front-End / React (3 found)",
+        "[12:27:51] SUCCESS: Writing / Creative (0 found)",
+        "[12:27:54] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
-            "jobs": []
+            "jobs": [
+                {
+                    "position": "Senior Frontend Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
+                },
+                {
+                    "position": "Senior Software Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-stellar-ai-1128869"
+                },
+                {
+                    "position": "Crypto Market Operations Trainee",
+                    "link": "https://remoteok.com/remote-jobs/remote-crypto-market-operations-trainee-begini-1130604"
+                }
+            ]
         },
         {
             "query": "Front-End / React",
