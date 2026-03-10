@@ -1,12 +1,12 @@
 {
-    "last_update": "March 10, 2026 | 06:36 PM",
+    "last_update": "March 10, 2026 | 09:22 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[18:36:13] SUCCESS: Machine Learning (3 found)",
-        "[18:36:16] SUCCESS: Front-End / React (3 found)",
-        "[18:36:18] SUCCESS: Writing / Creative (0 found)",
-        "[18:36:21] SUCCESS: Virtual Assistant (0 found)"
+        "[21:22:26] SUCCESS: Machine Learning (3 found)",
+        "[21:22:29] SUCCESS: Front-End / React (3 found)",
+        "[21:22:31] SUCCESS: Writing / Creative (0 found)",
+        "[21:22:34] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-stellar-ai-1128869"
                 },
                 {
-                    "position": "Senior Software Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-omada-health-1130714"
+                    "position": "Lead Animator",
+                    "link": "https://remoteok.com/remote-jobs/remote-lead-animator-eleventh-hour-games-1130715"
                 }
             ]
         },
