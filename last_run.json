@@ -1,12 +1,12 @@
 {
-    "last_update": "March 12, 2026 | 03:49 PM",
+    "last_update": "March 12, 2026 | 06:40 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[15:49:48] SUCCESS: Machine Learning (3 found)",
-        "[15:49:51] SUCCESS: Front-End / React (3 found)",
-        "[15:49:53] SUCCESS: Writing / Creative (0 found)",
-        "[15:49:56] SUCCESS: Virtual Assistant (0 found)"
+        "[18:40:17] SUCCESS: Machine Learning (3 found)",
+        "[18:40:20] SUCCESS: Front-End / React (3 found)",
+        "[18:40:22] SUCCESS: Writing / Creative (0 found)",
+        "[18:40:29] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "Senior Software Engineer Karpenter",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-karpenter-cast-ai-1130741"
+                    "position": "Senior Software Engineer Ruby on Rails",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-ruby-on-rails-versapay-1130745"
                 },
                 {
-                    "position": "Senior Software Engineer Reporting",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-reporting-cast-ai-1130742"
+                    "position": "BPM LLP AI ML Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-bpm-llp-ai-ml-engineer-bpm-llp-1130744"
                 }
             ]
         },
