@@ -1,12 +1,12 @@
 {
-    "last_update": "March 11, 2026 | 09:24 PM",
+    "last_update": "March 12, 2026 | 01:08 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:24:30] SUCCESS: Machine Learning (3 found)",
-        "[21:24:35] SUCCESS: Front-End / React (3 found)",
-        "[21:24:38] SUCCESS: Writing / Creative (0 found)",
-        "[21:24:43] SUCCESS: Virtual Assistant (0 found)"
+        "[01:07:58] SUCCESS: Machine Learning (3 found)",
+        "[01:08:02] SUCCESS: Front-End / React (3 found)",
+        "[01:08:05] SUCCESS: Writing / Creative (0 found)",
+        "[01:08:09] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "Senior Software Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-stellar-ai-1128869"
+                    "position": "Human Resources Engagement Partner",
+                    "link": "https://remoteok.com/remote-jobs/remote-human-resources-engagement-partner-abbyy-1130736"
                 },
                 {
-                    "position": "Senior Technical Game Designer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-technical-game-designer-thats-no-moon-entertainment-1130727"
+                    "position": "Senior Software Engineer Data Platform",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-data-platform-zus-health-1130735"
                 }
             ]
         },
