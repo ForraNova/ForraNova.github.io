@@ -1,12 +1,12 @@
 {
-    "last_update": "March 12, 2026 | 12:37 PM",
+    "last_update": "March 12, 2026 | 03:49 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[12:37:41] SUCCESS: Machine Learning (3 found)",
-        "[12:37:44] SUCCESS: Front-End / React (3 found)",
-        "[12:37:46] SUCCESS: Writing / Creative (0 found)",
-        "[12:37:49] SUCCESS: Virtual Assistant (0 found)"
+        "[15:49:48] SUCCESS: Machine Learning (3 found)",
+        "[15:49:51] SUCCESS: Front-End / React (3 found)",
+        "[15:49:53] SUCCESS: Writing / Creative (0 found)",
+        "[15:49:56] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "Senior Backend Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-backend-engineer-pavago-1130738"
+                    "position": "Senior Software Engineer Karpenter",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-karpenter-cast-ai-1130741"
                 },
                 {
-                    "position": "UK Support Specialist",
-                    "link": "https://remoteok.com/remote-jobs/remote-uk-support-specialist-substack-1130737"
+                    "position": "Senior Software Engineer Reporting",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-reporting-cast-ai-1130742"
                 }
             ]
         },
