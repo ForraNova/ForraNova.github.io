@@ -1,12 +1,12 @@
 {
-    "last_update": "March 13, 2026 | 03:34 PM",
+    "last_update": "March 13, 2026 | 06:29 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[15:34:32] SUCCESS: Machine Learning (3 found)",
-        "[15:34:35] SUCCESS: Front-End / React (3 found)",
-        "[15:34:37] SUCCESS: Writing / Creative (0 found)",
-        "[15:34:40] SUCCESS: Virtual Assistant (0 found)"
+        "[18:29:48] SUCCESS: Machine Learning (3 found)",
+        "[18:29:50] SUCCESS: Front-End / React (3 found)",
+        "[18:29:53] SUCCESS: Writing / Creative (0 found)",
+        "[18:29:56] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-entry-level-crypto-market-specialist-elemental-terra-1130759"
                 },
                 {
-                    "position": "Firmware Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-firmware-engineer-sanctuary-computer-1130761"
+                    "position": "Principal VC & Startup Ecosystem Lead",
+                    "link": "https://remoteok.com/remote-jobs/remote-principal-vc-startup-ecosystem-lead-ashby-1130762"
                 }
             ]
         },
