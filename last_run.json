@@ -1,12 +1,12 @@
 {
-    "last_update": "March 14, 2026 | 12:30 PM",
+    "last_update": "March 14, 2026 | 03:19 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[12:30:22] SUCCESS: Machine Learning (3 found)",
-        "[12:30:25] SUCCESS: Front-End / React (3 found)",
-        "[12:30:28] SUCCESS: Writing / Creative (0 found)",
-        "[12:30:31] SUCCESS: Virtual Assistant (0 found)"
+        "[15:19:45] SUCCESS: Machine Learning (3 found)",
+        "[15:19:47] SUCCESS: Front-End / React (3 found)",
+        "[15:19:50] SUCCESS: Writing / Creative (0 found)",
+        "[15:19:53] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-entry-level-crypto-market-specialist-elemental-terra-1130759"
                 },
                 {
-                    "position": "Forward Deployed AI Architect",
-                    "link": "https://remoteok.com/remote-jobs/remote-forward-deployed-ai-architect-tribe-ai-1130777"
+                    "position": "Engineering Manager Workload Management",
+                    "link": "https://remoteok.com/remote-jobs/remote-engineering-manager-workload-management-graphcore-1130779"
                 }
             ]
         },
