@@ -1,12 +1,12 @@
 {
-    "last_update": "March 14, 2026 | 03:19 PM",
+    "last_update": "March 14, 2026 | 06:25 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[15:19:45] SUCCESS: Machine Learning (3 found)",
-        "[15:19:47] SUCCESS: Front-End / React (3 found)",
-        "[15:19:50] SUCCESS: Writing / Creative (0 found)",
-        "[15:19:53] SUCCESS: Virtual Assistant (0 found)"
+        "[18:25:03] SUCCESS: Machine Learning (3 found)",
+        "[18:25:06] SUCCESS: Front-End / React (3 found)",
+        "[18:25:08] SUCCESS: Writing / Creative (0 found)",
+        "[18:25:11] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-entry-level-crypto-market-specialist-elemental-terra-1130759"
                 },
                 {
-                    "position": "Engineering Manager Workload Management",
-                    "link": "https://remoteok.com/remote-jobs/remote-engineering-manager-workload-management-graphcore-1130779"
+                    "position": "VP Corporate Marketing Brand & Communications",
+                    "link": "https://remoteok.com/remote-jobs/remote-vp-corporate-marketing-brand-communications-blackpoint-cyber-1130780"
                 }
             ]
         },
