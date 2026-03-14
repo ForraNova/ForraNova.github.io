@@ -1,12 +1,12 @@
 {
-    "last_update": "March 13, 2026 | 09:25 PM",
+    "last_update": "March 14, 2026 | 01:12 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:25:13] SUCCESS: Machine Learning (3 found)",
-        "[21:25:16] SUCCESS: Front-End / React (3 found)",
-        "[21:25:18] SUCCESS: Writing / Creative (0 found)",
-        "[21:25:21] SUCCESS: Virtual Assistant (0 found)"
+        "[01:12:21] SUCCESS: Machine Learning (3 found)",
+        "[01:12:23] SUCCESS: Front-End / React (3 found)",
+        "[01:12:26] SUCCESS: Writing / Creative (0 found)",
+        "[01:12:29] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "Entry Level Crypto Market Specialist",
-                    "link": "https://remoteok.com/remote-jobs/remote-entry-level-crypto-market-specialist-elemental-terra-1130759"
+                    "position": "Content Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-content-manager-savvynomad-1130223"
                 },
                 {
-                    "position": "Support Agent",
-                    "link": "https://remoteok.com/remote-jobs/remote-support-agent-descript-1130764"
+                    "position": "Entry Level Crypto Market Specialist",
+                    "link": "https://remoteok.com/remote-jobs/remote-entry-level-crypto-market-specialist-elemental-terra-1130759"
                 }
             ]
         },
