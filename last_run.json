@@ -1,12 +1,12 @@
 {
-    "last_update": "March 15, 2026 | 03:20 PM",
+    "last_update": "March 15, 2026 | 06:26 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[15:20:30] SUCCESS: Machine Learning (3 found)",
-        "[15:20:33] SUCCESS: Front-End / React (3 found)",
-        "[15:20:35] SUCCESS: Writing / Creative (0 found)",
-        "[15:20:38] SUCCESS: Virtual Assistant (0 found)"
+        "[18:26:12] SUCCESS: Machine Learning (3 found)",
+        "[18:26:14] SUCCESS: Front-End / React (3 found)",
+        "[18:26:17] SUCCESS: Writing / Creative (0 found)",
+        "[18:26:20] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-entry-level-crypto-market-specialist-elemental-terra-1130759"
                 },
                 {
-                    "position": "Electrical Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-electrical-engineer-central-moloney-1130786"
+                    "position": "Senior Sales Engineer Data & AI Security",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-sales-engineer-data-ai-security-veeam-software-1130787"
                 }
             ]
         },
