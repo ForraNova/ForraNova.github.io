@@ -1,12 +1,12 @@
 {
-    "last_update": "March 16, 2026 | 03:57 PM",
+    "last_update": "March 16, 2026 | 06:50 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[15:56:51] SUCCESS: Machine Learning (3 found)",
-        "[15:56:54] SUCCESS: Front-End / React (3 found)",
-        "[15:56:56] SUCCESS: Writing / Creative (0 found)",
-        "[15:56:59] SUCCESS: Virtual Assistant (0 found)"
+        "[18:50:38] SUCCESS: Machine Learning (3 found)",
+        "[18:50:41] SUCCESS: Front-End / React (3 found)",
+        "[18:50:43] SUCCESS: Writing / Creative (0 found)",
+        "[18:50:46] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-entry-level-crypto-market-specialist-elemental-terra-1130759"
                 },
                 {
-                    "position": "Senior Security Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-security-engineer-loancrate-1130795"
+                    "position": "Senior Design Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-design-engineer-loancrate-1130798"
                 }
             ]
         },
@@ -34,12 +34,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "Senior Software Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-loancrate-1130794"
+                    "position": "Senior Design Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-design-engineer-loancrate-1130798"
                 },
                 {
-                    "position": "CI&T 27985 Senior AI Engineer Brazil",
-                    "link": "https://remoteok.com/remote-jobs/remote-cit-27985-senior-ai-engineer-brazil-cit-1130751"
+                    "position": "Senior Software Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-loancrate-1130794"
                 }
             ]
         },
