@@ -1,12 +1,12 @@
 {
-    "last_update": "March 16, 2026 | 12:49 PM",
+    "last_update": "March 16, 2026 | 03:57 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[12:49:33] SUCCESS: Machine Learning (3 found)",
-        "[12:49:36] SUCCESS: Front-End / React (3 found)",
-        "[12:49:38] SUCCESS: Writing / Creative (0 found)",
-        "[12:49:41] SUCCESS: Virtual Assistant (0 found)"
+        "[15:56:51] SUCCESS: Machine Learning (3 found)",
+        "[15:56:54] SUCCESS: Front-End / React (3 found)",
+        "[15:56:56] SUCCESS: Writing / Creative (0 found)",
+        "[15:56:59] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-entry-level-crypto-market-specialist-elemental-terra-1130759"
                 },
                 {
-                    "position": "Senior Sales Systems Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-sales-systems-engineer-veeam-software-1130793"
+                    "position": "Senior Security Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-security-engineer-loancrate-1130795"
                 }
             ]
         },
@@ -34,12 +34,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "CI&T 27985 Senior AI Engineer Brazil",
-                    "link": "https://remoteok.com/remote-jobs/remote-cit-27985-senior-ai-engineer-brazil-cit-1130751"
+                    "position": "Senior Software Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-loancrate-1130794"
                 },
                 {
-                    "position": "Senior Python Backend Engineer Mission Critical",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-python-backend-engineer-mission-critical-amstar-curacao-1130690"
+                    "position": "CI&T 27985 Senior AI Engineer Brazil",
+                    "link": "https://remoteok.com/remote-jobs/remote-cit-27985-senior-ai-engineer-brazil-cit-1130751"
                 }
             ]
         },
