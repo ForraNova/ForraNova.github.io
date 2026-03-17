@@ -1,12 +1,12 @@
 {
-    "last_update": "March 17, 2026 | 03:55 PM",
+    "last_update": "March 17, 2026 | 06:49 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[15:55:35] SUCCESS: Machine Learning (3 found)",
-        "[15:55:37] SUCCESS: Front-End / React (3 found)",
-        "[15:55:40] SUCCESS: Writing / Creative (0 found)",
-        "[15:55:45] SUCCESS: Virtual Assistant (0 found)"
+        "[18:49:46] SUCCESS: Machine Learning (3 found)",
+        "[18:49:48] SUCCESS: Front-End / React (3 found)",
+        "[18:49:51] SUCCESS: Writing / Creative (0 found)",
+        "[18:49:54] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "Entry Level Crypto Market Specialist",
-                    "link": "https://remoteok.com/remote-jobs/remote-entry-level-crypto-market-specialist-elemental-terra-1130759"
+                    "position": "Junior Crypto Analyst & Trader",
+                    "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-begini-1130809"
                 },
                 {
-                    "position": "Chief Software Engineer Head of Edge Systems & Fleet Management",
-                    "link": "https://remoteok.com/remote-jobs/remote-chief-software-engineer-head-of-edge-systems-fleet-management-anduril-industries-1130806"
+                    "position": "Entry Level Crypto Market Specialist",
+                    "link": "https://remoteok.com/remote-jobs/remote-entry-level-crypto-market-specialist-elemental-terra-1130759"
                 }
             ]
         },
