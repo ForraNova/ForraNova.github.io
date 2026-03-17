@@ -1,12 +1,12 @@
 {
-    "last_update": "March 17, 2026 | 01:16 AM",
+    "last_update": "March 17, 2026 | 04:46 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[01:15:49] SUCCESS: Machine Learning (3 found)",
-        "[01:15:52] SUCCESS: Front-End / React (3 found)",
-        "[01:15:54] SUCCESS: Writing / Creative (0 found)",
-        "[01:15:57] SUCCESS: Virtual Assistant (0 found)"
+        "[04:46:31] SUCCESS: Machine Learning (3 found)",
+        "[04:46:34] SUCCESS: Front-End / React (3 found)",
+        "[04:46:36] SUCCESS: Writing / Creative (0 found)",
+        "[04:46:39] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-entry-level-crypto-market-specialist-elemental-terra-1130759"
                 },
                 {
-                    "position": "Customer Support Agent",
-                    "link": "https://remoteok.com/remote-jobs/remote-customer-support-agent-alx-africa-1130805"
+                    "position": "Chief Software Engineer Head of Edge Systems & Fleet Management",
+                    "link": "https://remoteok.com/remote-jobs/remote-chief-software-engineer-head-of-edge-systems-fleet-management-anduril-industries-1130806"
                 }
             ]
         },
