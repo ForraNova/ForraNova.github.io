@@ -1,17 +1,30 @@
 {
-    "last_update": "March 17, 2026 | 06:53 AM",
+    "last_update": "March 17, 2026 | 09:52 AM",
     "status": "Online",
-    "total_found": 3,
+    "total_found": 6,
     "logs": [
-        "[06:53:29] SUCCESS: Machine Learning (0 found)",
-        "[06:53:43] SUCCESS: Front-End / React (3 found)",
-        "[06:53:51] SUCCESS: Writing / Creative (0 found)",
-        "[06:53:54] SUCCESS: Virtual Assistant (0 found)"
+        "[09:52:44] SUCCESS: Machine Learning (3 found)",
+        "[09:52:47] SUCCESS: Front-End / React (3 found)",
+        "[09:52:49] SUCCESS: Writing / Creative (0 found)",
+        "[09:52:52] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
-            "jobs": []
+            "jobs": [
+                {
+                    "position": "Senior Frontend Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
+                },
+                {
+                    "position": "Entry Level Crypto Market Specialist",
+                    "link": "https://remoteok.com/remote-jobs/remote-entry-level-crypto-market-specialist-elemental-terra-1130759"
+                },
+                {
+                    "position": "Chief Software Engineer Head of Edge Systems & Fleet Management",
+                    "link": "https://remoteok.com/remote-jobs/remote-chief-software-engineer-head-of-edge-systems-fleet-management-anduril-industries-1130806"
+                }
+            ]
         },
         {
             "query": "Front-End / React",
