@@ -1,12 +1,12 @@
 {
-    "last_update": "March 18, 2026 | 09:26 PM",
+    "last_update": "March 19, 2026 | 01:20 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:26:45] SUCCESS: Machine Learning (3 found)",
-        "[21:26:48] SUCCESS: Front-End / React (3 found)",
-        "[21:26:50] SUCCESS: Writing / Creative (0 found)",
-        "[21:26:55] SUCCESS: Virtual Assistant (0 found)"
+        "[01:19:47] SUCCESS: Machine Learning (3 found)",
+        "[01:19:50] SUCCESS: Front-End / React (3 found)",
+        "[01:19:53] SUCCESS: Writing / Creative (0 found)",
+        "[01:19:57] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "Junior Crypto Analyst & Trader",
-                    "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-begini-1130809"
+                    "position": "Senior Marketing Manager Paid Ads",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
                 },
                 {
-                    "position": "Entry Level Crypto Market Specialist",
-                    "link": "https://remoteok.com/remote-jobs/remote-entry-level-crypto-market-specialist-elemental-terra-1130759"
+                    "position": "Junior Crypto Analyst & Trader",
+                    "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-begini-1130809"
                 }
             ]
         },
