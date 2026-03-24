@@ -1,12 +1,12 @@
 {
-    "last_update": "March 24, 2026 | 12:49 PM",
+    "last_update": "March 24, 2026 | 03:57 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[12:49:17] SUCCESS: Machine Learning (3 found)",
-        "[12:49:19] SUCCESS: Front-End / React (3 found)",
-        "[12:49:22] SUCCESS: Writing / Creative (0 found)",
-        "[12:49:25] SUCCESS: Virtual Assistant (0 found)"
+        "[15:57:46] SUCCESS: Machine Learning (3 found)",
+        "[15:57:49] SUCCESS: Front-End / React (3 found)",
+        "[15:57:51] SUCCESS: Writing / Creative (0 found)",
+        "[15:57:54] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "$2k Weekly Customer Service Assistant USA ONLY",
-                    "link": "https://remoteok.com/remote-jobs/remote-2k-weekly-customer-service-assistant-usa-only-mastercraft-boating-company-1130831"
+                    "position": "Crypto Trader",
+                    "link": "https://remoteok.com/remote-jobs/remote-crypto-trader-elemental-terra-1130867"
                 },
                 {
-                    "position": "Go To Market Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-go-to-market-engineer-testgorilla-1130833"
+                    "position": "$2k Weekly Customer Service Assistant USA ONLY",
+                    "link": "https://remoteok.com/remote-jobs/remote-2k-weekly-customer-service-assistant-usa-only-mastercraft-boating-company-1130831"
                 }
             ]
         },
