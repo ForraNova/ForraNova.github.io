@@ -1,12 +1,12 @@
 {
-    "last_update": "March 26, 2026 | 12:53 PM",
+    "last_update": "March 26, 2026 | 04:03 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[12:53:06] SUCCESS: Machine Learning (3 found)",
-        "[12:53:09] SUCCESS: Front-End / React (3 found)",
-        "[12:53:12] SUCCESS: Writing / Creative (0 found)",
-        "[12:53:15] SUCCESS: Virtual Assistant (0 found)"
+        "[16:03:42] SUCCESS: Machine Learning (3 found)",
+        "[16:03:44] SUCCESS: Front-End / React (3 found)",
+        "[16:03:47] SUCCESS: Writing / Creative (0 found)",
+        "[16:03:50] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-crypto-trader-elemental-terra-1130867"
                 },
                 {
-                    "position": "Commercial Associate",
-                    "link": "https://remoteok.com/remote-jobs/remote-commercial-associate-molecule-xyz-1130884"
+                    "position": "Site Reliability Engineer US West",
+                    "link": "https://remoteok.com/remote-jobs/remote-site-reliability-engineer-us-west-minio-1130893"
                 }
             ]
         },
