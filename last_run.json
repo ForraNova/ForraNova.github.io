@@ -1,12 +1,12 @@
 {
-    "last_update": "March 27, 2026 | 06:57 AM",
+    "last_update": "March 27, 2026 | 09:44 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[06:57:38] SUCCESS: Machine Learning (3 found)",
-        "[06:57:41] SUCCESS: Front-End / React (3 found)",
-        "[06:57:43] SUCCESS: Writing / Creative (0 found)",
-        "[06:57:46] SUCCESS: Virtual Assistant (0 found)"
+        "[09:44:40] SUCCESS: Machine Learning (3 found)",
+        "[09:44:43] SUCCESS: Front-End / React (3 found)",
+        "[09:44:46] SUCCESS: Writing / Creative (0 found)",
+        "[09:44:49] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-crypto-trader-elemental-terra-1130867"
                 },
                 {
-                    "position": "Chief of Staff",
-                    "link": "https://remoteok.com/remote-jobs/remote-chief-of-staff-garden3d-1130542"
+                    "position": "Senior Payroll Associate Indian Payroll India",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-payroll-associate-indian-payroll-india-deel-1130900"
                 }
             ]
         },
