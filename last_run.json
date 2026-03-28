@@ -1,12 +1,12 @@
 {
-    "last_update": "March 27, 2026 | 09:26 PM",
+    "last_update": "March 28, 2026 | 01:18 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:26:07] SUCCESS: Machine Learning (3 found)",
-        "[21:26:10] SUCCESS: Front-End / React (3 found)",
-        "[21:26:12] SUCCESS: Writing / Creative (0 found)",
-        "[21:26:15] SUCCESS: Virtual Assistant (0 found)"
+        "[01:17:50] SUCCESS: Machine Learning (3 found)",
+        "[01:17:52] SUCCESS: Front-End / React (3 found)",
+        "[01:17:55] SUCCESS: Writing / Creative (0 found)",
+        "[01:17:58] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-crypto-trader-elemental-terra-1130867"
                 },
                 {
-                    "position": "Engenharia Software Engineer III Golang Elixir",
-                    "link": "https://remoteok.com/remote-jobs/remote-engenharia-software-engineer-iii-golang-elixir-stone-1130912"
+                    "position": "Clinician Experience Specialist",
+                    "link": "https://remoteok.com/remote-jobs/remote-clinician-experience-specialist-nabla-1130917"
                 }
             ]
         },
