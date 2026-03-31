@@ -1,12 +1,12 @@
 {
-    "last_update": "March 31, 2026 | 12:55 PM",
+    "last_update": "March 31, 2026 | 04:01 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[12:55:28] SUCCESS: Machine Learning (3 found)",
-        "[12:55:30] SUCCESS: Front-End / React (3 found)",
-        "[12:55:33] SUCCESS: Writing / Creative (0 found)",
-        "[12:55:35] SUCCESS: Virtual Assistant (0 found)"
+        "[16:00:53] SUCCESS: Machine Learning (3 found)",
+        "[16:00:56] SUCCESS: Front-End / React (3 found)",
+        "[16:00:58] SUCCESS: Writing / Creative (0 found)",
+        "[16:01:01] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "Crypto Trader",
-                    "link": "https://remoteok.com/remote-jobs/remote-crypto-trader-elemental-terra-1130867"
+                    "position": "Sales Development Representative",
+                    "link": "https://remoteok.com/remote-jobs/remote-sales-development-representative-rtb-house-1130945"
                 }
             ]
         },
