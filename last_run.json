@@ -1,17 +1,21 @@
 {
-    "last_update": "April 01, 2026 | 09:34 PM",
+    "last_update": "April 02, 2026 | 01:21 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:33:57] SUCCESS: Machine Learning (3 found)",
-        "[21:33:59] SUCCESS: Front-End / React (3 found)",
-        "[21:34:02] SUCCESS: Writing / Creative (0 found)",
-        "[21:34:04] SUCCESS: Virtual Assistant (0 found)"
+        "[01:21:43] SUCCESS: Machine Learning (3 found)",
+        "[01:21:45] SUCCESS: Front-End / React (3 found)",
+        "[01:21:48] SUCCESS: Writing / Creative (0 found)",
+        "[01:21:50] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
             "jobs": [
+                {
+                    "position": "Senior Frontend Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
+                },
                 {
                     "position": "Assistant $2k Weekly + Welcome Bonus",
                     "link": "https://remoteok.com/remote-jobs/remote-assistant-2k-weekly-welcome-bonus-mastercraft-boating-company-1130831"
@@ -19,10 +23,6 @@
                 {
                     "position": "Junior Crypto Analyst & Trader",
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-whitebridge-ltd-1130961"
-                },
-                {
-                    "position": "Senior Frontend Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 }
             ]
         },
