@@ -1,12 +1,12 @@
 {
-    "last_update": "April 08, 2026 | 07:07 AM",
+    "last_update": "April 08, 2026 | 10:00 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[07:07:10] SUCCESS: Machine Learning (3 found)",
-        "[07:07:13] SUCCESS: Front-End / React (3 found)",
-        "[07:07:15] SUCCESS: Writing / Creative (0 found)",
-        "[07:07:18] SUCCESS: Virtual Assistant (0 found)"
+        "[09:59:52] SUCCESS: Machine Learning (3 found)",
+        "[09:59:54] SUCCESS: Front-End / React (3 found)",
+        "[09:59:57] SUCCESS: Writing / Creative (0 found)",
+        "[10:00:00] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -34,12 +34,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "Senior Design Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-design-engineer-loancrate-1130798"
+                    "position": "Staff Engineer Digital Lending",
+                    "link": "https://remoteok.com/remote-jobs/remote-staff-engineer-digital-lending-oaknorth-1131028"
                 },
                 {
-                    "position": "Senior Software Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-loancrate-1130794"
+                    "position": "Senior Design Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-design-engineer-loancrate-1130798"
                 }
             ]
         },
