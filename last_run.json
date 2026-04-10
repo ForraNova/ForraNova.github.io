@@ -1,12 +1,12 @@
 {
-    "last_update": "April 10, 2026 | 03:42 PM",
+    "last_update": "April 10, 2026 | 06:40 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[15:41:53] SUCCESS: Machine Learning (3 found)",
-        "[15:41:55] SUCCESS: Front-End / React (3 found)",
-        "[15:41:58] SUCCESS: Writing / Creative (0 found)",
-        "[15:42:01] SUCCESS: Virtual Assistant (0 found)"
+        "[18:39:50] SUCCESS: Machine Learning (3 found)",
+        "[18:39:53] SUCCESS: Front-End / React (3 found)",
+        "[18:39:55] SUCCESS: Writing / Creative (0 found)",
+        "[18:39:59] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "Assistant $2k Weekly + Welcome Bonus",
-                    "link": "https://remoteok.com/remote-jobs/remote-assistant-2k-weekly-welcome-bonus-mastercraft-boating-company-1130831"
-                },
-                {
                     "position": "Crypto Trader",
                     "link": "https://remoteok.com/remote-jobs/remote-crypto-trader-fox-global-assets-1131018"
+                },
+                {
+                    "position": "Senior Software Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-stellar-ai-1128869"
                 }
             ]
         },
@@ -34,12 +34,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "Staff Engineer Digital Lending",
-                    "link": "https://remoteok.com/remote-jobs/remote-staff-engineer-digital-lending-oaknorth-1131028"
+                    "position": "Xsolla Senior Full stack Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-xsolla-senior-full-stack-engineer-xsolla-1131072"
                 },
                 {
-                    "position": "Senior Design Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-design-engineer-loancrate-1130798"
+                    "position": "Staff Engineer Digital Lending",
+                    "link": "https://remoteok.com/remote-jobs/remote-staff-engineer-digital-lending-oaknorth-1131028"
                 }
             ]
         },
