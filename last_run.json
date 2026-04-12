@@ -1,12 +1,12 @@
 {
-    "last_update": "April 12, 2026 | 03:28 PM",
+    "last_update": "April 12, 2026 | 06:34 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[15:28:43] SUCCESS: Machine Learning (3 found)",
-        "[15:28:45] SUCCESS: Front-End / React (3 found)",
-        "[15:28:48] SUCCESS: Writing / Creative (0 found)",
-        "[15:28:50] SUCCESS: Virtual Assistant (0 found)"
+        "[18:34:19] SUCCESS: Machine Learning (3 found)",
+        "[18:34:21] SUCCESS: Front-End / React (3 found)",
+        "[18:34:24] SUCCESS: Writing / Creative (0 found)",
+        "[18:34:27] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "Content Operations Coordinator",
-                    "link": "https://remoteok.com/remote-jobs/remote-content-operations-coordinator-colibri-group-1131086"
+                    "position": "Senior Cloud Architect ML AI",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-cloud-architect-ml-ai-doit-1131089"
                 },
                 {
-                    "position": "Provider Success Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-provider-success-manager-regard-1131084"
+                    "position": "HONK Client Success Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-honk-client-success-manager-honk-1131088"
                 }
             ]
         },
