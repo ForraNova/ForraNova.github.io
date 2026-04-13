@@ -1,12 +1,12 @@
 {
-    "last_update": "April 13, 2026 | 01:03 PM",
+    "last_update": "April 13, 2026 | 04:07 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[13:02:59] SUCCESS: Machine Learning (3 found)",
-        "[13:03:01] SUCCESS: Front-End / React (3 found)",
-        "[13:03:04] SUCCESS: Writing / Creative (0 found)",
-        "[13:03:07] SUCCESS: Virtual Assistant (0 found)"
+        "[16:06:59] SUCCESS: Machine Learning (3 found)",
+        "[16:07:01] SUCCESS: Front-End / React (3 found)",
+        "[16:07:04] SUCCESS: Writing / Creative (0 found)",
+        "[16:07:07] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "Customer Success Manager II",
-                    "link": "https://remoteok.com/remote-jobs/remote-customer-success-manager-ii-renaissance-learning-north-america-1131091"
+                    "position": "Principal Care Management Care Coordinator",
+                    "link": "https://remoteok.com/remote-jobs/remote-principal-care-management-care-coordinator-mtc-care-1131097"
                 },
                 {
-                    "position": "Inside Sales Specialist Lead Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-inside-sales-specialist-lead-manager-house-buyers-of-america-1131090"
+                    "position": "Customer Success Associate",
+                    "link": "https://remoteok.com/remote-jobs/remote-customer-success-associate-workera-ai-1131096"
                 }
             ]
         },
