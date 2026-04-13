@@ -8,23 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.4.0/dist/tf.min.js"></script>
 
     <link rel="stylesheet" href="static/css/fofem.css" />
-
-
-<style>
-  #info-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1 row); /* Adjust grid as needed */
-    gap: 20px;
-  }
-  .info-card {
-    padding: 15px;
-    border-radius: 8px;
-    background: #808080;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    animation: fadeIn 0.8s ease-in;
-  }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; } }
-</style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
 <body>
@@ -46,19 +30,7 @@
                     <li><a href="#contact">Contact</a></li>
                     </ul> 
             </nav>
-  <!---- Deactivated till am done with all the language translation
-            <div class="lang">
-               <img class="langdrop" id="langicon" src="lang.png" alt="Languages">
-                <div id="ldrop" class="llist">
-                    <a href="forra.cn.html"><b>中文 / 汉语</b><br><i>Chinese (Mandarin)</i></a>
-                    <a href="index.html"><b>English</b><br><i>English</i></a>
-                    <a href="forra.fr.html"><b>Français</b><br><i>French</i></a>
-                    <a href="forra.hi.html"><b>हिन्दी</b><br><i>Hindi</i></a>
-                    <a href="forra.ru.html"><b>Pусский</b><br><i>Russian</i></a>
-                    <a href="forra.es.html"><b>Español</b><br><i>Spanish</i></a>
-                </div>
-            </div>
-     ----->       
+    
             <div class="hamburger" id="hamburger-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -72,15 +44,18 @@
   <!-------------------~~~~~~ HOME ~~~~~~--------------------->
     <section id="hero">
 
-
         <p style="text-align:center;font-weight:bolder;color: var(--other-color);">Hi! I'm</p>
 
-        <h1 style="text-shadow: 2px 2px 5px blueviolet; font-weight:bold; color:blanchedalmond;">Fredrick</h1>
+        <h1 style="text-shadow: 2px 2px 5px blueviolet; font-weight:bold; color:blanchedalmond; /*color:oklch(60% 0.2 50)*/">Fredrick</h1>
 
-        <div id="loginform">
-            <div id="formcontainer">
+        <div class="hero-avatar">
+            <div class="avatar-frame">
                 <img src="static/images/Fred.png" alt="Portrait of Fredrick O. Ubi, Principal Engineer"/>
             </div>  
+        </div>
+
+        <div id="loginform">
+          
             <div class="" style="position:relative; margin:5px; padding:8px;padding-left:30px; padding-top:10px; padding-bottom:10px;">
                      
                 <h2 style="text-align: center; color: var(--other-color);">
@@ -574,7 +549,7 @@
     <section id="contact">
         <div  class="container" style="background-color: var(--background-dark); margin-top:-40px;">
             <h2 class="Educate-Contact">Get In Touch</h2>
-            <div class="contact-grid" >
+            <div class="contact-grid">
                 
                 <div class="info-contact" style="background-color: var(--background-light);">
                     <h3>My Details</h3>
@@ -594,7 +569,7 @@
                     <input type="text" id="name" placeholder="Your Name" required>
                     <input type="email" id="email" placeholder="Your Email" required>
                     <textarea id="message" placeholder="Your Message or Comment" rows="6" required></textarea>
-                    <button type="submit">Send Message</button>
+                    <button type="submit"><i class="fas fa-envelope text-2xl text-deep-green"></i> Send Message</button>
                 </form>
             </div>
 
@@ -604,11 +579,15 @@
 
                 <p style="font-size: 1.2rem;">Beyond technical skills, I bring a well-rounded set of personal capabilities to a team:
                     <ul style="margin: 10px 10px 10px 40px; font-size: 1.2rem;  text-align: justify;">
-                        <li>Multilingual and Inclusive: Fluent in Pidgin West Africa, Expert in Sign Language (ASL, NNS) with ability to Reading & Writing Level 1 Braille.</li>
-                        <li>Operational: Licensed driver, proficient swimmer, and safety-trained team player.</li>
-                        <li>Reliable Lead: Experienced in managing teams (CCTV, HR, and I.C.T. departments).</li>
-                        <li>Soft Skills: Resilient, analytical, self-motivated, and able to prioritize tasks with high reliability in fast paced environments.</li>
-                        <li>Book Writing: Published author across multiple genres, including Science Fiction, Forensics, and Epic Narratives, and Book Series.</li>
+                        <li><i class="fas fa-users"></i> Multilingual and Inclusive: Fluent in Pidgin West Africa, Expert in Sign Language (ASL, NNS) with ability to Reading & Writing Level 1 Braille.</li>
+
+                        <li><i class="fas fa-medal"></i> Operational: Licensed driver, proficient swimmer, and safety-trained team player.</li>
+
+                        <li><i class="fas fa-star"></i> Reliable Lead: Experienced in managing teams (CCTV, HR, and I.C.T. departments).</li>
+
+                        <li><i class="fas fa-award text-2xl text-deep-green"></i> Soft Skills: Resilient, analytical, self-motivated, and able to prioritize tasks with high reliability in fast paced environments.</li>
+
+                        <li><i class="fas fa-file-pdf"></i> Book Writing: Published author across multiple genres, including Science Fiction, Forensics, and Epic Narratives, and Book Series.</li>
                     </ul>
                  </p>                
             </div><br>
@@ -616,13 +595,13 @@
     </section>
 <!-----------------~~~~~~ FOOTER ~~~~~~----------------->    
     <footer>
+        <p><a href="forra.html"><img  src="static/images/logo.png" alt="Forra Corporation Logo"/></a></p>
+
         <p>&copy; <span id="currentYear"></span> Fredrick Ubi Portfolio | <a href="templates/forracorp.html"> Forra Corporation</a></p>
-            <a href="forra.html"><img  src="static/images/logo.png" 
-                style="float:left; position: relative; z-index: -0.3; margin-left:40px; margin-top:-40px; width:80px; height:80px; border-radius:25px;" alt="Forra Corporation Logo"/></a>
+            
              <hr/>
 
-        <p><a href="linkedin.com/in/fredrick-ubi">🔗 Linked<i>In</i></a>
-| <a href="mailto:fofem2@gmail.com">📧 fofem2@gmail.com</a> | 📞 +234 702 597 4815</p>
+        <p><a href="linkedin.com/in/fredrick-ubi"><i class="fab fa-linkedin"></i></a> | <a href="mailto:fofem2@gmail.com"><i class="fas fa-envelope text-2xl text-deep-green"></i></a> | <a href="https://github.com" aria-label="GitHub"><i class="fab fa-github"></i></a> | <i class="fas fa-phone-alt"></i> +234 702 597 4815</p><br>
     </footer>
 <!-----------------~~~~~~  ~~~~~~----------------->  
 
