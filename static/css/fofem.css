@@ -1,10 +1,10 @@
 /* --- General  CSS Styling  --- */ /* CSS Styling */
-
         :root {
             --background-dark: #1e1e1e;
             --background-light: #2c2c2c;     
             --background-dull: #1a1a1a;    /* Dull Background color [Ash Blue] */
-            --background-main: #05070a;     /* Primary Background color [Dark Background] */
+            --background-main: #05070a;    /* Primary Background color [Dark Background] */
+            --background-card: #12142e;     
             --primary-color: #00bcd4; /* Cyan/Turquoise for modern look */
             --secondary-color: #ff9800; /* Orange/Amber for accents */
             --other-color: #5c5c8a; /* Header Color */
@@ -294,6 +294,26 @@
             font-size: 1.5em;
             color: var(--primary-color);
             margin-top: 10px;
+        }
+
+        .avatar-frame {
+            animation: float 5s ease-in-out infinite, fadeIn 0.8s ease-in;
+            animation: 
+        }
+      
+        @keyframes float {
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-12px); }
+          100% { transform: translateY(0px); }
+        }
+        
+        @keyframes fadeIn { 
+            from { 
+                opacity: 0; 
+                transform: translateY(10px); 
+            } to { 
+                opacity: 1; 
+            } 
         }
 
 /* --- About Me Section --- */
@@ -786,6 +806,11 @@
                 flex-direction: column;
                 align-items: center;
             }
+           
+            .contact-grid {
+                flex-direction: column;  /* Switch the dive to block on small screen */
+            }
+        
         }
 
         /* Progress Bar Container - 5 minutes count down. */
@@ -830,15 +855,6 @@
             gap: 20px;
         }
         
-        .edu-card {
-            background-color: var(--background-dark);
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            border-bottom: 3px solid var(--primary-color);
-            z-index: 1;
-        }
-        
         .edu-card h4 {
             color: var(--secondary-color);
             font-size: 1.3em;
@@ -851,12 +867,28 @@
             color: var(--text-muted);
         }
         
-        .edu-card:hover{
-            background-color: var(--background-light);
-            box-shadow: 0 4px 8px rgba(1, 10, 110, 0.9);
-            border-bottom: 4px solid var(--secondary-color);
+        .edu-card {
+            padding: 25px;
+            background: var(--background-card);
+            border-radius: 2rem;
+            overflow: hidden;
+            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            border: 1px solid rgba(255, 107, 107, 0.2);
+            backdrop-filter: blur(2px);
+            border-bottom: 3px solid var(--primary-color);
+            z-index: 1;
+            box-shadow: 0 30px 35px -15px rgba(0,0,0,0.5);
         }
 
+        .edu-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-color: #ff8e6e;
+
+            background-color: var(--background-light);
+            box-shadow: 0 25px 40px rgba(1, 10, 110, 0.9);
+            border-bottom: 4px solid var(--secondary-color);
+        }
+        
     /* --- Educate-Contact ---*/ 
 
         .Educate-Contact {
@@ -874,7 +906,7 @@
             gap: 10px;
             padding-bottom: 60px;
         }
-        
+          
 
 /* --- Contact Me Section ----*/
 
@@ -986,11 +1018,12 @@
             font-size: 0.9em;
             color: #aaa;
             margin-top: -50px;
+            max-height: 200px;
+            display: block;
 
         }
          footer p{
             text-align: center;
-            align-items: center;
         }  
 
         footer a{
@@ -1003,6 +1036,16 @@
             text-decoration: none;
             font-size: 1.0em;
             color: var(--primary-color);
+        }
+        footer img {
+            z-index: -0.3;  
+            width:80px; 
+            height:80px; 
+
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            justify-content: center;
         }
 
 /*----- Sentinel Dashboard Theme For The Web Crawler Display -------*/
