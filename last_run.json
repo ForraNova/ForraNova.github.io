@@ -1,17 +1,30 @@
 {
-    "last_update": "April 14, 2026 | 01:03 PM",
+    "last_update": "April 14, 2026 | 04:02 PM",
     "status": "Online",
-    "total_found": 3,
+    "total_found": 6,
     "logs": [
-        "[13:03:42] SUCCESS: Machine Learning (0 found)",
-        "[13:03:44] SUCCESS: Front-End / React (3 found)",
-        "[13:03:47] SUCCESS: Writing / Creative (0 found)",
-        "[13:03:50] SUCCESS: Virtual Assistant (0 found)"
+        "[16:02:30] SUCCESS: Machine Learning (3 found)",
+        "[16:02:33] SUCCESS: Front-End / React (3 found)",
+        "[16:02:35] SUCCESS: Writing / Creative (0 found)",
+        "[16:02:38] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
-            "jobs": []
+            "jobs": [
+                {
+                    "position": "Senior Frontend Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
+                },
+                {
+                    "position": "Culture & People Development Specialist",
+                    "link": "https://remoteok.com/remote-jobs/remote-culture-people-development-specialist-ekumen-1131108"
+                },
+                {
+                    "position": "Operations Coordinator Clinical Trials",
+                    "link": "https://remoteok.com/remote-jobs/remote-operations-coordinator-clinical-trials-healthmatch-1131107"
+                }
+            ]
         },
         {
             "query": "Front-End / React",
