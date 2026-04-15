@@ -1,12 +1,12 @@
 {
-    "last_update": "April 14, 2026 | 09:42 PM",
+    "last_update": "April 15, 2026 | 01:44 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:42:29] SUCCESS: Machine Learning (3 found)",
-        "[21:42:31] SUCCESS: Front-End / React (3 found)",
-        "[21:42:33] SUCCESS: Writing / Creative (0 found)",
-        "[21:42:36] SUCCESS: Virtual Assistant (0 found)"
+        "[01:44:12] SUCCESS: Machine Learning (3 found)",
+        "[01:44:14] SUCCESS: Front-End / React (3 found)",
+        "[01:44:17] SUCCESS: Writing / Creative (0 found)",
+        "[01:44:20] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "Culture & People Development Specialist",
-                    "link": "https://remoteok.com/remote-jobs/remote-culture-people-development-specialist-ekumen-1131108"
+                    "position": "Software Engineer Payment Operations",
+                    "link": "https://remoteok.com/remote-jobs/remote-software-engineer-payment-operations-wingspan-1131116"
                 },
                 {
-                    "position": "Operations Coordinator Clinical Trials",
-                    "link": "https://remoteok.com/remote-jobs/remote-operations-coordinator-clinical-trials-healthmatch-1131107"
+                    "position": "Senior Manager Associate Director Strategy & Operations",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-manager-associate-director-strategy-operations-natera-1131115"
                 }
             ]
         },
@@ -34,12 +34,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "Xsolla Senior Full stack Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-xsolla-senior-full-stack-engineer-xsolla-1131072"
+                    "position": "Senior Software Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-loancrate-1130794"
                 },
                 {
-                    "position": "Staff Engineer Digital Lending",
-                    "link": "https://remoteok.com/remote-jobs/remote-staff-engineer-digital-lending-oaknorth-1131028"
+                    "position": "Xsolla Senior Full stack Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-xsolla-senior-full-stack-engineer-xsolla-1131072"
                 }
             ]
         },
