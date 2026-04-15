@@ -1,12 +1,12 @@
 {
-    "last_update": "April 15, 2026 | 03:59 PM",
+    "last_update": "April 15, 2026 | 07:02 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[15:59:22] SUCCESS: Machine Learning (3 found)",
-        "[15:59:25] SUCCESS: Front-End / React (3 found)",
-        "[15:59:28] SUCCESS: Writing / Creative (0 found)",
-        "[15:59:31] SUCCESS: Virtual Assistant (0 found)"
+        "[19:01:50] SUCCESS: Machine Learning (3 found)",
+        "[19:01:52] SUCCESS: Front-End / React (3 found)",
+        "[19:01:55] SUCCESS: Writing / Creative (0 found)",
+        "[19:01:58] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "Director of Content Marketing & Media",
-                    "link": "https://remoteok.com/remote-jobs/remote-director-of-content-marketing-amp-media-luxury-presence-1131121"
+                    "position": "Travel & Visa Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-travel-visa-manager-eqvilent-1131143"
                 },
                 {
-                    "position": "Banking Full Stack Software Developer TSCM 43657",
-                    "link": "https://remoteok.com/remote-jobs/remote-banking-full-stack-software-developer-tscm-43657-eleks-1131120"
+                    "position": "Paralegal Legal Operations",
+                    "link": "https://remoteok.com/remote-jobs/remote-paralegal-legal-operations-sterlington-pllc-1131142"
                 }
             ]
         },
@@ -34,12 +34,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "Senior Software Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-loancrate-1130794"
-                },
-                {
                     "position": "Xsolla Senior Full stack Engineer",
                     "link": "https://remoteok.com/remote-jobs/remote-xsolla-senior-full-stack-engineer-xsolla-1131072"
+                },
+                {
+                    "position": "Staff Engineer Digital Lending",
+                    "link": "https://remoteok.com/remote-jobs/remote-staff-engineer-digital-lending-oaknorth-1131028"
                 }
             ]
         },
