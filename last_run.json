@@ -1,12 +1,12 @@
 {
-    "last_update": "April 15, 2026 | 07:19 AM",
+    "last_update": "April 15, 2026 | 10:09 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[07:19:15] SUCCESS: Machine Learning (3 found)",
-        "[07:19:17] SUCCESS: Front-End / React (3 found)",
-        "[07:19:19] SUCCESS: Writing / Creative (0 found)",
-        "[07:19:23] SUCCESS: Virtual Assistant (0 found)"
+        "[10:09:02] SUCCESS: Machine Learning (3 found)",
+        "[10:09:05] SUCCESS: Front-End / React (3 found)",
+        "[10:09:07] SUCCESS: Writing / Creative (0 found)",
+        "[10:09:10] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "Software Engineer Payment Operations",
-                    "link": "https://remoteok.com/remote-jobs/remote-software-engineer-payment-operations-wingspan-1131116"
+                    "position": "Director of Content Marketing & Media",
+                    "link": "https://remoteok.com/remote-jobs/remote-director-of-content-marketing-amp-media-luxury-presence-1131121"
                 },
                 {
-                    "position": "Senior Manager Associate Director Strategy & Operations",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-manager-associate-director-strategy-operations-natera-1131115"
+                    "position": "Banking Full Stack Software Developer TSCM 43657",
+                    "link": "https://remoteok.com/remote-jobs/remote-banking-full-stack-software-developer-tscm-43657-eleks-1131120"
                 }
             ]
         },
