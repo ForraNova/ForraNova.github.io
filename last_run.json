@@ -1,12 +1,12 @@
 {
-    "last_update": "April 16, 2026 | 01:08 PM",
+    "last_update": "April 16, 2026 | 04:16 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[13:07:51] SUCCESS: Machine Learning (3 found)",
-        "[13:07:54] SUCCESS: Front-End / React (3 found)",
-        "[13:07:56] SUCCESS: Writing / Creative (0 found)",
-        "[13:07:59] SUCCESS: Virtual Assistant (0 found)"
+        "[16:16:18] SUCCESS: Machine Learning (3 found)",
+        "[16:16:21] SUCCESS: Front-End / React (3 found)",
+        "[16:16:24] SUCCESS: Writing / Creative (0 found)",
+        "[16:16:27] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "UI UX Designer UK",
-                    "link": "https://remoteok.com/remote-jobs/remote-ui-ux-designer-uk-bjak-1131158"
+                    "position": "Crypto Trader",
+                    "link": "https://remoteok.com/remote-jobs/remote-crypto-trader-fox-global-assets-1131163"
                 },
                 {
-                    "position": "Aprio PH People Operations Coordinator",
-                    "link": "https://remoteok.com/remote-jobs/remote-aprio-ph-people-operations-coordinator-aprio-1131157"
+                    "position": "Global Data Partnership Director",
+                    "link": "https://remoteok.com/remote-jobs/remote-global-data-partnership-director-insider-one-1131171"
                 }
             ]
         },
