@@ -1,12 +1,12 @@
 {
-    "last_update": "April 15, 2026 | 09:43 PM",
+    "last_update": "April 16, 2026 | 01:49 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:42:50] SUCCESS: Machine Learning (3 found)",
-        "[21:42:52] SUCCESS: Front-End / React (3 found)",
-        "[21:42:55] SUCCESS: Writing / Creative (0 found)",
-        "[21:42:58] SUCCESS: Virtual Assistant (0 found)"
+        "[01:49:08] SUCCESS: Machine Learning (3 found)",
+        "[01:49:10] SUCCESS: Front-End / React (3 found)",
+        "[01:49:13] SUCCESS: Writing / Creative (0 found)",
+        "[01:49:16] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "Travel & Visa Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-travel-visa-manager-eqvilent-1131143"
+                    "position": "Technical Support Analyst",
+                    "link": "https://remoteok.com/remote-jobs/remote-technical-support-analyst-yuno-1131151"
                 },
                 {
-                    "position": "Paralegal Legal Operations",
-                    "link": "https://remoteok.com/remote-jobs/remote-paralegal-legal-operations-sterlington-pllc-1131142"
+                    "position": "Director Revenue Transformation",
+                    "link": "https://remoteok.com/remote-jobs/remote-director-revenue-transformation-gong-io-1131150"
                 }
             ]
         },
