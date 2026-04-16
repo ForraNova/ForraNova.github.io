@@ -1,12 +1,12 @@
 {
-    "last_update": "April 16, 2026 | 07:19 AM",
+    "last_update": "April 16, 2026 | 10:08 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[07:19:40] SUCCESS: Machine Learning (3 found)",
-        "[07:19:43] SUCCESS: Front-End / React (3 found)",
-        "[07:19:45] SUCCESS: Writing / Creative (0 found)",
-        "[07:19:48] SUCCESS: Virtual Assistant (0 found)"
+        "[10:08:09] SUCCESS: Machine Learning (3 found)",
+        "[10:08:11] SUCCESS: Front-End / React (3 found)",
+        "[10:08:13] SUCCESS: Writing / Creative (0 found)",
+        "[10:08:16] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "Technical Support Analyst",
-                    "link": "https://remoteok.com/remote-jobs/remote-technical-support-analyst-yuno-1131151"
+                    "position": "UI UX Designer UK",
+                    "link": "https://remoteok.com/remote-jobs/remote-ui-ux-designer-uk-bjak-1131158"
                 },
                 {
-                    "position": "Director Revenue Transformation",
-                    "link": "https://remoteok.com/remote-jobs/remote-director-revenue-transformation-gong-io-1131150"
+                    "position": "Aprio PH People Operations Coordinator",
+                    "link": "https://remoteok.com/remote-jobs/remote-aprio-ph-people-operations-coordinator-aprio-1131157"
                 }
             ]
         },
