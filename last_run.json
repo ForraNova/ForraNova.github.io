@@ -1,12 +1,12 @@
 {
-    "last_update": "April 16, 2026 | 04:16 PM",
+    "last_update": "April 16, 2026 | 06:59 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[16:16:18] SUCCESS: Machine Learning (3 found)",
-        "[16:16:21] SUCCESS: Front-End / React (3 found)",
-        "[16:16:24] SUCCESS: Writing / Creative (0 found)",
-        "[16:16:27] SUCCESS: Virtual Assistant (0 found)"
+        "[18:59:42] SUCCESS: Machine Learning (3 found)",
+        "[18:59:45] SUCCESS: Front-End / React (3 found)",
+        "[18:59:47] SUCCESS: Writing / Creative (0 found)",
+        "[18:59:51] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -34,12 +34,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "Xsolla Senior Full stack Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-xsolla-senior-full-stack-engineer-xsolla-1131072"
+                    "position": "Senior React Native Developer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-react-native-developer-headway-1131173"
                 },
                 {
-                    "position": "Staff Engineer Digital Lending",
-                    "link": "https://remoteok.com/remote-jobs/remote-staff-engineer-digital-lending-oaknorth-1131028"
+                    "position": "Xsolla Senior Full stack Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-xsolla-senior-full-stack-engineer-xsolla-1131072"
                 }
             ]
         },
