@@ -1,12 +1,12 @@
 {
-    "last_update": "April 17, 2026 | 09:33 PM",
+    "last_update": "April 18, 2026 | 01:24 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:33:46] SUCCESS: Machine Learning (3 found)",
-        "[21:33:49] SUCCESS: Front-End / React (3 found)",
-        "[21:33:52] SUCCESS: Writing / Creative (0 found)",
-        "[21:33:55] SUCCESS: Virtual Assistant (0 found)"
+        "[01:24:32] SUCCESS: Machine Learning (3 found)",
+        "[01:24:35] SUCCESS: Front-End / React (3 found)",
+        "[01:24:37] SUCCESS: Writing / Creative (0 found)",
+        "[01:24:40] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "Crypto Trader",
-                    "link": "https://remoteok.com/remote-jobs/remote-crypto-trader-fox-global-assets-1131163"
+                    "position": "Senior Marketing Manager Paid Ads",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
                 },
                 {
-                    "position": "Purchasing Specialist III",
-                    "link": "https://remoteok.com/remote-jobs/remote-purchasing-specialist-iii-lg-electronics-1131200"
+                    "position": "Go To Market Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-go-to-market-engineer-testgorilla-1130833"
                 }
             ]
         },
