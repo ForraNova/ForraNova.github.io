@@ -1,12 +1,12 @@
 {
-    "last_update": "April 21, 2026 | 07:22 AM",
+    "last_update": "April 21, 2026 | 10:12 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[07:22:31] SUCCESS: Machine Learning (3 found)",
-        "[07:22:34] SUCCESS: Front-End / React (3 found)",
-        "[07:22:36] SUCCESS: Writing / Creative (0 found)",
-        "[07:22:40] SUCCESS: Virtual Assistant (0 found)"
+        "[10:12:00] SUCCESS: Machine Learning (3 found)",
+        "[10:12:03] SUCCESS: Front-End / React (3 found)",
+        "[10:12:05] SUCCESS: Writing / Creative (0 found)",
+        "[10:12:09] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
                 },
                 {
-                    "position": "Product Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-product-engineer-superplane-1131228"
+                    "position": "Crypto Trader",
+                    "link": "https://remoteok.com/remote-jobs/remote-crypto-trader-fox-global-assets-1131243"
                 },
                 {
-                    "position": "Senior Marketing Manager Paid Ads",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
+                    "position": "Product Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-product-engineer-superplane-1131228"
                 }
             ]
         },
