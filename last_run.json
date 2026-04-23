@@ -1,21 +1,17 @@
 {
-    "last_update": "April 23, 2026 | 01:03 PM",
+    "last_update": "April 23, 2026 | 04:25 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[13:02:51] SUCCESS: Machine Learning (3 found)",
-        "[13:02:54] SUCCESS: Front-End / React (3 found)",
-        "[13:02:56] SUCCESS: Writing / Creative (0 found)",
-        "[13:02:59] SUCCESS: Virtual Assistant (0 found)"
+        "[16:24:54] SUCCESS: Machine Learning (3 found)",
+        "[16:24:57] SUCCESS: Front-End / React (3 found)",
+        "[16:24:59] SUCCESS: Writing / Creative (0 found)",
+        "[16:25:02] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
             "jobs": [
-                {
-                    "position": "Senior Frontend Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
-                },
                 {
                     "position": "Crypto Trader",
                     "link": "https://remoteok.com/remote-jobs/remote-crypto-trader-elemental-terra-1130867"
@@ -23,6 +19,10 @@
                 {
                     "position": "Crypto Trader",
                     "link": "https://remoteok.com/remote-jobs/remote-crypto-trader-fox-global-assets-1131243"
+                },
+                {
+                    "position": "Product Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-product-engineer-superplane-1131228"
                 }
             ]
         },
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
-                    "position": "Senior Frontend Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-level-1130614"
-                },
-                {
                     "position": "Senior React Native Developer",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-react-native-developer-headway-1131173"
                 },
                 {
                     "position": "Xsolla Senior Full stack Engineer",
                     "link": "https://remoteok.com/remote-jobs/remote-xsolla-senior-full-stack-engineer-xsolla-1131072"
+                },
+                {
+                    "position": "Staff Engineer Digital Lending",
+                    "link": "https://remoteok.com/remote-jobs/remote-staff-engineer-digital-lending-oaknorth-1131028"
                 }
             ]
         },
