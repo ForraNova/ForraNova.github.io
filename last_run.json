@@ -1,12 +1,12 @@
 {
-    "last_update": "April 24, 2026 | 03:59 PM",
+    "last_update": "April 24, 2026 | 06:38 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[15:59:17] SUCCESS: Machine Learning (3 found)",
-        "[15:59:20] SUCCESS: Front-End / React (3 found)",
-        "[15:59:22] SUCCESS: Writing / Creative (0 found)",
-        "[15:59:25] SUCCESS: Virtual Assistant (0 found)"
+        "[18:37:56] SUCCESS: Machine Learning (3 found)",
+        "[18:37:58] SUCCESS: Front-End / React (3 found)",
+        "[18:38:01] SUCCESS: Writing / Creative (0 found)",
+        "[18:38:04] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Full Stack Product Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-full-stack-product-engineer-pivotal-health-1131314"
+                },
+                {
                     "position": "Full Stack Developer",
                     "link": "https://remoteok.com/remote-jobs/remote-full-stack-developer-envision-horizons-llc-1131303"
                 },
                 {
                     "position": "Senior React Native Developer",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-react-native-developer-headway-1131173"
-                },
-                {
-                    "position": "Xsolla Senior Full stack Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-xsolla-senior-full-stack-engineer-xsolla-1131072"
                 }
             ]
         },
