@@ -1,17 +1,30 @@
 {
-    "last_update": "April 26, 2026 | 03:35 PM",
+    "last_update": "April 26, 2026 | 06:38 PM",
     "status": "Online",
-    "total_found": 3,
+    "total_found": 6,
     "logs": [
-        "[15:34:58] SUCCESS: Machine Learning (0 found)",
-        "[15:35:00] SUCCESS: Front-End / React (3 found)",
-        "[15:35:03] SUCCESS: Writing / Creative (0 found)",
-        "[15:35:06] SUCCESS: Virtual Assistant (0 found)"
+        "[18:37:53] SUCCESS: Machine Learning (3 found)",
+        "[18:37:56] SUCCESS: Front-End / React (3 found)",
+        "[18:37:58] SUCCESS: Writing / Creative (0 found)",
+        "[18:38:01] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
-            "jobs": []
+            "jobs": [
+                {
+                    "position": "Crypto Trader",
+                    "link": "https://remoteok.com/remote-jobs/remote-crypto-trader-elemental-terra-1130867"
+                },
+                {
+                    "position": "Crypto Trader",
+                    "link": "https://remoteok.com/remote-jobs/remote-crypto-trader-fox-global-assets-1131243"
+                },
+                {
+                    "position": "Product Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-product-engineer-superplane-1131228"
+                }
+            ]
         },
         {
             "query": "Front-End / React",
