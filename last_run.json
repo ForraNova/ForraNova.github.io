@@ -1,12 +1,12 @@
 {
-    "last_update": "April 27, 2026 | 01:18 PM",
+    "last_update": "April 27, 2026 | 04:20 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[13:18:42] SUCCESS: Machine Learning (3 found)",
-        "[13:18:45] SUCCESS: Front-End / React (3 found)",
-        "[13:18:48] SUCCESS: Writing / Creative (0 found)",
-        "[13:18:51] SUCCESS: Virtual Assistant (0 found)"
+        "[16:20:07] SUCCESS: Machine Learning (3 found)",
+        "[16:20:09] SUCCESS: Front-End / React (3 found)",
+        "[16:20:11] SUCCESS: Writing / Creative (0 found)",
+        "[16:20:15] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Engineer Software",
+                    "link": "https://remoteok.com/remote-jobs/remote-engineer-software-calabrio-1131345"
+                },
+                {
                     "position": "Senior Full stack React Developer",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-full-stack-react-developer-lemon-io-1131339"
                 },
                 {
                     "position": "Full Stack Product Engineer",
                     "link": "https://remoteok.com/remote-jobs/remote-full-stack-product-engineer-pivotal-health-1131314"
-                },
-                {
-                    "position": "Full Stack Developer",
-                    "link": "https://remoteok.com/remote-jobs/remote-full-stack-developer-envision-horizons-llc-1131303"
                 }
             ]
         },
