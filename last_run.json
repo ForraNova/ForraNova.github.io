@@ -1,12 +1,12 @@
 {
-    "last_update": "April 27, 2026 | 08:06 AM",
+    "last_update": "April 27, 2026 | 10:53 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[08:05:54] SUCCESS: Machine Learning (3 found)",
-        "[08:05:56] SUCCESS: Front-End / React (3 found)",
-        "[08:05:59] SUCCESS: Writing / Creative (0 found)",
-        "[08:06:02] SUCCESS: Virtual Assistant (0 found)"
+        "[10:53:03] SUCCESS: Machine Learning (3 found)",
+        "[10:53:05] SUCCESS: Front-End / React (3 found)",
+        "[10:53:07] SUCCESS: Writing / Creative (0 found)",
+        "[10:53:10] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Senior Full stack React Developer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-full-stack-react-developer-lemon-io-1131339"
+                },
+                {
                     "position": "Full Stack Product Engineer",
                     "link": "https://remoteok.com/remote-jobs/remote-full-stack-product-engineer-pivotal-health-1131314"
                 },
                 {
                     "position": "Full Stack Developer",
                     "link": "https://remoteok.com/remote-jobs/remote-full-stack-developer-envision-horizons-llc-1131303"
-                },
-                {
-                    "position": "Senior React Native Developer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-react-native-developer-headway-1131173"
                 }
             ]
         },
