@@ -1,17 +1,21 @@
 {
-    "last_update": "April 28, 2026 | 07:20 PM",
+    "last_update": "April 28, 2026 | 09:50 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[19:20:32] SUCCESS: Machine Learning (3 found)",
-        "[19:20:35] SUCCESS: Front-End / React (3 found)",
-        "[19:20:37] SUCCESS: Writing / Creative (0 found)",
-        "[19:20:40] SUCCESS: Virtual Assistant (0 found)"
+        "[21:50:25] SUCCESS: Machine Learning (3 found)",
+        "[21:50:27] SUCCESS: Front-End / React (3 found)",
+        "[21:50:30] SUCCESS: Writing / Creative (0 found)",
+        "[21:50:33] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
             "jobs": [
+                {
+                    "position": "HIGH TICKET OUTBOUND SALES WANTED",
+                    "link": "https://remoteok.com/remote-jobs/remote-high-ticket-outbound-sales-wanted-fse-1131368"
+                },
                 {
                     "position": "Crypto Trader",
                     "link": "https://remoteok.com/remote-jobs/remote-crypto-trader-elemental-terra-1130867"
@@ -19,10 +23,6 @@
                 {
                     "position": "Automation Engineer",
                     "link": "https://remoteok.com/remote-jobs/remote-automation-engineer-syner-g-1131367"
-                },
-                {
-                    "position": "Pharmacy Liaison",
-                    "link": "https://remoteok.com/remote-jobs/remote-pharmacy-liaison-shields-health-solutions-1131366"
                 }
             ]
         },
