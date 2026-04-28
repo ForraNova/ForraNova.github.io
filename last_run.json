@@ -1,12 +1,12 @@
 {
-    "last_update": "April 28, 2026 | 01:29 PM",
+    "last_update": "April 28, 2026 | 04:47 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[13:29:42] SUCCESS: Machine Learning (3 found)",
-        "[13:29:44] SUCCESS: Front-End / React (3 found)",
-        "[13:29:47] SUCCESS: Writing / Creative (0 found)",
-        "[13:29:50] SUCCESS: Virtual Assistant (0 found)"
+        "[16:46:52] SUCCESS: Machine Learning (3 found)",
+        "[16:46:55] SUCCESS: Front-End / React (3 found)",
+        "[16:46:57] SUCCESS: Writing / Creative (0 found)",
+        "[16:47:00] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-crypto-trader-elemental-terra-1130867"
                 },
                 {
-                    "position": "Crypto Trader",
-                    "link": "https://remoteok.com/remote-jobs/remote-crypto-trader-fox-global-assets-1131243"
+                    "position": "Automation Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-automation-engineer-syner-g-1131367"
                 },
                 {
-                    "position": "UX Designer II",
-                    "link": "https://remoteok.com/remote-jobs/remote-ux-designer-ii-renaissance-learning-north-america-1131362"
+                    "position": "Pharmacy Liaison",
+                    "link": "https://remoteok.com/remote-jobs/remote-pharmacy-liaison-shields-health-solutions-1131366"
                 }
             ]
         },
