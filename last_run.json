@@ -1,12 +1,12 @@
 {
-    "last_update": "April 29, 2026 | 01:24 PM",
+    "last_update": "April 29, 2026 | 04:24 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[13:23:59] SUCCESS: Machine Learning (3 found)",
-        "[13:24:02] SUCCESS: Front-End / React (3 found)",
-        "[13:24:04] SUCCESS: Writing / Creative (0 found)",
-        "[13:24:07] SUCCESS: Virtual Assistant (0 found)"
+        "[16:23:53] SUCCESS: Machine Learning (3 found)",
+        "[16:23:55] SUCCESS: Front-End / React (3 found)",
+        "[16:23:58] SUCCESS: Writing / Creative (0 found)",
+        "[16:24:01] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-crypto-trader-elemental-terra-1130867"
                 },
                 {
-                    "position": "Backend Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-backend-engineer-paperpile-1131382"
+                    "position": "Counsel Business & Legal Affairs",
+                    "link": "https://remoteok.com/remote-jobs/remote-counsel-business-legal-affairs-mlb-network-1131384"
                 }
             ]
         },
