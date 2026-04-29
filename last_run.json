@@ -1,12 +1,12 @@
 {
-    "last_update": "April 29, 2026 | 08:01 AM",
+    "last_update": "April 29, 2026 | 10:46 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[08:01:01] SUCCESS: Machine Learning (3 found)",
-        "[08:01:04] SUCCESS: Front-End / React (3 found)",
-        "[08:01:06] SUCCESS: Writing / Creative (0 found)",
-        "[08:01:09] SUCCESS: Virtual Assistant (0 found)"
+        "[10:46:28] SUCCESS: Machine Learning (3 found)",
+        "[10:46:30] SUCCESS: Front-End / React (3 found)",
+        "[10:46:32] SUCCESS: Writing / Creative (0 found)",
+        "[10:46:35] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-crypto-trader-elemental-terra-1130867"
                 },
                 {
-                    "position": "Senior Software Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-interra-health-1131380"
+                    "position": "Backend Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-backend-engineer-paperpile-1131382"
                 }
             ]
         },
