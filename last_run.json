@@ -1,12 +1,12 @@
 {
-    "last_update": "April 29, 2026 | 09:53 PM",
+    "last_update": "April 30, 2026 | 02:03 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:52:59] SUCCESS: Machine Learning (3 found)",
-        "[21:53:02] SUCCESS: Front-End / React (3 found)",
-        "[21:53:04] SUCCESS: Writing / Creative (0 found)",
-        "[21:53:07] SUCCESS: Virtual Assistant (0 found)"
+        "[02:03:16] SUCCESS: Machine Learning (3 found)",
+        "[02:03:19] SUCCESS: Front-End / React (3 found)",
+        "[02:03:21] SUCCESS: Writing / Creative (0 found)",
+        "[02:03:24] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-crypto-trader-elemental-terra-1130867"
                 },
                 {
-                    "position": "Lite Controller Pathfinder Hospitality",
-                    "link": "https://remoteok.com/remote-jobs/remote-lite-controller-pathfinder-hospitality-pathfinder-hospitality-1131385"
+                    "position": "Legal Data Analyst Junior Vaga Afirmativa para PCD",
+                    "link": "https://remoteok.com/remote-jobs/remote-legal-data-analyst-junior-vaga-afirmativa-para-pcd-jusbrasil-1131393"
                 }
             ]
         },
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Integration Test Manager VHA Required",
+                    "link": "https://remoteok.com/remote-jobs/remote-integration-test-manager-vha-required-ibility-1131389"
+                },
+                {
                     "position": "Engineer Software",
                     "link": "https://remoteok.com/remote-jobs/remote-engineer-software-calabrio-1131345"
                 },
                 {
                     "position": "Senior Full stack React Developer",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-full-stack-react-developer-lemon-io-1131339"
-                },
-                {
-                    "position": "Full Stack Product Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-full-stack-product-engineer-pivotal-health-1131314"
                 }
             ]
         },
