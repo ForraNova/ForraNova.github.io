@@ -1,12 +1,12 @@
 {
-    "last_update": "April 30, 2026 | 01:21 PM",
+    "last_update": "April 30, 2026 | 04:13 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[13:21:36] SUCCESS: Machine Learning (3 found)",
-        "[13:21:39] SUCCESS: Front-End / React (3 found)",
-        "[13:21:41] SUCCESS: Writing / Creative (0 found)",
-        "[13:21:44] SUCCESS: Virtual Assistant (0 found)"
+        "[16:13:29] SUCCESS: Machine Learning (3 found)",
+        "[16:13:31] SUCCESS: Front-End / React (3 found)",
+        "[16:13:34] SUCCESS: Writing / Creative (0 found)",
+        "[16:13:37] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-crypto-trader-elemental-terra-1130867"
                 },
                 {
-                    "position": "Product Marketing Lead",
-                    "link": "https://remoteok.com/remote-jobs/remote-product-marketing-lead-paragon-1131395"
+                    "position": "Strategic Business Development Consultant",
+                    "link": "https://remoteok.com/remote-jobs/remote-strategic-business-development-consultant-vonage-1131403"
                 }
             ]
         },
