@@ -1,12 +1,12 @@
 {
-    "last_update": "April 30, 2026 | 05:49 AM",
+    "last_update": "April 30, 2026 | 08:05 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[05:49:40] SUCCESS: Machine Learning (3 found)",
-        "[05:49:43] SUCCESS: Front-End / React (3 found)",
-        "[05:49:45] SUCCESS: Writing / Creative (0 found)",
-        "[05:49:48] SUCCESS: Virtual Assistant (0 found)"
+        "[08:04:55] SUCCESS: Machine Learning (3 found)",
+        "[08:04:58] SUCCESS: Front-End / React (3 found)",
+        "[08:05:00] SUCCESS: Writing / Creative (0 found)",
+        "[08:05:04] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-crypto-trader-elemental-terra-1130867"
                 },
                 {
-                    "position": "Legal Data Analyst Junior Vaga Afirmativa para PCD",
-                    "link": "https://remoteok.com/remote-jobs/remote-legal-data-analyst-junior-vaga-afirmativa-para-pcd-jusbrasil-1131393"
+                    "position": "Product Marketing Lead",
+                    "link": "https://remoteok.com/remote-jobs/remote-product-marketing-lead-paragon-1131395"
                 }
             ]
         },
