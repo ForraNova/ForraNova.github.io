@@ -1,17 +1,21 @@
 {
-    "last_update": "May 01, 2026 | 10:16 AM",
+    "last_update": "May 01, 2026 | 12:57 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[10:16:01] SUCCESS: Machine Learning (3 found)",
-        "[10:16:04] SUCCESS: Front-End / React (3 found)",
-        "[10:16:06] SUCCESS: Writing / Creative (0 found)",
-        "[10:16:09] SUCCESS: Virtual Assistant (0 found)"
+        "[12:57:02] SUCCESS: Machine Learning (3 found)",
+        "[12:57:05] SUCCESS: Front-End / React (3 found)",
+        "[12:57:07] SUCCESS: Writing / Creative (0 found)",
+        "[12:57:10] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
             "jobs": [
+                {
+                    "position": "Entry Level Crypto Market Specialist",
+                    "link": "https://remoteok.com/remote-jobs/remote-entry-level-crypto-market-specialist-infiniti-group-1131416"
+                },
                 {
                     "position": "HIGH TICKET OUTBOUND SALES WANTED",
                     "link": "https://remoteok.com/remote-jobs/remote-high-ticket-outbound-sales-wanted-fse-1131368"
@@ -19,10 +23,6 @@
                 {
                     "position": "Crypto Trader",
                     "link": "https://remoteok.com/remote-jobs/remote-crypto-trader-elemental-terra-1130867"
-                },
-                {
-                    "position": "Senior Data Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-data-engineer-business-wire-1131415"
                 }
             ]
         },
