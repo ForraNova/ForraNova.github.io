@@ -1,12 +1,12 @@
 {
-    "last_update": "May 06, 2026 | 05:48 AM",
+    "last_update": "May 06, 2026 | 08:08 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[05:48:40] SUCCESS: Machine Learning (3 found)",
-        "[05:48:43] SUCCESS: Front-End / React (3 found)",
-        "[05:48:45] SUCCESS: Writing / Creative (0 found)",
-        "[05:48:48] SUCCESS: Virtual Assistant (0 found)"
+        "[08:08:18] SUCCESS: Machine Learning (3 found)",
+        "[08:08:20] SUCCESS: Front-End / React (3 found)",
+        "[08:08:23] SUCCESS: Writing / Creative (0 found)",
+        "[08:08:26] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-entry-level-crypto-market-specialist-infiniti-group-1131416"
                 },
                 {
-                    "position": "Senior Software Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-prove-1131482"
+                    "position": "Senior Veritas eDiscovery Platform Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-veritas-ediscovery-platform-engineer-contact-government-services-llc-1131484"
                 }
             ]
         },
