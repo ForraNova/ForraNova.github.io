@@ -1,12 +1,12 @@
 {
-    "last_update": "May 07, 2026 | 11:01 AM",
+    "last_update": "May 07, 2026 | 01:29 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[11:01:06] SUCCESS: Machine Learning (3 found)",
-        "[11:01:08] SUCCESS: Front-End / React (3 found)",
-        "[11:01:11] SUCCESS: Writing / Creative (0 found)",
-        "[11:01:14] SUCCESS: Virtual Assistant (0 found)"
+        "[13:28:52] SUCCESS: Machine Learning (3 found)",
+        "[13:28:55] SUCCESS: Front-End / React (3 found)",
+        "[13:28:57] SUCCESS: Writing / Creative (0 found)",
+        "[13:29:00] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-entry-level-crypto-market-specialist-infiniti-group-1131416"
                 },
                 {
-                    "position": "Clinical Provider",
-                    "link": "https://remoteok.com/remote-jobs/remote-clinical-provider-intellect-1131505"
+                    "position": "Senior Software Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-cast-ai-1131507"
                 }
             ]
         },
