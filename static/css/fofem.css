@@ -70,6 +70,7 @@
             height: 100px;
             top: 5px;
             z-index: 1000;
+            white-space: nowrap;
         }
 
         .nav-container {
@@ -185,6 +186,33 @@
             }
         }
 
+        .dropdown {
+          position: relative;
+          display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgb(133, 133, 173);
+            min-width: 170px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+         @media (max-width: 768px) {
+                    /* 1. Show the Hamburger Icon */
+              .dropdown-content {
+                  display: none;
+                  min-width: 170px;
+                  z-index: 1;
+                  margin-top: -50px;
+                  overflow: scroll;
+                }
+            }
+        .dropdown:hover .dropdown-content {
+          display: block;
+        }
+
         /* --- Language Selector ---- */
         .lang {
             /* Key change: Position relative for absolute positioning of the dropdown list */
@@ -267,6 +295,7 @@
             margin: 10px;
         }
 
+
 /* --- Hero Section --- */
         #hero {
             box-shadow: 5px 5px 4px 5px #888888; 
@@ -345,6 +374,57 @@
             border-radius: 10px;
         }
 
+        /* Audio Row Side-by-Side Logic */
+        .bio_audio {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            gap: 20px;
+        }
+
+        .bio-info {
+            flex-grow: 1;
+        }
+
+        .audio-info h5 {
+            margin: 0 0 8px 0;
+            color: var(--primary-color);
+        }
+
+        /* Responsive: Audio stacks on small screens */
+        @media (max-width: 768px) {
+            .bio_audio {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+
+        }
+
+        /* Download Link Style */
+        .bio_download {
+            background: var(--secondary-color); 
+            color: var(--background-light) !important;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: bold;
+            white-space: nowrap;
+            transition: transform 0.2s;
+        }
+
+        .bio_download:hover {
+            transform: scale(1.05);
+            background: var(--primary-color);
+            color: var(--text-white) !important;
+
+        }
+
         /* Simple Way To Animate: The glass-home element */
         .glass-home::after, .glass-home::before {
             content: '';
@@ -379,6 +459,7 @@
                 --angle: 0deg;
             }
         }
+
         
     /* --- Infograghic --- */
         /* Existing Global Styles (For context) */
@@ -409,7 +490,7 @@
         }
 
         /* --- Media Query for Small Screens (Max-width 768px, typical for phones/small tablets) --- */
-        @media (max-width: 3000px) { /*max-width: 768px but changed to 3000px to remain scrollable in all devices.*/
+        @media (max-width: 1000px) { /*max-width: 768px but changed to 3000px to remain scrollable in all devices.*/
             #mid {
                 /* * On small screens, force the grid to create columns for ALL items 
                  * side-by-side, making the container much wider than the viewport.
