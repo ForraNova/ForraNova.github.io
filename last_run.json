@@ -1,12 +1,12 @@
 {
-    "last_update": "May 08, 2026 | 07:16 AM",
+    "last_update": "May 08, 2026 | 10:18 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[07:16:32] SUCCESS: Machine Learning (3 found)",
-        "[07:16:34] SUCCESS: Front-End / React (3 found)",
-        "[07:16:37] SUCCESS: Writing / Creative (0 found)",
-        "[07:16:40] SUCCESS: Virtual Assistant (0 found)"
+        "[10:18:00] SUCCESS: Machine Learning (3 found)",
+        "[10:18:02] SUCCESS: Front-End / React (3 found)",
+        "[10:18:04] SUCCESS: Writing / Creative (0 found)",
+        "[10:18:07] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-entry-level-crypto-market-specialist-infiniti-group-1131416"
                 },
                 {
-                    "position": "Web Development Specialist",
-                    "link": "https://remoteok.com/remote-jobs/remote-web-development-specialist-marketers-in-demand-1131516"
+                    "position": "Senior Manager Government & Industry Affairs Operations",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-manager-government-industry-affairs-operations-vgw-1131518"
                 }
             ]
         },
