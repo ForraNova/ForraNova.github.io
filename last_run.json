@@ -1,12 +1,12 @@
 {
-    "last_update": "May 08, 2026 | 01:09 PM",
+    "last_update": "May 08, 2026 | 04:09 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[13:09:30] SUCCESS: Machine Learning (3 found)",
-        "[13:09:32] SUCCESS: Front-End / React (3 found)",
-        "[13:09:35] SUCCESS: Writing / Creative (0 found)",
-        "[13:09:38] SUCCESS: Virtual Assistant (0 found)"
+        "[16:09:26] SUCCESS: Machine Learning (3 found)",
+        "[16:09:29] SUCCESS: Front-End / React (3 found)",
+        "[16:09:31] SUCCESS: Writing / Creative (0 found)",
+        "[16:09:34] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-stellar-ai-1128869"
                 },
                 {
-                    "position": "Entry Level Crypto Market Specialist",
-                    "link": "https://remoteok.com/remote-jobs/remote-entry-level-crypto-market-specialist-infiniti-group-1131416"
+                    "position": "Engineering Manager AI Fleet Management & Honk",
+                    "link": "https://remoteok.com/remote-jobs/remote-engineering-manager-ai-fleet-management-amp-honk-spotify-1131520"
                 },
                 {
-                    "position": "Senior Manager Government & Industry Affairs Operations",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-manager-government-industry-affairs-operations-vgw-1131518"
+                    "position": "Staff Product Designer Business Banking",
+                    "link": "https://remoteok.com/remote-jobs/remote-staff-product-designer-business-banking-monzo-1131519"
                 }
             ]
         },
