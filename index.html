@@ -17,7 +17,8 @@
 <header>
         <div class="container nav-container">
             
-           <a href="#hero" class="logo"><img src="static/images/logoF.png" alt=" ForraCorp. Logo" style="float:left; margin-left:20px; width:120px; height:120px;" /></a>
+           <a href="#hero" class="logo"><img src="static/images/logoF.png" alt=" ForraCorp. Logo" style="float:left; margin-left:20px; width:120px; height:120px;             overflow-y: visible;
+" /></a>
             
             <nav id="main-nav">
                 <ul>
@@ -25,11 +26,20 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="templates/forracorp.html">Projects</a></li>
-                    <li><a href="templates/pearls.html">AI Training</a></li>
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#education">Education</a></li>
+                    <li><a href="templates/pearls.html">AI Training</a></li>
+<!---
+                    <div class="dropdown">
+                       <li><a><span>ForraNova ▼</span></a></li>
+                        <div class="dropdown-content">
+                          <li><a href="templates/pearls.html">AI Training</a></li>
+                          <li><a href="templates/AI_Talk.html"><p>AI Chat Show</p></a></li>
+                        </div>
+                    </div>
+--->                    
                     <li><a href="#contact">Contact</a></li>
-                    </ul> 
+                </ul> 
             </nav>
     
             <div class="hamburger" id="hamburger-menu">
@@ -74,8 +84,17 @@
  <!-------------------~~~~~~ ABOUT ME ~~~~~~--------------------->
     <section id="about">
         <h2 style="margin-top:50px;">About Me</h2>
-        <div class="bio">
-
+           
+            <div class="bio_audio">
+                <div class="bio-info">
+                    <h5>Audio Biography Chat of Fredrick</h5>
+                    <br>
+                    <audio controls style="width: 100%;">
+                        <source src="static/downloads/audio/FOfem_bio.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+                <a href="FOfem_bio.mp3" download="Fredrick's Biography Chat.mp3" class="bio_download">Download as MP3</a>
+            </div>
             <p> 
                 I am a highly analytical AI Technical Practitioner and Electrical/Electronics Engineer (HND) with a 20-year legacy of creative-technical leadership through ForraCorp. My expertise spans over 14 years of cross-sector experience in mission-critical ICT Management, Industrial Automation, and maintaining system availability.            
             </p>
