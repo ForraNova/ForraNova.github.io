@@ -1,12 +1,12 @@
 {
-    "last_update": "May 08, 2026 | 09:51 PM",
+    "last_update": "May 09, 2026 | 02:01 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:51:22] SUCCESS: Machine Learning (3 found)",
-        "[21:51:24] SUCCESS: Front-End / React (3 found)",
-        "[21:51:27] SUCCESS: Writing / Creative (0 found)",
-        "[21:51:30] SUCCESS: Virtual Assistant (0 found)"
+        "[02:01:00] SUCCESS: Machine Learning (3 found)",
+        "[02:01:03] SUCCESS: Front-End / React (3 found)",
+        "[02:01:05] SUCCESS: Writing / Creative (0 found)",
+        "[02:01:08] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-stellar-ai-1128869"
                 },
                 {
-                    "position": "Engineering Manager AI Fleet Management & Honk",
-                    "link": "https://remoteok.com/remote-jobs/remote-engineering-manager-ai-fleet-management-amp-honk-spotify-1131520"
+                    "position": "Senior Software Engineer I",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-i-clariti-cloud-inc-1131527"
                 },
                 {
-                    "position": "Staff Product Designer Business Banking",
-                    "link": "https://remoteok.com/remote-jobs/remote-staff-product-designer-business-banking-monzo-1131519"
+                    "position": "Manager Collections & Recoveries",
+                    "link": "https://remoteok.com/remote-jobs/remote-manager-collections-amp-recoveries-forbright-bank-1131526"
                 }
             ]
         },
