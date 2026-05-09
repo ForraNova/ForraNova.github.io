@@ -1,12 +1,12 @@
 {
-    "last_update": "May 09, 2026 | 07:43 AM",
+    "last_update": "May 09, 2026 | 10:00 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[07:43:21] SUCCESS: Machine Learning (3 found)",
-        "[07:43:24] SUCCESS: Front-End / React (3 found)",
-        "[07:43:26] SUCCESS: Writing / Creative (0 found)",
-        "[07:43:29] SUCCESS: Virtual Assistant (0 found)"
+        "[10:00:28] SUCCESS: Machine Learning (3 found)",
+        "[10:00:30] SUCCESS: Front-End / React (3 found)",
+        "[10:00:33] SUCCESS: Writing / Creative (0 found)",
+        "[10:00:36] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-stellar-ai-1128869"
                 },
                 {
-                    "position": "Senior Software Engineer I",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-i-clariti-cloud-inc-1131527"
+                    "position": "Lead Software Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-lead-software-engineer-csc-generation-1131529"
                 },
                 {
-                    "position": "Manager Collections & Recoveries",
-                    "link": "https://remoteok.com/remote-jobs/remote-manager-collections-amp-recoveries-forbright-bank-1131526"
+                    "position": "Marketing Copywriter",
+                    "link": "https://remoteok.com/remote-jobs/remote-marketing-copywriter-bis-safety-software-1131528"
                 }
             ]
         },
