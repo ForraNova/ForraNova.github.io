@@ -1,12 +1,12 @@
 {
-    "last_update": "May 09, 2026 | 03:42 PM",
+    "last_update": "May 09, 2026 | 06:45 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[15:42:07] SUCCESS: Machine Learning (3 found)",
-        "[15:42:10] SUCCESS: Front-End / React (3 found)",
-        "[15:42:12] SUCCESS: Writing / Creative (0 found)",
-        "[15:42:16] SUCCESS: Virtual Assistant (0 found)"
+        "[18:45:08] SUCCESS: Machine Learning (3 found)",
+        "[18:45:10] SUCCESS: Front-End / React (3 found)",
+        "[18:45:13] SUCCESS: Writing / Creative (0 found)",
+        "[18:45:15] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-stellar-ai-1128869"
                 },
                 {
-                    "position": "Lead Software Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-lead-software-engineer-csc-generation-1131529"
+                    "position": "CNC Machinist Milling",
+                    "link": "https://remoteok.com/remote-jobs/remote-cnc-machinist-milling-cx2-1131532"
                 },
                 {
-                    "position": "Marketing Copywriter",
-                    "link": "https://remoteok.com/remote-jobs/remote-marketing-copywriter-bis-safety-software-1131528"
+                    "position": "Staff Product Manager Enterprise",
+                    "link": "https://remoteok.com/remote-jobs/remote-staff-product-manager-enterprise-livekit-1131531"
                 }
             ]
         },
