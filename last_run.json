@@ -1,12 +1,12 @@
 {
-    "last_update": "May 10, 2026 | 07:57 AM",
+    "last_update": "May 10, 2026 | 10:05 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[07:57:33] SUCCESS: Machine Learning (3 found)",
-        "[07:57:35] SUCCESS: Front-End / React (3 found)",
-        "[07:57:38] SUCCESS: Writing / Creative (0 found)",
-        "[07:57:40] SUCCESS: Virtual Assistant (0 found)"
+        "[10:05:40] SUCCESS: Machine Learning (3 found)",
+        "[10:05:43] SUCCESS: Front-End / React (3 found)",
+        "[10:05:45] SUCCESS: Writing / Creative (0 found)",
+        "[10:05:48] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-stellar-ai-1128869"
                 },
                 {
-                    "position": "CNC Machinist Milling",
-                    "link": "https://remoteok.com/remote-jobs/remote-cnc-machinist-milling-cx2-1131532"
+                    "position": "Online Hospitality Services Coordinator Entry Level",
+                    "link": "https://remoteok.com/remote-jobs/remote-online-hospitality-services-coordinator-entry-level-aisles-amp-abroad-1131534"
                 },
                 {
-                    "position": "Staff Product Manager Enterprise",
-                    "link": "https://remoteok.com/remote-jobs/remote-staff-product-manager-enterprise-livekit-1131531"
+                    "position": "Account Executive Southeast",
+                    "link": "https://remoteok.com/remote-jobs/remote-account-executive-southeast-apollo-information-systems-1131533"
                 }
             ]
         },
