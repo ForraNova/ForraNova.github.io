@@ -1,12 +1,12 @@
 {
-    "last_update": "May 10, 2026 | 06:47 PM",
+    "last_update": "May 10, 2026 | 09:39 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[18:46:57] SUCCESS: Machine Learning (3 found)",
-        "[18:46:59] SUCCESS: Front-End / React (3 found)",
-        "[18:47:02] SUCCESS: Writing / Creative (0 found)",
-        "[18:47:05] SUCCESS: Virtual Assistant (0 found)"
+        "[21:39:11] SUCCESS: Machine Learning (3 found)",
+        "[21:39:13] SUCCESS: Front-End / React (3 found)",
+        "[21:39:16] SUCCESS: Writing / Creative (0 found)",
+        "[21:39:19] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-stellar-ai-1128869"
                 },
                 {
-                    "position": "Manager IT Network & Operations",
-                    "link": "https://remoteok.com/remote-jobs/remote-manager-it-network-amp-operations-jushi-1131537"
-                },
-                {
                     "position": "Senior Marketing Manager CRO Experience Required",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-cro-experience-required-precision-medicine-group-1131536"
+                },
+                {
+                    "position": "Online Hospitality Services Coordinator Entry Level",
+                    "link": "https://remoteok.com/remote-jobs/remote-online-hospitality-services-coordinator-entry-level-aisles-amp-abroad-1131534"
                 }
             ]
         },
