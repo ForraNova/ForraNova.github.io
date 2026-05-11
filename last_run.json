@@ -1,17 +1,21 @@
 {
-    "last_update": "May 11, 2026 | 11:57 AM",
+    "last_update": "May 11, 2026 | 02:41 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[11:57:29] SUCCESS: Machine Learning (3 found)",
-        "[11:57:32] SUCCESS: Front-End / React (3 found)",
-        "[11:57:34] SUCCESS: Writing / Creative (0 found)",
-        "[11:57:37] SUCCESS: Virtual Assistant (0 found)"
+        "[14:41:10] SUCCESS: Machine Learning (3 found)",
+        "[14:41:13] SUCCESS: Front-End / React (3 found)",
+        "[14:41:15] SUCCESS: Writing / Creative (0 found)",
+        "[14:41:18] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
             "jobs": [
+                {
+                    "position": "Crypto Trader",
+                    "link": "https://remoteok.com/remote-jobs/remote-crypto-trader-maidel-group-1131541"
+                },
                 {
                     "position": "Meta Ads Manager + Creative Producer AI Native",
                     "link": "https://remoteok.com/remote-jobs/remote-meta-ads-manager-creative-producer-ai-native-singularads-com-1131538"
@@ -19,10 +23,6 @@
                 {
                     "position": "Tooling Engineer",
                     "link": "https://remoteok.com/remote-jobs/remote-tooling-engineer-unikraft-1131540"
-                },
-                {
-                    "position": "Senior Software Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-stellar-ai-1128869"
                 }
             ]
         },
