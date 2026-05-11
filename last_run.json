@@ -1,12 +1,12 @@
 {
-    "last_update": "May 11, 2026 | 02:41 PM",
+    "last_update": "May 11, 2026 | 05:19 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[14:41:10] SUCCESS: Machine Learning (3 found)",
-        "[14:41:13] SUCCESS: Front-End / React (3 found)",
-        "[14:41:15] SUCCESS: Writing / Creative (0 found)",
-        "[14:41:18] SUCCESS: Virtual Assistant (0 found)"
+        "[17:19:23] SUCCESS: Machine Learning (3 found)",
+        "[17:19:26] SUCCESS: Front-End / React (3 found)",
+        "[17:19:28] SUCCESS: Writing / Creative (0 found)",
+        "[17:19:31] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-meta-ads-manager-creative-producer-ai-native-singularads-com-1131538"
                 },
                 {
-                    "position": "Tooling Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-tooling-engineer-unikraft-1131540"
+                    "position": "Project Manager French English Fluent",
+                    "link": "https://remoteok.com/remote-jobs/remote-project-manager-french-english-fluent-brandtech-1131548"
                 }
             ]
         },
