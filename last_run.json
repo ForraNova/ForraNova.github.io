@@ -1,17 +1,21 @@
 {
-    "last_update": "May 11, 2026 | 02:10 AM",
+    "last_update": "May 11, 2026 | 06:29 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[02:10:11] SUCCESS: Machine Learning (3 found)",
-        "[02:10:14] SUCCESS: Front-End / React (3 found)",
-        "[02:10:16] SUCCESS: Writing / Creative (0 found)",
-        "[02:10:19] SUCCESS: Virtual Assistant (0 found)"
+        "[06:29:04] SUCCESS: Machine Learning (3 found)",
+        "[06:29:07] SUCCESS: Front-End / React (3 found)",
+        "[06:29:09] SUCCESS: Writing / Creative (0 found)",
+        "[06:29:12] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
             "jobs": [
+                {
+                    "position": "Meta Ads Manager + Creative Producer AI Native",
+                    "link": "https://remoteok.com/remote-jobs/remote-meta-ads-manager-creative-producer-ai-native-singularads-com-1131538"
+                },
                 {
                     "position": "Senior Software Engineer",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-stellar-ai-1128869"
@@ -19,10 +23,6 @@
                 {
                     "position": "Senior Marketing Manager CRO Experience Required",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-cro-experience-required-precision-medicine-group-1131536"
-                },
-                {
-                    "position": "Online Hospitality Services Coordinator Entry Level",
-                    "link": "https://remoteok.com/remote-jobs/remote-online-hospitality-services-coordinator-entry-level-aisles-amp-abroad-1131534"
                 }
             ]
         },
