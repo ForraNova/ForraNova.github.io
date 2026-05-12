@@ -1,12 +1,12 @@
 {
-    "last_update": "May 12, 2026 | 01:55 PM",
+    "last_update": "May 12, 2026 | 05:03 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[13:55:42] SUCCESS: Machine Learning (3 found)",
-        "[13:55:44] SUCCESS: Front-End / React (3 found)",
-        "[13:55:47] SUCCESS: Writing / Creative (0 found)",
-        "[13:55:50] SUCCESS: Virtual Assistant (0 found)"
+        "[17:03:04] SUCCESS: Machine Learning (3 found)",
+        "[17:03:07] SUCCESS: Front-End / React (3 found)",
+        "[17:03:09] SUCCESS: Writing / Creative (0 found)",
+        "[17:03:12] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-meta-ads-manager-creative-producer-ai-native-singularads-com-1131538"
                 },
                 {
-                    "position": "Tier II III UC Support Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-tier-ii-iii-uc-support-engineer-ttec-digital-1131561"
+                    "position": "Language Quality Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-language-quality-manager-welo-global-1131565"
                 }
             ]
         },
