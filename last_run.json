@@ -1,12 +1,12 @@
 {
-    "last_update": "May 12, 2026 | 05:57 AM",
+    "last_update": "May 12, 2026 | 08:35 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[05:57:44] SUCCESS: Machine Learning (3 found)",
-        "[05:57:46] SUCCESS: Front-End / React (3 found)",
-        "[05:57:49] SUCCESS: Writing / Creative (0 found)",
-        "[05:57:52] SUCCESS: Virtual Assistant (0 found)"
+        "[08:35:12] SUCCESS: Machine Learning (3 found)",
+        "[08:35:15] SUCCESS: Front-End / React (3 found)",
+        "[08:35:17] SUCCESS: Writing / Creative (0 found)",
+        "[08:35:20] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-meta-ads-manager-creative-producer-ai-native-singularads-com-1131538"
                 },
                 {
-                    "position": "VP Population Health",
-                    "link": "https://remoteok.com/remote-jobs/remote-vp-population-health-covera-health-1131556"
+                    "position": "Tier II III UC Support Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-tier-ii-iii-uc-support-engineer-ttec-digital-1131561"
                 }
             ]
         },
