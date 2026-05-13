@@ -1,12 +1,12 @@
 {
-    "last_update": "May 12, 2026 | 10:04 PM",
+    "last_update": "May 13, 2026 | 02:11 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[22:04:22] SUCCESS: Machine Learning (3 found)",
-        "[22:04:24] SUCCESS: Front-End / React (3 found)",
-        "[22:04:27] SUCCESS: Writing / Creative (0 found)",
-        "[22:04:30] SUCCESS: Virtual Assistant (0 found)"
+        "[02:11:27] SUCCESS: Machine Learning (3 found)",
+        "[02:11:30] SUCCESS: Front-End / React (3 found)",
+        "[02:11:32] SUCCESS: Writing / Creative (0 found)",
+        "[02:11:36] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-meta-ads-manager-creative-producer-ai-native-singularads-com-1131538"
                 },
                 {
-                    "position": "Language Quality Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-language-quality-manager-welo-global-1131565"
+                    "position": "Engenharia Software Engineer III Golang",
+                    "link": "https://remoteok.com/remote-jobs/remote-engenharia-software-engineer-iii-golang-stone-1131575"
                 }
             ]
         },
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Senior AI System Software Developer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-ai-system-software-developer-wealthsimple-technologies-1131572"
+                },
+                {
                     "position": "Integration Test Manager VHA Required",
                     "link": "https://remoteok.com/remote-jobs/remote-integration-test-manager-vha-required-ibility-1131389"
                 },
                 {
                     "position": "Engineer Software",
                     "link": "https://remoteok.com/remote-jobs/remote-engineer-software-calabrio-1131345"
-                },
-                {
-                    "position": "Senior Full stack React Developer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-full-stack-react-developer-lemon-io-1131339"
                 }
             ]
         },
