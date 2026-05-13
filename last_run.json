@@ -1,12 +1,12 @@
 {
-    "last_update": "May 13, 2026 | 06:18 AM",
+    "last_update": "May 13, 2026 | 11:26 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[06:18:17] SUCCESS: Machine Learning (3 found)",
-        "[06:18:19] SUCCESS: Front-End / React (3 found)",
-        "[06:18:22] SUCCESS: Writing / Creative (0 found)",
-        "[06:18:25] SUCCESS: Virtual Assistant (0 found)"
+        "[11:25:49] SUCCESS: Machine Learning (3 found)",
+        "[11:25:52] SUCCESS: Front-End / React (3 found)",
+        "[11:25:54] SUCCESS: Writing / Creative (0 found)",
+        "[11:25:57] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-meta-ads-manager-creative-producer-ai-native-singularads-com-1131538"
                 },
                 {
-                    "position": "Engenharia Software Engineer III Golang",
-                    "link": "https://remoteok.com/remote-jobs/remote-engenharia-software-engineer-iii-golang-stone-1131575"
+                    "position": "Senior Sales Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-sales-engineer-glia-1131576"
                 }
             ]
         },
