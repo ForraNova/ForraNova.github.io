@@ -1,12 +1,12 @@
 {
-    "last_update": "May 13, 2026 | 02:07 PM",
+    "last_update": "May 13, 2026 | 05:08 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[14:07:43] SUCCESS: Machine Learning (3 found)",
-        "[14:07:45] SUCCESS: Front-End / React (3 found)",
-        "[14:07:48] SUCCESS: Writing / Creative (0 found)",
-        "[14:07:51] SUCCESS: Virtual Assistant (0 found)"
+        "[17:08:41] SUCCESS: Machine Learning (3 found)",
+        "[17:08:43] SUCCESS: Front-End / React (3 found)",
+        "[17:08:46] SUCCESS: Writing / Creative (0 found)",
+        "[17:08:49] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-meta-ads-manager-creative-producer-ai-native-singularads-com-1131538"
                 },
                 {
-                    "position": "Senior Sales Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-sales-engineer-glia-1131576"
+                    "position": "Revenue Cycle Specialist",
+                    "link": "https://remoteok.com/remote-jobs/remote-revenue-cycle-specialist-osmind-1131580"
                 }
             ]
         },
