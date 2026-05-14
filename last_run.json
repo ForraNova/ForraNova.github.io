@@ -1,17 +1,21 @@
 {
-    "last_update": "May 14, 2026 | 01:45 PM",
+    "last_update": "May 14, 2026 | 04:56 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[13:45:21] SUCCESS: Machine Learning (3 found)",
-        "[13:45:24] SUCCESS: Front-End / React (3 found)",
-        "[13:45:27] SUCCESS: Writing / Creative (0 found)",
-        "[13:45:30] SUCCESS: Virtual Assistant (0 found)"
+        "[16:55:50] SUCCESS: Machine Learning (3 found)",
+        "[16:55:53] SUCCESS: Front-End / React (3 found)",
+        "[16:55:55] SUCCESS: Writing / Creative (0 found)",
+        "[16:55:58] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
             "jobs": [
+                {
+                    "position": "DevRel Content Creator",
+                    "link": "https://remoteok.com/remote-jobs/remote-devrel-content-creator-superplane-1131594"
+                },
                 {
                     "position": "Crypto Trader",
                     "link": "https://remoteok.com/remote-jobs/remote-crypto-trader-maidel-group-1131541"
@@ -19,10 +23,6 @@
                 {
                     "position": "Meta Ads Manager + Creative Producer AI Native",
                     "link": "https://remoteok.com/remote-jobs/remote-meta-ads-manager-creative-producer-ai-native-singularads-com-1131538"
-                },
-                {
-                    "position": "Software engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-software-engineer-sticker-mule-1131592"
                 }
             ]
         },
