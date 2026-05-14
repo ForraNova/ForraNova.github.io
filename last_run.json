@@ -1,12 +1,12 @@
 {
-    "last_update": "May 14, 2026 | 06:16 AM",
+    "last_update": "May 14, 2026 | 11:09 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[06:16:09] SUCCESS: Machine Learning (3 found)",
-        "[06:16:11] SUCCESS: Front-End / React (3 found)",
-        "[06:16:13] SUCCESS: Writing / Creative (0 found)",
-        "[06:16:16] SUCCESS: Virtual Assistant (0 found)"
+        "[11:09:28] SUCCESS: Machine Learning (3 found)",
+        "[11:09:30] SUCCESS: Front-End / React (3 found)",
+        "[11:09:33] SUCCESS: Writing / Creative (0 found)",
+        "[11:09:36] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-meta-ads-manager-creative-producer-ai-native-singularads-com-1131538"
                 },
                 {
-                    "position": "Staff Engineer Platform Engineering",
-                    "link": "https://remoteok.com/remote-jobs/remote-staff-engineer-platform-engineering-highlevel-1131588"
+                    "position": "Software engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-software-engineer-sticker-mule-1131592"
                 }
             ]
         },
