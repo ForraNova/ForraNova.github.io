@@ -1,12 +1,12 @@
 {
-    "last_update": "May 13, 2026 | 10:04 PM",
+    "last_update": "May 14, 2026 | 02:14 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[22:04:15] SUCCESS: Machine Learning (3 found)",
-        "[22:04:18] SUCCESS: Front-End / React (3 found)",
-        "[22:04:20] SUCCESS: Writing / Creative (0 found)",
-        "[22:04:23] SUCCESS: Virtual Assistant (0 found)"
+        "[02:13:56] SUCCESS: Machine Learning (3 found)",
+        "[02:13:59] SUCCESS: Front-End / React (3 found)",
+        "[02:14:02] SUCCESS: Writing / Creative (0 found)",
+        "[02:14:05] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-meta-ads-manager-creative-producer-ai-native-singularads-com-1131538"
                 },
                 {
-                    "position": "Revenue Cycle Specialist",
-                    "link": "https://remoteok.com/remote-jobs/remote-revenue-cycle-specialist-osmind-1131580"
+                    "position": "Staff Engineer Platform Engineering",
+                    "link": "https://remoteok.com/remote-jobs/remote-staff-engineer-platform-engineering-highlevel-1131588"
                 }
             ]
         },
