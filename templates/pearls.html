@@ -214,9 +214,177 @@
             .slide-view { padding: 40px 20px; }
             .nav-bar { left: 8px; padding: 12px 6px; gap: 12px; }
         }
+
+ /* --- NAVIGATION STYLES (Default: Large Screen) --- */
+        #main-nav ul {
+            list-style: none;
+            display: flex; /* Display items side-by-side */
+            /* Added margin-right to pull ul away from lang selector */
+            margin-right: 20px; 
+        }
+
+        #main-nav ul li a {
+            text-decoration: none;
+            color: var(--text-light);
+            padding: 15px 20px;
+            display: block;
+            transition: color 0.3s, background-color 0.3s;
+            border-radius: 5px;
+            font-weight: 400;
+        }
+
+        #main-nav ul li a:hover {
+            color: var(--background-dark);
+            background-color: var(--mint);
+        }
+
+        #main-nav  li:hover{
+          color:var(--primary-color);
+        }
+        
+
+        /* --- HAMBURGER MENU STYLES --- */
+        .hamburger {
+            display: none; /* Hidden by default on large screens */
+            cursor: pointer;
+            padding: 10px;
+            z-index: 100; /* Ensure it's above other content */
+        }
+
+        .bar {
+            display: grid;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--heading-color);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* --- MEDIA QUERY: SMALL SCREEN (Mobile View) --- */
+        /* Mobile-First Navigation Toggle (Small Screen) */
+        @media (max-width: 768px) {
+            /* 1. Show the Hamburger Icon */
+            .hamburger {
+                display: block;
+                float: right;
+                margin-top: -45px;
+            }
+
+            /* 2. Hide the regular navigation links */
+            #main-nav {
+                position: absolute;
+                top: 110px; /* Position below the header/logo */
+                left: 0;
+                width: 100%;
+                background: var(--nav-bg); /* Background for the dropdown */
+                max-height: 0; /* Start hidden */
+                overflow: hidden; /* Hide overflow content */
+                transition: max-height 0.3s ease-in-out;
+                z-index: 50; /* Lower z-index than the language dropdown */
+            }
+
+            /* 3. Stack links vertically when displayed */
+            #main-nav ul {
+                flex-direction: column;
+                text-align: center;
+                padding: 10px 0;
+                margin-right: 0;
+            }
+
+            #main-nav ul li a {
+                padding: 10px;
+                border-bottom: 1px solid #555;
+            }
+
+            /* 4. Class added by JavaScript to display the menu */
+            #main-nav.active {
+                max-height: 500px; /* Arbitrarily large enough value to show all links */
+            }
+
+            /* 5. Hamburger Icon Animation (The "X" or "bar-collapse" effect) */
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0; /* Hide the middle bar */
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg); /* Top bar rotates */
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg); /* Bottom bar rotates */
+            }
+        }
+
+        .dropdown {
+          position: relative;
+          display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgb(133, 133, 173);
+            min-width: 170px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+         @media (max-width: 768px) {
+                    /* 1. Show the Hamburger Icon */
+              .dropdown-content {
+                  display: none;
+                  min-width: 170px;
+                  z-index: 1;
+                  margin-top: -50px;
+                  overflow: scroll;
+                }
+            }
+        .dropdown:hover .dropdown-content {
+          display: block;
+        }
+
+
+.logo {
+  float: left;
+  margin-left: 5px;
+  max-height: 90px;/* Reduced size for better fit */
+  z-index: 10;
+}
+
+.foota{
+  z-index: -0.3; 
+  height:80px; 
+  border-radius:25px;
+  filter: drop-shadow(0 0 10px rgba(128, 255, 255, 0.6));
+}
+
+
     </style>
 </head>
 <body>
+<header>
+    <div class="container nav-container">
+        <img src="../static/images/logoFN.png" class="logo" alt="logo">
+        <p><img  src="../static/images/logoFN_2.png" class="foota" alt="FN Logo"/><br> <strong class="slogan">Knowledge Is For The Living</strong></p>
+
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="pearls.html">AI Training</a></li>
+                    <li><a href="../index.html">Portfolio</a></li>
+                    <li><a href="forracorp.html">Projects</a></li>
+                    <li><a href="forranova.html">AI Chat-Show</a></li>
+                    <li><a href="../index.html#contact">Connect</a></li>
+                </ul> 
+            </nav>
+    
+            <div class="hamburger" id="hamburger-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+        </div>
+    </header>
+
 
     <button class="theme-toggle" id="darkModeToggle"><i class="fas fa-moon"></i> Dark/Light</button>
 
@@ -512,6 +680,34 @@
         const style = document.createElement('style');
         style.innerHTML = `.dark .slide-view .card p, .dark .slide-view p { color: #e2e8f0; } .dark .slide-view .img-placeholder { filter: brightness(0.8); } .slide-view .card strong, .slide-view .card h3 { color: var(--heading-color); }`;
         document.head.appendChild(style);
+    </script>
+    <script>
+        // Get the elements
+        const hamburger = document.getElementById('hamburger-menu');
+        const nav = document.getElementById('main-nav');
+
+        // Add an event listener to the hamburger icon
+        hamburger.addEventListener('click', () => {
+            // Toggle the 'active' class on the navigation menu
+            nav.classList.toggle('active');
+            // Toggle the 'active' class on the hamburger icon for the animation
+            hamburger.classList.toggle('active');
+            // If the language dropdown is open, close it when the menu is toggled
+            if (ldrop.classList.contains('show')) {
+                ldrop.classList.remove('show');
+            }
+        });
+
+        // Optional: Close the menu when a link is clicked (useful for single-page apps)
+        document.querySelectorAll('#main-nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                // Check if the menu is active (i.e., we are on mobile view)
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
