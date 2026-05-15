@@ -1,0 +1,663 @@
+/* ===============================
+GLOBAL STYLES
+================================ */
+/* --- General  CSS Styling  --- */ /* CSS Styling */
+:root {
+    --primary-color: #00e0ff; /* Cyan/Turquoise for modern look */
+    --text-white: #fff;       /* Bright White Paragraph Text [Bright White]*/
+    --text-dark: #000;        /* Dark Black Paragraph Text [Dark Black]*/
+    --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-white);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+/**
+  background-image: url('../static/images/prompt1.webp');
+ **/
+ 
+
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top:-50px;
+  margin-bottom:-50px;
+
+  overflow: scroll;
+}
+
+ canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+blockquote a:hover{
+  color: var(--primary-color);
+  
+}
+
+section{
+  padding:70px 10%;
+  margin-top: -20px;
+}
+
+
+#project {
+  margin-top:80px;
+  padding: 80px 10%;
+}
+
+
+h1 {
+  font-weight:600;
+  letter-spacing:2px;
+  color: var(--primary-color);
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-weight:600;
+  letter-spacing:2px;
+  color: var(--primary-color);
+  font-size: 2.0em;    
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-weight:600;
+  letter-spacing:2px;
+  color: var(--primary-color);
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+p{
+  letter-spacing:1px;
+  color: var(--text-white);
+  font-size: 1.1em;
+  margin-bottom: 15px;
+}
+
+.list {
+  color: var(--text-white);
+  font-size: 1.1em;
+  padding-left: 10px;
+}
+
+blockquote {
+  letter-spacing:1px;
+  color: var(--text-white);
+  font-size: 1.1em;
+  margin: 0 0 5px 5px;
+  padding-left: 10px;
+  border-left: 3px solid var(--primary-color);
+  font-style: italic;
+}
+block {
+  letter-spacing:1px;
+  color: var(--text-white);
+  font-size: 1.1em;
+  margin-left: 10px;
+  padding-left: 10px;
+  border-left: 3px solid var(--primary-color);
+  font-style: italic;
+}
+.cta {
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+/* ===============================
+NAVIGATION
+================================ */
+
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  max-height: 100px;
+  z-index:1000;
+  background:rgba(15,17,23,0.1);
+  backdrop-filter: blur(10px);
+}
+
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  white-space: nowrap;
+  padding:5px 5%;
+}
+
+.logo {
+  float: left;
+  margin-left: 5px;
+  max-height: 90px;/* Reduced size for better fit */
+  z-index: 10;
+}
+
+.logon {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #FFFFFF 0%, #00FEDC 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 2px;
+}
+
+/* --- Navigation Desktop Styles --- */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+}
+
+.nav-links a{
+  font-size:15px;
+  transition:0.3s;
+}
+
+.nav-links li {
+  margin-left: 20px;
+  font-weight: bold;
+}
+
+.nav-links li:hover{
+  color:var(--primary-color);
+
+}
+
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:30px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.menu-toggle {
+  display: none; /* Hidden on wide screens */
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menu-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #00e0ff; /* Matches your theme */
+  transition: all 0.3s ease;
+}
+
+/* --- Mobile Styles (Under 900px) --- */
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: flex; /* Show bars on mobile */
+  }
+
+  .nav-links {
+    display: none; /* Hide links by default */
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100px; /* Adjust based on header height */
+    left: 0;
+    background: rgba(15, 17, 23, 0.75);
+    text-align: center;
+    padding: 5px 0;
+  }
+
+  .nav-links.active {
+    display: flex; /* Show as block when toggled */
+  }
+
+  .nav-links li {
+    margin: 1px 0;
+  }
+
+  /* Transformation to 3 Vertical Bars */
+  .menu-toggle.active .bar {
+    width: 3px;
+    height: 25px;
+    margin: 0 2px;
+    display: inline-block;
+  }
+  
+  .menu-toggle.active {
+    flex-direction: row; /* Aligns bars vertically/side-by-side */
+    gap: 4px;
+  }
+  .contact-grid {
+    flex-direction: column;  /* Switch the dive to block on small screen */
+  }
+}
+
+
+/* ===============================
+   PROJECT STUDIO STYLES
+   =============================== */
+.project-studio {
+  text-align: center;
+}
+
+/* Filters & Select */
+.filters {
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter-btn{
+  padding:10px 20px;
+  margin:5px;
+  border:none;
+  background:#1b1f29;
+  color: var(--text-white);
+  border-radius:20px;
+  cursor:pointer;
+}
+
+.filter-btn.active{
+  background: var(--primary-color);
+  color: var(--text-dark);
+}
+
+/* Make the button the anchor for the tooltip */
+.filter-btn {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Hide the help text by default */
+.tooltip-text {
+  display: none;
+  position: absolute;
+  bottom: 125%; /* Places it above the button */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+  width: 200px; /* Set a width so text wraps */
+  z-index: 10;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+/* Show the text when hovering over the button */
+.filter-btn:hover .tooltip-text {
+  display: block;
+}
+
+/* Optional: Add a small triangle pointing down */
+.tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+.media-switch {
+  margin-bottom: 40px;
+  color:  var(--text-white);
+}
+
+.media-switch select {
+  background: #1b1f29;
+  color:  var(--text-white);
+  border: 1px solid #00e0ff;
+  padding: 8px 15px;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+/* Project Grid */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+/* Glassmorphism Project Cards */
+.project-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 224, 255, 0.3);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color:  var(--primary-color);
+  border: 2px solid rgba(0, 224, 255, 0.9);
+  filter: drop-shadow(0 0 15px var(--primary-color));
+}
+
+.card-content {
+  padding: 25px;
+  text-align: left;
+}
+
+.card-content h3 {
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+.card-content p {
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  min-height: 50px;
+}
+
+/* Responsive Media Elements */
+video, audio {
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  background: #000;
+  border-radius: 8px;
+  line-height: 0;
+}
+
+.download-link {
+  margin-top: 20px;
+  margin-bottom: -20px;
+  text-align: right;
+}
+
+.download-link a {
+  font-size: 0.85rem;
+  color:  var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.download-link a:hover{
+  color: var(--text-white);
+}
+
+/* ===============================
+   PROJECT TIMESTAMP STYLES
+   =============================== */
+
+.project-date {
+  font-size: 0.85rem;
+  color: var(--primary-color); /* Matches your accent neon blue */
+  margin: 15px 0;
+  padding: 8px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.project-date span {
+  color: #aaa; /* Muted color for the "Published" label */
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+/* Hover effect for the card to highlight the date */
+.project-card:hover .project-date {
+  border-color: rgba(0, 224, 255, 0.3);
+  transition: border-color 0.3s ease;
+}
+
+/* Mobile adjustments for the timestamp */
+@media (max-width: 600px) {
+  .project-date {
+    font-size: 0.8rem;
+    text-align: center;
+    justify-content: center; /* Center the date on mobile screens */
+  }
+}
+
+/* ===============================
+   MOBILE ADAPTATION
+   =============================== */
+
+@media (max-width: 600px) {
+  .project-studio {
+    padding: 60px 5%;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr; /* Stacks cards in a single column */
+  }
+
+  .project-studio h2 {
+    font-size: 1.8rem;
+  }
+
+  .filter-btn {
+    width: 100%; /* Full width buttons for easy tapping */
+    margin: 2px 0;
+  }
+}
+
+.title{
+  font-size: 1.4rem;
+  text-align: center;
+  padding: -50px;
+  margin: 0 -20px 0 -20px;
+}
+.page{
+  font-size: 1.0rem;
+  text-align: center;
+  text-align: justify;
+  margin-top: 80px;
+}
+
+.tagline {
+  transform: rotate(45deg);
+  background: linear-gradient(135deg, #ffc2b3 0%, #b32400 100%);
+  padding: 3%;
+  float: right;
+  text-align: center;
+  min-width: 250px;
+  margin: -20px -120px 0 0;
+  z-index: 1000px;
+}
+
+.pageCade{
+  font-size: 0.6rem;
+  text-align: center;
+  text-align: justify;
+}
+
+.slogan{
+  font-size: 1.65rem;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin-left: 25px;
+  color: var(--primary-color);
+  font-family:'Raphtalia', 'Syncopate', sans-serif;
+}
+.info{
+  margin: -5px;
+  max-height: 220px; /* Card scrollable window */
+  overflow: scroll;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+
+}
+.art {
+  max-height: 18vh;
+  border-radius: 8%;
+}
+
+.hr{
+  border-color: var(--primary-color);
+  margin-top: -15px;
+  padding-bottom: 1px;
+  background: linear-gradient(135deg, #FFFFFF 0%, #00FEDC 100%);
+
+}
+
+.help-info {
+  margin-top: 10px;
+  padding: 10px;
+  background: rgba(15,17,23,1.1);
+  border-left: 4px solid #007bff;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* ===============================
+FOOTER
+================================ */
+
+footer{
+  text-align:center;
+  padding:15px;
+  width:100%;
+  z-index:1000;
+  background:rgba(15,17,23,0.1);
+  backdrop-filter: blur(10px);
+
+
+  color: var(--text-white);
+  border-top: 1px solid #333;
+  margin-top: -50px;
+  font-size: 0.9em;
+}
+
+footer p{
+    text-align: center;
+    align-items: center;
+}  
+
+footer a{
+    text-decoration: none;
+    font-size: 1.0em;
+    color: var(--text-white);
+} 
+
+footer a:hover{
+    text-decoration: none;
+    font-size: 1.0em;
+    color: var(--primary-color);    
+    font-weight: 700;
+}
+
+.foota{
+  z-index: -0.3; 
+
+  height:80px; 
+  border-radius:25px;
+  filter: drop-shadow(0 0 10px rgba(128, 255, 255, 0.6));
+}
+
+/* ===============================
+RESPONSIVE DESIGN
+================================ */
+
+@media(max-width:768px){
+
+  .home-text h1{
+      font-size:38px;
+    }
+
+  .home-image img{
+      width:250px;
+    }
+
+  .nav-links{
+      display:none;
+
+    }
+
+}
+  
+.hidden{
+
+opacity:0;
+transform:translateY(60px);
+transition:all 0.8s ease;
+
+}
+
+.show{
+
+opacity:1;
+transform:translateY(0);
+
+}
+  
+
+/* ===============================
+   RESPONSIVE FIX FOR THE SECTION
+   =============================== */
+
+@media (max-width: 768px) {
+  .home-container {
+    flex-direction: column; /* Stacks text and image vertically */
+    text-align: center;     /* Centers text on mobile */
+    gap: 30px;
+  }
+
+  .home-text {
+    max-width: 100%;       /* Allows text to take full width */
+    order: 1;              /* Ensures text stays on top */
+    margin-top: 110px;
+  }
+
+  .home-image {
+    order: 2;              /* Ensures image goes underneath text */
+  }
+
+  .home-image img {
+    max-height: 400px;     /* Scales image down for mobile screens */
+    width: auto;
+  }
+
+  .home-buttons {
+    justify-content: center; /* Centers buttons on mobile */
+  }
+}
