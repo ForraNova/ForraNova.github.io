@@ -509,11 +509,10 @@ video, audio {
 }
 
 .slogan{
-  font-size: 1.2rem;
+  font-size: 0.5rem;
   flex-direction: column;
   text-align: center;
-  align-items: center;
-  margin-left: 10px;
+  margin-left: 5px;
   color: var(--primary-color);
   font-family:'Raphtalia', 'Syncopate', sans-serif;
 }
@@ -587,7 +586,7 @@ footer a:hover{
 
 .foota{
   z-index: -0.3; 
-  height:55px; 
+  height:45px; 
   border-radius:25px;
   filter: drop-shadow(0 0 10px rgba(128, 255, 255, 0.6));
 }
