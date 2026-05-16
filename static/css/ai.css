@@ -156,7 +156,7 @@ header{
 
 .logon {
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.2em;
   font-weight: 800;
   background: linear-gradient(135deg, #FFFFFF 0%, #00FEDC 100%);
   -webkit-background-clip: text;
@@ -307,7 +307,7 @@ header{
   border-radius: 4px;
   width: 200px; /* Set a width so text wraps */
   z-index: 10;
-  font-size: 0.8rem;
+  font-size: 0.8em;
   text-align: center;
 }
 
@@ -379,7 +379,7 @@ header{
 }
 
 .card-content p {
-  font-size: 0.9rem;
+  font-size: 0.9em;
   margin-bottom: 20px;
   min-height: 50px;
 }
@@ -406,7 +406,7 @@ video, audio {
 }
 
 .download-link a {
-  font-size: 0.85rem;
+  font-size: 0.85em;
   color:  var(--primary-color);
   font-weight: 600;
   text-decoration: none;
@@ -421,7 +421,7 @@ video, audio {
    =============================== */
 
 .project-date {
-  font-size: 0.85rem;
+  font-size: 0.85em;
   color: var(--primary-color); /* Matches your accent neon blue */
   margin: 15px 0;
   padding: 8px 0;
@@ -437,7 +437,7 @@ video, audio {
 .project-date span {
   color: #aaa; /* Muted color for the "Published" label */
   text-transform: uppercase;
-  font-size: 0.75rem;
+  font-size: 0.75em;
 }
 
 /* Hover effect for the card to highlight the date */
@@ -449,7 +449,7 @@ video, audio {
 /* Mobile adjustments for the timestamp */
 @media (max-width: 600px) {
   .project-date {
-    font-size: 0.8rem;
+    font-size: 0.8em;
     text-align: center;
     justify-content: center; /* Center the date on mobile screens */
   }
@@ -469,7 +469,7 @@ video, audio {
   }
 
   .project-studio h2 {
-    font-size: 1.8rem;
+    font-size: 1.8em;
   }
 
   .filter-btn {
@@ -479,13 +479,13 @@ video, audio {
 }
 
 .title{
-  font-size: 1.4rem;
+  font-size: 1.4em;
   text-align: center;
   padding: -50px;
   margin: 0 -20px 0 -20px;
 }
 .page{
-  font-size: 1.0rem;
+  font-size: 1.0em;
   text-align: center;
   text-align: justify;
   margin-top: 80px;
@@ -503,13 +503,13 @@ video, audio {
 }
 
 .pageCade{
-  font-size: 0.6rem;
+  font-size: 0.9em;
   text-align: center;
   text-align: justify;
 }
 
 .slogan{
-  font-size: 0.5rem;
+  font-size: 0.999em;
   flex-direction: column;
   text-align: center;
   margin-left: 5px;
@@ -543,7 +543,7 @@ video, audio {
   padding: 10px;
   background: rgba(15,17,23,1.1);
   border-left: 4px solid #007bff;
-  font-size: 0.9rem;
+  font-size: 0.9em;
   font-style: italic;
 }
 
@@ -586,8 +586,7 @@ footer a:hover{
 
 .foota{
   z-index: -0.3; 
-  height:45px; 
-  border-radius:25px;
+  height:55px; 
   filter: drop-shadow(0 0 10px rgba(128, 255, 255, 0.6));
 }
 
