@@ -1,12 +1,12 @@
 {
-    "last_update": "May 15, 2026 | 09:51 PM",
+    "last_update": "May 16, 2026 | 02:04 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:50:50] SUCCESS: Machine Learning (3 found)",
-        "[21:50:52] SUCCESS: Front-End / React (3 found)",
-        "[21:50:55] SUCCESS: Writing / Creative (0 found)",
-        "[21:50:58] SUCCESS: Virtual Assistant (0 found)"
+        "[02:04:03] SUCCESS: Machine Learning (3 found)",
+        "[02:04:06] SUCCESS: Front-End / React (3 found)",
+        "[02:04:08] SUCCESS: Writing / Creative (0 found)",
+        "[02:04:11] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Senior CRO Manager Growth Optimization Lead for US DTC Company",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-cro-manager-growth-optimization-lead-for-us-dtc-company-paired-1131608"
+                },
+                {
                     "position": "Senior AI System Software Developer",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-ai-system-software-developer-wealthsimple-technologies-1131572"
                 },
                 {
                     "position": "Integration Test Manager VHA Required",
                     "link": "https://remoteok.com/remote-jobs/remote-integration-test-manager-vha-required-ibility-1131389"
-                },
-                {
-                    "position": "Engineer Software",
-                    "link": "https://remoteok.com/remote-jobs/remote-engineer-software-calabrio-1131345"
                 }
             ]
         },
