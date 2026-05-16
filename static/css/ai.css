@@ -50,7 +50,7 @@ a{
 
 blockquote a:hover{
   color: var(--primary-color);
-  
+
 }
 
 section{
@@ -156,7 +156,7 @@ header{
 
 .logon {
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 800;
   background: linear-gradient(135deg, #FFFFFF 0%, #00FEDC 100%);
   -webkit-background-clip: text;
@@ -186,7 +186,6 @@ header{
 
 .nav-links li:hover{
   color:var(--primary-color);
-
 }
 
 .nav-links{
@@ -510,11 +509,11 @@ video, audio {
 }
 
 .slogan{
-  font-size: 1.65rem;
+  font-size: 1.2rem;
   flex-direction: column;
   text-align: center;
   align-items: center;
-  margin-left: 25px;
+  margin-left: 10px;
   color: var(--primary-color);
   font-family:'Raphtalia', 'Syncopate', sans-serif;
 }
@@ -588,8 +587,7 @@ footer a:hover{
 
 .foota{
   z-index: -0.3; 
-
-  height:80px; 
+  height:55px; 
   border-radius:25px;
   filter: drop-shadow(0 0 10px rgba(128, 255, 255, 0.6));
 }
