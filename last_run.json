@@ -1,17 +1,21 @@
 {
-    "last_update": "May 17, 2026 | 09:44 PM",
+    "last_update": "May 18, 2026 | 02:29 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:44:36] SUCCESS: Machine Learning (3 found)",
-        "[21:44:39] SUCCESS: Front-End / React (3 found)",
-        "[21:44:41] SUCCESS: Writing / Creative (0 found)",
-        "[21:44:44] SUCCESS: Virtual Assistant (0 found)"
+        "[02:29:08] SUCCESS: Machine Learning (3 found)",
+        "[02:29:10] SUCCESS: Front-End / React (3 found)",
+        "[02:29:13] SUCCESS: Writing / Creative (0 found)",
+        "[02:29:15] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
             "jobs": [
+                {
+                    "position": "Senior Marketing Manager Paid Ads",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
+                },
                 {
                     "position": "DevRel Content Creator",
                     "link": "https://remoteok.com/remote-jobs/remote-devrel-content-creator-superplane-1131594"
@@ -19,10 +23,6 @@
                 {
                     "position": "Crypto Trader",
                     "link": "https://remoteok.com/remote-jobs/remote-crypto-trader-maidel-group-1131541"
-                },
-                {
-                    "position": "Meta Ads Manager + Creative Producer AI Native",
-                    "link": "https://remoteok.com/remote-jobs/remote-meta-ads-manager-creative-producer-ai-native-singularads-com-1131538"
                 }
             ]
         },
