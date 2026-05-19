@@ -18,7 +18,11 @@
 <!-- NAVIGATION -->
   <header>
     <nav class="navbar">
-      <img src="../static/images/logoFN.png" class="logo" alt="logo">
+        <div class="logo-component">
+          <img src="../static/images/logo.png" alt="ForraCorp Base Logo" class="logo logo-layer layer-bg-logo">
+          <img src="../static/images/logoFN_0.png" alt="Forra Nova AI Brain" class="logo logo-layer layer-brain">
+          <img src="../static/images/logoFN_2.png" alt="Forra Nova Text" class="logo logo-layer layer-text"> 
+        </div>
       <p><img  src="../static/images/logoFN_2.png" class="foota" alt="FN Logo"/><br> <strong class="slogan">Knowledge Is For The Living</strong></p>
 
       <div class="menu-toggle" id="mobile-menu">
@@ -84,11 +88,163 @@ Generation (RAG) capabilities for learning.</p>
 
     <div class="project-card mixed aly audio">
       <div class="card-content">
-        <b>Analysis</b>
-        <div class="tagline" startdate-expiry="2026-05-15"><b>NEW !</b></div> 
-        <h3 class="title">Quantum Computer - A Deep Dive</h3>
+        <b>Podcast</b>
+        <div class="tagline" startdate-expiry="2026-05-18"><b>NEW !</b></div> 
+        <h3 class="title">Mastering Delimiter Prompting Techniques</h3>
         <div class="project-date">
-          <b>Episode 006</b>  <strong>|</strong>  📅 <i><strong> May 13, 2026</strong></i>
+          <b>Episode 009</b>  <strong>|</strong>  📅 <i><strong> May 18, 2026</strong></i>
+        </div>
+
+        <div class="info">          
+          <img src="../static/images/delimiter.png" class="art" alt="quantum computer">
+            <div class="pageCade">
+              <p><strong>Delimiters: Preventing Prompt Injection with Structural Boundaries.</strong></p><hr class="hr">
+               <p>In the rapidly evolving landscape of artificial intelligence, a single rogue line of user text can completely hijack your AI application. Discover how advanced prompt engineering turns basic structural boundaries into fortresses of digital security. This episode explores the technical mastery of delimiters—invisible architectural walls that force Large Language Models to handle data safely and execute instructions with surgical precision.</p>
+
+              <p><b>Key Highlights:</b></p>
+              <div class="list">
+                <p>* <strong>The Anti-Injection Fortress:</strong> Delimiters act as hard structural boundaries that isolate untrusted user data from system instructions, effectively neutralizing prompt injection attacks that try to mimic system-level commands.</p>
+                <p>* <strong>The Power of XML Tags:</strong> Learn why advanced models like GPT-4 and Claude excel at parsing &lttag&gt hierarchies. These structures create an <i>uncompromised structural hierarchy</i>, making them significantly more resistant to injection than traditional formatting.</p>
+                <p>* <strong>Triple Quotes for Flat Text:</strong> Discover the specific use cases for Pythonic triple quotes ("""). While ideal for isolating simple, <i>flat text strings</i> like articles or emails, they serve a distinctly different purpose than multi-layered nested architectures.</p>
+                <p>* <strong>Context Isolation in Complex Chains:</strong> Break down how nesting delimiters allows an AI to simultaneously manage distinct functional layers—such as adopting a specific persona, reading reference documents, and executing code—without context confusion.</p>
+                <p>* <strong>Production-Grade Security:</strong> Implementing rigorous delimiter strategies functions as a foundational engineering best practice to ensure dynamic, user-facing enterprise applications remain stable and predictable.</p>
+              </div>
+
+              <blockquote> 
+                <p><b>Questions_Answered :</b><br>
+                  How do basic formatting markers prevent an LLM from treating data inputs as direct administrative commands?</p>
+              </blockquote>
+              <blockquote>
+                  <p>Why are advanced language models naturally optimized to parse XML tags over standard text characters?</p>
+              </blockquote>
+              <blockquote>
+                  <p>When should a developer choose triple quotes over hierarchical XML nesting inside a prompt?</p>
+              </blockquote>
+              <blockquote>
+                  <p>How do you safely structure a prompt when an AI must process multiple untrusted user submissions simultaneously?</p>
+              </blockquote>
+              <blockquote>
+                  <p>In what ways does ForraNova Academy bridge the gap between abstract AI theory and production-ready system architecture?</p>
+              </blockquote>
+              
+              <p class="cta">Ready to architect unshakeable AI systems? Listen to the full episode now to master the exact structural logic powering secure, next-generation prompt engineering.</p>
+            </div>
+        </div>
+        <audio controls src="../static/downloads/audio/Ep008.mp3" type="audio/mp3">
+        </audio>
+        <div class="download-link">
+          <a href="../static/downloads/audio/Ep008.mp3" download="Delimiter Prompting.mp3">⬇ Download</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card mixed aly audio">
+      <div class="card-content">
+        <b>Podcast</b>
+        <div class="tagline" startdate-expiry="2026-05-17"><b>NEW !</b></div> 
+        <h3 class="title">PEARLS Framework and RAG - A Master Combo</h3>
+        <div class="project-date">
+          <b>Episode 008</b>  <strong>|</strong>  📅 <i><strong> May 16, 2026</strong></i>
+        </div>
+
+        <div class="info">          
+          <img src="../static/images/rag.webp" class="art" alt="RAG in Pearls">
+            <div class="pageCade">
+              <p><strong>Stop AI Hallucinations! Using PEARLS Framework and RAG</strong></p><hr class="hr">
+               <p>Even the most sophisticated Retrieval-Augmented Generation (RAG) pipelines can stumble at the finish line, generating outputs that slowly drift away from their source data. Discover how the Scrutiny component of the PEARLS framework acts as an unyielding, automated editorial gatekeeper. By forcing an internal cycle of self-correction before a single word is delivered, this architectural layer ensures your AI systems remain flawlessly grounded, factual, and secure.</p>
+
+              <p><b>Key Highlights:</b></p>
+              <div class="list">
+                <p>* <strong>The Automated Editorial Layer:</strong> Think of <i>Scrutiny</i> as a built-in chief copyeditor, forcing the language model to execute an internal loop of <i>self-correction and quality control</i> before finalizing its output.</p>
+                <p>* <strong>Contextual Cross-Referencing:</strong> Instead of assuming accuracy, the system explicitly requires the AI to double-check its generated draft against the raw data pulled by the RAG infrastructure, acting like a scholar verifying notes against a primary text.</p>
+                <p>* <strong>Factual Grounding:</strong> This phase systematically eliminates hallucinations by prompting the model to verify that every single technical assertion corresponds directly to retrieved text, rather than relying on its internal, pre-trained weights.</p>
+                <p>* <strong>Source Citation Matching:</strong> By enforcing strict alignment between assertions and source data, <i>Scrutiny</i> anchors the model to verified data, ensuring absolute integrity and traceability in enterprise environments.</p>
+              </div>
+
+              <blockquote> 
+                <p><b>Questions Answered:</b><br>
+                  How does the PEARLS framework prevent an AI from deviating from verified source documents during text generation?</p>
+              </blockquote>
+              <blockquote>
+                  <p>What specific mechanisms allow an LLM to perform internal quality control and real-time self-correction?</p>
+              </blockquote>
+              <blockquote>
+                  <p>Why is RAG data retrieval alone insufficient to guarantee factual accuracy without an external verification step?</p>
+              </blockquote>
+              <blockquote>
+                  <p>How does mandatory source citation matching neutralize the risk of model hallucination in production?</p>
+              </blockquote>
+
+              <p class="cta">Ready to build unshakeable trust in your AI applications? Listen to the full episode now to deploy the ultimate verification layer for next-generation system architecture.</p>
+            </div>
+        </div>
+        <audio controls src="../static/downloads/audio/Ep007.mp3" type="audio/mp3">
+        </audio>
+        <div class="download-link">
+          <a href="../static/downloads/audio/Ep007.mp3" download="PEARLS Framework and RAG.mp3">⬇ Download</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card mixed aly audio">
+      <div class="card-content">
+        <b>Podcast</b>
+        <div class="tagline" startdate-expiry="2026-05-16"><b>NEW !</b></div> 
+        <h3 class="title">School Finances With AI Models and Excel</h3>
+        <div class="project-date">
+          <b>Episode 007</b>  <strong>|</strong>  📅 <i><strong> May 15, 2026</strong></i>
+        </div>
+
+        <div class="info">          
+          <img src="../static/images/teadro.png" class="art" alt="Teadro Fin Program">
+            <div class="pageCade">
+              <p><strong>Transform School Finances With AI and Excel- Using ChatGPT, Gemini, etc</strong></p><hr class="hr">
+               <p>Are you still relying on manual guesswork to predict your school's financial future? Discover how forward-thinking school proprietors are bypassing expensive, specialized accounting software by transforming general-purpose AI assistants like ChatGPT and Gemini into powerful, strategic financial layers. By leveraging these intelligent tools, you can automate administrative burdens, optimize cash flow, and run complex risk simulations with unprecedented efficiency.</p>
+              
+              <p><b>Key_Highlights:</b></p>
+              <div class="list">
+                <p>* <strong>The Automated Assistant:</strong> Offload tedious data entry and reconciliation by uploading spreadsheet data into AI tools to automatically categorize expenses, catch entry errors, and generate <i>advanced financial dashboards.</i></p>
+                <p>* <strong>Predictive Revenue Modeling:</strong> Move past manual guesswork by allowing AI to analyze historical enrollment trends, student retention rates, and <i>external inflation factors</i> to project future operational costs and revenue.</p>
+                <p>* <strong>Intelligent Cash Flow Automation:</strong> Streamline fee collection by using AI to draft hyper-personalized, politely timed payment reminders for parents and design <i>customized installment plans</i> tailored to historical family payment behaviors.</p>
+                <p>* <strong>Strategic "What-If" Simulations:</strong> Run sophisticated scenario planning—like calculating the <i>Return on Investment (ROI)</i> and break-even points—before investing capital into major school expansion projects or new digital learning platforms.</p>
+                <p>* <strong>Smart Procurement:</strong> Use AI as a virtual procurement analyst to audit vendor quotes against current market averages, ensuring your institution is never overcharged for supplies or campus equipment.</p>
+              </div>
+
+              <blockquote> 
+                <p><b>Questions Answered:</b><br>
+                  How can general-purpose AI tools serve as a strategic layer over raw school financial data?</p>
+              </blockquote>
+              <blockquote>
+                  <p>In what ways can a bursar use chatbots to accurately forecast expenses amidst fluctuating inflation rates?</p>
+              </blockquote>
+              <blockquote>
+                  <p>What is the best approach to automating sensitive parent communication regarding outstanding school fees?</p>
+              </blockquote>
+              <blockquote>
+                  <p>How can school proprietors run cost-benefit and risk analyses before breaking ground on new infrastructure?</p>
+              </blockquote>
+              <blockquote>
+                  <p>What critical data privacy and accuracy guardrails must an institution implement when using public AI platforms for accounting?</p>
+              </blockquote>
+
+              <p class="cta">Ready to revolutionize your school's administrative efficiency? Listen to the full episode now to unlock the complete playbook on AI-driven school management.</p>
+            </div>
+        </div>
+        <audio controls src="../static/downloads/audio/Ep006.mp3" type="audio/mp3">
+        </audio>
+        <div class="download-link">
+          <a href="../static/downloads/audio/Ep006.mp3" download=" AI and Excel- School Finances.mp3">⬇ Download</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card mixed aly audio">
+      <div class="card-content">
+        <b>Podcast</b>
+        <div class="tagline" startdate-expiry="2026-05-15"><b>NEW !</b></div> 
+        <h3 class="title">Quantum Computer - A Deep Dive (Part-2)</h3>
+        <div class="project-date">
+          <b>Episode 006 (Part-2)</b>  <strong>|</strong>  📅 <i><strong> May 13, 2026</strong></i>
         </div>
 
         <div class="info">          
@@ -128,10 +284,65 @@ Generation (RAG) capabilities for learning.</p>
               <p class="cta">Ready to leap into the subatomic world?</p>
             </div>
         </div>
-        <audio controls src="../static/downloads/audio/Ep004.mp3" type="audio/mp3">
+        <audio controls src="../static/downloads/audio/Ep005b.mp3" type="audio/mp3">
         </audio>
         <div class="download-link">
-          <a href="../static/downloads/audio/Ep004.mp3" download="Quantum Computer - Deep Dive.mp3">⬇ Download Audio</a>
+          <a href="../static/downloads/audio/Ep005b.mp3" download="Quantum Computer - Deep Dive.mp3">⬇ Download</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="project-card mixed aly audio">
+      <div class="card-content">
+        <b>Podcast</b>
+        <div class="tagline" startdate-expiry="2026-05-15"><b>NEW !</b></div> 
+        <h3 class="title">Quantum Computer - A Deep Dive (Part-1)</h3>
+        <div class="project-date">
+          <b>Episode 006 (Part-1)</b>  <strong>|</strong>  📅 <i><strong> May 13, 2026</strong></i>
+        </div>
+
+        <div class="info">          
+          <img src="https://www.energy-reporters.com/wp-content/uploads/2025/09/scientists-unveil-worlds-most-revolutionary-laptop-chip-quantum-computer-this-changes-everything-in-just-days.jpg.webp" class="art" alt="Silicon Quantum Computer">
+            <div class="pageCade">
+               <p><strong>Decoding the Quantum Frontier: A Deep Dive into the Future of Computing</strong></p><hr class="hr"><p>Quantum computing is no longer the stuff of science fiction—it is a rapidly evolving reality that promises to redefine the boundaries of human achievement. From revolutionizing global security to unlocking the secrets of molecular chemistry, the implications are staggering.</p>
+
+              <p>In this episode, we break down the complex physics of the quantum world and explore how this technology is already accessible today.</p>
+              
+              <p><b>Key Highlights from the Episode:</b></p>
+              <div class="list">
+                <p>* <strong>Beyond the Bit:</strong> Learn why quantum computers aren't just "faster laptops" but represent a completely new paradigm of physics.</p>
+                <p>* <strong>Beyond the Bit:</strong> Learn why quantum computers aren't just "faster laptops" but represent a completely new paradigm of physics.</p>
+                <p>* <strong>The Magic of Quantum Mechanics:</strong> We explain the mind-bending concepts of superposition (the "spinning coin") and entanglement, where particles remain linked across the universe.</p>
+                <p>* <strong>The Hardware Challenge:</strong> Discover the extreme engineering required to run these machines, including cooling superconducting qubits to near absolute zero.</p>
+                <p>* <strong>Real-World Impact:</strong> Explore how quantum power could lead to breakthrough drug discoveries through perfect molecular simulation, or potentially dismantle the RSA encryption that secures our modern internet.</p>
+                <p>* <strong>Accessibility in the NISQ Era:</strong> Find out how developers are already building the software ecosystem on platforms like IBM and Amazon Braket, even while the hardware is still being perfected.</p>
+              </div>
+
+              <blockquote> 
+                <p><b>Questions Answered in This Episode:</b><br>
+                  How do qubits differ from the classical bits used in our everyday devices?</p>
+              </blockquote>
+              <blockquote>
+                  <p>Why is it necessary to freeze quantum hardware to temperatures near absolute zero?</p>
+              </blockquote>
+              <blockquote>
+                  <p>In what ways could quantum computing fundamentally change the fields of medicine and global security?</p>
+              </blockquote>
+              <blockquote>
+                  <p>If current quantum machines are still prone to errors (the NISQ era), why should we care about them right now?</p>
+              </blockquote>
+              <blockquote>
+                  <p>How can individuals and developers access quantum power today without owning a multi-million dollar lab?</p>
+              </blockquote>
+
+              <p class="cta">Ready to leap into the subatomic world?</p>
+            </div>
+        </div>
+        <audio controls src="../static/downloads/audio/Ep005a.mp3" type="audio/mp3">
+        </audio>
+        <div class="download-link">
+          <a href="../static/downloads/audio/Ep005a.mp3" download="Quantum Computer - Deep Dive.mp3">⬇ Download</a>
         </div>
       </div>
     </div>
@@ -151,10 +362,10 @@ Generation (RAG) capabilities for learning.</p>
               <p><strong>Quantum Computer.</strong></p><hr class="hr"><p>A quantum computer is a revolutionary type of computer that leverages quantum mechanics—such as superposition and entanglement—to process information in qubits, rather than classical binary bits. Unlike traditional computers, they can evaluate complex, multi-variable problems simultaneously, potentially solving tasks in minutes that would take classical supercomputers millennia. <br><br>-Wikipedia</p>
             </div>
         </div>
-        <audio controls src="../static/downloads/audio/Ep005.mp3" type="audio/mp3">
+        <audio controls src="../static/downloads/audio/Ep004.mp3" type="audio/mp3">
         </audio>
         <div class="download-link">
-          <a href="../static/downloads/audio/Ep005.mp3" download="Quantum Computer.mp3">⬇ Download Audio</a>
+          <a href="../static/downloads/audio/Ep004.mp3" download="Quantum Computer.mp3">⬇ Download</a>
         </div>
       </div>
     </div>
@@ -188,7 +399,7 @@ Generation (RAG) capabilities for learning.</p>
         <audio controls src="../static/downloads/audio/Ep003.mp3" type="audio/mp3">
         </audio>
         <div class="download-link">
-          <a href="../static/downloads/audio/Ep003.mp3" download="AGI - Holy Grail of AI.mp3">⬇ Download Audio</a>
+          <a href="../static/downloads/audio/Ep003.mp3" download="AGI - Holy Grail of AI.mp3">⬇ Download</a>
         </div>
       </div>
     </div>
@@ -238,7 +449,7 @@ Generation (RAG) capabilities for learning.</p>
         <audio controls src="../static/downloads/audio/Ep001.mp3" type="audio/mp3">
         </audio>
         <div class="download-link">
-          <a href="../static/downloads/audio/Ep001.mp3" download="Debate - CoT Vs ToT.mp3">⬇ Download Audio</a>
+          <a href="../static/downloads/audio/Ep001.mp3" download="Debate - CoT Vs ToT.mp3">⬇ Download</a>
         </div>
       </div>
     </div>
@@ -282,7 +493,7 @@ Generation (RAG) capabilities for learning.</p>
         <audio controls src="../static/downloads/audio/Ep002.mp3" type="audio/mp3">
         </audio>
         <div class="download-link">
-          <a href="../static/downloads/audio/Ep002.mp3" download="Podcast - CoT Vs ToT.mp3">⬇ Download Audio</a>
+          <a href="../static/downloads/audio/Ep002.mp3" download="Podcast - CoT Vs ToT.mp3">⬇ Download</a>
         </div>
       </div>
     </div>
@@ -342,7 +553,7 @@ Generation (RAG) capabilities for learning.</p>
         <audio controls src="../static/downloads/audio/Ep000.mp3" type="audio/mp3">
         </audio>
         <div class="download-link">
-          <a href="../static/downloads/audio/Ep000.mp3" download="Fredrick's Biography Chat.mp3">⬇ Download Audio</a>
+          <a href="../static/downloads/audio/Ep000.mp3" download="Fredrick's Biography Chat.mp3">⬇ Download</a>
         </div>
       </div>
     </div>
