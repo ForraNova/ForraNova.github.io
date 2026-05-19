@@ -1,12 +1,12 @@
 {
-    "last_update": "May 19, 2026 | 06:41 AM",
+    "last_update": "May 19, 2026 | 11:54 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[06:41:09] SUCCESS: Machine Learning (3 found)",
-        "[06:41:12] SUCCESS: Front-End / React (3 found)",
-        "[06:41:15] SUCCESS: Writing / Creative (0 found)",
-        "[06:41:18] SUCCESS: Virtual Assistant (0 found)"
+        "[11:54:47] SUCCESS: Machine Learning (3 found)",
+        "[11:54:50] SUCCESS: Front-End / React (3 found)",
+        "[11:54:53] SUCCESS: Writing / Creative (0 found)",
+        "[11:54:56] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-devrel-content-creator-superplane-1131594"
                 },
                 {
-                    "position": "Customer Lifecycle Automation Manager @CXT Software",
-                    "link": "https://remoteok.com/remote-jobs/remote-customer-lifecycle-automation-manager-cxt-software-cxt-software-1131624"
+                    "position": "Member of Technical Staff Applied ML RecSys",
+                    "link": "https://remoteok.com/remote-jobs/remote-member-of-technical-staff-applied-ml-recsys-liquid-ai-1131627"
                 }
             ]
         },
