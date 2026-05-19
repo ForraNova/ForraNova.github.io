@@ -151,7 +151,6 @@ header{
   float: left;
   margin-left: 5px;
   max-height: 90px;/* Reduced size for better fit */
-  z-index: 10;
 }
 
 .logon {
@@ -214,7 +213,7 @@ header{
 }
 
 /* --- Mobile Styles (Under 900px) --- */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   .menu-toggle {
     display: flex; /* Show bars on mobile */
   }
@@ -255,6 +254,7 @@ header{
     flex-direction: column;  /* Switch the dive to block on small screen */
   }
 }
+
     /* ========================= Forra Nova Animated Logo =========================
        ADJUSTMENT PANEL (CSS VARIABLES)
        Modify these values to easily change sizes, positions, and animation speeds.
@@ -280,6 +280,7 @@ header{
       /* Text Logo (forraN.png) Adjustments */
       --text-width: 170px;
       --text-bottom: 30px;
+      --text-down: 20px;
       --text-left: -10px;
       --spin-speed: 6s; /* Duration of one full 3D rotation loop */
     }
@@ -287,7 +288,7 @@ header{
     /* ==========================================================================
        CORE STYLES
        ========================================================================== */
-    
+
     /* Wrapper to make the logo component self-contained and positionable */
     .logo-component {
       position: relative;
@@ -374,6 +375,17 @@ header{
         transform: rotateY(360deg);
       }
     }
+
+    @media (max-width: 600px) {
+       .logo-component {
+          overflow: visible;
+          margin-left:20px;
+       }
+       .layer-text {
+          bottom: var(--text-down);
+        }
+     }
+  
 /* =======================================================================
 END OF LOGO STYLE
 ==========================================================================
@@ -707,7 +719,7 @@ footer a:hover{
 
 .foota{
   z-index: -0.3; 
-  height:55px; 
+  height:55px;
   filter: drop-shadow(0 0 10px rgba(128, 255, 255, 0.6));
 }
 
@@ -727,7 +739,6 @@ RESPONSIVE DESIGN
 
   .nav-links{
       display:none;
-
     }
 
 }
@@ -751,6 +762,7 @@ transform:translateY(0);
 /* ===============================
    RESPONSIVE FIX FOR THE SECTION
    =============================== */
+
 
 @media (max-width: 768px) {
   .home-container {
