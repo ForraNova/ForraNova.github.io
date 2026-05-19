@@ -1,12 +1,12 @@
 {
-    "last_update": "May 19, 2026 | 02:38 PM",
+    "last_update": "May 19, 2026 | 05:34 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[14:37:49] SUCCESS: Machine Learning (3 found)",
-        "[14:37:51] SUCCESS: Front-End / React (3 found)",
-        "[14:37:54] SUCCESS: Writing / Creative (0 found)",
-        "[14:37:57] SUCCESS: Virtual Assistant (0 found)"
+        "[17:34:30] SUCCESS: Machine Learning (3 found)",
+        "[17:34:33] SUCCESS: Front-End / React (3 found)",
+        "[17:34:35] SUCCESS: Writing / Creative (0 found)",
+        "[17:34:38] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-devrel-content-creator-superplane-1131594"
                 },
                 {
-                    "position": "Member of Technical Staff Applied ML RecSys",
-                    "link": "https://remoteok.com/remote-jobs/remote-member-of-technical-staff-applied-ml-recsys-liquid-ai-1131627"
+                    "position": "Intern SD Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-intern-sd-engineer-copious-1131629"
                 }
             ]
         },
