@@ -1,17 +1,30 @@
 {
-    "last_update": "May 19, 2026 | 02:28 AM",
+    "last_update": "May 19, 2026 | 06:41 AM",
     "status": "Online",
-    "total_found": 3,
+    "total_found": 6,
     "logs": [
-        "[02:28:17] SUCCESS: Machine Learning (0 found)",
-        "[02:28:20] SUCCESS: Front-End / React (3 found)",
-        "[02:28:22] SUCCESS: Writing / Creative (0 found)",
-        "[02:28:25] SUCCESS: Virtual Assistant (0 found)"
+        "[06:41:09] SUCCESS: Machine Learning (3 found)",
+        "[06:41:12] SUCCESS: Front-End / React (3 found)",
+        "[06:41:15] SUCCESS: Writing / Creative (0 found)",
+        "[06:41:18] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
-            "jobs": []
+            "jobs": [
+                {
+                    "position": "Senior Marketing Manager Paid Ads",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
+                },
+                {
+                    "position": "DevRel Content Creator",
+                    "link": "https://remoteok.com/remote-jobs/remote-devrel-content-creator-superplane-1131594"
+                },
+                {
+                    "position": "Customer Lifecycle Automation Manager @CXT Software",
+                    "link": "https://remoteok.com/remote-jobs/remote-customer-lifecycle-automation-manager-cxt-software-cxt-software-1131624"
+                }
+            ]
         },
         {
             "query": "Front-End / React",
