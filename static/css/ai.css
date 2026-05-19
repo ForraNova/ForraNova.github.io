@@ -255,7 +255,128 @@ header{
     flex-direction: column;  /* Switch the dive to block on small screen */
   }
 }
+    /* ========================= Forra Nova Animated Logo =========================
+       ADJUSTMENT PANEL (CSS VARIABLES)
+       Modify these values to easily change sizes, positions, and animation speeds.
+       ========================================================================== */
+    :root {
+      /* Component Layout Canvas */
+      --canvas-width: 160px;
+      --canvas-height: 170px;
 
+      /* Parent Logo (forra.png) Adjustments */
+      --bg-logo-sizeW: 100px;
+      --bg-logo-sizeH: 150px;
+      --bg-logo-top: 15px;
+      --bg-logo-left: 30px;
+
+
+      /* Brain AI Graphic (Brain.png) Adjustments */
+      --brain-size: 60px;
+      --brain-top: 32px;
+      --brain-left: 65px; /* Positioned toward Column 3, Row 2 */
+      --heartbeat-speed: 2s; /* Duration of one complete pulse cycle */
+
+      /* Text Logo (forraN.png) Adjustments */
+      --text-width: 170px;
+      --text-bottom: 30px;
+      --text-left: -10px;
+      --spin-speed: 6s; /* Duration of one full 3D rotation loop */
+    }
+
+    /* ==========================================================================
+       CORE STYLES
+       ========================================================================== */
+    
+    /* Wrapper to make the logo component self-contained and positionable */
+    .logo-component {
+      position: relative;
+      width: var(--canvas-width);
+      height: var(--canvas-height);
+      margin-left: 20px;
+      overflow: hidden;
+      /* perspective creates the 3D space depth for the spinning text effect */
+      perspective: 1000px; 
+      background: transparent; /* Seamless blending into parent websites */
+      float: left;
+    }
+    /* Common layer positioning rules */
+    .logo-layer {
+      position: absolute;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+
+    /* 1. Parent Company Background (forra.png) */
+    .layer-bg-logo {
+      width: var(--bg-logo-sizeW);
+      height: var(--bg-logo-sizeH);
+      top: var(--bg-logo-top);
+      left: var(--bg-logo-left);
+      z-index: 1000;
+    }
+
+    /* 2. Brain / AI Graphic Layer (Brain.png) */
+    .layer-brain {
+      width: var(--brain-size);
+      height: var(--brain-size);
+      top: var(--brain-top);
+      left: var(--brain-left);
+      z-index: 2000;
+      animation: heartbeat var(--heartbeat-speed) ease-in-out infinite;
+      transform-origin: center center;
+    }
+
+    /* 3. Spinning Text Layer (forraN.png) */
+    .layer-text {
+      width: var(--text-width);
+      /* Keeps proportional height based on the asset aspect ratio */
+      height: calc(var(--text-width) * 0.25); 
+      bottom: var(--text-bottom);
+      left: var(--text-left);
+      z-index: 3000;
+      transform-style: preserve-3d;
+      animation: spin3D var(--spin-speed) linear infinite;
+    }
+
+    /* ==========================================================================
+       ANIMATION TIMELINES
+       ========================================================================== */
+
+    /* Rhythmic heartbeat mimicking a human breathing rate */
+    @keyframes heartbeat {
+      0% {
+        transform: scale(1);
+      }
+      25% {
+        transform: scale(1.05); /* Quick expansion */
+      }
+      45% {
+        transform: scale(1.02); /* Slight relaxation drop */
+      }
+      65% {
+        transform: scale(1.07); /* Secondary push push */
+      }
+      100% {
+        transform: scale(1); /* Smooth return to resting state */
+      }
+    }
+
+    /* 3D Rotation around the Y-axis. 
+       Brings the left side forward and rotates the right side deep into the background plane.
+    */
+    @keyframes spin3D {
+      0% {
+        transform: rotateY(0deg);
+      }
+      100% {
+        transform: rotateY(360deg);
+      }
+    }
+/* =======================================================================
+END OF LOGO STYLE
+==========================================================================
 
 /* ===============================
    PROJECT STUDIO STYLES
