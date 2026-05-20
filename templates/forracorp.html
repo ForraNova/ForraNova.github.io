@@ -17,31 +17,107 @@
 <!-- XXXXXXX-- HOME--XXXXXXX -->
 
 <body>
-    <header>
-        
-        <div class="logo">
-            <a href="#viewport" onclick="router('category')"><img src="../static/images/logo.png" alt="FC. Logo" class="logo-anima"></a>
-        </div>
-        <img id="logo" class="icon-box" src="../static/images/logoN.png" alt="Forra">
 
-        <div class="HOD">
-            <h1 class="logotext">Forra Corporation</h1>    
-            <nav id="main-nav">
-                <ul>
-                    <li><a href="#viewport" onclick="router('category')">Projects</a></li>
-                    <li><a href="../index.html">Portfolio</a></li>
-                    <li><a href="../index.html#contact">Connect</a></li>
-                </ul>
-            </nav>            
-            <div class="hamburger" id="hamburger-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+   <header>
+    <div class="logo">
+        <a href="#viewport" onclick="router('category')"><img src="../static/images/logo.png" alt="FC. Logo" class="logo-anima"></a>
+    </div>
+    <img id="logo" class="icon-box" src="../static/images/logoN.png" alt="Forra">
+
+    <div class="HOD">
+        <h1 class="logotext">Forra Corporation</h1> 
+
+        <nav id="main-nav" class="navbar">
+                <ul class="nav-links">
+                    <li class="dropdown-main">
+                        <a href="#viewport" class="dropdown-toggle" onclick="router('category')">Projects ⬇</a>
+                        
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-sub">
+                                    <a href="#pillar01" class="dropdown-toggle" onclick="router('pillar01')">Pillar 01 ⬇</a>
+                                    <ul class="submenu">
+                                        <li><a href="#trove1a" onclick="router('trove1a')">Trove 1a</a></li>
+                                        <li><a href="#trove1b" onclick="router('trove1b')">Trove 1b</a></li>
+                                        <li><a href="#trove1c" onclick="router('trove1c')">Trove 1c</a></li>
+                                        <li><a href="#trove1d" onclick="router('trove1d')">Trove 1d</a></li>
+                                        <li><a href="#trove1e" onclick="router('trove1e')">Trove 1e</a></li>
+                                        <li><a href="#trove1f" onclick="router('trove1f')">Trove 1f</a></li>
+                                        <li><a href="#trove1g" onclick="router('trove1g')">Trove 1g</a></li>
+                                        <li><a href="#trove1h" onclick="router('trove1h')">Trove 1h</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-sub">
+                                    <a href="#pillar02" class="dropdown-toggle" onclick="router('pillar02')">Pillar 02 ⬇</a>
+                                    <ul class="submenu">
+                                        <li><a href="#trove2a" onclick="router('trove2a')">Trove 2a</a></li>
+                                        <li><a href="#trove2b" onclick="router('trove2b')">Trove 2b</a></li>
+                                        <li><a href="#trove2c" onclick="router('trove2c')">Trove 2c</a></li>
+                                        <li><a href="#trove2d" onclick="router('trove2d')">Trove 2d</a></li>
+                                        <li><a href="#trove2e" onclick="router('trove2e')">Trove 2e</a></li>
+                                        <li><a href="#trove2f" onclick="router('trove2f')">Trove 2f</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-sub">
+                                    <a href="#pillar03" class="dropdown-toggle" onclick="router('pillar03')">Pillar 03 ⬇</a>
+                                    <ul class="submenu">
+                                        <li><a href="#trove3a" onclick="router('trove3a')">Trove 3a</a></li>
+                                        <li><a href="#trove3b" onclick="router('trove3b')">Trove 3b</a></li>
+                                        <li><a href="#trove3c" onclick="router('trove3c')">Trove 3c</a></li>
+                                        <li><a href="#trove3d" onclick="router('trove3d')">Trove 3d</a></li>
+                                        <li><a href="#trove3e" onclick="router('trove3e')">Trove 3e</a></li>
+                                        <li><a href="#trove3f" onclick="router('trove3f')">Trove 3f</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-sub">
+                                    <a href="#pillar04" class="dropdown-toggle" onclick="router('pillar04')">Pillar 04 ⬇</a>
+                                    <ul class="submenu">
+                                        <li><a href="#trove4a" onclick="router('trove4a')">Trove 4a</a></li>
+                                        <li><a href="#trove4b" onclick="router('trove4b')">Trove 4b</a></li>
+                                        <li><a href="#trove4c" onclick="router('trove4c')">Trove 4c</a></li>
+                                        <li><a href="#trove4d" onclick="router('trove4d')">Trove 4d</a></li>
+                                        <li><a href="#trove4e" onclick="router('trove4e')">Trove 4e</a></li>
+                                        <li><a href="#trove4f" onclick="router('trove4f')">Trove 4f</a></li>
+                                        <li><a href="#trove4g" onclick="router('trove4g')">Trove 4g</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-sub">
+                                    <a href="#pillar05" class="dropdown-toggle" onclick="router('pillar05')">Pillar 05 ⬇</a>
+                                    <ul class="submenu">
+                                        <li><a href="#trove5a" onclick="router('trove5a')">Trove 5a</a></li>
+                                        <li><a href="#trove5b" onclick="router('trove5b')">Trove 5b</a></li>
+                                        <li><a href="#trove5c" onclick="router('trove5c')">Trove 5c</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-sub">
+                                    <a href="#pillar06" class="dropdown-toggle" onclick="router('pillar06')">Pillar 06 ⬇</a>
+                                    <ul class="submenu">
+                                        <li><a href="#trove6a" onclick="router('trove6a')">Trove 6a</a></li>
+                                        <li><a href="#trove6b" onclick="router('trove6b')">Trove 6b</a></li>
+                                        <li><a href="#trove6c" onclick="router('trove6c')">Trove 6c</a></li>
+                                        <li><a href="#trove6d" onclick="router('trove6d')">Trove 6d</a></li>
+                                        <li><a href="#trove6e" onclick="router('trove6e')">Trove 6e</a></li>
+                                        <li><a href="#trove6f" onclick="router('trove6f')">Trove 6f</a></li>
+                                        <li><a href="#trove6g" onclick="router('trove6g')">Trove 6g</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="../index.html">Portfolio</a></li>
+                        <li><a href="pearls.html">AI Training</a></li>
+                        <li><a href="forranova.html">AI Chat-Show</a></li>
+                        <li><a href="../index.html#contact">Connect</a></li>
+                    </ul>
+                </nav> 
+                <div class="hamburger" id="hamburger-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </div>
-        </div>
-    </header>
-    
-    <button id="backToTop" title="Go to top">↑</button><!-- The Back to top -->
+        </header>    
+   
+--------------------------------->
+<button id="backToTop" title="Go to top">↑</button><!-- The Back to top -->
 <!------------------------------------------------------->
 <!----------- SECTION: PROJECT CATEGORIES --------------->
 <!------------------------------------------------------->
@@ -6519,5 +6595,6 @@ python projects/Clock.py
         updateClock();
     </script>
 
+   
 </body>
 </html>
