@@ -127,7 +127,7 @@ header {
     z-index: 100;
     border-bottom: 1px solid var(--glass-border);
     top: 1px;
-    max-height:125px;
+    max-height:110px;
     position: fixed;    
 }
 .HOD{
@@ -182,19 +182,19 @@ header {
     perspective: 1200px; /* Maintains the 3D depth for the rotation */
 }
 #logo{
-    max-width:160px; 
-    height:70px; 
+    max-width:130px; 
+    height:50px; 
     position: fixed; 
     display: flex; 
-    margin: 140px 0 0 50px;
+    margin: 120px 0 0 50px;
     z-index: -10;
 }
 
 :root {
     /* --- EDIT THESE VALUES TO VARY SPEED AND SIZE --- */
     --anim-speed: 30s;        /* Total time for one full loop */
-    --max-scale: 1.0;        /* Final zoom size (1 = 100%, 2 = 200%) */
-    --image-width: 250px;    /* Base width of my image */
+    --max-scale: 0.7;        /* Final zoom size (1 = 100%, 2 = 200%) */
+    --image-width: 200px;    /* Base width of my image */
     --bg-color: rgba(255, 255, 255, 0.5);     /* Background color */
 }
 .logo-anima {
@@ -248,8 +248,6 @@ header {
 /* --- NAVIGATION STYLES (Default: Large Screen) --- */
 #main-nav ul {
     list-style: none;
-    display: flex; /* Display items side-by-side */
-    /* Added margin-right to pull ul away from lang selector */
     margin-right: 20px; 
 }
 
@@ -303,8 +301,8 @@ header {
         background-color: var(--opaqueXX); /* Background for the dropdown */
         max-height: 0; /* Start hidden */
         overflow: hidden; /* Hide overflow content */
-        transition: max-height 0.3s ease-in-out;
-        z-index: 50; /* Lower z-index than the language dropdown */
+        transition: max-height 0.1s ease-in-out;
+        z-index: 50000; /* Lower z-index than the language dropdown */
     }
 
     /* 3. Stack links vertically when displayed */
@@ -323,8 +321,9 @@ header {
 
     /* 4. Class added by JavaScript to display the menu */
     #main-nav.active {
-        top: 120px;
-        max-height: 500px; /* Arbitrarily large enough value to show all links */
+        top: 100px; /* Position below the header/logo when clicked upon as displayed*/
+        max-height: 80vh; /* Using viewport height instead of fixed 500px. Arbitrarily large enough value to show all links */
+        overflow-y: auto;        /* allow scrolling if content is too tall */
         backdrop-filter: blur(10px);
         background: var(--background-dull); 
     }
@@ -342,6 +341,126 @@ header {
         transform: translateY(-8px) rotate(-45deg); /* Bottom bar rotates */
     }
 }
+
+
+/* Override main nav styles for dropdown menus */
+#main-nav .dropdown-menu li a,
+#main-nav .dropdown-menu li a:hover {
+    padding: 8px 20px !important;
+    color: var(--text-norm) !important;
+    background: transparent !important;
+    white-space: nowrap;
+}
+
+#main-nav .dropdown-menu li a:hover {
+    background: var(--opaque) !important;
+    color: var(--primary-cyan) !important;
+    padding-left: 26px !important;
+}
+
+/* Mobile adjustment */
+@media (max-width: 768px) {
+    #main-nav .dropdown-menu li a {
+        white-space: normal !important;
+        padding: 10px 15px !important;
+    }
+    .dropdown-menu {
+        top: 50%;
+
+    }
+    .submenu {
+        top: 50%;
+
+    }
+}
+/* ------------------------------------------ */
+
+/* --- NESTED Navigation Dropdown Logic --- */
+
+/* Navbar Container */
+.navbar {
+    padding: 0 20px 20px 0;
+}
+
+/* Main Navigation Links (Inline layout) */
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links > li {
+    position: relative;
+}
+
+.nav-links a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    transition: background 0.3s ease;
+}
+
+.nav-links a:hover, 
+.nav-links li.is-open > a {
+    background-color: #575757;
+}
+
+/* --- Dropdown Menus Layout (Hidden by Default) --- */
+.dropdown-menu, .submenu {
+    display: none; 
+    position: absolute;
+    background-color: #444;
+    list-style: none;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+.dropdown-menu {
+    top: 100%;
+    left: 0;
+}
+
+.submenu {
+    top: 0;
+    left: 100%;
+    background-color: #555;
+}
+
+.dropdown-menu li {
+    position: relative;
+}
+
+.dropdown-menu a {
+    padding: 12px 20px;
+    font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+    background-color: #666;
+}
+
+/* --- DESKTOP HOVER RULES --- */
+/* Only triggers hover states if the device supports actual mouse hover */
+@media (hover: hover) {
+    .dropdown-main:hover > .dropdown-menu {
+        display: block;
+    }
+    .dropdown-sub:hover > .submenu {
+        display: block;
+    }
+}
+
+/* --- MOBILE & JAVASCRIPT OPEN STATE --- */
+/* This class will be toggled by JS on touch screens */
+.nav-links li.is-open > .dropdown-menu,
+.nav-links li.is-open > .submenu {
+    display: block;
+}
+
+
+
+/* ------------------------------------------------ */
 
 /* --- DYNAMIC VIEWPORT (Only this scrolls) --- */
     #viewport {
@@ -477,7 +596,7 @@ section {
     font-style: italic;
     font-family: 'Times New Roman';
 }
-.intro ul, .intro ul il, .intro ol, .intro ul il{
+.intro ul, .intro ul li, .intro ol, .intro ol li{
     font-size: 1.2rem;
     margin: 5px 0px 5px 50px; 
     text-align: justify;
@@ -875,10 +994,7 @@ tr:nth-child(even) {
     animation: 20s spin linear infinite;
 }
 
-.trovePix::before {
-    filter: blur(1.5rem);
-    opacity: 0.5;
-}
+
 @keyframes spin{
     from{
         --angle: 0deg;
@@ -891,6 +1007,11 @@ tr:nth-child(even) {
     syntax: "<angle>";
     initial-value: 0deg;
     inherits: false;
+}
+
+.trovePix::before {
+    filter: blur(1.5rem);
+    opacity: 0.5;
 }
 /*----- Sentinel Dashboard Theme For The Web Crawler Display -------*/
 
@@ -1475,6 +1596,15 @@ audio {
     animation: 3s spin linear infinite;
 }
 
+@keyframes spin{
+    from{
+        --angle: 360deg;
+    }
+    to{
+        --angle: 0deg;
+    }
+}
+
 @property --angle{
     syntax: "<angle>";
     initial-value: 0deg;
@@ -1483,15 +1613,6 @@ audio {
 .glass-home::before {
     filter: blur(1.5rem);
     opacity: 0.5;
-}
-
-@keyframes spin{
-    from{
-        --angle: 360deg;
-    }
-    to{
-        --angle: 0deg;
-    }
 }
 
 article {
