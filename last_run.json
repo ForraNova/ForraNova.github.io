@@ -1,12 +1,12 @@
 {
-    "last_update": "May 19, 2026 | 10:08 PM",
+    "last_update": "May 20, 2026 | 02:28 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[22:07:53] SUCCESS: Machine Learning (3 found)",
-        "[22:07:56] SUCCESS: Front-End / React (3 found)",
-        "[22:07:58] SUCCESS: Writing / Creative (0 found)",
-        "[22:08:01] SUCCESS: Virtual Assistant (0 found)"
+        "[02:28:32] SUCCESS: Machine Learning (3 found)",
+        "[02:28:35] SUCCESS: Front-End / React (3 found)",
+        "[02:28:37] SUCCESS: Writing / Creative (0 found)",
+        "[02:28:40] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-devrel-content-creator-superplane-1131594"
                 },
                 {
-                    "position": "Intern SD Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-intern-sd-engineer-copious-1131629"
+                    "position": "Senior Fraud Risk Analyst",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-fraud-risk-analyst-braviant-holdings-1131632"
                 }
             ]
         },
