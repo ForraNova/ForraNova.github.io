@@ -1,12 +1,12 @@
 {
-    "last_update": "May 20, 2026 | 10:20 PM",
+    "last_update": "May 21, 2026 | 02:29 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[22:20:02] SUCCESS: Machine Learning (3 found)",
-        "[22:20:05] SUCCESS: Front-End / React (3 found)",
-        "[22:20:07] SUCCESS: Writing / Creative (0 found)",
-        "[22:20:11] SUCCESS: Virtual Assistant (0 found)"
+        "[02:29:06] SUCCESS: Machine Learning (3 found)",
+        "[02:29:08] SUCCESS: Front-End / React (3 found)",
+        "[02:29:11] SUCCESS: Writing / Creative (0 found)",
+        "[02:29:14] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-devrel-content-creator-superplane-1131594"
                 },
                 {
-                    "position": "Senior Fraud Risk Analyst",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-fraud-risk-analyst-braviant-holdings-1131632"
+                    "position": "Chief Technology Officer",
+                    "link": "https://remoteok.com/remote-jobs/remote-chief-technology-officer-access-softek-1131633"
                 }
             ]
         },
