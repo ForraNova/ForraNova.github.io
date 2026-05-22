@@ -1,12 +1,12 @@
 {
-    "last_update": "May 22, 2026 | 07:23 PM",
+    "last_update": "May 22, 2026 | 09:59 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[19:23:32] SUCCESS: Machine Learning (3 found)",
-        "[19:23:34] SUCCESS: Front-End / React (3 found)",
-        "[19:23:37] SUCCESS: Writing / Creative (0 found)",
-        "[19:23:39] SUCCESS: Virtual Assistant (0 found)"
+        "[21:59:35] SUCCESS: Machine Learning (3 found)",
+        "[21:59:37] SUCCESS: Front-End / React (3 found)",
+        "[21:59:39] SUCCESS: Writing / Creative (0 found)",
+        "[21:59:42] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-finance-assistant-360dialog-1131689"
                 },
                 {
-                    "position": "Multi Jurisdiction Accountant",
-                    "link": "https://remoteok.com/remote-jobs/remote-multi-jurisdiction-accountant-flag-theory-1131712"
+                    "position": "Junior Brand Designer",
+                    "link": "https://remoteok.com/remote-jobs/remote-junior-brand-designer-twine-1131835"
                 },
                 {
-                    "position": "Senior Marketing Manager Paid Ads",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
+                    "position": "Multi Jurisdiction Accountant",
+                    "link": "https://remoteok.com/remote-jobs/remote-multi-jurisdiction-accountant-flag-theory-1131712"
                 }
             ]
         },
