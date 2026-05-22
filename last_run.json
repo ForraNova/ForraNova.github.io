@@ -1,12 +1,12 @@
 {
-    "last_update": "May 22, 2026 | 02:17 PM",
+    "last_update": "May 22, 2026 | 05:03 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[14:17:22] SUCCESS: Machine Learning (3 found)",
-        "[14:17:25] SUCCESS: Front-End / React (3 found)",
-        "[14:17:27] SUCCESS: Writing / Creative (0 found)",
-        "[14:17:30] SUCCESS: Virtual Assistant (0 found)"
+        "[17:02:51] SUCCESS: Machine Learning (3 found)",
+        "[17:02:53] SUCCESS: Front-End / React (3 found)",
+        "[17:02:55] SUCCESS: Writing / Creative (0 found)",
+        "[17:02:58] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-finance-assistant-360dialog-1131689"
                 },
                 {
-                    "position": "Senior Marketing Manager Paid Ads",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
+                    "position": "Multi Jurisdiction Accountant",
+                    "link": "https://remoteok.com/remote-jobs/remote-multi-jurisdiction-accountant-flag-theory-1131712"
                 },
                 {
-                    "position": "Software Engineer C",
-                    "link": "https://remoteok.com/remote-jobs/remote-software-engineer-c-octo-horizon-1128583"
+                    "position": "Senior Marketing Manager Paid Ads",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
                 }
             ]
         },
