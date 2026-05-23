@@ -1,12 +1,12 @@
 {
-    "last_update": "May 22, 2026 | 09:59 PM",
+    "last_update": "May 23, 2026 | 02:07 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:59:35] SUCCESS: Machine Learning (3 found)",
-        "[21:59:37] SUCCESS: Front-End / React (3 found)",
-        "[21:59:39] SUCCESS: Writing / Creative (0 found)",
-        "[21:59:42] SUCCESS: Virtual Assistant (0 found)"
+        "[02:07:21] SUCCESS: Machine Learning (3 found)",
+        "[02:07:23] SUCCESS: Front-End / React (3 found)",
+        "[02:07:26] SUCCESS: Writing / Creative (0 found)",
+        "[02:07:28] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-brand-designer-twine-1131835"
                 },
                 {
-                    "position": "Multi Jurisdiction Accountant",
-                    "link": "https://remoteok.com/remote-jobs/remote-multi-jurisdiction-accountant-flag-theory-1131712"
+                    "position": "1169 1170 Pessoa Desenvolvedora C C++ Embarcado Pl Meios de Pagamento",
+                    "link": "https://remoteok.com/remote-jobs/remote-1169-1170-pessoa-desenvolvedora-c-c-embarcado-pl-meios-de-pagamento-venturus-1131837"
                 }
             ]
         },
