@@ -58,7 +58,6 @@ section{
   margin-top: -20px;
 }
 
-
 #project {
   margin-top:80px;
   padding: 80px 10%;
@@ -515,6 +514,26 @@ END OF LOGO STYLE
   font-size: 0.9em;
   margin-bottom: 20px;
   min-height: 50px;
+}
+
+.badge {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  margin: 0 0 5px -10px;
+  text-decoration: none;
+  background: linear-gradient(135deg, #FFFFFF 0%, #00FEDC 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.badge_sub {
+  font-size: 0.8rem;
+}
+.dot {
+  font-size: 1.3rem;
+  color: #777;
 }
 
 /* Responsive Media Elements */
