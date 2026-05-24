@@ -1,12 +1,12 @@
 {
-    "last_update": "May 24, 2026 | 01:01 PM",
+    "last_update": "May 24, 2026 | 03:55 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[13:01:32] SUCCESS: Machine Learning (3 found)",
-        "[13:01:35] SUCCESS: Front-End / React (3 found)",
-        "[13:01:37] SUCCESS: Writing / Creative (0 found)",
-        "[13:01:40] SUCCESS: Virtual Assistant (0 found)"
+        "[15:55:36] SUCCESS: Machine Learning (3 found)",
+        "[15:55:39] SUCCESS: Front-End / React (3 found)",
+        "[15:55:41] SUCCESS: Writing / Creative (0 found)",
+        "[15:55:44] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
                 },
                 {
-                    "position": "Data Annotator",
-                    "link": "https://remoteok.com/remote-jobs/remote-data-annotator-curasenseai-1132152"
+                    "position": "Canva Specialist",
+                    "link": "https://remoteok.com/remote-jobs/remote-canva-specialist-crossing-hurdles-1132161"
                 }
             ]
         },
