@@ -1,12 +1,12 @@
 {
-    "last_update": "May 24, 2026 | 07:02 PM",
+    "last_update": "May 24, 2026 | 09:46 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[19:02:42] SUCCESS: Machine Learning (3 found)",
-        "[19:02:44] SUCCESS: Front-End / React (3 found)",
-        "[19:02:47] SUCCESS: Writing / Creative (0 found)",
-        "[19:02:50] SUCCESS: Virtual Assistant (0 found)"
+        "[21:46:26] SUCCESS: Machine Learning (3 found)",
+        "[21:46:28] SUCCESS: Front-End / React (3 found)",
+        "[21:46:30] SUCCESS: Writing / Creative (0 found)",
+        "[21:46:33] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
                 },
                 {
-                    "position": "Canva Specialist",
-                    "link": "https://remoteok.com/remote-jobs/remote-canva-specialist-crossing-hurdles-1132161"
+                    "position": "Human Resources Coordinator",
+                    "link": "https://remoteok.com/remote-jobs/remote-human-resources-coordinator-aisle-and-abroad-1132193"
                 }
             ]
         },
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
-                    "position": "Intern SD Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-intern-sd-engineer-copious-1131629"
+                    "position": "Senior AI System Software Developer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-ai-system-software-developer-wealthsimple-technologies-1131572"
                 },
                 {
-                    "position": "Senior CRO Manager Growth Optimization Lead for US DTC Company",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-cro-manager-growth-optimization-lead-for-us-dtc-company-paired-1131608"
+                    "position": "Lead Software Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-lead-software-engineer-csc-generation-1131529"
                 },
                 {
-                    "position": "Desenvolvedor Front end J\u00fanior",
-                    "link": "https://remoteok.com/remote-jobs/remote-desenvolvedor-front-end-junior-aggrandize-1131840"
+                    "position": "Software Engineer Showroom",
+                    "link": "https://remoteok.com/remote-jobs/remote-software-engineer-showroom-higharc-1131457"
                 }
             ]
         },
