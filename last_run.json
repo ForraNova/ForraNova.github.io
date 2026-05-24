@@ -1,28 +1,28 @@
 {
-    "last_update": "May 24, 2026 | 10:26 AM",
+    "last_update": "May 24, 2026 | 01:01 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[10:26:23] SUCCESS: Machine Learning (3 found)",
-        "[10:26:26] SUCCESS: Front-End / React (3 found)",
-        "[10:26:28] SUCCESS: Writing / Creative (0 found)",
-        "[10:26:31] SUCCESS: Virtual Assistant (0 found)"
+        "[13:01:32] SUCCESS: Machine Learning (3 found)",
+        "[13:01:35] SUCCESS: Front-End / React (3 found)",
+        "[13:01:37] SUCCESS: Writing / Creative (0 found)",
+        "[13:01:40] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
             "jobs": [
                 {
-                    "position": "Finance Assistant",
-                    "link": "https://remoteok.com/remote-jobs/remote-finance-assistant-360dialog-1131689"
+                    "position": "Multi Jurisdiction Accountant",
+                    "link": "https://remoteok.com/remote-jobs/remote-multi-jurisdiction-accountant-flag-theory-1131712"
                 },
                 {
-                    "position": "Junior Brand Designer",
-                    "link": "https://remoteok.com/remote-jobs/remote-junior-brand-designer-twine-1131835"
+                    "position": "Senior Marketing Manager Paid Ads",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
                 },
                 {
-                    "position": "1169 1170 Pessoa Desenvolvedora C C++ Embarcado Pl Meios de Pagamento",
-                    "link": "https://remoteok.com/remote-jobs/remote-1169-1170-pessoa-desenvolvedora-c-c-embarcado-pl-meios-de-pagamento-venturus-1131837"
+                    "position": "Data Annotator",
+                    "link": "https://remoteok.com/remote-jobs/remote-data-annotator-curasenseai-1132152"
                 }
             ]
         },
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Intern SD Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-intern-sd-engineer-copious-1131629"
+                },
+                {
                     "position": "Senior CRO Manager Growth Optimization Lead for US DTC Company",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-cro-manager-growth-optimization-lead-for-us-dtc-company-paired-1131608"
                 },
                 {
-                    "position": "Senior AI System Software Developer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-ai-system-software-developer-wealthsimple-technologies-1131572"
-                },
-                {
-                    "position": "Integration Test Manager VHA Required",
-                    "link": "https://remoteok.com/remote-jobs/remote-integration-test-manager-vha-required-ibility-1131389"
+                    "position": "Desenvolvedor Front end J\u00fanior",
+                    "link": "https://remoteok.com/remote-jobs/remote-desenvolvedor-front-end-junior-aggrandize-1131840"
                 }
             ]
         },
