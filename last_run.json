@@ -1,12 +1,12 @@
 {
-    "last_update": "May 24, 2026 | 09:46 PM",
+    "last_update": "May 25, 2026 | 02:34 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:46:26] SUCCESS: Machine Learning (3 found)",
-        "[21:46:28] SUCCESS: Front-End / React (3 found)",
-        "[21:46:30] SUCCESS: Writing / Creative (0 found)",
-        "[21:46:33] SUCCESS: Virtual Assistant (0 found)"
+        "[02:34:13] SUCCESS: Machine Learning (3 found)",
+        "[02:34:16] SUCCESS: Front-End / React (3 found)",
+        "[02:34:18] SUCCESS: Writing / Creative (0 found)",
+        "[02:34:21] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-multi-jurisdiction-accountant-flag-theory-1131712"
                 },
                 {
-                    "position": "Senior Marketing Manager Paid Ads",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
+                    "position": "Customer Support Specialist",
+                    "link": "https://remoteok.com/remote-jobs/remote-customer-support-specialist-crossing-hurdles-1132199"
                 },
                 {
-                    "position": "Human Resources Coordinator",
-                    "link": "https://remoteok.com/remote-jobs/remote-human-resources-coordinator-aisle-and-abroad-1132193"
+                    "position": "Senior Marketing Manager Paid Ads",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
                 }
             ]
         },
