@@ -1,12 +1,12 @@
 {
-    "last_update": "May 25, 2026 | 07:04 AM",
+    "last_update": "May 25, 2026 | 12:19 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[07:03:59] SUCCESS: Machine Learning (3 found)",
-        "[07:04:02] SUCCESS: Front-End / React (3 found)",
-        "[07:04:04] SUCCESS: Writing / Creative (0 found)",
-        "[07:04:07] SUCCESS: Virtual Assistant (0 found)"
+        "[12:19:48] SUCCESS: Machine Learning (3 found)",
+        "[12:19:50] SUCCESS: Front-End / React (3 found)",
+        "[12:19:53] SUCCESS: Writing / Creative (0 found)",
+        "[12:19:56] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-multi-jurisdiction-accountant-flag-theory-1131712"
                 },
                 {
-                    "position": "Administrative & Executive Support Professionals",
-                    "link": "https://remoteok.com/remote-jobs/remote-administrative-executive-support-professionals-crossing-hurdles-1132201"
+                    "position": "HR Administrative Assistant",
+                    "link": "https://remoteok.com/remote-jobs/remote-hr-administrative-assistant-orchestrate-consulting-group-1132211"
                 },
                 {
-                    "position": "Investment Analyst",
-                    "link": "https://remoteok.com/remote-jobs/remote-investment-analyst-crossing-hurdles-1132200"
+                    "position": "Project Management Specialist",
+                    "link": "https://remoteok.com/remote-jobs/remote-project-management-specialist-crossing-hurdles-1132210"
                 }
             ]
         },
