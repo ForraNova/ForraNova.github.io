@@ -1,12 +1,12 @@
 {
-    "last_update": "May 25, 2026 | 12:19 PM",
+    "last_update": "May 25, 2026 | 05:00 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[12:19:48] SUCCESS: Machine Learning (3 found)",
-        "[12:19:50] SUCCESS: Front-End / React (3 found)",
-        "[12:19:53] SUCCESS: Writing / Creative (0 found)",
-        "[12:19:56] SUCCESS: Virtual Assistant (0 found)"
+        "[16:59:57] SUCCESS: Machine Learning (3 found)",
+        "[17:00:00] SUCCESS: Front-End / React (3 found)",
+        "[17:00:02] SUCCESS: Writing / Creative (0 found)",
+        "[17:00:05] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-multi-jurisdiction-accountant-flag-theory-1131712"
                 },
                 {
-                    "position": "HR Administrative Assistant",
-                    "link": "https://remoteok.com/remote-jobs/remote-hr-administrative-assistant-orchestrate-consulting-group-1132211"
+                    "position": "Luxury Massage Therapist",
+                    "link": "https://remoteok.com/remote-jobs/remote-luxury-massage-therapist-bolt-farm-treehouse-1132229"
                 },
                 {
-                    "position": "Project Management Specialist",
-                    "link": "https://remoteok.com/remote-jobs/remote-project-management-specialist-crossing-hurdles-1132210"
+                    "position": "Biology Analyst",
+                    "link": "https://remoteok.com/remote-jobs/remote-biology-analyst-crossing-hurdles-1132228"
                 }
             ]
         },
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
-                    "position": "Senior AI System Software Developer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-ai-system-software-developer-wealthsimple-technologies-1131572"
+                    "position": "Microbiology Specialist",
+                    "link": "https://remoteok.com/remote-jobs/remote-microbiology-specialist-crossing-hurdles-1132222"
                 },
                 {
-                    "position": "Lead Software Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-lead-software-engineer-csc-generation-1131529"
+                    "position": "Junior Front End Developer",
+                    "link": "https://remoteok.com/remote-jobs/remote-junior-front-end-developer-pulsemedia-apac-1132221"
                 },
                 {
-                    "position": "Software Engineer Showroom",
-                    "link": "https://remoteok.com/remote-jobs/remote-software-engineer-showroom-higharc-1131457"
+                    "position": "Junior Front End Developer",
+                    "link": "https://remoteok.com/remote-jobs/remote-junior-front-end-developer-pulsemedia-apac-1132223"
                 }
             ]
         },
