@@ -1,12 +1,12 @@
 {
-    "last_update": "May 25, 2026 | 10:02 PM",
+    "last_update": "May 26, 2026 | 02:14 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[22:02:42] SUCCESS: Machine Learning (3 found)",
-        "[22:02:44] SUCCESS: Front-End / React (3 found)",
-        "[22:02:47] SUCCESS: Writing / Creative (0 found)",
-        "[22:02:50] SUCCESS: Virtual Assistant (0 found)"
+        "[02:14:24] SUCCESS: Machine Learning (3 found)",
+        "[02:14:27] SUCCESS: Front-End / React (3 found)",
+        "[02:14:29] SUCCESS: Writing / Creative (0 found)",
+        "[02:14:32] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-multi-jurisdiction-accountant-flag-theory-1131712"
                 },
                 {
-                    "position": "Executive Assistant",
-                    "link": "https://remoteok.com/remote-jobs/remote-executive-assistant-crossing-hurdles-1132232"
+                    "position": "MEX Cajero Dual",
+                    "link": "https://remoteok.com/remote-jobs/remote-mex-cajero-dual-universia-mexico-1132250"
                 },
                 {
-                    "position": "IT Support Specialist",
-                    "link": "https://remoteok.com/remote-jobs/remote-it-support-specialist-remoteva-1132230"
+                    "position": "Independent PMHNP Premium Rates Telehealth",
+                    "link": "https://remoteok.com/remote-jobs/remote-independent-pmhnp-premium-rates-telehealth-seasoned-recruitment-1132248"
                 }
             ]
         },
