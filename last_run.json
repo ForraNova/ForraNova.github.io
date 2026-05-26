@@ -1,12 +1,12 @@
 {
-    "last_update": "May 26, 2026 | 02:14 AM",
+    "last_update": "May 26, 2026 | 06:39 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[02:14:24] SUCCESS: Machine Learning (3 found)",
-        "[02:14:27] SUCCESS: Front-End / React (3 found)",
-        "[02:14:29] SUCCESS: Writing / Creative (0 found)",
-        "[02:14:32] SUCCESS: Virtual Assistant (0 found)"
+        "[06:39:01] SUCCESS: Machine Learning (3 found)",
+        "[06:39:03] SUCCESS: Front-End / React (3 found)",
+        "[06:39:05] SUCCESS: Writing / Creative (0 found)",
+        "[06:39:08] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-multi-jurisdiction-accountant-flag-theory-1131712"
                 },
                 {
-                    "position": "MEX Cajero Dual",
-                    "link": "https://remoteok.com/remote-jobs/remote-mex-cajero-dual-universia-mexico-1132250"
+                    "position": "Ejecutivo t\u00e9cnico comercial Industria de alimentos",
+                    "link": "https://remoteok.com/remote-jobs/remote-ejecutivo-tecnico-comercial-industria-de-alimentos-universia-peru-1132253"
                 },
                 {
-                    "position": "Independent PMHNP Premium Rates Telehealth",
-                    "link": "https://remoteok.com/remote-jobs/remote-independent-pmhnp-premium-rates-telehealth-seasoned-recruitment-1132248"
+                    "position": "Gerente de Opera\u00e7\u00f5es",
+                    "link": "https://remoteok.com/remote-jobs/remote-gerente-de-operacoes-gra-comercio-1132254"
                 }
             ]
         },
