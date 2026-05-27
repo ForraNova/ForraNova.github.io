@@ -1,12 +1,12 @@
 {
-    "last_update": "May 27, 2026 | 06:55 AM",
+    "last_update": "May 27, 2026 | 05:51 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[06:55:31] SUCCESS: Machine Learning (3 found)",
-        "[06:55:33] SUCCESS: Front-End / React (3 found)",
-        "[06:55:36] SUCCESS: Writing / Creative (0 found)",
-        "[06:55:39] SUCCESS: Virtual Assistant (0 found)"
+        "[17:51:46] SUCCESS: Machine Learning (3 found)",
+        "[17:51:49] SUCCESS: Front-End / React (3 found)",
+        "[17:51:51] SUCCESS: Writing / Creative (0 found)",
+        "[17:51:54] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-multi-jurisdiction-accountant-flag-theory-1131712"
                 },
                 {
-                    "position": "Executive Assistant Construction",
-                    "link": "https://remoteok.com/remote-jobs/remote-executive-assistant-construction-outsource-access-careers-1132357"
+                    "position": "Product Designer",
+                    "link": "https://remoteok.com/remote-jobs/remote-product-designer-south-geeks-1132403"
                 },
                 {
-                    "position": "Associate Chief of Staff the Co Founders",
-                    "link": "https://remoteok.com/remote-jobs/remote-associate-chief-of-staff-the-co-founders-radicle-science-1132352"
+                    "position": "Speculative Senior AMS Consultant Applications",
+                    "link": "https://remoteok.com/remote-jobs/remote-speculative-senior-ams-consultant-applications-the-config-team-1132402"
                 }
             ]
         },
