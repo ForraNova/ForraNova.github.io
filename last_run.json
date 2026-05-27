@@ -1,12 +1,12 @@
 {
-    "last_update": "May 27, 2026 | 08:01 PM",
+    "last_update": "May 27, 2026 | 10:25 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[20:01:15] SUCCESS: Machine Learning (3 found)",
-        "[20:01:18] SUCCESS: Front-End / React (3 found)",
-        "[20:01:21] SUCCESS: Writing / Creative (0 found)",
-        "[20:01:24] SUCCESS: Virtual Assistant (0 found)"
+        "[22:25:20] SUCCESS: Machine Learning (3 found)",
+        "[22:25:22] SUCCESS: Front-End / React (3 found)",
+        "[22:25:25] SUCCESS: Writing / Creative (0 found)",
+        "[22:25:28] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-multi-jurisdiction-accountant-flag-theory-1131712"
                 },
                 {
-                    "position": "Administrative Assistant \u00a328 000 \u00a332 000 + Training Provided",
-                    "link": "https://remoteok.com/remote-jobs/remote-administrative-assistant-28-000-32-000-training-provided-apply4u-1132418"
+                    "position": "Graphic Designer",
+                    "link": "https://remoteok.com/remote-jobs/remote-graphic-designer-gamdom-1132426"
                 },
                 {
-                    "position": "Administrative & Office Support Agent",
-                    "link": "https://remoteok.com/remote-jobs/remote-administrative-office-support-agent-kyny-group-1132413"
+                    "position": "Administrative Assistant \u00a328 000 \u00a332 000 + Training Provided",
+                    "link": "https://remoteok.com/remote-jobs/remote-administrative-assistant-28-000-32-000-training-provided-apply4u-1132418"
                 }
             ]
         },
