@@ -1,12 +1,12 @@
 {
-    "last_update": "May 28, 2026 | 02:09 AM",
+    "last_update": "May 28, 2026 | 06:44 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[02:09:19] SUCCESS: Machine Learning (3 found)",
-        "[02:09:22] SUCCESS: Front-End / React (3 found)",
-        "[02:09:24] SUCCESS: Writing / Creative (0 found)",
-        "[02:09:27] SUCCESS: Virtual Assistant (0 found)"
+        "[06:43:52] SUCCESS: Machine Learning (3 found)",
+        "[06:43:55] SUCCESS: Front-End / React (3 found)",
+        "[06:43:57] SUCCESS: Writing / Creative (0 found)",
+        "[06:44:00] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-multi-jurisdiction-accountant-flag-theory-1131712"
                 },
                 {
-                    "position": "Executive Assistant",
-                    "link": "https://remoteok.com/remote-jobs/remote-executive-assistant-zirtual-1132431"
+                    "position": "Head of Product Operations",
+                    "link": "https://remoteok.com/remote-jobs/remote-head-of-product-operations-familywell-health-1132434"
                 }
             ]
         },
