@@ -1,17 +1,21 @@
 {
-    "last_update": "May 28, 2026 | 06:44 AM",
+    "last_update": "May 28, 2026 | 12:19 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[06:43:52] SUCCESS: Machine Learning (3 found)",
-        "[06:43:55] SUCCESS: Front-End / React (3 found)",
-        "[06:43:57] SUCCESS: Writing / Creative (0 found)",
-        "[06:44:00] SUCCESS: Virtual Assistant (0 found)"
+        "[12:19:08] SUCCESS: Machine Learning (3 found)",
+        "[12:19:10] SUCCESS: Front-End / React (3 found)",
+        "[12:19:13] SUCCESS: Writing / Creative (0 found)",
+        "[12:19:16] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
             "jobs": [
+                {
+                    "position": "Client Delivery Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-client-delivery-manager-storyteller-1132435"
+                },
                 {
                     "position": "SALES REPS WANTED FOR HIGH TICKET FINANCE SALES",
                     "link": "https://remoteok.com/remote-jobs/remote-sales-reps-wanted-for-high-ticket-finance-sales-fse-1131368"
@@ -19,10 +23,6 @@
                 {
                     "position": "Multi Jurisdiction Accountant",
                     "link": "https://remoteok.com/remote-jobs/remote-multi-jurisdiction-accountant-flag-theory-1131712"
-                },
-                {
-                    "position": "Head of Product Operations",
-                    "link": "https://remoteok.com/remote-jobs/remote-head-of-product-operations-familywell-health-1132434"
                 }
             ]
         },
