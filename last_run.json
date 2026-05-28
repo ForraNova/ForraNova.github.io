@@ -1,28 +1,28 @@
 {
-    "last_update": "May 27, 2026 | 10:25 PM",
+    "last_update": "May 28, 2026 | 02:09 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[22:25:20] SUCCESS: Machine Learning (3 found)",
-        "[22:25:22] SUCCESS: Front-End / React (3 found)",
-        "[22:25:25] SUCCESS: Writing / Creative (0 found)",
-        "[22:25:28] SUCCESS: Virtual Assistant (0 found)"
+        "[02:09:19] SUCCESS: Machine Learning (3 found)",
+        "[02:09:22] SUCCESS: Front-End / React (3 found)",
+        "[02:09:24] SUCCESS: Writing / Creative (0 found)",
+        "[02:09:27] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
             "jobs": [
                 {
+                    "position": "SALES REPS WANTED FOR HIGH TICKET FINANCE SALES",
+                    "link": "https://remoteok.com/remote-jobs/remote-sales-reps-wanted-for-high-ticket-finance-sales-fse-1131368"
+                },
+                {
                     "position": "Multi Jurisdiction Accountant",
                     "link": "https://remoteok.com/remote-jobs/remote-multi-jurisdiction-accountant-flag-theory-1131712"
                 },
                 {
-                    "position": "Graphic Designer",
-                    "link": "https://remoteok.com/remote-jobs/remote-graphic-designer-gamdom-1132426"
-                },
-                {
-                    "position": "Administrative Assistant \u00a328 000 \u00a332 000 + Training Provided",
-                    "link": "https://remoteok.com/remote-jobs/remote-administrative-assistant-28-000-32-000-training-provided-apply4u-1132418"
+                    "position": "Executive Assistant",
+                    "link": "https://remoteok.com/remote-jobs/remote-executive-assistant-zirtual-1132431"
                 }
             ]
         },
