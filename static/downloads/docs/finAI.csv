@@ -1,0 +1,22 @@
+Date,Category,Sub-Category,Item Description,Debit (Expenses/Assets) (₦),Credit (Revenue) (₦)
+2026-01-10,Revenue,Tuition Fees,JSS 1 - JSS 3 Tuition (Term 1 Paid),,"14,500,000"
+2026-01-10,Revenue,Tuition Fees,SSS 1 - SSS 3 Tuition (Term 1 Paid),,"18,200,000"
+2026-01-12,Fixed Asset,Infrastructure,Construction of New Science Laboratory Block,"12,000,000",
+2026-01-14,Revenue,Ancillary Income,School Bus Transmportation Levies,,"3,400,000"
+2026-01-15,Revenue,Ancillary Income,Sale of Custom School Uniforms & Badges,,"2,100,000"
+2026-01-25,Operating Expense,Personnel,Academic Staff Salaries (January),"4,200,000",
+2026-01-25,Operating Expense,Personnel,Non-Academic & Security Staff Salaries,"1,100,000",
+2026-01-28,Operating Expense,Utilities/Fuel,Diesel Purchase for Main 60KVA Generator,"1,850,000",
+2026-02-02,Fixed Asset,Equipment,Purchase of 15 Desktop Computers for ICT Lab,"4,500,000",
+2026-02-05,Operating Expense,Facility Maintenance,Emergency Roof Repairs after Rainstorm,"950,000",
+2026-02-10,Operating Expense,Administrative,Printing of Term 1 Exam Sheets & Report Booklets,"600,000",
+2026-02-15,Operating Expense,Marketing,Printing of Billboards and Flyers for Enrolment Drive,"450,000",
+2026-02-25,Operating Expense,Personnel,Academic Staff Salaries (February),"4,200,000",
+2026-02-25,Operating Expense,Personnel,Non-Academic & Security Staff Salaries,"1,100,000",
+2026-02-28,Operating Expense,Utilities/Fuel,Diesel Purchase for Main 60KVA Generator,"2,100,000",
+2026-03-02,Current Asset,Receivables,Outstanding Uncollected Fees (Bad Debt Risk),"5,800,000",
+2026-03-05,Operating Expense,Facility Maintenance,Servicing School Buses (Mechanical Overhaul),"1,350,000",
+2026-03-10,Operating Expense,Academic Supplies,Government Approved Textbooks & Library Restocking,"1,200,000",
+2026-03-25,Operating Expense,Personnel,Academic Staff Salaries (March),"4,200,000",
+2026-03-25,Operating Expense,Personnel,Non-Academic & Security Staff Salaries,"1,100,000",
+2026-03-28,Operating Expense,Utilities/Fuel,Diesel Purchase for Main 60KVA Generator,"2,450,000",
