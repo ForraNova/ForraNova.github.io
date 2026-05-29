@@ -1,12 +1,12 @@
 {
-    "last_update": "May 28, 2026 | 10:27 PM",
+    "last_update": "May 29, 2026 | 02:13 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[22:27:04] SUCCESS: Machine Learning (3 found)",
-        "[22:27:06] SUCCESS: Front-End / React (3 found)",
-        "[22:27:09] SUCCESS: Writing / Creative (0 found)",
-        "[22:27:12] SUCCESS: Virtual Assistant (0 found)"
+        "[02:13:27] SUCCESS: Machine Learning (3 found)",
+        "[02:13:30] SUCCESS: Front-End / React (3 found)",
+        "[02:13:32] SUCCESS: Writing / Creative (0 found)",
+        "[02:13:35] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
-                    "position": "Microbiology Specialist",
-                    "link": "https://remoteok.com/remote-jobs/remote-microbiology-specialist-crossing-hurdles-1132222"
+                    "position": "Site Reliability Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-site-reliability-engineer-rbc-1132479"
                 },
                 {
-                    "position": "Junior Front End Developer",
-                    "link": "https://remoteok.com/remote-jobs/remote-junior-front-end-developer-pulsemedia-apac-1132221"
+                    "position": "Grid Operator",
+                    "link": "https://remoteok.com/remote-jobs/remote-grid-operator-bahamas-grid-company-1132477"
                 },
                 {
-                    "position": "Junior Front End Developer",
-                    "link": "https://remoteok.com/remote-jobs/remote-junior-front-end-developer-pulsemedia-apac-1132223"
+                    "position": "Electrician Royal Beach Club",
+                    "link": "https://remoteok.com/remote-jobs/remote-electrician-royal-beach-club-royal-caribbean-international-1132478"
                 }
             ]
         },
