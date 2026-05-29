@@ -1,12 +1,12 @@
 {
-    "last_update": "May 29, 2026 | 06:00 PM",
+    "last_update": "May 29, 2026 | 08:30 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[18:00:20] SUCCESS: Machine Learning (3 found)",
-        "[18:00:23] SUCCESS: Front-End / React (3 found)",
-        "[18:00:25] SUCCESS: Writing / Creative (0 found)",
-        "[18:00:28] SUCCESS: Virtual Assistant (0 found)"
+        "[20:30:02] SUCCESS: Machine Learning (3 found)",
+        "[20:30:05] SUCCESS: Front-End / React (3 found)",
+        "[20:30:08] SUCCESS: Writing / Creative (0 found)",
+        "[20:30:11] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Front Desk Guest Experience Associate",
+                    "link": "https://remoteok.com/remote-jobs/remote-front-desk-guest-experience-associate-truporch-homes-1132537"
+                },
+                {
                     "position": "Site Reliability Engineer",
                     "link": "https://remoteok.com/remote-jobs/remote-site-reliability-engineer-rbc-1132479"
                 },
                 {
                     "position": "Grid Operator",
                     "link": "https://remoteok.com/remote-jobs/remote-grid-operator-bahamas-grid-company-1132477"
-                },
-                {
-                    "position": "Electrician Royal Beach Club",
-                    "link": "https://remoteok.com/remote-jobs/remote-electrician-royal-beach-club-royal-caribbean-international-1132478"
                 }
             ]
         },
