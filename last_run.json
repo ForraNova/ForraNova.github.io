@@ -1,17 +1,21 @@
 {
-    "last_update": "May 30, 2026 | 06:15 AM",
+    "last_update": "May 30, 2026 | 10:43 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[06:15:41] SUCCESS: Machine Learning (3 found)",
-        "[06:15:44] SUCCESS: Front-End / React (3 found)",
-        "[06:15:46] SUCCESS: Writing / Creative (0 found)",
-        "[06:15:49] SUCCESS: Virtual Assistant (0 found)"
+        "[10:43:48] SUCCESS: Machine Learning (3 found)",
+        "[10:43:51] SUCCESS: Front-End / React (3 found)",
+        "[10:43:53] SUCCESS: Writing / Creative (0 found)",
+        "[10:43:57] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
             "jobs": [
+                {
+                    "position": "Entry Level Junior Trader",
+                    "link": "https://remoteok.com/remote-jobs/remote-entry-level-junior-trader-infiniti-group-1132574"
+                },
                 {
                     "position": "Field Recruiter",
                     "link": "https://remoteok.com/remote-jobs/remote-field-recruiter-hub-xyz-1132456"
@@ -19,10 +23,6 @@
                 {
                     "position": "Client Delivery Manager",
                     "link": "https://remoteok.com/remote-jobs/remote-client-delivery-manager-storyteller-1132435"
-                },
-                {
-                    "position": "SALES REPS WANTED FOR HIGH TICKET FINANCE SALES",
-                    "link": "https://remoteok.com/remote-jobs/remote-sales-reps-wanted-for-high-ticket-finance-sales-fse-1131368"
                 }
             ]
         },
