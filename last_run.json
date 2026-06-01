@@ -1,12 +1,12 @@
 {
-    "last_update": "June 01, 2026 | 08:26 AM",
+    "last_update": "June 01, 2026 | 02:51 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[08:25:49] SUCCESS: Machine Learning (3 found)",
-        "[08:25:52] SUCCESS: Front-End / React (3 found)",
-        "[08:25:54] SUCCESS: Writing / Creative (0 found)",
-        "[08:25:57] SUCCESS: Virtual Assistant (0 found)"
+        "[14:51:08] SUCCESS: Machine Learning (3 found)",
+        "[14:51:11] SUCCESS: Front-End / React (3 found)",
+        "[14:51:13] SUCCESS: Writing / Creative (0 found)",
+        "[14:51:16] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,8 +17,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-entry-level-junior-trader-infiniti-group-1132574"
                 },
                 {
-                    "position": "Field Recruiter",
-                    "link": "https://remoteok.com/remote-jobs/remote-field-recruiter-hub-xyz-1132456"
+                    "position": "Hub Recruiter",
+                    "link": "https://remoteok.com/remote-jobs/remote-hub-recruiter-hub-xyz-1132456"
                 },
                 {
                     "position": "Client Delivery Manager",
