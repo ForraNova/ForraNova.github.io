@@ -1,12 +1,12 @@
 {
-    "last_update": "June 04, 2026 | 10:16 PM",
+    "last_update": "June 05, 2026 | 02:32 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[22:16:20] SUCCESS: Machine Learning (3 found)",
-        "[22:16:23] SUCCESS: Front-End / React (3 found)",
-        "[22:16:25] SUCCESS: Writing / Creative (0 found)",
-        "[22:16:28] SUCCESS: Virtual Assistant (0 found)"
+        "[02:32:40] SUCCESS: Machine Learning (3 found)",
+        "[02:32:42] SUCCESS: Front-End / React (3 found)",
+        "[02:32:44] SUCCESS: Writing / Creative (0 found)",
+        "[02:32:47] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-entry-level-junior-trader-infiniti-group-1132574"
                 },
                 {
-                    "position": "Hub Recruiter",
-                    "link": "https://remoteok.com/remote-jobs/remote-hub-recruiter-hub-xyz-1132456"
+                    "position": "Recepcionista Trabalho Remoto",
+                    "link": "https://remoteok.com/remote-jobs/remote-recepcionista-trabalho-remoto-bairesdev-1132839"
                 }
             ]
         },
