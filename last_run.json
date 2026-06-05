@@ -1,12 +1,12 @@
 {
-    "last_update": "June 05, 2026 | 06:58 AM",
+    "last_update": "June 05, 2026 | 11:56 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[06:58:35] SUCCESS: Machine Learning (3 found)",
-        "[06:58:38] SUCCESS: Front-End / React (3 found)",
-        "[06:58:40] SUCCESS: Writing / Creative (0 found)",
-        "[06:58:43] SUCCESS: Virtual Assistant (0 found)"
+        "[11:56:22] SUCCESS: Machine Learning (3 found)",
+        "[11:56:25] SUCCESS: Front-End / React (3 found)",
+        "[11:56:27] SUCCESS: Writing / Creative (0 found)",
+        "[11:56:30] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-entry-level-junior-trader-infiniti-group-1132574"
                 },
                 {
-                    "position": "Onboarding Specialist",
-                    "link": "https://remoteok.com/remote-jobs/remote-onboarding-specialist-ezcater-1132855"
+                    "position": "General Practitioner Telehealth Case Conferencing Clinic",
+                    "link": "https://remoteok.com/remote-jobs/remote-general-practitioner-telehealth-case-conferencing-clinic-proactive-health-1132867"
                 }
             ]
         },
