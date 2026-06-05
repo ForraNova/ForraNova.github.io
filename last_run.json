@@ -1,17 +1,21 @@
 {
-    "last_update": "June 05, 2026 | 05:08 PM",
+    "last_update": "June 05, 2026 | 07:42 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[17:08:07] SUCCESS: Machine Learning (3 found)",
-        "[17:08:09] SUCCESS: Front-End / React (3 found)",
-        "[17:08:11] SUCCESS: Writing / Creative (0 found)",
-        "[17:08:14] SUCCESS: Virtual Assistant (0 found)"
+        "[19:42:13] SUCCESS: Machine Learning (3 found)",
+        "[19:42:16] SUCCESS: Front-End / React (3 found)",
+        "[19:42:19] SUCCESS: Writing / Creative (0 found)",
+        "[19:42:22] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
             "jobs": [
+                {
+                    "position": "Support Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-support-engineer-level-1132895"
+                },
                 {
                     "position": "Senior Software Engineer",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-stellar-ai-1128869"
@@ -19,10 +23,6 @@
                 {
                     "position": "Entry Level Junior Trader",
                     "link": "https://remoteok.com/remote-jobs/remote-entry-level-junior-trader-infiniti-group-1132574"
-                },
-                {
-                    "position": "Customer Service Specialist",
-                    "link": "https://remoteok.com/remote-jobs/remote-customer-service-specialist-albo-1132881"
                 }
             ]
         },
