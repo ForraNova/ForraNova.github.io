@@ -1,12 +1,12 @@
 {
-    "last_update": "June 08, 2026 | 10:19 PM",
+    "last_update": "June 09, 2026 | 02:09 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[22:19:17] SUCCESS: Machine Learning (3 found)",
-        "[22:19:20] SUCCESS: Front-End / React (3 found)",
-        "[22:19:22] SUCCESS: Writing / Creative (0 found)",
-        "[22:19:25] SUCCESS: Virtual Assistant (0 found)"
+        "[02:09:11] SUCCESS: Machine Learning (3 found)",
+        "[02:09:14] SUCCESS: Front-End / React (3 found)",
+        "[02:09:16] SUCCESS: Writing / Creative (0 found)",
+        "[02:09:19] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
-                    "position": "FT PT Nanny",
-                    "link": "https://remoteok.com/remote-jobs/remote-ft-pt-nanny-jovie-1132976"
+                    "position": "Data Scientist",
+                    "link": "https://remoteok.com/remote-jobs/remote-data-scientist-yo-hr-consultancy-1133043"
                 },
                 {
-                    "position": "Front Desk Guest Experience Associate",
-                    "link": "https://remoteok.com/remote-jobs/remote-front-desk-guest-experience-associate-truporch-homes-1132537"
+                    "position": "Junior Illustrator",
+                    "link": "https://remoteok.com/remote-jobs/remote-junior-illustrator-twine-1133039"
                 },
                 {
-                    "position": "Site Reliability Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-site-reliability-engineer-rbc-1132479"
+                    "position": "Data Analyst",
+                    "link": "https://remoteok.com/remote-jobs/remote-data-analyst-fusemachines-1133041"
                 }
             ]
         },
