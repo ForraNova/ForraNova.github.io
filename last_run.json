@@ -1,12 +1,12 @@
 {
-    "last_update": "June 11, 2026 | 12:37 PM",
+    "last_update": "June 11, 2026 | 06:06 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[12:37:07] SUCCESS: Machine Learning (3 found)",
-        "[12:37:10] SUCCESS: Front-End / React (3 found)",
-        "[12:37:12] SUCCESS: Writing / Creative (0 found)",
-        "[12:37:15] SUCCESS: Virtual Assistant (0 found)"
+        "[18:06:37] SUCCESS: Machine Learning (3 found)",
+        "[18:06:39] SUCCESS: Front-End / React (3 found)",
+        "[18:06:42] SUCCESS: Writing / Creative (0 found)",
+        "[18:06:47] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "E Commerce Sales Executive",
+                    "link": "https://remoteok.com/remote-jobs/remote-e-commerce-sales-executive-foodme-global-dine-palace-1133259"
+                },
+                {
                     "position": "Triage Paralegal",
                     "link": "https://remoteok.com/remote-jobs/remote-triage-paralegal-general-legal-yc26-1133241"
                 },
                 {
                     "position": "Virtual Data Entry",
                     "link": "https://remoteok.com/remote-jobs/remote-virtual-data-entry-sundayy-1133240"
-                },
-                {
-                    "position": "Design Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-design-engineer-mrbeast-1133239"
                 }
             ]
         },
