@@ -1,12 +1,12 @@
 {
-    "last_update": "June 11, 2026 | 02:43 AM",
+    "last_update": "June 11, 2026 | 07:23 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[02:43:16] SUCCESS: Machine Learning (3 found)",
-        "[02:43:19] SUCCESS: Front-End / React (3 found)",
-        "[02:43:22] SUCCESS: Writing / Creative (0 found)",
-        "[02:43:25] SUCCESS: Virtual Assistant (0 found)"
+        "[07:23:00] SUCCESS: Machine Learning (3 found)",
+        "[07:23:02] SUCCESS: Front-End / React (3 found)",
+        "[07:23:05] SUCCESS: Writing / Creative (0 found)",
+        "[07:23:08] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
-                    "position": "Data Scientist",
-                    "link": "https://remoteok.com/remote-jobs/remote-data-scientist-yo-hr-consultancy-1133043"
+                    "position": "Triage Paralegal",
+                    "link": "https://remoteok.com/remote-jobs/remote-triage-paralegal-general-legal-yc26-1133241"
                 },
                 {
-                    "position": "Junior Illustrator",
-                    "link": "https://remoteok.com/remote-jobs/remote-junior-illustrator-twine-1133039"
+                    "position": "Virtual Data Entry",
+                    "link": "https://remoteok.com/remote-jobs/remote-virtual-data-entry-sundayy-1133240"
                 },
                 {
-                    "position": "Data Analyst",
-                    "link": "https://remoteok.com/remote-jobs/remote-data-analyst-fusemachines-1133041"
+                    "position": "Design Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-design-engineer-mrbeast-1133239"
                 }
             ]
         },
