@@ -1,12 +1,12 @@
 {
-    "last_update": "June 15, 2026 | 07:00 PM",
+    "last_update": "June 15, 2026 | 10:57 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[19:00:44] SUCCESS: Machine Learning (3 found)",
-        "[19:00:46] SUCCESS: Front-End / React (3 found)",
-        "[19:00:49] SUCCESS: Writing / Creative (0 found)",
-        "[19:00:52] SUCCESS: Virtual Assistant (0 found)"
+        "[22:56:51] SUCCESS: Machine Learning (3 found)",
+        "[22:56:54] SUCCESS: Front-End / React (3 found)",
+        "[22:56:56] SUCCESS: Writing / Creative (0 found)",
+        "[22:56:59] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-support-engineer-level-1132895"
                 },
                 {
-                    "position": "Junior Front End Developer",
-                    "link": "https://remoteok.com/remote-jobs/remote-junior-front-end-developer-work-force-nexus-1133435"
+                    "position": "Pharmacology Research Specialist",
+                    "link": "https://remoteok.com/remote-jobs/remote-pharmacology-research-specialist-stem-sync-ai-1133451"
                 },
                 {
-                    "position": "Public Relation Freelance",
-                    "link": "https://remoteok.com/remote-jobs/remote-public-relation-freelance-tiket-com-pt-global-tiket-network-1133433"
+                    "position": "Medical Scribe",
+                    "link": "https://remoteok.com/remote-jobs/remote-medical-scribe-angel-city-va-recruitment-1133442"
                 }
             ]
         },
