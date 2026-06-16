@@ -1,12 +1,12 @@
 {
-    "last_update": "June 16, 2026 | 06:52 PM",
+    "last_update": "June 16, 2026 | 10:48 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[18:52:35] SUCCESS: Machine Learning (3 found)",
-        "[18:52:37] SUCCESS: Front-End / React (3 found)",
-        "[18:52:39] SUCCESS: Writing / Creative (0 found)",
-        "[18:52:42] SUCCESS: Virtual Assistant (0 found)"
+        "[22:48:38] SUCCESS: Machine Learning (3 found)",
+        "[22:48:40] SUCCESS: Front-End / React (3 found)",
+        "[22:48:43] SUCCESS: Writing / Creative (0 found)",
+        "[22:48:46] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-support-engineer-level-1132895"
                 },
                 {
-                    "position": "Marketing Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-marketing-manager-hunt-st-1133500"
+                    "position": "Junior Data Analyst Data Scientist",
+                    "link": "https://remoteok.com/remote-jobs/remote-junior-data-analyst-data-scientist-awisee-1133504"
                 },
                 {
-                    "position": "Product Designer Design Systems",
-                    "link": "https://remoteok.com/remote-jobs/remote-product-designer-design-systems-penn-interactive-1133499"
+                    "position": "Marketing Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-marketing-manager-hunt-st-1133500"
                 }
             ]
         },
