@@ -1,12 +1,12 @@
 {
-    "last_update": "June 15, 2026 | 10:57 PM",
+    "last_update": "June 16, 2026 | 02:50 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[22:56:51] SUCCESS: Machine Learning (3 found)",
-        "[22:56:54] SUCCESS: Front-End / React (3 found)",
-        "[22:56:56] SUCCESS: Writing / Creative (0 found)",
-        "[22:56:59] SUCCESS: Virtual Assistant (0 found)"
+        "[02:50:20] SUCCESS: Machine Learning (3 found)",
+        "[02:50:22] SUCCESS: Front-End / React (3 found)",
+        "[02:50:25] SUCCESS: Writing / Creative (0 found)",
+        "[02:50:28] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-support-engineer-level-1132895"
                 },
                 {
-                    "position": "Pharmacology Research Specialist",
-                    "link": "https://remoteok.com/remote-jobs/remote-pharmacology-research-specialist-stem-sync-ai-1133451"
+                    "position": "Venture Capital & Startup Investment Expert",
+                    "link": "https://remoteok.com/remote-jobs/remote-venture-capital-startup-investment-expert-capitexai-1133460"
                 },
                 {
-                    "position": "Medical Scribe",
-                    "link": "https://remoteok.com/remote-jobs/remote-medical-scribe-angel-city-va-recruitment-1133442"
+                    "position": "FP&A Analyst",
+                    "link": "https://remoteok.com/remote-jobs/remote-fpa-analyst-capitexai-1133459"
                 }
             ]
         },
