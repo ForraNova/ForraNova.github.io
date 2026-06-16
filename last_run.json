@@ -1,12 +1,12 @@
 {
-    "last_update": "June 16, 2026 | 01:23 PM",
+    "last_update": "June 16, 2026 | 06:52 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[13:23:40] SUCCESS: Machine Learning (3 found)",
-        "[13:23:42] SUCCESS: Front-End / React (3 found)",
-        "[13:23:45] SUCCESS: Writing / Creative (0 found)",
-        "[13:23:48] SUCCESS: Virtual Assistant (0 found)"
+        "[18:52:35] SUCCESS: Machine Learning (3 found)",
+        "[18:52:37] SUCCESS: Front-End / React (3 found)",
+        "[18:52:39] SUCCESS: Writing / Creative (0 found)",
+        "[18:52:42] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-support-engineer-level-1132895"
                 },
                 {
-                    "position": "Customer Service & Support Representative Customer Care Center Eastern Central Time Zones Only",
-                    "link": "https://remoteok.com/remote-jobs/remote-customer-service-support-representative-customer-care-center-eastern-central-time-zones-only-pnc-1133495"
+                    "position": "Marketing Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-marketing-manager-hunt-st-1133500"
                 },
                 {
-                    "position": "Learning & Education Executive",
-                    "link": "https://remoteok.com/remote-jobs/remote-learning-education-executive-ignite-your-success-1133494"
+                    "position": "Product Designer Design Systems",
+                    "link": "https://remoteok.com/remote-jobs/remote-product-designer-design-systems-penn-interactive-1133499"
                 }
             ]
         },
