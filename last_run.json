@@ -1,12 +1,12 @@
 {
-    "last_update": "June 17, 2026 | 08:01 PM",
+    "last_update": "June 17, 2026 | 10:30 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[20:00:54] SUCCESS: Machine Learning (3 found)",
-        "[20:00:57] SUCCESS: Front-End / React (3 found)",
-        "[20:00:59] SUCCESS: Writing / Creative (0 found)",
-        "[20:01:02] SUCCESS: Virtual Assistant (0 found)"
+        "[22:30:11] SUCCESS: Machine Learning (3 found)",
+        "[22:30:14] SUCCESS: Front-End / React (3 found)",
+        "[22:30:16] SUCCESS: Writing / Creative (0 found)",
+        "[22:30:19] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-support-engineer-level-1132895"
                 },
                 {
-                    "position": "Scrum Master",
-                    "link": "https://remoteok.com/remote-jobs/remote-scrum-master-siritech-solutions-corp-1133563"
+                    "position": "Executive Assistant",
+                    "link": "https://remoteok.com/remote-jobs/remote-executive-assistant-growthassistant-1133569"
                 },
                 {
-                    "position": "Payroll Specialist",
-                    "link": "https://remoteok.com/remote-jobs/remote-payroll-specialist-elevate-llc-1133562"
+                    "position": "Data Entry Specialist",
+                    "link": "https://remoteok.com/remote-jobs/remote-data-entry-specialist-somewhere-1133567"
                 }
             ]
         },
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Executive Assistant",
+                    "link": "https://remoteok.com/remote-jobs/remote-executive-assistant-growthassistant-1133569"
+                },
+                {
+                    "position": "Front End Developer Fresher",
+                    "link": "https://remoteok.com/remote-jobs/remote-front-end-developer-fresher-zyphra-tech-1133568"
+                },
+                {
                     "position": "E Commerce Sales Executive",
                     "link": "https://remoteok.com/remote-jobs/remote-e-commerce-sales-executive-foodme-global-dine-palace-1133259"
-                },
-                {
-                    "position": "Triage Paralegal",
-                    "link": "https://remoteok.com/remote-jobs/remote-triage-paralegal-general-legal-yc26-1133241"
-                },
-                {
-                    "position": "Virtual Data Entry",
-                    "link": "https://remoteok.com/remote-jobs/remote-virtual-data-entry-sundayy-1133240"
                 }
             ]
         },
