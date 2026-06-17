@@ -1,12 +1,12 @@
 {
-    "last_update": "June 17, 2026 | 08:23 AM",
+    "last_update": "June 17, 2026 | 12:45 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[08:22:52] SUCCESS: Machine Learning (3 found)",
-        "[08:22:54] SUCCESS: Front-End / React (3 found)",
-        "[08:22:57] SUCCESS: Writing / Creative (0 found)",
-        "[08:23:00] SUCCESS: Virtual Assistant (0 found)"
+        "[12:45:27] SUCCESS: Machine Learning (3 found)",
+        "[12:45:30] SUCCESS: Front-End / React (3 found)",
+        "[12:45:32] SUCCESS: Writing / Creative (0 found)",
+        "[12:45:35] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-support-engineer-level-1132895"
                 },
                 {
-                    "position": "Scheduling Coordinator",
-                    "link": "https://remoteok.com/remote-jobs/remote-scheduling-coordinator-classet-1133535"
+                    "position": "Clinical Research Associate II",
+                    "link": "https://remoteok.com/remote-jobs/remote-clinical-research-associate-ii-i-pharm-consulting-1133543"
                 },
                 {
-                    "position": "Business Development Representative",
-                    "link": "https://remoteok.com/remote-jobs/remote-business-development-representative-bucket-listers-1133532"
+                    "position": "Junior Admin Assistant",
+                    "link": "https://remoteok.com/remote-jobs/remote-junior-admin-assistant-vita-cv-1133542"
                 }
             ]
         },
