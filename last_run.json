@@ -1,12 +1,12 @@
 {
-    "last_update": "June 17, 2026 | 05:46 PM",
+    "last_update": "June 17, 2026 | 08:01 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[17:45:57] SUCCESS: Machine Learning (3 found)",
-        "[17:46:00] SUCCESS: Front-End / React (3 found)",
-        "[17:46:02] SUCCESS: Writing / Creative (0 found)",
-        "[17:46:05] SUCCESS: Virtual Assistant (0 found)"
+        "[20:00:54] SUCCESS: Machine Learning (3 found)",
+        "[20:00:57] SUCCESS: Front-End / React (3 found)",
+        "[20:00:59] SUCCESS: Writing / Creative (0 found)",
+        "[20:01:02] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-support-engineer-level-1132895"
                 },
                 {
-                    "position": "Receptionist Front Office Executive",
-                    "link": "https://remoteok.com/remote-jobs/remote-receptionist-front-office-executive-work-force-nexus-1133547"
+                    "position": "Scrum Master",
+                    "link": "https://remoteok.com/remote-jobs/remote-scrum-master-siritech-solutions-corp-1133563"
                 },
                 {
-                    "position": "Head of Communications",
-                    "link": "https://remoteok.com/remote-jobs/remote-head-of-communications-marie-curie-uk-1133548"
+                    "position": "Payroll Specialist",
+                    "link": "https://remoteok.com/remote-jobs/remote-payroll-specialist-elevate-llc-1133562"
                 }
             ]
         },
