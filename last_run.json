@@ -1,12 +1,12 @@
 {
-    "last_update": "June 16, 2026 | 10:48 PM",
+    "last_update": "June 17, 2026 | 02:46 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[22:48:38] SUCCESS: Machine Learning (3 found)",
-        "[22:48:40] SUCCESS: Front-End / React (3 found)",
-        "[22:48:43] SUCCESS: Writing / Creative (0 found)",
-        "[22:48:46] SUCCESS: Virtual Assistant (0 found)"
+        "[02:46:42] SUCCESS: Machine Learning (3 found)",
+        "[02:46:45] SUCCESS: Front-End / React (3 found)",
+        "[02:46:47] SUCCESS: Writing / Creative (0 found)",
+        "[02:46:50] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-support-engineer-level-1132895"
                 },
                 {
-                    "position": "Junior Data Analyst Data Scientist",
-                    "link": "https://remoteok.com/remote-jobs/remote-junior-data-analyst-data-scientist-awisee-1133504"
+                    "position": "Performance Marketing Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-performance-marketing-manager-varun-digital-media-1133521"
                 },
                 {
-                    "position": "Marketing Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-marketing-manager-hunt-st-1133500"
+                    "position": "Patient Care Coordinator",
+                    "link": "https://remoteok.com/remote-jobs/remote-patient-care-coordinator-winning-assistants-1133520"
                 }
             ]
         },
