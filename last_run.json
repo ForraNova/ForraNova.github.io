@@ -1,17 +1,47 @@
 {
-    "last_update": "June 18, 2026 | 05:58 PM",
+    "last_update": "June 18, 2026 | 08:12 PM",
     "status": "Online",
-    "total_found": 0,
+    "total_found": 6,
     "logs": [
-        "[17:56:26] ERROR: Could not reach Machine Learning",
-        "[17:57:26] SUCCESS: Front-End / React (0 found)",
-        "[17:58:06] SUCCESS: Writing / Creative (0 found)",
-        "[17:58:09] SUCCESS: Virtual Assistant (0 found)"
+        "[20:12:30] SUCCESS: Machine Learning (3 found)",
+        "[20:12:32] SUCCESS: Front-End / React (3 found)",
+        "[20:12:35] SUCCESS: Writing / Creative (0 found)",
+        "[20:12:38] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
+            "query": "Machine Learning",
+            "jobs": [
+                {
+                    "position": "Support Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-support-engineer-level-1132895"
+                },
+                {
+                    "position": "Senior Marketing Manager Paid Ads",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
+                },
+                {
+                    "position": "Operations Administrator",
+                    "link": "https://remoteok.com/remote-jobs/remote-operations-administrator-recseekers-1133675"
+                }
+            ]
+        },
+        {
             "query": "Front-End / React",
-            "jobs": []
+            "jobs": [
+                {
+                    "position": "Executive Assistant",
+                    "link": "https://remoteok.com/remote-jobs/remote-executive-assistant-spriggs-excavation-inc-1133581"
+                },
+                {
+                    "position": "Social Content Designer & Producer",
+                    "link": "https://remoteok.com/remote-jobs/remote-social-content-designer-producer-josie-maran-1133579"
+                },
+                {
+                    "position": "Executive Assistant",
+                    "link": "https://remoteok.com/remote-jobs/remote-executive-assistant-growthassistant-1133569"
+                }
+            ]
         },
         {
             "query": "Writing / Creative",
