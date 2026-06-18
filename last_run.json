@@ -1,12 +1,12 @@
 {
-    "last_update": "June 17, 2026 | 10:30 PM",
+    "last_update": "June 18, 2026 | 02:43 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[22:30:11] SUCCESS: Machine Learning (3 found)",
-        "[22:30:14] SUCCESS: Front-End / React (3 found)",
-        "[22:30:16] SUCCESS: Writing / Creative (0 found)",
-        "[22:30:19] SUCCESS: Virtual Assistant (0 found)"
+        "[02:43:06] SUCCESS: Machine Learning (3 found)",
+        "[02:43:08] SUCCESS: Front-End / React (3 found)",
+        "[02:43:11] SUCCESS: Writing / Creative (0 found)",
+        "[02:43:14] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-support-engineer-level-1132895"
                 },
                 {
-                    "position": "Executive Assistant",
-                    "link": "https://remoteok.com/remote-jobs/remote-executive-assistant-growthassistant-1133569"
+                    "position": "Senior Marketing Manager Paid Ads",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
                 },
                 {
-                    "position": "Data Entry Specialist",
-                    "link": "https://remoteok.com/remote-jobs/remote-data-entry-specialist-somewhere-1133567"
+                    "position": "Procurement Officer",
+                    "link": "https://remoteok.com/remote-jobs/remote-procurement-officer-kaizen-asset-management-services-1133584"
                 }
             ]
         },
@@ -31,15 +31,15 @@
             "jobs": [
                 {
                     "position": "Executive Assistant",
+                    "link": "https://remoteok.com/remote-jobs/remote-executive-assistant-spriggs-excavation-inc-1133581"
+                },
+                {
+                    "position": "Social Content Designer & Producer",
+                    "link": "https://remoteok.com/remote-jobs/remote-social-content-designer-producer-josie-maran-1133579"
+                },
+                {
+                    "position": "Executive Assistant",
                     "link": "https://remoteok.com/remote-jobs/remote-executive-assistant-growthassistant-1133569"
-                },
-                {
-                    "position": "Front End Developer Fresher",
-                    "link": "https://remoteok.com/remote-jobs/remote-front-end-developer-fresher-zyphra-tech-1133568"
-                },
-                {
-                    "position": "E Commerce Sales Executive",
-                    "link": "https://remoteok.com/remote-jobs/remote-e-commerce-sales-executive-foodme-global-dine-palace-1133259"
                 }
             ]
         },
