@@ -1,12 +1,12 @@
 {
-    "last_update": "June 18, 2026 | 07:28 AM",
+    "last_update": "June 18, 2026 | 12:18 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[07:28:04] SUCCESS: Machine Learning (3 found)",
-        "[07:28:07] SUCCESS: Front-End / React (3 found)",
-        "[07:28:09] SUCCESS: Writing / Creative (0 found)",
-        "[07:28:12] SUCCESS: Virtual Assistant (0 found)"
+        "[12:17:54] SUCCESS: Machine Learning (3 found)",
+        "[12:17:56] SUCCESS: Front-End / React (3 found)",
+        "[12:17:59] SUCCESS: Writing / Creative (0 found)",
+        "[12:18:02] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
                 },
                 {
-                    "position": "Administrative Assistant",
-                    "link": "https://remoteok.com/remote-jobs/remote-administrative-assistant-greenpump-energy-1133597"
+                    "position": "Staff Product Manager Product Information Management",
+                    "link": "https://remoteok.com/remote-jobs/remote-staff-product-manager-product-information-management-highlevel-1133598"
                 }
             ]
         },
