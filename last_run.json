@@ -1,12 +1,12 @@
 {
-    "last_update": "June 19, 2026 | 03:00 AM",
+    "last_update": "June 19, 2026 | 08:33 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[02:59:54] SUCCESS: Machine Learning (3 found)",
-        "[02:59:57] SUCCESS: Front-End / React (3 found)",
-        "[03:00:00] SUCCESS: Writing / Creative (0 found)",
-        "[03:00:04] SUCCESS: Virtual Assistant (0 found)"
+        "[08:33:10] SUCCESS: Machine Learning (3 found)",
+        "[08:33:13] SUCCESS: Front-End / React (3 found)",
+        "[08:33:15] SUCCESS: Writing / Creative (0 found)",
+        "[08:33:18] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
                 },
                 {
-                    "position": "Corporate Commercial Paralegal Fully",
-                    "link": "https://remoteok.com/remote-jobs/remote-corporate-commercial-paralegal-fully-leadenhall-search-selection-1133693"
+                    "position": "Employment Lawyer Fully",
+                    "link": "https://remoteok.com/remote-jobs/remote-employment-lawyer-fully-kma-legal-recruitment-1133697"
                 }
             ]
         },
