@@ -1,12 +1,12 @@
 {
-    "last_update": "June 19, 2026 | 05:12 PM",
+    "last_update": "June 19, 2026 | 07:26 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[17:12:31] SUCCESS: Machine Learning (3 found)",
-        "[17:12:34] SUCCESS: Front-End / React (3 found)",
-        "[17:12:36] SUCCESS: Writing / Creative (0 found)",
-        "[17:12:39] SUCCESS: Virtual Assistant (0 found)"
+        "[19:26:43] SUCCESS: Machine Learning (3 found)",
+        "[19:26:46] SUCCESS: Front-End / React (3 found)",
+        "[19:26:48] SUCCESS: Writing / Creative (0 found)",
+        "[19:26:51] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
                 },
                 {
-                    "position": "Executive Assistant France",
-                    "link": "https://remoteok.com/remote-jobs/remote-executive-assistant-france-zirtual-1133698"
+                    "position": "Junior Human Resources Assistant",
+                    "link": "https://remoteok.com/remote-jobs/remote-junior-human-resources-assistant-helic-co-1133714"
                 }
             ]
         },
