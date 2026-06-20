@@ -1,12 +1,12 @@
 {
-    "last_update": "June 20, 2026 | 02:32 AM",
+    "last_update": "June 20, 2026 | 06:55 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[02:31:57] SUCCESS: Machine Learning (3 found)",
-        "[02:31:59] SUCCESS: Front-End / React (3 found)",
-        "[02:32:02] SUCCESS: Writing / Creative (0 found)",
-        "[02:32:04] SUCCESS: Virtual Assistant (0 found)"
+        "[06:55:38] SUCCESS: Machine Learning (3 found)",
+        "[06:55:40] SUCCESS: Front-End / React (3 found)",
+        "[06:55:43] SUCCESS: Writing / Creative (0 found)",
+        "[06:55:46] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
                 },
                 {
-                    "position": "Social Media Manager \u2014 Luxury Fashion TikTok & Instagram",
-                    "link": "https://remoteok.com/remote-jobs/remote-social-media-manager-luxury-fashion-tiktok-instagram-parisa-wang-1133734"
+                    "position": "Product Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-product-manager-cambridge-spark-1133737"
                 }
             ]
         },
