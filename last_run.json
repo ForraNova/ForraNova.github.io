@@ -1,12 +1,12 @@
 {
-    "last_update": "June 22, 2026 | 08:50 AM",
+    "last_update": "June 22, 2026 | 02:28 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[08:50:43] SUCCESS: Machine Learning (3 found)",
-        "[08:50:46] SUCCESS: Front-End / React (3 found)",
-        "[08:50:48] SUCCESS: Writing / Creative (0 found)",
-        "[08:50:51] SUCCESS: Virtual Assistant (0 found)"
+        "[14:28:41] SUCCESS: Machine Learning (3 found)",
+        "[14:28:43] SUCCESS: Front-End / React (3 found)",
+        "[14:28:45] SUCCESS: Writing / Creative (0 found)",
+        "[14:28:48] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
                 },
                 {
-                    "position": "Digital Marketing Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-digital-marketing-manager-hunt-st-1133850"
+                    "position": "Events Co ordinator",
+                    "link": "https://remoteok.com/remote-jobs/remote-events-co-ordinator-pixl-1133884"
                 }
             ]
         },
