@@ -1,12 +1,12 @@
 {
-    "last_update": "June 22, 2026 | 02:28 PM",
+    "last_update": "June 22, 2026 | 06:41 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[14:28:41] SUCCESS: Machine Learning (3 found)",
-        "[14:28:43] SUCCESS: Front-End / React (3 found)",
-        "[14:28:45] SUCCESS: Writing / Creative (0 found)",
-        "[14:28:48] SUCCESS: Virtual Assistant (0 found)"
+        "[18:41:41] SUCCESS: Machine Learning (3 found)",
+        "[18:41:44] SUCCESS: Front-End / React (3 found)",
+        "[18:41:46] SUCCESS: Writing / Creative (0 found)",
+        "[18:41:49] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
                 },
                 {
-                    "position": "Events Co ordinator",
-                    "link": "https://remoteok.com/remote-jobs/remote-events-co-ordinator-pixl-1133884"
+                    "position": "Regional Sales Director EMEA",
+                    "link": "https://remoteok.com/remote-jobs/remote-regional-sales-director-emea-spycloud-1133886"
                 }
             ]
         },
