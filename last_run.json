@@ -1,12 +1,12 @@
 {
-    "last_update": "June 24, 2026 | 06:38 AM",
+    "last_update": "June 24, 2026 | 11:40 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[06:38:02] SUCCESS: Machine Learning (3 found)",
-        "[06:38:04] SUCCESS: Front-End / React (3 found)",
-        "[06:38:07] SUCCESS: Writing / Creative (0 found)",
-        "[06:38:10] SUCCESS: Virtual Assistant (0 found)"
+        "[11:39:55] SUCCESS: Machine Learning (3 found)",
+        "[11:39:58] SUCCESS: Front-End / React (3 found)",
+        "[11:40:01] SUCCESS: Writing / Creative (0 found)",
+        "[11:40:04] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-support-engineer-level-1132895"
                 },
                 {
-                    "position": "Head of Public Understanding",
-                    "link": "https://remoteok.com/remote-jobs/remote-head-of-public-understanding-nope-1133914"
+                    "position": "Mid Senior AI Cinematic Video Editor",
+                    "link": "https://remoteok.com/remote-jobs/remote-mid-senior-ai-cinematic-video-editor-everai-1134014"
                 },
                 {
-                    "position": "Senior Marketing Manager Paid Ads",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
+                    "position": "Head of Public Understanding",
+                    "link": "https://remoteok.com/remote-jobs/remote-head-of-public-understanding-nope-1133914"
                 }
             ]
         },
