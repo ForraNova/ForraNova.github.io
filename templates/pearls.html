@@ -511,6 +511,11 @@ text-decoration:none; }
     justify-content: center;
     margin-top: 20px;
 }
+.foota{
+  z-index: -0.3; 
+  height:55px;
+  filter: drop-shadow(0 0 10px rgba(128, 255, 255, 0.6));
+}
 
 
     /* Glassmorphism Project Cards */
@@ -652,10 +657,14 @@ audio {
             <div style="max-width:1200px;" >            
             <h2 class="slide-title">👑 The AI Dynasty</h2>
             <div class="grid-3">
-                <div class="card"><i class="fab fa-openai" style="font-size:2.5rem;"></i><h3>ChatGPT</h3><p>Versatile, creative, iterative. Best for drafting, brainstorming, coding.</p></div>
-                <div class="card"><i class="fas fa-brain" style="font-size:2.5rem;"></i><h3>Claude</h3><p>Nuanced, ethical, precise. Superior for complex reasoning and sensitive correspondence.</p></div>
-                <div class="card"><i class="fab fa-google" style="font-size:2.5rem;"></i><h3>Gemini</h3><p>Integrated researcher. Multimodal, long-context, real-time data from Google.</p></div>
-                <div class="card"><i class="fab fa-meta" style="font-size:2.5rem;"></i><h3>Meta AI</h3><p>Social assistant, fast, accessible via WhatsApp/Instagram. Open-source Llama.</p></div>                
+                <a href="https://chatgpt.com/"><div class="card1"><img  src="https://images.seeklogo.com/logo-png/46/1/chatgpt-logo-png_seeklogo-465219.png" class="foota" alt="Chatgpt Logo"/><h3>ChatGPT</h3><p>Versatile, creative, iterative. Best for drafting, brainstorming, coding.</p>
+                </div></a>
+                <a href="https://claude.ai/new"><div class="card1"><img  src="https://static.vecteezy.com/system/resources/previews/067/941/712/large_2x/claude-ai-logo-rounded-hd-free-png.png" class="foota" alt="Clude Logo"/><h3>Claude</h3><p>Nuanced, ethical, precise. Superior for complex reasoning and sensitive correspondence.</p>
+                </div></a>
+                <a href="https://gemini.google.com/app"><div class="card1"><img  src="https://cdn.beebom.com/content/2025/07/google-gemini-new-rainbow-colours-1120w630h.webp" class="foota" alt="Gemini Logo"/><h3>Gemini</h3><p>Integrated researcher. Multimodal, long-context, real-time data from Google.</p>
+                </div></a>
+                <a href="https://www.meta.ai/"><div class="card1"><img  src="https://freebiehive.com/wp-content/uploads/2025/06/Meta-AI-Logo-PNG-758x473.jpg" class="foota" alt="Meta Logo"/><h3>Meta AI</h3><p>Social assistant, fast, accessible via WhatsApp/Instagram. Open-source Llama.</p>
+                </div></a>                
             </div>
 
             <a href="forranova.html">
@@ -716,8 +725,8 @@ audio {
 
 
 
-                    <a href="../static/downloads/audio/Ep007.mp3" download="PEARLS Framework and RAG.mp3" class="download-btn"><i class="fas fa-download"></i> Download Audio</a>                        
-                        <audio controls src="../static/downloads/audio/Ep007.mp3"  type="audio/mp3">
+                    <a href="../static/downloads/audio/Ep049.mp3" download="PEARLS Framework and RAG.mp3" class="download-btn"><i class="fas fa-download"></i> Download Audio</a>                        
+                        <audio controls src="../static/downloads/audio/Ep049.mp3"  type="audio/mp3">
                 </div>
 
                 <a href="forranova.html">
@@ -734,12 +743,12 @@ audio {
         const createDetailSlide = (letter, title, description) => {
             // Map letter to image and audio
             const mediaMap = {
-                "P": { img: "../static/images/prompt7.png",  audio: "../static/downloads/audio/Ep032.mp3" },
-                "E": { img: "../static/images/prompt6.png",  audio: "../static/downloads/audio/Ep024.mp3" },
-                "A": { img: "../static/images/prompt5.png",  audio: "../static/downloads/audio/Ep024.mp3" },
-                "R": { img: "../static/images/prompt4.png",  audio: "../static/downloads/audio/Ep024.mp3" },
-                "L": { img: "../static/images/prompt3.png",  audio: "../static/downloads/audio/Ep024.mp3" },
-                "S": { img: "../static/images/prompt2.png",  audio: "../static/downloads/audio/Ep024.mp3" }
+                "P": { img: "../static/images/prompt7.png",  audio: "../static/downloads/audio/Ep043.mp3" },
+                "E": { img: "../static/images/prompt6.png",  audio: "../static/downloads/audio/Ep044.mp3" },
+                "A": { img: "../static/images/prompt5.png",  audio: "../static/downloads/audio/Ep045.mp3" },
+                "R": { img: "../static/images/prompt4.png",  audio: "../static/downloads/audio/Ep046.mp3" },
+                "L": { img: "../static/images/prompt3.png",  audio: "../static/downloads/audio/Ep047.mp3" },
+                "S": { img: "../static/images/prompt2.png",  audio: "../static/downloads/audio/Ep048.mp3" }
             };
             const media = mediaMap[letter] || { img: "", audio: "" };
             return `<div class="slide-view">
@@ -756,10 +765,8 @@ audio {
                 </div>                
 
                 <div class="media-row">    
-<!--
                     <a href="${media.audio}" download="Proving Authenticity.mp3" class="download-btn"><i class="fas fa-download"></i> Download Audio</a>
                     <audio controls src="${media.audio}" type="audio/mp3">
- -->>              
                 </div>
             </div>`;
         };
