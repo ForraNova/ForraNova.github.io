@@ -1,12 +1,12 @@
 {
-    "last_update": "June 30, 2026 | 07:43 PM",
+    "last_update": "June 30, 2026 | 10:10 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[19:43:40] SUCCESS: Machine Learning (3 found)",
-        "[19:43:43] SUCCESS: Front-End / React (3 found)",
-        "[19:43:45] SUCCESS: Writing / Creative (0 found)",
-        "[19:43:49] SUCCESS: Virtual Assistant (0 found)"
+        "[22:10:16] SUCCESS: Machine Learning (3 found)",
+        "[22:10:18] SUCCESS: Front-End / React (3 found)",
+        "[22:10:21] SUCCESS: Writing / Creative (0 found)",
+        "[22:10:24] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-mid-senior-ai-cinematic-video-editor-everai-1134014"
                 },
                 {
-                    "position": "Total Rewards Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-total-rewards-manager-pgim-ireland-1134296"
+                    "position": "Mortgage Operations Loan Processor",
+                    "link": "https://remoteok.com/remote-jobs/remote-mortgage-operations-loan-processor-wealthfront-1134311"
                 }
             ]
         },
