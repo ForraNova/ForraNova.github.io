@@ -1,12 +1,12 @@
 {
-    "last_update": "June 30, 2026 | 01:57 PM",
+    "last_update": "June 30, 2026 | 05:04 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[13:57:23] SUCCESS: Machine Learning (3 found)",
-        "[13:57:25] SUCCESS: Front-End / React (3 found)",
-        "[13:57:28] SUCCESS: Writing / Creative (0 found)",
-        "[13:57:30] SUCCESS: Virtual Assistant (0 found)"
+        "[17:04:26] SUCCESS: Machine Learning (3 found)",
+        "[17:04:29] SUCCESS: Front-End / React (3 found)",
+        "[17:04:31] SUCCESS: Writing / Creative (0 found)",
+        "[17:04:34] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-support-engineer-level-1132895"
                 },
                 {
-                    "position": "SALES REPS WANTED FOR HIGH TICKET FINANCE SALES",
-                    "link": "https://remoteok.com/remote-jobs/remote-sales-reps-wanted-for-high-ticket-finance-sales-fse-1131368"
-                },
-                {
                     "position": "Mid Senior AI Cinematic Video Editor",
                     "link": "https://remoteok.com/remote-jobs/remote-mid-senior-ai-cinematic-video-editor-everai-1134014"
+                },
+                {
+                    "position": "Total Rewards Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-total-rewards-manager-pgim-ireland-1134296"
                 }
             ]
         },
