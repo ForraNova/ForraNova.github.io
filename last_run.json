@@ -1,12 +1,12 @@
 {
-    "last_update": "July 01, 2026 | 07:31 PM",
+    "last_update": "July 01, 2026 | 10:14 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[19:31:32] SUCCESS: Machine Learning (3 found)",
-        "[19:31:34] SUCCESS: Front-End / React (3 found)",
-        "[19:31:37] SUCCESS: Writing / Creative (0 found)",
-        "[19:31:40] SUCCESS: Virtual Assistant (0 found)"
+        "[22:14:45] SUCCESS: Machine Learning (3 found)",
+        "[22:14:48] SUCCESS: Front-End / React (3 found)",
+        "[22:14:50] SUCCESS: Writing / Creative (0 found)",
+        "[22:14:53] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-support-engineer-level-1132895"
                 },
                 {
-                    "position": "Influencer Marketing Coordinator",
-                    "link": "https://remoteok.com/remote-jobs/remote-influencer-marketing-coordinator-nello-1134355"
+                    "position": "Social Media Coordinator",
+                    "link": "https://remoteok.com/remote-jobs/remote-social-media-coordinator-the-nature-conservancy-1134360"
                 }
             ]
         },
