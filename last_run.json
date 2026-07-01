@@ -1,28 +1,28 @@
 {
-    "last_update": "July 01, 2026 | 02:09 PM",
+    "last_update": "July 01, 2026 | 05:07 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[14:09:39] SUCCESS: Machine Learning (3 found)",
-        "[14:09:41] SUCCESS: Front-End / React (3 found)",
-        "[14:09:43] SUCCESS: Writing / Creative (0 found)",
-        "[14:09:46] SUCCESS: Virtual Assistant (0 found)"
+        "[17:07:22] SUCCESS: Machine Learning (3 found)",
+        "[17:07:25] SUCCESS: Front-End / React (3 found)",
+        "[17:07:27] SUCCESS: Writing / Creative (0 found)",
+        "[17:07:30] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
             "jobs": [
                 {
+                    "position": "Junior Crypto Trader",
+                    "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
+                },
+                {
                     "position": "Support Engineer",
                     "link": "https://remoteok.com/remote-jobs/remote-support-engineer-level-1132895"
                 },
                 {
-                    "position": "Mid Senior AI Cinematic Video Editor",
-                    "link": "https://remoteok.com/remote-jobs/remote-mid-senior-ai-cinematic-video-editor-everai-1134014"
-                },
-                {
-                    "position": "Asistente administrativa",
-                    "link": "https://remoteok.com/remote-jobs/remote-asistente-administrativa-syntepro-s-a-de-c-v-1134334"
+                    "position": "Agency Core 1",
+                    "link": "https://remoteok.com/remote-jobs/remote-agency-core-1-caterpillar-inc-1134350"
                 }
             ]
         },
