@@ -1,12 +1,12 @@
 {
-    "last_update": "July 01, 2026 | 10:14 PM",
+    "last_update": "July 02, 2026 | 02:26 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[22:14:45] SUCCESS: Machine Learning (3 found)",
-        "[22:14:48] SUCCESS: Front-End / React (3 found)",
-        "[22:14:50] SUCCESS: Writing / Creative (0 found)",
-        "[22:14:53] SUCCESS: Virtual Assistant (0 found)"
+        "[02:26:40] SUCCESS: Machine Learning (3 found)",
+        "[02:26:43] SUCCESS: Front-End / React (3 found)",
+        "[02:26:45] SUCCESS: Writing / Creative (0 found)",
+        "[02:26:51] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
                 },
                 {
-                    "position": "Support Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-support-engineer-level-1132895"
+                    "position": "Senior Software Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-stellar-ai-1128869"
                 },
                 {
-                    "position": "Social Media Coordinator",
-                    "link": "https://remoteok.com/remote-jobs/remote-social-media-coordinator-the-nature-conservancy-1134360"
+                    "position": "Support Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-support-engineer-level-1132895"
                 }
             ]
         },
