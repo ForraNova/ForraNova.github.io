@@ -1,12 +1,12 @@
 {
-    "last_update": "July 03, 2026 | 02:01 AM",
+    "last_update": "July 03, 2026 | 06:22 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[02:01:30] SUCCESS: Machine Learning (3 found)",
-        "[02:01:33] SUCCESS: Front-End / React (3 found)",
-        "[02:01:35] SUCCESS: Writing / Creative (0 found)",
-        "[02:01:38] SUCCESS: Virtual Assistant (0 found)"
+        "[06:22:11] SUCCESS: Machine Learning (3 found)",
+        "[06:22:14] SUCCESS: Front-End / React (3 found)",
+        "[06:22:16] SUCCESS: Writing / Creative (0 found)",
+        "[06:22:19] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
-                    "position": "Executive Assistant",
-                    "link": "https://remoteok.com/remote-jobs/remote-executive-assistant-spriggs-excavation-inc-1133581"
+                    "position": "Business Development Executive",
+                    "link": "https://remoteok.com/remote-jobs/remote-business-development-executive-fresha-1134417"
                 },
                 {
-                    "position": "Social Content Designer & Producer",
-                    "link": "https://remoteok.com/remote-jobs/remote-social-content-designer-producer-josie-maran-1133579"
+                    "position": "Junior UI Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-junior-ui-engineer-arabian-private-holdings-1134413"
                 },
                 {
-                    "position": "Executive Assistant",
-                    "link": "https://remoteok.com/remote-jobs/remote-executive-assistant-growthassistant-1133569"
+                    "position": "Orientador a Laboral Freelance Remoto",
+                    "link": "https://remoteok.com/remote-jobs/remote-orientador-a-laboral-freelance-remoto-ironhack-1134414"
                 }
             ]
         },
