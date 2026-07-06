@@ -1,12 +1,12 @@
 {
-    "last_update": "July 06, 2026 | 12:38 PM",
+    "last_update": "July 06, 2026 | 05:36 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[12:38:00] SUCCESS: Machine Learning (3 found)",
-        "[12:38:04] SUCCESS: Front-End / React (3 found)",
-        "[12:38:06] SUCCESS: Writing / Creative (0 found)",
-        "[12:38:09] SUCCESS: Virtual Assistant (0 found)"
+        "[17:36:28] SUCCESS: Machine Learning (3 found)",
+        "[17:36:31] SUCCESS: Front-End / React (3 found)",
+        "[17:36:33] SUCCESS: Writing / Creative (0 found)",
+        "[17:36:36] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
                 },
                 {
-                    "position": "Builder Chief",
-                    "link": "https://remoteok.com/remote-jobs/remote-builder-chief-consultran-1132898"
-                },
-                {
                     "position": "Senior Software Engineer",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-stellar-ai-1128869"
+                },
+                {
+                    "position": "Scrum Master",
+                    "link": "https://remoteok.com/remote-jobs/remote-scrum-master-holliday-systems-inc-1134531"
                 }
             ]
         },
