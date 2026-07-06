@@ -1,12 +1,12 @@
 {
-    "last_update": "July 06, 2026 | 02:13 AM",
+    "last_update": "July 06, 2026 | 07:03 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[02:13:04] SUCCESS: Machine Learning (3 found)",
-        "[02:13:07] SUCCESS: Front-End / React (3 found)",
-        "[02:13:09] SUCCESS: Writing / Creative (0 found)",
-        "[02:13:12] SUCCESS: Virtual Assistant (0 found)"
+        "[07:03:49] SUCCESS: Machine Learning (3 found)",
+        "[07:03:51] SUCCESS: Front-End / React (3 found)",
+        "[07:03:54] SUCCESS: Writing / Creative (0 found)",
+        "[07:03:57] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Junior Front End Developer",
+                    "link": "https://remoteok.com/remote-jobs/remote-junior-front-end-developer-pulsemedia-mena-1134518"
+                },
+                {
                     "position": "Business Development Executive",
                     "link": "https://remoteok.com/remote-jobs/remote-business-development-executive-fresha-1134417"
                 },
                 {
                     "position": "Junior UI Engineer",
                     "link": "https://remoteok.com/remote-jobs/remote-junior-ui-engineer-arabian-private-holdings-1134413"
-                },
-                {
-                    "position": "Orientador a Laboral Freelance Remoto",
-                    "link": "https://remoteok.com/remote-jobs/remote-orientador-a-laboral-freelance-remoto-ironhack-1134414"
                 }
             ]
         },
