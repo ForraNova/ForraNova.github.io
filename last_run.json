@@ -1,12 +1,12 @@
 {
-    "last_update": "July 09, 2026 | 07:24 PM",
+    "last_update": "July 09, 2026 | 10:15 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[19:24:31] SUCCESS: Machine Learning (3 found)",
-        "[19:24:34] SUCCESS: Front-End / React (3 found)",
-        "[19:24:36] SUCCESS: Writing / Creative (0 found)",
-        "[19:24:39] SUCCESS: Virtual Assistant (0 found)"
+        "[22:14:58] SUCCESS: Machine Learning (3 found)",
+        "[22:15:01] SUCCESS: Front-End / React (3 found)",
+        "[22:15:03] SUCCESS: Writing / Creative (0 found)",
+        "[22:15:06] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
                 },
                 {
-                    "position": "Coordinador de Medio Ambiente y Desarrollo Comunitario",
-                    "link": "https://remoteok.com/remote-jobs/remote-coordinador-de-medio-ambiente-y-desarrollo-comunitario-wisefind-1134642"
+                    "position": "Warehouse Inventory Clerk",
+                    "link": "https://remoteok.com/remote-jobs/remote-warehouse-inventory-clerk-caribbean-bottling-company-bahamas-ltd-1134648"
                 },
                 {
-                    "position": "Docente Tiempo Parcial Desarrollo de Psicomotricidad en Primera Infancia Remoto",
-                    "link": "https://remoteok.com/remote-jobs/remote-docente-tiempo-parcial-desarrollo-de-psicomotricidad-en-primera-infancia-remoto-universidad-privada-del-norte-1134611"
+                    "position": "Coordinador de Medio Ambiente y Desarrollo Comunitario",
+                    "link": "https://remoteok.com/remote-jobs/remote-coordinador-de-medio-ambiente-y-desarrollo-comunitario-wisefind-1134642"
                 }
             ]
         },
