@@ -1,12 +1,12 @@
 {
-    "last_update": "July 09, 2026 | 02:32 PM",
+    "last_update": "July 09, 2026 | 05:13 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[14:32:29] SUCCESS: Machine Learning (3 found)",
-        "[14:32:32] SUCCESS: Front-End / React (3 found)",
-        "[14:32:34] SUCCESS: Writing / Creative (0 found)",
-        "[14:32:37] SUCCESS: Virtual Assistant (0 found)"
+        "[17:13:39] SUCCESS: Machine Learning (3 found)",
+        "[17:13:43] SUCCESS: Front-End / React (3 found)",
+        "[17:13:45] SUCCESS: Writing / Creative (0 found)",
+        "[17:13:48] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
                 },
                 {
-                    "position": "Docente Tiempo Parcial Desarrollo de Psicomotricidad en Primera Infancia Remoto",
-                    "link": "https://remoteok.com/remote-jobs/remote-docente-tiempo-parcial-desarrollo-de-psicomotricidad-en-primera-infancia-remoto-universidad-privada-del-norte-1134611"
+                    "position": "Coordinador de Medio Ambiente y Desarrollo Comunitario",
+                    "link": "https://remoteok.com/remote-jobs/remote-coordinador-de-medio-ambiente-y-desarrollo-comunitario-wisefind-1134642"
                 },
                 {
-                    "position": "Docente Tiempo Parcial Elaboraci\u00f3n Materiales Educativos Nivel Primaria SJL",
-                    "link": "https://remoteok.com/remote-jobs/remote-docente-tiempo-parcial-elaboracion-materiales-educativos-nivel-primaria-sjl-universidad-privada-del-norte-1134613"
+                    "position": "Docente Tiempo Parcial Desarrollo de Psicomotricidad en Primera Infancia Remoto",
+                    "link": "https://remoteok.com/remote-jobs/remote-docente-tiempo-parcial-desarrollo-de-psicomotricidad-en-primera-infancia-remoto-universidad-privada-del-norte-1134611"
                 }
             ]
         },
