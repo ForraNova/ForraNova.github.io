@@ -1,12 +1,12 @@
 {
-    "last_update": "July 09, 2026 | 02:01 AM",
+    "last_update": "July 09, 2026 | 06:36 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[02:01:31] SUCCESS: Machine Learning (3 found)",
-        "[02:01:34] SUCCESS: Front-End / React (3 found)",
-        "[02:01:37] SUCCESS: Writing / Creative (0 found)",
-        "[02:01:40] SUCCESS: Virtual Assistant (0 found)"
+        "[06:36:11] SUCCESS: Machine Learning (3 found)",
+        "[06:36:14] SUCCESS: Front-End / React (3 found)",
+        "[06:36:16] SUCCESS: Writing / Creative (0 found)",
+        "[06:36:19] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
                 },
                 {
-                    "position": "Docente Tiempo Parcial Elaboraci\u00f3n Materiales Educativos Primera Infancia SJL",
-                    "link": "https://remoteok.com/remote-jobs/remote-docente-tiempo-parcial-elaboracion-materiales-educativos-primera-infancia-sjl-universidad-privada-del-norte-1134609"
+                    "position": "Docente Tiempo Parcial Desarrollo de Psicomotricidad en Primera Infancia Remoto",
+                    "link": "https://remoteok.com/remote-jobs/remote-docente-tiempo-parcial-desarrollo-de-psicomotricidad-en-primera-infancia-remoto-universidad-privada-del-norte-1134611"
                 },
                 {
-                    "position": "Senior Software Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-stellar-ai-1128869"
+                    "position": "Docente Tiempo Parcial Elaboraci\u00f3n Materiales Educativos Nivel Primaria SJL",
+                    "link": "https://remoteok.com/remote-jobs/remote-docente-tiempo-parcial-elaboracion-materiales-educativos-nivel-primaria-sjl-universidad-privada-del-norte-1134613"
                 }
             ]
         },
