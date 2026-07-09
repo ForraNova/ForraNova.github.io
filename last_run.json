@@ -1,12 +1,12 @@
 {
-    "last_update": "July 08, 2026 | 10:00 PM",
+    "last_update": "July 09, 2026 | 02:01 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:59:54] SUCCESS: Machine Learning (3 found)",
-        "[21:59:56] SUCCESS: Front-End / React (3 found)",
-        "[21:59:59] SUCCESS: Writing / Creative (0 found)",
-        "[22:00:02] SUCCESS: Virtual Assistant (0 found)"
+        "[02:01:31] SUCCESS: Machine Learning (3 found)",
+        "[02:01:34] SUCCESS: Front-End / React (3 found)",
+        "[02:01:37] SUCCESS: Writing / Creative (0 found)",
+        "[02:01:40] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
                 },
                 {
-                    "position": "Senior Software Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-stellar-ai-1128869"
+                    "position": "Docente Tiempo Parcial Elaboraci\u00f3n Materiales Educativos Primera Infancia SJL",
+                    "link": "https://remoteok.com/remote-jobs/remote-docente-tiempo-parcial-elaboracion-materiales-educativos-primera-infancia-sjl-universidad-privada-del-norte-1134609"
                 },
                 {
-                    "position": "SUPERVISEUR 31 94",
-                    "link": "https://remoteok.com/remote-jobs/remote-superviseur-31-94-the-home-depot-canada-1134603"
+                    "position": "Senior Software Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-stellar-ai-1128869"
                 }
             ]
         },
