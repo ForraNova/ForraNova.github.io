@@ -1,12 +1,12 @@
 {
-    "last_update": "July 09, 2026 | 10:15 PM",
+    "last_update": "July 10, 2026 | 02:00 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[22:14:58] SUCCESS: Machine Learning (3 found)",
-        "[22:15:01] SUCCESS: Front-End / React (3 found)",
-        "[22:15:03] SUCCESS: Writing / Creative (0 found)",
-        "[22:15:06] SUCCESS: Virtual Assistant (0 found)"
+        "[02:00:13] SUCCESS: Machine Learning (3 found)",
+        "[02:00:17] SUCCESS: Front-End / React (3 found)",
+        "[02:00:20] SUCCESS: Writing / Creative (0 found)",
+        "[02:00:23] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
                 },
                 {
-                    "position": "Warehouse Inventory Clerk",
-                    "link": "https://remoteok.com/remote-jobs/remote-warehouse-inventory-clerk-caribbean-bottling-company-bahamas-ltd-1134648"
+                    "position": "International Advertising Growth Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-international-advertising-growth-manager-adoperator-com-1133171"
                 },
                 {
-                    "position": "Coordinador de Medio Ambiente y Desarrollo Comunitario",
-                    "link": "https://remoteok.com/remote-jobs/remote-coordinador-de-medio-ambiente-y-desarrollo-comunitario-wisefind-1134642"
+                    "position": "Inside Sales Team Leader",
+                    "link": "https://remoteok.com/remote-jobs/remote-inside-sales-team-leader-the-careside-1133121"
                 }
             ]
         },
