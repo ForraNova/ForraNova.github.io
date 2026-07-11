@@ -1,12 +1,12 @@
 {
-    "last_update": "July 11, 2026 | 06:45 PM",
+    "last_update": "July 11, 2026 | 09:40 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[18:45:29] SUCCESS: Machine Learning (3 found)",
-        "[18:45:32] SUCCESS: Front-End / React (3 found)",
-        "[18:45:34] SUCCESS: Writing / Creative (0 found)",
-        "[18:45:37] SUCCESS: Virtual Assistant (0 found)"
+        "[21:40:12] SUCCESS: Machine Learning (3 found)",
+        "[21:40:15] SUCCESS: Front-End / React (3 found)",
+        "[21:40:18] SUCCESS: Writing / Creative (0 found)",
+        "[21:40:20] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
                 },
                 {
-                    "position": "CRM & Lifecycle Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-crm-lifecycle-manager-joko-1134710"
+                    "position": "Healthcare Intake Coordinator Alberta",
+                    "link": "https://remoteok.com/remote-jobs/remote-healthcare-intake-coordinator-alberta-carewell-1134719"
                 },
                 {
-                    "position": "Graduate Data Scientist",
-                    "link": "https://remoteok.com/remote-jobs/remote-graduate-data-scientist-work-force-nexus-1134707"
+                    "position": "Creative Strategist",
+                    "link": "https://remoteok.com/remote-jobs/remote-creative-strategist-jts-growth-1134718"
                 }
             ]
         },
