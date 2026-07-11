@@ -1,12 +1,12 @@
 {
-    "last_update": "July 11, 2026 | 03:46 PM",
+    "last_update": "July 11, 2026 | 06:45 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[15:45:55] SUCCESS: Machine Learning (3 found)",
-        "[15:45:59] SUCCESS: Front-End / React (3 found)",
-        "[15:46:02] SUCCESS: Writing / Creative (0 found)",
-        "[15:46:05] SUCCESS: Virtual Assistant (0 found)"
+        "[18:45:29] SUCCESS: Machine Learning (3 found)",
+        "[18:45:32] SUCCESS: Front-End / React (3 found)",
+        "[18:45:34] SUCCESS: Writing / Creative (0 found)",
+        "[18:45:37] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
                 },
                 {
-                    "position": "Graduate Data Scientist",
-                    "link": "https://remoteok.com/remote-jobs/remote-graduate-data-scientist-work-force-nexus-1134707"
+                    "position": "CRM & Lifecycle Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-crm-lifecycle-manager-joko-1134710"
                 },
                 {
-                    "position": "Atendente Relacionamento Ouvidoria",
-                    "link": "https://remoteok.com/remote-jobs/remote-atendente-relacionamento-ouvidoria-vivo-telefonica-brasil-1134706"
+                    "position": "Graduate Data Scientist",
+                    "link": "https://remoteok.com/remote-jobs/remote-graduate-data-scientist-work-force-nexus-1134707"
                 }
             ]
         },
