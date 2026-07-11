@@ -1,12 +1,12 @@
 {
-    "last_update": "July 11, 2026 | 01:48 AM",
+    "last_update": "July 11, 2026 | 05:33 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[01:48:07] SUCCESS: Machine Learning (3 found)",
-        "[01:48:10] SUCCESS: Front-End / React (3 found)",
-        "[01:48:12] SUCCESS: Writing / Creative (0 found)",
-        "[01:48:15] SUCCESS: Virtual Assistant (0 found)"
+        "[05:33:21] SUCCESS: Machine Learning (3 found)",
+        "[05:33:24] SUCCESS: Front-End / React (3 found)",
+        "[05:33:26] SUCCESS: Writing / Creative (0 found)",
+        "[05:33:29] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
                 },
                 {
-                    "position": "WAREHOUSE OFFICER",
-                    "link": "https://remoteok.com/remote-jobs/remote-warehouse-officer-nexilon-energy-systems-pvt-ltd-1134694"
+                    "position": "DPS Employee II",
+                    "link": "https://remoteok.com/remote-jobs/remote-dps-employee-ii-paw-paw-police-dept-1134697"
                 },
                 {
-                    "position": "Resume Inbox",
-                    "link": "https://remoteok.com/remote-jobs/remote-resume-inbox-mark-thomas-1134682"
+                    "position": "WAREHOUSE OFFICER",
+                    "link": "https://remoteok.com/remote-jobs/remote-warehouse-officer-nexilon-energy-systems-pvt-ltd-1134694"
                 }
             ]
         },
