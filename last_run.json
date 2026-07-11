@@ -1,12 +1,12 @@
 {
-    "last_update": "July 11, 2026 | 10:10 AM",
+    "last_update": "July 11, 2026 | 12:57 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[10:10:17] SUCCESS: Machine Learning (3 found)",
-        "[10:10:20] SUCCESS: Front-End / React (3 found)",
-        "[10:10:23] SUCCESS: Writing / Creative (0 found)",
-        "[10:10:26] SUCCESS: Virtual Assistant (0 found)"
+        "[12:57:25] SUCCESS: Machine Learning (3 found)",
+        "[12:57:28] SUCCESS: Front-End / React (3 found)",
+        "[12:57:30] SUCCESS: Writing / Creative (0 found)",
+        "[12:57:33] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
                 },
                 {
-                    "position": "Recepcionista Jr Bela Vista SP",
-                    "link": "https://remoteok.com/remote-jobs/remote-recepcionista-jr-bela-vista-sp-grupo-amil-1134704"
+                    "position": "Atendente Relacionamento Ouvidoria",
+                    "link": "https://remoteok.com/remote-jobs/remote-atendente-relacionamento-ouvidoria-vivo-telefonica-brasil-1134706"
                 },
                 {
-                    "position": "Brad Phillips",
-                    "link": "https://remoteok.com/remote-jobs/remote-brad-phillips-milton-fire-department-inc-1134702"
+                    "position": "Recepcionista Jr Bela Vista SP",
+                    "link": "https://remoteok.com/remote-jobs/remote-recepcionista-jr-bela-vista-sp-grupo-amil-1134704"
                 }
             ]
         },
