@@ -1,12 +1,12 @@
 {
-    "last_update": "July 12, 2026 | 03:50 PM",
+    "last_update": "July 12, 2026 | 06:52 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[15:50:47] SUCCESS: Machine Learning (3 found)",
-        "[15:50:49] SUCCESS: Front-End / React (3 found)",
-        "[15:50:52] SUCCESS: Writing / Creative (0 found)",
-        "[15:50:54] SUCCESS: Virtual Assistant (0 found)"
+        "[18:52:07] SUCCESS: Machine Learning (3 found)",
+        "[18:52:10] SUCCESS: Front-End / React (3 found)",
+        "[18:52:13] SUCCESS: Writing / Creative (0 found)",
+        "[18:52:16] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
                 },
                 {
-                    "position": "Brand Executive",
-                    "link": "https://remoteok.com/remote-jobs/remote-brand-executive-brand-organic-1134730"
+                    "position": "Auxiliar Administrativo Comercial Remoto",
+                    "link": "https://remoteok.com/remote-jobs/remote-auxiliar-administrativo-comercial-remoto-empresa-confidencial-1134744"
                 },
                 {
-                    "position": "Social Media & Marketing Virtual Assistant",
-                    "link": "https://remoteok.com/remote-jobs/remote-social-media-marketing-virtual-assistant-outsource-access-careers-1134728"
+                    "position": "Customer Service Chat Representative",
+                    "link": "https://remoteok.com/remote-jobs/remote-customer-service-chat-representative-orchestrate-consulting-group-1134737"
                 }
             ]
         },
