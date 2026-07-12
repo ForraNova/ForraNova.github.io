@@ -1,12 +1,12 @@
 {
-    "last_update": "July 12, 2026 | 10:18 AM",
+    "last_update": "July 12, 2026 | 12:57 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[10:18:12] SUCCESS: Machine Learning (3 found)",
-        "[10:18:14] SUCCESS: Front-End / React (3 found)",
-        "[10:18:17] SUCCESS: Writing / Creative (0 found)",
-        "[10:18:20] SUCCESS: Virtual Assistant (0 found)"
+        "[12:57:16] SUCCESS: Machine Learning (3 found)",
+        "[12:57:19] SUCCESS: Front-End / React (3 found)",
+        "[12:57:21] SUCCESS: Writing / Creative (0 found)",
+        "[12:57:24] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
                 },
                 {
-                    "position": "Inbound Sales Closer",
-                    "link": "https://remoteok.com/remote-jobs/remote-inbound-sales-closer-express-chipping-inc-1134726"
+                    "position": "Brand Executive",
+                    "link": "https://remoteok.com/remote-jobs/remote-brand-executive-brand-organic-1134730"
                 },
                 {
-                    "position": "General Applicant Position",
-                    "link": "https://remoteok.com/remote-jobs/remote-general-applicant-position-hunt-remotely-1134720"
+                    "position": "Social Media & Marketing Virtual Assistant",
+                    "link": "https://remoteok.com/remote-jobs/remote-social-media-marketing-virtual-assistant-outsource-access-careers-1134728"
                 }
             ]
         },
