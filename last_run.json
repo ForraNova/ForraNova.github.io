@@ -1,12 +1,12 @@
 {
-    "last_update": "July 13, 2026 | 02:06 PM",
+    "last_update": "July 13, 2026 | 05:07 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[14:06:26] SUCCESS: Machine Learning (3 found)",
-        "[14:06:29] SUCCESS: Front-End / React (3 found)",
-        "[14:06:32] SUCCESS: Writing / Creative (0 found)",
-        "[14:06:37] SUCCESS: Virtual Assistant (0 found)"
+        "[17:06:56] SUCCESS: Machine Learning (3 found)",
+        "[17:06:58] SUCCESS: Front-End / React (3 found)",
+        "[17:07:01] SUCCESS: Writing / Creative (0 found)",
+        "[17:07:04] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
                 },
                 {
-                    "position": "Procurement Officer",
-                    "link": "https://remoteok.com/remote-jobs/remote-procurement-officer-gales-agro-products-1134769"
+                    "position": "Product Manager AI",
+                    "link": "https://remoteok.com/remote-jobs/remote-product-manager-ai-yipitdata-1134770"
                 },
                 {
-                    "position": "\u0627\u0644\u0639\u0645\u0644 \u0645\u0646 \u0627\u0644\u0645\u0646\u0632\u0644 \u0641\u064a \u0627\u0645\u0631\u064a\u0643\u0627 20 \u0648\u0638\u064a\u0641\u0629 \u0627\u0644\u0627\u0643\u062b\u0631 \u0637\u0644\u0628\ufffd",
-                    "link": "https://remoteok.com/remote-jobs/"
+                    "position": "Procurement Officer",
+                    "link": "https://remoteok.com/remote-jobs/remote-procurement-officer-gales-agro-products-1134769"
                 }
             ]
         },
