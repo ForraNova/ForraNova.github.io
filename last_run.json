@@ -1,12 +1,12 @@
 {
-    "last_update": "July 14, 2026 | 01:09 PM",
+    "last_update": "July 14, 2026 | 04:08 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[13:09:11] SUCCESS: Machine Learning (3 found)",
-        "[13:09:14] SUCCESS: Front-End / React (3 found)",
-        "[13:09:17] SUCCESS: Writing / Creative (0 found)",
-        "[13:09:19] SUCCESS: Virtual Assistant (0 found)"
+        "[16:08:06] SUCCESS: Machine Learning (3 found)",
+        "[16:08:10] SUCCESS: Front-End / React (3 found)",
+        "[16:08:12] SUCCESS: Writing / Creative (0 found)",
+        "[16:08:15] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
                 },
                 {
-                    "position": "Human Resources Generalist",
-                    "link": "https://remoteok.com/remote-jobs/remote-human-resources-generalist-hiretalent-staffing-recruiting-firm-1134804"
+                    "position": "Photo Editor",
+                    "link": "https://remoteok.com/remote-jobs/remote-photo-editor-headout-1134817"
                 },
                 {
-                    "position": "Entry Level Data Entry Clerk Fully",
-                    "link": "https://remoteok.com/remote-jobs/remote-entry-level-data-entry-clerk-fully-jobsinmass-com-1134807"
+                    "position": "Loss Prevention Officer",
+                    "link": "https://remoteok.com/remote-jobs/remote-loss-prevention-officer-pricesmart-1134813"
                 }
             ]
         },
