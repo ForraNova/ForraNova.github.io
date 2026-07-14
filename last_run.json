@@ -1,12 +1,12 @@
 {
-    "last_update": "July 14, 2026 | 01:28 AM",
+    "last_update": "July 14, 2026 | 05:21 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[01:28:43] SUCCESS: Machine Learning (3 found)",
-        "[01:28:46] SUCCESS: Front-End / React (3 found)",
-        "[01:28:48] SUCCESS: Writing / Creative (0 found)",
-        "[01:28:51] SUCCESS: Virtual Assistant (0 found)"
+        "[05:21:22] SUCCESS: Machine Learning (3 found)",
+        "[05:21:25] SUCCESS: Front-End / React (3 found)",
+        "[05:21:28] SUCCESS: Writing / Creative (0 found)",
+        "[05:21:31] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
                 },
                 {
-                    "position": "Hiring Operations Team Member BBG etc",
-                    "link": "https://remoteok.com/remote-jobs/remote-hiring-operations-team-member-bbg-etc-bbg-etc-1134781"
+                    "position": "Motion Designer",
+                    "link": "https://remoteok.com/remote-jobs/remote-motion-designer-pragmatike-1134793"
                 },
                 {
-                    "position": "Client Success Manager NYC Fully",
-                    "link": "https://remoteok.com/remote-jobs/remote-client-success-manager-nyc-fully-the-reed-corporation-1134779"
+                    "position": "Junior Content Writer",
+                    "link": "https://remoteok.com/remote-jobs/remote-junior-content-writer-supportyourapp-1134790"
                 }
             ]
         },
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
-                    "position": "Junior Front End Developer",
-                    "link": "https://remoteok.com/remote-jobs/remote-junior-front-end-developer-pulsemedia-mena-1134518"
-                },
-                {
                     "position": "Business Development Executive",
                     "link": "https://remoteok.com/remote-jobs/remote-business-development-executive-fresha-1134417"
                 },
                 {
                     "position": "Junior UI Engineer",
                     "link": "https://remoteok.com/remote-jobs/remote-junior-ui-engineer-arabian-private-holdings-1134413"
+                },
+                {
+                    "position": "Orientador a Laboral Freelance Remoto",
+                    "link": "https://remoteok.com/remote-jobs/remote-orientador-a-laboral-freelance-remoto-ironhack-1134414"
                 }
             ]
         },
