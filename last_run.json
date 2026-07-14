@@ -1,12 +1,12 @@
 {
-    "last_update": "July 14, 2026 | 07:48 AM",
+    "last_update": "July 14, 2026 | 10:29 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[07:47:51] SUCCESS: Machine Learning (3 found)",
-        "[07:47:54] SUCCESS: Front-End / React (3 found)",
-        "[07:47:57] SUCCESS: Writing / Creative (0 found)",
-        "[07:48:00] SUCCESS: Virtual Assistant (0 found)"
+        "[10:29:18] SUCCESS: Machine Learning (3 found)",
+        "[10:29:21] SUCCESS: Front-End / React (3 found)",
+        "[10:29:23] SUCCESS: Writing / Creative (0 found)",
+        "[10:29:26] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
                 },
                 {
-                    "position": "Motion Designer",
-                    "link": "https://remoteok.com/remote-jobs/remote-motion-designer-pragmatike-1134793"
+                    "position": "Graphic Designer",
+                    "link": "https://remoteok.com/remote-jobs/remote-graphic-designer-huzzle-com-1134799"
                 },
                 {
-                    "position": "Junior Content Writer",
-                    "link": "https://remoteok.com/remote-jobs/remote-junior-content-writer-supportyourapp-1134790"
+                    "position": "Motion Designer",
+                    "link": "https://remoteok.com/remote-jobs/remote-motion-designer-pragmatike-1134793"
                 }
             ]
         },
