@@ -1,12 +1,12 @@
 {
-    "last_update": "July 15, 2026 | 06:55 PM",
+    "last_update": "July 15, 2026 | 09:49 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[18:55:40] SUCCESS: Machine Learning (3 found)",
-        "[18:55:42] SUCCESS: Front-End / React (3 found)",
-        "[18:55:45] SUCCESS: Writing / Creative (0 found)",
-        "[18:55:48] SUCCESS: Virtual Assistant (0 found)"
+        "[21:48:59] SUCCESS: Machine Learning (3 found)",
+        "[21:49:01] SUCCESS: Front-End / React (3 found)",
+        "[21:49:04] SUCCESS: Writing / Creative (0 found)",
+        "[21:49:07] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
                 },
                 {
-                    "position": "Project Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-project-manager-empire-life-1134867"
+                    "position": "Medical Support Technician Scheduler Outpatient",
+                    "link": "https://remoteok.com/remote-jobs/remote-medical-support-technician-scheduler-outpatient-yukon-kuskokwim-health-corporation-1134879"
                 }
             ]
         },
