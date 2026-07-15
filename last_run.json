@@ -1,12 +1,12 @@
 {
-    "last_update": "July 15, 2026 | 10:42 AM",
+    "last_update": "July 15, 2026 | 01:13 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[10:42:24] SUCCESS: Machine Learning (3 found)",
-        "[10:42:27] SUCCESS: Front-End / React (3 found)",
-        "[10:42:29] SUCCESS: Writing / Creative (0 found)",
-        "[10:42:32] SUCCESS: Virtual Assistant (0 found)"
+        "[13:13:31] SUCCESS: Machine Learning (3 found)",
+        "[13:13:33] SUCCESS: Front-End / React (3 found)",
+        "[13:13:36] SUCCESS: Writing / Creative (0 found)",
+        "[13:13:39] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
                 },
                 {
-                    "position": "Servpro is Hiring",
-                    "link": "https://remoteok.com/remote-jobs/remote-servpro-is-hiring-servpro-of-vacaville-dixon-1134854"
+                    "position": "Auxiliar Administrativo Financeiro Remoto",
+                    "link": "https://remoteok.com/remote-jobs/remote-auxiliar-administrativo-financeiro-remoto-empresa-confidencial-1134859"
                 },
                 {
-                    "position": "Est\u00e1gio em Suporte Comercial",
-                    "link": "https://remoteok.com/remote-jobs/remote-estagio-em-suporte-comercial-meliuz-1134847"
+                    "position": "Assistente Administrativo Comercial Remoto",
+                    "link": "https://remoteok.com/remote-jobs/remote-assistente-administrativo-comercial-remoto-empresa-confidencial-1134858"
                 }
             ]
         },
