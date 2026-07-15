@@ -1,12 +1,12 @@
 {
-    "last_update": "July 15, 2026 | 01:25 AM",
+    "last_update": "July 15, 2026 | 05:22 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[01:25:31] SUCCESS: Machine Learning (3 found)",
-        "[01:25:34] SUCCESS: Front-End / React (3 found)",
-        "[01:25:36] SUCCESS: Writing / Creative (0 found)",
-        "[01:25:40] SUCCESS: Virtual Assistant (0 found)"
+        "[05:22:46] SUCCESS: Machine Learning (3 found)",
+        "[05:22:48] SUCCESS: Front-End / React (3 found)",
+        "[05:22:51] SUCCESS: Writing / Creative (0 found)",
+        "[05:22:54] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
                 },
                 {
-                    "position": "Customer Support Agent",
-                    "link": "https://remoteok.com/remote-jobs/remote-customer-support-agent-umaez-llc-1134825"
+                    "position": "Programa de Est\u00e1gio Forma\u00e7\u00e3o em Vendas SDR Remoto",
+                    "link": "https://remoteok.com/remote-jobs/remote-programa-de-estagio-formacao-em-vendas-sdr-remoto-nibo-1134841"
                 },
                 {
-                    "position": "Medical Records and Health Information Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-medical-records-and-health-information-manager-backpack-healthcare-1134824"
+                    "position": "ASSISTENTE ADMINISTRATIVO CADASTRO CONTROLADORIA Remoto",
+                    "link": "https://remoteok.com/remote-jobs/remote-assistente-administrativo-cadastro-controladoria-remoto-empresa-confidencial-1134836"
                 }
             ]
         },
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
-                    "position": "Business Development Executive",
-                    "link": "https://remoteok.com/remote-jobs/remote-business-development-executive-fresha-1134417"
+                    "position": "Programa de Est\u00e1gio Forma\u00e7\u00e3o em Vendas SDR Remoto",
+                    "link": "https://remoteok.com/remote-jobs/remote-programa-de-estagio-formacao-em-vendas-sdr-remoto-nibo-1134841"
                 },
                 {
-                    "position": "Junior UI Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-junior-ui-engineer-arabian-private-holdings-1134413"
+                    "position": "Assistente de Qualidade",
+                    "link": "https://remoteok.com/remote-jobs/remote-assistente-de-qualidade-sicoob-1134842"
                 },
                 {
-                    "position": "Orientador a Laboral Freelance Remoto",
-                    "link": "https://remoteok.com/remote-jobs/remote-orientador-a-laboral-freelance-remoto-ironhack-1134414"
+                    "position": "Docente Tiempo Parcial Lenguaje Visual Remoto",
+                    "link": "https://remoteok.com/remote-jobs/remote-docente-tiempo-parcial-lenguaje-visual-remoto-universidad-privada-del-norte-1134840"
                 }
             ]
         },
