@@ -1,12 +1,12 @@
 {
-    "last_update": "July 15, 2026 | 05:22 AM",
+    "last_update": "July 15, 2026 | 07:51 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[05:22:46] SUCCESS: Machine Learning (3 found)",
-        "[05:22:48] SUCCESS: Front-End / React (3 found)",
-        "[05:22:51] SUCCESS: Writing / Creative (0 found)",
-        "[05:22:54] SUCCESS: Virtual Assistant (0 found)"
+        "[07:51:01] SUCCESS: Machine Learning (3 found)",
+        "[07:51:04] SUCCESS: Front-End / React (3 found)",
+        "[07:51:07] SUCCESS: Writing / Creative (0 found)",
+        "[07:51:10] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
                 },
                 {
-                    "position": "Programa de Est\u00e1gio Forma\u00e7\u00e3o em Vendas SDR Remoto",
-                    "link": "https://remoteok.com/remote-jobs/remote-programa-de-estagio-formacao-em-vendas-sdr-remoto-nibo-1134841"
+                    "position": "Est\u00e1gio em Suporte Comercial",
+                    "link": "https://remoteok.com/remote-jobs/remote-estagio-em-suporte-comercial-meliuz-1134847"
                 },
                 {
-                    "position": "ASSISTENTE ADMINISTRATIVO CADASTRO CONTROLADORIA Remoto",
-                    "link": "https://remoteok.com/remote-jobs/remote-assistente-administrativo-cadastro-controladoria-remoto-empresa-confidencial-1134836"
+                    "position": "Programa de Est\u00e1gio Forma\u00e7\u00e3o em Vendas SDR Remoto",
+                    "link": "https://remoteok.com/remote-jobs/remote-programa-de-estagio-formacao-em-vendas-sdr-remoto-nibo-1134841"
                 }
             ]
         },
