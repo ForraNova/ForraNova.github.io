@@ -1,12 +1,12 @@
 {
-    "last_update": "July 16, 2026 | 01:21 PM",
+    "last_update": "July 16, 2026 | 04:10 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[13:21:15] SUCCESS: Machine Learning (3 found)",
-        "[13:21:17] SUCCESS: Front-End / React (3 found)",
-        "[13:21:20] SUCCESS: Writing / Creative (0 found)",
-        "[13:21:23] SUCCESS: Virtual Assistant (0 found)"
+        "[16:10:21] SUCCESS: Machine Learning (3 found)",
+        "[16:10:23] SUCCESS: Front-End / React (3 found)",
+        "[16:10:26] SUCCESS: Writing / Creative (0 found)",
+        "[16:10:29] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Graphic Designer",
+                    "link": "https://remoteok.com/remote-jobs/remote-graphic-designer-youfibre-1134925"
+                },
+                {
                     "position": "Project Manager",
                     "link": "https://remoteok.com/remote-jobs/remote-project-manager-empire-life-1134867"
                 },
                 {
-                    "position": "Programa de Est\u00e1gio Forma\u00e7\u00e3o em Vendas SDR Remoto",
-                    "link": "https://remoteok.com/remote-jobs/remote-programa-de-estagio-formacao-em-vendas-sdr-remoto-nibo-1134841"
-                },
-                {
-                    "position": "Customer Success Manager Enterprise",
-                    "link": "https://remoteok.com/remote-jobs/remote-customer-success-manager-enterprise-pointclickcare-1134869"
+                    "position": "Trabaja como canguro Ayuda con los deberes",
+                    "link": "https://remoteok.com/remote-jobs/remote-trabaja-como-canguro-ayuda-con-los-deberes-tus-media-1134927"
                 }
             ]
         },
