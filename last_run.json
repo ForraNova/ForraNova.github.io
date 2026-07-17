@@ -1,12 +1,12 @@
 {
-    "last_update": "July 17, 2026 | 01:49 AM",
+    "last_update": "July 17, 2026 | 05:33 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[01:49:02] SUCCESS: Machine Learning (3 found)",
-        "[01:49:05] SUCCESS: Front-End / React (3 found)",
-        "[01:49:07] SUCCESS: Writing / Creative (0 found)",
-        "[01:49:10] SUCCESS: Virtual Assistant (0 found)"
+        "[05:32:49] SUCCESS: Machine Learning (3 found)",
+        "[05:32:52] SUCCESS: Front-End / React (3 found)",
+        "[05:32:54] SUCCESS: Writing / Creative (0 found)",
+        "[05:32:57] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
                 },
                 {
-                    "position": "National Account Manager Foodservice Sales Required",
-                    "link": "https://remoteok.com/remote-jobs/remote-national-account-manager-foodservice-sales-required-home-market-foods-1134940"
+                    "position": "Content Marketing Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-content-marketing-manager-planned-parenthood-of-greater-new-york-1134953"
                 }
             ]
         },
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Procurement Associate",
+                    "link": "https://remoteok.com/remote-jobs/remote-procurement-associate-unops-1134948"
+                },
+                {
+                    "position": "Merchandiser",
+                    "link": "https://remoteok.com/remote-jobs/remote-merchandiser-brydens-antigua-1134949"
+                },
+                {
                     "position": "Graphic Designer",
                     "link": "https://remoteok.com/remote-jobs/remote-graphic-designer-youfibre-1134925"
-                },
-                {
-                    "position": "Project Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-project-manager-empire-life-1134867"
-                },
-                {
-                    "position": "Trabaja como canguro Ayuda con los deberes",
-                    "link": "https://remoteok.com/remote-jobs/remote-trabaja-como-canguro-ayuda-con-los-deberes-tus-media-1134927"
                 }
             ]
         },
