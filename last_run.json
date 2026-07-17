@@ -1,12 +1,12 @@
 {
-    "last_update": "July 17, 2026 | 10:30 AM",
+    "last_update": "July 17, 2026 | 01:05 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[10:30:07] SUCCESS: Machine Learning (3 found)",
-        "[10:30:10] SUCCESS: Front-End / React (3 found)",
-        "[10:30:12] SUCCESS: Writing / Creative (0 found)",
-        "[10:30:15] SUCCESS: Virtual Assistant (0 found)"
+        "[13:05:20] SUCCESS: Machine Learning (3 found)",
+        "[13:05:23] SUCCESS: Front-End / React (3 found)",
+        "[13:05:25] SUCCESS: Writing / Creative (0 found)",
+        "[13:05:28] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
                 },
                 {
-                    "position": "Senior Product Manager Platform",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-product-manager-platform-delinea-1134961"
+                    "position": "Season 25 26",
+                    "link": "https://remoteok.com/remote-jobs/remote-season-25-26-recman-io-1134967"
                 }
             ]
         },
