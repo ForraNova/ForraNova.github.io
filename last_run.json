@@ -1,12 +1,12 @@
 {
-    "last_update": "July 17, 2026 | 04:08 PM",
+    "last_update": "July 17, 2026 | 06:53 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[16:08:10] SUCCESS: Machine Learning (3 found)",
-        "[16:08:13] SUCCESS: Front-End / React (3 found)",
-        "[16:08:16] SUCCESS: Writing / Creative (0 found)",
-        "[16:08:19] SUCCESS: Virtual Assistant (0 found)"
+        "[18:52:54] SUCCESS: Machine Learning (3 found)",
+        "[18:52:57] SUCCESS: Front-End / React (3 found)",
+        "[18:52:59] SUCCESS: Writing / Creative (0 found)",
+        "[18:53:02] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
                 },
                 {
-                    "position": "Procurement Specialist",
-                    "link": "https://remoteok.com/remote-jobs/remote-procurement-specialist-lumina-brands-1134982"
+                    "position": "Patient Access Scheduler Centralized Scheduling FT 8 30A 5P",
+                    "link": "https://remoteok.com/remote-jobs/remote-patient-access-scheduler-centralized-scheduling-ft-8-30a-5p-orchestrate-consulting-group-1134996"
                 }
             ]
         },
