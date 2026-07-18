@@ -1,12 +1,12 @@
 {
-    "last_update": "July 17, 2026 | 09:42 PM",
+    "last_update": "July 18, 2026 | 01:30 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:42:42] SUCCESS: Machine Learning (3 found)",
-        "[21:42:45] SUCCESS: Front-End / React (3 found)",
-        "[21:42:47] SUCCESS: Writing / Creative (0 found)",
-        "[21:42:50] SUCCESS: Virtual Assistant (0 found)"
+        "[01:30:02] SUCCESS: Machine Learning (3 found)",
+        "[01:30:05] SUCCESS: Front-End / React (3 found)",
+        "[01:30:07] SUCCESS: Writing / Creative (0 found)",
+        "[01:30:10] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
                 },
                 {
-                    "position": "Patient Access Scheduler Centralized Scheduling FT 8 30A 5P",
-                    "link": "https://remoteok.com/remote-jobs/remote-patient-access-scheduler-centralized-scheduling-ft-8-30a-5p-orchestrate-consulting-group-1134996"
+                    "position": "Senior Marketing Manager Paid Ads",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
                 }
             ]
         },
