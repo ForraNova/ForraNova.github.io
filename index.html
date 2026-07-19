@@ -1,3 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ForraNova Hub | Portal</title>
+  <!-- Inline styles utilizing your exact shared CSS theme layout -->
+  <style>
+    /* ===============================
+       GLOBAL STYLES & VARIABLES
+       ================================ */
+    :root {
+        --primary-color: #00e0ff; 
+        --text-white: #fff;       
+        --text-dark: #000;        
+        --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+
+        /* Forra Nova Animated Logo Canvas Panel Variables */
+        --canvas-width: 160px;
+        --canvas-height: 170px;
+        --bg-logo-sizeW: 100px;
+        --bg-logo-sizeH: 100px;
+        --bg-logo-top: 13px;
+        --bg-logo-left: 30px;
+        --brain-size: 60px;
+        --brain-top: 32px;
+        --brain-left: 65px; 
+        --heartbeat-speed: 2s; 
+        --text-width: 170px;
+        --text-bottom: 30px;
+        --text-down: 25px;
+        --text-left: -4px;
+        --spin-speed: 6s; 
+    }
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-family);
+      color: var(--text-white);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
+      overflow-x: hidden;
+    }
+
+    canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      z-index: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      max-height: 100px;
+      z-index: 1000;
+      background: rgba(15,17,23,0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      white-space: nowrap;
+      padding: 1rem 5%;
+    }
+
+    .logon {
+      font-size: 1.2em;
+      font-weight: 800;
+      background: linear-gradient(135deg, #FFFFFF 0%, #00FEDC 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 2px;
+    }
+
+    .slogan {
+      font-size: 1.04em;
+      color: var(--primary-color);
+      letter-spacing: 1px;
+      font-style: italic; 
+      text-align: center; 
+      font-family: 'Times New Roman';
+    }
+
+    /* ==========================================================================
+       FORRA NOVA ANIMATED LOGO COMPONENT
+       ========================================================================== */
+    .logo-component {
+      position: relative;
+      width: var(--canvas-width);
+      height: var(--canvas-height);
+      margin-left: 20px;
+      overflow: hidden;
+      perspective: 1000px; 
+      background: transparent; 
+      float: left;
+    }
+
+    .logo-layer {
+      position: absolute;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+
+    .layer-bg-logo {
+      width: var(--bg-logo-sizeW);
+      height: var(--bg-logo-sizeH);
+      top: var(--bg-logo-top);
+      left: var(--bg-logo-left);
+      z-index: 1000;
+    }
+
+    .layer-brain {
+      width: var(--brain-size);
+      height: var(--brain-size);
+      top: var(--brain-top);
+      left: var(--brain-left);
+      z-index: 2000;
+      animation: heartbeat var(--heartbeat-speed) ease-in-out infinite;
+      transform-origin: center center;
+    }
+
+    .layer-text {
+      width: var(--text-width);
+      height: calc(var(--text-width) * 0.25); 
+      bottom: var(--text-bottom);
+      left: var(--text-left);
+      z-index: 3000;
+      transform-style: preserve-3d;
+      animation: spin3D var(--spin-speed) linear infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      25% { transform: scale(1.05); }
+      45% { transform: scale(1.02); }
+      65% { transform: scale(1.07); }
+    }
+
+    @keyframes spin3D {
+      0% { transform: rotateY(0deg); }
+      100% { transform: rotateY(360deg); }
+    }
+
+    /* ===============================
+       PORTAL CONTENT LAYOUT
+       ================================ */
+    .portal-container {
+      position: relative;
+      z-index: 10;
+      padding: 170px 10% 60px 10%;
+      text-align: center;
+    }
+
+    .portal-intro {
+      max-width: 850px;
+      margin: 0 auto 50px auto;
+      font-size: 1.1em;
+      letter-spacing: 1px;
+      text-align: justify;
+    }
+
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .portal-card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 224, 255, 0.3);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .portal-card:hover {
+      transform: translateY(-5px);
+      border: 2px solid rgba(0, 224, 255, 0.9);
+      filter: drop-shadow(0 0 15px var(--primary-color));
+    }
+
+    .card-banner {
+      background: rgba(0, 224, 255, 0.1);
+      padding: 15px 25px;
+      border-bottom: 1px solid rgba(0, 224, 255, 0.2);
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      color: var(--primary-color);
+    }
+
+    .card-body {
+      padding: 25px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-body h3 {
+      font-size: 1.4em;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    .card-body p {
+      font-size: 0.95em;
+      margin-bottom: 25px;
+      color: var(--text-white);
+      opacity: 0.9;
+    }
+
+    .portal-btn {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      padding: 12px;
+      background: transparent;
+      color: var(--primary-color);
+      border: 1px solid var(--primary-color);
+      border-radius: 8px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .portal-card:hover .portal-btn {
+      background: var(--primary-color);
+      color: var(--text-dark);
+    }
+
+    /* ===============================
+       FOOTER
+       ================================ */
+    footer {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 30px 15px;
+      width: 100%;
+      background: rgba(15,17,23,0.5);
+      backdrop-filter: blur(10px);
+      color: var(--text-white);
+      border-top: 1px solid #333;
+      font-size: 0.9em;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    .foota {
+      height: 55px;
+      filter: drop-shadow(0 0 10px rgba(128, 255, 255, 0.6));
+      margin-bottom: 10px;
+    }
+
+    /* Mobile adaptations */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .portal-container {
+        padding-top: 220px;
+      }
+      .portal-intro {
+      padding-top: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cybernetic Grid Canvas Ecosystem Background Engine -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- NAVIGATION HEADER -->
+  <header>
+    <nav class="navbar">
+      <div class="logo-component">
+        <img src="static/images/logo.png" alt="ForraCorp Base" class="logo-layer layer-bg-logo">
+        <img src="static/images/logoFN_0.png" alt="Forra Nova Brain" class="logo-layer layer-brain">
+        <img src="static/images/logoFN_2.png" alt="Forra Nova Text" class="logo-layer layer-text"> 
+      </div>
+      <div style="text-align: center; margin-top: -20px;">
+        <span class="logon">FORRANOVA SECTOR</span><br>
+        <strong class="slogan">Knowledge Is For The Living</strong>
+      </div>
+      <div>
+        <!-- Link safely routing back to cross-account profile origin -->
+        <a href="https://fofem.github.io" class="portal-btn" style="padding: 8px 16px;">← Developer Portfolio</a>
+      </div>
+    </nav>    
+  </header>
+
+  <!-- MAIN ENTRY GATEWAY HUB -->
+  <main class="portal-container">
+    <p class="portal-intro">
+      Welcome to the specialized domain gateway of the Sector <strong class="logon">ForraNova</strong>. 
+      As the primary instructional operating wing of ForraCorp, this system structures, anchors, and delivers standard 
+      computational competencies, linguistic engineering insights, and algorithmic workflow training. 
+      Select an interface module below to enter your designated learning node.
+    </p>
+
+    <div class="portal-grid">
+      <!-- Node 1: AI Chat-Show -->
+      <article class="portal-card">
+        <div class="card-banner">Audio Broadcast Channel</div>
+        <div class="card-body">
+          <div>
+            <h3>AI Chat-Show</h3>
+            <p>Access structured audio archives, linear problem-solving breakdowns, structural delimiter explanations, and forensic machine intelligence analysis transcripts.</p>
+          </div>
+          <a href="templates/chat-show.html" class="portal-btn">Initialize Broadcast</a>
+        </div>
+      </article>
+
+      <!-- Node 2: ForraNova Academy -->
+      <article class="portal-card">
+        <div class="card-banner">Online Digital University</div>
+        <div class="card-body">
+          <div>
+            <h3>ForraNova Academy</h3>            
+            <h2 style="text-align: center;">COMING SOON</h2>
+
+<!--            
+            <p>Review comprehensive training pipelines, course schedules, and documentation covering localized offline PWA builds and automated retrieval systems.</p>
+          </div>
+          <a href="templates/academy.html" class="portal-btn">Access Academy</a>
+--->          
+        </div>
+      </article>
+
+      <!-- Node 3: Financial Seminar -->
+      <article class="portal-card">
+        <div class="card-banner">Seminar Hub Presentations</div>
+        <div class="card-body">
+          
+
+          <p>Master industrial syntax optimization patterns. Learn context isolation protocols and output security validation frameworks to control LLM drift.</p>
+          <a href="templates/hub/pearls.html" class="portal-btn">PEARLS Architecture</a>
+
+          <p>Deploy general purpose generative transformers to automate business sheets, construct risk analysis loops, and project operational workflows safely.</p>
+          <a href="templates/hub/finAI.html" class="portal-btn">Financial AI</a>
+
+        </div>
+      </article>
+
+
+    </div>
+  </main>
+
+  <!-- GLOBAL CONTROL FOOTER -->
+  <footer>
+    <img src="static/images/logoFN_1.png" class="foota" alt="ForraNova Emblem"/><br>
+    <p>&copy; <span id="currentYear"></span> ForraNova | A System Sector of ForraCorp</p>
+    <p>Contact Administration: <a href="mailto:forracorp1@gmail.com" style="color: var(--primary-color);">forracorp1@gmail.com</a></p>
+  </footer>
+
+  <!-- Background Canvas Core Rendering Script Logic -->
+  <script>
+    const canvas = document.getElementById("bgCanvas");
+    const ctx = canvas.getContext("2d");
+    let width = 0, height = 0, nodes = [], streams = [], particles = [];
+    const AI_CHARS = "01アイエタ∑∫∂∇λψΩ◈⬡⬢▲△▽▷".split("");
+    const NODE_COLORS = ["#00d4ff", "#7b5ea7", "#00ff88", "#4fc3f7"];
+
+    function lerp(a, b, t) { return a + (b - a) * t; }
+    function hexToRgba(hex, alpha) {
+      const r = parseInt(hex.slice(1, 3), 16), g = parseInt(hex.slice(3, 5), 16), b = parseInt(hex.slice(5, 7), 16);
+      return `rgba(${r},${g},${b},${alpha})`;
+    }
+
+    function resize() {
+      canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+      width = canvas.width; height = canvas.height;
+      initScene();
+    }
+
+    function initScene() {
+      nodes = []; streams = []; particles = [];
+      const nodeCount = Math.floor((width * height) / 24000);
+      for (let i = 0; i < nodeCount; i++) {
+        nodes.push({
+          x: Math.random() * width, y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
+          radius: Math.random() * 3 + 2, pulsePhase: Math.random() * Math.PI * 2,
+          pulseSpeed: Math.random() * 0.02 + 0.01,
+          color: NODE_COLORS[Math.floor(Math.random() * NODE_COLORS.length)],
+          glowIntensity: Math.random() * 0.5 + 0.5
+        });
+      }
+      const streamCount = Math.floor(width / 140);
+      for (let i = 0; i < streamCount; i++) { streams.push(createStream()); }
+    }
+
+    function createStream() {
+      return {
+        x: Math.random() * width, y: Math.random() * height, vy: Math.random() * 0.8 + 0.3,
+        chars: Array.from({ length: Math.floor(Math.random() * 10 + 5) }, () => AI_CHARS[Math.floor(Math.random() * AI_CHARS.length)]),
+        charIndex: 0, opacity: Math.random() * 0.3 + 0.05, fadeDir: 1, fontSize: Math.floor(Math.random() * 8 + 8),
+        color: NODE_COLORS[Math.floor(Math.random() * NODE_COLORS.length)] + "44", lastUpdate: 0, updateInterval: Math.floor(Math.random() * 8 + 4)
+      };
+    }
+
+    function draw(timestamp) {
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = "#020b18"; ctx.fillRect(0, 0, width, height);
+      const t = timestamp * 0.001;
+
+      // Streams Rendering
+      for (const stream of streams) {
+        ctx.font = `${stream.fontSize}px monospace`;
+        stream.y += stream.vy; if (stream.y > height + 100) { stream.y = -50; stream.x = Math.random() * width; }
+        for (let i = 0; i < stream.chars.length; i++) {
+          ctx.fillStyle = hexToRgba(stream.color.substring(0,7), stream.opacity * (1 - i / stream.chars.length));
+          ctx.fillText(stream.chars[i], stream.x, stream.y - i * (stream.fontSize + 3));
+        }
+      }
+
+      // Constellation Network Render Line Matrix
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dist = Math.hypot(nodes[j].x - nodes[i].x, nodes[j].y - nodes[i].y);
+          if (dist < 300) {
+            const alpha = (1 - dist / 300) * 0.25;
+            ctx.beginPath(); ctx.moveTo(nodes[i].x, nodes[i].y); ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.strokeStyle = hexToRgba(nodes[i].color, alpha); ctx.lineWidth = 0.8; ctx.stroke();
+          }
+        }
+      }
+
+      // Nodes Loop Update
+      for (const node of nodes) {
+        node.x += node.vx; node.y += node.vy;
+        if (node.x < 0 || node.x > width) node.vx *= -1; if (node.y < 0 || node.y > height) node.vy *= -1;
+        node.pulsePhase += node.pulseSpeed;
+        const pulse = Math.sin(node.pulsePhase) * 0.3 + 0.7;
+        ctx.beginPath(); ctx.arc(node.x, node.y, node.radius * pulse, 0, Math.PI * 2);
+        ctx.fillStyle = hexToRgba(node.color, 0.8); ctx.fill();
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    window.addEventListener("resize", resize);
+    resize();
+    requestAnimationFrame(draw);
+  </script>
+</body>
+</html>
 
 <!DOCTYPE html>
 <html lang="en">
