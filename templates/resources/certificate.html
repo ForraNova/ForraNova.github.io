@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>ForraNova Certificate</title>
+  
+  <style>
+
+/* ForraNova Certificate Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- FRAME & LAYOUT --- */
+.cert-frame {
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    background-image: url('../static/images/certificate.png');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+.cert-frame {
+    width: 1120px;
+    height: 815px;
+    position: relative;
+    padding: 40px;
+    overflow: hidden;
+    border: none;    
+
+    padding-top: 320px;
+}
+.cert-content-overlay {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px;
+    overflow: unset;
+}
+.font-name { 
+    font-family: 'Tangerine', cursive; 
+    font-size: 4.5rem; 
+    text-align: center; 
+    color: #1a0033; 
+    font-weight: bold; 
+    text-shadow: 0 0 5px #ffcc00;
+}
+.font-subject { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    font-size: 2.2rem; 
+    text-align: center; 
+    margin-top: 30px;
+    color: #1a0033; 
+    text-shadow: 0 0 5px #ffcc00;
+}
+.font-other { 
+    font-family: 'Courier New', monospace; 
+    font-size: 1.2rem; 
+    letter-spacing: 2px; 
+    color: #1a0033; 
+    font-weight: bold;
+    line-height: 1px;
+    padding-left:235px;
+    margin-top: 50px;
+}
+.others {
+    margin-top: 30px;
+}
+
+  </style>
+</head>
+<body>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&family=Geneva:wght@300;400;600;800&family=Courier+New:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<div id="certificate-template" style="display:non;">
+   <div class="cert-frame">
+        <div id="cert-canvas-container">
+            <div class="cert-content-overlay">
+                <h2 id="cert-student-name" class="font-name">Evelyn Janiyah Ethan</h2>
+                
+                <h3 id="cert-subject-name" class="font-subject">ROBOTICS ENGINEERING</h3>
+
+                <div class="others">
+                    <p><span id="cert-level-name" class="font-other">UNIVERSITY YEAR 1</span></p>
+                    <p><span id="cert-date" class="font-other">February 05, 2026</span></p>
+                    <p><span id="cert-id" class="font-other">FN-99283-X</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    
+
+<script>
+    const CertificateCore = {
+    async generate(student, subject, level) {
+        const canvas = document.getElementById('cert-dynamic-surface');
+        const ctx = canvas.getContext('2d');
+        canvas.width = 1100;
+        canvas.height = 750;
+
+        // 1. PAINT NATURAL GRADIENT BACKGROUND
+        const grad = ctx.createRadialGradient(550, 375, 100, 550, 375, 800);
+        grad.addColorStop(0, '#1a1a1a'); // Deep center
+        grad.addColorStop(1, '#050505'); // Near black edges
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, 1100, 750);
+
+        // 2. DRAW WATERMARKS (Cap & Scroll)
+        ctx.globalAlpha = 0.07; // "White washed" effect
+        ctx.fillStyle = "#FFFFFF";
+        
+        // Simulating the Cap (Top Left)
+        ctx.font = "200px FontAwesome"; 
+        ctx.fillText("🎓", 100, 250); 
+        
+        // Simulating the Scroll (Bottom Right)
+        ctx.fillText("📜", 800, 650);
+        ctx.globalAlpha = 1.0;
+
+        // 3. ADD DYNAMIC PARTICLES (Based on Subject Color)
+        this.applySubjectAura(ctx, subject);
+
+        // 4. INJECT TEXT
+        document.getElementById('cert-student-name').innerText = student;
+        document.getElementById('cert-subject-name').innerText = subject.toUpperCase();
+        document.getElementById('cert-level-name').innerText = level.toUpperCase();
+        document.getElementById('cert-date').innerText = new Date().toLocaleDateString();
+        document.getElementById('cert-id').innerText = "FN-" + Math.floor(Math.random()*90000 + 10000);
+
+        // 5. PRINT/SAVE
+        const template = document.getElementById('certificate-template');
+        template.style.display = 'block';
+        
+        // For actual PDF generation, we'd trigger print
+        setTimeout(() => {
+            window.print();
+            template.style.display = 'none';
+        }, 1000);
+    },
+
+    applySubjectAura(ctx, subject) {
+        let hue = 180; // Default Cyan
+        if(subject.includes("Bio")) hue = 120; // Green
+        if(subject.includes("Gov")) hue = 40;  // Gold/Orange
+        
+        ctx.shadowBlur = 40;
+        ctx.shadowColor = `hsla(${hue}, 100%, 50%, 0.2)`;
+        ctx.strokeStyle = `hsla(${hue}, 100%, 50%, 0.1)`;
+        
+        for(let i=0; i<15; i++) {
+            ctx.beginPath();
+            ctx.arc(Math.random()*1100, Math.random()*750, Math.random()*100, 0, Math.PI*2);
+            ctx.stroke();
+        }
+    }
+    };
+</script>
+</body>
+</html>

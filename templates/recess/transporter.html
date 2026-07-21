@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trinity Drive · Police & Hostiles</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.126.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.126.0/examples/jsm/"
+      }
+    }
+  </script>
+  <style>
+    body { margin: 0; overflow: hidden; font-family: 'Segoe UI', system-ui, sans-serif; }
+    #game-container { width: 100vw; height: 100vh; display: block; position: relative; }
+    #ui-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+    #ui-overlay > * { pointer-events: auto; }
+    .glass-panel { background: rgba(10, 10, 20, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.15); }
+    .mode-btn { transition: all 0.2s; border: 1px solid transparent; }
+    .mode-btn.active { border-color: #facc15; background: rgba(250, 204, 21, 0.2); box-shadow: 0 0 15px #facc1566; }
+    .hud-value { font-variant-numeric: tabular-nums; }
+    #view-toggle button { background: rgba(0,0,0,0.4); border-radius: 30px; padding: 6px 14px; font-size: 0.75rem; border: 1px solid #444; }
+    #view-toggle button.active-view { border-color: #facc15; background: rgba(250,204,21,0.25); }
+    #mission-log { max-height: 70px; overflow-y: auto; scrollbar-width: thin; }
+    #mission-log::-webkit-scrollbar { width: 4px; }
+    #mission-log::-webkit-scrollbar-thumb { background: #facc15; border-radius: 8px; }
+    .steer-btn { width: 60px; height: 60px; border-radius: 60px; background: rgba(30,30,50,0.75); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.2); color: white; font-size: 1.4rem; display: flex; align-items: center; justify-content: center; user-select: none; transition: all 0.1s; }
+    .steer-btn:active { background: rgba(250,204,21,0.3); transform: scale(0.92); }
+    .steer-btn.accel { background: rgba(34, 197, 94, 0.3); border-color: #22c55e; }
+    .steer-btn.brake { background: rgba(239, 68, 68, 0.3); border-color: #ef4444; }
+    #chat-input { background: rgba(0,0,0,0.5); border: 1px solid #444; color: white; border-radius: 30px; padding: 8px 16px; width: 200px; outline: none; }
+    #chat-input:focus { border-color: #facc15; }
+    #chat-box { max-height: 100px; overflow-y: auto; }
+    .police-light { animation: flash 0.3s infinite alternate; }
+    @keyframes flash { from { opacity: 0.3; } to { opacity: 1; } }
+  </style>
+</head>
+<body>
+<div id="game-container">
+  <div id="ui-overlay" class="flex flex-col justify-between p-3 md:p-5">
+    <!-- TOP BAR -->
+    <div class="flex flex-wrap items-center gap-3 glass-panel p-3 rounded-2xl shadow-2xl text-white w-fit max-w-full">
+      <div class="flex gap-2">
+        <button id="mode-defensive" class="mode-btn active px-4 py-1.5 rounded-full text-sm font-medium bg-gray-800/60">🛡️ Defensive</button>
+        <button id="mode-aggressive" class="mode-btn px-4 py-1.5 rounded-full text-sm font-medium bg-gray-800/60">⚡ Aggressive</button>
+        <button id="mode-evasive" class="mode-btn px-4 py-1.5 rounded-full text-sm font-medium bg-gray-800/60">🏃 Evasive</button>
+      </div>
+      <div id="view-toggle" class="flex gap-1 ml-2">
+        <button data-view="first" class="active-view">🚗 First</button>
+        <button data-view="rear">🔁 Rear</button>
+        <button data-view="third">📷 Third</button>
+        <button data-view="drone">🛸 Drone</button>
+      </div>
+      <div class="flex items-center gap-2 ml-auto">
+        <span class="text-xs opacity-60">⭐ Rep</span>
+        <span id="reputation-display" class="font-bold text-yellow-300">4.8</span>
+      </div>
+    </div>
+
+    <!-- BOTTOM HUD -->
+    <div class="flex flex-wrap items-end justify-between gap-3 mt-auto">
+      <div class="glass-panel p-3 rounded-2xl text-white flex gap-5 backdrop-blur-sm">
+        <div><span class="text-xs opacity-60">SPEED</span><br><span id="speed-display" class="text-2xl font-bold hud-value">0</span><span class="text-xs ml-1">km/h</span></div>
+        <div><span class="text-xs opacity-60">SCORE</span><br><span id="score-display" class="text-2xl font-bold text-yellow-300 hud-value">0</span></div>
+        <div><span class="text-xs opacity-60">MISSION</span><br><span id="mission-status" class="text-sm font-medium text-green-300">▶ active</span></div>
+        <div><span class="text-xs opacity-60">PURSUIT</span><br><span id="pursuit-count" class="text-sm font-medium text-red-400">0</span></div>
+      </div>
+
+      <div class="flex flex-col items-end gap-2">
+        <div class="flex items-center gap-3 glass-panel p-2 rounded-2xl backdrop-blur-sm">
+          <button id="steer-left" class="steer-btn">◀</button>
+          <button id="steer-right" class="steer-btn">▶</button>
+          <button id="steer-accel" class="steer-btn accel">⏫</button>
+          <button id="steer-brake" class="steer-btn brake">⏬</button>
+        </div>
+        <div class="glass-panel p-2 rounded-2xl text-white w-72 max-w-full backdrop-blur-sm flex flex-col">
+          <div id="chat-box" class="text-xs opacity-90 h-12 overflow-y-auto leading-relaxed mb-1">🚦 AI: Welcome to Trinity Drive.</div>
+          <div class="flex gap-2">
+            <input id="chat-input" type="text" placeholder="Talk to AI..." class="flex-1 text-xs">
+            <button id="chat-send" class="bg-yellow-500/30 px-3 py-1 rounded-full text-xs border border-yellow-500/40">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+// ----- GLOBALS -----
+let scene, camera, renderer, vehicle, clock = new THREE.Clock();
+let controls;
+let currentView = 'first';
+let speed = 0, maxSpeed = 80, score = 0, reputation = 4.8;
+let mode = 'defensive';
+let keys = { w: false, a: false, s: false, d: false, space: false };
+let npcs = [], pedestrians = [], obstacles = [];
+let policeCars = [];      // for evasive mode
+let hostileCars = [];     // for aggressive mode
+let missionLog = [];
+let frameCount = 0;
+let audioCtx, engineOsc, engineGain, sirenOsc, sirenGain;
+let isAudioReady = false;
+let pursuitCount = 0;
+
+// DOM refs
+const speedDisplay = document.getElementById('speed-display');
+const scoreDisplay = document.getElementById('score-display');
+const repDisplay = document.getElementById('reputation-display');
+const missionStatus = document.getElementById('mission-status');
+const chatBox = document.getElementById('chat-box');
+const chatInput = document.getElementById('chat-input');
+const pursuitDisplay = document.getElementById('pursuit-count');
+
+// ----- AUDIO -----
+function initAudio() {
+  if (isAudioReady) return;
+  try {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    engineOsc = audioCtx.createOscillator();
+    engineGain = audioCtx.createGain();
+    engineOsc.type = 'sawtooth';
+    engineOsc.frequency.setValueAtTime(40, audioCtx.currentTime);
+    engineGain.gain.setValueAtTime(0.0, audioCtx.currentTime);
+    engineOsc.connect(engineGain);
+    engineGain.connect(audioCtx.destination);
+    engineOsc.start();
+
+    sirenOsc = audioCtx.createOscillator();
+    sirenGain = audioCtx.createGain();
+    sirenOsc.type = 'square';
+    sirenOsc.frequency.setValueAtTime(600, audioCtx.currentTime);
+    sirenGain.gain.setValueAtTime(0.0, audioCtx.currentTime);
+    sirenOsc.connect(sirenGain);
+    sirenGain.connect(audioCtx.destination);
+    sirenOsc.start();
+    isAudioReady = true;
+  } catch(e) { console.warn('Audio init error', e); }
+}
+
+function updateAudio(speedVal) {
+  if (!isAudioReady) return;
+  const absSpeed = Math.abs(speedVal);
+  const freq = 35 + absSpeed * 1.2;
+  engineOsc.frequency.setTargetAtTime(freq, audioCtx.currentTime, 0.1);
+  const gain = Math.min(0.15, absSpeed / 300);
+  engineGain.gain.setTargetAtTime(gain, audioCtx.currentTime, 0.1);
+  const sirenActive = (mode === 'aggressive' || mode === 'evasive') && absSpeed > 20;
+  sirenGain.gain.setTargetAtTime(sirenActive ? 0.08 : 0.0, audioCtx.currentTime, 0.2);
+  if (sirenActive) {
+    sirenOsc.frequency.setTargetAtTime(400 + Math.sin(Date.now()*0.003)*200, audioCtx.currentTime, 0.1);
+  }
+}
+
+// ----- THREE.JS SCENE -----
+function initScene() {
+  scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x1a2a3a);
+  scene.fog = new THREE.Fog(0x1a2a3a, 80, 200);
+
+  camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 500);
+  camera.position.set(0, 6, 12);
+
+  renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  document.getElementById('game-container').prepend(renderer.domElement);
+
+  // Lights
+  scene.add(new THREE.AmbientLight(0x404060));
+  const sun = new THREE.DirectionalLight(0xffeedd, 1.2);
+  sun.position.set(30, 40, 20);
+  sun.castShadow = true;
+  sun.shadow.mapSize.width = 1024;
+  sun.shadow.mapSize.height = 1024;
+  sun.shadow.camera.left = -60;
+  sun.shadow.camera.right = 60;
+  sun.shadow.camera.top = 60;
+  sun.shadow.camera.bottom = -60;
+  sun.shadow.camera.near = 1;
+  sun.shadow.camera.far = 80;
+  scene.add(sun);
+  scene.add(new THREE.DirectionalLight(0x446688, 0.5));
+  scene.add(new THREE.HemisphereLight(0x87CEEB, 0x362d1e, 0.6));
+
+  // Ground + Roads
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(300, 300), new THREE.MeshStandardMaterial({ color: 0x2a4a3a, roughness: 0.9 }));
+  ground.rotation.x = -Math.PI / 2;
+  ground.receiveShadow = true;
+  scene.add(ground);
+
+  const roadMat = new THREE.MeshStandardMaterial({ color: 0x333333, roughness: 0.8 });
+  const road = new THREE.Mesh(new THREE.PlaneGeometry(14, 200), roadMat);
+  road.rotation.x = -Math.PI / 2;
+  road.position.set(0, 0.05, -20);
+  road.receiveShadow = true;
+  scene.add(road);
+
+  for (let z = -90; z < 110; z += 6) {
+    const dash = new THREE.Mesh(new THREE.PlaneGeometry(0.3, 2), new THREE.MeshBasicMaterial({ color: 0xffffff }));
+    dash.rotation.x = -Math.PI / 2;
+    dash.position.set(0, 0.1, z);
+    scene.add(dash);
+  }
+  for (let x of [-6.8, 6.8]) {
+    const edge = new THREE.Mesh(new THREE.PlaneGeometry(0.2, 200), new THREE.MeshBasicMaterial({ color: 0xcccccc }));
+    edge.rotation.x = -Math.PI / 2;
+    edge.position.set(x, 0.1, -20);
+    scene.add(edge);
+  }
+
+  // Buildings
+  for (let i = 0; i < 40; i++) {
+    const box = new THREE.Mesh(new THREE.BoxGeometry(1.5+Math.random()*3, 1+Math.random()*8, 1.5+Math.random()*3), 
+      new THREE.MeshStandardMaterial({ color: Math.random()*0x888888 + 0x444444, roughness: 0.7 }));
+    box.position.x = (Math.random() - 0.5) * 50;
+    box.position.z = (Math.random() - 0.5) * 80 - 20;
+    box.castShadow = true;
+    box.receiveShadow = true;
+    scene.add(box);
+    obstacles.push(box);
+  }
+
+  // Player Vehicle
+  const car = new THREE.Group();
+  const body = new THREE.Mesh(new THREE.BoxGeometry(1.8, 0.5, 4), new THREE.MeshStandardMaterial({ color: 0xff3333, roughness: 0.3, metalness: 0.6 }));
+  body.position.y = 0.3; body.castShadow = true;
+  car.add(body);
+  const cab = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.4, 1.6), new THREE.MeshStandardMaterial({ color: 0x88ccff, roughness: 0.2, metalness: 0.2 }));
+  cab.position.set(0, 0.7, -0.6); cab.castShadow = true;
+  car.add(cab);
+  [[-0.9,0.1,1.2],[0.9,0.1,1.2],[-0.9,0.1,-1.2],[0.9,0.1,-1.2]].forEach(p => {
+    const w = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 0.2, 8), new THREE.MeshStandardMaterial({ color: 0x222222, roughness: 0.9 }));
+    w.rotation.z = Math.PI/2; w.position.set(p[0], p[1], p[2]); car.add(w);
+  });
+  car.position.set(0, 0.2, 0);
+  scene.add(car);
+  vehicle = car;
+
+  // NPC traffic (civilian)
+  for (let i = 0; i < 8; i++) {
+    const npc = createNPCCar(0x66aaff);
+    npc.position.set((Math.random()-0.5)*10, 0.1, -5 - Math.random()*30);
+    scene.add(npc);
+    npcs.push(npc);
+  }
+
+  // Pedestrians
+  for (let i = 0; i < 12; i++) {
+    const ped = new THREE.Mesh(new THREE.SphereGeometry(0.2, 6), new THREE.MeshStandardMaterial({ color: 0xffaa44 }));
+    ped.position.set((Math.random()-0.5)*20, 0.2, -10 - Math.random()*40);
+    scene.add(ped);
+    pedestrians.push(ped);
+  }
+
+  controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.05;
+  controls.target.set(0, 2, 0);
+  controls.enabled = false;
+}
+
+function createNPCCar(color) {
+  const g = new THREE.Group();
+  const b = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.4, 3.5), new THREE.MeshStandardMaterial({ color, roughness: 0.5 }));
+  b.position.y = 0.2; b.castShadow = true;
+  g.add(b);
+  const cab = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.35, 1.4), new THREE.MeshStandardMaterial({ color: 0x88ccff, roughness: 0.3 }));
+  cab.position.set(0, 0.5, -0.5); cab.castShadow = true;
+  g.add(cab);
+  return g;
+}
+
+function createPoliceCar() {
+  const g = createNPCCar(0x2244aa);
+  // Add light bar
+  const light = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.2, 1.2), new THREE.MeshStandardMaterial({ color: 0xff3333, emissive: 0xff0000, emissiveIntensity: 0.8 }));
+  light.position.set(0, 0.7, -0.3);
+  g.add(light);
+  const light2 = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.2, 1.2), new THREE.MeshStandardMaterial({ color: 0x3333ff, emissive: 0x0000ff, emissiveIntensity: 0.8 }));
+  light2.position.set(0, 0.7, 0.3);
+  g.add(light2);
+  return g;
+}
+
+// ----- VIEWS -----
+function setView(view) {
+  currentView = view;
+  controls.enabled = (view === 'drone' || view === 'third');
+  if (view === 'first') { camera.position.set(0, 1.6, 0); camera.lookAt(0, 0, -10); }
+  else if (view === 'rear') { camera.position.set(0, 1.8, 6); camera.lookAt(0, 0, -4); }
+  else if (view === 'third') { controls.target.copy(vehicle.position); controls.target.y += 2; camera.position.set(vehicle.position.x+5, vehicle.position.y+5, vehicle.position.z+8); controls.update(); }
+  else if (view === 'drone') { controls.target.copy(vehicle.position); controls.target.y += 5; camera.position.set(vehicle.position.x+15, vehicle.position.y+20, vehicle.position.z+15); controls.update(); }
+  document.querySelectorAll('#view-toggle button').forEach(b => b.classList.remove('active-view'));
+  document.querySelector(`#view-toggle button[data-view="${view}"]`)?.classList.add('active-view');
+}
+
+// ----- AI CONVERSATION -----
+function aiSpeak(msg, type = 'info') {
+  missionLog.push(msg);
+  if (missionLog.length > 6) missionLog.shift();
+  chatBox.innerHTML = missionLog.map(m => `🗣️ ${m}`).join('<br>');
+  if (msg.includes('pickup') || msg.includes('secure') || msg.includes('evade') || msg.includes('chase')) missionStatus.innerText = '⏳ mission';
+  else if (msg.includes('complete') || msg.includes('safe')) missionStatus.innerText = '✅ done';
+}
+
+function handleChatInput(text) {
+  const lower = text.toLowerCase();
+  if (lower.includes('hello') || lower.includes('hi')) aiSpeak('Hello driver! Stay safe.');
+  else if (lower.includes('speed')) aiSpeak(`Current speed: ${Math.round(Math.abs(speed))} km/h.`);
+  else if (lower.includes('mode')) aiSpeak(`Mode: ${mode.toUpperCase()}.`);
+  else if (lower.includes('score')) aiSpeak(`Score: ${score}. Reputation: ${reputation.toFixed(1)}.`);
+  else if (lower.includes('help')) aiSpeak('WASD drive, Space brake, V toggle view. Talk to me!');
+  else if (lower.includes('danger')) aiSpeak('⚠️ Watch for obstacles!');
+  else aiSpeak(`I heard: "${text}". Drive carefully!`);
+}
+
+// ----- MODE MANAGEMENT -----
+function clearSpecialCars() {
+  policeCars.forEach(c => scene.remove(c));
+  hostileCars.forEach(c => scene.remove(c));
+  policeCars = [];
+  hostileCars = [];
+  pursuitCount = 0;
+  pursuitDisplay.innerText = '0';
+}
+
+function setMode(newMode) {
+  mode = newMode;
+  clearSpecialCars();
+  document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(`mode-${newMode}`).classList.add('active');
+  
+  if (newMode === 'evasive') {
+    // Spawn police cars
+    for (let i = 0; i < 3; i++) {
+      const police = createPoliceCar();
+      police.position.set((Math.random()-0.5)*6, 0.1, -15 - i*8 - Math.random()*5);
+      scene.add(police);
+      policeCars.push(police);
+    }
+    aiSpeak('🚨 EVASIVE: Police are chasing you! Evade!');
+  } else if (newMode === 'aggressive') {
+    // Spawn hostile cars (fleeing)
+    for (let i = 0; i < 3; i++) {
+      const hostile = createNPCCar(0xaa2244);
+      hostile.position.set((Math.random()-0.5)*6, 0.1, 10 + i*6 + Math.random()*4);
+      scene.add(hostile);
+      hostileCars.push(hostile);
+    }
+    aiSpeak('⚡ AGGRESSIVE: Hostiles are fleeing! Pursue them!');
+  } else {
+    aiSpeak(`🛡️ Defensive mode: Drive safely.`);
+  }
+  score = 0;
+  updateUI();
+}
+
+// ----- PHYSICS & UPDATE -----
+function updatePhysics(delta) {
+  if (!vehicle) return;
+  const accel = 45, brake = 35, turnSpeed = 3.2, friction = 0.96;
+  if (keys.w) speed = Math.min(speed + accel * delta, maxSpeed);
+  else if (keys.s) speed = Math.max(speed - brake * delta, -maxSpeed * 0.2);
+  else speed *= friction;
+  if (keys.space) speed *= 0.90;
+
+  if (Math.abs(speed) > 0.5) {
+    const turn = (keys.a ? 1 : 0) - (keys.d ? 1 : 0);
+    vehicle.rotation.y += turn * turnSpeed * delta * (speed / maxSpeed);
+  }
+  const forward = new THREE.Vector3(0, 0, -1).applyQuaternion(vehicle.quaternion);
+  vehicle.position.add(forward.multiplyScalar(speed * delta * 0.7));
+  if (Math.abs(vehicle.position.x) > 55) vehicle.position.x *= -0.8;
+  if (Math.abs(vehicle.position.z) > 55) vehicle.position.z *= -0.8;
+
+  // NPC traffic
+  npcs.forEach((npc, idx) => {
+    npc.position.z += (0.4 + idx*0.06) * delta * 2.5;
+    if (npc.position.z > 25) npc.position.z = -35 - Math.random()*15;
+    npc.position.x += Math.sin(frameCount*0.005 + idx) * 0.008;
+  });
+
+  // Pedestrians
+  pedestrians.forEach((ped, i) => {
+    ped.position.x += Math.sin(frameCount*0.01 + i*2) * 0.02;
+    ped.position.z += Math.cos(frameCount*0.008 + i*1.5) * 0.02;
+    if (Math.abs(ped.position.x) > 20) ped.position.x *= -0.9;
+    if (Math.abs(ped.position.z) > 40) ped.position.z *= -0.9;
+  });
+
+  // ---- EVASIVE: Police chase ----
+  if (mode === 'evasive') {
+    pursuitCount = policeCars.length;
+    pursuitDisplay.innerText = pursuitCount;
+    policeCars.forEach((police, idx) => {
+      const dir = new THREE.Vector3().copy(vehicle.position).sub(police.position);
+      dir.y = 0;
+      const dist = dir.length();
+      if (dist > 1.5) {
+        dir.normalize();
+        police.position.add(dir.multiplyScalar(delta * (6 + idx * 0.5)));
+        police.rotation.y = Math.atan2(dir.x, dir.z);
+      }
+      // Collision with police
+      if (dist < 2.2) {
+        speed *= 0.2;
+        aiSpeak('💥 Police collided! Reputation down.');
+        reputation = Math.max(1, reputation - 0.3);
+        // Remove this police car
+        scene.remove(police);
+        policeCars.splice(idx, 1);
+        pursuitCount = policeCars.length;
+        pursuitDisplay.innerText = pursuitCount;
+        if (policeCars.length === 0) {
+          aiSpeak('✅ Evaded all police! Mission complete.');
+          score += 100;
+        }
+        updateUI();
+      }
+    });
+    // Respawn police if too few
+    if (policeCars.length < 2 && frameCount % 120 === 0) {
+      const police = createPoliceCar();
+      police.position.set((Math.random()-0.5)*6, 0.1, -20 - Math.random()*10);
+      scene.add(police);
+      policeCars.push(police);
+      aiSpeak('🚨 More police are joining the chase!');
+    }
+  }
+
+  // ---- AGGRESSIVE: Hostiles flee ----
+  if (mode === 'aggressive') {
+    pursuitCount = hostileCars.length;
+    pursuitDisplay.innerText = pursuitCount;
+    hostileCars.forEach((hostile, idx) => {
+      // Flee from player
+      const dir = new THREE.Vector3().copy(hostile.position).sub(vehicle.position);
+      dir.y = 0;
+      const dist = dir.length();
+      if (dist < 30 && dist > 1.5) {
+        dir.normalize();
+        hostile.position.add(dir.multiplyScalar(delta * (5 + idx * 0.3)));
+        hostile.rotation.y = Math.atan2(dir.x, dir.z);
+      }
+      // If player catches up (close)
+      if (dist < 2.5) {
+        aiSpeak('🚔 Hostile captured! +50 points.');
+        score += 50;
+        scene.remove(hostile);
+        hostileCars.splice(idx, 1);
+        pursuitCount = hostileCars.length;
+        pursuitDisplay.innerText = pursuitCount;
+        if (hostileCars.length === 0) {
+          aiSpeak('🏁 All hostiles captured! Mission complete.');
+          score += 200;
+        }
+        updateUI();
+      }
+      // Respawn hostiles if needed
+      if (hostileCars.length < 2 && frameCount % 150 === 0) {
+        const hostile = createNPCCar(0xaa2244);
+        hostile.position.set((Math.random()-0.5)*6, 0.1, 15 + Math.random()*10);
+        scene.add(hostile);
+        hostileCars.push(hostile);
+        aiSpeak('⚡ New hostile spotted! Pursue!');
+      }
+    });
+  }
+
+  // Collision with NPC traffic (general)
+  const carPos = vehicle.position;
+  npcs.forEach(npc => {
+    if (carPos.distanceTo(npc.position) < 2.2) {
+      speed *= 0.2;
+      aiSpeak('💥 Collision! Reputation down.');
+      reputation = Math.max(1, reputation - 0.15);
+      updateUI();
+    }
+  });
+
+  // Scoring
+  if (mode === 'defensive' && frameCount % 60 === 0 && speed > 5) score += 1;
+  else if (mode === 'aggressive' && frameCount % 30 === 0 && speed > 15) score += 2;
+  else if (mode === 'evasive' && frameCount % 20 === 0 && speed > 25) score += 3;
+
+  updateAudio(speed);
+
+  // Camera follow
+  if (currentView === 'first') {
+    const offset = new THREE.Vector3(0, 1.8, 0).applyQuaternion(vehicle.quaternion);
+    camera.position.copy(vehicle.position.clone().add(offset));
+    const lookTarget = new THREE.Vector3(0, 0, -10).applyQuaternion(vehicle.quaternion);
+    camera.lookAt(vehicle.position.clone().add(lookTarget));
+  } else if (currentView === 'rear') {
+    const offset = new THREE.Vector3(0, 2.0, 6).applyQuaternion(vehicle.quaternion);
+    camera.position.copy(vehicle.position.clone().add(offset));
+    camera.lookAt(vehicle.position);
+  } else if (currentView === 'third' || currentView === 'drone') {
+    controls.target.copy(vehicle.position);
+    controls.target.y += 2;
+    controls.update();
+  }
+
+  // Random AI events
+  if (frameCount % 400 === 0) aiSpeak('🚦 Keep an eye on the road.');
+  if (frameCount % 700 === 0 && mode === 'defensive') aiSpeak('📦 Passenger pickup nearby.');
+  
+  updateUI();
+}
+
+function updateUI() {
+  speedDisplay.innerText = Math.round(Math.abs(speed));
+  scoreDisplay.innerText = score;
+  repDisplay.innerText = reputation.toFixed(1);
+}
+
+// ----- INPUT -----
+function setupInput() {
+  document.addEventListener('keydown', (e) => {
+    const k = e.key.toLowerCase();
+    if (k === 'w' || k === 'a' || k === 's' || k === 'd') keys[k] = true;
+    if (k === ' ') { e.preventDefault(); keys.space = true; }
+    if (k === 'v') {
+      const views = ['first', 'rear', 'third', 'drone'];
+      let idx = views.indexOf(currentView);
+      idx = (idx + 1) % views.length;
+      setView(views[idx]);
+    }
+  });
+  document.addEventListener('keyup', (e) => {
+    const k = e.key.toLowerCase();
+    if (k === 'w' || k === 'a' || k === 's' || k === 'd') keys[k] = false;
+    if (k === ' ') keys.space = false;
+  });
+
+  document.getElementById('mode-defensive').addEventListener('click', () => setMode('defensive'));
+  document.getElementById('mode-aggressive').addEventListener('click', () => setMode('aggressive'));
+  document.getElementById('mode-evasive').addEventListener('click', () => setMode('evasive'));
+  document.querySelectorAll('#view-toggle button').forEach(btn => btn.addEventListener('click', () => setView(btn.dataset.view)));
+
+  const steerLeft = document.getElementById('steer-left');
+  const steerRight = document.getElementById('steer-right');
+  const steerAccel = document.getElementById('steer-accel');
+  const steerBrake = document.getElementById('steer-brake');
+  
+  function addTouchListeners(el, keyOn, keyOff) {
+    el.addEventListener('mousedown', (e) => { e.preventDefault(); keys[keyOn] = true; });
+    el.addEventListener('mouseup', () => { keys[keyOn] = false; });
+    el.addEventListener('mouseleave', () => { keys[keyOn] = false; });
+    el.addEventListener('touchstart', (e) => { e.preventDefault(); keys[keyOn] = true; });
+    el.addEventListener('touchend', (e) => { e.preventDefault(); keys[keyOn] = false; });
+    el.addEventListener('touchcancel', () => { keys[keyOn] = false; });
+  }
+  addTouchListeners(steerLeft, 'a', 'a');
+  addTouchListeners(steerRight, 'd', 'd');
+  addTouchListeners(steerAccel, 'w', 'w');
+  addTouchListeners(steerBrake, 's', 's');
+
+  document.getElementById('chat-send').addEventListener('click', () => {
+    const txt = chatInput.value.trim();
+    if (txt) { handleChatInput(txt); chatInput.value = ''; }
+  });
+  chatInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      const txt = chatInput.value.trim();
+      if (txt) { handleChatInput(txt); chatInput.value = ''; }
+    }
+  });
+}
+
+function onResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+}
+
+function animate() {
+  requestAnimationFrame(animate);
+  const delta = clock.getDelta();
+  frameCount++;
+  updatePhysics(delta);
+  renderer.render(scene, camera);
+}
+
+function init() {
+  initScene();
+  setupInput();
+  setView('first');
+  setMode('defensive');
+  window.addEventListener('resize', onResize);
+  animate();
+  initAudio();
+  aiSpeak('🚗 Engine started. Switch modes for special chases!');
+}
+
+init();
+</script>
+</body>
+</html>

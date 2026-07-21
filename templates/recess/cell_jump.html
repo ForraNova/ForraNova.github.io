@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=2.0, minimum-scale=0.5">
+  <title>Cell Jump | Reflex Grid Game</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #1a1e2b 0%, #2a3140 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+      padding: 1rem;
+      margin: 0;
+    }
+
+    .game-container {
+      width: 100%;
+      max-width: 750px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 3rem;
+      padding: 2rem 2rem 2.5rem;
+      box-shadow: 0 30px 50px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      transition: all 0.2s ease;
+    }
+
+    /* Setup Panel */
+    .setup-panel {
+      background: rgba(20, 25, 35, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 2rem;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+      color: #eef5ff;
+    }
+
+    .setup-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .setup-row label {
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      min-width: 110px;
+      color: #b4c8f0;
+    }
+
+    input, select {
+      background: #0f1219;
+      border: 1px solid #3a4255;
+      padding: 0.7rem 1rem;
+      border-radius: 2rem;
+      color: white;
+      font-weight: 500;
+      outline: none;
+      transition: all 0.2s;
+      font-size: 1rem;
+    }
+    input:focus, select:focus {
+      border-color: #7aa2f7;
+      box-shadow: 0 0 12px #3b5fc0;
+    }
+
+    .player-names {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 0.3rem;
+    }
+    .player-name-input {
+      flex: 1 1 120px;
+    }
+
+    button {
+      background: #4f6ef6;
+      border: none;
+      color: white;
+      font-weight: bold;
+      padding: 0.9rem 1.8rem;
+      border-radius: 3rem;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      background: linear-gradient(135deg, #5f7cf0, #3a4fc2);
+      box-shadow: 0 10px 18px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.2);
+      transition: 0.2s;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+    }
+    button:hover {
+      filter: brightness(1.15);
+      transform: translateY(-2px);
+    }
+    button:active {
+      transform: translateY(2px);
+      box-shadow: 0 5px 10px rgba(0,0,0,0.6);
+    }
+    .secondary-btn {
+      background: #2d3648;
+      background: linear-gradient(135deg, #3a4358, #1f2533);
+    }
+
+    /* Game area */
+    .game-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      color: #dbe4ff;
+      font-weight: 600;
+      background: rgba(0,0,0,0.3);
+      border-radius: 2rem;
+      padding: 0.8rem 1.5rem;
+    }
+    .scoreboard {
+      display: flex;
+      gap: 1.8rem;
+      flex-wrap: wrap;
+    }
+    .player-badge {
+      background: #252e44;
+      padding: 0.4rem 1.2rem;
+      border-radius: 2rem;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .active-player-indicator {
+      background: #fbbf24;
+      color: #0b0f1a;
+      font-weight: bold;
+      padding: 0.3rem 1.2rem;
+      border-radius: 2rem;
+    }
+    .timer-display {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: #111827;
+      padding: 0.3rem 1.2rem;
+      border-radius: 3rem;
+      color: #facc15;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .grid-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0.5rem 0 1rem;
+    }
+
+    .game-grid {
+      display: grid;
+      gap: 0.6rem;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 1rem;
+      border-radius: 2rem;
+      width: fit-content;
+      margin: 0 auto;
+      box-shadow: inset 0 0 25px rgba(0,0,0,0.8);
+    }
+
+    .cell {
+      background: #1e2430;
+      border-radius: 1rem;
+      aspect-ratio: 1 / 1;
+      min-width: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: #9aa9c1;
+      position: relative;
+      transition: 0.15s ease;
+      box-shadow: 0 6px 0 #0b0e14;
+      cursor: pointer;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+    .cell:hover {
+      background: #2d374f;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 #0b0e14;
+    }
+
+    .ball {
+      background: radial-gradient(circle at 30% 30%, #fde047, #eab308);
+      border-radius: 50%;
+      width: 70%;
+      height: 70%;
+      position: absolute;
+      box-shadow: 0 0 25px #fbbf24, 0 0 8px #ffffff;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), left 0.25s ease, top 0.25s ease;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .cell.active-target {
+      background: #2f3b5c;
+      box-shadow: 0 0 25px #60a5fa;
+    }
+
+    .success-flash {
+      animation: successPulse 0.35s ease-out;
+    }
+    .fail-flash {
+      animation: failShake 0.3s ease;
+    }
+
+    @keyframes successPulse {
+      0% { background: #22c55e; box-shadow: 0 0 35px #4ade80; }
+      100% { background: #1e2430; }
+    }
+    @keyframes failShake {
+      0% { background: #ef4444; transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      50% { transform: translateX(6px); background: #dc2626; }
+      100% { transform: translateX(0); background: #1e2430; }
+    }
+
+    .footer-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 500px) {
+      .cell {
+        min-width: 40px;
+        font-size: 0.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="game-container" id="appContainer">
+  <a href="../../index.html#games" onclick="navigateTo('../../index.html#tools', event)"><button style=" border-radius: 10px; background: linear-gradient(135deg, #00e0ff, #fff, #2f7fe0); color: #051022;  position: relative; z-index: 10; text-align: center; padding: 10px 15px; width: 100%;  backdrop-filter: blur(10px);font-size: 1.2em; " > Return Back to Games Portal</button></a>    
+
+  <!-- Setup screen -->
+  <div id="setupPanel" class="setup-panel">
+    <h2 style="margin:0; color:white; text-align:center;">⚡ Cell Jump</h2>
+    <div class="setup-row">
+      <label>📐 Columns</label>
+      <input type="number" id="colsInput" min="2" max="12" value="5" step="1">
+      <label>📏 Rows</label>
+      <input type="number" id="rowsInput" min="2" max="12" value="4" step="1">
+    </div>
+    <div class="setup-row">
+      <label>⏱️ Time (s)</label>
+      <input type="range" id="timeSlider" min="0.5" max="2.0" value="1.0" step="0.1" style="flex:1;">
+      <span id="timeValue" style="min-width:45px;">1.0s</span>
+    </div>
+    <div class="setup-row">
+      <label>👥 Players</label>
+      <input type="number" id="playerCountInput" min="1" max="6" value="1" step="1">
+    </div>
+    <div id="playerNamesContainer" class="player-names"></div>
+    <button id="startGameBtn">▶ Start Game</button>
+    <p style="color:#a5b9e0; font-size:0.8rem; margin-top:0.2rem;">Click the glowing cell before time runs out!</p>
+  </div>
+
+  <!-- Game screen (hidden initially) -->
+  <div id="gameScreen" class="hidden" style="display: flex; flex-direction: column; gap: 1.5rem;">
+    <div class="game-header">
+      <div><span id="currentPlayerLabel"></span> <span id="currentStreakBadge" class="active-player-indicator">0</span></div>
+      <div class="timer-display" id="timerDisplay">1.0</div>
+      <div class="scoreboard" id="scoreboardContainer"></div>
+    </div>
+    <div class="grid-wrapper">
+      <div class="game-grid" id="gameGrid"></div>
+    </div>
+    <div class="footer-actions">
+      <button class="secondary-btn" id="endGameBtn">⏹️ End Game</button>
+      <button class="secondary-btn" id="backToSetupBtn">↩️ Setup</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    // ---------- DOM elements ----------
+    const setupPanel = document.getElementById('setupPanel');
+    const gameScreen = document.getElementById('gameScreen');
+    const colsInput = document.getElementById('colsInput');
+    const rowsInput = document.getElementById('rowsInput');
+    const timeSlider = document.getElementById('timeSlider');
+    const timeValue = document.getElementById('timeValue');
+    const playerCountInput = document.getElementById('playerCountInput');
+    const playerNamesContainer = document.getElementById('playerNamesContainer');
+    const startGameBtn = document.getElementById('startGameBtn');
+    const gameGrid = document.getElementById('gameGrid');
+    const timerDisplay = document.getElementById('timerDisplay');
+    const currentPlayerLabel = document.getElementById('currentPlayerLabel');
+    const currentStreakBadge = document.getElementById('currentStreakBadge');
+    const scoreboardContainer = document.getElementById('scoreboardContainer');
+    const endGameBtn = document.getElementById('endGameBtn');
+    const backToSetupBtn = document.getElementById('backToSetupBtn');
+
+    // ---------- Audio (Web Audio API tiny sounds) ----------
+    let audioCtx = null;
+    function initAudio() {
+      if (audioCtx) return;
+      try {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      } catch (e) {
+        console.log("Audio not supported");
+      }
+    }
+    function playTone(type = 'success') {
+      if (!audioCtx) return;
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      const now = audioCtx.currentTime;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      if (type === 'success') {
+        osc.frequency.setValueAtTime(880, now);
+        osc.frequency.exponentialRampToValueAtTime(1200, now + 0.12);
+        gain.gain.setValueAtTime(0.15, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+        osc.start(now);
+        osc.stop(now + 0.25);
+      } else if (type === 'fail') {
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(200, now);
+        osc.frequency.exponentialRampToValueAtTime(80, now + 0.3);
+        gain.gain.setValueAtTime(0.18, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+        osc.start(now);
+        osc.stop(now + 0.35);
+      } else if (type === 'turn') {
+        osc.frequency.setValueAtTime(600, now);
+        osc.frequency.setValueAtTime(800, now + 0.1);
+        gain.gain.setValueAtTime(0.1, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+        osc.start(now);
+        osc.stop(now + 0.2);
+      }
+    }
+
+    // ---------- Game state ----------
+    let settings = {
+      cols: 5,
+      rows: 4,
+      timeLimit: 1.0,
+      playerCount: 1,
+      playerNames: ['Player 1']
+    };
+
+    let players = [];               // { name, bestStreak }
+    let currentPlayerIndex = 0;
+    let currentStreak = 0;
+    let ballPosition = null;       // { col, row }
+    let timerInterval = null;
+    let timeoutId = null;
+    let gameActive = false;
+    let countdownValue = 0;
+    let gridCells = [];            // 2D array of cell divs
+
+    // Difficulty ramp: slight reduction per streak
+    const BASE_TIME_FACTOR = 1.0;
+    const RAMP_FACTOR = 0.03;      // each streak reduces time by 0.03s (min floor later)
+
+    // ---------- Helpers ----------
+    function getCellId(col, row) {
+      const colLabel = col + 1;  // 1-based
+      const rowLetter = String.fromCharCode(65 + row); // A, B, C...
+      return `${colLabel}${rowLetter}`;
+    }
+
+    function getEffectiveTimeLimit() {
+      let reduction = currentStreak * RAMP_FACTOR;
+      let effective = settings.timeLimit - reduction;
+      return Math.max(0.5, effective); // never below 0.5s
+    }
+
+    function saveSettingsToStorage() {
+      try {
+        localStorage.setItem('cellJumpSettings', JSON.stringify({
+          cols: settings.cols,
+          rows: settings.rows,
+          timeLimit: settings.timeLimit,
+          playerCount: settings.playerCount
+        }));
+      } catch (e) {}
+    }
+
+    function loadSettingsFromStorage() {
+      try {
+        const saved = localStorage.getItem('cellJumpSettings');
+        if (saved) {
+          const obj = JSON.parse(saved);
+          if (obj.cols) colsInput.value = obj.cols;
+          if (obj.rows) rowsInput.value = obj.rows;
+          if (obj.timeLimit) timeSlider.value = obj.timeLimit;
+          if (obj.playerCount) playerCountInput.value = obj.playerCount;
+          timeValue.textContent = parseFloat(timeSlider.value).toFixed(1) + 's';
+        }
+      } catch (e) {}
+    }
+
+    function updatePlayerNameInputs() {
+      const count = parseInt(playerCountInput.value, 10) || 1;
+      playerNamesContainer.innerHTML = '';
+      for (let i = 0; i < count; i++) {
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.placeholder = `Player ${i+1}`;
+        input.classList.add('player-name-input');
+        input.value = i === 0 ? 'Player 1' : `Player ${i+1}`;
+        input.dataset.index = i;
+        playerNamesContainer.appendChild(input);
+      }
+    }
+
+    function collectSettings() {
+      settings.cols = Math.min(12, Math.max(2, parseInt(colsInput.value, 10) || 5));
+      settings.rows = Math.min(12, Math.max(2, parseInt(rowsInput.value, 10) || 4));
+      settings.timeLimit = Math.min(2.0, Math.max(0.5, parseFloat(timeSlider.value) || 1.0));
+      settings.playerCount = Math.min(6, Math.max(1, parseInt(playerCountInput.value, 10) || 1));
+      const nameInputs = document.querySelectorAll('.player-name-input');
+      settings.playerNames = [];
+      if (nameInputs.length) {
+        nameInputs.forEach(inp => settings.playerNames.push(inp.value.trim() || `Player ${parseInt(inp.dataset.index)+1}`));
+      } else {
+        for (let i=0; i<settings.playerCount; i++) settings.playerNames.push(`Player ${i+1}`);
+      }
+    }
+
+    function buildPlayers() {
+      players = settings.playerNames.slice(0, settings.playerCount).map(name => ({
+        name: name,
+        bestStreak: 0
+      }));
+    }
+
+    function renderScoreboard() {
+      scoreboardContainer.innerHTML = '';
+      players.forEach((p, idx) => {
+        const badge = document.createElement('div');
+        badge.className = 'player-badge';
+        badge.innerHTML = `${p.name}: <strong>${p.bestStreak}</strong>`;
+        if (idx === currentPlayerIndex && gameActive) {
+          badge.style.border = '2px solid #fbbf24';
+        }
+        scoreboardContainer.appendChild(badge);
+      });
+    }
+
+    function updateUIForTurn() {
+      if (!gameActive) return;
+      const player = players[currentPlayerIndex];
+      currentPlayerLabel.textContent = `🎯 ${player.name}`;
+      currentStreakBadge.textContent = currentStreak;
+      renderScoreboard();
+    }
+
+    function clearTimers() {
+      if (timerInterval) clearInterval(timerInterval);
+      if (timeoutId) clearTimeout(timeoutId);
+      timerInterval = null;
+      timeoutId = null;
+    }
+
+    function stopGame() {
+      clearTimers();
+      gameActive = false;
+      ballPosition = null;
+      removeBallFromGrid();
+    }
+
+    function removeBallFromGrid() {
+      const existingBall = document.querySelector('.ball');
+      if (existingBall) existingBall.remove();
+      document.querySelectorAll('.cell').forEach(c => c.classList.remove('active-target'));
+    }
+
+    function placeBall(col, row, animate = true) {
+      removeBallFromGrid();
+      if (!gridCells[row] || !gridCells[row][col]) return;
+      const cell = gridCells[row][col];
+      cell.classList.add('active-target');
+      const ball = document.createElement('div');
+      ball.className = 'ball';
+      cell.appendChild(ball);
+      ballPosition = { col, row };
+    }
+
+    function getRandomCell(exclude = null) {
+      const totalCells = settings.cols * settings.rows;
+      if (totalCells === 0) return { col: 0, row: 0 };
+      let randIndex;
+      do {
+        randIndex = Math.floor(Math.random() * totalCells);
+        const col = randIndex % settings.cols;
+        const row = Math.floor(randIndex / settings.cols);
+        if (!exclude || (col !== exclude.col || row !== exclude.row)) {
+          return { col, row };
+        }
+      } while (totalCells > 1);
+      return { col: 0, row: 0 };
+    }
+
+    function startCountdown() {
+      clearTimers();
+      const effectiveTime = getEffectiveTimeLimit();
+      countdownValue = effectiveTime;
+      timerDisplay.textContent = countdownValue.toFixed(1);
+      
+      timerInterval = setInterval(() => {
+        countdownValue -= 0.1;
+        if (countdownValue < 0) countdownValue = 0;
+        timerDisplay.textContent = countdownValue.toFixed(1);
+        if (countdownValue <= 0) {
+          clearInterval(timerInterval);
+          timerInterval = null;
+          handleTimeout();
+        }
+      }, 100);
+
+      timeoutId = setTimeout(() => {
+        if (timerInterval) {
+          clearInterval(timerInterval);
+          timerInterval = null;
+        }
+        handleTimeout();
+      }, effectiveTime * 1000);
+    }
+
+    function handleTimeout() {
+      if (!gameActive) return;
+      playTone('fail');
+      clearTimers();
+      // Flash fail on current cell
+      if (ballPosition && gridCells[ballPosition.row] && gridCells[ballPosition.row][ballPosition.col]) {
+        const cell = gridCells[ballPosition.row][ballPosition.col];
+        cell.classList.add('fail-flash');
+        setTimeout(() => cell.classList.remove('fail-flash'), 400);
+      }
+      endTurn(false);
+    }
+
+    function handleCellClick(col, row) {
+      if (!gameActive || !ballPosition) return;
+      if (ballPosition.col === col && ballPosition.row === row) {
+        // Correct hit!
+        playTone('success');
+        clearTimers();
+        currentStreak++;
+        const player = players[currentPlayerIndex];
+        if (currentStreak > player.bestStreak) {
+          player.bestStreak = currentStreak;
+        }
+        updateUIForTurn();
+        
+        const cell = gridCells[row][col];
+        cell.classList.add('success-flash');
+        setTimeout(() => cell.classList.remove('success-flash'), 350);
+        
+        moveBallToNewCell();
+      } else {
+        // Wrong cell
+        playTone('fail');
+        clearTimers();
+        if (ballPosition) {
+          const currentCell = gridCells[ballPosition.row]?.[ballPosition.col];
+          if (currentCell) {
+            currentCell.classList.add('fail-flash');
+            setTimeout(() => currentCell.classList.remove('fail-flash'), 400);
+          }
+        }
+        endTurn(false);
+      }
+    }
+
+    function moveBallToNewCell() {
+      if (!gameActive) return;
+      const previous = ballPosition;
+      const newPos = getRandomCell(previous);
+      ballPosition = newPos;
+      placeBall(newPos.col, newPos.row, true);
+      startCountdown();
+    }
+
+    function endTurn(success = false) {
+      if (!gameActive) return;
+      clearTimers();
+      // current streak already updated if success; else reset streak after recording
+      if (!success) {
+        // failure: streak resets for this player
+        currentStreak = 0;
+      }
+      updateUIForTurn();
+      
+      if (settings.playerCount === 1) {
+        // Solo game over
+        gameActive = false;
+        removeBallFromGrid();
+        alert(`🏁 Game Over! Your streak: ${players[0].bestStreak}. Play again?`);
+        stopGame();
+        showSetup();
+        return;
+      }
+      
+      // Multiplayer: rotate turn
+      playTone('turn');
+      currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
+      currentStreak = 0;  // new player starts at 0 streak
+      updateUIForTurn();
+      
+      // Place ball on fresh random cell
+      const newPos = getRandomCell();
+      ballPosition = newPos;
+      placeBall(newPos.col, newPos.row, true);
+      startCountdown();
+    }
+
+    function buildGrid() {
+      gameGrid.innerHTML = '';
+      gridCells = [];
+      gameGrid.style.gridTemplateColumns = `repeat(${settings.cols}, 1fr)`;
+      
+      for (let r = 0; r < settings.rows; r++) {
+        const rowCells = [];
+        for (let c = 0; c < settings.cols; c++) {
+          const cell = document.createElement('div');
+          cell.className = 'cell';
+          cell.textContent = getCellId(c, r);
+          cell.dataset.col = c;
+          cell.dataset.row = r;
+          cell.addEventListener('click', (e) => {
+            const col = parseInt(e.currentTarget.dataset.col, 10);
+            const row = parseInt(e.currentTarget.dataset.row, 10);
+            handleCellClick(col, row);
+          });
+          gameGrid.appendChild(cell);
+          rowCells.push(cell);
+        }
+        gridCells.push(rowCells);
+      }
+    }
+
+    function startGame() {
+      collectSettings();
+      buildPlayers();
+      currentPlayerIndex = 0;
+      currentStreak = 0;
+      gameActive = true;
+      
+      setupPanel.classList.add('hidden');
+      gameScreen.classList.remove('hidden');
+      
+      buildGrid();
+      updateUIForTurn();
+      
+      const startPos = getRandomCell();
+      ballPosition = startPos;
+      placeBall(startPos.col, startPos.row, false);
+      startCountdown();
+      saveSettingsToStorage();
+    }
+
+    function showSetup() {
+      stopGame();
+      setupPanel.classList.remove('hidden');
+      gameScreen.classList.add('hidden');
+      removeBallFromGrid();
+      updatePlayerNameInputs();
+    }
+
+    function endGameManually() {
+      if (!gameActive) return;
+      stopGame();
+      if (settings.playerCount > 1) {
+        const sorted = [...players].sort((a,b) => b.bestStreak - a.bestStreak);
+        const winner = sorted[0];
+        alert(`🏆 Final Standings:\n${sorted.map(p => `${p.name}: ${p.bestStreak}`).join('\n')}\n\nWinner: ${winner.name}`);
+      }
+      showSetup();
+    }
+
+    // Event listeners
+    startGameBtn.addEventListener('click', () => {
+      initAudio();
+      startGame();
+    });
+
+    endGameBtn.addEventListener('click', endGameManually);
+    backToSetupBtn.addEventListener('click', () => {
+      stopGame();
+      showSetup();
+    });
+
+    timeSlider.addEventListener('input', () => {
+      timeValue.textContent = parseFloat(timeSlider.value).toFixed(1) + 's';
+    });
+
+    playerCountInput.addEventListener('input', updatePlayerNameInputs);
+    playerCountInput.addEventListener('change', updatePlayerNameInputs);
+
+    // Initial load
+    loadSettingsFromStorage();
+    updatePlayerNameInputs();
+    timeValue.textContent = parseFloat(timeSlider.value).toFixed(1) + 's';
+    
+    // Ensure audio context can be started on user gesture
+    document.body.addEventListener('click', initAudio, { once: true });
+  })();
+</script>
+</body>
+</html>

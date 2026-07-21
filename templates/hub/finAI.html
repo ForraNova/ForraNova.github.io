@@ -1,0 +1,2188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ForraNova Academy | Teadro Systems | AI School Financial Management Seminar</title>
+        <link rel="stylesheet" href="../../static/css/finai.css">
+
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+      
+</head>
+<body>
+    <canvas id="space-canvas"></canvas>
+ <!-- NAVIGATION -->
+<!-- ===============================
+     NAVIGATION HTML
+     ================================ -->
+<header>
+    <nav class="navbar">
+
+        <!-- Left: Logo + Slogan -->
+        <div class="nav-brand">
+            <div class="logo-component">
+                <img src="../../static/images/logo.png" alt="ForraCorp Base Logo" class="logo-layer layer-bg-logo" />
+                <img src="../../static/images/logoFN_0.png" alt="Forra Nova AI Brain" class="logo-layer layer-brain" />
+                <img src="../../static/images/logoFN_2.png" alt="Forra Nova Text" class="logo-layer layer-text" />
+            </div>
+            <div class="slogan-wrap">
+                <img src="../../static/images/logoFN_2.png" class="foota" alt="FN Logo" />
+            </div>                
+
+        </div><h3 class="slogan">Knowledge Is For The Living</h3>
+
+        <!-- Hamburger toggle (mobile) -->
+        <div class="menu-toggle" id="hamburger-menu" aria-label="Toggle navigation" role="button" tabindex="0">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <!-- Navigation links -->
+        <ul class="nav-links" id="main-nav">
+            <li><a href="../../index.html">ForraNova</a></li>
+            <li><a href="../chat-show.html">AI Chat Show</a></li>
+            <li><a href="../domain.html">Tools</a></li>
+            <li><a href="../chat-show.html#suggestion-box">Connect</a></li>
+        </ul>
+
+    </nav>
+</header>
+<div class="app-container">
+    <!-- left side vertical dot navigation (vertical bar on left) -->
+    <div class="nav-dots-bar" id="navDotsBar"></div>
+
+    <!-- dark mode toggle -->
+    <div class="dark-mode-toggle" id="darkModeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- slides container -->
+    <div class="slides-container" id="slidesContainer">
+        <!-- dynamic slide views will be injected here -->
+    </div>
+</div>
+
+    <script src="script.js" defer></script>
+
+
+<script>
+    // ---------- SLIDE DATA (Based on flyer, AI pillars, Outro, Q&A) ----------
+    const slidesData = [
+        { // slide 0 - OPENING / HERO
+            id: "hero",
+            title: null,
+            html: `
+                <div class="hero"  style="text-align: center; display: flex; flex-direction: column; justify-content: center; min-height: 100%;">
+                    <h1 style="font-size: 3rem; line-height: 1.2;">School Financial Management</h1>
+                    <h1> — </h1><h2>Analysis Beyond Traditional Finance Software</h2>
+
+                    <p style="font-size: 1.3rem; margin: 20px 0; color: var(--text-secondary);"><i class="fas fa-chalkboard-user"></i> <em>Build. Manage. Grow. Sustain.</em>
+
+                    <br><br>Practical application of MS Excel and regular AI tools (<a href="https://chatgpt.com/">ChatGPT</a>, <a href="https://gemini.google.com/">Gemini, <a href="https://claude.com/">Claude</a>, etc) for strategic financial analysis.</p>
+
+                     <hr><p> — Presentation By — </p>
+
+                    <p><strong><a href="https://fofem.github.io/">Fredrick Ubi</a></strong> <br> AI Practitioner and Consultant | (Prompt Engineer)</p>
+                    <p><strong><a href="https://https://fofem.github.io/templates/forranova.html/">ForraNova Academy</a></strong> | <em style="font-size: 13px;">Knowledge is for the Living</em></p>
+
+                    <div style="background: var(--card-bg); border-radius: 32px; padding: 20px; margin: 24px 0;">
+                        <span class="badge" style="background: #b45309;"><i class="fas fa-robot"></i> Powered by: </span>
+
+                        <p><i class="fas fa-map-marker-alt gold-accent"></i> <strong>Teadro Systems Limited</strong> — 76 Stadium Road, Rumuomasi PH</p>
+                        <br><p><i class="fas fa-calendar-alt gold-accent"></i> <strong>May 28th, 2026 </strong> | 11:00 AM</p>
+                        <br><p><i class="fas fa-users gold-accent"></i> School Owners / Proprietors | Management Staff | Bursars / Accountants</p>
+                    </div>
+                </div>
+            `
+        },
+        { // slide 0.1 - 5 Core Pillars Overview + AI synergy
+            id: "forranova",
+            html: `
+                <div>
+                    <img src="../../static/images/logoFN.png" alt="ForraNova" style="max-height:80px;"> 
+                    <h2>The AI Practitioner's Lens</h2><hr>
+                    
+                    <p>For an exhaustive, comprehensive and detailed audio analysis of this and many other topics, explore the <strong><a href="https://https://fofem.github.io/templates/forranova.html/">ForraNova Academy</strong></a> website where knowledge is distieled, and listen to detailed, deep-dive Podcast Episodes as it discusses many AI related subjects.</p>
+
+                    <div class="podcast-callout">
+                        <h3>🎧  AI Chat Show - Deep Dive on AI Engineering</h3><hr>
+                        <p>The five core pillars of this seminar is richly discussed in details by professionals in the field of AI. Welcome to <strong class="logon">ForraNova</strong>, a digital Academy where we believe <i>"Knowledge is for the Living!"</i> Click the button below to Listen, or Download the Audio Podcast of the five pillars for broader applications of this seminar.</p>
+                        <div class="bio_audio">
+                            <div class="bio-info">
+                                <h5>Excel and AI- School Finance Analysis</h5>
+                                <br>
+                                <audio controls style=" border-radius: 30px;  border: 2px solid #2d3748; width: 100%;">
+                                    <source src="../../static/downloads/audio/Ep006.mp3" type="audio/mp3">
+                                </audio>
+                            </div>
+                            <a href="../../static/downloads/audio/Ep006.mp3" download="Excel and AI- School Finance Analysis.mp3" class="bio_download">⬇ Download Audio</a>
+                        </div>
+                    </div>
+
+                </div>
+            `
+        },        
+        { // slide 0.2 - 5 Core Pillars Overview + AI synergy
+            id: "intro",
+            html: `
+                <div>
+                    <span class="badge"><i class="fas fa-podcast fa-2x" style="font-size:1.2em;"></i> Architectural Overview</span>
+
+                    <h2>Narrow AI vs. General LLMs</h2><hr>
+                    <div class="grid-list">
+                        <div class="grid-item" style="border-top-color: #00d2ff;">
+                            <strong>Narrow AI Tools- Accounting Software</span></strong> <hr>               
+                            <h3>Specialized Point Solutions</h3><br>
+
+                            <p>Applications explicitly programmed to handle standard bookkeeping ledger entries, auto-invoicing, and fixed financial balances.</p>
+                            <ul style="margin-left: 20px; margin-top: 10px; font-size: 16px;">
+                                <li style="margin-bottom:6px;"><strong>Rigidity:</strong> Cannot process queries outside preset buttons.</li>
+                                <li style="margin-bottom:6px;"><strong>Cost Factor:</strong> High specialized licensing fees per seat.</li>
+                                <li><strong>Context Blind:</strong> Blind to qualitative school issues (e.g., local structural changes).</li>
+                            </ul>
+                        </div>
+                        <div class="grid-item" style="border-top-color: #a0aec0;">
+                            <strong>Generative Large Language Models</strong><hr>
+
+                            <h3>Adaptive AI Frameworks (Gemini, Claude, ChatGPT)</h3><br>
+
+                            <p>Natural Language Interfaces capable of dynamic computation, contextual business reasoning, and structural data conversion.</p>
+                            <ul style="margin-left: 20px; margin-top: 10px; font-size: 16px;">
+                                <li style="margin-bottom:6px;"><strong>Total Adaptability:</strong> Changes roles dynamically based on prompt parameters.</li>
+                                <li style="margin-bottom:6px;"><strong>Unstructured Data:</strong> Merges text insights with numerical balances natively.</li>
+                                <li><strong>Cost Efficiency:</strong> Leverages foundational models via zero/low marginal cost.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            `
+        },        
+        { // slide 0.2 - 5 Core Pillars Overview + AI synergy
+            id: "Practical",
+            html: `
+                <div>
+                    <span class="badge"><i class="fas fa-spinner fa-pulse"></i></i> Strategic PlayBook</span>
+
+                    <h2>Financial Prompting Using LLMs</h2><hr>
+                    
+                    <p>We are breaking away from standard financial applications to handle complex accounting details and deep financial analysis using raw data processing engines (Microsoft Excel) alongside advanced AI model.</p>
+
+                    <div class="pillar-grid">
+                        <div class="pillar-card"><h2>Step 1: MS Excel</h2><hr>
+                            <i class="fas fa-chalkboard-user fa-3x"></i><h3>* Prepare your Data using Microsoft Excel</h3>
+                            <i class="fas fa-flask"></i><h3>* Applying Core Excel Formulas</h3>
+                            <i class="fas fa-file-pdf"></i><h3>* Export to/ Save as <b>.CSV</b></h3>
+                        </div>
+                        
+                        <div class="pillar-card"><h2>Step 2: LLM </h2><hr>
+                            <i class="fas fa-cube"></i><h3>* Pass the .csv file to Gemini/ChatGPT as RAG.</h3>
+                             <i class="fas fa-star-of-life"></i> <h3>* Use a good Prompt with the P E A R L S Framework.</h3>
+                         </div>
+                        <div class="pillar-card"><h2>Step 3: Human-in-the-loop</h2><hr>
+                            <i class="fas fa-chart-line"></i><h3>* Evaluate the AI Outputs.</h3></div>
+                    </div>
+                
+                </div>
+            `
+        },               
+        { // slide 0.2 - 5 Core Pillars Overview + AI synergy
+            id: "Practical",
+            html: `
+                <div>
+                    <span class="badge"><i class="fas fa-chalkboard-user fa-3x" style="font-size:1.2em;"></i> Step 1: MS Excel</span>
+
+                    <h2>Prepare your Data using Microsoft Excel</h2>
+                    <hr>
+                    
+                    <br>Open MS Excel and type your accounting record for analysis.
+                    <br><br>* Structure a simple, clean, flat table data in Excel. 
+                    <br>* Avoid merged cells, and leave no rows completely blank.
+                    <br>* Use clear column headers.
+
+                    <br><br>Save the file as <b>.csv</b> file type.
+                    <br><br>
+                    <div style="max-width: 100%; margin: 10px auto; border-radius: 5px;overflow: scroll; box-shadow: 0 12px 24px -12px rgba(0,0,0,0.2); margin: 20px 0; background: #f1f5f9;"><img src="../../static/images/excel.png" class="art" alt="Excel Sample"></div><br>
+
+                    <div class="navigation-group"> 
+                         <a class="bio_download" href="../../static/downloads/docs/finAI.xlsx" download="Down_Town_Academy_FinRecord_May_2026.xlsx">⬇ Download as Excel .xlsx </a>
+
+                         <a class="bio_download" href="../../static/downloads/docs/finAI.csv" download="Down_Town_Academy_FinRecord_May_2026.csv">⬇ Download as Excel .csv </a>
+                    </div>
+
+                </div>
+            `
+        },                     
+        { // slide 0.2 - 5 Core Pillars Overview + AI synergy
+            id: "Practical",
+            html: `
+                <div>
+                   
+                    <span class="badge"><i class="fas fa-flask" style="font-size:1.2em;"></i> Step 1: MS Excel</span>
+
+                    <h2>Applying Core Excel Formulas</h2>
+                    <hr>
+                    
+                    <br>Use basic Excel formulas and get immediate control over your math.
+                    <br><br>* Identify <b>cell</b> (one box), <b>row</b> (horizontal/ boxes from left to right) and <b>Column</b> (vertical/ boxes from up to down).
+                    <br><br><p><b> 1. Calculate the Totals: The income and expenses using the SUM formula.</b></p>
+                    <br><br><p>The SUM Function a premade function in Excel, which adds numbers in a range. It is typed <b>=SUM</b> 
+                    <br><br>Note: The <b>=SUM</b> function adds cells in a range, both negative and positive.</p>
+                    <br>
+
+                    <div class="pillar-card"><h2>Trying Out: =SUM</h2><hr>
+                        How to use the <b>=SUM</b> function:
+
+                        <ul style="margin-left: 20px; margin-top: 10px; font-size: 16px;"> 
+                            <h3>CLASS WORK:</h3>
+                            <li style="margin-bottom:6px;"><strong> Calculate the total Debit in Column E, using the SUM formula.</strong></li><br>
+
+                            <li style="margin-bottom:6px;"> Click where you want the Total to be shown. For Debit, let the result show in cell E25</li>
+                            <li style="margin-bottom:6px;"> GoTo the "Formula Bar" close to the <span style=" font-size: 1.8rem; font-style: italic; text-align: justify; color: var(--text-norm); font-family: 'Times New Roman';">fx</span> </li>. In the bar, type the <b>=SUM(E2:E23)</b>
+                            <li style="margin-bottom:6px;"> Click "Enter"</li>
+                            <li style="margin-bottom:6px;"><strong>In cell E25, the Result would be <b>=SUM(E2:E22)</b> :</li> <br><h3>49150000</h3></strong>
+                        </ul>
+                        <hr>
+                        <ul style="margin-left: 20px; margin-top: 10px; font-size: 16px;"> 
+                            <h3>CLASS WORK:</h3>
+                            <li style="margin-bottom:6px;"><strong> Calculate the total Credit in Column F, using the SUM formula.</strong></li><br>
+
+                            <li style="margin-bottom:6px;"> Click where you want the Total to be shown. For Credit, let the result show in cell F25</li>
+                            <li style="margin-bottom:6px;"> GoTo the "Formula Bar" close to the <span style=" font-size: 1.8rem; font-style: italic; text-align: justify; color: var(--text-norm); font-family: 'Times New Roman';">fx</span> </li>. In the bar, type the <b>=SUM(F2:F23)</b>
+                            <li style="margin-bottom:6px;"> Click "Enter"</li>
+                            <li style="margin-bottom:6px;"><strong>In cell F25, the Result would be <b>=SUM(F2:F22)</b> :</li> <br><h3>38,200,000</h3></strong>
+                        </ul><hr>
+
+                        <ul style="margin-left: 20px; margin-top: 10px; font-size: 16px;"> 
+                            <h3>ALTERNATIVE WAY:</h3>
+                            <li style="margin-bottom:6px;"><strong> Calculate the total SUM of the Debit in Column E.</strong></li><br>
+
+                            <li style="margin-bottom:6px;"> Click the first cell to be added (E2), press-down left click button on the mouse, and drag down to the last cell to be added (E23). where you want the Total to be shown. For Debit, let the result show in cell (E25). This selection process is called <b>Highlight.</b></li>
+
+                            <li style="margin-bottom:6px;"> GoTo the "Editing" Tab at the top right side, and click on the <b>SUM</b> option.</li>
+                            <li style="margin-bottom:6px;"><strong>The Result would be seen after 'the last cell to be added (E23)'<b></b> :</li> <br><h3>49150000</h3></strong>
+                        </ul>
+                    </div>
+
+                    <br><br> <p><b>2. Calculate Variance (The Overspending Track).</b></p>
+                    <br><br>
+
+                    <div class="pillar-card"><h2>Difference</h2><hr>
+                        Add a Column F named Variance. In cell G25, type:
+
+                        <ul style="margin-left: 20px; margin-top: 10px; font-size: 16px;"> 
+                            <h3>CLASS WORK:</h3>
+                            <li style="margin-bottom:6px;"><strong> Calculate the Diference Debit and Credit in Column E25 and F25, respectively.</strong></li><br>
+
+                            <li style="margin-bottom:6px;"> Click where you want the Differenc to be shown. Let the result show in cell G25</li>
+                            <li style="margin-bottom:6px;"> In G25, type <b>=E25-F25</b>. (That is Debit minus Credit)</b>
+                            <li style="margin-bottom:6px;"> Click "Enter"</li>
+                            <li style="margin-bottom:6px;"><strong>In cell G25, the Result would be <b>=E25-F25</b> :</li> <br><h3>10, 950, 000</h3></strong>
+                        </ul><hr>
+
+                        <ul style="margin-left: 20px; margin-top: 10px; font-size: 16px;"> 
+                            <h3>TRY IT THIS WAY:</h3>
+                            <li style="margin-bottom:6px;"><strong> <b>=(E2:E25)-(F2:F25)</b></strong></li><br>
+                        </ul>
+                    </div>
+
+                    <br>
+                    PRACTICE WITH THE TABLE BELOW:
+                    <hr>
+                    <div style="text-align:center;">
+                        <h2 class="sectionID">Down Town Academy — Master Financial Ledger (Term 1)</h> 
+                        <h3>(Motto: "Ten boys Today, a Thousand Men strong Tomorrow").</h3>
+                    </div>
+
+
+                    <table>
+                      <tr>
+                        <th>A (Date)</th>
+                        <th>B (Category)</th>
+                        <th>C (Description)</th>
+                        <th>D (Projected Amount)</th>
+                        <th>E (Actual Amount)</th>
+                      </tr>
+                      <tr>
+                        <td>2026-05-02</td>
+                        <td>Revenue</td>
+                        <td>Term 1 Tuition Fees</td>
+                        <td>15,000,000</td>
+                        <td>13,200,000</td>
+                      </tr>
+                      <tr>
+                        <td>2026-05-03</td>
+                        <td>Expense</td>
+                        <td>Diesel for Generator</td>
+                        <td>1,200,000</td>
+                        <td>1,650,000</td>
+                      </tr>
+                      <tr>
+                        <td>2026-05-05</td>
+                        <td>Expense</td>
+                        <td>Teacher Salaries</td>
+                        <td>6,500,000</td>
+                        <td>6,500,000</td>
+                      </tr>
+                      <tr>
+                        <td>2026-05-10</td>
+                        <td>Expense</td>
+                        <td>Textbooks & Printing</td>
+                        <td>800,000</td>
+                        <td>950,000</td>
+                      </tr>
+                      <tr>
+                        <td>2026-05-12</td>
+                        <td>Revenue</td>
+                        <td>School Uniform Sales</td>
+                        <td>1,500,000</td>
+                        <td>1,100,000</td>
+                      </tr>
+                      <tr>
+                        <td>2026-05-15</td>
+                        <td>Expense</td>
+                        <td>Facility Repairs</td>
+                        <td>500,000</td>
+                        <td>1,100,000</td>
+                      </tr>
+                    </table>
+
+                   <p> <ol style="margin-left: 20px; margin-top: 10px; font-size: 16px;"> <h3>NOTE !</h3>
+                       <b> <li style="margin-bottom:6px;"> A positive number means they overspent or made extra revenue.</li>
+                        <li style="margin-bottom:6px;"> A negative number means they underspent or had a revenue deficit.
+                        <br>(For example, "Projected Amount" for 2026-05-02 is higher than Actual Amount.)</li> </b>
+                    </ol></p>
+                </div>
+            `
+        },                            
+        { // slide 0.2 - 5 Core Pillars Overview + AI synergy
+            id: "Practical",
+            html: `
+                <div>
+                    <span class="badge"><i class="fas fa-file-pdf"style="font-size:1.2em;"></i> Step 1: MS Excel</span>
+
+                    <h2>Export to / Save as <b>.CSV</b></h2>
+                    <hr><br>
+                    <div class="pillar-card"><h2>Trying Out: Saving as ".csv" file</h2><hr>
+                        <ul style="margin-left: 20px; margin-top: 10px; font-size: 16px;"> 
+                            <h3>CLASS WORK:</h3>
+                            <li style="margin-bottom:6px;"> On the Microsoft Excel Tab area, click on the "File" Tab.</li>
+                            <li style="margin-bottom:6px;"> Then select "Save As" and select a location to save it to.</b>
+                        </ul>
+                    </div>
+
+                </div>
+            `
+        },                            
+        { // slide 0.2 - 5 Core Pillars Overview + AI synergy
+            id: "Practical",
+            html: `
+                <div>
+
+                    <span class="badge"><i class="fas fa-cube" style="font-size:1.2em;"></i> Step 2: LLM</span>
+
+                    <h2>Pass the .csv file to Gemini/ChatGPT as RAG.</h2>
+                    <hr><br>
+                    <div class="pillar-card"><h2>Trying Out: The RAG (.csv file) upload.</h2><hr>
+                        <ul style="margin-left: 20px; margin-top: 10px; font-size: 16px;"> 
+                            <h3>CLASS WORK:</h3>
+                            <li style="margin-bottom:6px;"> Open any Large Language Model (LLM) like Gemini, ChatGPT or Claude.</li>
+                            <li style="margin-bottom:6px;"> Send To, Upload, drag-and-drop, or Import the previously saved <b>.csv</b> file to any of the LLMs mentioned aboved. (For this practical, let us focuse on using ChatGPT.)</b>
+                        </ul>
+                        <li style="margin-bottom:6px;"> This becomes the source file for AI work. This is called Retrieval Augmented Generator (RAG)</b>
+                    </div>
+                    <div class="podcast-callout">
+                        <h3>🎧  AI Chat Show - Deep Dive on AI Engineering</h3><hr>
+                        <p>For detailed discousion on the importance of RAG and the PEARLS Framework in your prompt, listen to, or download the Podcast (Audio), Episode 008 | May 15, 2026 at the AI Chat Show on the <strong><a href="https://https://fofem.github.io/templates/forranova.html/">ForraNova Academy</strong></a> website.</p>
+                        <div class="bio_audio">
+                            <div class="bio-info">
+                                <h5>PEARLS Framework and RAG - A Master Combo</h5>
+                                <br>
+                                <audio controls style=" border-radius: 30px;  border: 2px solid #2d3748; width: 100%;">
+                                    <source src="../../static/downloads/audio/Ep007.mp3" type="audio/mp3">
+                                </audio>
+                            </div>
+                            <a href="../../static/downloads/audio/Ep007.mp3" download="PEARLS Framework and RAG.mp3" class="bio_download">⬇ Download Audio</a>
+                        </div>
+                    </div>
+
+                </div>
+            `
+        },                            
+        { // slide 0.2 - 5 Core Pillars Overview + AI synergy
+            id: "Practical",
+            html: `
+                <div>
+                    
+                    <span class="badge"><i class="fas fa-star-of-life" style="font-size:1.1em;"></i> Step 2: LLM</span>
+
+                    <h2>Use a good Prompt with the P E A R L S Framework.</h2>
+                    <hr><br>
+
+                    <p> Either befor or after uploading the .csv file onto the LLM (ChatGPT), paste or better yet, type a custome prompt to the LLM.</p> <br>
+                    <p> Below is a custom prompt that could be used to illustrate. Carefully notice the structure of the prompt.</p>
+                <br><br>
+
+                    <pre><h3>The Master Prompt to Copy and Paste:</h3>
+                        <code class=" ">
+                              
+Context: Use the uploaded financial ledger named finAI.csv for "Down Town Academy", whose motto is "Ten boys Today, a Thousand Men strong Tomorrow." The school is looking to optimize its operational efficiency and increase net margins without compromising educational quality.
+
+Role: Act as an expert Forensic Accountant and School Financial Consultant.
+
+Task: Analyze the attached dataset thoroughly and Take a deep breath, work these step by step. 
+
+       1. Calculate the Total Revenue, Total Operating Expenses, and Net Profit Margin.
+
+       2. Separate capital asset investments (long-term wealth/infrastructure) from regular operational burning costs.
+
+       3 .Identify the top 3 hidden operational leakages or financial risks visible in this ledger.
+
+       4. Based on the school's motto, provide actionable strategic recommendations to turn these leakages into saved capital for future expansion. Let each point have examples of options as its olternatives.
+
+Format: Structure your response with bold headers, a clear summary card for the metrics, and concise, high-impact consulting advice.
+
+Critique your output to ensure you fulfil all the request in the prompt.
+                        </code>
+                        <div class="navigation-group">
+                            <a class="bio_download" href="../../static/downloads/docs/prompt.txt" download="Prompt.txt">⬇ Download Prompt</a>
+                        </div>
+                    </pre>
+
+                    <br><br><p> A careful observation of the prompt would indicates that it follows the PEARLS Framework.</p><br><br>
+
+                    <h3 class="sectionID">The P E A R L S Framework</h3> 
+                    <table>
+                      <tr>
+                        <th>PEARLS</th>
+                        <th>Indication</th>
+                        <th>Meaning</th>
+                        <th>Other</th>
+                        <th>Application</th>
+                      </tr>
+                      <tr>
+                        <td><h3>P</h3></td>
+                        <td>Persona</td>
+                        <td>A Persona direct the AI to access a specific subset of its training data. Without a persona, the AI defaults to a helpful but bland generalist. By giving it an identity, you shift the tone, vocabulary, and depth of the response. Else, it becomes all at once.</td>
+                        <td>Roles, Identity, Character, Position</td>
+                        <td>Expert Forensic Accountant and School Financial Consultant</td>
+                      </tr>
+                      <tr>
+                        <td><h3>E</h3></td>
+                        <td>Example(s)</td>
+                        <td>A few-shot prompting (providing 2 to 4 Examples), is the most effective way to ensure the AI mimics a specific style or logic. Showing is always better than telling. As "pattern matchers", the AI models learn and act.</td>
+                        <td>Context, Sample</td>
+                        <td>(Zero-shot prompting. The RAG is an Example here.)</td>
+                      </tr>
+                      <tr>
+                        <td><h3>A</h3></td>
+                        <td>Action</td>
+                        <td>It must be an unambiguous, strong verb that defines the goal or the core command.</td>
+                        <td>Task, Mission, Request, Target, Goal</td>
+                        <td>Analyze, Calculate, Separate capital asset investments from regular operational burning costs, Identify, Provide actionable strategic recommendations, Structure your response.</td>
+                      </tr>
+                      <tr>
+                        <td><h3>R</h3></td>
+                        <td>Result</td>
+                        <td>This defines the output’s structure and intended impact. This is where you tell the AI exactly how to present the "Action" based on the "Persona" and contex. It states how to deliver the task it was asked to do.</td>
+                        <td>Output, Type, Format</td>
+                        <td>Bold headers, Clear summary card for the metrics, concise, high-impact consulting advice.</td>
+                      </tr>
+                      <tr>
+                        <td><h3>L</h3></td>
+                        <td>Limitations</td>
+                        <td>The Guardrails that prevents the "AI sprawl" from drifting off track and keep the output focused. The Boundaries can be related to length, or specific content to avoid, the Safety and Compliance Constraints or Edges not to cross, ensuring the AI avoids generating harmful or biased content.</td>
+                        <td>Guardrails, Rules, Regulations, Constraints, Instructions, Guidelines</td>
+                        <td>Take a deep breath, work these step by step,  Use the uploaded..., Based on the school's motto..., Let each point..., bold headers, clear summary card, concise, high-impact.</td>
+                      </tr>
+                      <tr>
+                        <td><h3>S</h3></td>
+                        <td>Scrutiny</td>
+                        <td>It forces the AI model to check/ reevaluate its own work for accuracy of material, precisensss to follow your prompt requirments, and explain its reasoning, or verify its logic before finishing the task, to avoid misleading inforama.</td>
+                        <td>Criticize/ Critique, Check, Review</td>
+                        <td>Critique your output.</td>
+                      </tr>
+                    </table>
+
+                    <div class="podcast-callout">
+                        <h3>🎧  AI Chat Show - Deep Dive on AI Engineering</h3><hr>
+                        <p>For detailed discousion on the meaning and importance of the term, "'Take a deep breath', work these step by step", in your prompt, listen to, or download the Podcast (Audio) at the AI Chat Show on the <strong><a href="https://https://fofem.github.io/templates/forranova.html/">ForraNova Academy</strong></a> website.</p>
+                        <div class="bio_audio">
+                            <div class="bio-info">
+                                <h5>'Take a deep breath', work these step by step</h5>
+                                <br>
+                                <audio controls style=" border-radius: 30px;  border: 2px solid #2d3748; width: 100%;">
+                                    <source src="../../static/downloads/audio/Ep022.mp3" type="audio/mp3">
+                                </audio>
+                            </div>
+                            <a href="../../static/downloads/audio/Ep022.mp3" download="Take A Deep Breath.mp3" class="bio_download">⬇ Download Audio</a>
+                        </div>
+                    </div>
+
+                </div>
+            `
+        },                            
+        { // slide 0.2 - 5 Core Pillars Overview + AI synergy
+            id: "Practical",
+            html: `
+                <div>
+
+                    <span class="badge"><i class="fas fa-chart-line" style="font-size:1.2em;"></i> Step 3: Human-in-the-loop</span>
+
+                    <h2>Evaluate the AI Outputs.</h2>
+                    <hr><br>
+
+                    <p> AI is a co-pilot, not an autopilot. If you take your hands off the controls entirely, you risk "crashing" into hallucinations, biases, and factual errors.</p><br>
+
+                    <p> Never view AI outputs as "final products." Rather, See them as "raw material."</p> <br>
+
+                    <p>Develop the "Editor’s Eye"—the ability to identify where an AI has drifted from reality—and you will learn the systematic process of <b>Iterative Refinement</b>, where we "sculpt" the AI’s response through multiple rounds of feedback until it is perfect.</p><br>
+
+                    <pre><h3>Financial Analysis — (LLM: ChatGPT)</h3>
+                        <code class=" ">
+                              
+<h2>📘 Financial Forensic Analysis — Down Town Academy</h2>
+
+<i>Motto: “Ten boys Today, a Thousand Men strong Tomorrow.”</i>
+
+<h3>💼 Executive Summary Card</h3>
+
+Metric                          |  Amount (₦)
+--------------------------------|--------------
+Total Revenue                   |  ₦38,200,000
+Total Operating Expenses        |  ₦26,850,000
+Operating Net Profit            |  ₦11,350,000
+Net Profit Margin               |        29.7%
+Capital Asset Investments       |  ₦16,500,000
+Receivable / Bad Debt Exposure  |   ₦5,800,000
+
+<hr>
+<h3>🔍 1. Financial Performance Analysis</h3>
+<b>✅ Total Revenue</b>
+
+The school generated a total revenue of:
+
+₦38,200,000
+
+<b>Revenue Sources</b>
+    • Tuition Fees (JSS & SSS): ₦32,700,000
+    • Transportation Levies: ₦3,400,000
+    • Uniform Sales: ₦2,100,000
+<hr>
+<h3>✅ Total Operating Expenses</h3>
+
+Operational spending totaled:
+
+₦26,850,000
+
+    • Major Expense Drivers
+    • Academic Staff Salaries
+    • Non-Academic Staff Salaries
+    • Diesel/Fuel Costs
+    • Repairs & Maintenance
+    • Academic Materials
+    • Administrative Printing
+    • Marketing Costs
+<hr>
+
+<h3>✅ Net Profit Margin</h3>
+<b>Formula</b>
+                      11,350,000
+ Net Profit Margin =  ---------- × 100
+                      38,200,000
+
+
+<b>Result</b>
+<b>29.7% Net Margin</b>
+
+This is relatively healthy for a growing private academic institution. However, the ledger reveals several hidden leakages that could significantly reduce future scalability if unmanaged.
+
+
+<hr>
+
+<h3>🏗️ 2. Capital Investments vs Operational Burn</h3>
+<h3>✅ Capital Asset Investments (Long-Term Wealth Creation)</h3>
+
+These are strategic assets that increase institutional value over time.
+
+
+Asset Investment                    |   Amount (₦)
+------------------------------------|---------------
+Construction of Science Laboratory  |  ₦12,000,000
+ICT Lab Computers (15 Units)        |   ₦4,500,000
+
+
+<h3>Total Capital Investments:</h3>
+
+₦16,500,000
+
+Strategic Value
+
+These expenditures strengthen:
+
+    • STEM reputation
+    • ICT competitiveness
+    • Future enrollment appeal
+    • WAEC/NECO performance capacity
+    • Long-term institutional valuation
+<hr>
+
+<b>🔥 Operational Burning Costs (Recurring Consumption)</b>
+
+These are ongoing expenses that do not create long-term ownership value.
+
+
+Operational Cost Area  |   Amount (₦)
+-----------------------|---------------
+Salaries & Wages       |    ₦15,900,000
+Diesel/Fuel            |     ₦6,400,000
+Repairs & Maintenance  |     ₦2,300,000
+Printing/Admin         |       ₦600,000
+Marketing              |       ₦450,000
+Academic Supplies      |     ₦1,200,000
+
+<hr>
+
+<h3> 🚨 3. Top 3 Hidden Operational Leakages / Financial Risks</h3>
+<b>1️⃣ Excessive Generator & Diesel Dependency</b>
+
+<b>Risk Value:</b>
+
+<b>₦6,400,000</b>
+
+Fuel alone consumed a dangerously high percentage of operational cash flow.
+
+<b>Hidden Problem</b>
+
+This suggests:
+
+    • Poor energy efficiency
+    • Heavy generator reliance
+    • Possible fuel wastage/leakage
+    • Weak power infrastructure strategy
+
+<b>Long-Term Risk</b>
+
+Fuel inflation could rapidly destroy margins.
+<hr>
+
+<h3>2️⃣ Rising Maintenance Culture (Reactive Instead of Preventive)</h3>
+<b>Risk Value:</b>
+
+<b>₦2,300,000</b>
+
+The school spent heavily on:
+
+    • Emergency roof repairs
+    • Bus mechanical overhaul
+
+<b>Hidden Problem</b>
+
+The spending pattern suggests:
+
+    • Deferred maintenance
+    • Aging infrastructure
+    • Lack of preventive maintenance scheduling
+
+Emergency repairs are usually 2–4x more expensive than preventive maintenance.
+
+<hr>
+
+<h3>3️⃣ High Bad Debt / Outstanding Fees Exposure</h3>
+<b>Risk Value:</b>
+
+<b>₦5,800,000</b>
+
+This is one of the most dangerous risks in the ledger.
+
+<b>Hidden Problem</b>
+
+Large unpaid tuition means:
+
+    • Weak fee collection systems
+    • Cash flow instability
+    • Risk of future loan/debt dependence
+    • Reduced expansion capacity
+
+This amount alone equals nearly:
+
+    • 51% of net profit
+    • More than an entire month of payroll
+
+<hr>
+
+<h3>🚀 4. Strategic Recommendations for Expansion & Sustainability</h3>
+
+The school’s motto reflects legacy building and long-term human development. Financial strategy should therefore prioritize scalable infrastructure over recurring consumption.
+<hr>
+
+<h3>✅ Recommendation 1: Transition from Fuel Dependency to Energy Assets</h3>
+<b>Goal</b>
+
+Convert diesel spending into long-term infrastructure ownership.
+
+<b>Options</b>
+    • Install solar hybrid systems for classrooms/admin blocks
+    • Phase generator usage into emergency-only operation
+    • Use energy-efficient fans, lighting, and ICT systems
+    • Seek educational infrastructure grants or energy financing
+
+<b>Potential Savings</b>
+
+A 40–60% reduction in fuel costs could save:
+
+<b>₦2.5M–₦3.8M annually</b>
+
+That alone could fund:
+
+    • Additional classrooms
+    • Smart boards
+    • Scholarship programs
+<hr>
+
+<h3>✅ Recommendation 2: Build a Preventive Maintenance Program</h3>
+<b>Goal</b>
+
+Reduce emergency repairs and extend asset lifespan.
+
+<b>Options</b>
+    • Quarterly building inspections
+    • Scheduled bus servicing
+    • Roofing waterproofing before rainy season
+    • Dedicated maintenance reserve fund
+
+Potential Benefit
+
+Preventive systems could reduce repair costs by:
+
+<b>25–45% yearly</b>
+<hr>
+
+<h3>✅ Recommendation 3: Strengthen Tuition Collection & Cash Flow Systems</h3>
+<b>Goal</b>
+
+Recover trapped revenue and improve liquidity.
+
+<b>Options</b>
+    • Install digital fee payment portals
+    • Introduce installment-based tuition plans
+    • Early-payment discounts
+    • Automated parent reminders
+    • Strict receivable aging policy
+
+<b>Potential Recovery</b>
+
+Recovering even 70% of outstanding fees yields:
+
+<b>₦4M+ additional working capital</b>
+
+<hr>
+<h3>📈 Strategic Outlook</h3>
+
+Down Town Academy is financially promising because it is already investing in:
+
+    • Science infrastructure
+    • ICT capability
+    • Educational expansion assets
+
+That is the behavior of a school planning for longevity, not survival.
+
+However, the next growth phase depends on transforming:
+
+    • recurring operational burn,
+into
+    • scalable institutional assets.
+
+If properly optimized, the school could realistically:
+
+    • increase margins above 40%
+    • expand enrollment capacity
+    • improve academic competitiveness
+    • finance future campuses without heavy debt exposure
+
+while still remaining aligned with its mission of producing “a Thousand Men strong Tomorrow.” 🌟
+                        </code>
+        <!--                
+                        <div class="navigation-group">
+                            <a class="bio_download" href="../../static/downloads/docs/prompt.txt" download="Prompt.txt">⬇ Download Prompt</a>
+                        </div>
+        ---> 
+                    </pre>
+
+                    <br><br><p><b>▪  Human-in-the-Loop (HITL):</b> A workflow design where an AI performs the bulk of the work, but a human is required at key "checkpoints" to validate, correct, or approve the output before it moves to the next stage</p>
+
+                    <br><p><b>▪  Iterative Refinement:</b> The process of taking an initial AI output and sending it back with specific "critique prompts" to improve its quality. You don't just ask for a rewrite; you ask for a correction of specific flaws.</p><br>
+
+                    <h2 class="sectionID">The Feedback Loop</h2> 
+
+                    <p>Think of the AI as a writer and yourself as the Editor-inChief. You don't just say "make it better"; you give "editorial notes."</p>
+                    <table>
+                      <tr>
+                        <td><h3>Example A</h3></td>
+                        <td>The logic in paragraph three is weak. Use the 'Chain-of-Thought' method to explain the connection between the budget cut and the project delay.</td>
+                      </tr>
+                      <tr>
+                        <td><h3>Example B</h3></td>
+                        <td>This email sounds too robotic. Rewrite it to sound more empathetic, but keep the formal structure.</td>
+                      </tr>
+                      <tr>
+                        <td><h3>Example C</h3></td>
+                        <td> The code works, but it's not efficient. Refactor it to use fewer lines and add comments explaining the logic.</td>
+                      </tr>
+                    </table>
+
+                    <br>
+
+                    <h2 class="sectionID">The Self-Correction Prompt</h2> 
+
+                    <p>You can actually ask the AI to be its own harshest critic. This is a "meta-prompt" technique.</p>
+                    <table>
+                      <tr>
+                        <td><h3>Example A</h3></td>
+                        <td>Look at the business plan you just generated. Act as a skeptical venture capitalist. What are the three biggest reasons you would refuse to invest in this plan?.</td>
+                      </tr>
+                      <tr>
+                        <td><h3>Example B</h3></td>
+                        <td>Fact-check the historical dates in your previous response. If you are unsure of any date, label it with '[NEEDS VERIFICATION]'.</td>
+                      </tr>
+                      <tr>
+                        <td><h3>Example C</h3></td>
+                        <td> Review this summary. Did you miss any key points from the original PDF I uploaded? If so, add them in a 'Missing Details' section.</td>
+                      </tr>
+                    </table>
+
+                    <h2>Why the "Human Loop" Matters for You and Society</h2><hr>
+
+                    <p>In an era where AI can generate millions of words in seconds, Truth becomes the most valuable currency. If we rely on AI without oversight, we contribute to the <b>"Dead Internet Theory"</b>—a world filled with generated, lowquality content that sounds right but is fundamentally empty.</p><br>
+
+                    <p>By keeping yourself in the loop, you ensure that the technology serves humanity’s values. You bring the empathy, the ethical "gut feeling," and the lived experience that an AI (no matter how advanced) simply does not possess. For society, this means safer medical diagnoses, fairer legal summaries, and more honest journalism. You are the "Guardians of the Truth.</p>
+
+                </div>
+            `
+        }, 
+        { // slide 1 - 5 Core Pillars Overview + AI synergy
+            id: "pillars-overview",
+            html: `
+                <div>
+                    <span class="badge"><i class="fa-solid fa-cubes" style="font-size:1.2em;"></i> AI APPLICATIONS</span>
+
+                    <h2>5 CORE PILLAR</h2>
+                    <hr><br>
+
+                    <div class="pillar-grid">
+                        <div class="pillar-card"><i class="fas fa-calculator"></i><h3>Better Budgeting</h3><p>Predictive expense forecasting & dynamic revenue modeling using AI LLMs.</p></div>
+                        <div class="pillar-card"><i class="fas fa-water"></i><h3>Strong Cash Flow</h3><p>AI automated fee reminders & smart payment plans to reduce financial stress.</p></div>
+                        <div class="pillar-card"><i class="fas fa-tag"></i><h3>Cost Control & Profit</h3><p>Smart vendor analysis & predictive maintenance cuts waste, boosts profitability.</p></div>
+                        <div class="pillar-card"><i class="fas fa-chart-line"></i><h3>Sustainable Growth</h3><p>AI scenario simulation for expansion, resource optimization for long-term viability.</p></div>
+                        <div class="pillar-card"><i class="fas fa-shield-alt"></i><h3>Stronger Future</h3><p>Real-time dashboards, fraud detection & legacy financial intelligence.</p></div>
+                    </div>
+                    <div class="image-illustration"><img src="https://vshcpa.com/wp-content/uploads/2025/02/Unlocking-Your-Business-Potential-with-Financial-Dashboards.png" alt="School accountants and principal working on financial dashboard"></div>
+                    <p class="text-muted" style="margin-top: 12px;"><i class="fas fa-lightbulb"></i> AI transforms each pillar: from reactive finance to proactive growth intelligence.</p>
+                </div>
+            `
+        },
+        { // slide 2 - BETTER BUDGETING deep dive
+            id: "budgeting",
+            html: `
+                <div>
+
+                    <span class="badge"><i class="fa-solid fa-cubes" style="font-size:1.2em;"></i> AI APPLICATIONS</span>
+
+                    <h2>PILLAR 1</h2> <h2><span>📊 Predictive Intelligence  <span style="color:var(--accent-gold);">Better Budgeting with AI</span></h2>
+                        <hr><br>
+                    <div style="display: flex; flex-wrap: wrap; gap: 24px; margin: 24px 0;">
+                        <div style="flex:1"><i class="fas fa-chart-simple gold-accent"></i> <strong>Predictive Expense Forecasting</strong><br>AI analyzes historical spending + inflation trends for ultra accurate budgets.
+                        </div>
+                        <div style="flex:1"><i class="fas fa-chart-line gold-accent"></i> <strong>Dynamic Revenue Modeling</strong><br>Enrollment trends + retention analytics → data-driven income plans.
+                        </div>
+                        <div style="flex:1"><i class="fas fa-bell gold-accent"></i> <strong>Real-Time Variance Alerts</strong><br>Spending threshold alerts, prevent overspending before term ends.
+                        </div>
+                    </div>
+                    <div class="image-illustration"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&auto=format" alt="School owner analyzing budget with AI advisor"></div>
+                    <p class="quote" style="background: var(--card-bg); padding: 16px; border-radius: 20px;"><i class="fas fa-robot"></i> "Proprietors can forecast cash needs 6 months ahead with 92% accuracy using prompt-engineered models."</p>
+                </div>
+            `
+        },
+        { // slide 3 - STRONG CASH FLOW
+            id: "cashflow",
+            html: `
+                <div>
+
+                <span class="badge"><i class="fa-solid fa-cubes" style="font-size:1.2em;"></i> AI APPLICATIONS</span>
+
+                <h2>PILLAR 2</h2> <h2><span>💸 Liquidity Engineering <span style="color:var(--accent-gold);">Strong Cash Flow,  Financial Stress Reduction</span></h2>
+                        <hr><br>
+
+                <div class="pillar-grid" style="grid-template-columns:1fr 1fr;">
+                    <div><i class="fas fa-robot"></i> <strong>AI Collection Agents</strong><br>Automated SMS/email reminders tailored to parent payment behavior.</div>
+                    <div><i class="fas fa-hand-holding-usd"></i> <strong>Smart Payment Plans</strong><br>AI generates customised installments based on family history → steady inflow.</div>
+                    <div><i class="fas fa-file-invoice-dollar"></i> <strong>AP Optimization</strong><br>Vendor terms + liquidity analysis maximize early-payment discounts.</div>
+                    <div><i class="fas fa-chart-line"></i> <strong>Forecast Dashboards</strong><br>LLMs project daily cash position for critical decision making.</div>
+                </div>
+                <div class="image-illustration"><img src="../../static/images/finAnalyis.png" alt="Bursar reviewing cash flow projections"></div>
+                <p><strong>Case:</strong> A mid-size school reduced fee arrears by 34% after implementing AI-driven communication workflows.</p>
+                </div>
+            `
+        },
+        { // slide 4 - COST CONTROL & PROFIT
+            id: "costcontrol",
+            html: `
+                <div>
+
+                <span class="badge"><i class="fa-solid fa-cubes" style="font-size:1.2em;"></i> AI APPLICATIONS</span>
+
+                <h2>PILLAR 3</h2> <h2><span>🏷️ Margin Maximization <span style="color:var(--accent-gold);">Cost Control & Profitability</span></h2>
+                        <hr><br>
+                
+                <div style="display:flex; gap:20px; flex-wrap:wrap; margin:20px 0;">
+                    <div style="flex:1; background:var(--card-bg); border-radius:24px; padding:20px;"><i class="fas fa-file-invoice"></i> <strong>Vendor intelligence</strong><br>AI compares market prices & flags overcharges on textbooks, equipment.</div>
+                    <div style="flex:1; background:var(--card-bg); border-radius:24px; padding:20px;"><i class="fas fa-microchip"></i> <strong>Predictive maintenance</strong><br>Prevent generator/vehicle breakdowns, reduces emergency repairs by 28%.</div>
+                    <div style="flex:1; background:var(--card-bg); border-radius:24px; padding:20px;"><i class="fas fa-solar-panel"></i> <strong>Energy optimization</strong><br>AI reduces electricity consumption in classrooms & hostels.</div>
+                </div>
+                <div class="image-illustration"><img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=700&auto=format" alt="Auditor and financial manager analyzing costs"></div>
+                <div class="stat-number">-26%</div><span> average operational cost reduction after AI-audit adoption</span>
+                </div>
+            `
+        },
+        { // slide 5 - SUSTAINABLE GROWTH
+            id: "growth",
+            html: `
+                <div>
+
+                <span class="badge"><i class="fa-solid fa-cubes" style="font-size:1.2em;"></i> AI APPLICATIONS</span>
+
+                <h2>PILLAR 4</h2> <h2><span>🌱 Long-term vision <span style="color:var(--accent-gold);">Sustainable Growth · AI-Guided Expansion</span></h2>
+                        <hr><br>
+
+                <p>What-If scenario planning: simulate new lab, e-learning platform, or branch school. AI calculates ROI, break-even, risk metrics before you invest.</p>
+                <div class="pillar-grid" style="grid-template-columns:1fr 1fr;">
+                    <div><i class="fas fa-chart-gantt"></i> Resource allocation: classroom usage & teacher optimization</div>
+                    <div><i class="fas fa-chart-pie"></i> ROI simulations for capital projects</div>
+                </div>
+                <div class="image-illustration"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=700&auto=format" alt="School principal planning sustainable growth with AI insights"></div>
+                <p><i class="fas fa-graduation-cap"></i> Smart decisions → resilient school model for the next decade.</p>
+                </div>
+            `
+        },
+        { // slide 6 - STRONGER FUTURE & FINANCIAL LEGACY
+            id: "future",
+            html: `
+                <div>
+
+                <span class="badge"><i class="fa-solid fa-cubes" style="font-size:1.2em;"></i> AI APPLICATIONS</span>
+
+                <h2>PILLAR 4</h2> <h2><span>🏰 Legacy Architecture <span style="color:var(--accent-gold);">Stronger Future · AI Financial Governance</span></h2>
+                        <hr><br>
+
+                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                    <li><i class="fas fa-tachometer-alt gold-accent"></i> Executive dashboards: real-time student lifetime value, cost-per-learner.</li><br>
+                    <li><i class="fas fa-shield-virus gold-accent"></i> Fraud detection algorithms flag duplicate invoices & unauthorized payments.</li><br>
+                    <li><i class="fas fa-database gold-accent"></i> Secure audit trails for regulatory compliance.</li>
+                </ul>
+                <div class="image-illustration"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&auto=format" alt="Financial dashboard with AI analytics for school owners"></div>
+                <p>Build a lasting legacy through proactive, AI-embedded financial management and strategic foresight.</p>
+                </div>
+            `
+        },
+        { // slide 0.2 - 5 Core Pillars Overview + AI synergy
+            id: "Practical",
+            html: `
+                <div style="text-align:center;">
+
+                    <div class="qaCard"><h2>❓ Ask the Prompt Engineer</h2><br>
+
+                    <p><i class="fas fa-envelope"></i> <strong>Have questions about implementing AI in your school?</strong></p><p>Email me directly: <a href="mailto:forracorp1@gmail.com" style="color:var(--deep-blue); font-weight:900;">forracorp1@gmail.com</a></p>
+                   
+                   <p> Website: <strong><a href="https://fofem.github.io">fofem.github.io</a></strong> 
+<!----
+                   | WhatsApp: <strong>+234 707 797 6373</strong></p>
+---->
+                    <div class="imgPlaceholder" style=" margin-top:20px;">
+
+                    <div style="max-height:320px; max-width:470px; justify-content: center; align-items: center;justify-content: center;; 300px;overflow-x: scroll;">
+                    <picture>
+                      <source srcset="../../static/images/prompt1.webp" type="image/webp">
+                      
+                      <img src="../../static/images/prompt1.png" 
+                           alt="High-end industrial design" 
+                           loading="lazy" 
+                           width="450" 
+                           height="300">
+                    </picture>
+
+                        </div></div><button class="btnPractice" onclick="window.location.href='mailto:forracorp1@gmail.com'"><i class="fas fa-paper-plane"></i> Send a question</button></div></div>
+                    
+                </div>
+            `
+        },    
+        { // slide 0.2 - 5 Core Pillars Overview + AI synergy
+            id: "Practical",
+            html: `
+                <div style="text-align:center;">
+
+                    <div class="slideView"><div style="text-align:center; margin-top:-130px;">
+                    <h2>📖 Lecture Based on the Book</h2>
+                    <p style="font-size:2rem; font-height:800;text-align:center;">"Anatomy of an AI Prompt"</p><br>
+
+                    <picture>  
+                      <img src="../../static/images/aip.a.png" 
+                           alt="High-end industrial design" 
+                           loading="lazy" 
+                           width="200" 
+                           height="280">
+                    </picture>
+
+                    <p style="text-align:center;">by <strong>Ubi Fredrick</strong> <br style="text-align:center;"> AI Practitioner| Machine Learning Engineer | Web Developer | Electrical Electronics Engineer</p><div style="margin:30px 0;"><i class="fas fa-download"></i> <a href="../../static/downloads/docs/ai.pdf" target="_blank" style="font-size:1.3rem;" download="Anatomy of an AI Prompt.pdf">📥 <strong>Download PDF (Full Guide)</strong></a></div>
+
+    <!----
+                       <p> <a href="https://www.google.com/maps/search/?api=1&query=No.+4+Philip+Street,+Paradise+Estate,+Rumuohwa,+Eneka,+Port+Harcourt,+Nigeria" 
+                             target="_blank" style="color:inherit; text-decoration:none;">
+                             <i class="fas fa-map-marker-alt"></i> Famous Vine Montessori School. 4 Philip Street, Paradise Estate, Rumuohwa, Eneka, Port Harcourt, Rivers State, Nigeria
+                        </a></p>
+     --->
+
+                    <p style="text-align:left;"><i class="fas fa-envelope"></i> <a href="mailto:forracorp1@gmail.com">forracorp1@gmail.com</a> </p>
+     <!---
+                    <p><i class="fab fa-whatsapp"></i> <a href="tel:+2347077976373 ">+234 707 797 6373</a></p>
+--->
+                <a href="tel:+2347077976373 " style="color:inherit; text-decoration:none;"></a></p>
+
+                <p><i class="fas fa-globe"></i> <a href="https://fofem.github.io" target="_blank">fofem.github.io</a></p>
+
+                 <div class="footer-note">©️ ForraCorp in collaboration with Teadro Systems Ltd — AI enhanced school financial sovereignty</div>
+            
+            `
+        },    
+
+    ];
+
+    // DOM elements
+    let currentSlideIndex = 0;
+    let slideContainer = document.getElementById('slidesContainer');
+    let navDotsBar = document.getElementById('navDotsBar');
+
+    function renderActiveSlide() {
+        if (!slideContainer) return;
+        const slide = slidesData[currentSlideIndex];
+        const slideHtml = `
+            <div class="slide-view" id="activeSlideView">
+                ${slide.html}
+            </div>
+        `;
+        slideContainer.innerHTML = slideHtml;
+        updateActiveDot();
+    }
+
+    function updateActiveDot() {
+        const dots = document.querySelectorAll('.nav-dot');
+        dots.forEach((dot, idx) => {
+            if (idx === currentSlideIndex) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+
+    function createNavigationDots() {
+        navDotsBar.innerHTML = '';
+        slidesData.forEach((_, idx) => {
+            const dot = document.createElement('div');
+            dot.classList.add('nav-dot');
+            if (idx === currentSlideIndex) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                if (idx === currentSlideIndex) return;
+                currentSlideIndex = idx;
+                renderActiveSlide();
+            });
+            navDotsBar.appendChild(dot);
+        });
+    }
+
+    // dark mode logic
+    const darkToggle = document.getElementById('darkModeToggle');
+    function initDarkMode() {
+        const isDark = localStorage.getItem('schoolTheme') === 'dark';
+        if (isDark) {
+            document.body.classList.add('dark');
+            darkToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+            document.body.classList.remove('dark');
+            darkToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        }
+    }
+    darkToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+        const isDarkNow = document.body.classList.contains('dark');
+        localStorage.setItem('schoolTheme', isDarkNow ? 'dark' : 'light');
+        darkToggle.innerHTML = isDarkNow ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    });
+    
+    // keyboard navigation optional
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                renderActiveSlide();
+            }
+        } else if (e.key === 'ArrowRight') {
+            if (currentSlideIndex < slidesData.length - 1) {
+                currentSlideIndex++;
+                renderActiveSlide();
+            }
+        }
+    });
+
+    // responsive resize, ensure proper
+    function init() {
+        createNavigationDots();
+        renderActiveSlide();
+        initDarkMode();
+    }
+
+    init();
+</script>
+
+    <script>
+/* =======================================================================
+BACKGROUND ANIMATION SCRIPT
+==========================================================================
+/**
+ * Deep Space Simulation
+ * A highly performant, visually stunning space background
+ * featuring blinking stars, shooting stars with multilingual
+ * character rain, floating planets, and galactic orbital lines.
+ */
+
+// ──────────────────────────────────────
+// MULTILINGUAL CHARACTER SET
+// ──────────────────────────────────────
+const MULTILINGUAL_CHARS = [
+    // Japanese Katakana
+    'ア', 'イ', 'ウ', 'エ', 'オ', 'カ', 'キ', 'ク', 'ケ', 'コ',
+    'サ', 'シ', 'ス', 'セ', 'ソ', 'タ', 'チ', 'ツ', 'テ', 'ト',
+    'ナ', 'ニ', 'ヌ', 'ネ', 'ノ', 'ハ', 'ヒ', 'フ', 'ヘ', 'ホ',
+    'マ', 'ミ', 'ム', 'メ', 'モ', 'ヤ', 'ユ', 'ヨ', 'ラ', 'リ',
+    // Japanese Hiragana
+    'あ', 'い', 'う', 'え', 'お', 'か', 'き', 'く', 'け', 'こ',
+    'さ', 'し', 'す', 'せ', 'そ', 'た', 'ち', 'つ', 'て', 'と',
+    // Kanji-like glyphs
+    '日', '月', '星', '空', '宙', '銀', '河', '天', '地', '光',
+    '闇', '時', '間', '永', '遠', '無', '限', '夢', '幻', '想',
+    '零', '一', '二', '三', '四', '五', '六', '七', '八', '九',
+    // Cyrillic
+    'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И',
+    'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т',
+    'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь',
+    // Greek
+    'Α', 'Β', 'Γ', 'Δ', 'Ε', 'Ζ', 'Η', 'Θ', 'Ι', 'Κ',
+    'Λ', 'Μ', 'Ν', 'Ξ', 'Ο', 'Π', 'Ρ', 'Σ', 'Τ', 'Υ',
+    'Φ', 'Χ', 'Ψ', 'Ω', 'ς', 'ϑ', 'ϒ', 'ϖ',
+    // Arabic-inspired glyphs
+    'ا', 'ب', 'ت', 'ث', 'ج', 'ح', 'خ', 'د', 'ذ', 'ر',
+    'ز', 'س', 'ش', 'ص', 'ض', 'ط', 'ظ', 'ع', 'غ', 'ف',
+    // Latin alphanumeric
+    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K',
+    'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V',
+    'W', 'X', 'Y', 'Z', 'a', 'b', 'd', 'e', 'f', 'g',
+    // Binary / matrix glyphs
+    '00', '01', '10', '11', '0', '1',
+    // Mathematical / esoteric symbols
+    '∑', '∏', '∫', '∂', '∇', '∞', '⊕', '⊗', '◈', '◆',
+    '◇', '△', '▽', '□', '○', '●', '◉', '◎', '⬡', '⬢',
+    '⟡', '⟢', '⧊', '⧋', '⨀', '⨂', '⨁', '⌀', '⌘', '⌬',
+];
+
+// ──────────────────────────────────────
+// CONFIGURATION
+// ──────────────────────────────────────
+const CONFIG = {
+    // Star field
+    starBaseCount: 240,
+    starMinRadius: 0.2,
+    starMaxRadius: 2.9,
+    starBlinkSpeedMin: 0.3,
+    starBlinkSpeedMax: 2.8,
+    starBaseAlphaMin: 3.25,
+    starBaseAlphaMax: 0.75,
+
+    // Shooting stars
+    shootingStarMaxActive: 1,
+    shootingStarSpawnIntervalMin: 250,
+    shootingStarSpawnIntervalMax: 1250,
+    shootingStarSpeedMin: 100,
+    shootingStarSpeedMax: 1100,
+    shootingStarTrailLength: 45,
+    shootingStarHeadRadius: 5.2,
+    shootingStarGlowRadius: 20,
+    shootingStarLifetimeMin: 1400,
+    shootingStarLifetimeMax: 2800,
+
+    // Character rain
+    charRainSpawnIntervalPx: 6,
+    charRainFontSizeMin: 10,
+    charRainFontSizeMax: 30,
+    charRainGravity: 140,
+    charRainLifetimeMin: 900,
+    charRainLifetimeMax: 2200,
+    charRainMaxTotal: 220,
+    charRainFriction: 0.92,
+
+    // Planets
+    planetCount: 9,
+
+    // Nebula
+    nebulaCount: 4,
+
+    // Galactic lines
+    orbitalPathCount: 5,
+    constellationNodeCount: 14,
+};
+
+// ──────────────────────────────────────
+// UTILITY FUNCTIONS
+// ──────────────────────────────────────
+const rand = (min, max) => Math.random() * (max - min) + min;
+const randInt = (min, max) => Math.floor(rand(min, max + 1));
+const pickRandom = (arr) => arr[randInt(0, arr.length - 1)];
+const clamp = (val, min, max) => Math.max(min, Math.min(max, val));
+
+// ──────────────────────────────────────
+// STAR CLASS
+// ──────────────────────────────────────
+class Star {
+    constructor(canvasWidth, canvasHeight) {
+        this.x = Math.random() * canvasWidth;
+        this.y = Math.random() * canvasHeight;
+        this.radius = rand(CONFIG.starMinRadius, CONFIG.starMaxRadius);
+        // Depth factor: smaller stars appear farther away
+        this.depth = clamp(this.radius / CONFIG.starMaxRadius, 0.1, 1.0);
+        this.baseAlpha = rand(CONFIG.starBaseAlphaMin, CONFIG.starBaseAlphaMax);
+        this.maxAlpha = Math.min(1.0, this.baseAlpha + 0.35);
+        this.blinkSpeed = rand(CONFIG.starBlinkSpeedMin, CONFIG.starBlinkSpeedMax);
+        this.blinkOffset = Math.random() * Math.PI * 2;
+        this.currentAlpha = this.baseAlpha;
+        // Slight color temperature variation
+        const temp = rand(0, 1);
+        if (temp < 0.12) {
+            this.color = { r: 180, g: 200, b: 255 }; // Blue-white
+        } else if (temp < 0.22) {
+            this.color = { r: 255, g: 240, b: 210 }; // Warm white
+        } else if (temp < 0.28) {
+            this.color = { r: 255, g: 200, b: 180 }; // Orange-ish
+        } else {
+            this.color = { r: 235, g: 235, b: 250 }; // Neutral white
+        }
+    }
+
+    update(time) {
+        const wave = Math.sin(time * this.blinkSpeed + this.blinkOffset) * 0.5 + 0.5;
+        this.currentAlpha = this.baseAlpha + (this.maxAlpha - this.baseAlpha) * wave;
+        // Add subtle micro-twinkle with a faster secondary wave
+        const microWave = Math.sin(time * 5.3 + this.blinkOffset * 1.7) * 0.5 + 0.5;
+        this.currentAlpha += microWave * 0.08;
+        this.currentAlpha = clamp(this.currentAlpha, this.baseAlpha * 0.7, this.maxAlpha);
+    }
+
+    draw(ctx) {
+        const alpha = this.currentAlpha;
+        if (alpha < 0.03) return;
+        const { r, g, b } = this.color;
+        ctx.fillStyle = `rgba(${r},${g},${b},${alpha})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fill();
+        // Add subtle glow for brighter/larger stars
+        if (this.radius > 1.2 && alpha > 0.55) {
+            const glowAlpha = alpha * 0.18;
+            const glowRadius = this.radius * 3.5;
+            const gradient = ctx.createRadialGradient(this.x, this.y, this.radius * 0.5, this.x, this.y, glowRadius);
+            gradient.addColorStop(0, `rgba(${r},${g},${b},${glowAlpha})`);
+            gradient.addColorStop(1, 'rgba(0,0,0,0)');
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, glowRadius, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+}
+
+// ──────────────────────────────────────
+// CHARACTER RAIN PARTICLE CLASS
+// ──────────────────────────────────────
+class CharacterRainParticle {
+    constructor(x, y, shootingStarVx, shootingStarVy) {
+        this.x = x;
+        this.y = y;
+        this.character = pickRandom(MULTILINGUAL_CHARS);
+        this.fontSize = rand(CONFIG.charRainFontSizeMin, CONFIG.charRainFontSizeMax);
+        // Inherit some velocity from the shooting star plus randomness
+        const inheritedVx = shootingStarVx * rand(0.25, 0.7);
+        const inheritedVy = shootingStarVy * rand(0.25, 0.7);
+        this.vx = inheritedVx + rand(-60, 60);
+        this.vy = inheritedVy + rand(-30, 20);
+        this.gravity = CONFIG.charRainGravity;
+        this.friction = CONFIG.charRainFriction;
+        this.lifetime = rand(CONFIG.charRainLifetimeMin, CONFIG.charRainLifetimeMax);
+        this.maxLifetime = this.lifetime;
+        this.opacity = rand(0.75, 1.0);
+        // Color variation: mostly cyan/green matrix-like with some white
+        const colorRoll = Math.random();
+        if (colorRoll < 0.45) {
+            this.color = { r: 80, g: 255, b: 180 }; // Mint-cyan
+        } else if (colorRoll < 0.75) {
+            this.color = { r: 100, g: 240, b: 255 }; // Sky-cyan
+        } else if (colorRoll < 0.9) {
+            this.color = { r: 180, g: 255, b: 220 }; // Pale green
+        } else {
+            this.color = { r: 220, g: 240, b: 255 }; // White-blue
+        }
+    }
+
+    update(dt) {
+        this.vy += this.gravity * dt;
+        this.vx *= this.friction;
+        this.x += this.vx * dt;
+        this.y += this.vy * dt;
+        this.lifetime -= dt * 1000; // Convert dt from seconds to ms
+        const lifeRatio = clamp(this.lifetime / this.maxLifetime, 0, 1);
+        this.opacity = lifeRatio * 0.9;
+    }
+
+    get isDead() {
+        return this.lifetime <= 0 || this.opacity < 0.02;
+    }
+
+    draw(ctx) {
+        if (this.opacity < 0.03) return;
+        const { r, g, b } = this.color;
+        ctx.fillStyle = `rgba(${r},${g},${b},${this.opacity})`;
+        ctx.font = `${this.fontSize}px "Courier New", "MS Gothic", "Noto Sans", monospace`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        // Subtle text glow
+        if (this.opacity > 0.5) {
+            ctx.shadowColor = `rgba(${r},${g},${b},${this.opacity * 0.5})`;
+            ctx.shadowBlur = this.fontSize * 0.6;
+        } else {
+            ctx.shadowColor = 'transparent';
+            ctx.shadowBlur = 0;
+        }
+        ctx.fillText(this.character, this.x, this.y);
+        ctx.shadowColor = 'transparent';
+        ctx.shadowBlur = 0;
+    }
+}
+
+// ──────────────────────────────────────
+// SHOOTING STAR CLASS
+// ──────────────────────────────────────
+class ShootingStar {
+    constructor(canvasWidth, canvasHeight) {
+        this.canvasWidth = canvasWidth;
+        this.canvasHeight = canvasHeight;
+        this.active = true;
+        this.lifetime = rand(CONFIG.shootingStarLifetimeMin, CONFIG.shootingStarLifetimeMax);
+        this.maxLifetime = this.lifetime;
+        this.speed = rand(CONFIG.shootingStarSpeedMin, CONFIG.shootingStarSpeedMax);
+        this.trail = [];
+        this.maxTrailLength = CONFIG.shootingStarTrailLength;
+        this.distanceSinceLastSpawn = 0;
+        this.spawnInterval = CONFIG.charRainSpawnIntervalPx;
+        this.spawnedParticles = [];
+
+        // Determine start position and angle
+        this._initializeTrajectory();
+    }
+
+    _initializeTrajectory() {
+        const w = this.canvasWidth;
+        const h = this.canvasHeight;
+        const edge = randInt(0, 3);
+        let startX, startY, angle;
+
+        switch (edge) {
+            case 0: // Top edge
+                startX = rand(0, w);
+                startY = -20;
+                angle = rand(Math.PI * 0.35, Math.PI * 0.65); // Downward
+                break;
+            case 1: // Right edge
+                startX = w + 20;
+                startY = rand(h * 0.1, h * 0.7);
+                angle = rand(Math.PI * 0.85, Math.PI * 1.15); // Leftward
+                break;
+            case 2: // Bottom edge
+                startX = rand(0, w);
+                startY = h + 20;
+                angle = rand(Math.PI * 1.35, Math.PI * 1.65); // Upward
+                break;
+            case 3: // Left edge
+            default:
+                startX = -20;
+                startY = rand(h * 0.15, h * 0.75);
+                angle = rand(-Math.PI * 0.15, Math.PI * 0.15); // Rightward
+                break;
+        }
+
+        // Add slight randomness to angle
+        angle += rand(-0.25, 0.25);
+
+        this.x = startX;
+        this.y = startY;
+        this.vx = Math.cos(angle) * this.speed;
+        this.vy = Math.sin(angle) * this.speed;
+        this.angle = angle;
+
+        // Initialize trail with starting position
+        this.trail.push({ x: this.x, y: this.y, age: 0 });
+    }
+
+    update(dt) {
+        if (!this.active) return;
+
+        this.lifetime -= dt * 1000;
+
+        // Move
+        this.x += this.vx * dt;
+        this.y += this.vy * dt;
+
+        // Update trail ages
+        for (const point of this.trail) {
+            point.age += dt * 1000;
+        }
+
+        // Add current position to trail
+        this.trail.push({ x: this.x, y: this.y, age: 0 });
+
+        // Trim trail
+        while (this.trail.length > this.maxTrailLength) {
+            this.trail.shift();
+        }
+
+        // Remove old trail points
+        const maxTrailAge = 600;
+        this.trail = this.trail.filter(p => p.age < maxTrailAge);
+
+        // Track distance for spawning character rain
+        if (this.trail.length >= 2) {
+            const last = this.trail[this.trail.length - 1];
+            const prev = this.trail[this.trail.length - 2];
+            const dx = last.x - prev.x;
+            const dy = last.y - prev.y;
+            this.distanceSinceLastSpawn += Math.sqrt(dx * dx + dy * dy);
+        }
+
+        // Spawn character rain particles at intervals
+        while (this.distanceSinceLastSpawn >= this.spawnInterval) {
+            this.distanceSinceLastSpawn -= this.spawnInterval;
+            const particle = new CharacterRainParticle(this.x, this.y, this.vx, this.vy);
+            this.spawnedParticles.push(particle);
+        }
+
+        // Check if shooting star has left the screen with buffer
+        const buffer = 150;
+        if (
+            this.x < -buffer ||
+            this.x > this.canvasWidth + buffer ||
+            this.y < -buffer ||
+            this.y > this.canvasHeight + buffer
+        ) {
+            this.active = false;
+        }
+
+        if (this.lifetime <= 0) {
+            this.active = false;
+        }
+    }
+
+    draw(ctx) {
+        if (!this.active || this.trail.length < 2) return;
+
+        // Draw trail as a fading line
+        const trailLen = this.trail.length;
+        for (let i = 1; i < trailLen; i++) {
+            const ratio = i / trailLen;
+            const alpha = ratio * 0.75;
+            const width = ratio * 2.8;
+            ctx.strokeStyle = `rgba(180,210,255,${alpha})`;
+            ctx.lineWidth = width;
+            ctx.lineCap = 'round';
+            ctx.beginPath();
+            ctx.moveTo(this.trail[i - 1].x, this.trail[i - 1].y);
+            ctx.lineTo(this.trail[i].x, this.trail[i].y);
+            ctx.stroke();
+        }
+
+        // Draw glowing head
+        const headAlpha = clamp(this.lifetime / this.maxLifetime, 0.3, 1.0);
+        // Outer glow
+        const glowGradient = ctx.createRadialGradient(
+            this.x, this.y, CONFIG.shootingStarHeadRadius * 0.3,
+            this.x, this.y, CONFIG.shootingStarGlowRadius
+        );
+        glowGradient.addColorStop(0, `rgba(220,240,255,${headAlpha * 0.85})`);
+        glowGradient.addColorStop(0.3, `rgba(180,220,255,${headAlpha * 0.5})`);
+        glowGradient.addColorStop(0.7, `rgba(100,160,255,${headAlpha * 0.15})`);
+        glowGradient.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = glowGradient;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, CONFIG.shootingStarGlowRadius, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Bright core
+        ctx.fillStyle = `rgba(255,255,255,${headAlpha})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, CONFIG.shootingStarHeadRadius, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+// ──────────────────────────────────────
+// PLANET CLASS
+// ──────────────────────────────────────
+class Planet {
+    constructor(canvasWidth, canvasHeight, index) {
+        this.canvasWidth = canvasWidth;
+        this.canvasHeight = canvasHeight;
+        this.index = index;
+
+        // Position planets spread across the canvas with some margin
+        const margin = 100;
+        this.x = rand(margin, canvasWidth - margin);
+        this.y = rand(margin, canvasHeight - margin);
+        this.radius = rand(18, 55);
+        this.depth = rand(0.3, 0.9); // Parallax depth factor
+
+        // Orbital drift
+        this.orbitCenterX = this.x;
+        this.orbitCenterY = this.y;
+        this.orbitRadiusX = rand(15, 80);
+        this.orbitRadiusY = rand(10, 50);
+        this.orbitSpeed = rand(0.015, 0.06);
+        this.orbitAngle = rand(0, Math.PI * 2);
+        this.orbitTilt = rand(0, Math.PI);
+
+        // Planet appearance
+        this.baseColor = this._generateColor();
+        this.hasRings = index === 1 || (Math.random() < 0.3 && index > 0);
+        this.ringTilt = rand(0.4, 0.9);
+        this.ringColor = this._lightenColor(this.baseColor, 0.5);
+        this.atmosphereColor = this._lightenColor(this.baseColor, 0.7);
+
+        // Surface detail bands
+        this.bandCount = randInt(3, 7);
+        this.bandOffsets = [];
+        for (let i = 0; i < this.bandCount; i++) {
+            this.bandOffsets.push(rand(-0.35, 0.35));
+        }
+    }
+
+    _generateColor() {
+        const palettes = [
+            { r: 180, g: 140, b: 100 }, // Sandy / Mars-like
+            { r: 100, g: 130, b: 200 }, // Blue / Neptune-like
+            { r: 200, g: 170, b: 120 }, // Golden / Jupiter-like
+            { r: 140, g: 100, b: 180 }, // Purple-ish
+            { r: 80, g: 160, b: 140 }, // Teal
+            { r: 210, g: 120, b: 100 }, // Rust red
+            { r: 120, g: 150, b: 190 }, // Steel blue
+        ];
+        const base = palettes[randInt(0, palettes.length - 1)];
+        return {
+            r: clamp(base.r + randInt(-20, 20), 40, 230),
+            g: clamp(base.g + randInt(-20, 20), 40, 230),
+            b: clamp(base.b + randInt(-20, 20), 40, 230),
+        };
+    }
+
+    _lightenColor(color, factor) {
+        return {
+            r: clamp(Math.round(color.r + (255 - color.r) * factor), 0, 255),
+            g: clamp(Math.round(color.g + (255 - color.g) * factor), 0, 255),
+            b: clamp(Math.round(color.b + (255 - color.b) * factor), 0, 255),
+        };
+    }
+
+    update(dt) {
+        this.orbitAngle += this.orbitSpeed * dt;
+        this.x = this.orbitCenterX + Math.cos(this.orbitAngle) * this.orbitRadiusX;
+        this.y = this.orbitCenterY + Math.sin(this.orbitAngle) * this.orbitRadiusY * Math.cos(this.orbitTilt);
+        // Keep within bounds
+        const margin = 60;
+        this.x = clamp(this.x, margin, this.canvasWidth - margin);
+        this.y = clamp(this.y, margin, this.canvasHeight - margin);
+    }
+
+    draw(ctx) {
+        const { r, g, b } = this.baseColor;
+        const radius = this.radius;
+
+        // Atmosphere glow
+        const atmoGradient = ctx.createRadialGradient(this.x, this.y, radius * 0.85, this.x, this.y, radius * 1.5);
+        const ar = this.atmosphereColor.r;
+        const ag = this.atmosphereColor.g;
+        const ab = this.atmosphereColor.b;
+        atmoGradient.addColorStop(0, `rgba(${ar},${ag},${ab},0.35)`);
+        atmoGradient.addColorStop(0.5, `rgba(${ar},${ag},${ab},0.12)`);
+        atmoGradient.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = atmoGradient;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, radius * 1.5, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Planet body gradient (3D sphere effect)
+        const bodyGradient = ctx.createRadialGradient(
+            this.x - radius * 0.3, this.y - radius * 0.35, radius * 0.1,
+            this.x, this.y, radius
+        );
+        bodyGradient.addColorStop(0, `rgba(${clamp(r + 60, 0, 255)},${clamp(g + 60, 0, 255)},${clamp(b + 60, 0, 255)},1)`);
+        bodyGradient.addColorStop(0.5, `rgba(${r},${g},${b},1)`);
+        bodyGradient.addColorStop(1, `rgba(${clamp(r - 50, 0, 255)},${clamp(g - 50, 0, 255)},${clamp(b - 50, 0, 255)},1)`);
+        ctx.fillStyle = bodyGradient;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, radius, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Surface bands
+        for (let i = 0; i < this.bandCount; i++) {
+            const bandY = this.y - radius * 0.7 + (radius * 1.4 / (this.bandCount + 1)) * (i + 1);
+            const bandWidth = radius * 1.6 * (0.5 + Math.abs(this.bandOffsets[i]) * 0.5);
+            const distFromCenter = Math.abs(bandY - this.y) / radius;
+            if (distFromCenter < 0.85) {
+                const bandAlpha = 0.08 + Math.abs(this.bandOffsets[i]) * 0.15;
+                const bandGradient = ctx.createLinearGradient(
+                    this.x - bandWidth, bandY - radius * 0.08,
+                    this.x + bandWidth, bandY + radius * 0.08
+                );
+                bandGradient.addColorStop(0, `rgba(0,0,0,0)`);
+                bandGradient.addColorStop(0.3, `rgba(0,0,0,${bandAlpha})`);
+                bandGradient.addColorStop(0.5, `rgba(255,255,255,${bandAlpha * 0.4})`);
+                bandGradient.addColorStop(0.7, `rgba(0,0,0,${bandAlpha})`);
+                bandGradient.addColorStop(1, `rgba(0,0,0,0)`);
+                ctx.fillStyle = bandGradient;
+                ctx.beginPath();
+                ctx.ellipse(this.x, bandY, bandWidth, radius * 0.12, 0, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        // Rings (if applicable)
+        if (this.hasRings) {
+            ctx.save();
+            ctx.translate(this.x, this.y);
+            ctx.rotate(this.ringTilt);
+            const ringGradient = ctx.createLinearGradient(0, -radius * 0.25, 0, radius * 0.25);
+            const rr = this.ringColor.r;
+            const rg = this.ringColor.g;
+            const rb = this.ringColor.b;
+            ringGradient.addColorStop(0, `rgba(${rr},${rg},${rb},0.0)`);
+            ringGradient.addColorStop(0.3, `rgba(${rr},${rg},${rb},0.55)`);
+            ringGradient.addColorStop(0.45, `rgba(${rr},${rg},${rb},0.7)`);
+            ringGradient.addColorStop(0.5, `rgba(255,255,255,0.3)`);
+            ringGradient.addColorStop(0.55, `rgba(${rr},${rg},${rb},0.7)`);
+            ringGradient.addColorStop(0.7, `rgba(${rr},${rg},${rb},0.55)`);
+            ringGradient.addColorStop(1, `rgba(${rr},${rg},${rb},0.0)`);
+            ctx.fillStyle = ringGradient;
+            ctx.beginPath();
+            ctx.ellipse(0, 0, radius * 1.6, radius * 0.32, 0, 0, Math.PI * 2);
+            ctx.fill();
+            // Gap in rings
+            ctx.fillStyle = 'rgba(0,0,0,0.6)';
+            ctx.beginPath();
+            ctx.ellipse(0, 0, radius * 1.15, radius * 0.14, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+        }
+
+        // Specular highlight
+        const specGradient = ctx.createRadialGradient(
+            this.x - radius * 0.25, this.y - radius * 0.3, radius * 0.05,
+            this.x, this.y, radius
+        );
+        specGradient.addColorStop(0, 'rgba(255,255,255,0.5)');
+        specGradient.addColorStop(0.25, 'rgba(255,255,255,0.15)');
+        specGradient.addColorStop(0.6, 'rgba(0,0,0,0)');
+        specGradient.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = specGradient;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, radius, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+// ──────────────────────────────────────
+// NEBULA CLOUD (background element)
+// ──────────────────────────────────────
+class NebulaCloud {
+    constructor(canvasWidth, canvasHeight) {
+        this.x = rand(-canvasWidth * 0.2, canvasWidth * 1.2);
+        this.y = rand(-canvasHeight * 0.2, canvasHeight * 1.2);
+        this.radiusX = rand(canvasWidth * 0.25, canvasWidth * 0.7);
+        this.radiusY = rand(canvasHeight * 0.2, canvasHeight * 0.55);
+        this.rotation = rand(0, Math.PI);
+        const palettes = [
+            { r: 40, g: 20, b: 80, alpha: 0.06 }, // Deep purple
+            { r: 20, g: 40, b: 90, alpha: 0.05 }, // Blue
+            { r: 30, g: 15, b: 60, alpha: 0.07 }, // Indigo
+            { r: 15, g: 50, b: 70, alpha: 0.05 }, // Teal-blue
+            { r: 60, g: 20, b: 50, alpha: 0.05 }, // Magenta-ish
+        ];
+        const palette = palettes[randInt(0, palettes.length - 1)];
+        this.color = palette;
+    }
+
+    draw(ctx) {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rotation);
+        const gradient = ctx.createRadialGradient(0, 0, 0, 0, 0, this.radiusX);
+        const { r, g, b, alpha } = this.color;
+        gradient.addColorStop(0, `rgba(${r},${g},${b},${alpha})`);
+        gradient.addColorStop(0.5, `rgba(${r},${g},${b},${alpha * 0.5})`);
+        gradient.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.ellipse(0, 0, this.radiusX, this.radiusY, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+    }
+}
+
+// ──────────────────────────────────────
+// ORBITAL PATH (galactic line)
+// ──────────────────────────────────────
+class OrbitalPath {
+    constructor(canvasWidth, canvasHeight) {
+        this.centerX = rand(canvasWidth * 0.15, canvasWidth * 0.85);
+        this.centerY = rand(canvasHeight * 0.15, canvasHeight * 0.85);
+        this.radiusX = rand(canvasWidth * 0.2, canvasWidth * 0.65);
+        this.radiusY = rand(canvasHeight * 0.15, canvasHeight * 0.4);
+        this.rotation = rand(0, Math.PI);
+        this.opacity = rand(0.025, 0.07);
+        this.lineWidth = rand(0.4, 1.2);
+        this.dashLength = rand(8, 30);
+        this.dashGap = rand(12, 40);
+    }
+
+    draw(ctx) {
+        ctx.save();
+        ctx.translate(this.centerX, this.centerY);
+        ctx.rotate(this.rotation);
+        ctx.strokeStyle = `rgba(150,180,220,${this.opacity})`;
+        ctx.lineWidth = this.lineWidth;
+        ctx.setLineDash([this.dashLength, this.dashGap]);
+        ctx.beginPath();
+        ctx.ellipse(0, 0, this.radiusX, this.radiusY, 0, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.restore();
+    }
+}
+
+// ──────────────────────────────────────
+// CONSTELLATION NODES & LINES
+// ──────────────────────────────────────
+class ConstellationNetwork {
+    constructor(canvasWidth, canvasHeight) {
+        this.nodes = [];
+        const nodeCount = CONFIG.constellationNodeCount;
+        for (let i = 0; i < nodeCount; i++) {
+            this.nodes.push({
+                x: rand(canvasWidth * 0.08, canvasWidth * 0.92),
+                y: rand(canvasHeight * 0.08, canvasHeight * 0.92),
+                radius: rand(1.0, 2.2),
+                pulseOffset: rand(0, Math.PI * 2),
+            });
+        }
+        // Pre-compute connections (connect each node to 1-3 nearest neighbors)
+        this.connections = [];
+        for (let i = 0; i < this.nodes.length; i++) {
+            const distances = [];
+            for (let j = 0; j < this.nodes.length; j++) {
+                if (i === j) continue;
+                const dx = this.nodes[i].x - this.nodes[j].x;
+                const dy = this.nodes[i].y - this.nodes[j].y;
+                distances.push({ index: j, dist: Math.sqrt(dx * dx + dy * dy) });
+            }
+            distances.sort((a, b) => a.dist - b.dist);
+            const connectCount = randInt(1, 3);
+            for (let k = 0; k < Math.min(connectCount, distances.length); k++) {
+                const j = distances[k].index;
+                const pairKey = Math.min(i, j) + '_' + Math.max(i, j);
+                if (!this.connections.find(c => c.key === pairKey)) {
+                    this.connections.push({ key: pairKey, from: i, to: j });
+                }
+            }
+        }
+    }
+
+    draw(ctx, time) {
+        // Draw connection lines
+        for (const conn of this.connections) {
+            const from = this.nodes[conn.from];
+            const to = this.nodes[conn.to];
+            const alpha = 0.04 + Math.sin(time * 0.4 + conn.from) * 0.015;
+            ctx.strokeStyle = `rgba(160,190,230,${clamp(alpha, 0.02, 0.08)})`;
+            ctx.lineWidth = 0.5;
+            ctx.setLineDash([3, 10]);
+            ctx.beginPath();
+            ctx.moveTo(from.x, from.y);
+            ctx.lineTo(to.x, to.y);
+            ctx.stroke();
+            ctx.setLineDash([]);
+        }
+
+        // Draw nodes
+        for (const node of this.nodes) {
+            const pulse = Math.sin(time * 1.5 + node.pulseOffset) * 0.5 + 0.5;
+            const alpha = 0.25 + pulse * 0.35;
+            ctx.fillStyle = `rgba(200,220,255,${alpha})`;
+            ctx.beginPath();
+            ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+            ctx.fill();
+            // Tiny glow
+            const glowGrad = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, node.radius * 5);
+            glowGrad.addColorStop(0, `rgba(180,200,240,${alpha * 0.6})`);
+            glowGrad.addColorStop(1, 'rgba(0,0,0,0)');
+            ctx.fillStyle = glowGrad;
+            ctx.beginPath();
+            ctx.arc(node.x, node.y, node.radius * 5, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+}
+
+// ──────────────────────────────────────
+// MAIN SPACE SIMULATION CONTROLLER
+// ──────────────────────────────────────
+class SpaceSimulation {
+    constructor(canvas) {
+        this.canvas = canvas;
+        this.ctx = canvas.getContext('2d');
+        this.width = 0;
+        this.height = 0;
+        this.stars = [];
+        this.shootingStars = [];
+        this.characterRainParticles = [];
+        this.planets = [];
+        this.nebulae = [];
+        this.orbitalPaths = [];
+        this.constellationNetwork = null;
+        this.lastTime = 0;
+        this.shootingStarCooldown = 0;
+        this.animationId = null;
+        this.running = false;
+    }
+
+    init() {
+        this.handleResize();
+        this._createStars();
+        this._createPlanets();
+        this._createNebulae();
+        this._createOrbitalPaths();
+        this._createConstellationNetwork();
+        this.shootingStarCooldown = rand(
+            CONFIG.shootingStarSpawnIntervalMin,
+            CONFIG.shootingStarSpawnIntervalMax
+        );
+        this.lastTime = performance.now();
+        this.running = true;
+        this.animate(this.lastTime);
+        window.addEventListener('resize', this._onResize.bind(this));
+    }
+
+    _createStars() {
+        const area = this.width * this.height;
+        const count = Math.min(CONFIG.starBaseCount, Math.floor(area / 4500));
+        this.stars = [];
+        for (let i = 0; i < Math.max(count, 80); i++) {
+            this.stars.push(new Star(this.width, this.height));
+        }
+    }
+
+    _createPlanets() {
+        this.planets = [];
+        for (let i = 0; i < CONFIG.planetCount; i++) {
+            this.planets.push(new Planet(this.width, this.height, i));
+        }
+    }
+
+    _createNebulae() {
+        this.nebulae = [];
+        for (let i = 0; i < CONFIG.nebulaCount; i++) {
+            this.nebulae.push(new NebulaCloud(this.width, this.height));
+        }
+    }
+
+    _createOrbitalPaths() {
+        this.orbitalPaths = [];
+        for (let i = 0; i < CONFIG.orbitalPathCount; i++) {
+            this.orbitalPaths.push(new OrbitalPath(this.width, this.height));
+        }
+    }
+
+    _createConstellationNetwork() {
+        this.constellationNetwork = new ConstellationNetwork(this.width, this.height);
+    }
+
+    _spawnShootingStar() {
+        if (this.shootingStars.length >= CONFIG.shootingStarMaxActive) return;
+        const shootingStar = new ShootingStar(this.width, this.height);
+        this.shootingStars.push(shootingStar);
+    }
+
+    _onResize() {
+        this.handleResize();
+        this._createStars();
+        this._createPlanets();
+        this._createNebulae();
+        this._createOrbitalPaths();
+        this._createConstellationNetwork();
+    }
+
+    handleResize() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const newWidth = window.innerWidth;
+        const newHeight = window.innerHeight;
+        this.width = newWidth;
+        this.height = newHeight;
+        this.canvas.width = newWidth * dpr;
+        this.canvas.height = newHeight * dpr;
+        this.canvas.style.width = newWidth + 'px';
+        this.canvas.style.height = newHeight + 'px';
+        this.ctx.setTransform(1, 0, 0, 1, 0, 0);
+        this.ctx.scale(dpr, dpr);
+    }
+
+    update(dt) {
+        const time = performance.now() / 1000;
+
+        // Update stars
+        for (const star of this.stars) {
+            star.update(time);
+        }
+
+        // Update shooting stars
+        for (const ss of this.shootingStars) {
+            ss.update(dt);
+        }
+
+        // Collect character rain from active shooting stars
+        for (const ss of this.shootingStars) {
+            if (ss.spawnedParticles.length > 0) {
+                this.characterRainParticles.push(...ss.spawnedParticles);
+                ss.spawnedParticles = [];
+            }
+        }
+
+        // Update character rain particles
+        for (const particle of this.characterRainParticles) {
+            particle.update(dt);
+        }
+
+        // Remove dead character rain particles
+        this.characterRainParticles = this.characterRainParticles.filter(p => !p.isDead);
+
+        // Enforce max character rain particles
+        while (this.characterRainParticles.length > CONFIG.charRainMaxTotal) {
+            this.characterRainParticles.shift();
+        }
+
+        // Remove dead shooting stars
+        this.shootingStars = this.shootingStars.filter(ss => ss.active);
+
+        // Update planets
+        for (const planet of this.planets) {
+            planet.update(dt);
+        }
+
+        // Shooting star spawn cooldown
+        this.shootingStarCooldown -= dt * 1000;
+        if (this.shootingStarCooldown <= 0 && this.shootingStars.length < CONFIG.shootingStarMaxActive) {
+            this._spawnShootingStar();
+            this.shootingStarCooldown = rand(
+                CONFIG.shootingStarSpawnIntervalMin,
+                CONFIG.shootingStarSpawnIntervalMax
+            );
+        }
+    }
+
+    draw() {
+        const ctx = this.ctx;
+        const w = this.width;
+        const h = this.height;
+        const time = performance.now() / 1000;
+
+        // Clear canvas
+        ctx.clearRect(0, 0, w, h);
+
+        // Draw nebulae (soft background glows)
+        for (const nebula of this.nebulae) {
+            nebula.draw(ctx);
+        }
+
+        // Draw orbital paths
+        for (const orbitalPath of this.orbitalPaths) {
+            orbitalPath.draw(ctx);
+        }
+
+        // Draw constellation network
+        if (this.constellationNetwork) {
+            this.constellationNetwork.draw(ctx, time);
+        }
+
+        // Draw planets (behind some stars for depth)
+        for (const planet of this.planets) {
+            if (planet.depth > 0.55) {
+                planet.draw(ctx);
+            }
+        }
+
+        // Draw stars
+        for (const star of this.stars) {
+            star.draw(ctx);
+        }
+
+        // Draw foreground planets
+        for (const planet of this.planets) {
+            if (planet.depth <= 0.55) {
+                planet.draw(ctx);
+            }
+        }
+
+        // Draw shooting stars
+        for (const ss of this.shootingStars) {
+            ss.draw(ctx);
+        }
+
+        // Draw character rain particles
+        for (const particle of this.characterRainParticles) {
+            particle.draw(ctx);
+        }
+
+        // Subtle vignette overlay
+        const vignetteGradient = ctx.createRadialGradient(w / 2, h / 2, w * 0.45, w / 2, h / 2, w * 0.85);
+        vignetteGradient.addColorStop(0, 'rgba(0,0,0,0)');
+        vignetteGradient.addColorStop(1, 'rgba(3,5,10,0.55)');
+        ctx.fillStyle = vignetteGradient;
+        ctx.fillRect(0, 0, w, h);
+    }
+
+    animate(timestamp) {
+        if (!this.running) return;
+        const dt = Math.min((timestamp - this.lastTime) / 1000, 0.1); // Cap at 100ms to avoid spiral of death
+        this.lastTime = timestamp;
+        this.update(dt);
+        this.draw();
+        this.animationId = requestAnimationFrame(this.animate.bind(this));
+    }
+
+    destroy() {
+        this.running = false;
+        if (this.animationId) {
+            cancelAnimationFrame(this.animationId);
+            this.animationId = null;
+        }
+        window.removeEventListener('resize', this._onResize.bind(this));
+        this.stars = [];
+        this.shootingStars = [];
+        this.characterRainParticles = [];
+        this.planets = [];
+        this.nebulae = [];
+        this.orbitalPaths = [];
+        this.constellationNetwork = null;
+    }
+}
+
+// ──────────────────────────────────────
+// INITIALIZATION
+// ──────────────────────────────────────
+(function () {
+    const canvas = document.getElementById('space-canvas');
+    if (!canvas) {
+        console.error('Space canvas element not found.');
+        return;
+    }
+    const simulation = new SpaceSimulation(canvas);
+    simulation.init();
+
+    // Expose for debugging / external control
+    window.__spaceSimulation = simulation;
+})();
+    </script> 
+
+      <script>
+        // Reasponsive hamburger bar icons 
+        const hamburger = document.getElementById('hamburger-menu');
+        const nav = document.getElementById('main-nav');
+
+        // Add an event listener to the hamburger icon
+        hamburger.addEventListener('click', () => {
+            // Toggle the 'active' class on the navigation menu
+            nav.classList.toggle('active');
+            // Toggle the 'active' class on the hamburger icon for the animation
+            hamburger.classList.toggle('active');
+            // If the language dropdown is open, close it when the menu is toggled
+            if (ldrop.classList.contains('show')) {
+                ldrop.classList.remove('show');
+            }
+        });
+
+        // Optional: Close the menu when a link is clicked (useful for single-page apps)
+        document.querySelectorAll('#main-nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                // Check if the menu is active (i.e., we are on mobile view)
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+        });
+    </script>
+    <script>
+// ===============================
+// HAMBURGER MENU TOGGLE
+// ===============================
+const hamburger = document.getElementById('hamburger-menu');
+const mainNav = document.getElementById('main-nav');
+
+if (hamburger && mainNav) {
+    // Toggle on click
+    hamburger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        this.classList.toggle('active');
+        mainNav.classList.toggle('open');
+    });
+
+    // Close on link click (mobile)
+    mainNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mainNav.classList.remove('open');
+        });
+    });
+
+    // Close on outside click
+    document.addEventListener('click', function(e) {
+        if (!hamburger.contains(e.target) && !mainNav.contains(e.target)) {
+            hamburger.classList.remove('active');
+            mainNav.classList.remove('open');
+        }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            hamburger.classList.remove('active');
+            mainNav.classList.remove('open');
+        }
+    });
+}
+    </script>
+</body>
+</html>

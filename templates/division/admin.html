@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ForraNova Academy | Admin</title>
+  <link rel="stylesheet" href="static/css/fna.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+
+
+        <!--Firebase Compat SDK to <head> (read‑only, no auth required):-->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script>
+      // ForraNova Firebase config Settings
+      const firebaseConfig = {
+        apiKey: "AIzaSyAfs_wHD7a3FGyMmnV3tNlODK2NidwAfnk",
+        authDomain: "forranova-academy.firebaseapp.com",
+        projectId: "forranova-academy",
+        storageBucket: "forranova-academy.firebasestorage.app",
+        messagingSenderId: "823429688119",
+        appId: "1:823429688119:web:63539f7bc8ff0be22a08b2",
+        measurementId: "G-N5WTN09YDT"
+      };
+
+      // Initialise Firebase
+      firebase.initializeApp(firebaseConfig);
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+
+      console.log("Firebase connected successfully");
+  </script>
+  <style>
+    /* reuse all styles from index.html */
+    :root { --primary-color: #00e0ff; --text-white: #fff; --bg-card: rgba(255,255,255,0.08); --glass-border: rgba(0,224,255,0.25); --radius-card: 16px; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Inter', sans-serif; background: #0b0e14; color: white; padding: 2rem; }
+    .admin-container { max-width: 1200px; margin: 0 auto; }
+    .tab-bar { display: flex; gap: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; margin-bottom: 2rem; }
+    .tab { padding: 0.5rem 1.5rem; cursor: pointer; border-radius: 20px; background: rgba(255,255,255,0.05); }
+    .tab.active { background: var(--primary-color); color: #000; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    .table { width: 100%; border-collapse: collapse; }
+    .table th, .table td { padding: 0.75rem; border-bottom: 1px solid #333; text-align: left; }
+    .btn { padding: 0.5rem 1rem; border-radius: 30px; border: none; cursor: pointer; font-weight: 600; }
+    .btn-primary { background: var(--primary-color); color: #000; }
+    .btn-danger { background: #ff5252; color: #fff; }
+    .btn-outline { background: transparent; border: 1px solid var(--primary-color); color: white; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; margin-bottom: 0.3rem; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.5rem; border-radius: 8px; border: 1px solid #333; background: #1a1e26; color: white; }
+  </style>
+</head>
+<body>
+<div class="admin-container">
+  <header style="display:flex; justify-content:space-between; align-items:center; padding: 1rem 0;">
+    <h1>ForraNova Admin</h1>
+    <span id="admin-user"></span>
+    <button id="admin-logout" class="btn btn-outline">Log Out</button>
+  </header>
+  <div id="admin-dashboard" style="margin-top: 2rem;">
+    <!-- Tabs -->
+    <div class="tab-bar" id="tab-bar">
+      <div class="tab active" data-tab="pending">Pending Requests</div>
+      <div class="tab" data-tab="assign">Direct Assign</div>
+      <div class="tab" data-tab="courses">Manage Courses</div>
+      <div class="tab" data-tab="users">Manage Users</div>
+    </div>
+
+    <!-- Tab Contents -->
+    <div id="pending" class="tab-content active">
+      <h2>Pending Access Requests</h2>
+      <div id="pending-list"></div>
+    </div>
+    <div id="assign" class="tab-content">
+      <h2>Direct Course Assignment</h2>
+      <div class="form-group">
+        <label>Select Learner</label>
+        <select id="assign-learner"></select>
+      </div>
+      <div class="form-group">
+        <label>Select Course</label>
+        <select id="assign-course"></select>
+      </div>
+      <button id="assign-btn" class="btn btn-primary">Grant Access</button>
+    </div>
+    <div id="courses" class="tab-content">
+      <h2>Add New Course</h2>
+      <form id="add-course-form">
+        <div class="form-group"><label>Title</label><input id="new-title" required></div>
+        <div class="form-group"><label>Slug</label><input id="new-slug" required></div>
+        <div class="form-group"><label>Access Type</label><select id="new-access"><option value="free">Free</option><option value="paid">Paid</option></select></div>
+        <div class="form-group"><label>Price</label><input id="new-price" placeholder="e.g. ₦25,000"></div>
+        <div class="form-group"><label>Tagline</label><input id="new-tagline"></div>
+        <div class="form-group"><label>Description</label><textarea id="new-description"></textarea></div>
+        <button type="submit" class="btn btn-primary">Add Course</button>
+      </form>
+    </div>
+    <div id="users" class="tab-content">
+      <h2>Manage Users</h2>
+      <div id="users-table-container"></div>
+      <hr style="margin:2rem 0;">
+      <h3>Add New Account</h3>
+      <form id="add-user-form">
+        <div class="form-group"><label>Email</label><input id="new-user-email" type="email" required></div>
+        <div class="form-group"><label>Password</label><input id="new-user-pass" type="password" required></div>
+        <div class="form-group"><label>Full Name</label><input id="new-user-name" required></div>
+        <div class="form-group"><label>Clearance Level</label><select id="new-user-level"><option value="3">3 – Student</option><option value="2">2 – Handler</option><option value="1">1 – Admin</option></select></div>
+        <button type="submit" class="btn btn-primary">Create Account</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ============================================================
+  // FIREBASE CONFIG
+  // ============================================================
+      // ForraNova Firebase config Settings
+      const firebaseConfig = {
+        apiKey: "AIzaSyAfs_wHD7a3FGyMmnV3tNlODK2NidwAfnk",
+        authDomain: "forranova-academy.firebaseapp.com",
+        projectId: "forranova-academy",
+        storageBucket: "forranova-academy.firebasestorage.app",
+        messagingSenderId: "823429688119",
+        appId: "1:823429688119:web:63539f7bc8ff0be22a08b2",
+        measurementId: "G-N5WTN09YDT"
+      };
+
+      // Initialise Firebase
+      firebase.initializeApp(firebaseConfig);
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+
+      console.log("Firebase connected successfully");
+
+  // ============================================================
+  // AUTH & CLEARANCE CHECK
+  // ============================================================
+  let currentAdmin = null;
+  let clearance = 0;
+
+  auth.onAuthStateChanged(async (user) => {
+    if (!user) {
+      // redirect to login (or show login modal)
+      window.location.href = 'learn.html';
+      return;
+    }
+    const doc = await db.collection('learners').doc(user.uid).get();
+    if (!doc.exists || doc.data().clearanceLevel > 2) {
+      alert('You do not have permission to access the admin panel.');
+      window.location.href = 'learn.html';
+      return;
+    }
+    currentAdmin = user;
+    clearance = doc.data().clearanceLevel;
+    document.getElementById('admin-user').textContent = user.email + ' (Level ' + clearance + ')';
+    // render admin UI
+    renderAdmin();
+  });
+
+  document.getElementById('admin-logout').addEventListener('click', () => { auth.signOut(); window.location.href = 'learn.html'; });
+
+  // ============================================================
+  // RENDER ADMIN DASHBOARD
+  // ============================================================
+  function renderAdmin() {
+    // show/hide tabs based on clearance
+    const isLevel1 = clearance === 1;
+    const isLevel2 = clearance === 2;
+    document.getElementById('users').style.display = isLevel1 ? 'block' : 'none';
+    document.querySelector('[data-tab="users"]').style.display = isLevel1 ? 'inline-block' : 'none';
+    // Level 2 sees Pending but read-only (no action buttons)
+    // Level 1 sees full Pending with approve/reject
+    loadPendingRequests();
+    loadAssignDropdowns();
+    loadUsersTable();
+    // tab switching
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        document.getElementById(tab.dataset.tab).classList.add('active');
+        // reload content on tab switch
+        if (tab.dataset.tab === 'pending') loadPendingRequests();
+        if (tab.dataset.tab === 'assign') loadAssignDropdowns();
+        if (tab.dataset.tab === 'users') loadUsersTable();
+      });
+    });
+    // form submission for add course
+    document.getElementById('add-course-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const newCourse = {
+        slug: document.getElementById('new-slug').value.trim(),
+        title: document.getElementById('new-title').value.trim(),
+        accessType: document.getElementById('new-access').value,
+        price: document.getElementById('new-price').value.trim() || null,
+        tagline: document.getElementById('new-tagline').value.trim(),
+        description: document.getElementById('new-description').value.trim(),
+        // add other placeholder fields as needed
+        level: 'Beginner',
+        duration: '4–6 Weeks',
+        language: 'English',
+        certificate: 'ForraNova Academic Certificate',
+        format: 'Online | Self-Paced',
+        materials: 'Access to All',
+        bonus: 'Portfolio on GitHub',
+        startDate: 'Enrol Anytime',
+        prerequisites: ['No prior experience required'],
+        audience: ['All learners'],
+        icon: 'fa-book',
+        badge: 'Course'
+      };
+      await db.collection('courses').doc(newCourse.slug).set(newCourse);
+      alert('Course added successfully!');
+      document.getElementById('add-course-form').reset();
+    });
+    // assign button
+    document.getElementById('assign-btn').addEventListener('click', async () => {
+      const learnerUid = document.getElementById('assign-learner').value;
+      const courseSlug = document.getElementById('assign-course').value;
+      if (!learnerUid || !courseSlug) return alert('Select both learner and course.');
+      await db.collection('learners').doc(learnerUid).update({
+        unlockedCourses: firebase.firestore.FieldValue.arrayUnion(courseSlug)
+      });
+      alert('Course assigned.');
+    });
+    // add user form
+    document.getElementById('add-user-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('new-user-email').value;
+      const pass = document.getElementById('new-user-pass').value;
+      const name = document.getElementById('new-user-name').value;
+      const level = parseInt(document.getElementById('new-user-level').value);
+      try {
+        const cred = await auth.createUserWithEmailAndPassword(email, pass);
+        await db.collection('learners').doc(cred.user.uid).set({
+          fullName: name,
+          email: email,
+          clearanceLevel: level,
+          unlockedCourses: [],
+          disabled: false,
+          createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+        alert('Account created.');
+        document.getElementById('add-user-form').reset();
+        loadUsersTable();
+      } catch (err) { alert(err.message); }
+    });
+  }
+
+  // ============================================================
+  // PENDING REQUESTS
+  // ============================================================
+  async function loadPendingRequests() {
+    const container = document.getElementById('pending-list');
+    const snapshot = await db.collection('accessRequests').where('status', '==', 'pending').get();
+    if (snapshot.empty) { container.innerHTML = '<p>No pending requests.</p>'; return; }
+    let html = '<table class="table"><tr><th>Learner</th><th>Course</th><th>Action</th></tr>';
+    snapshot.forEach(doc => {
+      const data = doc.data();
+      const isLevel1 = clearance === 1;
+      html += `<tr>
+        <td>${data.learnerEmail}</td>
+        <td>${data.courseTitle}</td>
+        <td>
+          ${isLevel1 ? `<button class="btn btn-primary btn-sm" data-id="${doc.id}" data-action="approve">Approve</button>
+          <button class="btn btn-danger btn-sm" data-id="${doc.id}" data-action="reject">Reject</button>` : 'Read-only'}
+        </td>
+      </tr>`;
+    });
+    html += '</table>';
+    container.innerHTML = html;
+    // attach events
+    if (isLevel1) {
+      container.querySelectorAll('[data-action="approve"]').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const id = btn.dataset.id;
+          const doc = await db.collection('accessRequests').doc(id).get();
+          const data = doc.data();
+          // add course to learner
+          await db.collection('learners').doc(data.uid).update({
+            unlockedCourses: firebase.firestore.FieldValue.arrayUnion(data.courseSlug)
+          });
+          // update request status
+          await db.collection('accessRequests').doc(id).update({ status: 'approved' });
+          loadPendingRequests();
+        });
+      });
+      container.querySelectorAll('[data-action="reject"]').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const id = btn.dataset.id;
+          await db.collection('accessRequests').doc(id).update({ status: 'rejected' });
+          loadPendingRequests();
+        });
+      });
+    }
+  }
+
+  // ============================================================
+  // DIRECT ASSIGN DROPDOWNS
+  // ============================================================
+  async function loadAssignDropdowns() {
+    // learners
+    const learnerSelect = document.getElementById('assign-learner');
+    const learnersSnap = await db.collection('learners').get();
+    learnerSelect.innerHTML = '<option value="">Select Learner</option>';
+    learnersSnap.forEach(doc => {
+      const data = doc.data();
+      learnerSelect.innerHTML += `<option value="${doc.id}">${data.email}</option>`;
+    });
+    // courses
+    const courseSelect = document.getElementById('assign-course');
+    const coursesSnap = await db.collection('courses').get();
+    courseSelect.innerHTML = '<option value="">Select Course</option>';
+    coursesSnap.forEach(doc => {
+      const data = doc.data();
+      courseSelect.innerHTML += `<option value="${doc.id}">${data.title}</option>`;
+    });
+  }
+
+  // ============================================================
+  // MANAGE USERS TABLE
+  // ============================================================
+  async function loadUsersTable() {
+    const container = document.getElementById('users-table-container');
+    const snapshot = await db.collection('learners').get();
+    let html = '<table class="table"><tr><th>Email</th><th>Clearance</th><th>Disabled</th><th>Actions</th></tr>';
+    snapshot.forEach(doc => {
+      const data = doc.data();
+      html += `<tr>
+        <td>${data.email}</td>
+        <td>
+          <select class="clearance-select" data-uid="${doc.id}" ${clearance !== 1 ? 'disabled' : ''}>
+            <option value="1" ${data.clearanceLevel===1?'selected':''}>1 – Admin</option>
+            <option value="2" ${data.clearanceLevel===2?'selected':''}>2 – Handler</option>
+            <option value="3" ${data.clearanceLevel===3?'selected':''}>3 – Student</option>
+          </select>
+        </td>
+        <td>${data.disabled ? 'Yes' : 'No'}</td>
+        <td>
+          ${clearance === 1 ? `<button class="btn btn-sm btn-danger toggle-disable" data-uid="${doc.id}" data-disabled="${data.disabled}">${data.disabled ? 'Enable' : 'Disable'}</button>` : ''}
+        </td>
+      </tr>`;
+    });
+    html += '</table>';
+    container.innerHTML = html;
+    // attach clearance change events
+    if (clearance === 1) {
+      container.querySelectorAll('.clearance-select').forEach(sel => {
+        sel.addEventListener('change', async () => {
+          const uid = sel.dataset.uid;
+          const level = parseInt(sel.value);
+          await db.collection('learners').doc(uid).update({ clearanceLevel: level });
+        });
+      });
+      container.querySelectorAll('.toggle-disable').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const uid = btn.dataset.uid;
+          const currentlyDisabled = btn.dataset.disabled === 'true';
+          await db.collection('learners').doc(uid).update({ disabled: !currentlyDisabled });
+          loadUsersTable();
+        });
+      });
+    }
+  }
+
+  // ============================================================
+  // HELPER
+  // ============================================================
+  const isLevel1 = clearance === 1; // will be updated on render
+</script>
+</body>
+</html>
