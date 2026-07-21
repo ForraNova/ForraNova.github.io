@@ -5,298 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ForraNova | Portal</title>
   <!-- Inline styles utilizing your exact shared CSS theme layout -->
-  <style>
-    /* ===============================
-       GLOBAL STYLES & VARIABLES
-       ================================ */
-    :root {
-        --primary-color: #00e0ff; 
-        --text-white: #fff;       
-        --text-dark: #000;        
-        --font-family: 'Inter', system-ui, -apple-system, sans-serif;
 
-        /* Forra Nova Animated Logo Canvas Panel Variables */
-        --canvas-width: 160px;
-        --canvas-height: 170px;
-        --bg-logo-sizeW: 100px;
-        --bg-logo-sizeH: 100px;
-        --bg-logo-top: 13px;
-        --bg-logo-left: 30px;
-        --brain-size: 60px;
-        --brain-top: 32px;
-        --brain-left: 65px; 
-        --heartbeat-speed: 2s; 
-        --text-width: 170px;
-        --text-bottom: 30px;
-        --text-down: 25px;
-        --text-left: -4px;
-        --spin-speed: 6s; 
-    }
-
-    *{
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: var(--font-family);
-      color: var(--text-white);
-      line-height: 1.6;
-      scroll-behavior: smooth;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-      background-size: cover;
-      overflow-x: hidden;
-    }
-
-    canvas {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      display: block;
-      z-index: 0;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      max-height: 100px;
-      z-index: 1000;
-      background: rgba(15,17,23,0.1);
-      backdrop-filter: blur(10px);
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      white-space: nowrap;
-      padding: 1rem 5%;
-    }
-
-    .logon {
-      font-size: 1.2em;
-      font-weight: 800;
-      background: linear-gradient(135deg, #FFFFFF 0%, #00FEDC 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      letter-spacing: 2px;
-    }
-
-    .slogan {
-      font-size: 1.04em;
-      color: var(--primary-color);
-      letter-spacing: 1px;
-      font-style: italic; 
-      text-align: center; 
-      font-family: 'Times New Roman';
-    }
-
-    /* ==========================================================================
-       FORRA NOVA ANIMATED LOGO COMPONENT
-       ========================================================================== */
-    .logo-component {
-      position: relative;
-      width: var(--canvas-width);
-      height: var(--canvas-height);
-      margin-left: 20px;
-      overflow: hidden;
-      perspective: 1000px; 
-      background: transparent; 
-      float: left;
-    }
-
-    .logo-layer {
-      position: absolute;
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
-    }
-
-    .layer-bg-logo {
-      width: var(--bg-logo-sizeW);
-      height: var(--bg-logo-sizeH);
-      top: var(--bg-logo-top);
-      left: var(--bg-logo-left);
-      z-index: 1000;
-    }
-
-    .layer-brain {
-      width: var(--brain-size);
-      height: var(--brain-size);
-      top: var(--brain-top);
-      left: var(--brain-left);
-      z-index: 2000;
-      animation: heartbeat var(--heartbeat-speed) ease-in-out infinite;
-      transform-origin: center center;
-    }
-
-    .layer-text {
-      width: var(--text-width);
-      height: calc(var(--text-width) * 0.25); 
-      bottom: var(--text-bottom);
-      left: var(--text-left);
-      z-index: 3000;
-      transform-style: preserve-3d;
-      animation: spin3D var(--spin-speed) linear infinite;
-    }
-
-    @keyframes heartbeat {
-      0%, 100% { transform: scale(1); }
-      25% { transform: scale(1.05); }
-      45% { transform: scale(1.02); }
-      65% { transform: scale(1.07); }
-    }
-
-    @keyframes spin3D {
-      0% { transform: rotateY(0deg); }
-      100% { transform: rotateY(360deg); }
-    }
-
-    /* ===============================
-       PORTAL CONTENT LAYOUT
-       ================================ */
-    .portal-container {
-      position: relative;
-      z-index: 10;
-      padding: 170px 10% 60px 10%;
-      text-align: center;
-    }
-
-    .portal-intro {
-      max-width: 850px;
-      margin: 0 auto 50px auto;
-      font-size: 1.1em;
-      letter-spacing: 1px;
-      text-align: justify;
-    }
-
-    .portal-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin-top: 20px;
-    }
-
-    .portal-card {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(0, 224, 255, 0.3);
-      border-radius: 15px;
-      overflow: hidden;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      text-align: left;
-    }
-
-    .portal-card:hover {
-      transform: translateY(-5px);
-      border: 2px solid rgba(0, 224, 255, 0.9);
-      filter: drop-shadow(0 0 15px var(--primary-color));
-    }
-
-    .card-banner {
-      background: rgba(0, 224, 255, 0.1);
-      padding: 15px 25px;
-      border-bottom: 1px solid rgba(0, 224, 255, 0.2);
-      font-weight: bold;
-      text-transform: uppercase;
-      font-size: 0.85rem;
-      letter-spacing: 1px;
-      color: var(--primary-color);
-    }
-
-    .card-body {
-      padding: 25px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .card-body h3 {
-      font-size: 1.4em;
-      font-weight: 600;
-      letter-spacing: 1px;
-      color: var(--primary-color);
-      margin-bottom: 15px;
-    }
-
-    .card-body p {
-      font-size: 0.95em;
-      margin-bottom: 25px;
-      color: var(--text-white);
-      opacity: 0.9;
-    }
-
-    .portal-btn {
-      display: inline-block;
-      width: 100%;
-      text-align: center;
-      padding: 12px;
-      background: transparent;
-      color: var(--primary-color);
-      border: 1px solid var(--primary-color);
-      border-radius: 8px;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-
-    .portal-card:hover .portal-btn {
-      background: var(--primary-color);
-      color: var(--text-dark);
-    }
-
-    /* ===============================
-       FOOTER
-       ================================ */
-    footer {
-      position: relative;
-      z-index: 10;
-      text-align: center;
-      padding: 30px 15px;
-      width: 100%;
-      background: rgba(15,17,23,0.5);
-      backdrop-filter: blur(10px);
-      color: var(--text-white);
-      border-top: 1px solid #333;
-      font-size: 0.9em;
-    }
-
-    footer p {
-      margin: 5px 0;
-    }
-
-    .foota {
-      height: 55px;
-      filter: drop-shadow(0 0 10px rgba(128, 255, 255, 0.6));
-      margin-bottom: 10px;
-    }
-
-    /* Mobile adaptations */
-    @media (max-width: 768px) {
-      .navbar {
-        flex-direction: column;
-        gap: 15px;
-      }
-      .portal-container {
-        padding-top: 220px;
-      }
-      .portal-intro {
-      padding-top: 80px;
-      }
-    }
-  </style>
+      <link rel="stylesheet" href="static/css/portal.css" />
 </head>
 <body>
 
@@ -312,71 +22,275 @@
         <img src="static/images/logoFN_2.png" alt="Forra Nova Text" class="logo-layer layer-text"> 
       </div>
       <div style="text-align: center; margin-top: -20px;">
-        <span class="logon">FORRANOVA SECTOR</span><br>
+        <span class="eyebrow">The Sector</span>
+        <h1 >F o r r a N o v a</h1>
         <strong class="slogan">Knowledge Is For The Living</strong>
+        <navi>
+            <ul id="navLinks">
+                <li><a href="#domain-portal" onclick="navigateTo('domain-portal', event)" class="nav-link active">Domain</a></li>        
+                <li><a href="templates/chat-show.html">Chat Show</a></li>
+                <li><a href="#training" onclick="navigateTo('training', event)" class="nav-link active">Training</a></li>
+                <li><a href="#tools" onclick="navigateTo('tools', event)" class="nav-link">Tools</a></li>
+                <li><a href="#games" onclick="navigateTo('games', event)" class="nav-link">Games</a></li>
+            </ul>
+        </navi>
       </div>
-      <div>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+      <div class="portal-btn-cont">
         <!-- Link safely routing back to cross-account profile origin -->
-        <a href="https://fofem.github.io" class="portal-btn" style="padding: 8px 16px;">← Developer Portfolio</a>
+        <a href="templates/chat-show.html#suggestion-box" class="portal-btn" style="padding: 8px 16px;">← Reach Developer</a>
       </div>
     </nav>    
   </header>
 
   <!-- MAIN ENTRY GATEWAY HUB -->
   <main class="portal-container">
-    <p class="portal-intro">
-      Welcome to the specialized domain gateway of the Sector <strong class="logon">ForraNova</strong>. 
-      As the primary instructional operating wing of ForraCorp, this system structures, anchors, and delivers standard 
-      computational competencies, linguistic engineering insights, and algorithmic workflow training. 
-      Select an interface module below to enter your designated learning node.
-    </p>
+
+    <section id="domain-portal" class="section active">
+      <p class="portal-intro">Step into <strong class="logon">ForraNova</strong>, the instructional heart of ForraCorp, and the sector where a trained trainer's legacy is distilled into structured, accessible learning.</p>
+
+      <p>ForraNova exists as ForraCorp's primary teaching wing, delivering computational competencies, linguistic engineering insight, and algorithmic workflow training to a new generation of builders. This is the digital university of AI and modern technology: a place to listen to podcasts, debates, and analysis on artificial intelligence, and to enrol in courses that carry real certification and a professional portfolio behind them.</p>
+
+      <p>Select an interface module below to enter your designated learning node.</p>
 
     <div class="portal-grid">
       <!-- Node 1: AI Chat-Show -->
       <article class="portal-card">
-        <div class="card-banner">Audio Broadcast Channel</div>
+        <a href="templates/chat-show.html">
+          <div class="card-banner">Audio Broadcast Channel</div>
+        </a>
         <div class="card-body">
           <div>
             <h3>AI Chat-Show</h3>
             <p>Access structured audio archives, linear problem-solving breakdowns, structural delimiter explanations, and forensic machine intelligence analysis transcripts.</p>
           </div>
-          <a href="templates/chat-show.html" class="portal-btn">Initialize Broadcast</a>
+          <a href="templates/chat-show.html" class="portal-btn">Enter Studio</a>
         </div>
       </article>
 
       <!-- Node 2: ForraNova Academy -->
       <article class="portal-card">
-        <div class="card-banner">Online Digital University</div>
+        <a href="templates/academy.html">
+          <div class="card-banner">Online Digital University</div>
+        </a>
         <div class="card-body">
           <div>
             <h3>ForraNova Academy</h3>            
-            <h2 style="text-align: center;">COMING SOON</h2>
-
+            <h2 style="text-align: center; color: red;">COMING SOON</h2>
 <!--            
             <p>Review comprehensive training pipelines, course schedules, and documentation covering localized offline PWA builds and automated retrieval systems.</p>
           </div>
           <a href="templates/academy.html" class="portal-btn">Access Academy</a>
 --->          
         </div>
-      </article>
+      </article>        
 
       <!-- Node 3: Financial Seminar -->
       <article class="portal-card">
-        <div class="card-banner">Seminar Hub Presentations</div>
+        <a href="#training" onclick="navigateTo('training', event)">
+          <div class="card-banner">Training and Seminar</div>
+        </a>
         <div class="card-body">
-          
 
-          <p>Master industrial syntax optimization patterns. Learn context isolation protocols and output security validation frameworks to control LLM drift.</p>
-          <a href="templates/hub/pearls.html" class="portal-btn">PEARLS Architecture</a>
-
-          <p>Deploy general purpose generative transformers to automate business sheets, construct risk analysis loops, and project operational workflows safely.</p>
-          <a href="templates/hub/finAI.html" class="portal-btn">Financial AI</a>
-
+          <ul class="seminar-list">
+            <li class="seminar-item">
+              <span class="seminar-trigger" onclick="toggleDropdown('pearls-drop')">The PEARLS of Prompting</span>
+              <div id="pearls-drop" class="dropdown-content">
+                <p>Master industrial syntax optimization patterns. Learn context isolation protocols and output security validation frameworks to control LLM drift.</p>
+                <a href="templates/hub/pearls.html" class="portal-btn">PEARLS Architecture</a>
+              </div>
+            </li>
+            <li class="seminar-item">
+              <span class="seminar-trigger" onclick="toggleDropdown('fin-drop')">School Financial Management</span>
+              <div id="fin-drop" class="dropdown-content">
+                <p>Deploy general purpose generative transformers to automate business sheets, construct risk analysis loops, and project operational workflows safely.</p>
+                <div class="dropdown-content-link">
+                  <a href="templates/hub/finAI.html" class="portal-btn">Financial AI</a>
+                </div>
+              </div>
+            </li>
+          </ul> 
         </div>
       </article>
 
+      <!-- Node 4: Game -->
+      <article class="portal-card">
+        <a href="#tools" onclick="navigateTo('tools', event)">
+          <div class="card-banner">Precision Tools</div>
+        </a>
+        <div class="card-body">
+          
+          <ul class="seminar-list">
+            <li class="seminar-item">
+              <span class="seminar-trigger" onclick="toggleDropdown('drop-pearls-1')"> The Prompt Compiler 1</span>
+              <div id="drop-pearls-1" class="dropdown-content">
+                <p>Deploy a modular, P-E-A-R-L-S-based interface to structure raw requests into optimized prompt syntax with automated nuance injection and real-time output compilation.</p>
+                <div class="dropdown-content-link">
+                  <a href="templates/resources/prompt-compiler_1.html" class="portal-btn">Prompt Compiler 1</a>
+                </div>
+              </div>
+            </li>
+            
+            <li class="seminar-item">
+              <span class="seminar-trigger" onclick="toggleDropdown('drop-pearls-2')"> The Prompt Compiler 2</span>
+              <div id="drop-pearls-2" class="dropdown-content">
+                <p>Deploy a modular, P-E-A-R-L-S-based interface to structure raw requests into optimized prompt syntax with automated nuance injection and real-time output compilation.</p>
+                <div class="dropdown-content-link">
+                  <a href="templates/resources/prompt-compiler_2.html" class="portal-btn">Prompt Compiler 2</a>
+                </div>
+              </div>
+            </li>
 
+            <li class="seminar-item">
+              <span class="seminar-trigger" onclick="toggleDropdown('drop-calc')">Calculator</span>
+              <div id="drop-calc" class="dropdown-content">
+                <p>FxCalc is a comprehensive dark green glassmorphism calculator web app with five modes (Simple, Scientific, Quantum, Graphing, Converter) plus a camera-based equation scanner. Built with replit AI.</p>
+                <a href="https://blue-print-nyo-cal--eveeubi.replit.app/" class="portal-btn">Lunch FxCalc</a>
+              </div>
+            </li>    
+          </ul>
+        </div>
+      </article>
+
+       <!-- Node 5: COMING SOON -->
+      <article class="portal-card">
+        <a href="templates/nyvona.html">
+          <div class="card-banner">Online Self Learning App.</div>
+        </a>
+        <div class="card-body">
+          <div>
+            <h2 style="text-align: center; color: red; font-size: 1.0em;">Under Test Mode</h2>
+             <h3>Nyvona AI Teacher</h3>            
+            <p>Access structured audio archives, linear problem-solving breakdowns, structural delimiter explanations, and forensic machine intelligence analysis transcripts.</p>
+          </div>
+          <a href="templates/nyvona.html" class="portal-btn">Start Lesson</a>
+        </div>
+      </article>
+
+      <!-- Node 6: COMING SOON -->
+      <article class="portal-card">
+        <a href="#games" onclick="navigateTo('games', event)">
+          <div class="card-banner">Game Console</div>
+        </a>
+        <div class="card-body">
+          <ul class="seminar-list">
+            <li class="seminar-item">
+              <span class="seminar-trigger" onclick="toggleDropdown('rop-game1')">Cell Jump</span>
+              <div id="rop-game1" class="dropdown-content">
+                <p>Master attention to details, respons to environment while under pressure.</p>
+                <a href="templates/recess/cell_jump.html" class="portal-btn">Launch Cell Jump</a>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </article>
+    </div>    
+  </section>
+
+  <section id="training" class="section">
+    <h1 class="domain-portal">TRAINING AND SEMINAR PORTAL</h1>
+
+    <div style="max-width: 1000px; margin: 0 auto;">
+      <div class="portal-grid">
+        
+        <!-- The PEARLS of Prompting -->
+        <article class="portal-card">
+          <div class="card-banner">The PEARLS of Prompting</div>
+          <div class="card-body">
+            <div>
+              <h3>PEARLS Framework</h3>
+              <p>Master industrial syntax optimization patterns. Learn context isolation protocols and output security validation frameworks to control LLM drift.</p>
+            </div>
+            <a href="templates/hub/pearls.html" class="portal-btn">Launch Training</a>
+          </div>
+        </article>
+
+        <!-- The PEARLS of Prompting -->
+        <article class="portal-card">
+          <div class="card-banner">School Financial Management</div>
+          <div class="card-body">
+            <div>
+              <h3>Using LLM for Financial Analysis</h3>
+              <p>Deploy general purpose generative transformers to automate business sheets, construct risk analysis loops, and project operational workflows safely.</p>
+            </div>
+            <a href="templates/hub/finAI.html" class="portal-btn">Launch Training</a>
+          </div>
+        </article>
+      </div>
     </div>
+  </section>
+
+  <section id="tools" class="section">
+    <h1 class="domain-portal">TOOLS PORTAL</h1>
+
+    <div style="max-width: 1000px; margin: 0 auto;">
+      <div class="portal-grid">
+        
+        <!-- The PEARLS of Prompting -->
+        <article class="portal-card">
+          <div class="card-banner">The Prompt Compiler 1</div>
+          <div class="card-body">
+            <div>
+              <h3>Raw Prompt PEARLS Compiler 1</h3>
+              <p>Deploy a modular, P-E-A-R-L-S-based interface to structure raw requests into optimized prompt syntax with automated nuance injection and real-time output compilation.</p>
+            </div>
+            <a href="templates/resources/prompt-compiler_1.html" class="portal-btn">Launch Tool</a>
+          </div>
+        </article>
+        
+        <!-- The PEARLS of Prompting -->
+        <article class="portal-card">
+          <div class="card-banner">The Prompt Compiler 2</div>
+          <div class="card-body">
+            <div>
+              <h3>Raw Prompt PEARLS Compiler 2</h3>
+              <p>Deploy a modular, P-E-A-R-L-S-based interface to structure raw requests into optimized prompt syntax with automated nuance injection and real-time output compilation.</p>
+            </div>
+            <a href="templates/resources/prompt-compiler_2.html" class="portal-btn">Launch Tool</a>
+          </div>
+        </article>
+
+        <!-- The PEARLS of Prompting -->
+        <article class="portal-card">
+          <div class="card-banner">Calculator</div>
+          <div class="card-body">
+            <div>
+              <h3>FxCalc: A Multi Mode Calculator </h3>
+              <p>FxCalc is a comprehensive dark green glassmorphism calculator web app with five modes (Simple, Scientific, Quantum, Graphing, Converter) plus a camera-based equation scanner. Built with replit AI.</p>
+            </div>
+            <a href="templates/hub/finAI.html" class="portal-btn">Launch FxCalc</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="games" class="section">
+    <h1 class="domain-portal">GAMES PORTAL</h1>
+    <div style="max-width: 1000px; margin: 0 auto;">
+      <div class="portal-grid">
+        
+        <!-- The PEARLS of Prompting -->
+        <article class="portal-card">
+          <div class="card-banner">Cell Jump</div>
+          <div class="card-body">
+            <div>
+              <h3>Cell Jump</h3>
+              <p>Master attention to details, respons to environment while under pressure.</p>
+            </div>
+            <a href="templates/recess/cell_jump.html" class="portal-btn">Launch Cell Jump</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
   </main>
 
   <!-- GLOBAL CONTROL FOOTER -->
@@ -385,6 +299,87 @@
     <p>&copy; <span id="currentYear"></span> ForraNova | A System Sector of ForraCorp</p>
     <p>Contact Administration: <a href="mailto:forracorp1@gmail.com" style="color: var(--primary-color);">forracorp1@gmail.com</a></p>
   </footer>
+
+<!-- ################################################################################# -->
+<!-- ###############################   Core Mechanics  ############################### -->
+<!-- ################################################################################# -->
+ <!-- SPA Router Script -->
+  <script>
+      function navigateTo(targetId, event) {
+          if (event) event.preventDefault();
+
+          // Hide all sections
+          const sections = document.querySelectorAll('.section');
+          sections.forEach(sec => sec.classList.remove('active'));
+
+          // Remove active state from nav links
+          const navLinks = document.querySelectorAll('.nav-link');
+          navLinks.forEach(link => link.classList.remove('active'));
+
+          // Show target section
+          const activeSection = document.getElementById(targetId);
+          if (activeSection) {
+              activeSection.classList.add('active');
+          }
+
+          // Highlight corresponding nav link
+          const targetLink = document.querySelector(`a[href="#${targetId}"]`);
+          if (targetLink) {
+              targetLink.classList.add('active');
+          }
+
+          // Update URL hash state without triggering page jump
+          history.pushState(null, null, `#${targetId}`);
+
+          // Close mobile menu if open
+          document.getElementById('navLinks').classList.remove('open');
+          window.scrollTo(0, 0);
+      }
+
+      // Hamburger Menu Toggle Logic
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const navLinksMenu = document.getElementById('navLinks');
+
+      hamburgerBtn.addEventListener('click', () => {
+          navLinksMenu.classList.toggle('open');
+      });
+
+      // Handle initial load based on URL hash
+      window.addEventListener('DOMContentLoaded', () => {
+          const hash = window.location.hash.substring(1);
+          if (hash && document.getElementById(hash)) {
+              navigateTo(hash);
+          }
+      });
+
+      // Handle browser back/forward buttons
+      window.addEventListener('popstate', () => {
+          const hash = window.location.hash.substring(1);
+          if (hash && document.getElementById(hash)) {
+              navigateTo(hash);
+          } else {
+              navigateTo('section1');
+          }
+      });
+  </script>
+
+  <!-- Dynamic Accordion Core Logic Script Engine -->
+  <script>
+    function toggleDropdown(targetId) {
+      const allDropdowns = document.querySelectorAll('.dropdown-content');
+      const targetElement = document.getElementById(targetId);
+      
+      // Mutual exclusion validation check: Close active dropdowns except current target
+      allDropdowns.forEach(drop => {
+        if (drop.id !== targetId) {
+          drop.classList.remove('active');
+        }
+      });
+      
+      // Cycle current active states smoothly
+      targetElement.classList.toggle('active');
+    }
+  </script>
 
   <!-- Background Canvas Core Rendering Script Logic -->
   <script>
