@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Convergence · Architect</title>
+  <!-- Three.js r128 from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <style>
+    /* ---------- global reset & sci-fi dark theme ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #0b0d10;
+      color: #d0dae6;
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+      user-select: none;
+    }
+    #game-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background: #0f1217;
+    }
+    /* canvas fills container, Three.js manages it */
+    #game-container canvas {
+      display: block;
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    /* ---------- HUD (persistent overlay) ---------- */
+    #hud {
+      position: absolute;
+      top: 20px;
+      left: 24px;
+      right: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      pointer-events: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #8c9bb5;
+      z-index: 10;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    }
+    #hud-left, #hud-right {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    #hud-right {
+      align-items: flex-end;
+    }
+    .hud-label {
+      font-size: 0.65rem;
+      opacity: 0.5;
+      letter-spacing: 0.12em;
+    }
+    .hud-value {
+      font-weight: 500;
+      color: #bccbe0;
+      font-size: 1.1rem;
+    }
+    #integrity-bar {
+      width: 120px;
+      height: 4px;
+      background: #25303e;
+      border-radius: 4px;
+      margin-top: 4px;
+      overflow: hidden;
+      box-shadow: 0 0 12px rgba(0,180,255,0.1);
+    }
+    #integrity-fill {
+      height: 100%;
+      width: 100%;
+      background: #4fc3ff;
+      border-radius: 4px;
+      transition: width 0.5s ease;
+    }
+    /* timer ring (subtle) */
+    #timer-ring-wrap {
+      margin-top: 8px;
+      width: 48px;
+      height: 48px;
+      position: relative;
+    }
+    #timer-ring {
+      transform: rotate(-90deg);
+      width: 48px;
+      height: 48px;
+    }
+    #timer-ring circle {
+      fill: none;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke: #4fc3ff;
+      stroke-dasharray: 126;
+      stroke-dashoffset: 0;
+      transition: stroke-dashoffset 0.3s ease;
+      filter: drop-shadow(0 0 6px rgba(79,195,255,0.3));
+    }
+    .timer-bg {
+      stroke: #1f2a36;
+      stroke-width: 4;
+    }
+
+    /* ---------- overlay UI (menus, messages) ---------- */
+    #overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      pointer-events: none;
+      z-index: 20;
+      background: rgba(11,13,16,0.55);
+      backdrop-filter: blur(3px);
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    #overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #overlay h1 {
+      font-size: 3.4rem;
+      font-weight: 300;
+      letter-spacing: 0.16em;
+      color: #eef4ff;
+      text-shadow: 0 0 40px rgba(79,195,255,0.15);
+      margin-bottom: 0.4rem;
+    }
+    #overlay .sub {
+      font-size: 1.1rem;
+      opacity: 0.6;
+      letter-spacing: 0.08em;
+      max-width: 440px;
+      text-align: center;
+      line-height: 1.6;
+      color: #b0c7dd;
+    }
+    .btn {
+      margin-top: 28px;
+      padding: 14px 42px;
+      background: transparent;
+      border: 1px solid #4fc3ff;
+      color: #d0e6ff;
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      pointer-events: auto;
+      transition: all 0.25s;
+      backdrop-filter: blur(4px);
+      background: rgba(79,195,255,0.06);
+      border-radius: 40px;
+      font-weight: 400;
+      box-shadow: 0 0 24px rgba(79,195,255,0.1);
+    }
+    .btn:hover {
+      background: rgba(79,195,255,0.18);
+      box-shadow: 0 0 40px rgba(79,195,255,0.25);
+      transform: scale(1.02);
+      border-color: #8fd6ff;
+    }
+    .btn:active { transform: scale(0.96); }
+
+    /* room intro micro-text */
+    #room-intro-text {
+      position: absolute;
+      bottom: 18%;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 1.3rem;
+      letter-spacing: 0.1em;
+      color: #b4d0f0;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+      z-index: 15;
+      pointer-events: none;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.7);
+      padding: 0 20px;
+    }
+    #room-intro-text.show {
+      opacity: 0.9;
+    }
+
+    /* accessibility / keyboard hint (tiny) */
+    #access-hint {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.6rem;
+      opacity: 0.25;
+      color: #7a8aa0;
+      letter-spacing: 0.08em;
+      z-index: 10;
+      pointer-events: none;
+      white-space: nowrap;
+      background: rgba(0,0,0,0.3);
+      padding: 6px 16px;
+      border-radius: 30px;
+      backdrop-filter: blur(2px);
+    }
+
+    /* responsive */
+    @media (max-width: 720px) {
+      #hud { font-size: 0.75rem; top: 14px; left: 16px; right: 16px; }
+      #integrity-bar { width: 80px; }
+      #timer-ring-wrap { width: 38px; height: 38px; }
+      #timer-ring { width: 38px; height: 38px; }
+      #overlay h1 { font-size: 2.2rem; }
+      .btn { padding: 12px 28px; font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+<div id="game-container">
+  <!-- Three.js canvas injected here -->
+
+  <!-- HUD -->
+  <div id="hud">
+    <div id="hud-left">
+      <span class="hud-label">sector</span>
+      <span class="hud-value" id="room-number">01</span>
+      <div id="integrity-bar"><div id="integrity-fill" style="width:100%"></div></div>
+      <span class="hud-label" style="margin-top:2px;">structural integrity</span>
+    </div>
+    <div id="hud-right">
+      <span class="hud-label">time</span>
+      <div id="timer-ring-wrap">
+        <svg id="timer-ring" viewBox="0 0 48 48">
+          <circle class="timer-bg" cx="24" cy="24" r="20"/>
+          <circle id="timer-circle" cx="24" cy="24" r="20" stroke-dasharray="126" stroke-dashoffset="0"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- room intro micro-text -->
+  <div id="room-intro-text"></div>
+
+  <!-- overlay (menu, game-over, victory) -->
+  <div id="overlay">
+    <h1 id="overlay-title">CONVERGENCE</h1>
+    <div class="sub" id="overlay-sub">stabilize the collapsing structure · 4 cognitive trials</div>
+    <button class="btn" id="overlay-btn">initialize</button>
+  </div>
+
+  <!-- tiny hint -->
+  <div id="access-hint">← drag to rotate · keys: Q/E · SPACE to lock</div>
+</div>
+
+<script>
+  (function(){
+    "use strict";
+
+    // ------------------------------------------------------------
+    // 1. UTILITY & SEEDED RANDOM (simple mulberry32)
+    // ------------------------------------------------------------
+    function mulberry32(a) {
+      return function() {
+        a |= 0; a = a + 0x6D2B79F5 | 0;
+        let t = Math.imul(a ^ a >>> 15, 1 | a);
+        t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+        return ((t ^ t >>> 14) >>> 0) / 4294967296;
+      };
+    }
+    let rng = mulberry32(Date.now() & 0xFFFFFFFF);
+
+    // ------------------------------------------------------------
+    // 2. GAME STATE & CONFIG
+    // ------------------------------------------------------------
+    const CONFIG = {
+      totalRooms: 9,               // 8-10, we use 9
+      maxConsecutiveSameType: 2,
+      integrityMax: 100,
+      timerBase: 28,              // seconds at difficulty 0
+      timerMin: 10,               // seconds at difficulty 1
+    };
+
+    const STATE = {
+      MENU: 'MENU',
+      LOADING: 'LOADING',
+      ROOM_INTRO: 'ROOM_INTRO',
+      PLAYING: 'PLAYING',
+      ROOM_COMPLETE: 'ROOM_COMPLETE',
+      GAME_OVER: 'GAME_OVER',
+      VICTORY: 'VICTORY'
+    };
+
+    // puzzle types
+    const PUZZLE_TYPES = ['spatial', 'logic', 'pattern', 'choice'];
+
+    // ------------------------------------------------------------
+    // 3. GAME MANAGER (state machine, room generation, HUD)
+    // ------------------------------------------------------------
+    class GameManager {
+      constructor() {
+        this.state = STATE.MENU;
+        this.roomIndex = 0;
+        this.roomSequence = [];
+        this.integrity = CONFIG.integrityMax;
+        this.difficulty = 0; // 0..1
+        this.timer = CONFIG.timerBase;
+        this.timerMax = CONFIG.timerBase;
+        this.timerRunning = false;
+        this.timerAccum = 0;
+        this.puzzleInstance = null;
+        this.threeScene = null;
+        this.particles = null;
+        this.clock = new THREE.Clock();
+
+        // DOM refs
+        this.roomNumberEl = document.getElementById('room-number');
+        this.integrityFill = document.getElementById('integrity-fill');
+        this.timerCircle = document.getElementById('timer-circle');
+        this.overlay = document.getElementById('overlay');
+        this.overlayTitle = document.getElementById('overlay-title');
+        this.overlaySub = document.getElementById('overlay-sub');
+        this.overlayBtn = document.getElementById('overlay-btn');
+        this.introTextEl = document.getElementById('room-intro-text');
+
+        // bind UI
+        this.overlayBtn.addEventListener('click', () => this.handleOverlayAction());
+        window.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            if (this.state === STATE.MENU || this.state === STATE.GAME_OVER || this.state === STATE.VICTORY) {
+              e.preventDefault();
+              this.handleOverlayAction();
+            }
+          }
+          // accessibility: SPACE to lock in spatial room
+          if (e.key === ' ' && this.state === STATE.PLAYING && this.puzzleInstance?.type === 'spatial') {
+            e.preventDefault();
+            this.puzzleInstance.lockRotation && this.puzzleInstance.lockRotation();
+          }
+          // Q/E for rotation (spatial)
+          if (this.state === STATE.PLAYING && this.puzzleInstance?.type === 'spatial') {
+            if (e.key === 'q' || e.key === 'Q') this.puzzleInstance.rotateStep && this.puzzleInstance.rotateStep(-0.05);
+            if (e.key === 'e' || e.key === 'E') this.puzzleInstance.rotateStep && this.puzzleInstance.rotateStep(0.05);
+          }
+        });
+
+        // init three.js
+        this.initThree();
+        // generate room sequence
+        this.generateRoomSequence();
+        // show menu
+        this.showMenu();
+        // start animation loop
+        this.animate();
+      }
+
+      initThree() {
+        const container = document.getElementById('game-container');
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x0b0d10);
+        this.threeScene = scene;
+
+        const camera = new THREE.PerspectiveCamera(42, window.innerWidth/window.innerHeight, 0.1, 100);
+        camera.position.set(5, 3, 8);
+        camera.lookAt(0,0,0);
+        this.camera = camera;
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.8));
+        renderer.shadowMap.enabled = false; // keep lightweight
+        container.prepend(renderer.domElement);
+        this.renderer = renderer;
+
+        // ambient particles (subtle)
+        this.initParticles();
+
+        // lights
+        const ambient = new THREE.AmbientLight(0x404a5a, 0.6);
+        scene.add(ambient);
+        const dirLight = new THREE.DirectionalLight(0xd4e8ff, 1.0);
+        dirLight.position.set(2, 5, 4);
+        scene.add(dirLight);
+        const fillLight = new THREE.DirectionalLight(0x8aacff, 0.4);
+        fillLight.position.set(-3, 1, -2);
+        scene.add(fillLight);
+
+        window.addEventListener('resize', () => {
+          const w = window.innerWidth, h = window.innerHeight;
+          camera.aspect = w/h;
+          camera.updateProjectionMatrix();
+          renderer.setSize(w,h);
+        });
+      }
+
+      initParticles() {
+        const count = 400;
+        const geom = new THREE.BufferGeometry();
+        const pos = new Float32Array(count * 3);
+        for (let i = 0; i < count; i++) {
+          pos[i*3] = (rng() - 0.5) * 30;
+          pos[i*3+1] = (rng() - 0.5) * 20;
+          pos[i*3+2] = (rng() - 0.5) * 30 - 5;
+        }
+        geom.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+        const mat = new THREE.PointsMaterial({
+          color: 0x5f7a9f,
+          size: 0.08,
+          transparent: true,
+          opacity: 0.5,
+          blending: THREE.AdditiveBlending
+        });
+        const pts = new THREE.Points(geom, mat);
+        pts.name = 'particles';
+        this.threeScene.add(pts);
+        this.particles = pts;
+      }
+
+      generateRoomSequence() {
+        const types = [];
+        let last = null, count = 0;
+        for (let i = 0; i < CONFIG.totalRooms; i++) {
+          let pick;
+          let attempts = 0;
+          do {
+            pick = PUZZLE_TYPES[Math.floor(rng() * PUZZLE_TYPES.length)];
+            attempts++;
+          } while ((pick === last && count >= CONFIG.maxConsecutiveSameType) && attempts < 20);
+          if (pick === last) count++;
+          else { last = pick; count = 1; }
+          types.push(pick);
+        }
+        this.roomSequence = types.map((t, idx) => ({
+          type: t,
+          index: idx,
+          difficulty: Math.min(1, idx / (CONFIG.totalRooms - 1))
+        }));
+      }
+
+      // ----- state transitions -----
+      showMenu() {
+        this.state = STATE.MENU;
+        this.overlay.classList.add('active');
+        this.overlayTitle.textContent = 'CONVERGENCE';
+        this.overlaySub.textContent = 'stabilize the collapsing structure · 4 cognitive trials';
+        this.overlayBtn.textContent = 'initialize';
+        this.introTextEl.classList.remove('show');
+        this.clearPuzzle();
+      }
+
+      startRun() {
+        this.roomIndex = 0;
+        this.integrity = CONFIG.integrityMax;
+        this.updateHUD();
+        this.overlay.classList.remove('active');
+        this.state = STATE.LOADING;
+        // start first room after brief delay
+        setTimeout(() => this.startRoom(), 400);
+      }
+
+      startRoom() {
+        if (this.roomIndex >= CONFIG.totalRooms) {
+          this.victory();
+          return;
+        }
+        const room = this.roomSequence[this.roomIndex];
+        this.difficulty = room.difficulty;
+        this.timerMax = CONFIG.timerBase - (CONFIG.timerBase - CONFIG.timerMin) * this.difficulty;
+        this.timer = this.timerMax;
+        this.timerAccum = 0;
+        this.timerRunning = false;
+        this.state = STATE.ROOM_INTRO;
+
+        // show intro micro-text
+        const msgs = [
+          'structure groans · sector calibrating',
+          'resonance pattern detected',
+          'logic weave fracturing',
+          'spatial alignment required',
+          'divergence threshold approaching'
+        ];
+        this.introTextEl.textContent = msgs[Math.floor(rng() * msgs.length)] + ' · room ' + (this.roomIndex+1);
+        this.introTextEl.classList.add('show');
+        this.updateHUD();
+
+        // init puzzle after delay
+        setTimeout(() => {
+          this.introTextEl.classList.remove('show');
+          this.state = STATE.PLAYING;
+          this.timerRunning = true;
+          this.initPuzzle(room.type);
+        }, 1800);
+      }
+
+      initPuzzle(type) {
+        this.clearPuzzle();
+        let puzzle;
+        switch(type) {
+          case 'spatial': puzzle = new SpatialPuzzle(this.threeScene, this.camera, this.difficulty); break;
+          case 'logic': puzzle = new LogicPuzzle(this.difficulty); break;
+          case 'pattern': puzzle = new PatternPuzzle(this.threeScene, this.camera, this.difficulty); break;
+          case 'choice': puzzle = new ChoicePuzzle(this.difficulty); break;
+          default: puzzle = new SpatialPuzzle(this.threeScene, this.camera, this.difficulty);
+        }
+        puzzle.type = type;
+        puzzle.init();
+        this.puzzleInstance = puzzle;
+        // attach solve callback
+        puzzle.onSolve = (success) => {
+          if (this.state !== STATE.PLAYING) return;
+          this.timerRunning = false;
+          if (success) {
+            this.roomComplete(true);
+          } else {
+            this.roomComplete(false);
+          }
+        };
+        // for spatial: lock callback via button
+        if (type === 'spatial') {
+          // we already handle via keydown, but we also provide a visual lock
+        }
+      }
+
+      clearPuzzle() {
+        if (this.puzzleInstance) {
+          this.puzzleInstance.cleanup && this.puzzleInstance.cleanup();
+          this.puzzleInstance = null;
+        }
+        // remove any leftover DOM puzzle elements
+        const container = document.getElementById('game-container');
+        container.querySelectorAll('.dom-puzzle').forEach(el => el.remove());
+      }
+
+      roomComplete(success) {
+        this.state = STATE.ROOM_COMPLETE;
+        if (!success) {
+          this.integrity = Math.max(0, this.integrity - 20);
+          this.updateHUD();
+          if (this.integrity <= 0) {
+            this.gameOver();
+            return;
+          }
+        }
+        // advance after delay
+        setTimeout(() => {
+          this.roomIndex++;
+          if (this.roomIndex >= CONFIG.totalRooms) {
+            this.victory();
+          } else {
+            this.startRoom();
+          }
+        }, success ? 900 : 1500);
+      }
+
+      gameOver() {
+        this.state = STATE.GAME_OVER;
+        this.overlay.classList.add('active');
+        this.overlayTitle.textContent = 'STRUCTURE COLLAPSED';
+        this.overlaySub.textContent = 'convergence exceeded · integrity zero';
+        this.overlayBtn.textContent = 'retry';
+        this.clearPuzzle();
+        this.timerRunning = false;
+      }
+
+      victory() {
+        this.state = STATE.VICTORY;
+        this.overlay.classList.add('active');
+        this.overlayTitle.textContent = 'STABILIZED';
+        this.overlaySub.textContent = 'all sectors aligned · the architect endures';
+        this.overlayBtn.textContent = 'new run';
+        this.clearPuzzle();
+        this.timerRunning = false;
+        // save high score (rooms completed)
+        const best = parseInt(localStorage.getItem('convergence_best') || '0');
+        if (this.roomIndex > best) {
+          localStorage.setItem('convergence_best', String(this.roomIndex));
+        }
+      }
+
+      handleOverlayAction() {
+        if (this.state === STATE.MENU || this.state === STATE.GAME_OVER || this.state === STATE.VICTORY) {
+          this.startRun();
+        }
+      }
+
+      updateHUD() {
+        const num = String(this.roomIndex + 1).padStart(2, '0');
+        this.roomNumberEl.textContent = num;
+        const pct = Math.max(0, this.integrity / CONFIG.integrityMax * 100);
+        this.integrityFill.style.width = pct + '%';
+        // timer ring
+        const progress = this.timerMax > 0 ? this.timer / this.timerMax : 0;
+        const offset = 126 * (1 - progress);
+        this.timerCircle.style.strokeDashoffset = offset;
+        // color hint
+        if (progress < 0.25) this.timerCircle.style.stroke = '#ff9f7a';
+        else this.timerCircle.style.stroke = '#4fc3ff';
+      }
+
+      // ----- main loop -----
+      animate() {
+        requestAnimationFrame(() => this.animate());
+        const delta = this.clock.getDelta();
+
+        // update timer
+        if (this.timerRunning && this.state === STATE.PLAYING) {
+          this.timer -= delta;
+          this.timerAccum += delta;
+          this.updateHUD();
+          if (this.timer <= 0) {
+            this.timer = 0;
+            this.timerRunning = false;
+            // time's up: fail puzzle
+            if (this.puzzleInstance) {
+              this.puzzleInstance.onSolve && this.puzzleInstance.onSolve(false);
+            }
+          }
+          // update puzzle
+          if (this.puzzleInstance) {
+            this.puzzleInstance.update && this.puzzleInstance.update(delta);
+          }
+        }
+
+        // render three
+        if (this.threeScene) {
+          this.renderer.render(this.threeScene, this.camera);
+        }
+        // post-render particle drift
+        if (this.particles) {
+          const positions = this.particles.geometry.attributes.position.array;
+          for (let i = 0; i < positions.length/3; i++) {
+            positions[i*3+1] += Math.sin(Date.now() * 0.0003 + i) * 0.001;
+          }
+          this.particles.geometry.attributes.position.needsUpdate = true;
+        }
+      }
+    }
+
+    // ------------------------------------------------------------
+    // 4. PUZZLE CLASSES (stubs / implementations)
+    // ------------------------------------------------------------
+    class SpatialPuzzle {
+      constructor(scene, camera, difficulty) {
+        this.scene = scene;
+        this.camera = camera;
+        this.difficulty = difficulty;
+        this.mesh = null;
+        this.targetRot = {x: 0, y: 0, z: 0};
+        this.currentRot = {x: 0, y: 0, z: 0};
+        this.locked = false;
+        this.onSolve = null;
+        this.type = 'spatial';
+        // drag
+        this.isDragging = false;
+        this.prevMouse = {x:0,y:0};
+        this.rotSpeed = 0.008;
+      }
+
+      init() {
+        // create a polyhedron: icosahedron or torus knot based on difficulty
+        const complexity = Math.floor(1 + this.difficulty * 3);
+        let geo;
+        if (complexity < 2) geo = new THREE.IcosahedronGeometry(1.2, 0);
+        else if (complexity < 3) geo = new THREE.OctahedronGeometry(1.2);
+        else geo = new THREE.TorusKnotGeometry(0.9, 0.35, 64, 8);
+        const mat = new THREE.MeshStandardMaterial({
+          color: 0x6f9eff,
+          roughness: 0.25,
+          metalness: 0.3,
+          emissive: new THREE.Color(0x1a2a4a),
+          emissiveIntensity: 0.2,
+          wireframe: false,
+          flatShading: true
+        });
+        this.mesh = new THREE.Mesh(geo, mat);
+        this.mesh.position.set(0, 0, 0);
+        this.scene.add(this.mesh);
+
+        // add a target silhouette (shadow) as a semi-transparent plane
+        const shadowMat = new THREE.MeshStandardMaterial({
+          color: 0x4fc3ff,
+          transparent: true,
+          opacity: 0.18,
+          side: THREE.DoubleSide,
+          emissive: new THREE.Color(0x2a4a7a),
+          emissiveIntensity: 0.1
+        });
+        const shadowGeo = new THREE.PlaneGeometry(1.6, 1.6);
+        this.shadow = new THREE.Mesh(shadowGeo, shadowMat);
+        this.shadow.position.set(2.6, 0.2, 0);
+        this.shadow.rotation.y = -0.4;
+        this.scene.add(this.shadow);
+
+        // random target rotation (difficulty influences)
+        this.targetRot = {
+          x: (rng() - 0.5) * 1.2 * (1 + this.difficulty * 0.8),
+          y: (rng() - 0.5) * 1.2 * (1 + this.difficulty * 0.8),
+          z: (rng() - 0.5) * 0.8 * (1 + this.difficulty * 0.5)
+        };
+        this.currentRot = {x:0, y:0, z:0};
+        this.mesh.rotation.set(0,0,0);
+
+        // mouse drag
+        const canvas = this.scene.parent.querySelector('canvas');
+        canvas.addEventListener('pointerdown', (e) => { this.isDragging = true; this.prevMouse.x = e.clientX; this.prevMouse.y = e.clientY; });
+        window.addEventListener('pointermove', (e) => {
+          if (!this.isDragging) return;
+          const dx = e.clientX - this.prevMouse.x;
+          const dy = e.clientY - this.prevMouse.y;
+          this.currentRot.y += dx * this.rotSpeed;
+          this.currentRot.x += dy * this.rotSpeed * 0.6;
+          this.mesh.rotation.x = this.currentRot.x;
+          this.mesh.rotation.y = this.currentRot.y;
+          this.prevMouse.x = e.clientX;
+          this.prevMouse.y = e.clientY;
+        });
+        window.addEventListener('pointerup', () => { this.isDragging = false; });
+        // key support: Q/E handled in manager
+      }
+
+      rotateStep(amount) {
+        this.currentRot.y += amount;
+        this.mesh.rotation.y = this.currentRot.y;
+      }
+
+      lockRotation() {
+        if (this.locked) return;
+        this.locked = true;
+        // check alignment: compare euler angles with tolerance
+        const tol = 0.25 - this.difficulty * 0.12;
+        const dx = this.currentRot.x - this.targetRot.x;
+        const dy = this.currentRot.y - this.targetRot.y;
+        const dz = this.currentRot.z - this.targetRot.z;
+        const dist = Math.sqrt(dx*dx + dy*dy + dz*dz);
+        const success = dist < tol;
+        if (this.onSolve) this.onSolve(success);
+      }
+
+      update(delta) {
+        // subtle ambient rotation if not dragging
+        if (!this.isDragging && !this.locked) {
+          this.mesh.rotation.y += delta * 0.1;
+          this.currentRot.y = this.mesh.rotation.y;
+        }
+      }
+
+      cleanup() {
+        if (this.mesh) { this.scene.remove(this.mesh); this.mesh.geometry.dispose(); this.mesh.material.dispose(); }
+        if (this.shadow) { this.scene.remove(this.shadow); this.shadow.geometry.dispose(); this.shadow.material.dispose(); }
+      }
+    }
+
+    // ---- stubs for other puzzle types (minimal) ----
+    class LogicPuzzle {
+      constructor(difficulty) { this.difficulty = difficulty; this.type = 'logic'; this.onSolve = null; }
+      init() {
+        const container = document.getElementById('game-container');
+        const div = document.createElement('div');
+        div.className = 'dom-puzzle';
+        div.style.cssText = 'position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:#b4d0f0; background:rgba(15,18,23,0.8); padding:30px 40px; border-radius:20px; border:1px solid #3a506a; backdrop-filter:blur(6px); text-align:center; pointer-events:auto;';
+        div.innerHTML = `<div style="font-size:1.4rem;letter-spacing:0.1em;">LOGIC GATE</div>
+                         <div style="margin:20px 0;opacity:0.7;">deduce the rule · set inputs</div>
+                         <div style="display:flex; gap:20px; justify-content:center; margin:16px 0;">
+                           <span style="padding:8px 16px;background:#1f2a36;border-radius:30px;">A: 0</span>
+                           <span style="padding:8px 16px;background:#1f2a36;border-radius:30px;">B: 1</span>
+                         </div>
+                         <button class="btn" style="margin-top:12px; padding:10px 32px; font-size:0.8rem;" id="logic-submit">submit</button>`;
+        container.appendChild(div);
+        document.getElementById('logic-submit').addEventListener('click', () => {
+          if (this.onSolve) this.onSolve(true);
+        });
+      }
+      update(delta) {}
+      cleanup() { document.querySelector('.dom-puzzle')?.remove(); }
+    }
+
+    class PatternPuzzle {
+      constructor(scene, camera, difficulty) { this.scene = scene; this.camera = camera; this.difficulty = difficulty; this.type = 'pattern'; this.onSolve = null; }
+      init() {
+        // visual 3D grid (placeholder)
+        const group = new THREE.Group();
+        for (let i=0; i<6; i++) {
+          const sphere = new THREE.Mesh(new THREE.SphereGeometry(0.2, 6,6), new THREE.MeshStandardMaterial({color: 0x6f9eff, emissive: new THREE.Color(0x1a2a4a)}));
+          sphere.position.set((i-2.5)*0.8, Math.sin(i)*0.5, Math.cos(i)*0.5);
+          group.add(sphere);
+        }
+        this.scene.add(group);
+        this.group = group;
+        setTimeout(() => { if (this.onSolve) this.onSolve(true); }, 1800);
+      }
+      update(delta) { if (this.group) this.group.rotation.y += delta * 0.2; }
+      cleanup() { if (this.group) { this.scene.remove(this.group); this.group.children.forEach(c => { c.geometry.dispose(); c.material.dispose(); }); } }
+    }
+
+    class ChoicePuzzle {
+      constructor(difficulty) { this.difficulty = difficulty; this.type = 'choice'; this.onSolve = null; }
+      init() {
+        const container = document.getElementById('game-container');
+        const div = document.createElement('div');
+        div.className = 'dom-puzzle';
+        div.style.cssText = 'position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:#b4d0f0; background:rgba(15,18,23,0.8); padding:30px 40px; border-radius:20px; border:1px solid #3a506a; backdrop-filter:blur(6px); text-align:center; pointer-events:auto;';
+        div.innerHTML = `<div style="font-size:1.4rem;letter-spacing:0.1em;">DIVERGENCE</div>
+                         <div style="margin:16px 0;opacity:0.7;">select the odd one</div>
+                         <div style="display:flex; gap:20px; justify-content:center; margin:16px 0; flex-wrap:wrap;">
+                           <span style="padding:12px 20px;background:#1f2a36;border-radius:40px;cursor:pointer;" class="choice-opt">◆</span>
+                           <span style="padding:12px 20px;background:#1f2a36;border-radius:40px;cursor:pointer;" class="choice-opt">◆</span>
+                           <span style="padding:12px 20px;background:#1f2a36;border-radius:40px;cursor:pointer;" class="choice-opt">◇</span>
+                         </div>`;
+        container.appendChild(div);
+        document.querySelectorAll('.choice-opt').forEach(el => {
+          el.addEventListener('click', () => {
+            if (this.onSolve) this.onSolve(el.textContent === '◇');
+          });
+        });
+      }
+      update(delta) {}
+      cleanup() { document.querySelector('.dom-puzzle')?.remove(); }
+    }
+
+    // ------------------------------------------------------------
+    // 5. BOOT
+    // ------------------------------------------------------------
+    window.addEventListener('DOMContentLoaded', () => {
+      const game = new GameManager();
+    });
+  })();
+</script>
+</body>
+</html>

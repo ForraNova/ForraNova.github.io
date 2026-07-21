@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ForraNova · The Prompt Compiler</title>
+    <style>
+        /* ----- RESET & BASE ----- */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg-dark: #070b16;
+            --bg-panel: rgba(10, 18, 40, 0.78);
+            --border-glass: rgba(74, 158, 255, 0.18);
+            --border-glass-hover: rgba(74, 158, 255, 0.35);
+            --text-primary: #f0f5ff;
+            --text-secondary: #b0c8f0;
+            --text-muted: #7a93bb;
+            --accent: #4a9eff;
+            --accent-glow: rgba(74, 158, 255, 0.30);
+            --accent-dim: rgba(74, 158, 255, 0.10);
+            --font-display: 'Georgia', 'Times New Roman', serif;
+            --font-body: -apple-system, 'Segoe UI', Roboto, system-ui, sans-serif;
+            --radius: 14px;
+            --shadow-panel: 0 12px 48px rgba(0, 0, 0, 0.6);
+            --transition: 0.22s ease;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 18px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* ----- CANVAS BACKGROUND ----- */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            width: 100dvw;
+            height: 100vh;
+            height: 100dvh;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.50;
+        }
+
+        /* ----- MAIN CONTAINER (vertical block) ----- */
+        .app-wrapper {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 820px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* ----- GLASS PANEL ----- */
+        .glass {
+            background: var(--bg-panel);
+            backdrop-filter: blur(16px) saturate(1.3);
+            -webkit-backdrop-filter: blur(16px) saturate(1.3);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-panel);
+            padding: 24px 26px;
+            transition: border-color var(--transition), box-shadow var(--transition);
+        }
+        .glass:hover {
+            border-color: var(--border-glass-hover);
+        }
+
+        /* ----- HEADER (top) ----- */
+        .brand-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 8px 12px;
+            margin-bottom: 6px;
+        }
+        .brand-header h1 {
+            font-family: var(--font-display);
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            background: linear-gradient(135deg, #f0f5ff 30%, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+        .brand-header .tagline {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            letter-spacing: 0.3px;
+            font-weight: 400;
+            border-left: 2px solid var(--accent);
+            padding-left: 12px;
+            -webkit-text-fill-color: var(--text-muted);
+        }
+
+        /* ----- NAKED PROMPT ----- */
+        .naked-section {
+            margin-bottom: 12px;
+        }
+        .naked-section label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .naked-section textarea {
+            width: 100%;
+            min-height: 76px;
+            padding: 14px 16px;
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid var(--border-glass);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            resize: vertical;
+            transition: border-color var(--transition), box-shadow var(--transition);
+        }
+        .naked-section textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+        .naked-section textarea::placeholder {
+            color: var(--text-muted);
+            opacity: 0.6;
+        }
+
+        /* ----- PEARLS FIELDS (accordion) ----- */
+        .pearls-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .pearl-field {
+            background: rgba(0, 0, 0, 0.20);
+            border-radius: 10px;
+            border: 1px solid transparent;
+            transition: border-color var(--transition), background var(--transition);
+            overflow: hidden;
+        }
+        .pearl-field:hover {
+            border-color: var(--border-glass);
+        }
+        .pearl-field.is-open {
+            border-color: var(--border-glass-hover);
+            background: rgba(0, 0, 0, 0.30);
+        }
+
+        .pearl-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            cursor: pointer;
+            user-select: none;
+            transition: background var(--transition);
+            border-radius: 10px;
+            flex-wrap: wrap;
+        }
+        .pearl-header:hover {
+            background: rgba(74, 158, 255, 0.06);
+        }
+        .pearl-header .letter {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--accent);
+            width: 28px;
+            flex-shrink: 0;
+            text-align: center;
+        }
+        .pearl-header .field-name {
+            font-weight: 600;
+            font-size: 0.92rem;
+            color: var(--text-primary);
+            flex: 0 0 auto;
+        }
+        .pearl-header .field-hint {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            flex: 1;
+            min-width: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .pearl-header .chevron {
+            margin-left: auto;
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            transition: transform var(--transition);
+            flex-shrink: 0;
+        }
+        .pearl-field.is-open .chevron {
+            transform: rotate(180deg);
+        }
+
+        .pearl-body {
+            padding: 0 16px 16px 16px;
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            animation: fadeSlide 0.25s ease;
+        }
+        .pearl-field.is-open .pearl-body {
+            display: flex;
+        }
+
+        @keyframes fadeSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(-6px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .pearl-body textarea,
+        .pearl-body input[type="text"] {
+            width: 100%;
+            padding: 10px 14px;
+            background: rgba(0, 0, 0, 0.30);
+            border: 1px solid var(--border-glass);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 0.92rem;
+            line-height: 1.5;
+            transition: border-color var(--transition), box-shadow var(--transition);
+        }
+        .pearl-body textarea {
+            resize: vertical;
+            min-height: 48px;
+        }
+        .pearl-body textarea:focus,
+        .pearl-body input[type="text"]:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+        .pearl-body textarea::placeholder,
+        .pearl-body input::placeholder {
+            color: var(--text-muted);
+            opacity: 0.5;
+        }
+
+        .field-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px 12px;
+            margin-top: 2px;
+        }
+        .btn-suggest {
+            background: transparent;
+            border: 1px solid var(--border-glass);
+            color: var(--text-secondary);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--transition);
+            letter-spacing: 0.3px;
+            font-family: var(--font-body);
+            line-height: 1.6;
+        }
+        .btn-suggest:hover {
+            background: var(--accent-dim);
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+        .btn-suggest:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        .nested-toggle {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 0.72rem;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 2px 4px;
+            font-family: var(--font-body);
+            transition: color var(--transition);
+            text-decoration: underline dotted;
+            text-underline-offset: 3px;
+        }
+        .nested-toggle:hover {
+            color: var(--accent);
+        }
+        .nested-toggle:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        .nested-group {
+            display: none;
+            flex-direction: column;
+            gap: 8px;
+            padding: 10px 12px 6px 12px;
+            background: rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            border-left: 2px solid var(--accent-dim);
+            margin-top: 2px;
+        }
+        .nested-group.is-visible {
+            display: flex;
+        }
+        .nested-group label {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+        .nested-group input,
+        .nested-group textarea {
+            width: 100%;
+            padding: 8px 12px;
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid var(--border-glass);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            transition: border-color var(--transition), box-shadow var(--transition);
+        }
+        .nested-group input:focus,
+        .nested-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+
+        .temp-select {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .temp-select button {
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid var(--border-glass);
+            color: var(--text-muted);
+            padding: 4px 14px;
+            border-radius: 16px;
+            font-size: 0.72rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--transition);
+            font-family: var(--font-body);
+            line-height: 1.6;
+        }
+        .temp-select button:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+        .temp-select button.is-active {
+            background: var(--accent-dim);
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+        .temp-select button:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        .temp-label {
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            display: block;
+            margin-top: 4px;
+        }
+
+        /* ----- PREVIEW (block) ----- */
+        .preview-panel {
+            display: flex;
+            flex-direction: column;
+        }
+        .preview-panel .preview-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px 12px;
+            margin-bottom: 12px;
+        }
+        .preview-panel .preview-header h2 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+        .preview-actions {
+            display: flex;
+            gap: 8px;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-glass);
+            color: var(--text-secondary);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--transition);
+            font-family: var(--font-body);
+            line-height: 1.6;
+        }
+        .btn-outline:hover {
+            background: var(--accent-dim);
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+        .btn-outline:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        .preview-output {
+            background: rgba(0, 0, 0, 0.40);
+            border-radius: 10px;
+            padding: 18px 20px;
+            border: 1px solid var(--border-glass);
+            flex: 1;
+            min-height: 160px;
+            max-height: 340px;
+            overflow-y: auto;
+            font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+            font-size: 0.88rem;
+            line-height: 1.7;
+            white-space: pre-wrap;
+            word-break: break-word;
+            color: var(--text-primary);
+        }
+        .preview-output .empty-state {
+            color: var(--text-muted);
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            opacity: 0.6;
+            font-style: italic;
+        }
+        .preview-output::-webkit-scrollbar {
+            width: 5px;
+        }
+        .preview-output::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+        .preview-output::-webkit-scrollbar-thumb {
+            background: var(--accent-dim);
+            border-radius: 8px;
+        }
+
+        /* ----- LEGEND (reference block) ----- */
+        .legend-panel .legend-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .legend-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 4px 12px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            padding: 3px 0;
+        }
+        .legend-item .l-letter {
+            font-weight: 700;
+            color: var(--accent);
+            width: 18px;
+            flex-shrink: 0;
+            font-size: 0.82rem;
+        }
+        .legend-item .l-label {
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+        .legend-item .l-hint {
+            color: var(--text-muted);
+            font-size: 0.68rem;
+            opacity: 0.7;
+            margin-left: 2px;
+        }
+
+        .legend-nuance {
+            margin-top: 10px;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-glass);
+            padding-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 18px;
+        }
+        .legend-nuance span {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .legend-nuance strong {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* ----- FOOTER ----- */
+        .app-footer {
+            text-align: center;
+            padding: 16px 0 4px 0;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            letter-spacing: 0.3px;
+            border-top: 1px solid var(--border-glass);
+            margin-top: 4px;
+            opacity: 0.6;
+        }
+        .app-footer strong {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* ----- RESPONSIVE (vertical block already) ----- */
+        @media (max-width: 600px) {
+            body {
+                padding: 12px;
+            }
+            .glass {
+                padding: 16px 14px;
+                border-radius: 12px;
+            }
+            .brand-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .brand-header .tagline {
+                border-left: none;
+                padding-left: 0;
+                font-size: 0.7rem;
+            }
+            .brand-header h1 {
+                font-size: 1.5rem;
+            }
+            .pearl-header {
+                padding: 10px 12px;
+                flex-wrap: wrap;
+            }
+            .pearl-header .field-hint {
+                white-space: normal;
+                flex: 0 0 100%;
+                order: 3;
+                margin-top: 2px;
+                font-size: 0.68rem;
+                padding-left: 38px;
+            }
+            .pearl-header .chevron {
+                order: 4;
+            }
+            .legend-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .preview-output {
+                max-height: 220px;
+                min-height: 120px;
+                font-size: 0.8rem;
+                padding: 14px;
+            }
+            .naked-section textarea {
+                min-height: 60px;
+                font-size: 0.88rem;
+            }
+            .field-actions {
+                gap: 6px;
+            }
+            .btn-suggest {
+                font-size: 0.65rem;
+                padding: 3px 12px;
+            }
+            .app-footer {
+                font-size: 0.6rem;
+                padding: 12px 0 2px 0;
+            }
+            .legend-nuance {
+                flex-direction: column;
+                gap: 2px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .legend-grid {
+                grid-template-columns: 1fr;
+                gap: 2px;
+            }
+            .preview-actions {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* ----- ACCESSIBILITY ----- */
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        .toast-message {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(10, 18, 40, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 12px 28px;
+            color: var(--text-primary);
+            font-size: 0.88rem;
+            font-weight: 500;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+            z-index: 999;
+            opacity: 0;
+            transform: translateX(-50%) translateY(16px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+        }
+        .toast-message.is-visible {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CANVAS -->
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+    <!-- TOAST -->
+    <div id="toast" class="toast-message" role="status" aria-live="polite"></div>
+
+    <!-- APP (vertical block) -->
+    <div class="app-wrapper" role="main">
+
+        <!-- HEADER -->
+        <header class="glass brand-header" style="padding-bottom:18px;">
+            <h1>⌨ The Prompt Compiler</h1>
+            <span class="tagline">Knowledge is for the Living</span>
+        </header>
+          <a href="../../index.html#tools" onclick="navigateTo('../../index.html#tools', event)"><button style=" border-radius: 10px; background: linear-gradient(135deg, #00e0ff, #fff, #2f7fe0); color: #051022;  position: relative; z-index: 10; text-align: center; padding: 10px 15px; width: 100%;  backdrop-filter: blur(10px);font-size: 1.2em; " > Return Back to FORRANOVA Domain gateway</button></a>    
+
+        <!-- COMPILER BLOCK -->
+        <section class="glass" aria-label="Prompt compiler">
+
+            <!-- Naked Prompt -->
+            <div class="naked-section">
+                <label for="naked-input">Naked Prompt <span style="font-weight:400;text-transform:none;color:var(--text-muted);font-size:0.7rem;">— start with your raw request</span></label>
+                <textarea id="naked-input" placeholder="e.g. &quot;Help me update my resume for a Project Manager role.&quot;" spellcheck="true"></textarea>
+            </div>
+
+            <!-- PEARLS Fields -->
+            <div class="pearls-grid" id="pearls-grid" role="form" aria-label="P-E-A-R-L-S prompt fields">
+
+                <!-- P: Persona -->
+                <div class="pearl-field is-open" data-field="P">
+                    <div class="pearl-header" role="button" tabindex="0" aria-expanded="true">
+                        <span class="letter">P</span>
+                        <span class="field-name">Persona</span>
+                        <span class="field-hint">Role · Identity · Character</span>
+                        <span class="chevron">▾</span>
+                    </div>
+                    <div class="pearl-body">
+                        <textarea id="f-P" placeholder="e.g. Act as a Senior Recruiter at a Fortune 500 tech company." rows="2"></textarea>
+                        <div class="field-actions">
+                            <button class="btn-suggest" data-target="f-P">🪄 Suggest</button>
+                            <button class="nested-toggle" data-nested="nested-P">+ Add nuance</button>
+                        </div>
+                        <div class="nested-group" id="nested-P">
+                            <label for="f-P-condition">Condition</label>
+                            <input type="text" id="f-P-condition" placeholder="e.g. a teacher in a low-income rural area" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E: Example(s) -->
+                <div class="pearl-field" data-field="E">
+                    <div class="pearl-header" role="button" tabindex="0" aria-expanded="false">
+                        <span class="letter">E</span>
+                        <span class="field-name">Example(s)</span>
+                        <span class="field-hint">Context · Sample</span>
+                        <span class="chevron">▾</span>
+                    </div>
+                    <div class="pearl-body">
+                        <textarea id="f-E" placeholder="e.g. Follow this structure for the summary: [Years] | [Skills] | [Achievement]." rows="2"></textarea>
+                        <div class="field-actions">
+                            <button class="btn-suggest" data-target="f-E">🪄 Suggest</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- A: Action -->
+                <div class="pearl-field" data-field="A">
+                    <div class="pearl-header" role="button" tabindex="0" aria-expanded="false">
+                        <span class="letter">A</span>
+                        <span class="field-name">Action</span>
+                        <span class="field-hint">Task · Mission · Request · Goal</span>
+                        <span class="chevron">▾</span>
+                    </div>
+                    <div class="pearl-body">
+                        <textarea id="f-A" placeholder="e.g. Rewrite my &quot;Professional Summary&quot; to align with the attached job description." rows="2"></textarea>
+                        <div class="field-actions">
+                            <button class="btn-suggest" data-target="f-A">🪄 Suggest</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- R: Result -->
+                <div class="pearl-field" data-field="R">
+                    <div class="pearl-header" role="button" tabindex="0" aria-expanded="false">
+                        <span class="letter">R</span>
+                        <span class="field-name">Result</span>
+                        <span class="field-hint">Output · Type · Format</span>
+                        <span class="chevron">▾</span>
+                    </div>
+                    <div class="pearl-body">
+                        <textarea id="f-R" placeholder="e.g. Provide three versions: &quot;Bold &amp; Professional&quot;, &quot;Short &amp; Punchy&quot;, and &quot;Detailed&quot;." rows="2"></textarea>
+                        <div class="field-actions">
+                            <button class="btn-suggest" data-target="f-R">🪄 Suggest</button>
+                            <button class="nested-toggle" data-nested="nested-R">+ Add nuance</button>
+                        </div>
+                        <div class="nested-group" id="nested-R">
+                            <label for="f-R-audience">Audience</label>
+                            <input type="text" id="f-R-audience" placeholder="e.g. explain to a 5-year-old" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- L: Limits -->
+                <div class="pearl-field" data-field="L">
+                    <div class="pearl-header" role="button" tabindex="0" aria-expanded="false">
+                        <span class="letter">L</span>
+                        <span class="field-name">Limits</span>
+                        <span class="field-hint">Constraints · Guidelines</span>
+                        <span class="chevron">▾</span>
+                    </div>
+                    <div class="pearl-body">
+                        <textarea id="f-L" placeholder="e.g. Do not exceed 100 words per version. Do not use the word &quot;passionate&quot;." rows="2"></textarea>
+                        <div class="field-actions">
+                            <button class="btn-suggest" data-target="f-L">🪄 Suggest</button>
+                            <button class="nested-toggle" data-nested="nested-L">+ Add nuance</button>
+                        </div>
+                        <div class="nested-group" id="nested-L">
+                            <label for="f-L-kr">Knowledge Retrieval</label>
+                            <input type="text" id="f-L-kr" placeholder="e.g. only use the provided PDF" />
+                            <label style="margin-top:6px;">Temperature</label>
+                            <div class="temp-select" role="radiogroup" aria-label="Temperature level">
+                                <button role="radio" aria-checked="false" data-temp="low">Low</button>
+                                <button role="radio" aria-checked="false" data-temp="medium" class="is-active">Medium</button>
+                                <button role="radio" aria-checked="false" data-temp="high">High</button>
+                            </div>
+                            <span class="temp-label" id="temp-label">Medium · 0.5–0.7 (professional writing)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- S: Scrutiny -->
+                <div class="pearl-field" data-field="S">
+                    <div class="pearl-header" role="button" tabindex="0" aria-expanded="false">
+                        <span class="letter">S</span>
+                        <span class="field-name">Scrutiny</span>
+                        <span class="field-hint">Critique · Check · Review</span>
+                        <span class="chevron">▾</span>
+                    </div>
+                    <div class="pearl-body">
+                        <textarea id="f-S" placeholder="e.g. Review the job description first and highlight which keywords you integrated." rows="2"></textarea>
+                        <div class="field-actions">
+                            <button class="btn-suggest" data-target="f-S">🪄 Suggest</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- OUTPUT BLOCK -->
+        <section class="glass preview-panel" aria-label="Compiled prompt output">
+            <div class="preview-header">
+                <h2>⬡ Compiled Prompt</h2>
+                <div class="preview-actions">
+                    <button class="btn-outline" id="btn-copy" title="Copy to clipboard">📋 Copy</button>
+                    <button class="btn-outline" id="btn-download" title="Download as .txt">⬇ Download</button>
+                </div>
+            </div>
+            <div class="preview-output" id="preview-output" role="document" aria-label="Compiled prompt preview">
+                <span class="empty-state">Fill in the fields above to see your compiled P-E-A-R-L-S prompt here.</span>
+            </div>
+        </section>
+
+        <!-- REFERENCE / LEGEND BLOCK -->
+        <section class="glass legend-panel" aria-label="P-E-A-R-L-S reference">
+            <div class="legend-title">📋 P·E·A·R·L·S &nbsp; <span style="font-weight:400;text-transform:none;font-size:0.65rem;color:var(--text-muted);">— reference</span></div>
+            <div class="legend-grid">
+                <div class="legend-item"><span class="l-letter">P</span><span class="l-label">Persona</span><span class="l-hint">role · identity</span></div>
+                <div class="legend-item"><span class="l-letter">E</span><span class="l-label">Example(s)</span><span class="l-hint">context · sample</span></div>
+                <div class="legend-item"><span class="l-letter">A</span><span class="l-label">Action</span><span class="l-hint">task · goal</span></div>
+                <div class="legend-item"><span class="l-letter">R</span><span class="l-label">Result</span><span class="l-hint">output · format</span></div>
+                <div class="legend-item"><span class="l-letter">L</span><span class="l-label">Limits</span><span class="l-hint">constraints</span></div>
+                <div class="legend-item"><span class="l-letter">S</span><span class="l-label">Scrutiny</span><span class="l-hint">critique · review</span></div>
+            </div>
+            <div class="legend-nuance">
+                <span>✦ <strong>Condition</strong> under Persona</span>
+                <span>✦ <strong>Audience</strong> under Result</span>
+                <span>✦ <strong>Knowledge Retrieval</strong> · <strong>Temperature</strong> under Limits</span>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="app-footer">
+            <strong>ForraNova</strong> &middot; Knowledge is for the Living &middot; P-E-A-R-L-S Compiler v1.0
+        </footer>
+    </div>
+
+    <script>
+        (function() {
+            'use strict';
+
+            // ----- CANVAS: circuit-board particle network -----
+            const canvas = document.getElementById('bg-canvas');
+            const ctx = canvas.getContext('2d');
+            let w, h, particles = [],
+                animId = null,
+                isTabVisible = true;
+
+            function resizeCanvas() {
+                w = canvas.width = window.innerWidth;
+                h = canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            const NUM_PARTICLES = 100;
+            const CONNECT_DIST = 130;
+            const DRIFT_SPEED = 0.10;
+
+            class Particle {
+                constructor() {
+                    this.reset(true);
+                }
+                reset(init) {
+                    this.x = Math.random() * w;
+                    this.y = Math.random() * h;
+                    this.vx = (Math.random() - 0.5) * DRIFT_SPEED * 0.6;
+                    this.vy = (Math.random() - 0.5) * DRIFT_SPEED * 0.6;
+                    if (!init) {
+                        this.x += (Math.random() - 0.5) * 20;
+                        this.y += (Math.random() - 0.5) * 20;
+                    }
+                    this.x = Math.max(0, Math.min(w, this.x));
+                    this.y = Math.max(0, Math.min(h, this.y));
+                }
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    if (this.x < 0 || this.x > w) this.vx *= -0.5;
+                    if (this.y < 0 || this.y > h) this.vy *= -0.5;
+                    this.x = Math.max(0, Math.min(w, this.x));
+                    this.y = Math.max(0, Math.min(h, this.y));
+                    this.vx += (Math.random() - 0.5) * 0.01;
+                    this.vy += (Math.random() - 0.5) * 0.01;
+                    this.vx *= 0.998;
+                    this.vy *= 0.998;
+                    const maxV = DRIFT_SPEED * 0.9;
+                    const sp = Math.hypot(this.vx, this.vy);
+                    if (sp > maxV) {
+                        this.vx = (this.vx / sp) * maxV;
+                        this.vy = (this.vy / sp) * maxV;
+                    }
+                }
+            }
+
+            function initParticles() {
+                particles = [];
+                for (let i = 0; i < NUM_PARTICLES; i++) particles.push(new Particle());
+            }
+            initParticles();
+
+            function drawNetwork() {
+                ctx.clearRect(0, 0, w, h);
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.hypot(dx, dy);
+                        if (dist < CONNECT_DIST) {
+                            const alpha = 0.25 * (1 - dist / CONNECT_DIST);
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = `rgba(74, 158, 255, ${alpha})`;
+                            ctx.lineWidth = 0.7;
+                            ctx.stroke();
+                        }
+                    }
+                }
+                for (const p of particles) {
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, 1.6, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(74, 158, 255, 0.5)';
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, 3.2, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(74, 158, 255, 0.06)';
+                    ctx.fill();
+                }
+            }
+
+            function animate() {
+                if (!isTabVisible) { animId = requestAnimationFrame(animate); return; }
+                for (const p of particles) p.update();
+                drawNetwork();
+                animId = requestAnimationFrame(animate);
+            }
+            animate();
+
+            document.addEventListener('visibilitychange', function() {
+                isTabVisible = document.visibilityState === 'visible';
+            });
+
+            // ----- TOAST -----
+            const toastEl = document.getElementById('toast');
+            let toastTimer = null;
+
+            function showToast(msg) {
+                toastEl.textContent = msg;
+                toastEl.classList.add('is-visible');
+                clearTimeout(toastTimer);
+                toastTimer = setTimeout(() => {
+                    toastEl.classList.remove('is-visible');
+                }, 2800);
+            }
+
+            // ----- PEARLS: expand/collapse -----
+            const fieldHeaders = document.querySelectorAll('.pearl-header');
+            fieldHeaders.forEach(header => {
+                const field = header.closest('.pearl-field');
+                const isOpen = field.classList.contains('is-open');
+                header.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+                function toggle() {
+                    const nowOpen = field.classList.toggle('is-open');
+                    header.setAttribute('aria-expanded', nowOpen ? 'true' : 'false');
+                    compilePreview();
+                }
+                header.addEventListener('click', toggle);
+                header.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault();
+                        toggle(); }
+                });
+            });
+
+            // ----- Nested toggles -----
+            const nestedToggles = document.querySelectorAll('.nested-toggle');
+            nestedToggles.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const targetId = this.getAttribute('data-nested');
+                    const group = document.getElementById(targetId);
+                    if (group) {
+                        const isVis = group.classList.toggle('is-visible');
+                        this.textContent = isVis ? '− Hide nuance' : '+ Add nuance';
+                        if (isVis) {
+                            const inp = group.querySelector('input, textarea');
+                            if (inp) setTimeout(() => inp.focus(), 80);
+                        }
+                        compilePreview();
+                    }
+                });
+            });
+
+            // ----- Temperature -----
+            const tempButtons = document.querySelectorAll('.temp-select button');
+            const tempLabel = document.getElementById('temp-label');
+            const tempMap = {
+                low: 'Low · 0.0–0.4 (coding, math, facts)',
+                medium: 'Medium · 0.5–0.7 (emails, articles, instruction)',
+                high: 'High · 0.8–1.0+ (poetry, brainstorming, fiction)'
+            };
+            tempButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    tempButtons.forEach(b => { b.classList.remove('is-active');
+                        b.setAttribute('aria-checked', 'false'); });
+                    this.classList.add('is-active');
+                    this.setAttribute('aria-checked', 'true');
+                    const val = this.getAttribute('data-temp');
+                    tempLabel.textContent = tempMap[val] || 'Medium · 0.5–0.7';
+                    compilePreview();
+                });
+                btn.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault();
+                        btn.click(); }
+                });
+            });
+
+            // ----- Suggest (heuristic) -----
+            function getNaked() { return document.getElementById('naked-input').value.trim(); }
+
+            function generateSuggestion(fieldId) {
+                const naked = getNaked();
+                if (!naked) return '';
+                const lower = naked.toLowerCase();
+                switch (fieldId) {
+                    case 'f-P': {
+                        const roleMatch = naked.match(/\b(as|like|role of|acting as)\s+([^.,;]+)/i);
+                        if (roleMatch) return `Act as a ${roleMatch[2].trim()}.`;
+                        const titles = ['manager', 'developer', 'designer', 'writer', 'analyst', 'consultant', 'recruiter',
+                            'teacher', 'engineer', 'director', 'lead', 'specialist'
+                        ];
+                        for (const t of titles) {
+                            if (lower.includes(t)) {
+                                return `Act as a Senior ${t.charAt(0).toUpperCase() + t.slice(1)} with 10+ years of experience.`;
+                            }
+                        }
+                        return 'Act as an expert in this domain.';
+                    }
+                    case 'f-E':
+                        return 'Follow this structure: [Key Point] | [Detail] | [Outcome].';
+                    case 'f-A': {
+                        const clean = naked.replace(/^(help me|i need|please|can you|would you)/i, '').trim();
+                        if (clean.length > 10) return clean.charAt(0).toUpperCase() + clean.slice(1).replace(/[.,;]+$/, '') +
+                            '.';
+                        return 'Perform the requested task with precision.';
+                    }
+                    case 'f-R':
+                        if (lower.includes('version') || lower.includes('option')) return 'Provide three variations with different tones.';
+                        if (lower.includes('summary')) return 'Output a concise summary in clear paragraphs.';
+                        if (lower.includes('list')) return 'Deliver a bulleted list with clear headings.';
+                        return 'Provide a well-structured, readable output.';
+                    case 'f-L': {
+                        const c = [];
+                        if (lower.includes('word') || lower.includes('limit')) {
+                            const m = naked.match(/(\d+)\s*(words?|characters?)/i);
+                            if (m) c.push(`Do not exceed ${m[1]} ${m[2]}.`);
+                            else c.push('Keep responses concise and focused.');
+                        }
+                        if (lower.includes('not') || lower.includes('avoid')) c.push('Avoid jargon and overly complex language.');
+                        return c.length ? c.join(' ') : 'Set clear boundaries and constraints.';
+                    }
+                    case 'f-S':
+                        if (lower.includes('review') || lower.includes('check')) return 'Review the input thoroughly and validate all key points.';
+                        if (lower.includes('keyword')) return 'Identify and highlight the most important keywords.';
+                        return 'Critique the work and suggest improvements where needed.';
+                    default:
+                        return '';
+                }
+            }
+
+            document.querySelectorAll('.btn-suggest').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    const textarea = document.getElementById(targetId);
+                    if (!textarea) return;
+                    const suggestion = generateSuggestion(targetId);
+                    if (suggestion) {
+                        textarea.value = suggestion;
+                        textarea.dispatchEvent(new Event('input', { bubbles: true }));
+                        showToast('✨ Suggested content added.');
+                    } else {
+                        showToast('Enter a naked prompt first.');
+                    }
+                });
+            });
+
+            // ----- Compile preview -----
+            function getFieldValue(id) {
+                const el = document.getElementById(id);
+                return el ? el.value.trim() : '';
+            }
+
+            function getNestedValue(id) {
+                const el = document.getElementById(id);
+                return el ? el.value.trim() : '';
+            }
+
+            function getTemperature() {
+                const active = document.querySelector('.temp-select button.is-active');
+                return active ? active.textContent.trim() : 'Medium';
+            }
+
+            function compilePreview() {
+                const p = getFieldValue('f-P');
+                const e = getFieldValue('f-E');
+                const a = getFieldValue('f-A');
+                const r = getFieldValue('f-R');
+                const l = getFieldValue('f-L');
+                const s = getFieldValue('f-S');
+                const pCond = getNestedValue('f-P-condition');
+                const rAud = getNestedValue('f-R-audience');
+                const lKr = getNestedValue('f-L-kr');
+                const temp = getTemperature();
+
+                const lines = [];
+                let personaLine = 'Persona: ' + (p || '[Define the persona]');
+                if (pCond) personaLine += ` (Condition: ${pCond})`;
+                lines.push(personaLine);
+                lines.push('Example(s): ' + (e || '[Provide context or sample]'));
+                lines.push('Action: ' + (a || '[Define the task]'));
+                let resultLine = 'Result: ' + (r || '[Describe the output]');
+                if (rAud) resultLine += ` (Audience: ${rAud})`;
+                lines.push(resultLine);
+                let limitParts = [];
+                if (l) limitParts.push(l);
+                if (lKr) limitParts.push(`Knowledge Retrieval: ${lKr}`);
+                if (temp) limitParts.push(`Temperature: ${temp}`);
+                lines.push('Limit: ' + (limitParts.length ? limitParts.join('; ') : '[Set constraints]'));
+                lines.push('Scrutiny: ' + (s || '[Define the review criteria]'));
+
+                const output = lines.join('\n');
+                const previewEl = document.getElementById('preview-output');
+                if (output.trim() === '' || output.includes('[Define') && !p && !e && !a && !r && !l && !s) {
+                    previewEl.innerHTML =
+                        '<span class="empty-state">Fill in the fields above to see your compiled P-E-A-R-L-S prompt here.</span>';
+                } else {
+                    previewEl.textContent = output;
+                }
+            }
+
+            // Attach input events
+            document.querySelectorAll('.pearl-body textarea, .pearl-body input, #naked-input').forEach(el => {
+                el.addEventListener('input', compilePreview);
+            });
+            document.querySelectorAll('.nested-group input, .nested-group textarea').forEach(el => {
+                el.addEventListener('input', compilePreview);
+            });
+            compilePreview();
+
+            // ----- Copy & Download -----
+            const copyBtn = document.getElementById('btn-copy');
+            const downloadBtn = document.getElementById('btn-download');
+
+            function getCompiledText() {
+                const previewEl = document.getElementById('preview-output');
+                const text = previewEl.textContent || '';
+                if (text.includes('Fill in the fields')) return '';
+                return text;
+            }
+
+            copyBtn.addEventListener('click', function() {
+                const text = getCompiledText();
+                if (!text) { showToast('Nothing to copy — fill in the fields first.'); return; }
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text).then(() => showToast('✅ Copied to clipboard!'))
+                        .catch(() => fallbackCopy(text));
+                } else { fallbackCopy(text); }
+            });
+
+            function fallbackCopy(text) {
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                ta.style.position = 'fixed';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.select();
+                try { document.execCommand('copy');
+                    showToast('✅ Copied to clipboard!'); } catch (e) { showToast('Could not copy.'); }
+                document.body.removeChild(ta);
+            }
+
+            downloadBtn.addEventListener('click', function() {
+                const text = getCompiledText();
+                if (!text) { showToast('Nothing to download — fill in the fields first.'); return; }
+                const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'compiled-prompt-pearls.txt';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                showToast('⬇ Downloaded!');
+            });
+
+            // Ctrl+Enter copy
+            document.addEventListener('keydown', (e) => {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                    const active = document.activeElement;
+                    if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA')) {
+                        e.preventDefault();
+                        copyBtn.click();
+                    }
+                }
+            });
+
+            console.log('🔷 The Prompt Compiler · ForraNova (vertical block)');
+        })();
+    </script>
+</body>
+</html>
