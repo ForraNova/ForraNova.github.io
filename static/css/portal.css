@@ -1,0 +1,458 @@
+ /* ===============================
+       GLOBAL STYLES & VARIABLES
+       ================================ */
+    :root {
+        --primary-color: #00e0ff; 
+        --text-white: #fff;       
+        --text-dark: #000;        
+        --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+
+        /* Forra Nova Animated Logo Canvas Panel Variables */
+        --canvas-width: 160px;
+        --canvas-height: 170px;
+        --bg-logo-sizeW: 100px;
+        --bg-logo-sizeH: 100px;
+        --bg-logo-top: 13px;
+        --bg-logo-left: 30px;
+        --brain-size: 60px;
+        --brain-top: 32px;
+        --brain-left: 65px; 
+        --heartbeat-speed: 2s; 
+        --text-width: 170px;
+        --text-bottom: 30px;
+        --text-down: 25px;
+        --text-left: -4px;
+        --spin-speed: 6s; 
+    }
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-family);
+      color: var(--text-white);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
+      overflow-x: hidden;
+    }
+
+    canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      z-index: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      max-height: 100px;
+      z-index: 1000;
+      background: rgba(15,17,23,0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      white-space: nowrap;
+      padding: 1rem 5%;
+    }
+
+    .logon {
+      font-size: 1.2em;
+      font-weight: 800;
+      background: linear-gradient(135deg, #FFFFFF 0%, #00FEDC 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 2px;
+    }
+
+    .slogan {
+      font-size: 1.04em;
+      color: var(--primary-color);
+      letter-spacing: 1px;
+      font-style: italic; 
+      text-align: center; 
+      font-family: 'Times New Roman';
+    }
+    .domain-portal {
+      font-size: 1.2em;
+      font-weight: 800;
+      background: linear-gradient(135deg, #FFFFFF 0%, #00FEDC 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 2px;
+      text-align: center; 
+      margin-bottom: 40px;
+    }
+
+
+    /* ==========================================================================
+       FORRA NOVA ANIMATED LOGO COMPONENT
+       ========================================================================== */
+    .logo-component {
+      position: relative;
+      width: var(--canvas-width);
+      height: var(--canvas-height);
+      margin-left: 20px;
+      overflow: hidden;
+      perspective: 1000px; 
+      background: transparent; 
+      float: left;
+    }
+
+    .logo-layer {
+      position: absolute;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+
+    .layer-bg-logo {
+      width: var(--bg-logo-sizeW);
+      height: var(--bg-logo-sizeH);
+      top: var(--bg-logo-top);
+      left: var(--bg-logo-left);
+      z-index: 1000;
+    }
+
+    .layer-brain {
+      width: var(--brain-size);
+      height: var(--brain-size);
+      top: var(--brain-top);
+      left: var(--brain-left);
+      z-index: 2000;
+      animation: heartbeat var(--heartbeat-speed) ease-in-out infinite;
+      transform-origin: center center;
+    }
+
+    .layer-text {
+      width: var(--text-width);
+      height: calc(var(--text-width) * 0.25); 
+      bottom: var(--text-bottom);
+      left: var(--text-left);
+      z-index: 3000;
+      transform-style: preserve-3d;
+      animation: spin3D var(--spin-speed) linear infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      25% { transform: scale(1.05); }
+      45% { transform: scale(1.02); }
+      65% { transform: scale(1.07); }
+    }
+
+    @keyframes spin3D {
+      0% { transform: rotateY(0deg); }
+      100% { transform: rotateY(360deg); }
+    }
+
+    /* ===============================
+       PORTAL CONTENT LAYOUT
+       ================================ */
+    .portal-container {
+      position: relative;
+      z-index: 10;
+      padding: 170px 10% 60px 10%;
+      text-align: center;
+    }
+    
+    .page-section{
+      margin-top: 400px;
+      padding: 0 10% 60px 10%;
+      text-align: center;
+    }
+
+    .portal-intro {
+      max-width: 850px;
+      margin: 0 auto 50px auto;
+      font-size: 1.1em;
+      letter-spacing: 1px;
+      text-align: justify;
+    }
+
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .portal-card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 224, 255, 0.3);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .portal-card:hover {
+      transform: translateY(-5px);
+      border: 2px solid rgba(0, 224, 255, 0.9);
+      filter: drop-shadow(0 0 15px var(--primary-color));
+    }
+
+    .card-banner {
+      background: rgba(0, 224, 255, 0.1);
+      padding: 15px 15px;
+      border-bottom: 1px solid rgba(0, 224, 255, 0.2);
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      color: var(--primary-color);
+      text-align: center;
+    }
+
+    .card-body {
+      padding: 25px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-body h3 {
+      font-size: 1.4em;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    .card-body p {
+      font-size: 0.95em;
+      margin-bottom: 25px;
+      color: var(--text-white);
+      opacity: 0.9;
+    }
+    .portal-btn-cont {
+      margin-top: -100px;
+    }
+    .portal-btn {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      padding: 12px;
+      background: transparent;
+      color: var(--primary-color);
+      border: 1px solid var(--primary-color);
+      border-radius: 8px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .portal-card:hover .portal-btn {
+      background: var(--primary-color);
+      color: var(--text-dark);
+    }
+    
+    /* Styling rules for the interactive accordions inside Node 3 */
+    .seminar-list {
+      list-style-type: square;
+      padding-left: 20px;
+      margin: 0;
+    }
+    .seminar-item {
+      margin-bottom: 12px;
+    }
+    .seminar-trigger {
+      font-size: 1.0rem;
+      font-weight: bold;
+      cursor: pointer;
+      color: #fff;
+      transition: color 0.2s ease;
+      user-select: none;
+      line-height: 1.1;
+    }
+    .seminar-trigger:hover {
+      color: #00d4ff;
+    }
+   
+    .dropdown-content {
+      max-height: 0;
+      overflow: scroll;
+      opacity: 0;
+      transition: max-height 0.3s ease-out, opacity 0.2s ease-out;
+      margin: 8px 0 0 -20px;
+      padding-left: 10px;
+    }
+    .dropdown-content.active {
+      max-height: 200px; /* Safe allowance headroom for target text content */
+      opacity: 1;
+      margin-bottom: 15px;
+    }
+    .dropdown-content p {
+      margin: 0 0 12px 0;
+      font-size: 0.95rem;
+      color: #c3c7db;
+      line-height: 1.5;
+    }
+    /* ===============================
+       FOOTER
+       ================================ */
+    footer {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 30px 15px;
+      width: 100%;
+      background: rgba(15,17,23,0.5);
+      backdrop-filter: blur(10px);
+      color: var(--text-white);
+      border-top: 1px solid #333;
+      font-size: 0.9em;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    .foota {
+      height: 55px;
+      filter: drop-shadow(0 0 10px rgba(128, 255, 255, 0.6));
+      margin-bottom: 10px;
+    }
+
+    /* Mobile adaptations */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .page-section {
+        padding-top: 150px;
+      }
+      .portal-container {
+        padding-top: 220px;
+      }
+      .portal-intro, .section {
+      padding-top: 120px;
+      }
+    }
+    
+    /* ===============================
+       SPA STYLING
+    ================================ */
+
+    /* Navigation Links */
+        navi ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        navi a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            cursor: pointer;
+        }
+
+        navi a:hover, navi a.active {
+            color: var(--primary-color);
+        }
+
+        /* Hamburger Menu Icon */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 28px;
+            height: 20px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+ /* Main Content Container */
+        
+
+        .section {
+            display: none;
+            background: var(--glass-bg);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            border-radius: 12px;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .section h2 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .section p {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+/* Responsive Breakpoints for Mobile */
+        @media (max-width: 768px) {
+          
+            navi ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 100;
+                width: 25%;
+                background: var(--bg-color);
+                border-bottom: 1px solid var(--border-color);
+                padding: 1.5rem 2rem;
+                gap: 1rem;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+                margin: -8px 10% 0 220px;
+            }
+
+            navi ul.open {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+                margin: -230px -330px 300px 20px;
+            }
+        }
