@@ -84,7 +84,7 @@
             if(letter === "L") prompts = ["1. Under 120 words, policy update to parents.", "2. Exclude financial numbers; focus on safety.", "3. Tone: warm, never punitive.", "4. Do not . . .", "5. Use . . ."];
             if(letter === "S") prompts = ["1. Review AI-generated parent email for empathy.", "2. Cross-check board report for factual errors.", "3. Validate student summary for inclusivity bias.", "4. Critique your result before you output the final result.", "5. Ensure you follow critically the provided prompt."];
 
-            return `<div class="card" style="margin-top: 25px; text-align:left;"><i class="fa-regular fa-clipboard"></i> <strong>🎯 PRACTICAL TEST (${letter}):</strong><br> ${prompts.map(p => `📌 ${p}`).join('<br>')}<br><button class="btn-practice" onclick="alert('Try applying PEARLS now with your own scenario! 📝')">Try on Notebook</button></div>`;
+            return `<div class="card" style="margin-top: 25px; text-align:left;"><i class="fa-regular fa-clipboard"></i> <strong>🎯 PRACTICAL TEST (${letter}):</strong><br> ${prompts.map(p => `📌 ${p}`).join('<br>')}<br><button class="btn-practice" onclick="alert('You are going to the prompt compiler tool. Try applying PEARLS now with your own scenario! 📝')"><a href="../resources/prompt-compiler_1.html" >Try on Compiler</a></button></div>`;
         }
 
         // Slide creators
@@ -133,7 +133,7 @@
             <a href="forranova.html">
                 <div class="chatshowtag">
                     <p>Debate • <i> AI Tech.</i></p>
-                    <h3><strong>Title:</strong> PChatGPT vs. Gemini: Which is better?</h3>
+                    <h3><strong>Title:</strong> ChatGPT vs. Gemini: Which is better?</h3>
                     <p><b>Episode 016 | 📅 <i><strong> May 28, 2026</strong></i><b><br>
                     <strong>The Strategic Duel of the Architectural Titans: ChatGPT vs. Gemini</strong></p>
             </a><br>
@@ -172,7 +172,13 @@
             <div style="max-width:1200px;">
                 <h2 class="slide-title">✨ The PEARLS Framework</h2>
 
-                <h3 >Video: <a href="https://www.linkedin.com/posts/vikasmittal_ai-agenticai-engineering-ugcPost-7436701136899299072-ZmAG?utm_source=social_share_send&utm_medium=android_app&rcm=ACoAADIacIoB4MOj_v7kEVwV8Z4yxUModo2WV0I&utm_campaign=whatsapp" style="text-decoration: none; text-align: center;">"One who can give a good prompt can give clear instructions."</a></h3> <br>
+
+                <video style="border-radius: 35px; object-fit: cover; background:transparent;" width="100%" height="100%" controls>
+                    <source src="../../static/downloads/media/prompting.mp4"  type="video/mp4">
+                    Your browser does not support video.
+                </video>                
+                <h3 style="text-align: center; color: #1affff;">"One who can give a good prompt can give clear instructions."</h3> <br>
+
 
                 <div class="grid-3">
                     <div class="card"><i class="fa-solid fa-user-tie" style="font-size:3rem;"></i><h3>P = Persona</h3><p>Assign an expert role: <br><strong>"As a Senior School Consultant"...<br>"You are a..."</strong></p></div>
@@ -275,7 +281,7 @@
                 </div>
             <a href="forranova.html">
                 <div class="chatshowtag">
-                    <p>Visit and get more from the AI Chart Show.</p>
+                    <p>Visit and get more from the <a href="../chat-show.html" >AI Chat Show.</a></p>
             </a>
 
           </div>
