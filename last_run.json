@@ -1,12 +1,12 @@
 {
-    "last_update": "July 23, 2026 | 08:12 AM",
+    "last_update": "July 23, 2026 | 11:01 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[08:12:40] SUCCESS: Machine Learning (3 found)",
-        "[08:12:42] SUCCESS: Front-End / React (3 found)",
-        "[08:12:44] SUCCESS: Writing / Creative (0 found)",
-        "[08:12:47] SUCCESS: Virtual Assistant (0 found)"
+        "[11:01:00] SUCCESS: Machine Learning (3 found)",
+        "[11:01:03] SUCCESS: Front-End / React (3 found)",
+        "[11:01:05] SUCCESS: Writing / Creative (0 found)",
+        "[11:01:09] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
-                    "position": "Merchandiser",
-                    "link": "https://remoteok.com/remote-jobs/remote-merchandiser-brydens-antigua-1134949"
+                    "position": "Data Entry Specialist",
+                    "link": "https://remoteok.com/remote-jobs/remote-data-entry-specialist-morgan-mckinley-1135273"
                 },
                 {
-                    "position": "Graphic Designer",
-                    "link": "https://remoteok.com/remote-jobs/remote-graphic-designer-youfibre-1134925"
+                    "position": "OFFICE ASSISTANT",
+                    "link": "https://remoteok.com/remote-jobs/remote-office-assistant-agrinomic-insights-llc-1135275"
                 },
                 {
-                    "position": "Exuma Operator",
-                    "link": "https://remoteok.com/remote-jobs/remote-exuma-operator-seven-seas-water-group-1134950"
+                    "position": "Data Quality Analyst",
+                    "link": "https://remoteok.com/remote-jobs/remote-data-quality-analyst-owl-co-1135274"
                 }
             ]
         },
