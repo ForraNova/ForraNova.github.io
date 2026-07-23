@@ -1,12 +1,12 @@
 {
-    "last_update": "July 23, 2026 | 01:25 PM",
+    "last_update": "July 23, 2026 | 04:20 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[13:25:04] SUCCESS: Machine Learning (3 found)",
-        "[13:25:07] SUCCESS: Front-End / React (3 found)",
-        "[13:25:09] SUCCESS: Writing / Creative (0 found)",
-        "[13:25:13] SUCCESS: Virtual Assistant (0 found)"
+        "[16:20:08] SUCCESS: Machine Learning (3 found)",
+        "[16:20:11] SUCCESS: Front-End / React (3 found)",
+        "[16:20:13] SUCCESS: Writing / Creative (0 found)",
+        "[16:20:17] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Business Development Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-business-development-manager-temu-1135291"
+                },
+                {
+                    "position": "Business Development Executive",
+                    "link": "https://remoteok.com/remote-jobs/remote-business-development-executive-outsource-access-careers-1135287"
+                },
+                {
                     "position": "Data Entry Specialist",
                     "link": "https://remoteok.com/remote-jobs/remote-data-entry-specialist-morgan-mckinley-1135273"
-                },
-                {
-                    "position": "OFFICE ASSISTANT",
-                    "link": "https://remoteok.com/remote-jobs/remote-office-assistant-agrinomic-insights-llc-1135275"
-                },
-                {
-                    "position": "Data Quality Analyst",
-                    "link": "https://remoteok.com/remote-jobs/remote-data-quality-analyst-owl-co-1135274"
                 }
             ]
         },
