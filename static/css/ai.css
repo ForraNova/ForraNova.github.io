@@ -232,7 +232,7 @@ header{
     flex-direction: column;
     width: 100%;
     position: absolute;
-    top: 100px; /* Adjust based on header height */
+    top: 120px; /* Adjust based on header height */
     left: 0;
     background: rgba(15, 17, 23, 0.75);
     text-align: center;
@@ -643,8 +643,8 @@ video, audio {
 .title{
   font-size: 1.4em;
   text-align: center;
-  padding: -50px;
-  margin: 0 -20px 0 -20px;
+  padding: 2px;
+  margin: -10px -20px 0 -20px;
 }
 .page{
   font-size: 1.0em;
@@ -819,3 +819,315 @@ transform:translateY(0);
     justify-content: center; /* Centers buttons on mobile */
   }
 }
+
+/* ===============================
+   SLIDE SHOW CONTROL ENGINE -Slider Main Container
+   =============================== */
+:root {
+      --bg-surface: #f5f5f7;
+      --bg-card: #ffffff;
+      --text-main: #1d1d1f;
+      --text-muted: #86868b;
+      --accent-color: #0066cc;
+      --overlay-bg: rgba(0, 0, 0, 0.65);
+      --transition-speed: 0.3s;
+    }
+
+    frame {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-surface);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .slider-showcase {
+      display: flex;
+      gap: 24px;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    /* --- Left Side: Vertical Thumbnail Track (Desktop default) --- */
+    .thumbnail-navigation {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      width: 80px;
+    }
+
+    .track-arrow {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      color: var(--text-muted);
+      padding: 4px;
+      transition: color var(--transition-speed);
+    }
+
+    .track-arrow:hover {
+      color: var(--text-main);
+    }
+
+    .thumbnail-viewport {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      overflow-y: hidden;
+      overflow-x: hidden;
+      max-height: 380px;
+      scroll-behavior: smooth;
+    }
+
+    .thumb-item {
+      width: 70px;
+      height: 70px;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      opacity: 0.6;
+      transition: all var(--transition-speed);
+      flex-shrink: 0;
+    }
+
+    .thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .thumb-item:hover {
+      opacity: 0.9;
+    }
+
+    .thumb-item.active {
+      border-color: var(--accent-color);
+      opacity: 1;
+      transform: scale(1.03);
+    }
+
+    /* --- Right Side: Content Frame --- */
+    .content-frame {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-width: 0; /* Prevents flex items from breaking layouts */
+    }
+
+    /* Media Screen Window */
+    .media-window {
+      position: relative;
+      width: 100%;
+      height: 420px;
+      border-radius: 12px;
+      overflow: hidden;
+      background-color: #000;
+      object-fit: contain;
+    }
+
+    .slide-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .slide-image.active {
+      opacity: 1;
+      position: relative;
+    }
+
+    /* --- Floating HUD Control Panel --- */
+    .hud-controls {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      background-color: var(--overlay-bg);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      padding: 6px 14px;
+      gap: 12px;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 500;
+      user-select: none;
+      z-index: 10;
+    }
+
+    .hud-btn {
+      background: none;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      transition: opacity var(--transition-speed);
+    }
+
+    .hud-btn:hover {
+      opacity: 0.7;
+    }
+
+    .counter-display {
+      letter-spacing: 0.5px;
+      border-left: 1px solid rgba(255, 255, 255, 0.3);
+      border-right: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0 10px;
+    }
+
+    /* --- Dynamic Progress Bar --- */
+    .timeline-container {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background-color: rgba(255, 255, 255, 0.2);
+      z-index: 11;
+    }
+
+    .timeline-fill {
+      width: 0%;
+      height: 100%;
+      background-color: var(--accent-color);
+      transition: width 0.1s linear;
+    }
+
+    /* --- Interactive Text Content Section --- */
+    .info-pane {
+      padding: -100px;
+    }
+
+    .info-pane h2 {
+      font-size: 22px;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .info-pane p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* --- Lightbox Zoom View --- */
+    .zoom-lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      z-index: 2000;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity var(--transition-speed) ease;
+    }
+
+    .zoom-lightbox.active {
+      display: flex;
+      opacity: 0.9;
+    }
+
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      border-radius: 4px;
+      transform: scale(0.95);
+      transition: transform var(--transition-speed) ease;      
+
+    }
+
+    .zoom-lightbox.active .lightbox-content {
+      transform: scale(1);
+    }
+
+    .close-lightbox {
+      position: absolute;
+      top: 180px;
+      right: 24px;
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 32px;
+      cursor: pointer;
+    }
+
+    /* ==========================================
+       RESPONSIVE BREAKPOINT (Mobile & Tablets)
+       ========================================== */
+    @media (max-width: 768px) {
+      .slider-showcase {
+        flex-direction: column; /* Stack media panel on top */
+        padding: 16px;
+        gap: 16px;
+      }
+
+      /* Reorder components so thumbnail track moves below the media window */
+      .thumbnail-navigation {
+        order: 2; 
+        flex-direction: row; /* Change track orientation to horizontal */
+        width: 100%;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .content-frame {
+        order: 1; /* Pushes the main media view to the top */
+      }
+
+      .thumbnail-viewport {
+        flex-direction: row; /* Thumbnails align side-by-side */
+        overflow-x: auto;
+        overflow-y: hidden;
+        max-height: none;
+        max-width: 100%;
+        padding: 4px 0;
+        /* Hide scrollbars but keep swipe utility intact */
+        -webkit-overflow-scrolling: touch;
+      }
+      
+      .thumbnail-viewport::-webkit-scrollbar {
+        display: none;
+      }
+
+      .track-arrow {
+        transform: rotate(-90deg); /* Rotate arrows to point Left/Right */
+      }
+
+      .media-window {
+        height: 280px; /* Scale down screen display window height for mobile views */
+      }
+
+      .info-pane h2 {
+        font-size: 18px;
+      }
+
+      .info-pane p {
+        font-size: 14px;
+      }
+    }
+
+
+
