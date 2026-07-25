@@ -1,21 +1,17 @@
 {
-    "last_update": "July 24, 2026 | 09:56 PM",
+    "last_update": "July 25, 2026 | 01:50 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:56:32] SUCCESS: Machine Learning (3 found)",
-        "[21:56:34] SUCCESS: Front-End / React (3 found)",
-        "[21:56:36] SUCCESS: Writing / Creative (0 found)",
-        "[21:56:39] SUCCESS: Virtual Assistant (0 found)"
+        "[01:50:02] SUCCESS: Machine Learning (3 found)",
+        "[01:50:05] SUCCESS: Front-End / React (3 found)",
+        "[01:50:07] SUCCESS: Writing / Creative (0 found)",
+        "[01:50:10] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
             "jobs": [
-                {
-                    "position": "Entry Level Crypto Market Specialist",
-                    "link": "https://remoteok.com/remote-jobs/remote-entry-level-crypto-market-specialist-apex-trade-1134871"
-                },
                 {
                     "position": "Junior Crypto Trader",
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
@@ -23,6 +19,10 @@
                 {
                     "position": "Mid Senior AI Cinematic Video Editor",
                     "link": "https://remoteok.com/remote-jobs/remote-mid-senior-ai-cinematic-video-editor-everai-1134014"
+                },
+                {
+                    "position": "Enterprise Account Executive",
+                    "link": "https://remoteok.com/remote-jobs/remote-enterprise-account-executive-career-1135389"
                 }
             ]
         },
