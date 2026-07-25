@@ -46,106 +46,344 @@
 <!-- HOME PAGE -->
 <canvas id="bgCanvas"></canvas>
 
-
 <!-- PROJECTS PAGE -->  
 <section id="project" class="project-studio">
-  <p class="page">At the core of the ForraCorp ecosystem is a vital sector, the <strong class="logon">ForraNova Academy</strong>. There, knowledge is synthesized, preserved, and passed to the next generation. Under the stewardship of Fredrick, the academy lives up to his enduring legacy of <i>"training the trainers"</i> advocacy. We believe that, by empowering at least one individual to master a craft, we bridge the digital divide for many, ensuring that excellence and insight remain accessible to those who will shape the future. The academy is currently building a 100% offline AI-powered education operating system, designed as a Progressive Web App (PWA) to ensure localized Retrieval-Augmented
-Generation (RAG) capabilities for learning.</p>
-
-  <h2>The AI Chat-Show</h2>
-
-<div class="search-container" style="margin: 20px 10%; text-align: center;">
-  <input type="text" id="projectSearch" placeholder="Search topics (e.g. CoT, Biography)..." 
-         style="padding: 12px; width: 80%; max-width: 500px; border-radius: 25px; border: 1px solid #00e0ff; background: #1b1f29; color: white;">
-</div>
-  <!-- FILTER BUTTONS -->
-
-  <div class="filters">
-    <button class="filter-btn active" data-filter="all">All
-    <span class="tooltip-text">Access the complete library of ForraNova’s educational and creative media.</span>
-    </button>
-    <button class="filter-btn" data-filter="pdc">Podcast
-    <span class="tooltip-text">In-depth audio biographies and technical discussions on topical issuse like: AI Ethics, LangChain architecture, and industrial automation.</span>
-  </button>
-    <button class="filter-btn" data-filter="dbt">Debate
-    <span class="tooltip-text">High-level strategic dialogues. For example: The issue regarding the transition from Narrow AI to AGI and the ethical implications of ASI.</span>
-  </button>
-    <button class="filter-btn" data-filter="aly">Analysis
-    <span class="tooltip-text">Dedicated segments designed to deep-dives into technical frameworks and explain complex terms as it relate to AI.</span>
-  </button>
-  </div>
+ 
+  <p class="page">  <h2>The AI Chat Show</h2>
 <!--
-  <div class="media-switch" >  
-    <label>View Format:</label>
-    <select id="mediaSelect">
-      <option value="mixed">All Media</option>
-      <option value="doc">Training Manual</option>
-      <option value="audio">Audio Shows</option>
-    </select>
-  </div>
+    At the core of the ForraCorp ecosystem is a vital sector, the <strong class="logon">ForraNova Academy</strong>. There, knowledge is synthesized, preserved, and passed to the next generation. Under the stewardship of Fredrick, the academy lives up to his enduring legacy of <i>"training the trainers"</i> advocacy. We believe that, by empowering at least one individual to master a craft, we bridge the digital divide for many, ensuring that excellence and insight remain accessible to those who will shape the future. The academy is currently building a 100% offline AI-powered education operating system, designed as a Progressive Web App (PWA) to ensure localized Retrieval-Augmented Generation (RAG) capabilities for learning.
+-->
+  </p>
+
+     <frame>
+      <div class="slider-showcase">
+        <!-- Mini Display Navigation Track -->
+        <div class="thumbnail-navigation">
+          <button class="track-arrow" id="prevBtn" title="Previous Slide">▲</button>
+          <div class="thumbnail-viewport" id="thumbViewport">
+            <!-- Generated Dynamically via JS -->
+          </div>
+          <button class="track-arrow" id="nextBtn" title="Next Slide">▼</button>
+        </div>
+
+        <!-- Right/Top Production Window Frame -->
+        <div class="content-frame">
+          <div class="media-window">
+            <div id="imageContainer">
+              <!-- Generated Dynamically via JS -->
+            </div>
+
+            <!-- Floating Control Dashboard overlay -->
+            <div class="hud-controls">
+              <button class="hud-btn" id="playPauseBtn" title="Toggle Auto-play">
+                <svg id="playPauseIcon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                </svg>
+              </button>
+              
+              <div class="counter-display">
+                <span id="currentIdx">1</span> / <span id="totalIdx">0</span>
+              </div>
+
+              <button class="hud-btn" id="zoomBtn" title="Zoom View">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                </svg>
+              </button>
+            </div>
+
+            <!- Progress Timeline Loader Bar -->
+            <div class="timeline-container">
+              <div class="timeline-fill" id="timelineBar"></div>
+            </div>
+          </div>
+
+          <!-- Descriptive Information Component -->
+          <div class="info-pane">
+            <h2 id="infoTitle">Loading Title...</h2>
+            <p id="infoDesc">Loading description elements...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Zoom Lightbox Portal Overlay -->
+      <div class="zoom-lightbox" id="lightbox">
+        <button class="close-lightbox" id="closeLightbox">&times;</button>
+        <img src="" alt="Expanded View" class="lightbox-content" id="lightboxImg">
+      </div>
+    </frame>
+      
+    <!-- SEARCH BAR -->
+    <div class="search-container" style="margin: 20px 10%; text-align: center;">
+      <input type="text" id="projectSearch" placeholder="Search topics (e.g. 025, Sleep, Episode)..." 
+             style="padding: 12px; width: 80%; max-width: 500px; border-radius: 25px; border: 1px solid #00e0ff; background: #1b1f29; color: white;">
+    </div>
+      <!-- FILTER BUTTONS -->
+
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All
+        <span class="tooltip-text">Access the complete library of ForraNova’s educational and creative media.</span>
+        </button>
+        <button class="filter-btn" data-filter="pdc">Podcast
+        <span class="tooltip-text">In-depth audio biographies and technical discussions on topical issuse like: AI Ethics, LangChain architecture, and industrial automation.</span>
+      </button>
+        <button class="filter-btn" data-filter="dbt">Debate
+        <span class="tooltip-text">High-level strategic dialogues. For example: The issue regarding the transition from Narrow AI to AGI and the ethical implications of ASI.</span>
+      </button>
+        <button class="filter-btn" data-filter="aly">Analysis
+        <span class="tooltip-text">Dedicated segments designed to deep-dives into technical frameworks and explain complex terms as it relate to AI.</span>
+      </button>
+      </div>
+<!--
+      <div class="media-switch" >  
+        <label>View Format:</label>
+        <select id="mediaSelect">
+          <option value="mixed">All Media</option>
+          <option value="doc">Training Manual</option>
+          <option value="audio">Audio Shows</option>
+        </select>
+      </div>
 -->
 
   <div class="project-grid">
 
 
-    <div class="project-card mixed pdc audio announcement-card" data-release-time="2026-07-31 07:00:01">
-      <div class="card-content">
-        <span class="badge"><b>NOTICE</b></span><b class="dot"> • </b><i class="badge_sub">System Update</i>
-        
-        <div class="tagline" startdate-expiry="2026-07-31"><b>UPGRADE</b></div> 
-        
-        <h3 class="title">Scheduled Site Upgrade & URL Relocation</h3>
-        
-        <div class="project-date">
-          <b>SYSTEM NOTICE</b> <strong>|</strong> 📅 <i><strong>July 31, 2026</strong></i>
-        </div>
-        
-        <div class="pageCade">
-          <p>Dear Visitors,<br><br>
-          We are currently performing critical infrastructure upgrades on our main site URLs to provide you with a better, more seamless experience on the <strong>AI CHAT SHOW</strong> platform.</p>
-          
-          <blockquote>
-            <strong>Important Notice:</strong> <br>All automated content uploads on this current page may temporarily be interrupted. 
-          </blockquote><br>
-          
-          <p>Thereafter, regular automated scheduling and new episode uploads will officially resume.</p>
-        </div>
 
-        <div class="help-info">
-          We sincerely apologize for any inconvenience this temporary pause may cause and appreciate your patience as we improve our systems.
+
+
+
+
+
+
+
+
+
+
+
+    <div class="project-card mixed pdc audio" data-release-time="2026-07-30 07:00:01">
+      <div class="card-content">
+        <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> Biogenetics</i>
+        <div class="tagline" startdate-expiry="2026-07-30"><b>NEW !</b></div> 
+        <h3 class="title">Blue Ray Effects of Digital Devices on the Eyes & Health</h3>
+        <div class="project-date">
+          <b>Episode 053</b>  <strong>|</strong>  📅 <i><strong> July 30, 2026</strong></i>
+        </div>
+        <div class="info">    
+          <img src="https://static.independent.co.uk/2025/04/23/13/23104904-e0709f8b-4a90-4486-9875-e05f18664a06.jpg?quality=75&width=1368&auto=webp" class="art" alt="Blue Ray">
+          
+            <div class="pageCade">
+               <p><strong>The Blue Light Paradox: Short-Wavelength Radiation and Human System Constraints</strong></p><hr class="hr">
+               <p>Staring into a glowing screen late at night isn't just a bad habit—it is a biological system override that forces your brain to execute a daytime loop when it desperately needs a diagnostic system reset. As high-energy visible (HEV) radiation floods our visual inputs, our internal biological architectures misinterpret the signal, halting critical recovery loops and causing long-term structural strain. This episode unpacks the biological coding behind digital eye strain, melatonin suppression, and retinal phototoxicity, offering actionable blueprints to protect our physical hardware in an always-on digital world.</p>
+
+              <p><b>Key Highlights :</b></p>
+              <div class="list">
+                <p>* <strong>The System Override Mental Model:</strong> Evening blue light (400–490nm) acts like an unauthorized, high-priority <strong>system override packet</strong>. It tricks the master clock in the suprachiasmatic nucleus (SCN) into treating nighttime as solar midday, suppressing the "melatonin token" required for overnight maintenance.</p>
+
+                <p>* <strong>Unfiltered Hardware Vulnerability:</strong> Unlike short UV rays, which are filtered by the front of the eye, high-energy blue wavelengths pass unimpeded through the cornea and lens, striking retinal photoreceptors directly and triggering <strong>oxidative stress injury</strong>.</p>
+
+                <p>* <strong>Visual Scattering and Digital Noise:</strong> Because blue light travels in short, high-energy waves, it scatters easily inside the eye, creating visual noise that degrades image contrast and forces ciliary focus muscles into continuous micro-adjustments.</p>
+
+                <p>* <strong>Systemic Metabolic Disruption:</strong> Chronic nighttime screen exposure and sleep fragmentation throw energy-management hormones out of balance, lowering satiety signals (<strong>leptin</strong>) and spiking hunger signals (<strong>ghrelin</strong>).</p>
+
+                <p>* <strong>Practical Hardware Mitigation:</strong> Implementing software-level warmer color profiles, following the <strong>20-20-20 rule</strong>, and enforcing a strict two-hour nightly device shutdown window can effectively safeguard your biological optical sensors.</p>
+              </div>
+
+              <blockquote> 
+                <p><b>Questions Answered :</b><br>
+                  How does exposure to short-wavelength blue light mathematically shift token weights in the brain's circadian context window?</p>
+              </blockquote>
+              <blockquote>
+                  <p>Why is blue light dramatically more effective at suppressing melatonin than green light of equivalent brightness?</p>
+              </blockquote>
+              <blockquote>
+                  <p>What structural vulnerabilities in the human eye allow High-Energy Visible (HEV) light to cause long-term cellular retinal damage?</p>
+              </blockquote>
+              <blockquote>
+                  <p>How does visual light scattering cause the optical muscle fatigue commonly known as digital eye strain?</p>
+              </blockquote>
+              <blockquote>
+                  <p>In what ways does late-night screen time disrupt metabolic function and appetite-regulating hormones?</p>
+              </blockquote>
+
+              <p class="cta">Ready to patch your biological system vulnerabilities? Listen to the full episode on the AI Chat Show now to optimize your daily screen habits and safeguard your health.</p>
+            </div>
+          </div>
+        <audio controls src="../static/downloads/audio/Ep056.mp3" type="audio/mp3">
+        </audio>
+        <div class="download-link">
+          <a href="../static/downloads/audio/Ep056.mp3" download="Blue Ray Effects.mp3">⬇ Download</a>
         </div>
       </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- <div class="project-card mixed pdc audio" data-release-time="2026-07-01 07:00:01">
+    <div class="project-card mixed pdc audio" data-release-time="2026-07-29 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
-        <div class="tagline" startdate-expiry="2026-07-16"><b>NEW !</b></div> 
+        <div class="tagline" startdate-expiry="2026-07-29"><b>NEW !</b></div> 
+        <h3 class="title">Mastering Technical Skills with AI Triage</h3>
+        <div class="project-date">
+          <b>Episode 056</b>  <strong>|</strong>  📅 <i><strong> July 29, 2026</strong></i>
+        </div>
+        <div class="info">    
+          <img src="https://storage.scalenut.com/prod/cruise-mode-images/8245356c0c0e9e-cfdb-4a9b-a4b6-9d03274cc501.png" class="art" alt="Technical Skills with AI">
+          
+          <div class="pageCade">
+             <p><strong>Mastering the AI Triad: How to Skill-Up Your Career with Next-Gen LLMs.</strong></p><hr class="hr">
+             <p>Treating Large Language Models like simple chatbots is the fastest way to cap your professional growth in the modern tech landscape. To build a future-proof career, you must evolve from a casual prompter into an orchestrator of specialized AI triage networks. This episode unpacks "The Digital Renaissance Citadel"—a strategic framework for routing your intellectual workload across frontier flagships, open-weight workhorses, and ultra-long-context multimodal models to maximize personal learning, coding throughput, and strategic career growth.</p>
+            
+            <p><b>Key Highlights :</b></p>
+            <div class="list">
+              <p>* <strong>The Digital Renaissance Citadel Framework:</strong> Learn how to orchestrate a three-tiered AI system featuring <strong>The Grand Architect</strong> (frontier models for system blueprints), <strong>The Master Craftsman</strong> (open-weight models for cost-effective execution), and <strong>The Polymath Scholar</strong> (multimodal models for massive context ingestion).</p>
+
+              <p>* <strong>Socratic Learning & Retrieval-Augmented Compaction:</strong> Discover how to collapse 100-page papers and massive API documentations into interactive, personalized learning loops using 1M+ token context windows like <strong>Gemini 3.1 Pro</strong>.</p>
+
+              <p>* <strong>The Sandboxed Coding Forge:</strong> Explore how developer workflows leverage agentic code execution in models like <strong>Claude Opus 4.7</strong> and cost-effective local iterations with <strong>DeepSeek V4 Pro</strong> to isolate logic bottlenecks and auto-correct stack traces in real time.</p>
+
+              <p>* <strong>Latent Space Career Mapping:</strong> See how to utilize high-reasoning models like <strong>GPT-5.5</strong> as ruthless, cynical CTO proxies to stress-test system architectures, expose hidden skill gaps, and translate raw engineering outputs into executive business value.</p>
+
+              <p>* <strong>The Resource Allocation Trade-Off:</strong> Uncover the economic matrix balancing pure reasoning density against high-speed, open-weight swarms, enabling you to build a dynamic triage framework for near-zero cost iteration.</p>
+            </div>
+
+            <blockquote> 
+              <p><b>Questions Answered :</b><br>
+                How can you transform dry technical documentation into an interactive, real-time Socratic dialogue tailored to your exact knowledge level?</p>
+            </blockquote>
+            <blockquote>
+                <p>What is the operational difference between deploying Tier 1 Frontier Flagships and Tier 2 Open-Weight Workhorses in day-to-day software development?</p>
+            </blockquote>
+            <blockquote>
+                <p>How do agentic feedback loops and Model Context Protocols (MCP) allow AI models to run, analyze, and debug code directly within local sandboxed environments?</p>
+            </blockquote>
+            <blockquote>
+                <p>How can technical professionals use high-dimensional latent space mapping to prepare for executive design reviews and high-stakes CTO interviews?</p>
+            </blockquote>
+            <blockquote>
+                <p>Why is relying on a single AI model inherently inefficient compared to building a multi-tier AI routing architecture?</p>
+            </blockquote>
+
+            <p class="cta">Ready to upgrade your workflow from basic chat prompts to an enterprise-grade AI triage framework? Listen to the full episode on the AI Chat Show now and take command of your digital citadel.</p>
+          </div>
+
+          </div>
+        <audio controls src="../static/downloads/audio/Ep055.mp3" type="audio/mp3">
+        </audio>
+        <div class="download-link">
+          <a href="../static/downloads/audio/Ep055.mp3" download="Technical Skills with AI.mp3">⬇ Download</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card mixed pdc audio" data-release-time="2026-07-28 07:00:01">
+      <div class="card-content">
+        <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> Biogenetics</i>
+        <div class="tagline" startdate-expiry="2026-07-28"><b>NEW !</b></div> 
+        <h3 class="title">Studying 3- Read, Meditate and Sleep</h3>
+        <div class="project-date">
+          <b>Episode 055</b>  <strong>|</strong>  📅 <i><strong> July 28, 2026</strong></i>
+        </div>
+        <div class="info">    
+          <img src="https://nutritionsource.hsph.harvard.edu/wp-content/uploads/2020/11/shutterstock_1106549885-768x512.jpg" class="art" alt="Read, Meditate and Sleep">
+          <div class="pageCade">
+               <p><strong>How to study (Part 4) - Read, meditate then sleep. Unlocking the brains' super abilities when Learning</strong></p><hr class="hr">
+               <p>Treating human learning like an enterprise software pipeline unveils a fundamental system requirement: attempting to commit live data transactions directly to deep disk storage creates an immediate I/O bottleneck. By mapping human cognition to software engineering—separating data ingestion from asynchronous weight tuning and offline batch serialization—we reveal the ultimate evolutionary protocol for unlocking peak cognitive performance. Discover how structuring your learning sequence through reading, deliberate meditation, and deep sleep transforms fragile short-term tokens into immutable, high-efficiency mental models.</p>
+              
+              <p><b>Key Highlights :</b></p>
+              <div class="list">
+                <p>* <strong>The Read Phase (Data Ingestion):</strong> Capturing high-throughput live data dumps fills volatile short-term RAM (the <strong>hippocampus</strong>), acting like context window token ingestion where synaptic pathways remain highly unstable until consolidated.</p>
+
+                <p>* <strong>The Meditate Phase (Synaptic Optimization):</strong> Dropping external sensory inputs triggers the brain's <strong>Default Mode Network (DMN)</strong>, functioning like self-attention weight fine-tuning to resolve internal contradictions and compute multi-step dependencies without computational noise.</p>
+
+                <p>* <strong>The Sleep Phase (Batch Serialization):</strong> Taking the system fully offline activates deep-wave thalamocortical loops and the <strong>glymphatic system</strong>, executing background batch writes to commit volatile memory arrays permanently into the neocortex while flushing metabolic waste.</p>
+
+                <p>* <strong>Model Distillation & Pruning:</strong> Spaced, optimized learning protocols compress high-energy cognitive tasks into INT4-style precision pathways, allowing elite technical minds to resolve complex system bugs with zero perceived lag.</p>
+
+                <p>* <strong>Catastrophic Forgetting & Continuous Fine-Tuning:</strong> Just as neural networks require experience replay loops to prevent weight degradation, human cognition demands structured cool-down windows to prevent memory fragmentation and burn-out.</p>
+              </div>
+              <blockquote> 
+                <p><b>Questions Answered :</b><br>
+                  Why does cramming technical documentation without sleeping mirror a failing server burning CPU cycles without committing data to disk?</p>
+              </blockquote>
+              <blockquote>
+                  <p>How does a deliberate cognitive pause or meditation act as an internal self-attention pass inside your neural network?</p>
+              </blockquote>
+              <blockquote>
+                  <p>What structural parallels exist between continuous machine learning fine-tuning failures and human cognitive fatigue?</p>
+              </blockquote>
+              <blockquote>
+                  <p>How does the biological protocol of "Read, Meditate, Sleep" compress complex cognitive frameworks into millisecond-level mental execution?</p>
+              </blockquote>
+
+              <p class="cta">Ready to refactor your internal memory architecture? Listen to the full episode on the AI Chat Show now to master the biological serialization blueprints that unlock human super-abilities.</p>
+            </div>
+
+          </div>
+        <audio controls src="../static/downloads/audio/Ep054.mp3" type="audio/mp3">
+        </audio>
+        <div class="download-link">
+          <a href="../static/downloads/audio/Ep054.mp3" download="Read, Meditate and Sleep.mp3">⬇ Download</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card mixed pdc audio" data-release-time="2026-07-27 07:00:01">
+      <div class="card-content">
+        <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
+        <div class="tagline" startdate-expiry="2026-07-27"><b>NEW !</b></div> 
+        <h3 class="title">Generating Electricity From Sea Water</h3>
+        <div class="project-date">
+          <b>Episode 054</b>  <strong>|</strong>  📅 <i><strong> July 27, 2026</strong></i>
+        </div>
+        <div class="info">    
+          <img src="https://engoplanet.com/wp-content/uploads/2023/10/bb1ca3_d9fe1762ca7b415e8ea2e4e50c578315mv2.gif" class="art" alt="Electricity From Sea Water">
+          <div class="pageCade">
+               <p><strong>The Hydro-Chemical Battery: Harvesting 24/7 Clean Power from River Mouths (Salinity Gradients)</strong></p><hr class="hr">
+               <p>Where river freshwater meets salty ocean water, a powerful chemical potential difference sits untapped—ready to serve as a continuous baseload green energy source. By tapping into salinity gradients, osmotic power provides a predictable, non-stop electricity pipeline that operates regardless of weather conditions or time of day. Discover how cutting-edge membrane engineering is transforming the natural diffusion of salt and water into a silent, emission-free grid battery.</p>
+              
+              <p><b>Key Highlights :</b></p>
+              <div class="list">
+                <p>* <strong>The Hydro-Chemical Battery Paradigm:</strong> Osmotic power acts as a self-charging green battery stationed at estuaries, capturing energy from the natural chemical gradient between fresh river water and ocean brine.</p>
+
+                <p>* <strong>Pressure Retarded Osmosis (PRO):</strong> By harnessing natural osmotic pressure, PRO systems force freshwater into a sealed, pressurized saltwater chamber to create a continuous hydraulic flow capable of driving grid-scale electricity turbines.</p>
+
+                <p>* <strong>Reverse Electrodialysis (RED):</strong> Skipping moving mechanical parts entirely, RED uses alternating ion-exchange membranes—<i>Anion (AEM)</i> and <i>Cation (CEM)</i>—to direct positively charged sodium and negatively charged chloride ions in opposite directions, creating a direct electrical current.</p>
+
+                <p>* <strong>Energy Recovery Efficiency:</strong> Integrating advanced pressure exchangers into PRO facilities recycles residual hydraulic pressure from exiting brackish streams, boosting net operational efficiency by up to 60%.</p>
+
+                <p>* <strong>Engineering Trade-offs:</strong> While PRO achieves high power density but requires extensive filtration to prevent membrane fouling, RED offers zero-maintenance, silent operation at the trade-off of higher initial capital costs for membrane stacks.</p>
+              </div>
+
+              <blockquote> 
+                <p><b>Questions Answered :</b><br>
+                  How does the natural interaction between fresh river water and salty seawater generate continuous baseline electricity?</p>
+              </blockquote>
+              <blockquote>
+                  <p>What is the key mechanical difference between physical hydraulic generation (PRO) and direct chemical charge separation (RED)?</p>
+              </blockquote>
+              <blockquote>
+                  <p>How do energy recovery devices like rotary pressure exchangers increase the net efficiency of osmotic power facilities by up to 60%?</p>
+              </blockquote>
+              <blockquote>
+                  <p>What are the primary engineering bottlenecks—such as membrane fouling and material costs—that project managers must overcome in coastal installations?</p>
+              </blockquote>
+
+              <p class="cta">Ready to dive into the future of ocean-based renewables? Listen to the full episode on the AI Chat Show now to explore the blue energy architecture reshaping the global power grid.</p>
+            </div>
+          </div>
+        <audio controls src="../static/downloads/audio/Ep053.mp3" type="audio/mp3">
+        </audio>
+        <div class="download-link">
+          <a href="../static/downloads/audio/Ep053.mp3" download="Electricity From Sea Water.mp3">⬇ Download</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card mixed pdc audio" data-release-time="2026-07-24 07:00:01">
+      <div class="card-content">
+        <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> Biogenetics</i>
+        <div class="tagline" startdate-expiry="2026-07-24"><b>NEW !</b></div> 
         <h3 class="title">Sleep, A Mandatory System Update</h3>
         <div class="project-date">
-          <b>Episode 053</b>  <strong>|</strong>  📅 <i><strong> July 16, 2026</strong></i>
+          <b>Episode 053</b>  <strong>|</strong>  📅 <i><strong> July 24, 2026</strong></i>
         </div>
         <div class="info">    
           <img src="https://cps.northeastern.edu/wp-content/uploads/2024/01/pexels-monstera-production-6238056-scaled.jpg" class="art" alt="Sleep Deprivation">
@@ -193,20 +431,16 @@ Generation (RAG) capabilities for learning.</p>
       </div>
     </div>
 
-
-
-
-
-    <div class="project-card mixed pdc audio" data-release-time="2026-07-01 07:00:01">
+    <div class="project-card mixed pdc audio" data-release-time="2026-07-23 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
-        <div class="tagline" startdate-expiry="2026-07-17"><b>NEW !</b></div> 
-        <h3 class="title">Data Redact: Masking data for Privacy and Confidentiality</h3>
+        <div class="tagline" startdate-expiry="2026-07-23"><b>NEW !</b></div> 
+        <h3 class="title">Redact: Data Masking, Privacy and Confidentiality</h3>
         <div class="project-date">
-          <b>Episode 052</b>  <strong>|</strong>  📅 <i><strong> July 17, 2026</strong></i>
+          <b>Episode 052</b>  <strong>|</strong>  📅 <i><strong> July 23, 2026</strong></i>
         </div>
         <div class="info">    
-          <img src="https://images.squarespace-cdn.com/content/v1/60096d6b21350175922f9148/b702eaf5-5c80-40dc-adba-c9546ce44a67/data+redaction+vs+data+masking+whats+the+difference+.jpg?format=1500w" class="art" alt="CoVe">
+          <img src="https://images.squarespace-cdn.com/content/v1/60096d6b21350175922f9148/b702eaf5-5c80-40dc-adba-c9546ce44a67/data+redaction+vs+data+masking+whats+the+difference+.jpg?format=1500w" class="art" alt="Redact">
           
             <div class="pageCade">
 
@@ -262,6 +496,7 @@ Generation (RAG) capabilities for learning.</p>
           <b>Episode 051</b>  <strong>|</strong>  📅 <i><strong> July 16, 2026</strong></i>
         </div>
         <div class="info">    
+
           <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*qIFtL6KLat8Uo0h2Q2fSeg.png" class="art" alt="CoVe">
           
             <div class="pageCade">
@@ -3131,7 +3366,7 @@ Generation (RAG) capabilities for learning.</p>
 <footer>
       <a href=".html"></p><img  src="../static/images/logoFN_1.png" class="foota" alt="FN Logo"/></p></a>
       <p>&copy; <span id="currentYear"></span> Fredrick | AI Chat-Show </p>
-    <p><a href="mailto:forracorp1@gmail.com">📧 forracorp1@gmail.com</a> | <!---📞 +234 702 597 4815</p> --->
+    <p><a href="mailto:forracorp1@gmail.com">📧 forracorp1@gmail.com</a> | 📞 +234 702 597 4815</p>
 </footer>
 
 <!--============================================================================================================================-->
@@ -4126,6 +4361,190 @@ document.getElementById('topicForm').addEventListener('submit', function(event) 
         setInterval(checkScheduledCards, 1000);
     });
 </script>
+
+<script>
+  /* ==========================================================================
+   SLIDE SHOW CONTROL ENGINE
+   ========================================================================== */
+    const showcaseData = [
+      {
+        title: "", 
+        desc: "The AI Chat Show Program Anchors",
+        img: "../static/images/0.png"
+      },
+      {
+        title: "",
+        desc: "With a master creator of Electric Vehicles.",
+        img: "../static/images/1.png"
+      },
+      {
+        title: "",
+        desc: "The \"PEARLS of Prompting\" User Experience",
+        img: "../static/images/2.png"
+      },
+      {
+        title: "",
+        desc: "The \"PEARLS of Prompting\" User Interactions",
+        img: "../static/images/3.png"
+      },
+      {
+        title: "",
+        desc: "An interview with the Founder",
+        img: "../static/images/4.png"
+      },
+      {
+        title: "",
+        desc: "Analysis on the \"PEARLS of Prompting.\'",
+        img: "../static/images/5.png"
+      },
+      {
+        title: "",
+        desc: "A chat with the Founder",
+        img: "../static/images/6.png"
+      }
+    ];
+
+    let currentIndex = 0;
+    let isPlaying = true;
+    let progressInterval = null;
+    const slideDuration = 6000; 
+    let elapsedProgressTime = 0;
+
+    const imageContainer = document.getElementById('imageContainer');
+    const thumbViewport = document.getElementById('thumbViewport');
+    const currentIdxLabel = document.getElementById('currentIdx');
+    const totalIdxLabel = document.getElementById('totalIdx');
+    const infoTitle = document.getElementById('infoTitle');
+    const infoDesc = document.getElementById('infoDesc');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const playPauseIcon = document.getElementById('playPauseIcon');
+    const timelineBar = document.getElementById('timelineBar');
+    const zoomBtn = document.getElementById('zoomBtn');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const closeLightbox = document.getElementById('closeLightbox');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function initSlider() {
+      totalIdxLabel.textContent = showcaseData.length;
+      
+      showcaseData.forEach((data, index) => {
+        const imgEl = document.createElement('img');
+        imgEl.src = data.img;
+        imgEl.alt = data.title;
+        imgEl.classList.add('slide-image');
+        if (index === 0) imgEl.classList.add('active');
+        imageContainer.appendChild(imgEl);
+
+        const thumbEl = document.createElement('div');
+        thumbEl.classList.add('thumb-item');
+        if (index === 0) thumbEl.classList.add('active');
+        thumbEl.innerHTML = `<img src="${data.img}" alt="Thumb ${index + 1}">`;
+        thumbEl.addEventListener('click', () => jumpToSlide(index));
+        thumbViewport.appendChild(thumbEl);
+      });
+
+      updateTextPane();
+      startTimelineTracking();
+      
+      playPauseBtn.addEventListener('click', togglePlaybackState);
+      zoomBtn.addEventListener('click', openZoomView);
+      closeLightbox.addEventListener('click', closeZoomView);
+      lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeZoomView(); });
+      nextBtn.addEventListener('click', navigateNext);
+      prevBtn.addEventListener('click', navigatePrev);
+    }
+
+    function updateSliderView() {
+      document.querySelectorAll('.slide-image').forEach((img, idx) => {
+        img.classList.toggle('active', idx === currentIndex);
+      });
+
+      document.querySelectorAll('.thumb-item').forEach((thumb, idx) => {
+        thumb.classList.toggle('active', idx === currentIndex);
+        if(idx === currentIndex) {
+          // Works seamlessly across both horizontal and vertical axis tracking
+
+/* To prevent th slide to auto focus, dragging the visitor from their reading state in the down page all the way up to focus on the new, updated slide render.
+
+          thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+*/
+        }
+      });
+
+      currentIdxLabel.textContent = currentIndex + 1;
+      updateTextPane();
+      resetTimelineTracking();
+    }
+
+    function updateTextPane() {
+      const data = showcaseData[currentIndex];
+      infoTitle.textContent = data.title;
+      infoDesc.textContent = data.desc;
+    }
+
+    function jumpToSlide(targetIndex) {
+      if (targetIndex === currentIndex) return;
+      currentIndex = targetIndex;
+      updateSliderView();
+    }
+
+    function navigateNext() {
+      currentIndex = (currentIndex + 1) % showcaseData.length;
+      updateSliderView();
+    }
+
+    function navigatePrev() {
+      currentIndex = (currentIndex - 1 + showcaseData.length) % showcaseData.length;
+      updateSliderView();
+    }
+
+    function startTimelineTracking() {
+      if (!isPlaying) return;
+      const updateRate = 50; 
+      progressInterval = setInterval(() => {
+        elapsedProgressTime += updateRate;
+        const percentage = (elapsedProgressTime / slideDuration) * 100;
+        timelineBar.style.width = `${Math.min(percentage, 100)}%`;
+
+        if (elapsedProgressTime >= slideDuration) {
+          navigateNext();
+        }
+      }, updateRate);
+    }
+
+    function resetTimelineTracking() {
+      clearInterval(progressInterval);
+      elapsedProgressTime = 0;
+      timelineBar.style.width = '0%';
+      startTimelineTracking();
+    }
+
+    function togglePlaybackState() {
+      isPlaying = !isPlaying;
+      if (isPlaying) {
+        playPauseIcon.innerHTML = `<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>`;
+        startTimelineTracking();
+      } else {
+        playPauseIcon.innerHTML = `<path d="M8 5v14l11-7z"/>`;
+        clearInterval(progressInterval);
+      }
+    }
+
+    function openZoomView() {
+      const activeData = showcaseData[currentIndex];
+      lightboxImg.src = activeData.img;
+      lightbox.classList.add('active');
+      if (isPlaying) togglePlaybackState();
+    }
+
+    function closeZoomView() {
+      lightbox.classList.remove('active');
+    }
+
+    document.addEventListener('DOMContentLoaded', initSlider);
+  </script>
 
 </body>
 </html>
