@@ -27,7 +27,8 @@
         <strong class="slogan">Knowledge Is For The Living</strong>
         <navi>
             <ul id="navLinks">
-                <li><a href="#domain-portal" onclick="navigateTo('domain-portal', event)" class="nav-link active">Domain</a></li>        
+                <li><a href="#domain-portal" onclick="navigateTo('domain-portal', event)" class="nav-link active">Domain</a></li>                        
+                <li><a href="#about" onclick="navigateTo('about', event)" class="nav-link active">About</a></li>
                 <li><a href="templates/chat-show.html">Chat Show</a></li>
                 <li><a href="#training" onclick="navigateTo('training', event)" class="nav-link active">Training</a></li>
                 <li><a href="#tools" onclick="navigateTo('tools', event)" class="nav-link">Tools</a></li>
@@ -83,13 +84,16 @@
             <h2 style="text-align: center; color: red;">COMING SOON</h2>
 <!--            
             <p>Review comprehensive training pipelines, course schedules, and documentation covering localized offline PWA builds and automated retrieval systems.</p>
+  --->      
           </div>
+ <!--            
+         
           <a href="templates/academy.html" class="portal-btn">Access Academy</a>
 --->          
         </div>
       </article>        
 
-      <!-- Node 3: Financial Seminar -->
+      <!-- Node 3: Seminar -->
       <article class="portal-card">
         <a href="#training" onclick="navigateTo('training', event)">
           <div class="card-banner">Training and Seminar</div>
@@ -113,207 +117,358 @@
                 </div>
               </div>
             </li>
-          </ul> 
-        </div>
-      </article>
+          </ul>
+        </div> 
+        </article>
 
-      <!-- Node 4: Game -->
-      <article class="portal-card">
-        <a href="#tools" onclick="navigateTo('tools', event)">
-          <div class="card-banner">Precision Tools</div>
-        </a>
-        <div class="card-body">
-          
-          <ul class="seminar-list">
-            <li class="seminar-item">
-              <span class="seminar-trigger" onclick="toggleDropdown('drop-pearls-1')"> The Prompt Compiler 1</span>
-              <div id="drop-pearls-1" class="dropdown-content">
-                <p>Deploy a modular, P-E-A-R-L-S-based interface to structure raw requests into optimized prompt syntax with automated nuance injection and real-time output compilation.</p>
-                <div class="dropdown-content-link">
-                  <a href="templates/resources/prompt-compiler_1.html" class="portal-btn">Prompt Compiler 1</a>
-                </div>
-              </div>
-            </li>
+        <!-- Node 4: Tools -->
+        <article class="portal-card">
+          <a href="#tools" onclick="navigateTo('tools', event)">
+            <div class="card-banner">Precision Tools</div>
+          </a>
+          <div class="card-body">
             
-            <li class="seminar-item">
-              <span class="seminar-trigger" onclick="toggleDropdown('drop-pearls-2')"> The Prompt Compiler 2</span>
-              <div id="drop-pearls-2" class="dropdown-content">
-                <p>Deploy a modular, P-E-A-R-L-S-based interface to structure raw requests into optimized prompt syntax with automated nuance injection and real-time output compilation.</p>
-                <div class="dropdown-content-link">
-                  <a href="templates/resources/prompt-compiler_2.html" class="portal-btn">Prompt Compiler 2</a>
+            <ul class="seminar-list">
+              <li class="seminar-item">
+                <span class="seminar-trigger" onclick="toggleDropdown('drop-pearls-1')"> The Prompt Compiler 1</span>
+                <div id="drop-pearls-1" class="dropdown-content">
+                  <p>Deploy a modular, P-E-A-R-L-S-based interface to structure raw requests into optimized prompt syntax with automated nuance injection and real-time output compilation.</p>
+                  <div class="dropdown-content-link">
+                    <a href="templates/resources/prompt-compiler_1.html" class="portal-btn">Prompt Compiler 1</a>
+                  </div>
                 </div>
-              </div>
-            </li>
+              </li>
+              
+              <li class="seminar-item">
+                <span class="seminar-trigger" onclick="toggleDropdown('drop-pearls-2')"> The Prompt Compiler 2</span>
+                <div id="drop-pearls-2" class="dropdown-content">
+                  <p>Deploy a modular, P-E-A-R-L-S-based interface to structure raw requests into optimized prompt syntax with automated nuance injection and real-time output compilation.</p>
+                  <div class="dropdown-content-link">
+                    <a href="templates/resources/prompt-compiler_2.html" class="portal-btn">Prompt Compiler 2</a>
+                  </div>
+                </div>
+              </li>
 
-            <li class="seminar-item">
-              <span class="seminar-trigger" onclick="toggleDropdown('drop-calc')">Calculator</span>
-              <div id="drop-calc" class="dropdown-content">
+              <li class="seminar-item">
+                <span class="seminar-trigger" onclick="toggleDropdown('drop-calc')">Calculator</span>
+                <div id="drop-calc" class="dropdown-content">
+                  <p>FxCalc is a comprehensive dark green glassmorphism calculator web app with five modes (Simple, Scientific, Quantum, Graphing, Converter) plus a camera-based equation scanner. Built with replit AI.</p>
+                  <a href="https://blue-print-nyo-cal--eveeubi.replit.app/" class="portal-btn">Lunch FxCalc</a>
+                </div>
+              </li>    
+            </ul>
+          </div>
+        </article>
+
+         <!-- Node 5: C -->
+        <article class="portal-card">
+          <div class="card-banner">AI App.</div>
+            <div class="card-body">
+              <ul class="seminar-list">
+                <li class="seminar-item">
+                  <span class="seminar-trigger" onclick="toggleDropdown('ai-offline')"> Offline AI</span>
+                  <div id="ai-offline" class="dropdown-content">
+                    <p>Download and your offline App. At first use, it would require you to download the LLM. To start, On your data, type and send a prompt. Wait for it to download completly.</p>
+                    <div class="dropdown-content-link">
+                      <a href="https://forranova.lovable.app/" class="portal-btn">Download App.</a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="seminar-item">
+                  <span class="seminar-trigger" onclick="toggleDropdown('ai-online')"> Nyvona AI Teacher</span>
+                  <div id="ai-online" class="dropdown-content">
+                    <p>Access structured audio archives, linear problem-solving breakdowns, structural delimiter explanations, and forensic machine intelligence analysis transcripts.</p>
+                    <div class="dropdown-content-link">
+                      <a href="templates/nyvona.html" class="portal-btn">Start Lesson</a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+        </article>
+
+        <!-- Node 6: COMING SOON -->
+        <article class="portal-card">
+          <a href="#games" onclick="navigateTo('games', event)">
+            <div class="card-banner">Game Console</div>
+          </a>
+          <div class="card-body">
+            <ul class="seminar-list">
+              <li class="seminar-item">
+                <span class="seminar-trigger" onclick="toggleDropdown('rop-game1')">Cell Jump</span>
+                <div id="rop-game1" class="dropdown-content">
+                  <p>Master attention to details, respons to environment while under pressure.</p>
+                  <a href="templates/recess/cell_jump.html" class="portal-btn">Launch Cell Jump</a>
+                </div>
+              </li>
+
+              <li class="seminar-item">
+                <span class="seminar-trigger" onclick="toggleDropdown('rop-game2')">Convergence</span>
+                <div id="rop-game2" class="dropdown-content">
+                  <p>As a master builder, fix the broken system.</p>
+                  <a href="templates/recess/convergence.html" class="portal-btn">Launch Convergence</a>
+                </div>
+              </li>
+
+              <li class="seminar-item">
+                <span class="seminar-trigger" onclick="toggleDropdown('rop-game3')">Transporter</span>
+                <div id="rop-game3" class="dropdown-content">
+                  <p>Drive for survival.</p>
+                  <a href="templates/recess/transporter.html" class="portal-btn">Take the Wheels</a>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+        </article>
+      </div>    
+    </section>
+
+    <section id="training" class="section">
+      <h1 class="domain-portal">TRAINING AND SEMINAR PORTAL</h1>
+
+      <div style="max-width: 1000px; margin: 0 auto;">
+        <div class="portal-grid">
+          
+          <!-- The PEARLS of Prompting -->
+          <article class="portal-card">
+            <div class="card-banner">The PEARLS of Prompting</div>
+            <div class="card-body">
+              <div>
+                <h3>PEARLS Framework</h3>
+                <p>Master industrial syntax optimization patterns. Learn context isolation protocols and output security validation frameworks to control LLM drift.</p>
+              </div>
+              <a href="templates/hub/pearls.html" class="portal-btn">Launch Training</a>
+            </div>
+          </article>
+
+          <!-- The PEARLS of Prompting -->
+          <article class="portal-card">
+            <div class="card-banner">School Financial Management</div>
+            <div class="card-body">
+              <div>
+                <h3>Using LLM for Financial Analysis</h3>
+                <p>Deploy general purpose generative transformers to automate business sheets, construct risk analysis loops, and project operational workflows safely.</p>
+              </div>
+              <a href="templates/hub/finAI.html" class="portal-btn">Launch Training</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="tools" class="section">
+      <h1 class="domain-portal">TOOLS PORTAL</h1>
+
+      <div style="max-width: 1000px; margin: 0 auto;">
+        <div class="portal-grid">
+          
+          <!-- The PEARLS of Prompting -->
+          <article class="portal-card">
+            <div class="card-banner">The Prompt Compiler 1</div>
+            <div class="card-body">
+              <div>
+                <h3>Raw Prompt PEARLS Compiler 1</h3>
+                <p>Deploy a modular, P-E-A-R-L-S-based interface to structure raw requests into optimized prompt syntax with automated nuance injection and real-time output compilation.</p>
+              </div>
+              <a href="templates/resources/prompt-compiler_1.html" class="portal-btn">Launch Tool</a>
+            </div>
+          </article>
+          
+          <!-- The PEARLS of Prompting -->
+          <article class="portal-card">
+            <div class="card-banner">The Prompt Compiler 2</div>
+            <div class="card-body">
+              <div>
+                <h3>Raw Prompt PEARLS Compiler 2</h3>
+                <p>Deploy a modular, P-E-A-R-L-S-based interface to structure raw requests into optimized prompt syntax with automated nuance injection and real-time output compilation.</p>
+              </div>
+              <a href="templates/resources/prompt-compiler_2.html" class="portal-btn">Launch Tool</a>
+            </div>
+          </article>
+
+          <!-- The PEARLS of Prompting -->
+          <article class="portal-card">
+            <div class="card-banner">Calculator</div>
+            <div class="card-body">
+              <div>
+                <h3>FxCalc: A Multi Mode Calculator </h3>
                 <p>FxCalc is a comprehensive dark green glassmorphism calculator web app with five modes (Simple, Scientific, Quantum, Graphing, Converter) plus a camera-based equation scanner. Built with replit AI.</p>
-                <a href="https://blue-print-nyo-cal--eveeubi.replit.app/" class="portal-btn">Lunch FxCalc</a>
               </div>
-            </li>    
-          </ul>
+              <a href="templates/hub/finAI.html" class="portal-btn">Launch FxCalc</a>
+            </div>
+          </article>
         </div>
-      </article>
+      </div>
+    </section>
 
-       <!-- Node 5: COMING SOON -->
-      <article class="portal-card">
-        <a href="templates/nyvona.html">
-          <div class="card-banner">Online Self Learning App.</div>
-        </a>
-        <div class="card-body">
-          <div>
-            <h2 style="text-align: center; color: red; font-size: 1.0em;">Under Test Mode</h2>
-             <h3>Nyvona AI Teacher</h3>            
-            <p>Access structured audio archives, linear problem-solving breakdowns, structural delimiter explanations, and forensic machine intelligence analysis transcripts.</p>
-          </div>
-          <a href="templates/nyvona.html" class="portal-btn">Start Lesson</a>
-        </div>
-      </article>
+    <section id="games" class="section">
+      <h1 class="domain-portal">GAMES PORTAL</h1>
+      <div style="max-width: 1000px; margin: 0 auto;">
+        <div class="portal-grid">
 
-      <!-- Node 6: COMING SOON -->
-      <article class="portal-card">
-        <a href="#games" onclick="navigateTo('games', event)">
-          <div class="card-banner">Game Console</div>
-        </a>
-        <div class="card-body">
-          <ul class="seminar-list">
-            <li class="seminar-item">
-              <span class="seminar-trigger" onclick="toggleDropdown('rop-game1')">Cell Jump</span>
-              <div id="rop-game1" class="dropdown-content">
+          <!-- The PEARLS of Prompting -->
+          <article class="portal-card">
+            <div class="card-banner">Cell Jump</div>
+            <div class="card-body">
+              <div>
+                <h3>Cell Jump</h3>
                 <p>Master attention to details, respons to environment while under pressure.</p>
-                <a href="templates/recess/cell_jump.html" class="portal-btn">Launch Cell Jump</a>
               </div>
-            </li>
+              <a href="templates/recess/cell_jump.html" class="portal-btn">Launch Cell Jump</a>
+            </div>
+          </article>
 
-          </ul>
+          <!-- The PEARLS of Prompting -->
+          <article class="portal-card">
+            <div class="card-banner">Transporter</div>
+            <div class="card-body">
+              <div>
+                <h3>Transporter</h3>
+                <p>Your mission one and simple. As a contract driver in the DIVENSIVE DRIVING mode, carefully navigate in the busy road. In the AGGRESSIVE DRIVING mode and the EVASIVE DRIVING mode, catch up or outrun the chase.</p>
+              </div>
+              <a href="templates/recess/transporter.html" class="portal-btn">Launch Car Game</a>
+            </div>
+          </article>
+
+          <!-- The PEARLS of Prompting -->
+          <article class="portal-card">
+            <div class="card-banner">Convergence</div>
+            <div class="card-body">
+              <div>
+                <h3>Convergence</h3>
+                <p>You are a fixer of things. fix the falling structures.</p>
+              </div>
+              <a href="templates/recess/convergence.html" class="portal-btn">Start Fixing</a>
+            </div>
+          </article>
+
         </div>
-      </article>
-    </div>    
-  </section>
-
-  <section id="training" class="section">
-    <h1 class="domain-portal">TRAINING AND SEMINAR PORTAL</h1>
-
-    <div style="max-width: 1000px; margin: 0 auto;">
-      <div class="portal-grid">
-        
-        <!-- The PEARLS of Prompting -->
-        <article class="portal-card">
-          <div class="card-banner">The PEARLS of Prompting</div>
-          <div class="card-body">
-            <div>
-              <h3>PEARLS Framework</h3>
-              <p>Master industrial syntax optimization patterns. Learn context isolation protocols and output security validation frameworks to control LLM drift.</p>
-            </div>
-            <a href="templates/hub/pearls.html" class="portal-btn">Launch Training</a>
-          </div>
-        </article>
-
-        <!-- The PEARLS of Prompting -->
-        <article class="portal-card">
-          <div class="card-banner">School Financial Management</div>
-          <div class="card-body">
-            <div>
-              <h3>Using LLM for Financial Analysis</h3>
-              <p>Deploy general purpose generative transformers to automate business sheets, construct risk analysis loops, and project operational workflows safely.</p>
-            </div>
-            <a href="templates/hub/finAI.html" class="portal-btn">Launch Training</a>
-          </div>
-        </article>
       </div>
-    </div>
-  </section>
+    </section>    
 
-  <section id="tools" class="section">
-    <h1 class="domain-portal">TOOLS PORTAL</h1>
+    <section id="about" class="section">
 
-    <div style="max-width: 1000px; margin: 0 auto;">
-      <div class="portal-grid">
+      <h1 class="domain-portal">ABOUT US</h1>          
+
+      <div style="max-width: 1000px; margin: 0 auto;" class="mt-24">
         
-        <!-- The PEARLS of Prompting -->
-        <article class="portal-card">
-          <div class="card-banner">The Prompt Compiler 1</div>
-          <div class="card-body">
-            <div>
-              <h3>Raw Prompt PEARLS Compiler 1</h3>
-              <p>Deploy a modular, P-E-A-R-L-S-based interface to structure raw requests into optimized prompt syntax with automated nuance injection and real-time output compilation.</p>
-            </div>
-            <a href="templates/resources/prompt-compiler_1.html" class="portal-btn">Launch Tool</a>
+        <div class="bio_audio">
+          <div class="bio-info">
+            <br>
+            <audio controls style="width: 100%;">
+                <source src="static/downloads/audio/Ep100.mp3" type="audio/mp3">
+            </audio>
           </div>
-        </article>
-        
-        <!-- The PEARLS of Prompting -->
-        <article class="portal-card">
-          <div class="card-banner">The Prompt Compiler 2</div>
-          <div class="card-body">
-            <div>
-              <h3>Raw Prompt PEARLS Compiler 2</h3>
-              <p>Deploy a modular, P-E-A-R-L-S-based interface to structure raw requests into optimized prompt syntax with automated nuance injection and real-time output compilation.</p>
-            </div>
-            <a href="templates/resources/prompt-compiler_2.html" class="portal-btn">Launch Tool</a>
-          </div>
-        </article>
+          <a href="static/downloads/audio/Ep100.mp3" download="ForraCorp &amp; ForraNova — The Ecosystem.mp3" class="bio_download">⬇ Download Audio</a>            
+        </div>
 
-        <!-- The PEARLS of Prompting -->
-        <article class="portal-card">
-          <div class="card-banner">Calculator</div>
-          <div class="card-body">
-            <div>
-              <h3>FxCalc: A Multi Mode Calculator </h3>
-              <p>FxCalc is a comprehensive dark green glassmorphism calculator web app with five modes (Simple, Scientific, Quantum, Graphing, Converter) plus a camera-based equation scanner. Built with replit AI.</p>
+        <div id="part-one" class="mt-16">
+
+
+          <div class="forra-card">
+            <div >
+              <h2 style="text-align:center;">The Ecosystem</h2>          
+              <p>To understand ForraNova, you first have to understand ForraCorp — because ForraNova doesn't exist independently of it. ForraCorp is the parent entity: the umbrella corporation through which Mr. Ubi Fredrick (also known as Ethan Audrick) channels a career that has moved from hardware engineering, through electronics and telecommunications, into machine learning and AI strategy. ForraNova is one of ForraCorp's core sectors — specifically, its instructional and educational operating wing.</p><br>
+
+              Think of it this way: ForraCorp is the <em>practice</em>. ForraNova is the <em>classroom</em>.
+
+              <h2 class="mt-24"><em>The Entity: </em>ForraCorp</h2>
+              <h3><em>Resilience in innovation, Precision in design, Durability in service.</em></h3> 
+              <br>                
+
+              <p>ForraCorp is where the actual building happens. It's the commercial and creative vehicle behind every delivered project — whether that project is a prompt-engineered AI workflow, a Python automation script, a resilient power infrastructure build, or a long-form cinematic literary work. As of this recording, ForraCorp's Projects Gallery holds more than 37 accomplished projects and counting, spanning categories that reflect its founder's genuinely unusual range: hardware precision, telecommunications engineering, AI systems, and creative storytelling all under one roof.</p><br>
+
+              <p>ForraCorp's guiding slogan captures its operating philosophy in three words: <strong>Resilience, Precision, Durability</strong> — in full, "Resilience in innovation and precision in design yield durability in service." It's a statement about how things are built, not just what gets built.</p><br>
+
+              <p>Critically, ForraCorp is a single-architect entity. There's no diffusion of vision across a large team — Ubi Fredrick is the Chief Architect and Principal Engineer behind every project that carries the ForraCorp name. That consistency of hand is part of what the brand is selling: you know who built it, and you know the standard it was built to.</p>
+
+              <h2 class="mt-24"><em>The Sector: </em>ForraNova</h2>
+              <h3><em>Knowledge is for the Living.</em></h3> 
+              <br>                
+
+              <p>ForraNova is where the legacy gets taught. If ForraCorp is about <em>building</em>, ForraNova is about <em>transferring what was learned while building</em>. It's the sector where Ubi Fredrick distils what he calls his "train the trainer" legacy — years of hands-on technical and creative practice, repackaged into structured learning.</p><br>
+
+              <p>ForraNova operates as ForraCorp's primary instructional wing, structuring and delivering:</p>
+
+              <ul class="point">
+                <li>Standard computational competencies.</li>
+                <li>Linguistic engineering insight (a natural extension of Fredrick's own published prompting framework).</li>
+                <li>Algorithmic workflow training, etc.</li>
+              </ul>
+
+              <p>It functions as a digital university of AI and modern technology, complete with enrollable courses, professional certification, and portfolio-building — plus a media arm in the form of podcasts, debates, and analysis on AI, most notably <em>The AI Chat Show</em> itself, hosted by Ubi Fredrick.</p><br>
+
+              <p>ForraNova's slogan isn't decorative. It's the operating thesis of the entire sector: knowledge that isn't transferred and used is knowledge wasted. Where ForraCorp proves competence through finished projects, ForraNova exists to make sure that competence doesn't stay locked inside one person.</p>
+
+              <h3 class="mt-24">The Relationship, Summarized:</h3>
+              
+              <!-- Responsive Table Wrapper -->
+              <div style="overflow-x: auto; margin: 16px 0;">
+                <table class="fv-table" style="width: 100%; border-collapse: collapse;">
+                  <thead>
+                    <tr style="border-bottom: 1px solid var(--glass-border);">
+                      <th class="fv-label" style="text-align: left; padding: 10px; color: var(--primary-color);">Metric</th>
+                      <th class="fv-value1" style="text-align: left; padding: 10px; color: var(--primary-color);">ForraCorp</th>
+                      <th class="fv-value" style="text-align: left; padding: 10px; color: var(--primary-color);">ForraNova</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="fv-label" style="padding: 10px;"><strong>Role</strong></td>
+                      <td class="fv-value1" style="text-align: left; padding: 10px;">Parent Entity / Commercial vehicle</td>
+                      <td class="fv-value" style="text-align: left; padding: 10px;">Core Sector / Instructional wing</td>
+                    </tr>
+                    <tr>
+                      <td class="fv-label" style="padding: 10px;"><strong>Function</strong></td>
+                      <td class="fv-value1" style="text-align: left; padding: 10px;">Delivers finished projects and solutions</td>
+                      <td class="fv-value" style="text-align: left; padding: 10px;">Delivers training, courses, and certification</td>
+                    </tr>
+                    <tr>
+                      <td class="fv-label" style="padding: 10px;"><strong>Slogan</strong></td>
+                      <td class="fv-value1" style="text-align: left; padding: 10px;">Resilience, Precision, Durability</td>
+                      <td class="fv-value" style="text-align: left; padding: 10px;">Knowledge is for the Living</td>
+                    </tr>
+                    <tr>
+                      <td class="fv-label" style="padding: 10px;"><strong>Output</strong></td>
+                      <td class="fv-value1" style="text-align: left; padding: 10px;">37+ projects and counting</td>
+                      <td class="fv-value" style="text-align: left; padding: 10px;">Courses, podcasts, debates, AI analysis</td>
+                    </tr>
+                    <tr>
+                      <td class="fv-label" style="padding: 10px;"><strong>Architect</strong></td>
+                      <td class="fv-value1" style="text-align: left; padding: 10px;">Fredrick U.</td>
+                      <td class="fv-value" style="text-align: left; padding: 10px;">Same</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p class="mt-16">ForraNova doesn't compete with ForraCorp — it <em>documents and disseminates</em> what ForraCorp proves in practice. One builds the evidence; the other builds the next generation of builders.</p><br>
+
+              <p>For listeners of <a href="templates/chat-show.html"><em>The AI Chat Show</em></a>: everything discussed on this program — the AI insights, the frameworks, the debates — is a direct output of that same ForraNova instructional wing, sitting on top of two decades of ForraCorp engineering practice. <!---More detail on both, including the full Projects Gallery, is available at <strong>fofem.github.io</strong>, under the "Projects" tab in the header navigation.---></p>
             </div>
-            <a href="templates/hub/finAI.html" class="portal-btn">Launch FxCalc</a>
           </div>
-        </article>
+
+          <hr class="mt-24 mb-24" style="border: 0; border-top: 1px solid rgba(255,255,255,0.06);">
+
+          <div class="forra-card">
+            <h2>ForraNova Domain</h2>
+            <p>As the ecosystem of Fredrick Ubi's career continues to expand, his platform is structured across two primary portals: <strong>fofem.github.io</strong> and <strong>forranova.github.io</strong>.</p>
+
+            <ul class="mt-16" style="list-style-type: none; padding-left: 0;">
+              <li style="padding: 6px 0; position: relative; padding-left: 20px;"><span style="position: absolute; left: 0; color: var(--primary-color);">▹</span> <strong>AI Chat Show:</strong> Informative Podcast, Debate, and Analysis on AI, Biogenetics, Psychology, etc.</li>
+              <li style="padding: 6px 0; position: relative; padding-left: 20px;"><span style="position: absolute; left: 0; color: var(--primary-color);">▹</span> <strong>ForraNova Academy:</strong> Digital Online University offering both paid and free courses. <em class="text-muted">[COMING UP!]</em></li>
+              <li style="padding: 6px 0; position: relative; padding-left: 20px;"><span style="position: absolute; left: 0; color: var(--primary-color);">▹</span> <strong>Seminar / Training:</strong> Sponsored by Teadro Systems.</li>
+              <li style="padding: 6px 0; position: relative; padding-left: 20px;"><span style="position: absolute; left: 0; color: var(--primary-color);">▹</span> <strong>Precision Tools:</strong> Programs, applications, and specialized tools built for projects and related training.</li>
+              <li style="padding: 6px 0; position: relative; padding-left: 20px;"><span style="position: absolute; left: 0; color: var(--primary-color);">▹</span> <strong>Online Personal AI Teacher:</strong> Self-learning app and personal tutor for any subject. <em class="text-muted">[On DevOps Stage]</em></li>
+              <li style="padding: 6px 0; position: relative; padding-left: 20px;"><span style="position: absolute; left: 0; color: var(--primary-color);">▹</span> <strong>Games:</strong> Interactive tools designed for cognitive offloading.</li>
+            </ul>
+          </div>
+
+        </div>
       </div>
-    </div>
-  </section>
-
-  <section id="games" class="section">
-    <h1 class="domain-portal">GAMES PORTAL</h1>
-    <div style="max-width: 1000px; margin: 0 auto;">
-      <div class="portal-grid">
-
-        <!-- The PEARLS of Prompting -->
-        <article class="portal-card">
-          <div class="card-banner">Cell Jump</div>
-          <div class="card-body">
-            <div>
-              <h3>Cell Jump</h3>
-              <p>Master attention to details, respons to environment while under pressure.</p>
-            </div>
-            <a href="templates/recess/cell_jump.html" class="portal-btn">Launch Cell Jump</a>
-          </div>
-        </article>
-
-        <!-- The PEARLS of Prompting -->
-        <article class="portal-card">
-          <div class="card-banner">Transporter</div>
-          <div class="card-body">
-            <div>
-              <h3>Transporter</h3>
-              <p>Your mission one and simple. As a contract driver in the DIVENSIVE DRIVING mode, carefully navigate in the busy road. In the AGGRESSIVE DRIVING mode and the EVASIVE DRIVING mode, catch up or outrun the chase.</p>
-            </div>
-            <a href="templates/recess/transporter.html" class="portal-btn">Launch Cell Jump</a>
-          </div>
-        </article>
-
-        <!-- The PEARLS of Prompting -->
-        <article class="portal-card">
-          <div class="card-banner">Convergence</div>
-          <div class="card-body">
-            <div>
-              <h3>Convergence</h3>
-              <p>You are a fixer of things. fix the falling structures.</p>
-            </div>
-            <a href="templates/recess/convergence.html" class="portal-btn">Start Fixing</a>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
+    </section>
 
   </main>
 
