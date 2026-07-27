@@ -436,6 +436,18 @@ END OF LOGO STYLE
   cursor: pointer;
 }
 
+.help-info {
+  margin-top: 10px;
+  padding: 10px;
+  background: rgba(15, 17, 23, 0.3);
+  border-left: 4px solid var(--primary-color);
+  border-right: 4px solid var(--primary-color);
+  font-size: 0.9em;
+  font-style: italic;
+  text-align: center;
+  border-radius:20px;
+}
+
 /* Hide the help text by default */
 .tooltip-text {
   display: none;
@@ -698,15 +710,6 @@ video, audio {
   padding-bottom: 1px;
   background: linear-gradient(135deg, #FFFFFF 0%, #00FEDC 100%);
 
-}
-
-.help-info {
-  margin-top: 10px;
-  padding: 10px;
-  background: rgba(15,17,23,1.1);
-  border-left: 4px solid #007bff;
-  font-size: 0.9em;
-  font-style: italic;
 }
 
 /* ===============================
