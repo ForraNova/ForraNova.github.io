@@ -122,51 +122,624 @@
 
       <div class="filters">
         <button class="filter-btn active" data-filter="all">All
-        <span class="tooltip-text">Access the complete library of ForraNova’s educational and creative media.</span>
+        <span class="tooltip-text">Access the complete library of ForraNova’s audio treatises across biology, technology, and human culture.</span>
         </button>
         <button class="filter-btn" data-filter="pdc">Podcast
-        <span class="tooltip-text">In-depth audio biographies and technical discussions on topical issuse like: AI Ethics, LangChain architecture, and industrial automation.</span>
+        <span class="tooltip-text">In-depth audio biographies and deep-dives into technical discussions on topical issuse.</span>
       </button>
         <button class="filter-btn" data-filter="dbt">Debate
-        <span class="tooltip-text">High-level strategic dialogues. For example: The issue regarding the transition from Narrow AI to AGI and the ethical implications of ASI.</span>
+        <span class="tooltip-text">High-level strategic dialogues, designed to evaluate a subject from two or more opposing view points.</span>
       </button>
         <button class="filter-btn" data-filter="aly">Analysis
-        <span class="tooltip-text">Dedicated segments designed to deep-dives into technical frameworks and explain complex terms as it relate to AI.</span>
+        <span class="tooltip-text">A brief, dedicated summary of a complex terms, subject or theory into explainable segments.</span>
       </button>
       </div>
-<!--
+
       <div class="media-switch" >  
-        <label>View Format:</label>
+        <label>Category:</label>
         <select id="mediaSelect">
-          <option value="mixed">All Media</option>
-          <option value="doc">Training Manual</option>
-          <option value="audio">Audio Shows</option>
+          <option value="mixed">All Available</option>
+          <option value="bio">Life & Biology</option>
+          <option value="tech">Machines & Tech</option>
+          <option value="mind">Humanity & Minds</option>
         </select>
+        <div id="helpBox" class="help-info">
+          Access the complete catalog.
+        </div>
       </div>
--->
-
-  <div class="project-grid">
 
 
+<script>
+
+const descriptions = {
+  mixed: "Access the complete collection of deep-dive audio treatises across biology, technology, and human culture.",
+  bio: "In-depth explorations of genetics, longevity, biotechnology, and the science of biological life.",
+  tech: "Comprehensive treatises covering AI, robotics, engineering, and next-generation computing systems.",
+  mind: "Deep dives into psychology, history, science, philosophy, and the evolution of human thought and culture."
+};
+
+const selectMenu = document.getElementById('mediaSelect');
+const helpBox = document.getElementById('helpBox');
+
+selectMenu.addEventListener('change', (e) => {
+  helpBox.textContent = descriptions[e.target.value];
+});
+
+</script>
 
 
+<!---
+          <option value="deep">Deep Dive</option>
+          <option value="biogen">Biogenetics</option>
+          <option value="biotech">Bio Tech</option>
+          <option value="tech">Tech & AI</option>
+--->
 
 
+      <div class="project-grid">
 
 
+        <div class="project-card mixed pdc tech" data-release-time="2026-07-12 07:00:01">
+          <div class="card-content">
+            <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
+            <div class="tagline" startdate-expiry="2026-08-12"><b>NEW !</b></div> 
+            <h3 class="title">The Ghost Font / Text Behind Your Pixels</h3>
+            <div class="project-date">
+              <b>Episode 066</b>  <strong>|</strong>  📅 <i><strong> August 12, 2026</strong></i>
+            </div>
+            <div class="info">    
+              <img src="https://storage.jukeboxprint.com/s/images/eric-lu-x-post-.png" class="art" alt="Ghost Font">
+                  
+              <div class="pageCade">
+                <p><strong>Demystifying Ghost Font: From AI Copilots to Invisible Document Layers</strong></p><hr class="hr">
+                <p>Whether you are interacting with predictive AI copilots, scanning old PDF documents, or designing sleek modern web interfaces, you have likely encountered "ghost fonts" without even realizing it. Far beyond a simple design gimmick, ghost text sits at the crucial intersection of user interface responsiveness, document accessibility, and visual aesthetics. This episode explores the multi-faceted world of ghost text—unpacking how subtle, translucent typography powers everyday digital interactions and shapes how we process visual information.</p>
+              
+                <p><b>Key Highlights :</b></p>
+                <div class="list">
+                  <p>* <strong>Predictive UI & Copilot Integration:</strong> In modern web development and code editors like GitHub Copilot, <strong>ghost text</strong> acts as dynamic, inline autocomplete suggestions—rendered in low-opacity grey directly ahead of the user's cursor until accepted.</p>
+
+                  <p>* <strong>Hidden Searchable OCR Layers:</strong> In digital document processing, scanned PDFs rely on an invisible layer of <strong>ghost text</strong> embedded beneath visual page images, making flat photos fully searchable, highlightable, and copyable.</p>
+
+                  <p>* <strong>Aesthetic & Wireframe Typography:</strong> Graphic designers utilize low-contrast watermarks, soft gradients, and <strong>outline/wireframe fonts</strong> to add structural depth to modern visual hierarchy without cluttering primary content.</p>
+
+                  <p>* <strong>Display Anti-Aliasing & Rendering Artifacts:</strong> The phenomenon known as <strong>text ghosting</strong> reveals hardware-level rendering limitations, where sub-pixel anti-aliasing or slow screen response times create subtle visual trails around text edges.</p>
+                </div>
+
+                  <blockquote> 
+                    <p><b>Questions Answered :</b><br>
+                      How do developers style predictive ghost text using CSS pseudo-elements and low-opacity attributes in web applications?</p>
+                  </blockquote>
+                  <blockquote>
+                      <p>In what way does optical character recognition (OCR) embed invisible text behind visual image layers to make scanned documents searchable?</p>
+                  </blockquote>
+                  <blockquote>
+                      <p>How do graphic designers leverage low-contrast typography and wireframe fonts to build striking visual depth without compromising scannability?</p>
+                  </blockquote>
+                  <blockquote>
+                      <p>What causes sub-pixel rendering artifacts and motion-blur ghosting on different operating systems and display panels?</p>
+                  </blockquote>
+
+                  <p class="cta">Ready to see the invisible design elements shaping your screen? Listen to the full episode on the AI Chat Show now to discover the full technical breakdown of ghost text in modern digital experiences.</p>
+              </div>
+            </div>
+            <audio controls src="../static/downloads/audio/Ep065.mp3" type="audio/mp3">
+            </audio>
+            <div class="download-link">
+              <a href="../static/downloads/audio/Ep065.mp3" download="Ghost Font.mp3">⬇ Download</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card mixed pdc tech" data-release-time="2026-07-11 07:00:01">
+          <div class="card-content">
+            <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
+            <div class="tagline" startdate-expiry="2026-08-11"><b>NEW !</b></div> 
+            <h3 class="title">JTAG Forensics And The Human Legacy</h3>
+            <div class="project-date">
+              <b>Episode 065</b>  <strong>|</strong>  📅 <i><strong> August 11, 2026</strong></i>
+            </div>
+            <div class="info">    
+              <img src="https://mcuoneclipse.com/wp-content/uploads/2019/10/debug-setup-with-ft2232hl-serial-and-segger-j-link-edu-mini.png" class="art" alt="JTAG Debugging">
+          
+              <div class="pageCade">
+                <p><strong>Unlocking Silicon's Backdoor: How JTAG Debugging Revolutionizes Hardware Engineering and Cyber Forensics</strong></p><hr class="hr">
+                <p>When modern silicon chips shrank down and buried their physical pins underneath micro-sized packaging, traditional hardware testing needles instantly became obsolete—leaving engineers completely blind to internal electrical pathways. Enter JTAG (IEEE Standard 1149.1), an authorized, digital underground tunnel system embedded directly into silicon during factory fabrication. This episode explores how this foundational boundary-scan architecture allows hardware developers, QA testers, and forensic investigators to freeze time inside a processor, execute step-by-step code debugging, and extract unencrypted memory directly from bricked devices.</p>
+                  
+                <p><b>Key Highlights :</b></p>
+                <div class="list">
+                  <p>* <strong>The Boundary Scan Revolution:</strong> By embedding tiny <strong>Boundary Scan Cells (BSCs)</strong> between core logic and physical pins, JTAG bypasses mechanical probe limitations—giving engineers a digital x-ray view to test physical solder joints and PCB traces purely via serial clock cycles.</p>
+
+                  <p>* <strong>Deep Execution Control & Forensics:</strong> Managed by an internal 16-state <strong>Test Access Port (TAP) Controller</strong>, JTAG enables hardware breakpoints, line-by-line firmware debugging, and complete physical memory extraction from unbootable or password-locked hardware.</p>
+
+                  <p>* <strong>The Serial Bucket Brigade:</strong> Operating across a minimal 4-wire serial bus (TDI, TDO, TCK, TMS), JTAG leverages a <strong>Scan Chain</strong> model to daisy-chain multiple integrated circuits together and manipulate entire circuit boards through a single physical interface.</p>
+
+                  <p>* <strong>Protocol Abstraction in Production:</strong> Hardware probes like SEGGER J-Link act as physical translators between laptop USB ports and target wire clocks, while open-source middleware like <strong>OpenOCD</strong> bridges low-level hardware registers directly to developer IDEs.</p>
+                </div>
+
+                <blockquote> 
+                  <p><b>Questions Answered :</b><br>
+                    How did the transition to Ball Grid Array (BGA) chip packaging render traditional bed-of-nails hardware testing completely obsolete?</p>
+                </blockquote>
+                <blockquote>
+                    <p>What specific role does the Test Access Port (TAP) State Machine play when pausing CPU execution to step through firmware line-by-line?</p>
+                </blockquote>
+                <blockquote>
+                    <p>How do TDI, TDO, TCK, and TMS signals coordinate to move instructions and data across multi-chip daisy chains without requiring physical probes?</p>
+                </blockquote>
+                <blockquote>
+                    <p>Why are cyber forensic teams and hardware security auditors able to bypass bootloader locks and extract raw memory images using JTAG adapters?</p>
+                </blockquote>
+                <blockquote>
+                    <p>How do middleware tools like OpenOCD translate high-level GDB software commands into low-level electrical clock pulses on target circuit boards?</p>
+                </blockquote>
+
+                <p class="cta">Ready to go under the hood of hardware security and embedded silicon debugging? Listen to the full episode on the AI Chat Show now to master the architecture behind modern device recovery and hardware engineering.</p>
+              </div>
+            </div>
+            <audio controls src="../static/downloads/audio/Ep064.mp3" type="audio/mp3">
+            </audio>
+            <div class="download-link">
+              <a href="../static/downloads/audio/Ep064.mp3" download="JTAG Debugging.mp3">⬇ Download</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card mixed pdc tech" data-release-time="2026-07-10 07:00:01">
+          <div class="card-content">
+            <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
+            <div class="tagline" startdate-expiry="2026-08-10"><b>NEW !</b></div> 
+            <h3 class="title">Neuromorphic Computing: Architecting Twenty Watt Silicon Brains</h3>
+            <div class="project-date">
+              <b>Episode 064</b>  <strong>|</strong>  📅 <i><strong> August 10, 2026</strong></i>
+            </div>
+            <div class="info">    
+              <img src="https://www.marketsandmarkets.com/Images/Blog/neuromorphic-computing-technology-innovation.png" class="art" alt="Neuromorphic Computing">
+          
+              <div class="pageCade">
+               <p><strong>Liquid Neural Networks vs. Transformers: Flexible AI for Real-Time Robotics</strong></p><hr class="hr">
+               <p>Navigating the chaotic physical world using massive, power-hungry AI models is like trying to pilot a agile drone while flipping through a giant paper blueprint—it slows down performance and overloads processing memory. While Transformers dominate heavy text processing, real-time robotics and streaming data demand a leaner, continuous mathematical approach. This episode explores the clash between static self-attention grids and dynamic Liquid Neural Networks (LNNs), revealing how fluid neural architectures enable real-time adaptation on tiny edge processors with mere milliwatts of power.</p>
+              
+              <p><b>Key Highlights :</b></p>
+              <div class="list">
+                <p>* <strong>Digital Flipbook vs. Fluid Flow:</strong> While Transformers process discrete, frozen snapshots using quadratic <strong>Attention Grids</strong>, Liquid Neural Networks allow raw sensory streams to flow continuously through dynamic differential equations.</p>
+
+                <p>* <strong>Linear Scaling Complexity:</strong> LNNs reduce sequence processing overhead from the heavy $\mathcal{O}(N^2)$ quadratic bottleneck of Transformer Key-Value caches down to an efficient <strong>Linear Complexity $\mathcal{O}(N)$</strong> execution path.</p>
+
+                <p>* <strong>On-the-Fly Adaptability:</strong> Unlike Transformer weights that freeze after training, an LNN's internal neuron time-constants dynamically recalibrate during inference to adapt instantly to unexpected turbulence or environmental distribution drift.</p>
+
+                <p>* <strong>Extreme Edge Parameter Efficiency:</strong> By operating on continuous-time differential equations, LNNs achieve navigation precision using tiny parameters that fit directly into low-level processor caches on lightweight micro-controllers.</p>
+
+                <p>* <strong>The Hybrid Future:</strong> Production AI pipelines are shifting toward a dual-architecture paradigm where Transformers provide heavy cognitive world-knowledge while Liquid Networks serve as agile, low-latency tactical control muscles.</p>
+              </div>
+
+              <blockquote> 
+                <p><b>Questions_Answered :</b><br>
+                  Why do standard Transformer self-attention mechanisms suffer severe memory bottlenecks when processing long, real-time robotic streams?</p>
+              </blockquote>
+              <blockquote>
+                  <p>How do Liquid Neural Networks use Neural Ordinary Differential Equations (Neural ODEs) to adapt their effective weights during inference runtime?</p>
+              </blockquote>
+              <blockquote>
+                  <p>Why do LNNs exhibit superior domain-shift resilience when navigating sudden weather or sensor noise disruptions compared to fixed-weight models?</p>
+              </blockquote>
+              <blockquote>
+                  <p>How can edge developers fit complete, highly accurate navigation networks inside low-power micro-controller caches using liquid parameters?</p>
+              </blockquote>
+              <blockquote>
+                  <p>What are the key trade-offs between deep factual reasoning capabilities and real-time streaming control loops across modern AI architectures?</p>
+              </blockquote>
+
+              <p class="cta">Ready to explore the frontier of fluid, edge-ready artificial intelligence? Listen to the full episode on the AI Chat Show now to uncover how Liquid Neural Networks are reshaping real-world robotics.</p>
+            </div>
+          </div>
+        <audio controls src="../static/downloads/audio/Ep063.mp3" type="audio/mp3">
+        </audio>
+        <div class="download-link">
+          <a href="../static/downloads/audio/Ep063.mp3" download="Neuromorphic Computing.mp3">⬇ Download</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card mixed pdc tech" data-release-time="2026-07-07 07:00:01">
+      <div class="card-content">
+        <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
+        <div class="tagline" startdate-expiry="2026-08-07"><b>NEW !</b></div> 
+        <h3 class="title">Why AI Forgets the Middle of Documents</h3>
+        <div class="project-date">
+          <b>Episode 063</b>  <strong>|</strong> 📅 <i><strong> August 7, 2026</strong></i>
+        </div>
+        <div class="info">    
+          <img src="https://media.licdn.com/dms/image/v2/D5612AQHkm9LH2S01cw/article-cover_image-shrink_720_1280/B56Z1h7Af.I8AI-/0/1775464352852?e=2147483647&v=beta&t=FxcOFIju6Gatr6-ViFBDNZH2z8Z25BSxZ_g2NgtSjBo" class="art" alt="Blue Ray">
+        
+            <div class="pageCade">
+               <p><strong>Ghost in the Context Window: LLMs' Long-Context Amnesia: Understand & Overcome</strong></p><hr class="hr">
+               <p>Tech giants love boasting about massive million-token context windows that can ingest entire codebases or hundreds of legal documents in seconds. However, behind the marketing promises lies a dirty technical reality: "Lost in the Middle" syndrome, where models suffer from attention dilution and forget vital details buried deep within large prompts. This episode unpacks the mathematics behind Long-Context Amnesia and explores how modern AI architects use reranking pipelines and context engineering to build bulletproof, retrieval-accurate applications.</p>
+              
+              <p><b>Key_Highlights :</b></p>
+              <div class="list">
+                <p>* <strong>The Massive Legal Scroll Model:</strong> Just as a weary judge reads the top and bottom of a 500-page document with sharp focus but glazes over page 250, an LLM's self-attention mechanism over-indexes on boundary tokens while neglecting the center.</p>
+
+                <p>* <strong>Softmax Attention Dilution:</strong> As token sequence length ($N$) expands dramatically, the mathematical output of the softmax operation spreads thin across the sequence, diluting attention weights and degrading middle-token recall.</p>
+
+                <p>* <strong>Primacy, Recency, and RoPE Biases:</strong> Rotary Position Embeddings (RoPE) and standard pre-training datasets train models to expect crucial instructions at the beginning and end of inputs, creating strong structural boundary biases.</p>
+
+                <p>* <strong>Rank-Aware Context Placement:</strong> Production AI engineers counter amnesia by deploying cross-encoder <strong>Reranking Models</strong> (like Cohere Rerank or BGE-Reranker) to dynamically reposition high-priority data chunks at the extreme top or bottom of prompts.</p>
+
+                <p>* <strong>The Cost of Silent Failures:</strong> Unchecked long-context amnesia leads to quiet hallucinations and retrieval failures—wasting thousands of GPU compute cycles on unremembered middle tokens without throwing an explicit error.</p>
+              </div>
+
+              <blockquote> 
+                <p><b>Questions_Answered :</b><br>
+                  Why do Large Language Models mathematically prioritize information located at the absolute beginning and end of a context window over the middle?</p>
+              </blockquote>
+              <blockquote>
+                  <p>How does the softmax function in transformer self-attention become diluted as input sequences expand into hundreds of thousands of tokens?</p>
+              </blockquote>
+              <blockquote>
+                  <p>Why do synthetic "Needle-in-a-Haystack" benchmarks fail to reflect an AI model's true performance during complex reasoning tasks?</p>
+              </blockquote>
+              <blockquote>
+                  <p>How can AI software engineers use rank-aware context placement and reranker models to prevent silent RAG retrieval failures?</p>
+              </blockquote>
+              <blockquote>
+                  <p>When is it better to use a thin, reranked context pipeline over raw, brute-force long-context ingestion?</p>
+              </blockquote>
+
+              <p class="cta">Ready to fix the invisible blindspot in your enterprise AI architecture? Listen to the full episode now to master the engineering strategies that eliminate Long-Context Amnesia.</p>
+            </div>
+          </div>
+        <audio controls src="../static/downloads/audio/Ep062.mp3" type="audio/mp3">
+        </audio>
+        <div class="download-link">
+          <a href="../static/downloads/audio/Ep062.mp3" download="Blue Ray Effects.mp3">⬇ Download</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card mixed pdc tech" data-release-time="2026-07-06 07:00:01">
+      <div class="card-content">
+        <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
+        <div class="tagline" startdate-expiry="2026-08-06"><b>NEW !</b></div> 
+        <h3 class="title">How LLM Generate Audio Songs From Text (Prompt)</h3>
+        <div class="project-date">
+          <b>Episode 062</b>  <strong>|</strong>  📅 <i><strong> August 6, 2026</strong></i>
+        </div>
+        <div class="info">    
+          <img src="https://media.artyfile.com/media/1f/02/74/1768835096/ai-music-rights.jpg" class="art" alt=" LLM Generate Audio">
+          
+            <div class="pageCade">
+               <p><strong>The Architectural Symphony: Inside the Multi-Stage Pipelines Powering Generative AI Audio</strong></p><hr class="hr">
+               <p>Generating high-fidelity audio from text isn't as simple as translating letters into sound waves; it requires conducting a massive architectural symphony inside a digital cathedral. Raw audio files are notoriously dense data structures, containing tens of thousands of data points per second that would overwhelm traditional language models. This episode explores the cutting-edge pipelines—from neural audio codecs to multimodal transformers—that compress, decode, and interpret human text to generate stunning 44.1 kHz studio-quality audio in real time.</p>
+              
+              <p><b>Key_Highlights :</b></p>
+              <div class="list">
+                <p>* <strong>The Digital Cathedral Mental Model:</strong> Text-to-audio systems function through a three-part architecture: the Cross-Modal Text Encoder translates raw text into musical coordinates, the Autoregressive Language Model arranges high-level semantic tokens, and the Neural Audio Codec Decoder renders raw $44.1\text{ kHz}$ waveforms.</p>
+
+                <p>* <strong>Google's Lyria 3 & Multimodal Generation:</strong> Operating via Google's Gemini API, Lyria 3 calculates long-range dependencies across unified text and visual context windows to maintain structural coherence, lyrics-to-vocal synchronization, and full instrumental arrangements.</p>
+
+                <p>* <strong>Meta's AudioCraft & Residual Vector Quantization:</strong> AudioCraft leverages the EnCodec neural audio codec to compress raw sound waveforms nearly 1,000 times into discrete acoustic tokens via multi-layer vector quantization, allowing models like MusicGen to predict complex audio tracks without overloading server GPUs.</p>
+
+                <p>* <strong>Bridging the Interpretation Gap:</strong> Modern transformers excel at technical execution but struggle with abstract human expressions like "make it sound intimate." AI engineers are solving this by inserting intermediate LLM translation layers to decompose poetic prompts into concrete acoustic parameters before audio generation.</p>
+
+                <p>* <strong>Production Infrastructure Trade-Offs:</strong> Developers face critical tradeoffs between the high spatial efficiency of discrete neural codecs and potential metallic compression artifacts, alongside the computational latency demands of long-form audio generation.</p>
+              </div>
+
+              <blockquote> 
+                <p><b>Questions_Answered :</b><br>
+                  How do neural audio codecs like Meta's EnCodec compress uncompressed raw audio waveforms by nearly 1,000 times without destroying sound quality?</p>
+              </blockquote>
+              <blockquote>
+                  <p>How does Google's Lyria 3 handle text and image prompts simultaneously to generate synchronized $44.1\text{ kHz}$ stereo tracks?</p>
+              </blockquote>
+              <blockquote>
+                  <p>What is the "Interpretation Gap" in AI audio engineering, and why do models struggle with mid-level artistic instructions like "make it sound nostalgic"?</p>
+              </blockquote>
+              <blockquote>
+                  <p>How do Residual Vector Quantization (RVQ) layers function like a multi-tier painting process to separate structural bass from high-frequency sound details?</p>
+              </blockquote>
+              <blockquote>
+                  <p>Why are MLOps teams integrating intermediate LLM prompt-decomposer layers into their audio pipelines before passing inputs to generative models?</p>
+              </blockquote>
+
+              <p class="cta">Ready to go under the hood of generative sound and music models? Listen to the full episode now to unlock the engineering blueprints transforming text into pristine studio-grade audio.</p>
+            </div>
+          </div>
+        <audio controls src="../static/downloads/audio/Ep061.mp3" type="audio/mp3">
+        </audio>
+        <div class="download-link">
+          <a href="../static/downloads/audio/Ep061.mp3" download="LLM Generate Audio.mp3">⬇ Download</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card mixed pdc bio" data-release-time="2026-07-05 07:00:01">
+      <div class="card-content">
+        <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> Biogenetics</i>
+        <div class="tagline" startdate-expiry="2026-08-05"><b>NEW !</b></div> 
+        <h3 class="title">Using AI To Help Couple Have Baby & Know The Sex</h3>
+        <div class="project-date">
+          <b>Episode 061</b>  <strong>|</strong>  📅 <i><strong> August 5, 2026</strong></i>
+        </div>
+        <div class="info">    
+          <img src="https://a57.foxnews.com/static.foxnews.com/foxnews.com/content/uploads/2024/06/720/405/4-The-chilling-fake-of-birthing-30000-babies-in-eerie-artificial-wombs.jpg?ve=1&tl=1" class="art" alt="Blue Ray">
+            
+            <div class="pageCade">
+               <p><strong>IVF Biopsy Laser: Reproductive Medicine and Genetic Selection Revolutionizing</strong></p><hr class="hr">
+               <p>Imagine a chaotic air traffic control tower operating in dense fog, where monitoring dozens of incoming flights pushes human visual processing to its absolute limit. Now imagine introducing an intelligent flight orchestration system that reads micro-fluctuations in wind, speed, and trajectory in real time to guide every plane safely to its destination. This episode explores how artificial intelligence acts as an elite digital air traffic controller in reproductive medicine—transforming the delicate, high-stakes science of IVF from subjective observational guesswork into a hyper-precise, data-driven domain.</p>
+              
+              <p><b>Key_Highlights :</b></p>
+              <div class="list">
+                <p>* <strong>The Elite Air Traffic Controller Model:</strong> Rather than replacing embryologists, AI serves as an advanced decision-support system, analyzing high-dimensional, moving biological data thousands of times per second to optimize embryo selection without human visual fatigue.</p>
+
+                <p>* <strong>Computer Vision and Kinetic Tracking:</strong> By leveraging Convolutional Neural Networks (CNNs) and continuous time-lapse incubators, AI tracks the precise millisecond-by-millisecond timing of cellular cleavage ($t_2, t_4, t_8$) to detect subtle structural anomalies like direct cleavage.</p>
+
+                <p>* <strong>Non-Invasive Genomic Screening (niPGT):</strong> Deep learning models bypass the physical risks of laser-drilling embryonic tissue by predicting chromosomal integrity, genetic disorders, and biological sex ($XX$ vs. $XY$) solely from fluid dynamics, morphology, and culture medium waste byproducts.</p>
+
+                <p>* <strong>MLOps and Policy Guardrails:</strong> Modern fertility tech platforms must implement invariant computer vision models across varying microscope light levels while deploying strict location-based guardrails to obscure sex selection in non-medical regulatory jurisdictions.</p>
+
+                <p>* <strong>The Clinical & Ethical Stalemate:</strong> While predictive AI minimizes physical biological risk for fragile embryos, absolute binary genetic diagnoses still require the physical, verified truth of traditional invasive DNA sequencing.</p>
+              </div>
+
+              <blockquote> 
+                <p><b>Questions_Answered :</b><br>
+                  How does computer vision analyze millisecond-level cellular division to determine embryo viability?</p>
+              </blockquote>
+              <blockquote>
+                  <p>How can deep learning algorithms accurately predict chromosome configurations and sex without physically touching or damaging the embryo?</p>
+              </blockquote>
+              <blockquote>
+                  <p>What are the key technical trade-offs between AI-driven non-invasive genomic evaluation and traditional physical biopsy sequencing?</p>
+              </blockquote>
+              <blockquote>
+                  <p>How do product teams design MLOps pipelines and software UI guardrails to comply with regional ethical restrictions on sex selection?</p>
+              </blockquote>
+              <blockquote>
+                  <p>Why does the "black box" nature of deep learning present a challenge when explaining embryo ranking scores to clinicians and patients?</p>
+              </blockquote>
+
+              <p class="cta">Ready to explore how deep learning is reshaping the creation of life? Listen to the full podcast episode now to dive into the technology, ethics, and future of AI-driven reproductive medicine.</p>
+            </div>
+          </div>
+        <audio controls src="../static/downloads/audio/Ep060.mp3" type="audio/mp3">
+        </audio>
+        <div class="download-link">
+          <a href="../static/downloads/audio/Ep060.mp3" download="Blue Ray Effects.mp3">⬇ Download</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card mixed dbt tech" data-release-time="2026-07-04 07:00:01">
+      <div class="card-content">
+        <span class="badge"><b>Debate</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
+        <div class="tagline" startdate-expiry="2026-08-04"><b>NEW !</b></div> 
+        <h3 class="title">Transformers Versus Liquid Neural Networks (LNNs)  </h3>
+        <div class="project-date">
+          <b>Episode 060</b>  <strong>|</strong>  📅 <i><strong> August 4, 2026</strong></i>
+        </div>
+        <div class="info">    
+          <img src="https://hitechnectar.com/wp-content/uploads/2025/05/Vision-Transformers-vs.-Convolutional-Neural-Networks-990x600.jpg" class="art" alt="LNN vs. Transformers">
+          
+            <div class="pageCade">
+               <p><strong>Liquid Neural Networks Vs. Transformers: Flexible AI for Real-Time Robotics</strong></p><hr class="hr">
+               <p>Navigating the chaotic physical world using massive, power-hungry AI models is like trying to pilot a agile drone while flipping through a giant paper blueprint—it slows down performance and overloads processing memory. While Transformers dominate heavy text processing, real-time robotics and streaming data demand a leaner, continuous mathematical approach. This episode explores the clash between static self-attention grids and dynamic Liquid Neural Networks (LNNs), revealing how fluid neural architectures enable real-time adaptation on tiny edge processors with mere milliwatts of power.</p>
+              
+              <p><b>Key Highlights :</b></p>
+              <div class="list">
+                <p>* <strong>Digital Flipbook vs. Fluid Flow:</strong> While Transformers process discrete, frozen snapshots using quadratic <strong>Attention Grids</strong>, Liquid Neural Networks allow raw sensory streams to flow continuously through dynamic differential equations.</p>
+
+                <p>* <strong>Linear Scaling Complexity:</strong> LNNs reduce sequence processing overhead from the heavy $\mathcal{O}(N^2)$ quadratic bottleneck of Transformer Key-Value caches down to an efficient <strong>Linear Complexity $\mathcal{O}(N)$</strong> execution path.</p>
+
+                <p>* <strong>On-the-Fly Adaptability:</strong> Unlike Transformer weights that freeze after training, an LNN's internal neuron time-constants dynamically recalibrate during inference to adapt instantly to unexpected turbulence or environmental distribution drift.</p>
+
+                <p>* <strong>Extreme Edge Parameter Efficiency:</strong> By operating on continuous-time differential equations, LNNs achieve navigation precision using tiny parameters that fit directly into low-level processor caches on lightweight micro-controllers.</p>
+
+                <p>* <strong>The Hybrid Future:</strong> Production AI pipelines are shifting toward a dual-architecture paradigm where Transformers provide heavy cognitive world-knowledge while Liquid Networks serve as agile, low-latency tactical control muscles.</p>
+              </div>
+
+              <blockquote> 
+                <p><b>Questions_Answered :</b><br>
+                  Why do standard Transformer self-attention mechanisms suffer severe memory bottlenecks when processing long, real-time robotic streams?</p>
+              </blockquote>
+              <blockquote>
+                  <p>How do Liquid Neural Networks use Neural Ordinary Differential Equations (Neural ODEs) to adapt their effective weights during inference runtime?</p>
+              </blockquote>
+              <blockquote>
+                  <p>Why do LNNs exhibit superior domain-shift resilience when navigating sudden weather or sensor noise disruptions compared to fixed-weight models?</p>
+              </blockquote>
+              <blockquote>
+                  <p>How can edge developers fit complete, highly accurate navigation networks inside low-power micro-controller caches using liquid parameters?</p>
+              </blockquote>
+              <blockquote>
+                  <p>What are the key trade-offs between deep factual reasoning capabilities and real-time streaming control loops across modern AI architectures?</p>
+              </blockquote>
+
+              <p class="cta">Ready to explore the frontier of fluid, edge-ready artificial intelligence? Listen to the full episode on the AI Chat Show now to uncover how Liquid Neural Networks are reshaping real-world robotics.</p>
+            </div>
+          </div>
+        <audio controls src="../static/downloads/audio/Ep059.mp3" type="audio/mp3">
+        </audio>
+        <div class="download-link">
+          <a href="../static/downloads/audio/Ep059.mp3" download="LNN vs. Transformers.mp3">⬇ Download</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card mixed pdc tech mind" data-release-time="2026-07-03 07:00:01">
+      <div class="card-content">
+        <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
+        <div class="tagline" startdate-expiry="2026-08-03"><b>NEW !</b></div> 
+        <h3 class="title">Teach With Flashcards & Adaptive AI Reading Tutors</h3>
+        <div class="project-date">
+          <b>Episode 059</b>  <strong>|</strong>  📅 <i><strong> August 3, 2026</strong></i>
+        </div>
+        <div class="info">    
+          <img src="https://www.wise.live/blog/wp-content/uploads/2026/02/Generated-Image-February-20-2026-10_27AM-768x439.jpg" class="art" alt="Blue Ray">
+
+            <div class="pageCade">
+               <p><strong>AI Tutors vs. Flashcards: Literacy Engineering and Human Cognitive Windows</strong></p><hr class="hr">
+               <p>Relying on traditional learning drills in an increasingly digital world is like training a pilot with paper blueprints instead of a real-time flight simulator—it builds isolated memory without teaching real-world navigation. Early childhood literacy is undergoing a paradigm shift as generative AI transforms static word drills into interactive, adaptive storytelling environments. This episode breaks down the cognitive mechanics between traditional flashcards and conversational AI tutors, exploring how adaptive context windows and real-time speech processing reshape how children master reading comprehension.</p>
+              
+              <p><b>Key Highlights :</b></p>
+              <div class="list">
+                <p>* <strong>The Flight Simulator Mental Model:</strong> While flashcards act as static blueprints for rapid, isolated word matching, <strong>AI Tutors</strong> function like dynamic flight simulators—constructing real-time context windows that adapt to a child's pronunciation and narrative pace.</p>
+
+                <p>* <strong>Static Flashcard Mechanics:</strong> Operating much like a low-context <strong>Zero-Shot Token Classification</strong> system, physical flashcards bypass complex attention layers to maximize visual retrieval speed, making them efficient for vocabulary drills but limited for sentence comprehension.</p>
+
+                <p>* <strong>Adaptive Context Windows:</strong> Powered by Automatic Speech Recognition (ASR) and self-attention heads, conversational AI tutors continuously evaluate historic reading logs to dynamically adjust story prompts whenever phoneme errors occur.</p>
+
+                <p>* <strong>RAG-Anchored Safety:</strong> To maintain strict educational standards and avoid model hallucinations, enterprise-grade literacy tools anchor Large Language Models to verified curricula using <strong>Retrieval-Augmented Generation (RAG)</strong> architectures.</p>
+
+                <p>* <strong>The Balanced Educational Stack:</strong> High-conversion learning pipelines leverage quick flashcard drills to build foundational sight-word confidence while utilizing adaptive AI environments to develop long-term critical thinking and sentence flow.</p>
+              </div>
+
+              <blockquote> 
+                <p><b>Questions_Answered :</b><br>
+                  How does a child's brain process isolated text on a flashcard differently than a full sentence in an interactive AI storybook?</p>
+              </blockquote>
+              <blockquote>
+                  <p>What occurs inside an AI tutor's self-attention mechanism when it detects a recurring pronunciation error in real time?</p>
+              </blockquote>
+              <blockquote>
+                  <p>Why do static flashcard apps rely on Spaced Repetition Systems (SRS) rather than natural language processing engines?</p>
+              </blockquote>
+              <blockquote>
+                  <p>How do educational software developers deploy Retrieval-Augmented Generation (RAG) to ensure AI tutors adhere to child-safe reading standards?</p>
+              </blockquote>
+              <blockquote>
+                  <p>What is the optimal balance between high-speed vocabulary drills and adaptive, conversational literacy training?</p>
+              </blockquote>
+
+              <p class="cta">Ready to discover how generative tech is redefining childhood literacy? Listen to the full episode on the AI Chat Show now to explore the engineering behind the next generation of adaptive learning tools.</p>
+            </div>
+          </div>
+        <audio controls src="../static/downloads/audio/Ep058.mp3" type="audio/mp3">
+        </audio>
+        <div class="download-link">
+          <a href="../static/downloads/audio/Ep058.mp3" download="Blue Ray Effects.mp3">⬇ Download</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card mixed pdc mind" data-release-time="2026-07-10 07:00:01">
+      <div class="card-content">
+        <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> Psychology </i>
+        <div class="tagline" startdate-expiry="2026-07-31"><b>NEW !</b></div> 
+        <h3 class="title"><i>The Art of War:</i> 20 Tactical Principles by Sun Tzu</h3>
+        <div class="project-date">
+          <b>Episode 058</b>  <strong>|</strong>  📅 <i><strong> July 31, 2026</strong></i>
+        </div>
+        <div class="info">    
+          <img src="https://sevenswords.uk/wp-content/uploads/2025/07/sun-tzu-the-art-of-war-1536x768.jpg" class="art" alt="The Art of War - Sun Tzu">
+
+            <div class="pageCade">
+               <p><strong>Sun Tzu Strategic Blueprint for High-Stakes Decision Making In Career Battlefield</strong></p><hr class="hr">
+               <p>Navigating modern competitive landscapes without a overarching framework is like sailing into a storm without a compass—you waste vital energy reacting rather than dictating the course. Sun Tzu’s offers a timeless blueprint for strategic mastery, proving that true victory lies in intelligence, leverage, and friction-free execution rather than brute force.</p> 
+
+              <ol style="border-radius: 10px; border: 1px solid rgba(0, 224, 255, 0.9); background:rgba(15,17,23,0.7); padding: 25px;">
+
+                <p><strong>Who Was Sun Tzu?</strong><br>
+                <br>Sun Tzu (c. 544 BCE – c. 496 BCE) was an ancient Chinese military general, strategist, and philosopher who lived during the Eastern Zhou period (specifically during the Late Spring and Autumn Period).</p> 
+
+                <p>Master Sun Tzu is best known as the author of <i>The Art of War</i> (Sūnzi Bīngfǎ), a classic military treatise that has profoundly influenced military thinking, statecraft, business strategy, and personal conflict resolution for over two millennia.</p>
+
+                <p><strong>Historical Background:</strong> Serving under King Helü of the State of Wu, Sun Tzu gained a formidable reputation as a military commander who successfully led troops against larger, rival armies.</p>
 
 
+                <p>His philosophy emphasizes wisdom, foresight, deception, adaptability, and minimal expenditure of resources, prioritizing winning without fighting over brute force or destruction.</p>
 
+                <p>Sun Tzu’s principles are not merely instructions for battlefield tactics; they represent a complete framework for strategic thinking, leadership, and crisis management. Below is what is essential to understand about these 20 principles:</p>
 
+                <li><strong>Know Yourself and Your Enemy</strong> — Understanding both your own capabilities and limitations alongside your opponent's strengths and weaknesses ensures success without fear of the outcome.</li><br>
 
+                <li><strong>The Supreme Art of War (Subduing Without Fighting)</strong> — The highest form of victory is to overcome conflict or defeat an enemy through strategy, leverage, or diplomacy before actual combat occurs.</li><br>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-07-30 07:00:01">
+                <li><strong>Seize Opportunities</strong> — Recognize fleeting moments of advantage and act decisively before the opportunity disappears.</li><br>
+
+                <li><strong>Deception in Warfare</strong> — All warfare is based on deception. Conceal your plans, capabilities, and intentions to keep opponents guessing.</li><br>
+
+                <li><strong>Finding Opportunity in Chaos</strong> — Disorder and change create openings; a skilled strategist turns chaos into strategic advantage.</li><br>
+
+                <li><strong>Know When to Fight and When Not to Fight</strong> — Discretion and choosing the right battles dictate long-term survival and success.</li><br>
+
+                <li><strong>Set Terms of Engagement</strong> — Drive the terms of conflict rather than being reactive; dictate where, when, and how interactions occur.</li><br>
+
+                <li><strong>Concealment and Mystery</strong> — Keeping your strategies hidden prevents your opponent from preparing an effective counter strategy.</li><br>
+
+                <li><strong>Assess the Cost of Conflict</strong> — Every engagement has a price (resource, emotional, material); evaluate whether the outcome justifies the expenditure.</li><br>
+
+                <li><strong>Manipulate Perceptions</strong> — Appear weak when you are strong, and strong when you are weak to mislead adversaries.</li><br>
+
+                <li><strong>Total Commitment and Sacrifice</strong> — Half-hearted efforts yield poor results; achieve victory through focused dedication.</li><br>
+
+                <li><strong>Preparation and Timely Execution</strong> — Thorough planning must be coupled with swift, decisive action at the right moment.</li><br>
+
+                <li><strong>Adaptability (Flowing Like Water)</strong> — Avoid rigid strategies; adapt your tactics dynamically to match changing circumstances and terrain.</li><br>
+
+                <li><strong>Exploit Vulnerabilities</strong> — Attack where the opponent is unprepared or weak rather than where they are strong.</li><br>
+
+                <li><strong>Maintain Discipline and Morale</strong> — Strong leadership and unity within your forces are fundamental to enduring pressure.</li><br>
+
+                <li><strong>Use Intelligence and Spies</strong> — Accurate, firsthand information about your opponent's moves is vital for strategic foresight.</li><br>
+
+                <li><strong>Control the High Ground</strong> — Position yourself physically, strategically, or mentally in advantageous positions.</li><br>
+
+                <li><strong>Avoid Prolonged Warfare</strong> — Long, drawn-out conflicts drain resources, morale, and energy; strive for swift resolutions.</li><br>
+
+                <li><strong>Divide and Conquer</strong> — Separate or create division among opposing forces to weaken their collective strength.</li><br>
+
+                <li><strong>Imposing Your Will</strong> — Maintain control over the situation, forcing opponents to react to your moves rather than letting them dictate yours.</li>
+              </ol>
+
+               <p>This episode translates 2,500-year-old military philosophy into modern operational tactics, showing leaders and strategists how to outmaneuver opposition before the battle even begins.</p>
+              
+              <p><b>Key Highlights :</b></p>
+              <div class="list">
+                <p>* <strong>Subduing Without Fighting:</strong> The supreme mark of mastery is achieving your objectives through positioning, leverage, and diplomacy—effectively neutralizing friction and preserving critical capital before direct engagement.</p>
+
+                <p>* <strong>Adaptive Fluidity (Flowing Like Water):</strong> Rigid strategies fail when environment dynamics shift; long-term survival requires dynamic operational flexibility that turns sudden disruption and chaos into strategic advantage.</p>
+
+                <p>* <strong>Perception & Concealment:</strong> Strategic execution relies on masking true capabilities and intentions, forcing competitors to act on inaccurate assumptions and miscalculated moves.</p>
+
+                <p>* <strong>Cost-to-Benefit Audit:</strong> Every engagement incurs resource, emotional, and material debt, making swift, decisive action always superior to prolonged, energy-draining struggles.</p>
+
+                <p>* <strong>Intelligence Over Intuition:</strong> Success hinges on replacing emotion and guesswork with firsthand, actionable intelligence to control the terms of engagement and command the strategic high ground.</p>
+              </div>
+
+              <blockquote> 
+                <p><b>Questions_Answered :</b><br>
+                  Why is winning without direct confrontation considered the highest form of strategic mastery?</p>
+              </blockquote>
+              <blockquote>
+                  <p>How can leaders exploit market chaos and unexpected disruption to create sustainable competitive leverage?</p>
+              </blockquote>
+              <blockquote>
+                  <p>What is the operational cost of prolonged conflict, and why is swift execution always superior?</p>
+              </blockquote>
+              <blockquote>
+                  <p>How does manipulating competitor perception prevent adversaries from anticipating your actual moves?</p>
+              </blockquote>
+              <blockquote>
+                  <p>Why does Sun Tzu prioritize objective self-awareness and opponent intelligence over brute resource superiority?</p>
+              </blockquote>
+
+              <p class="cta">Ready to upgrade your strategic mindset and outmaneuver the competition? Listen to the full episode on the AI Chat Show now to master the masterclass principles of Sun Tzu.</p>
+            </div>
+          </div>
+        <audio controls src="../static/downloads/audio/Ep057.mp3" type="audio/mp3">
+        </audio>
+        <div class="download-link">
+          <a href="../static/downloads/audio/Ep057.mp3" download="The Art of War - Sun Tzu.mp3">⬇ Download</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card mixed pdc bio" data-release-time="2026-07-30 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> Biogenetics</i>
         <div class="tagline" startdate-expiry="2026-07-30"><b>NEW !</b></div> 
         <h3 class="title">Blue Ray Effects of Digital Devices on the Eyes & Health</h3>
         <div class="project-date">
-          <b>Episode 053</b>  <strong>|</strong>  📅 <i><strong> July 30, 2026</strong></i>
+          <b>Episode 057</b>  <strong>|</strong>  📅 <i><strong> July 30, 2026</strong></i>
         </div>
         <div class="info">    
           <img src="https://static.independent.co.uk/2025/04/23/13/23104904-e0709f8b-4a90-4486-9875-e05f18664a06.jpg?quality=75&width=1368&auto=webp" class="art" alt="Blue Ray">
@@ -216,7 +789,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-07-29 07:00:01">
+    <div class="project-card mixed pdc mind" data-release-time="2026-07-29 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-07-29"><b>NEW !</b></div> 
@@ -273,7 +846,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-07-28 07:00:01">
+    <div class="project-card mixed pdc bio mind" data-release-time="2026-07-28 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> Biogenetics</i>
         <div class="tagline" startdate-expiry="2026-07-28"><b>NEW !</b></div> 
@@ -325,7 +898,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-07-27 07:00:01">
+    <div class="project-card mixed pdc tech" data-release-time="2026-07-27 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-07-27"><b>NEW !</b></div> 
@@ -377,7 +950,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-07-24 07:00:01">
+    <div class="project-card mixed pdc bio" data-release-time="2026-07-24 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> Biogenetics</i>
         <div class="tagline" startdate-expiry="2026-07-24"><b>NEW !</b></div> 
@@ -431,7 +1004,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-07-23 07:00:01">
+    <div class="project-card mixed pdc tech" data-release-time="2026-07-23 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-07-23"><b>NEW !</b></div> 
@@ -487,7 +1060,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-07-16 07:00:01">
+    <div class="project-card mixed pdc tech" data-release-time="2026-07-16 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-07-16"><b>NEW !</b></div> 
@@ -545,9 +1118,9 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-07-15 07:00:01">
+    <div class="project-card mixed pdc tech" data-release-time="2026-07-15 07:00:01">
       <div class="card-content">
-        <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
+        <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> Prompting</i>
         <div class="tagline" startdate-expiry="2026-07-15"><b>NEW !</b></div> 
         <h3 class="title">PEARLS Framework - The holy grail of Prompting</h3>
         <div class="project-date">
@@ -596,9 +1169,9 @@
       </div>
     </div>
 
-    <div class="project-card mixed aly audio" data-release-time="2026-07-14 07:00:01">
+    <div class="project-card mixed aly tech" data-release-time="2026-07-14 07:00:01">
       <div class="card-content">
-        <span class="badge"><b>Analysis</b></span><b class="dot"> • </b><i class="badge_sub"> AI Tech.</i>
+        <span class="badge"><b>Analysis</b></span><b class="dot"> • </b><i class="badge_sub"> Prompting</i>
         <div class="tagline" startdate-expiry="2026-07-14"><b>NEW !</b></div> 
         <h3 class="title">The PEARL<strong class="pearls">S</strong> Framework: Scrutiny (S)</h3>
         <div class="project-date">
@@ -647,9 +1220,9 @@
       </div>
     </div>
       
-    <div class="project-card mixed aly audio" data-release-time="2026-07-13 07:00:01">
+    <div class="project-card mixed aly tech" data-release-time="2026-07-13 07:00:01">
       <div class="card-content">
-        <span class="badge"><b>Analysis</b></span><b class="dot"> • </b><i class="badge_sub"> AI Tech.</i>
+        <span class="badge"><b>Analysis</b></span><b class="dot"> • </b><i class="badge_sub"> Prompting</i>
         <div class="tagline" startdate-expiry="2026-07-13"><b>NEW !</b></div> 
         <h3 class="title">The PEAR<strong class="pearls">L</strong>S Framework: Limits (L)</h3>
         <div class="project-date">
@@ -700,9 +1273,9 @@
       </div>
     </div>
 
-    <div class="project-card mixed aly audio" data-release-time="2026-07-10 07:00:01">
+    <div class="project-card mixed aly tech" data-release-time="2026-07-10 07:00:01">
       <div class="card-content">
-        <span class="badge"><b>Analysis</b></span><b class="dot"> • </b><i class="badge_sub"> AI Tech.</i>
+        <span class="badge"><b>Analysis</b></span><b class="dot"> • </b><i class="badge_sub"> Prompting</i>
         <div class="tagline" startdate-expiry="2026-07-10"><b>NEW !</b></div> 
         <h3 class="title">The PEA<strong class="pearls">R</strong>LS Framework: Result (R)</h3>
         <div class="project-date">
@@ -753,9 +1326,9 @@
       </div>
     </div>
 
-    <div class="project-card mixed aly audio" data-release-time="2026-07-09 07:00:01">
+    <div class="project-card mixed aly tech" data-release-time="2026-07-09 07:00:01">
       <div class="card-content">
-        <span class="badge"><b>Analysis</b></span><b class="dot"> • </b><i class="badge_sub"> AI Tech.</i>
+        <span class="badge"><b>Analysis</b></span><b class="dot"> • </b><i class="badge_sub"> Prompting</i>
         <div class="tagline" startdate-expiry="2026-07-09"><b>NEW !</b></div> 
         <h3 class="title">The PE<strong class="pearls">A</strong>RLS Framework: Action (A)</h3>
         <div class="project-date">
@@ -806,9 +1379,9 @@
       </div>
     </div>
 
-    <div class="project-card mixed aly audio" data-release-time="2026-07-08 07:00:01">
+    <div class="project-card mixed aly tech" data-release-time="2026-07-08 07:00:01">
       <div class="card-content">
-        <span class="badge"><b>Analysis</b></span><b class="dot"> • </b><i class="badge_sub"> AI Tech.</i>
+        <span class="badge"><b>Analysis</b></span><b class="dot"> • </b><i class="badge_sub"> Prompting</i>
         <div class="tagline" startdate-expiry="2026-07-08"><b>NEW !</b></div> 
         <h3 class="title">The P<strong class="pearls">E</strong>ARLS Framework: Examples (E)</h3>
         <div class="project-date">
@@ -863,9 +1436,9 @@
       </div>
     </div>
 
-    <div class="project-card mixed aly audio" data-release-time="2026-07-07 07:00:01">
+    <div class="project-card mixed aly tech" data-release-time="2026-07-07 07:00:01">
       <div class="card-content">
-        <span class="badge"><b>Analysis</b></span><b class="dot"> • </b><i class="badge_sub"> AI Tech.</i>
+        <span class="badge"><b>Analysis</b></span><b class="dot"> • </b><i class="badge_sub"> Prompting</i>
         <div class="tagline" startdate-expiry="2026-07-07"><b>NEW !</b></div> 
         <h3 class="title">The <strong class="pearls">P</strong>EARLS Framework: Persona (P)</h3>
         <div class="project-date">
@@ -914,9 +1487,9 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-07-06 07:00:01">
+    <div class="project-card mixed pdc bio" data-release-time="2026-07-06 07:00:01">
       <div class="card-content">
-        <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
+        <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> Biogenetics</i>
         <div class="tagline" startdate-expiry="2026-07-06"><b>NEW !</b></div> 
         <h3 class="title">Your Brain as a Biological Server</h3>
         <div class="project-date">
@@ -963,7 +1536,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-07-03 07:00:01">
+    <div class="project-card mixed pdc tech" data-release-time="2026-07-03 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-07-03"><b>NEW !</b></div> 
@@ -1018,7 +1591,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-07-02 07:00:01">
+    <div class="project-card mixed pdc tech" data-release-time="2026-07-02 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-07-02"><b>NEW !</b></div> 
@@ -1073,7 +1646,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-07-01 07:00:01">
+    <div class="project-card mixed pdc bio tech" data-release-time="2026-07-01 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> Bio Tech</i>
         <div class="tagline" startdate-expiry="2026-07-01"><b>NEW !</b></div> 
@@ -1128,7 +1701,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-06-30 07:00:01">
+    <div class="project-card mixed pdc tech" data-release-time="2026-06-30 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-06-30"><b>NEW !</b></div> 
@@ -1183,7 +1756,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-06-29 07:00:01">
+    <div class="project-card mixed pdc tech" data-release-time="2026-06-29 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-06-29"><b>NEW !</b></div> 
@@ -1238,7 +1811,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-06-26 07:00:01">
+    <div class="project-card mixed pdc tech" data-release-time="2026-06-26 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-06-26"><b>NEW !</b></div> 
@@ -1294,7 +1867,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed dbt audio" data-release-time="2026-06-25 07:00:01">
+    <div class="project-card mixed dbt tech" data-release-time="2026-06-25 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Debate</b></span><b class="dot"> • </b><i class="badge_sub">  The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-06-25"><b>NEW !</b></div> 
@@ -1343,7 +1916,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-06-24 07:00:01">
+    <div class="project-card mixed pdc tech" data-release-time="2026-06-24 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-06-24"><b>NEW !</b></div> 
@@ -1392,7 +1965,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-06-23 07:00:01">
+    <div class="project-card mixed pdc tech" data-release-time="2026-06-23 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-06-23"><b>NEW !</b></div> 
@@ -1502,7 +2075,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-06-22 07:00:01">
+    <div class="project-card mixed pdc tech" data-release-time="2026-06-22 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-06-22"><b>NEW !</b></div> 
@@ -1555,7 +2128,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-06-19 07:00:01">
+    <div class="project-card mixed pdc tech" data-release-time="2026-06-19 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-06-19"><b>NEW !</b></div> 
@@ -1661,9 +2234,9 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-06-18 07:00:01">
+    <div class="project-card mixed pdc bio tech" data-release-time="2026-06-18 07:00:01">
       <div class="card-content">
-        <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> BioTech</i>
+        <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> Bio Tech</i>
         <div class="tagline" startdate-expiry="2026-06-18"><b>NEW !</b></div> 
         <h3 class="title">The Battle for Your Medical Data - Your Concern Matters</h3>
         <div class="project-date">
@@ -1710,7 +2283,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-06-17 07:00:01">
+    <div class="project-card mixed pdc tech" data-release-time="2026-06-17 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-06-17"><b>NEW !</b></div> 
@@ -1762,7 +2335,7 @@
       </div>
     </div>
     
-    <div class="project-card mixed pdc audio" data-release-time="2026-06-16 07:00:01">
+    <div class="project-card mixed pdc mind" data-release-time="2026-06-16 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> Science and Culture</i>
         <div class="tagline" startdate-expiry="2026-06-16"><b>NEW !</b></div> 
@@ -1810,7 +2383,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-06-15 07:00:01">
+    <div class="project-card mixed pdc bio" data-release-time="2026-06-15 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> Biogenetics</i>
         <div class="tagline" startdate-expiry="2026-06-15"><b>NEW !</b></div> 
@@ -1857,7 +2430,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed dbt audio" data-release-time="2026-06-12 07:00:01">
+    <div class="project-card mixed dbt tech" data-release-time="2026-06-12 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Debate</b></span><b class="dot"> • </b><i class="badge_sub"> Prompt Eng.</i>
         <div class="tagline" startdate-expiry="2026-06-12"><b>NEW !</b></div> 
@@ -1916,7 +2489,7 @@
       </div>
     </div>
     
-    <div class="project-card mixed pdc audio" data-release-time="2026-06-11 07:00:01">
+    <div class="project-card mixed pdc tech" data-release-time="2026-06-11 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-06-11"><b>NEW !</b></div> 
@@ -1982,7 +2555,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-06-10 07:00:01">
+    <div class="project-card mixed pdc tech" data-release-time="2026-06-10 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-06-10"><b>NEW !</b></div> 
@@ -2049,7 +2622,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-06-09 07:00:01">
+    <div class="project-card mixed pdc tech" data-release-time="2026-06-09 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-06-09"><b>NEW !</b></div> 
@@ -2120,7 +2693,7 @@
       </div>
     </div>
     
-    <div class="project-card mixed pdc audio" data-release-time="2026-06-08 07:00:01">
+    <div class="project-card mixed pdc tech" data-release-time="2026-06-08 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-06-08"><b>NEW !</b></div> 
@@ -2185,7 +2758,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-06-05 07:00:01">
+    <div class="project-card mixed pdc bio tech" data-release-time="2026-06-05 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> Biogenetics</i>
         <div class="tagline" startdate-expiry="2026-06-05"><b>NEW !</b></div> 
@@ -2231,7 +2804,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-06-04 07:00:01">
+    <div class="project-card mixed pdc mind" data-release-time="2026-06-04 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> BioTech</i>
         <div class="tagline" startdate-expiry="2026-06-04"><b>NEW !</b></div> 
@@ -2280,7 +2853,7 @@
       </div>
     </div>
     
-    <div class="project-card mixed pdc audio" data-release-time="2026-06-03 07:00:01">
+    <div class="project-card mixed pdc bio" data-release-time="2026-06-03 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> Biogenetics</i>
         <div class="tagline" startdate-expiry="2026-06-03"><b>NEW !</b></div> 
@@ -2328,7 +2901,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-06-02 07:00:01">
+    <div class="project-card mixed pdc bio" data-release-time="2026-06-02 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> Biogenetics</i>
         <div class="tagline" startdate-expiry="2026-06-02"><b>NEW !</b></div> 
@@ -2376,7 +2949,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-06-01 07:00:01">
+    <div class="project-card mixed pdc bio tech" data-release-time="2026-06-01 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> Biogenetics</i>
         <div class="tagline" startdate-expiry="2026-06-01"><b>NEW !</b></div> 
@@ -2424,7 +2997,7 @@
       </div>
     </div>
     
-    <div class="project-card mixed pdc audio" data-release-time="2026-05-29 07:00:01">
+    <div class="project-card mixed pdc tech" data-release-time="2026-05-29 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-05-29"><b>NEW !</b></div> 
@@ -2492,7 +3065,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed dbt audio" data-release-time="2026-05-28 07:00:01">
+    <div class="project-card mixed dbt tech" data-release-time="2026-05-28 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Debate</b></span><b class="dot"> • </b><i class="badge_sub"> AI Tech.</i>
         <div class="tagline" startdate-expiry="2026-05-28"><b>NEW !</b></div> 
@@ -2560,7 +3133,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed aly audio" data-release-time="2026-05-27 07:00:01">
+    <div class="project-card mixed aly mind" data-release-time="2026-05-27 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Analysis</b></span><b class="dot"> • </b><i class="badge_sub"> Education</i>
         <div class="tagline" startdate-expiry="2026-05-27"><b>NEW !</b></div> 
@@ -2609,7 +3182,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed aly audio" data-release-time="2026-05-26 07:00:01">
+    <div class="project-card mixed aly mind" data-release-time="2026-05-26 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Analysis</b></span><b class="dot"> • </b><i class="badge_sub"> Education</i>
         <div class="tagline" startdate-expiry="2026-05-26"><b>NEW !</b></div> 
@@ -2663,7 +3236,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed aly audio" data-release-time="2026-05-25 07:00:01">
+    <div class="project-card mixed aly mind" data-release-time="2026-05-25 07:00:01">
       <div class="card-content">
         <span class="badge"><b>Analysis</b></span><b class="dot"> • </b><i class="badge_sub"> Education</i>
         <div class="tagline" startdate-expiry="2026-05-25"><b>NEW !</b></div> 
@@ -2712,7 +3285,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-05-21 08:00:01">
+    <div class="project-card mixed pdc tech" data-release-time="2026-05-21 08:00:01">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-05-21"><b>NEW !</b></div> 
@@ -2761,7 +3334,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-05-20 08:00:00">
+    <div class="project-card mixed pdc tech" data-release-time="2026-05-20 08:00:00">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-05-20"><b>NEW !</b></div> 
@@ -2810,7 +3383,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio" data-release-time="2026-05-19 09:00:00">
+    <div class="project-card mixed pdc tech" data-release-time="2026-05-19 09:00:00">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-05-19"><b>NEW !</b></div> 
@@ -2862,7 +3435,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio">
+    <div class="project-card mixed pdc tech">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-05-18"><b>NEW !</b></div> 
@@ -2914,7 +3487,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio">
+    <div class="project-card mixed pdc tech">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
       <div class="tagline" startdate-expiry="2026-05-15"><b>NEW !</b></div> 
@@ -2961,7 +3534,7 @@
       </div>
     </div>
 
-    </div><div class="project-card mixed pdc audio">
+    </div><div class="project-card mixed pdc tech mind">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-05-14"><b>NEW !</b></div> 
@@ -3017,7 +3590,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio">
+    <div class="project-card mixed pdc tech">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-05-13"><b>NEW !</b></div> 
@@ -3122,7 +3695,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed aly audio">
+    <div class="project-card mixed aly tech">
       <div class="card-content">
         <span class="badge"><b>Analysis</b></span><b class="dot"> • </b><i class="badge_sub"> Tech</i>
         <div class="tagline" startdate-expiry="2026-05-12"><b>NEW !</b></div> 
@@ -3145,7 +3718,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio">
+    <div class="project-card mixed pdc tech">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-05-11"><b>NEW !</b></div>
@@ -3179,7 +3752,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed dbt audio">
+    <div class="project-card mixed dbt tech">
       <div class="card-content">
         <span class="badge"><b>Debate</b></span><b class="dot"> • </b><i class="badge_sub"> Prompt Eng.</i>
 
@@ -3231,7 +3804,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio">
+    <div class="project-card mixed pdc tech">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-05-07"><b>NEW !</b></div>
@@ -3275,7 +3848,7 @@
       </div>
     </div>
 
-    <div class="project-card mixed pdc audio">
+    <div class="project-card mixed pdc mind tech">
       <div class="card-content">
         <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
         <div class="tagline" startdate-expiry="2026-05-06"><b>NEW !</b></div>
@@ -3366,7 +3939,7 @@
 <footer>
       <a href=".html"></p><img  src="../static/images/logoFN_1.png" class="foota" alt="FN Logo"/></p></a>
       <p>&copy; <span id="currentYear"></span> Fredrick | AI Chat-Show </p>
-    <p><a href="mailto:forracorp1@gmail.com">📧 forracorp1@gmail.com</a> | 📞 +234 702 597 4815</p>
+    <p><a href="mailto:forracorp1@gmail.com">📧 forracorp1@gmail.com</a> <!---| 📞 +234 702 597 4815 ---></p>
 </footer>
 
 <!--============================================================================================================================-->
