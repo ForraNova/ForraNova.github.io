@@ -1,17 +1,21 @@
 {
-    "last_update": "July 27, 2026 | 12:12 PM",
+    "last_update": "July 27, 2026 | 04:53 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[12:12:39] SUCCESS: Machine Learning (3 found)",
-        "[12:12:42] SUCCESS: Front-End / React (3 found)",
-        "[12:12:44] SUCCESS: Writing / Creative (0 found)",
-        "[12:12:48] SUCCESS: Virtual Assistant (0 found)"
+        "[16:53:27] SUCCESS: Machine Learning (3 found)",
+        "[16:53:29] SUCCESS: Front-End / React (3 found)",
+        "[16:53:31] SUCCESS: Writing / Creative (0 found)",
+        "[16:53:34] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
             "jobs": [
+                {
+                    "position": "Entry Level Junior Trader",
+                    "link": "https://remoteok.com/remote-jobs/remote-entry-level-junior-trader-atom-partners-1135478"
+                },
                 {
                     "position": "Junior Crypto Trader",
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
@@ -19,10 +23,6 @@
                 {
                     "position": "Mid Senior AI Cinematic Video Editor",
                     "link": "https://remoteok.com/remote-jobs/remote-mid-senior-ai-cinematic-video-editor-everai-1134014"
-                },
-                {
-                    "position": "Moving Handy Man",
-                    "link": "https://remoteok.com/remote-jobs/remote-moving-handy-man-aleh-writing-services-aws-1135475"
                 }
             ]
         },
