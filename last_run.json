@@ -1,12 +1,12 @@
 {
-    "last_update": "July 26, 2026 | 09:51 PM",
+    "last_update": "July 27, 2026 | 02:01 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:50:57] SUCCESS: Machine Learning (3 found)",
-        "[21:50:59] SUCCESS: Front-End / React (3 found)",
-        "[21:51:02] SUCCESS: Writing / Creative (0 found)",
-        "[21:51:05] SUCCESS: Virtual Assistant (0 found)"
+        "[02:01:41] SUCCESS: Machine Learning (3 found)",
+        "[02:01:44] SUCCESS: Front-End / React (3 found)",
+        "[02:01:46] SUCCESS: Writing / Creative (0 found)",
+        "[02:01:50] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-mid-senior-ai-cinematic-video-editor-everai-1134014"
                 },
                 {
-                    "position": "Generalist AI Trainer $35 hour",
-                    "link": "https://remoteok.com/remote-jobs/remote-generalist-ai-trainer-35-hour-linkedin-1135442"
+                    "position": "HR Operations Generalist",
+                    "link": "https://remoteok.com/remote-jobs/remote-hr-operations-generalist-hired-1135450"
                 }
             ]
         },
