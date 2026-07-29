@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+
+<title>ForraNova — Read & Listen</title>
+<meta name="theme-color" content="#14151A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ForraNova">
+<link rel="manifest" id="pwa-manifest">
+
+  <!-- Tailwind via CDN + custom glass layer -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- CodeMirror 6 from CDN (ES modules) -->
+  <script type="module">
+    import {EditorView, basicSetup} from "https://esm.sh/codemirror@6.0.1"
+    import {html} from "https://esm.sh/@codemirror/lang-html@6.4.9"
+    import {css} from "https://esm.sh/@codemirror/lang-css@6.3.1"
+    import {javascript} from "https://esm.sh/@codemirror/lang-javascript@6.2.2"
+    import {oneDark} from "https://esm.sh/@codemirror/theme-one-dark@6.1.2"
+    import {keymap, EditorView as EV} from "https://esm.sh/@codemirror/view@6.35.3"
+    import {autocompletion, closeBrackets, closeBracketsKeymap} from "https://esm.sh/@codemirror/autocomplete@6.18.3"
+    import {indentOnInput, bracketMatching, foldGutter, foldKeymap} from "https://esm.sh/@codemirror/language@6.10.7"
+    import {searchKeymap, highlightSelectionMatches} from "https://esm.sh/@codemirror/search@6.5.8"
+    import {lintKeymap} from "https://esm.sh/@codemirror/lint@6.8.4"
+    
+    // Expose to window for our script
+    window.CodeMirrorModules = {
+      EditorView, basicSetup, html, css, javascript, oneDark,
+      keymap, EV, autocompletion, closeBrackets, closeBracketsKeymap,
+      indentOnInput, bracketMatching, foldGutter, foldKeymap,
+      searchKeymap, highlightSelectionMatches, lintKeymap
+    };
+  </script>
+  <!--- Reader Stylings --->
+<style> 
+  :root{
+    --font-display: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', monospace;
+    --radius: 10px;
+  }
+  html[data-theme="dark"]{
+    --bg: #14151A;
+    --surface: #0d001a;
+    --surface-raised: #262933;
+    --text: #ffffff;
+    --text-dim: #d9d9d9;
+    --border: #33363F;
+    --accent: #bf80ff;
+    --accent-text: #14151A;
+    --spine-1: #7C4A3A;
+    --spine-2: #4A6A6A;
+    --spine-3: #5B5A8A;
+    --spine-4: #6A7C4A;
+    --spine-5: #8A4A6A;
+    --highlight: rgba(153, 0, 255,0.35);
+    --shadow: 0 8px 28px rgba(0,0,0,1.45);
+  }
+  html[data-theme="light"]{
+    --bg: #F6F3EC;
+    --surface: #f2e6ff;
+    --surface-raised: #c4c8d4;
+    --text: #000000;
+    --text-dim: #262626;
+    --border: #0d001a;
+    --accent: #400080;
+    --accent-text: #FFFFFF;
+    --spine-1: #B0684F;
+    --spine-2: #4E8A87;
+    --spine-3: #6F6EB0;
+    --spine-4: #869F5C;
+    --spine-5: #A85C82;
+    --highlight: rgba(122, 0, 204,0.22);
+    --shadow: 0 8px 24px rgba(60,50,20,1.12);
+  }
+  *{box-sizing:border-box;}
+  #app{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);transition:background .25s ease,color .25s ease;min-height:100vh;}
+  header.app-header{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 20px;border-bottom:1px solid var(--border);
+    background:var(--surface);position:sticky;top:0;z-index:20;
+  }
+  .brand{display:flex;align-items:center;gap:10px;flex:1;}
+  
+  .brand-center{flex:3;text-align:center;}
+  .brand-center h1{
+    font-family:var(--font-display);font-weight:600;font-size:22px;margin:0;
+    letter-spacing:.5px;
+  }
+  .brand-center span{display:block;font-size:10px;color:var(--text-dim);letter-spacing:1.5px;text-transform:uppercase;margin-top:1px;}
+  .header-actions{flex:1;display:flex;justify-content:flex-end;gap:8px;}
+  button.icon-btn{
+    background:transparent;border:1px solid var(--border);color:var(--text);
+    border-radius:8px;width:38px;height:38px;cursor:pointer;font-size:16px;
+    display:flex;align-items:center;justify-content:center;transition:background .15s;
+  }
+  button.icon-btn:hover{background:var(--surface-raised);}
+
+  main{max-width:1080px;margin:0 auto;padding:28px 20px 80px;}
+  .add-panel{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:18px;margin-bottom:26px;box-shadow:var(--shadow);
+  }
+  .add-panel h2{margin:0 0 4px;font-family:var(--font-display);font-size:16px;}
+  .add-panel p{margin:0 0 14px;color:var(--text-dim);font-size:13px;}
+  .add-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+  .add-row input[type=text]{
+    flex:1;min-width:220px;padding:10px 12px;border-radius:8px;border:1px solid var(--border);
+    background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:13px;
+  }
+  select.add-type{
+    padding:10px 12px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:13px;
+  }
+  .btn{
+    padding:10px 16px;border-radius:8px;border:none;background:var(--accent);color:var(--accent-text);
+    font-weight:600;font-size:13px;cursor:pointer;white-space:nowrap;
+  }
+  .btn.secondary{background:transparent;border:1px solid var(--border);color:var(--text);}
+  .dropzone{
+    margin-top:12px;border:1.5px dashed var(--border);border-radius:8px;padding:22px;
+    text-align:center;color:var(--text-dim);font-size:13px;cursor:pointer;transition:border-color .15s,background .15s;
+  }
+  .dropzone.dragover{border-color:var(--accent);background:var(--highlight);}
+
+  .library-grid{
+   display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:18px; overflow-x: scroll;
+  }
+  .book-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    overflow:hidden;cursor:pointer;box-shadow:var(--shadow);display:flex;flex-direction:column;
+    transition:transform .15s ease;
+  }
+  .book-card:hover{transform:translateY(-3px); border:2px solid var(--border);}
+  .book-spine{height:6px;}
+  .book-cover{
+    height:130px;display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-display);font-size:13px;text-align:center;padding:10px;
+    color:var(--text-dim);background:var(--surface-raised);
+  }
+  .book-meta{padding:12px;flex:1;display:flex;flex-direction:column;gap:4px;}
+  .book-meta h3{margin:0;font-family:var(--font-display);font-size:15px;line-height:1.25;}
+  .book-meta .author{font-size:12px;color:var(--text-dim);}
+  .book-status{
+    font-family:var(--font-mono);font-size:10px;letter-spacing:.5px;text-transform:uppercase;
+    color:var(--text-dim);margin-top:auto;padding-top:8px;display:flex;align-items:center;gap:5px;
+  }
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--text-dim);}
+  .dot.on{background:var(--accent);}
+
+  /* Reader */
+  #reader{
+    position:fixed;inset:0;background:var(--bg);z-index:100;display:none;flex-direction:column;
+  }
+  #reader.open{display:flex;}
+  .reader-top{
+    display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--border);
+    background:var(--surface);flex-wrap:wrap;
+  }
+  .reader-top .title{font-family:var(--font-display);font-size:14px;flex:1;min-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .reader-body{flex:1;display:flex;flex-direction:column;overflow:hidden;position:relative;}
+  .page-viewport{
+    flex:1;display:flex;align-items:center;justify-content:center;overflow:auto;background:var(--bg);
+    touch-action:pan-y;
+  }
+  .page-viewport canvas{box-shadow:var(--shadow);background:#fff;}
+  .caption-bar{
+    border-top:1px solid var(--border);background:var(--surface);padding:14px 18px;
+    max-height:32vh;overflow-y:auto;font-family:var(--font-display);font-size:16px;line-height:1.65;
+    display:none;
+  }
+  .caption-bar.show{display:block;}
+  .caption-bar mark{
+    background:var(--highlight);color:var(--text);border-radius:3px;padding:0 1px;
+  }
+  .reader-bottom{
+    display:flex;align-items:center;justify-content:center;gap:14px;padding:10px;
+    border-top:1px solid var(--border);background:var(--surface);flex-wrap:wrap;
+  }
+  .reader-bottom .page-num{font-family:var(--font-mono);font-size:12px;color:var(--text-dim);min-width:70px;text-align:center;}
+  .status-msg{
+    position:fixed;bottom:18px;left:50%;transform:translateX(-50%);
+    background:var(--surface-raised);border:1px solid var(--border);color:var(--text);
+    padding:10px 16px;border-radius:8px;font-size:13px;box-shadow:var(--shadow);
+    z-index:200;display:none;
+  }
+  .status-msg.show{display:block;}
+  .empty-state{text-align:center;padding:60px 20px;color:var(--text-dim);}
+  .empty-state h3{font-family:var(--font-display);color:var(--text);}
+  @media (max-width:560px){
+    .brand-center h1{font-size:17px;}
+    .book-cover{height:110px;}
+    #scroll{overflow:scroll;}
+  }
+</style>
+
+  <!--- Animation Stylings --->
+  <style>
+    /* custom glass & animations */
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      margin: 0;
+      background: #0f1729;
+      overflow: hidden;
+      height: 100vh;
+    }
+    .glass-panel {
+      background: rgba(26, 42, 74, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(0, 217, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      border-radius: 16px;
+    }
+    .light .glass-panel {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(0, 128, 255, 0.25);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      color: #1e293b;
+    }
+    .cm-editor {
+      height: 100%;
+      font-size: 14px;
+    }
+    .rain-drop {
+      position: absolute;
+      width: 2px;
+      background: linear-gradient(transparent, rgba(0, 217, 255, 0.5));
+      animation: fall linear infinite;
+      pointer-events: none;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-100px); opacity: 0; }
+      10% { opacity: 0.7; }
+      90% { opacity: 0.5; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+    .cloud {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      filter: blur(20px);
+      pointer-events: none;
+    }
+    .vapor-blob {
+      position: absolute;
+      background: radial-gradient(circle at 30% 30%, rgba(0, 217, 255, 0.3), transparent 70%);
+      border-radius: 50%;
+      filter: blur(40px);
+      animation: floatUp 12s infinite ease-in-out;
+      pointer-events: none;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(20px) scale(0.9); opacity: 0.4; }
+      50% { transform: translateY(-30px) scale(1.1); opacity: 0.7; }
+      100% { transform: translateY(20px) scale(0.9); opacity: 0.4; }
+    }
+    .lightning {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(255, 255, 255, 0.15);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.1s;
+    }
+    .status-bar {
+      backdrop-filter: blur(8px);
+      background: rgba(15, 23, 41, 0.8);
+      border-top: 1px solid rgba(0, 217, 255, 0.25);
+    }
+    .light .status-bar {
+      background: rgba(255,255,255,0.7);
+      color: #0f1729;
+    }
+    button {
+      transition: all 0.2s ease;
+    }
+    button:active { transform: scale(0.96); }
+    .tab-active {
+      border-bottom: 2px solid #00d9ff;
+      color: #00d9ff;
+      font-weight: 600;
+    }
+    .light .tab-active {
+      border-bottom: 2px solid #0080ff;
+      color: #0080ff;
+    }
+  </style>
+
+</head>
+<body class="dark text-gray-200 relative">
+  <!-- animated background container -->
+  <div id="bg-animation" class="fixed inset-0 pointer-events-none overflow-hidden z-0"></div>
+  
+  <!-- lightning overlay -->
+  <div id="lightning" class="lightning"></div>
+
+  <!-- main app -->
+  <div id="app" >
+    
+<header class="app-header">
+  
+  <div class="brand">
+    <div class="logo-slot" id="logoSlot" title="Click to set your ForraNova logo">
+      <a href="../../index.html" onclick="navigateTo('../../index.html#tools', event)"><img src="../../static/images/logoFN.png" alt="ForraCorp Base" style="width:50px;height:50px;object-fit:cover;"></a>    
+    </div>
+    <input type="file" id="logoInput" accept="image/*" style="display:none">
+  </div>
+
+  <div class="brand-center">
+    <h1><forra style="color: #708090;">Forra</forra> <forra style="color: #696969;">|</forra> <forra style="color: #00FFFF;">Nova</forra> </h1>
+    <span>Knowledge is for the Living</span>
+    PDF Reader
+  </div>
+  <div class="header-actions">
+    <button class="icon-btn" id="themeToggle" title="Toggle dark / light">🌙</button>
+  </div>
+</header>
+
+<main>
+  <section class="add-panel">
+    <h2>Add a book</h2>
+    <p>Paste a link to a PDF hosted on GitHub (or anywhere on the web), or use the drop zone below to add a file straight from this device — either way it opens instantly and can be saved for offline reading.</p>
+    <div class="add-row">
+      <input type="text" id="urlInput" placeholder="https://raw.githubusercontent.com/.../book.pdf">
+      <input type="text" id="titleInput" placeholder="Title (optional)">
+      <button class="btn" id="addUrlBtn">Add from link</button>
+
+    </div>
+    <div class="dropzone" id="dropzone">
+      Drag & drop a PDF here, or <strong>click to choose a file</strong> from this device
+      <input type="file" id="fileInput" accept="application/pdf" style="display:none">
+    </div>
+  </section>
+
+  <section style="max-height:450px; overflow: scroll; padding-bottom: 100px;">
+    <!------>    
+    <h2>Trove Books</h2>
+
+    <style>
+  
+  .swiper-slide { 
+    transition: 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .shelf {
+    position: relative;
+    width: 200px; 
+    height: 300px;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+    margin-bottom: 20px;
+    overflow: hidden; /* Clips the overlay as it moves up */
+    display: flex;
+    flex-direction: column;
+}
+.shelf:hover .overlay {
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+.shelf h4 { 
+    text-align: center; 
+    margin: -1px 0 10px 0; 
+    color: var(--primary-cyan); 
+    font-size: 1.0em;
+    letter-spacing: 1px;
+}
+.shelf img { 
+    width: 100%; 
+    height: 250px; 
+    object-fit: cover; 
+    border-radius: 10px;
+}
+.shelf a{
+    font-family: 'Rajdhani', sans-serif; 
+    font-size: 0.9rem; 
+    text-align: center;
+    flex-direction: column;
+    color: var(--secondary-color);
+    font-style: italic;
+    text-decoration: none;
+}
+
+/* The Overlay Logic */
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: rgba(0, 0, 0, 0.75); /* Slightly darker for readability */
+    color: white;
+    padding: 5px 15px 15px 15px;
+    box-sizing: border-box;
+    text-align: left;
+    overflow: scroll;
+    
+    /* Animation: Start hidden and shifted down */
+    opacity: 0;
+    transform: translateY(100%); 
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    z-index: 2;
+}
+
+.overlay p{
+    font-size: 0.95rem;
+    text-align: justify;
+    color: var(--text-norm);
+    font-family: 'Times New Roman';
+    margin-top:5px;
+}
+
+/* Button Styling */
+.click {
+    background: var(--glass-border);
+    color: var(--text-white);
+    border: none;
+    border-radius:  20px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+    transition: background 0.3s;
+    padding: 10px;
+    text-decoration: none;
+    border-style: outset;
+}
+
+.click:hover {
+    background: var(--glass);
+    border-style: inset;
+}
+
+</style>
+
+    <div class="library-grid" >
+
+        <div class="swiper-slide">
+            <div class="shelf">
+                <img src="../../static/images/btd.a.png" id="img-projectL">
+                <div class="overlay">
+                  <a href="../../static/downloads/docs/alignment.pdf" download="The Alignment Core — Bridging the Divide.pdf" class="download-btn"><button class="click"> Download</button></a>
+                    <p>Caught between silicon logic and the human soul, they must bridge a crumbling divide before a global audit erases humanity’s last heartbeat.</p>
+                </div>
+                <h4>The Alignment Core — Bridging the Divide</h4>
+            </div>
+        </div>
+           
+        <div class="swiper-slide">
+            <div class="shelf" onclick="openArticle('projectK')">
+                <img src="../../static/images/aip.a.png" id="img-projectK">
+                <div class="overlay">
+                  <a href="../../static/downloads/docs/ai.pdf" download="Anatomy of an AI Prompt.pdf" class="download-btn"><button class="click"> Download</button></a>
+                    <p>A master linguist reveals the 'silent syntax' behind the machine, turning chaotic digital noise into a symphony of precision and power.</p>
+                </div>
+                <h4>Anatomy of an AI Prompt</h4>
+            </div>
+        </div>
+
+        <div class="swiper-slide">
+            <div class="shelf" onclick="openArticle('projectJ')">
+                <img src="../../static/images/edict.a.png" id="img-projectJ">
+                <div class="overlay">
+                  <a href="../../static/downloads/docs/edict.pdf" download="Edict of Unity.pdf" class="download-btn"><button class="click"> Download</button></a>
+                    <p>A reluctant woodcutter must step from the shadows of a divided forest to mend a kingdom shattered by a single letter.</p>
+                </div>
+                <h4>Edict of Unity</h4>
+            </div>
+        </div>
+
+        <div class="swiper-slide">
+            <div class="shelf" onclick="openArticle('projectH')">
+                <img src="../../static/images/tsa.a.png" id="img-projectH">
+                <div class="overlay">
+                  <a href="../../static/downloads/docs/agent.pdf" download="The Shadow Agent.pdf" class="download-btn"><button class="click"> Download</button></a>
+                    <p>In a world of mathematical crime, Janiyah weaponizes machine learning and superior science to bring to justice those responsible.</p>
+                </div>
+                <h4>The Shadow Agent</h4>
+            </div>
+        </div>
+        
+        <div class="swiper-slide">
+            <div class="shelf" onclick="openArticle('projectG')">
+                <img src="../../static/images/raf.a.png" id="img-projectG">
+                <div class="overlay">
+                  <a href="../../static/downloads/docs/alpha.pdf" download="Rise of the Alpha Female.pdf" class="download-btn"><button class="click"> Download</button></a>
+                    <p>She must end an ancient matriarchal legacy and embrace an unprecedented deciesions for survival. - Evelyn Ethan, Robotics engineer.</p>
+                </div>
+                <h4>Rise of the Alpha Female</h4>
+            </div>
+        </div>
+
+        <div class="swiper-slide">
+            <div class="shelf" onclick="openArticle('projectC')">
+                <img src="../../static/images/lost.a.png" id="img-projectC">
+                <div class="overlay">
+                  <a href="../../static/downloads/docs/lost.pdf" download="The Lost Tresure.pdf" class="download-btn"><button class="click"> Download</button></a>
+                    <p>After a desperate boy buries his only hope, the treasure vanished, forcing a high-stakes hunt to reclaim his stolen legacy.</p>
+                </div>
+                <h4>The Lost Tresure</h4>
+            </div>
+        </div>
+
+        <div class="swiper-slide">
+            <div class="shelf" onclick="openArticle('projectF')">
+                <img src="../../static/images/los3.a.png" id="img-projectF">
+                <div class="overlay">
+                  <!---
+                  <a href="../../static/downloads/docs/Ep015.pdf" download="fileName.pdf" class="download-btn"><button class="click"> Download</button></a>
+                  -->
+                    <p>A displaced emperor must rises from the ashes; regroup with tactical retrogression to reclaim his throne from the shadows of reaching talons.<i><br>- The Rise of an Emperor</i></p>
+                    
+                </div>
+                <h4>For the Love of Sparta<br>- BOOK III</h4>
+            </div>
+        </div>
+
+        <div class="swiper-slide">
+            <div class="shelf" onclick="openArticle('projectE')">
+                <img src="../../static/images/los2.a.png" id="img-projectE">
+                <div class="overlay">
+                  <!---
+                  <a href="../../static/downloads/docs/Ep015.pdf" download="fileName.pdf" class="download-btn"><button class="click"> Download</button></a>
+                  --->
+                    <p>Amidst crumbling friendships and lost empire, a weary warrior must endure the ultimate test of loyalty to survive a treacherous, silent fray.<i><br>- The Fray of Survival</i></p>
+                    
+                </div>
+                <h4>For the Love of Sparta<br>- BOOK II</h4>
+            </div>
+        </div>
+
+        <div class="swiper-slide">
+            <div class="shelf" onclick="openArticle('projectD')">
+                <img src="../../static/images/sts.a.png" id="img-projectD">
+                <div class="overlay">
+                  <a href="../../static/downloads/docs/sts.pdf" download="From Shadows To Sunshine.pdf" class="download-btn"><button class="click"> Download</button></a>
+                    <p>Neglated and broken, Sophia survives a cruel home until a mysterious benefactor risks everything to lead her into light.</p>
+                    
+                </div>
+                <h4>From Shadows To Sunshine</h4>
+            </div>
+        </div>
+
+        <div class="swiper-slide">
+            <div class="shelf" onclick="openArticle('projectB')">
+                <img src="../../static/images/los1.a.png" id="img-projectB">
+                <div class="overlay">
+                  <!--
+                  <a href="../../static/downloads/docs/Ep015.pdf" download="fileName.pdf" class="download-btn"><button class="click"> Download</button></a>
+                  -->
+                    <p>In the days of Kings, men were forged from the crusible of combact for the freedon of the free men.<i><br>- The Legend Of A Peace Warrior</i></p>
+                    
+                </div>
+                <h4>For the Love of Sparta<br>- BOOK I</h4>
+            </div>
+        </div>
+
+        <div class="swiper-slide">
+            <div class="shelf" onclick="openArticle('projectA')">
+                <img src="../../static/images/asl.a.png" id="img-projectA">
+                <div class="overlay">
+                  <a href="../../static/downloads/docs/asl.pdf" download="Becoming a Wind Talker.pdf" class="download-btn"><button class="click"> Download</button></a>
+                    <p>Master the unseen language of the air, bridge the silent divide, and unlock the powerful secretes of the Wind Talkers.</p>
+                    
+                </div>
+                <h4>Becoming a Wind Talker</h4>
+            </div>
+        </div>
+    </div>
+                <h4 style="text-align: center;">Freely download any of my book of your choice.</h4>
+
+ <hr><h2>Online and Locally Saved Books</h2>
+    <!------>    
+
+    <div class="library-grid" id="libraryGrid"></div>
+    <div class="empty-state" id="emptyState" style="display:none;">
+      <h3>Your library is empty</h3>
+      <p>Add a book above to get started.</p>
+    </div>
+  </section>
+</main>
+
+<!-- READER -->
+<div id="reader">
+  <div class="reader-top">
+    <button class="icon-btn" id="closeReader" title="Close">✕</button>
+    <div class="title" id="readerTitle">—</div>
+    <button class="icon-btn" id="downloadBtn" title="Save for offline">⬇</button>
+    <button class="icon-btn" id="fullscreenBtn" title="Full screen">⛶</button>
+    <button class="icon-btn" id="swipeAxisBtn" title="Swipe direction: horizontal">↔</button>
+  </div>
+  <div class="reader-body">
+    <div class="page-viewport" id="pageViewport" style="height:100vh; overflow: scroll; margin: 0 auto;">
+      <canvas id="pdfCanvas"></canvas>
+    </div>
+    <div class="caption-bar" id="captionBar" style="max-height:100px; overflow: scroll; position: absolute + transform: translate(-50%,-50%)"></div>
+  </div>
+  <div class="reader-bottom">
+    <button class="icon-btn" id="prevPage" title="Previous page">‹</button>
+    <span class="page-num" id="pageNum">1 / 1</span>
+    <button class="icon-btn" id="nextPage" title="Next page">›</button>
+    <button class="icon-btn" id="zoomOut" title="Zoom out">−</button>ZOOM
+    <button class="icon-btn" id="zoomIn" title="Zoom in">+</button>
+    <button class="icon-btn" id="ttsToggle" title="Read aloud">🔊</button>
+  </div>
+</div>
+
+<div class="status-msg" id="statusMsg"></div>
+
+  </div>
+
+  <script type="module">
+    // ---------- background animation ----------
+    function createRain() {
+      const bg = document.getElementById('bg-animation');
+      for (let i=0; i<50; i++) {
+        const drop = document.createElement('div');
+        drop.className = 'rain-drop';
+        drop.style.left = Math.random()*100+'%';
+        drop.style.animationDuration = (0.5+Math.random()*1.2)+'s';
+        drop.style.animationDelay = Math.random()*2+'s';
+        drop.style.height = (10+Math.random()*25)+'px';
+        bg.appendChild(drop);
+      }
+    }
+    function createClouds() {
+      const bg = document.getElementById('bg-animation');
+      for (let i=0; i<4; i++) {
+        const cloud = document.createElement('div');
+        cloud.className = 'cloud';
+        cloud.style.width = (150+Math.random()*300)+'px';
+        cloud.style.height = (60+Math.random()*80)+'px';
+        cloud.style.top = (10+Math.random()*40)+'%';
+        cloud.style.left = (Math.random()*100)+'%';
+        cloud.style.animation = `floatUp ${15+Math.random()*20}s infinite ease-in-out`;
+        bg.appendChild(cloud);
+      }
+    }
+    function createVaporBlobs() {
+      const bg = document.getElementById('bg-animation');
+      for (let i=0; i<6; i++) {
+        const blob = document.createElement('div');
+        blob.className = 'vapor-blob';
+        blob.style.width = (120+Math.random()*200)+'px';
+        blob.style.height = (120+Math.random()*200)+'px';
+        blob.style.top = (20+Math.random()*70)+'%';
+        blob.style.left = (Math.random()*90)+'%';
+        blob.style.animationDelay = Math.random()*8+'s';
+        bg.appendChild(blob);
+      }
+    }
+    function occasionalLightning() {
+      const flash = document.getElementById('lightning');
+      setInterval(() => {
+        if (Math.random() < 0.25) {
+          flash.style.opacity = '0.7';
+          setTimeout(() => { flash.style.opacity = '0'; }, 120);
+        }
+      }, 4000);
+    }
+    createRain(); createClouds(); createVaporBlobs(); occasionalLightning();
+ 
+  </script>
+
+  <script>
+/* ======================= ForraNova Reader PWA =======================
+   Edit SEED_BOOKS below to point at your 5 GitHub-hosted PDFs.
+   Everything else — offline storage, reading, read-aloud sync, theming — is handled
+   automatically once a book is added, either here or by the user in the app.
+   ==================================================================================== */
+
+const SEED_BOOKS = [
+  { id:'seed-1', title:'THE PROMPT COLLECTION', author:'Dave Birss', url:'https://davebirss.com/documents/the_prompt_guide.pdf' },
+  { id:'seed-3', title:'The 48 Laws Of POWER', author:'Robert Greene', url:'https://irp-cdn.multiscreensite.com/cb9165b2/files/uploaded/The+48+Laws+Of+Power.pdf' },
+  { id:'seed-4', title:'Introduction to Web Development', author:'Linus Torvalds- Creator of Linux Operating System', url:'https://hackr.io/documents/webdev-ebook.pdf' },
+
+];
+
+/* ---------- THEME ---------- */
+const root = document.documentElement;
+const themeToggle = document.getElementById('themeToggle');
+function applyTheme(t){
+  root.setAttribute('data-theme', t);
+  themeToggle.textContent = t === 'dark' ? '🌙' : '☀️';
+  localStorage.setItem('forranova-theme', t);
+}
+applyTheme(localStorage.getItem('forranova-theme') || 'dark');
+themeToggle.onclick = () => applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+
+
+/* ---------- LOGO placeholder ---------- 
+const logoSlot = document.getElementById('logoSlot');
+const logoInput = document.getElementById('logoInput');
+logoSlot.onclick = () => logoInput.click();
+logoInput.onchange = () => {
+  const f = logoInput.files[0];
+  if(!f) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    logoSlot.innerHTML = `<img src="${e.target.result}" alt="ForraNova logo">`;
+    localStorage.setItem('forranova-logo', e.target.result);
+  };
+  reader.readAsDataURL(f);
+};
+(function restoreLogo(){
+  const saved = localStorage.getItem('forranova-logo');
+  if(saved) logoSlot.innerHTML = `<img src="${saved}" alt="ForraNova logo">`;
+})();
+*/
+
+/* ---------- STATUS TOAST ---------- */
+const statusMsg = document.getElementById('statusMsg');
+let statusTimer;
+function toast(msg, ms=2400){
+  statusMsg.textContent = msg;
+  statusMsg.classList.add('show');
+  clearTimeout(statusTimer);
+  statusTimer = setTimeout(()=>statusMsg.classList.remove('show'), ms);
+}
+
+/* ---------- INDEXEDDB ---------- */
+const DB_NAME = 'forranova-db', DB_VERSION = 1;
+let db;
+function openDB(){
+  return new Promise((resolve,reject)=>{
+    const req = indexedDB.open(DB_NAME, DB_VERSION);
+    req.onupgradeneeded = () => {
+      const d = req.result;
+      if(!d.objectStoreNames.contains('books')) d.createObjectStore('books', {keyPath:'id'});
+    };
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+}
+function tx(store, mode){ return db.transaction(store, mode).objectStore(store); }
+function dbGetAll(){ return new Promise((res,rej)=>{ const r = tx('books','readonly').getAll(); r.onsuccess=()=>res(r.result); r.onerror=()=>rej(r.error); }); }
+function dbPut(book){ return new Promise((res,rej)=>{ const r = tx('books','readwrite').put(book); r.onsuccess=()=>res(); r.onerror=()=>rej(r.error); }); }
+function dbGet(id){ return new Promise((res,rej)=>{ const r = tx('books','readonly').get(id); r.onsuccess=()=>res(r.result); r.onerror=()=>rej(r.error); }); }
+
+const SPINES = ['var(--spine-1)','var(--spine-2)','var(--spine-3)','var(--spine-4)','var(--spine-5)'];
+
+async function initLibrary(){
+  db = await openDB();
+  let all = await dbGetAll();
+  if(all.length === 0){
+    for(const b of SEED_BOOKS){ await dbPut({...b, blob:null, addedAt: Date.now()}); }
+    all = await dbGetAll();
+  }
+  renderLibrary(all);
+}
+
+function renderLibrary(books){
+  const grid = document.getElementById('libraryGrid');
+  const empty = document.getElementById('emptyState');
+  grid.innerHTML = '';
+  if(books.length === 0){ empty.style.display='block'; return; }
+  empty.style.display='none';
+  books.forEach((b, i) => {
+    const card = document.createElement('div');
+    card.className = 'book-card';
+    const downloaded = !!b.blob;
+    card.innerHTML = `
+      <div class="book-spine" style="background:${SPINES[i % SPINES.length]}"></div>
+      <div class="book-cover">${escapeHtml(b.title)}</div>
+      <div class="book-meta">
+        <h3>${escapeHtml(b.title)}</h3>
+        <div class="author">${escapeHtml(b.author||'Unknown')}</div>
+        <div class="book-status"><span class="dot ${downloaded?'on':''}"></span>${downloaded?'Saved offline':'Streams online'}</div>
+      </div>`;
+    card.onclick = () => openBook(b.id);
+    grid.appendChild(card);
+  });
+}
+
+function escapeHtml(s){ return (s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+/* ---------- ADD BOOK: by URL ---------- */
+document.getElementById('addUrlBtn').onclick = async () => {
+  const url = document.getElementById('urlInput').value.trim();
+  const title = document.getElementById('titleInput').value.trim();
+  if(!url){ toast('Paste a link first'); return; }
+  const id = 'b-' + Date.now();
+  await dbPut({ id, title: title || url.split('/').pop() || 'Untitled', author:'', url, blob:null, addedAt: Date.now() });
+  document.getElementById('urlInput').value=''; document.getElementById('titleInput').value='';
+  renderLibrary(await dbGetAll());
+  toast('Book added — tap it to open');
+};
+
+/* ---------- ADD BOOK: file / drag-drop ---------- */
+const dropzone = document.getElementById('dropzone');
+const fileInput = document.getElementById('fileInput');
+dropzone.onclick = () => fileInput.click();
+fileInput.onchange = () => handleFiles(fileInput.files);
+['dragenter','dragover'].forEach(evt => dropzone.addEventListener(evt, e => { e.preventDefault(); dropzone.classList.add('dragover'); }));
+['dragleave','drop'].forEach(evt => dropzone.addEventListener(evt, e => { e.preventDefault(); dropzone.classList.remove('dragover'); }));
+dropzone.addEventListener('drop', e => handleFiles(e.dataTransfer.files));
+
+async function handleFiles(files){
+  for(const f of files){
+    if(f.type !== 'application/pdf'){ toast('Only PDF files are supported right now'); continue; }
+    const id = 'b-' + Date.now() + '-' + Math.random().toString(36).slice(2,6);
+    await dbPut({ id, title: f.name.replace(/\.pdf$/i,''), author:'You', url:null, blob:f, addedAt: Date.now() });
+    toast(`"${f.name}" added and saved offline`);
+  }
+  renderLibrary(await dbGetAll());
+}
+
+/* ---------- PDF.js lazy load ---------- */
+let pdfjsReady = null;
+function loadPdfJs(){
+  if(pdfjsReady) return pdfjsReady;
+  pdfjsReady = new Promise((resolve,reject)=>{
+    const s = document.createElement('script');
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+    s.onload = () => {
+      window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+      resolve(window.pdfjsLib);
+    };
+    s.onerror = reject;
+    document.head.appendChild(s);
+  });
+  return pdfjsReady;
+}
+
+/* ---------- READER STATE ---------- */
+const reader = document.getElementById('reader');
+const canvas = document.getElementById('pdfCanvas');
+const ctx = canvas.getContext('2d');
+let currentBook = null, pdfDoc = null, pageNumCur = 1, scale = 1.3, swipeAxis = 'x';
+let pageTextCache = {};
+
+async function openBook(id){
+  const book = await dbGet(id);
+  if(!book) return;
+  if(!book.url && !book.blob){ toast('This slot has no link yet — add one above'); return; }
+  currentBook = book;
+  document.getElementById('readerTitle').textContent = book.title;
+  reader.classList.add('open');
+  toast('Loading…');
+  try{
+    const pdfjsLib = await loadPdfJs();
+    let src;
+    if(book.blob){
+      src = { data: await book.blob.arrayBuffer() };
+    } else {
+      const resp = await fetch(book.url);
+      if(!resp.ok) throw new Error('Fetch failed');
+      src = { data: await resp.arrayBuffer() };
+    }
+    pdfDoc = await pdfjsLib.getDocument(src).promise;
+    pageNumCur = 1;
+    pageTextCache = {};
+    await renderPage(pageNumCur);
+    toast('Ready');
+  }catch(err){
+    console.error(err);
+    toast('Could not load this book — check the link or your connection');
+  }
+}
+
+async function renderPage(n){
+  if(!pdfDoc) return;
+  n = Math.max(1, Math.min(pdfDoc.numPages, n));
+  pageNumCur = n;
+  const page = await pdfDoc.getPage(n);
+  const viewport = page.getViewport({ scale });
+  canvas.width = viewport.width;
+  canvas.height = viewport.height;
+  await page.render({ canvasContext: ctx, viewport }).promise;
+  document.getElementById('pageNum').textContent = `${n} / ${pdfDoc.numPages}`;
+  stopTTS();
+  document.getElementById('captionBar').classList.remove('show');
+}
+
+async function getPageText(n){
+  if(pageTextCache[n]) return pageTextCache[n];
+  const page = await pdfDoc.getPage(n);
+  const content = await page.getTextContent();
+  const text = content.items.map(i => i.str).join(' ').replace(/\s+/g,' ').trim();
+  pageTextCache[n] = text;
+  return text;
+}
+
+document.getElementById('closeReader').onclick = () => { reader.classList.remove('open'); stopTTS(); };
+document.getElementById('prevPage').onclick = () => renderPage(pageNumCur - 1);
+document.getElementById('nextPage').onclick = () => renderPage(pageNumCur + 1);
+document.getElementById('zoomIn').onclick = () => { scale = Math.min(3, scale + 0.2); renderPage(pageNumCur); };
+document.getElementById('zoomOut').onclick = () => { scale = Math.max(0.5, scale - 0.2); renderPage(pageNumCur); };
+
+document.getElementById('fullscreenBtn').onclick = () => {
+  if(!document.fullscreenElement){ reader.requestFullscreen?.(); }
+  else{ document.exitFullscreen?.(); }
+};
+
+const swipeAxisBtn = document.getElementById('swipeAxisBtn');
+swipeAxisBtn.onclick = () => {
+  swipeAxis = swipeAxis === 'x' ? 'y' : 'x';
+  swipeAxisBtn.textContent = swipeAxis === 'x' ? '↔' : '↕';
+  swipeAxisBtn.title = 'Swipe direction: ' + (swipeAxis === 'x' ? 'horizontal' : 'vertical');
+};
+
+/* swipe gestures */
+const viewport = document.getElementById('pageViewport');
+let touchStartX=0, touchStartY=0;
+viewport.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; touchStartY = e.touches[0].clientY; }, {passive:true});
+viewport.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  const dy = e.changedTouches[0].clientY - touchStartY;
+  const THRESH = 50;
+  if(swipeAxis === 'x' && Math.abs(dx) > THRESH){ dx < 0 ? renderPage(pageNumCur+1) : renderPage(pageNumCur-1); }
+  if(swipeAxis === 'y' && Math.abs(dy) > THRESH){ dy < 0 ? renderPage(pageNumCur+1) : renderPage(pageNumCur-1); }
+}, {passive:true});
+
+/* ---------- DOWNLOAD FOR OFFLINE ---------- */
+document.getElementById('downloadBtn').onclick = async () => {
+  if(!currentBook) return;
+  if(currentBook.blob){ toast('Already saved offline'); return; }
+  try{
+    toast('Saving for offline…');
+    const resp = await fetch(currentBook.url);
+    const blob = await resp.blob();
+    currentBook.blob = blob;
+    await dbPut(currentBook);
+    renderLibrary(await dbGetAll());
+    toast('Saved — this book now opens offline');
+  }catch(err){
+    toast('Could not save — check your connection');
+  }
+};
+
+/* ---------- TEXT-TO-SPEECH READ-ALONG ---------- */
+let utterance = null, speaking = false;
+const captionBar = document.getElementById('captionBar');
+const ttsToggle = document.getElementById('ttsToggle');
+
+async function startTTS(){
+  if(!('speechSynthesis' in window)){ toast('Text-to-speech is not supported in this browser'); return; }
+  const text = await getPageText(pageNumCur);
+  if(!text){ toast('No readable text on this page'); return; }
+  captionBar.classList.add('show');
+  captionBar.textContent = text;
+  utterance = new SpeechSynthesisUtterance(text);
+  utterance.rate = 0.98;
+  utterance.onboundary = (e) => {
+    if(e.name !== 'word') return;
+    const start = e.charIndex;
+    const end = text.indexOf(' ', start) === -1 ? text.length : text.indexOf(' ', start);
+    const before = escapeHtml(text.slice(0, start));
+    const word = escapeHtml(text.slice(start, end));
+    const after = escapeHtml(text.slice(end));
+    captionBar.innerHTML = `${before}<mark>${word}</mark>${after}`;
+    const markEl = captionBar.querySelector('mark');
+    if(markEl) markEl.scrollIntoView({block:'center', behavior:'smooth'});
+  };
+  utterance.onend = () => {
+    speaking = false;
+    ttsToggle.textContent = '🔊';
+    if(pageNumCur < pdfDoc.numPages){ renderPage(pageNumCur+1).then(startTTS); }
+  };
+  speechSynthesis.speak(utterance);
+  speaking = true;
+  ttsToggle.textContent = '⏸';
+}
+function stopTTS(){
+  speechSynthesis.cancel();
+  speaking = false;
+  ttsToggle.textContent = '🔊';
+}
+ttsToggle.onclick = () => { speaking ? stopTTS() : startTTS(); };
+
+/* ---------- PWA install support (best-effort; full offline app-shell caching
+   requires hosting this file over HTTPS, e.g. GitHub Pages, since Service
+   Workers do not run from a local file:// path) ---------- */
+try{
+  const manifest = {
+    name: 'ForraNova Reader', short_name: 'ForraNova',
+    start_url: '.', display: 'standalone',
+    background_color: '#14151A', theme_color: '#14151A',
+    icons: []
+  };
+  const blob = new Blob([JSON.stringify(manifest)], {type:'application/json'});
+  document.getElementById('pwa-manifest').href = URL.createObjectURL(blob);
+}catch(e){}
+
+if('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')){
+  const swCode = `
+    self.addEventListener('install', e => self.skipWaiting());
+    self.addEventListener('activate', e => self.clients.claim());
+    self.addEventListener('fetch', e => {}); // pass-through; book caching is handled via IndexedDB
+  `;
+  const swBlob = new Blob([swCode], {type:'application/javascript'});
+  navigator.serviceWorker.register(URL.createObjectURL(swBlob)).catch(()=>{});
+}
+
+initLibrary();
+</script>
+</body>
+</html>
