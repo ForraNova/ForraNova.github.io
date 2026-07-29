@@ -156,6 +156,27 @@
                   <a href="https://blue-print-nyo-cal--eveeubi.replit.app/" class="portal-btn">Lunch FxCalc</a>
                 </div>
               </li>    
+              
+              <li class="seminar-item">
+                <span class="seminar-trigger" onclick="toggleDropdown('drop-code')">Code Compile</span>
+                <div id="drop-code" class="dropdown-content">
+                  <p>Type you html, css, and javascript code and see them in real time. Upload an existing web code files, run them and download as a single page file or as zip.</p>
+                  <div class="dropdown-content-link">
+                    <a href="templates/resources/text_editor.html" class="portal-btn">Code Editor</a>
+                  </div>
+                </div>
+              </li>  
+
+              <li class="seminar-item">
+                <span class="seminar-trigger" onclick="toggleDropdown('drop-pdf')">PDF Reader</span>
+                <div id="drop-pdf" class="dropdown-content">
+                  <p>Drag and drop or upload your pdf files and listen to them as it is read out load Also, copy and paste a pdf file link from the internet and listen as it is read out loud. All Save files are in your browser memory.</p>
+                  <div class="dropdown-content-link">
+                    <a href="templates/resources/pdf_reader.html" class="portal-btn">PDF Reader</a>
+                  </div>
+                </div>
+              </li>
+
             </ul>
           </div>
         </article>
@@ -214,8 +235,16 @@
               <li class="seminar-item">
                 <span class="seminar-trigger" onclick="toggleDropdown('rop-game3')">Transporter</span>
                 <div id="rop-game3" class="dropdown-content">
-                  <p>Drive for survival.</p>
+                  <p>Drive for survival. As a defensive, Evasive and Aggressive driver.</p>
                   <a href="templates/recess/transporter.html" class="portal-btn">Take the Wheels</a>
+                </div>
+              </li>
+
+              <li class="seminar-item">
+                <span class="seminar-trigger" onclick="toggleDropdown('rop-game4')">City Build</span>
+                <div id="rop-game4" class="dropdown-content">
+                  <p>The city is broken. Your mission is to fix it.</p>
+                  <a href="templates/recess/citibuild.html" class="portal-btn">Let's Build</a>
                 </div>
               </li>
 
@@ -296,9 +325,34 @@
                 <h3>FxCalc: A Multi Mode Calculator </h3>
                 <p>FxCalc is a comprehensive dark green glassmorphism calculator web app with five modes (Simple, Scientific, Quantum, Graphing, Converter) plus a camera-based equation scanner. Built with replit AI.</p>
               </div>
-              <a href="templates/hub/finAI.html" class="portal-btn">Launch FxCalc</a>
+              <a href="https://blue-print-nyo-cal--eveeubi.replit.app/" class="portal-btn">Launch FxCalc</a>
             </div>
           </article>
+
+          <!-- The PEARLS of Prompting -->
+          <article class="portal-card">
+            <div class="card-banner">Code Compile</div>
+            <div class="card-body">
+              <div>
+                <h3>HTML, CSS, JS Code Compiler</h3>
+                <p>Type you html, css, and javascript code and see them in real time. Upload an existing web code files, run them and download as a single page file or as zip.</p>
+              </div>
+              <a href="templates/resources/text_editor.html" class="portal-btn">Code Editor</a>
+            </div>
+          </article>
+          
+          <!-- The PEARLS of Prompting -->
+          <article class="portal-card">
+            <div class="card-banner">PDF Reader</div>
+            <div class="card-body">
+              <div>
+                <h3>PDF Reader</h3>
+                <p>Drag and drop or upload your pdf files and listen to them as it is read out load Also, copy and paste a pdf file link from the internet and listen as it is read out loud. All Save files are in your browser memory.</p>
+              </div>
+              <a href="templates/resources/pdf_reader.html" class="portal-btn">PDF Reader</a>
+            </div>
+          </article>
+          
         </div>
       </div>
     </section>
@@ -308,7 +362,7 @@
       <div style="max-width: 1000px; margin: 0 auto;">
         <div class="portal-grid">
 
-          <!-- The PEARLS of Prompting -->
+          <!-- Cell Jump -->
           <article class="portal-card">
             <div class="card-banner">Cell Jump</div>
             <div class="card-body">
@@ -320,7 +374,7 @@
             </div>
           </article>
 
-          <!-- The PEARLS of Prompting -->
+          <!-- Transporter -->
           <article class="portal-card">
             <div class="card-banner">Transporter</div>
             <div class="card-body">
@@ -332,7 +386,7 @@
             </div>
           </article>
 
-          <!-- The PEARLS of Prompting -->
+          <!-- Convergence -->
           <article class="portal-card">
             <div class="card-banner">Convergence</div>
             <div class="card-body">
@@ -341,6 +395,18 @@
                 <p>You are a fixer of things. fix the falling structures.</p>
               </div>
               <a href="templates/recess/convergence.html" class="portal-btn">Start Fixing</a>
+            </div>
+          </article>
+
+          <!-- City Build -->
+          <article class="portal-card">
+            <div class="card-banner">City Build</div>
+            <div class="card-body">
+              <div>
+                <h3>City Build</h3>
+                <p>The city is broken. Your mission is to fix it.</p>
+              </div>
+              <a href="templates/recess/citibuild.html" class="portal-btn">Start Building</a>
             </div>
           </article>
 
@@ -479,9 +545,9 @@
     <p>Contact Administration: <a href="mailto:forracorp1@gmail.com" style="color: var(--primary-color);">forracorp1@gmail.com</a></p>
   </footer>
 
-<!-- ################################################################################# -->
-<!-- ###############################   Core Mechanics  ############################### -->
-<!-- ################################################################################# -->
+<!-- ########################################################################### -->
+<!-- ############################   Core Mechanics  ############################ -->
+<!-- ########################################################################### -->
  <!-- SPA Router Script -->
   <script>
       function navigateTo(targetId, event) {
