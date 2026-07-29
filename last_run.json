@@ -1,17 +1,21 @@
 {
-    "last_update": "July 29, 2026 | 11:15 AM",
+    "last_update": "July 29, 2026 | 01:48 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[11:15:20] SUCCESS: Machine Learning (3 found)",
-        "[11:15:23] SUCCESS: Front-End / React (3 found)",
-        "[11:15:25] SUCCESS: Writing / Creative (0 found)",
-        "[11:15:28] SUCCESS: Virtual Assistant (0 found)"
+        "[13:47:58] SUCCESS: Machine Learning (3 found)",
+        "[13:48:01] SUCCESS: Front-End / React (3 found)",
+        "[13:48:04] SUCCESS: Writing / Creative (0 found)",
+        "[13:48:07] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
             "jobs": [
+                {
+                    "position": "Senior Demand Generation Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-demand-generation-manager-testgorilla-1135606"
+                },
                 {
                     "position": "Entry Level Junior Trader",
                     "link": "https://remoteok.com/remote-jobs/remote-entry-level-junior-trader-atom-partners-1135478"
@@ -19,10 +23,6 @@
                 {
                     "position": "Junior Crypto Trader",
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-limited-1134351"
-                },
-                {
-                    "position": "Acoustical Management",
-                    "link": "https://remoteok.com/remote-jobs/remote-acoustical-management-hometown-deli-amp-grocery-1135593"
                 }
             ]
         },
