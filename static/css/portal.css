@@ -618,6 +618,8 @@
                 font-size: 0.86em;
                 padding: 12px;
                 grid-template-columns: repeat(2, 1fr);
+                margin: 4px -20px 6px -60px;
+                width: 120%;
             }
         }
         @media screen and (max-width: 640px) {
@@ -625,6 +627,9 @@
                 padding: 12px;                
                 font-size: 0.86em;
                 grid-template-columns: 1fr;
+                margin: 4px -20px 6px -40px;
+                width: 120%;
+
             }
 
         }
