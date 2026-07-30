@@ -1077,6 +1077,15 @@ transform:translateY(0);
       cursor: pointer;
     }
 
+    #infoTitle {
+      color: var(--primary-color);
+      font-size: 15px;
+    }
+    #infoDesc {
+      color: var(--text-white);
+      font-size: 12px;
+    }
+
     /* ==========================================
        RESPONSIVE BREAKPOINT (Mobile & Tablets)
        ========================================== */
@@ -1129,6 +1138,16 @@ transform:translateY(0);
 
       .info-pane p {
         font-size: 14px;
+      }
+
+      #infoTitle {
+        color: var(--primary-color);
+        font-size: 15px;
+      }
+      #infoDesc {
+        color: var(--text-white);
+        font-size: 12px;
+        margin-bottom: -10px;
       }
     }
 
