@@ -289,58 +289,9 @@
     }
   </style>
 
-</head>
-<body class="dark text-gray-200 relative">
-  <!-- animated background container -->
-  <div id="bg-animation" class="fixed inset-0 pointer-events-none overflow-hidden z-0"></div>
-  
-  <!-- lightning overlay -->
-  <div id="lightning" class="lightning"></div>
+  <style>
+  /* Style  */
 
-  <!-- main app -->
-  <div id="app" >
-    
-<header class="app-header">
-  
-  <div class="brand">
-    <div class="logo-slot" id="logoSlot" title="Click to set your ForraNova logo">
-      <a href="../../index.html" onclick="navigateTo('../../index.html#tools', event)"><img src="../../static/images/logoFN.png" alt="ForraCorp Base" style="width:50px;height:50px;object-fit:cover;"></a>    
-    </div>
-    <input type="file" id="logoInput" accept="image/*" style="display:none">
-  </div>
-
-  <div class="brand-center">
-    <h1><forra style="color: #708090;">Forra</forra> <forra style="color: #696969;">|</forra> <forra style="color: #00FFFF;">Nova</forra> </h1>
-    <span>Knowledge is for the Living</span>
-    PDF Reader
-  </div>
-  <div class="header-actions">
-    <button class="icon-btn" id="themeToggle" title="Toggle dark / light">🌙</button>
-  </div>
-</header>
-
-<main>
-  <section class="add-panel">
-    <h2>Add a book</h2>
-    <p>Paste a link to a PDF hosted on GitHub (or anywhere on the web), or use the drop zone below to add a file straight from this device — either way it opens instantly and can be saved for offline reading.</p>
-    <div class="add-row">
-      <input type="text" id="urlInput" placeholder="https://raw.githubusercontent.com/.../book.pdf">
-      <input type="text" id="titleInput" placeholder="Title (optional)">
-      <button class="btn" id="addUrlBtn">Add from link</button>
-
-    </div>
-    <div class="dropzone" id="dropzone">
-      Drag & drop a PDF here, or <strong>click to choose a file</strong> from this device
-      <input type="file" id="fileInput" accept="application/pdf" style="display:none">
-    </div>
-  </section>
-
-  <section style="max-height:450px; overflow: scroll; padding-bottom: 100px;">
-    <!------>    
-    <h2>Trove Books</h2>
-
-    <style>
-  
   .swiper-slide { 
     transition: 0.3s ease;
     display: flex;
@@ -435,8 +386,76 @@
     background: var(--glass);
     border-style: inset;
 }
-
 </style>
+
+</head>
+<body class="dark text-gray-200 relative">
+  <!-- animated background container -->
+  <div id="bg-animation" class="fixed inset-0 pointer-events-none overflow-hidden z-0"></div>
+  
+  <!-- lightning overlay -->
+  <div id="lightning" class="lightning"></div>
+
+  <!-- main app -->
+  <div id="app" >
+    
+<header class="app-header">
+  
+  <div class="brand">
+    <div class="logo-slot" id="logoSlot" title="Click to set your ForraNova logo">
+      <a href="../../index.html" onclick="navigateTo('../../index.html#tools', event)"><img src="../../static/images/logoFN.png" alt="ForraCorp Base" style="width:50px;height:50px;object-fit:cover;"></a>    
+    </div>
+    <input type="file" id="logoInput" accept="image/*" style="display:none">
+  </div>
+
+  <div class="brand-center">
+    <h1><forra style="color: #708090;">Forra</forra> <forra style="color: #696969;">|</forra> <forra style="color: #00FFFF;">Nova</forra> </h1>
+    <span>Knowledge is for the Living</span>
+    PDF Reader
+  </div>
+  <div class="header-actions">
+    <button class="icon-btn" id="themeToggle" title="Toggle dark / light">🌙</button>
+  </div>
+</header>
+
+          <script>
+            
+            window.toggleAccordion = function(labelElement) {
+              const group = labelElement.parentElement;
+              group.classList.toggle('collapsed');
+              
+              // Reset the auto-hide timer because the user is interacting
+              if (typeof startSidebarTimer === 'function') startSidebarTimer();
+          };
+
+          // Optional: Auto-collapse other groups when one opens
+          function soloAccordion(selectedGroup) {
+              document.querySelectorAll('.nav-group').forEach(group => {
+                  if (group !== selectedGroup) group.classList.add('collapsed');
+              });
+          }
+          </script>
+
+<main style="max-height:650px; overflow:scroll; padding-bottom:100px;"> 
+  <section class="add-panel"> 
+
+    <h2>Add a book</h2>
+    <p>Paste a link to a PDF hosted on GitHub (or anywhere on the web), or use the drop zone below to add a file straight from this device — either way it opens instantly and can be saved for offline reading.</p>
+    <div class="add-row">
+      <input type="text" id="urlInput" placeholder="https://raw.githubusercontent.com/.../book.pdf">
+      <input type="text" id="titleInput" placeholder="Title (optional)">
+      <button class="btn" id="addUrlBtn">Add from link</button>
+
+    </div>
+    <div class="dropzone" id="dropzone">
+      Drag & drop a PDF here, or <strong>click to choose a file</strong> from this device
+      <input type="file" id="fileInput" accept="application/pdf" style="display:none">
+    </div>
+  </section>
+
+  <section style="max-height:2000px; overflow: scroll; padding-bottom: 100px;">
+    <!------>    
+    <h2>ForraNova Books Trove</h2>
 
     <div class="library-grid" >
 
