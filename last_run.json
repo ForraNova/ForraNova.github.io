@@ -1,17 +1,21 @@
 {
-    "last_update": "July 31, 2026 | 08:39 AM",
+    "last_update": "July 31, 2026 | 11:22 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[08:39:26] SUCCESS: Machine Learning (3 found)",
-        "[08:39:28] SUCCESS: Front-End / React (3 found)",
-        "[08:39:31] SUCCESS: Writing / Creative (0 found)",
-        "[08:39:34] SUCCESS: Virtual Assistant (0 found)"
+        "[11:22:39] SUCCESS: Machine Learning (3 found)",
+        "[11:22:42] SUCCESS: Front-End / React (3 found)",
+        "[11:22:44] SUCCESS: Writing / Creative (0 found)",
+        "[11:22:47] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
             "jobs": [
+                {
+                    "position": "GenAI Engineer AI Builder AI Agent Associate Specialist",
+                    "link": "https://remoteok.com/remote-jobs/remote-genai-engineer-ai-builder-ai-agent-associate-specialist-magic-compass-limited-1135735"
+                },
                 {
                     "position": "Senior Demand Generation Manager",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-demand-generation-manager-testgorilla-1135606"
@@ -19,10 +23,6 @@
                 {
                     "position": "Entry Level Junior Trader",
                     "link": "https://remoteok.com/remote-jobs/remote-entry-level-junior-trader-atom-partners-1135478"
-                },
-                {
-                    "position": "Traffic Controller",
-                    "link": "https://remoteok.com/remote-jobs/remote-traffic-controller-aussie-traffic-control-1135728"
                 }
             ]
         },
