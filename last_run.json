@@ -1,12 +1,12 @@
 {
-    "last_update": "July 31, 2026 | 01:43 PM",
+    "last_update": "July 31, 2026 | 04:31 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[13:43:39] SUCCESS: Machine Learning (3 found)",
-        "[13:43:41] SUCCESS: Front-End / React (3 found)",
-        "[13:43:44] SUCCESS: Writing / Creative (0 found)",
-        "[13:43:47] SUCCESS: Virtual Assistant (0 found)"
+        "[16:31:46] SUCCESS: Machine Learning (3 found)",
+        "[16:31:49] SUCCESS: Front-End / React (3 found)",
+        "[16:31:52] SUCCESS: Writing / Creative (0 found)",
+        "[16:31:55] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Product Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-product-engineer-superplane-1135739"
+                },
+                {
                     "position": "Supply Chain & Operations Specialist",
                     "link": "https://remoteok.com/remote-jobs/remote-supply-chain-amp-operations-specialist-miss-amara-1135691"
                 },
                 {
                     "position": "Healthcare Virtual Assistant Athena EMR Experience",
                     "link": "https://remoteok.com/remote-jobs/remote-healthcare-virtual-assistant-athena-emr-experience-snapscale-philippines-1135688"
-                },
-                {
-                    "position": "Project Management Coordinator",
-                    "link": "https://remoteok.com/remote-jobs/remote-project-management-coordinator-arabian-private-holdings-1135692"
                 }
             ]
         },
