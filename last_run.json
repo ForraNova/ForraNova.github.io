@@ -1,47 +1,21 @@
 {
-    "last_update": "August 02, 2026 | 01:01 PM",
+    "last_update": "August 02, 2026 | 03:56 PM",
     "status": "Online",
-    "total_found": 6,
+    "total_found": 0,
     "logs": [
-        "[13:01:04] SUCCESS: Machine Learning (3 found)",
-        "[13:01:06] SUCCESS: Front-End / React (3 found)",
-        "[13:01:09] SUCCESS: Writing / Creative (0 found)",
-        "[13:01:12] SUCCESS: Virtual Assistant (0 found)"
+        "[15:55:28] SUCCESS: Machine Learning (0 found)",
+        "[15:55:50] SUCCESS: Front-End / React (0 found)",
+        "[15:56:04] SUCCESS: Writing / Creative (0 found)",
+        "[15:56:07] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
-            "jobs": [
-                {
-                    "position": "GenAI Engineer AI Builder AI Agent Associate Specialist",
-                    "link": "https://remoteok.com/remote-jobs/remote-genai-engineer-ai-builder-ai-agent-associate-specialist-magic-compass-limited-1135735"
-                },
-                {
-                    "position": "Senior Software Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-stellar-ai-1128869"
-                },
-                {
-                    "position": "Senior Demand Generation Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-demand-generation-manager-testgorilla-1135606"
-                }
-            ]
+            "jobs": []
         },
         {
             "query": "Front-End / React",
-            "jobs": [
-                {
-                    "position": "Product Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-product-engineer-superplane-1135739"
-                },
-                {
-                    "position": "Supply Chain & Operations Specialist",
-                    "link": "https://remoteok.com/remote-jobs/remote-supply-chain-amp-operations-specialist-miss-amara-1135691"
-                },
-                {
-                    "position": "Healthcare Virtual Assistant Athena EMR Experience",
-                    "link": "https://remoteok.com/remote-jobs/remote-healthcare-virtual-assistant-athena-emr-experience-snapscale-philippines-1135688"
-                }
-            ]
+            "jobs": []
         },
         {
             "query": "Writing / Creative",
