@@ -1,12 +1,12 @@
 {
-    "last_update": "August 03, 2026 | 06:12 AM",
+    "last_update": "August 03, 2026 | 12:14 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[06:12:19] SUCCESS: Machine Learning (3 found)",
-        "[06:12:22] SUCCESS: Front-End / React (3 found)",
-        "[06:12:24] SUCCESS: Writing / Creative (0 found)",
-        "[06:12:27] SUCCESS: Virtual Assistant (0 found)"
+        "[12:14:10] SUCCESS: Machine Learning (3 found)",
+        "[12:14:13] SUCCESS: Front-End / React (3 found)",
+        "[12:14:15] SUCCESS: Writing / Creative (0 found)",
+        "[12:14:18] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Join Our Team",
+                    "link": "https://remoteok.com/remote-jobs/remote-join-our-team-bay-plumbing-amp-drainage-1136024"
+                },
+                {
                     "position": "Product Engineer",
                     "link": "https://remoteok.com/remote-jobs/remote-product-engineer-superplane-1135739"
                 },
                 {
-                    "position": "Supply Chain & Operations Specialist",
-                    "link": "https://remoteok.com/remote-jobs/remote-supply-chain-amp-operations-specialist-miss-amara-1135691"
-                },
-                {
-                    "position": "Healthcare Virtual Assistant Athena EMR Experience",
-                    "link": "https://remoteok.com/remote-jobs/remote-healthcare-virtual-assistant-athena-emr-experience-snapscale-philippines-1135688"
+                    "position": "Plant Fitter",
+                    "link": "https://remoteok.com/remote-jobs/remote-plant-fitter-queensland-rail-1136027"
                 }
             ]
         },
