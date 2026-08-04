@@ -1,21 +1,47 @@
 {
-    "last_update": "August 04, 2026 | 01:31 AM",
+    "last_update": "August 04, 2026 | 05:41 AM",
     "status": "Online",
-    "total_found": 0,
+    "total_found": 6,
     "logs": [
-        "[01:30:32] SUCCESS: Machine Learning (0 found)",
-        "[01:30:45] SUCCESS: Front-End / React (0 found)",
-        "[01:30:55] SUCCESS: Writing / Creative (0 found)",
-        "[01:30:58] SUCCESS: Virtual Assistant (0 found)"
+        "[05:40:52] SUCCESS: Machine Learning (3 found)",
+        "[05:40:55] SUCCESS: Front-End / React (3 found)",
+        "[05:40:57] SUCCESS: Writing / Creative (0 found)",
+        "[05:41:00] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
-            "jobs": []
+            "jobs": [
+                {
+                    "position": "GenAI Engineer AI Builder AI Agent Associate Specialist",
+                    "link": "https://remoteok.com/remote-jobs/remote-genai-engineer-ai-builder-ai-agent-associate-specialist-magic-compass-limited-1135735"
+                },
+                {
+                    "position": "Senior Software Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-stellar-ai-1128869"
+                },
+                {
+                    "position": "Senior Demand Generation Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-demand-generation-manager-testgorilla-1135606"
+                }
+            ]
         },
         {
             "query": "Front-End / React",
-            "jobs": []
+            "jobs": [
+                {
+                    "position": "Join Our Team",
+                    "link": "https://remoteok.com/remote-jobs/remote-join-our-team-bay-plumbing-amp-drainage-1136024"
+                },
+                {
+                    "position": "Product Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-product-engineer-superplane-1135739"
+                },
+                {
+                    "position": "Plant Fitter",
+                    "link": "https://remoteok.com/remote-jobs/remote-plant-fitter-queensland-rail-1136027"
+                }
+            ]
         },
         {
             "query": "Writing / Creative",
