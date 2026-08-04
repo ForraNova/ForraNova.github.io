@@ -28,9 +28,9 @@
         <navi>
             <ul id="navLinks">
                 <li><a href="#domain-portal" onclick="navigateTo('domain-portal', event)" class="nav-link active">Domain</a></li>                        
-                <li><a href="#about" onclick="navigateTo('about', event)" class="nav-link active">About</a></li>
+                <li><a href="#about" onclick="navigateTo('about', event)" class="nav-link">About</a></li>
                 <li><a href="templates/chat-show.html">Chat Show</a></li>
-                <li><a href="#training" onclick="navigateTo('training', event)" class="nav-link active">Training</a></li>
+                <li><a href="#training" onclick="navigateTo('training', event)" class="nav-link">Training</a></li>
                 <li><a href="#tools" onclick="navigateTo('tools', event)" class="nav-link">Tools</a></li>
                 <li><a href="#games" onclick="navigateTo('games', event)" class="nav-link">Games</a></li>
             </ul>
@@ -127,10 +127,40 @@
             <div class="card-banner">Precision Tools</div>
           </a>
           <div class="card-body">
-            
             <ul class="seminar-list">
+
               <li class="seminar-item">
-                <span class="seminar-trigger" onclick="toggleDropdown('drop-pearls-1')"> The Prompt Compiler 1</span>
+                <span class="seminar-trigger" onclick="toggleDropdown('code_write')"> Web Code Compiler</span>
+                <div id="code_write" class="dropdown-content">
+                  <p>Type you html, css, and javascript code and see them in real time. Upload an existing web code files, run them and download as a single page file or as zip.</p>
+                  <div class="dropdown-content-link">
+                    <a href="templates/resources/text_editor.html" class="portal-btn">Code Editor</a>
+                  </div>
+                </div>
+              </li>
+              
+              <li class="seminar-item">
+                <span class="seminar-trigger" onclick="toggleDropdown('word')"> Word Pad Editor</span>
+                <div id="word" class="dropdown-content">
+                  <p>The FN Words Editor supports .docx, .doc, .rtf, .txt, .md, .html — and .pdf files for viewing, editing and referencing. NOTE: The PDF cant be edited.</p>
+                  <div class="dropdown-content-link">
+                    <a href="templates/resources/words_editor.html" class="portal-btn">Words Editor</a>
+                  </div>
+                </div>
+              </li>
+              
+              <li class="seminar-item">
+                <span class="seminar-trigger" onclick="toggleDropdown('drop-pdf')">PDF Reader</span>
+                <div id="drop-pdf" class="dropdown-content">
+                  <p>Drag and drop or upload your pdf files and listen to them as it is read out load Also, copy and paste a pdf file link from the internet and listen as it is read out loud. All Save files are in your browser memory.</p>
+                  <div class="dropdown-content-link">
+                    <a href="templates/resources/pdf_reader.html" class="portal-btn">PDF Reader</a>
+                  </div>
+                </div>
+              </li>
+
+              <li class="seminar-item">
+                <span class="seminar-trigger" onclick="toggleDropdown('drop-pearls-1')"> Prompt Compiler 1</span>
                 <div id="drop-pearls-1" class="dropdown-content">
                   <p>Deploy a modular, P-E-A-R-L-S-based interface to structure raw requests into optimized prompt syntax with automated nuance injection and real-time output compilation.</p>
                   <div class="dropdown-content-link">
@@ -140,7 +170,7 @@
               </li>
               
               <li class="seminar-item">
-                <span class="seminar-trigger" onclick="toggleDropdown('drop-pearls-2')"> The Prompt Compiler 2</span>
+                <span class="seminar-trigger" onclick="toggleDropdown('drop-pearls-2')"> Prompt Compiler 2</span>
                 <div id="drop-pearls-2" class="dropdown-content">
                   <p>Deploy a modular, P-E-A-R-L-S-based interface to structure raw requests into optimized prompt syntax with automated nuance injection and real-time output compilation.</p>
                   <div class="dropdown-content-link">
@@ -156,26 +186,6 @@
                   <a href="https://blue-print-nyo-cal--eveeubi.replit.app/" class="portal-btn">Lunch FxCalc</a>
                 </div>
               </li>    
-              
-              <li class="seminar-item">
-                <span class="seminar-trigger" onclick="toggleDropdown('drop-code')">Code Compile</span>
-                <div id="drop-code" class="dropdown-content">
-                  <p>Type you html, css, and javascript code and see them in real time. Upload an existing web code files, run them and download as a single page file or as zip.</p>
-                  <div class="dropdown-content-link">
-                    <a href="templates/resources/text_editor.html" class="portal-btn">Code Editor</a>
-                  </div>
-                </div>
-              </li>  
-
-              <li class="seminar-item">
-                <span class="seminar-trigger" onclick="toggleDropdown('drop-pdf')">PDF Reader</span>
-                <div id="drop-pdf" class="dropdown-content">
-                  <p>Drag and drop or upload your pdf files and listen to them as it is read out load Also, copy and paste a pdf file link from the internet and listen as it is read out loud. All Save files are in your browser memory.</p>
-                  <div class="dropdown-content-link">
-                    <a href="templates/resources/pdf_reader.html" class="portal-btn">PDF Reader</a>
-                  </div>
-                </div>
-              </li>
 
             </ul>
           </div>
@@ -293,12 +303,48 @@
       <div style="max-width: 1000px; margin: 0 auto;">
         <div class="portal-grid">
           
+          <!-- The Code Playground -->
+          <article class="portal-card">
+            <div class="card-banner"> Code Playground- Pro</div>
+            <div class="card-body">
+              <div>
+                <h3>Web Code Compiler</h3>
+                <p>Type you html, css, and javascript code and see them in real time. Upload an existing web code files, run them and download as a single page file or as zip.</p>
+              </div>
+              <a href="templates/resources/text_editor.html" class="portal-btn">Code Editor</a>
+            </div>
+          </article>
+  
+          <!-- The Code Playground -->
+          <article class="portal-card">
+            <div class="card-banner"> FN Text Editor- Pro</div>
+            <div class="card-body">
+              <div>
+                <h3>Word Pad Editor</h3>
+                <p>The FN Words Editor supports .docx, .doc, .rtf, .txt, .md, .html — and .pdf files for viewing, editing and referencing. NOTE: The PDF cant be edited.</p>
+              </div>
+              <a href="templates/resources/words_editor.html" class="portal-btn">Words Editor</a>
+            </div>
+          </article>
+
+          <!-- The PEARLS of Prompting -->
+          <article class="portal-card">
+            <div class="card-banner">PDF Reader</div>
+            <div class="card-body">
+              <div>
+                <h3>PDF Reader</h3>
+                <p>Drag and drop or upload your pdf files and listen to them as it is read out load Also, copy and paste a pdf file link from the internet and listen as it is read out loud. All Save files are in your browser memory.</p>
+              </div>
+              <a href="templates/resources/pdf_reader.html" class="portal-btn">PDF Reader</a>
+            </div>
+          </article>
+
           <!-- The PEARLS of Prompting -->
           <article class="portal-card">
             <div class="card-banner">The Prompt Compiler 1</div>
             <div class="card-body">
               <div>
-                <h3>Raw Prompt PEARLS Compiler 1</h3>
+                <h3>Prompt Compiler 1</h3>
                 <p>Deploy a modular, P-E-A-R-L-S-based interface to structure raw requests into optimized prompt syntax with automated nuance injection and real-time output compilation.</p>
               </div>
               <a href="templates/resources/prompt-compiler_1.html" class="portal-btn">Launch Tool</a>
@@ -310,7 +356,7 @@
             <div class="card-banner">The Prompt Compiler 2</div>
             <div class="card-body">
               <div>
-                <h3>Raw Prompt PEARLS Compiler 2</h3>
+                <h3>Prompt Compiler 2</h3>
                 <p>Deploy a modular, P-E-A-R-L-S-based interface to structure raw requests into optimized prompt syntax with automated nuance injection and real-time output compilation.</p>
               </div>
               <a href="templates/resources/prompt-compiler_2.html" class="portal-btn">Launch Tool</a>
@@ -329,30 +375,6 @@
             </div>
           </article>
 
-          <!-- The PEARLS of Prompting -->
-          <article class="portal-card">
-            <div class="card-banner">Code Compile</div>
-            <div class="card-body">
-              <div>
-                <h3>HTML, CSS, JS Code Compiler</h3>
-                <p>Type you html, css, and javascript code and see them in real time. Upload an existing web code files, run them and download as a single page file or as zip.</p>
-              </div>
-              <a href="templates/resources/text_editor.html" class="portal-btn">Code Editor</a>
-            </div>
-          </article>
-          
-          <!-- The PEARLS of Prompting -->
-          <article class="portal-card">
-            <div class="card-banner">PDF Reader</div>
-            <div class="card-body">
-              <div>
-                <h3>PDF Reader</h3>
-                <p>Drag and drop or upload your pdf files and listen to them as it is read out load Also, copy and paste a pdf file link from the internet and listen as it is read out loud. All Save files are in your browser memory.</p>
-              </div>
-              <a href="templates/resources/pdf_reader.html" class="portal-btn">PDF Reader</a>
-            </div>
-          </article>
-          
         </div>
       </div>
     </section>
