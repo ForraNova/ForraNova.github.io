@@ -1,12 +1,12 @@
 {
-    "last_update": "August 05, 2026 | 07:16 PM",
+    "last_update": "August 05, 2026 | 10:07 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[19:16:36] SUCCESS: Machine Learning (3 found)",
-        "[19:16:40] SUCCESS: Front-End / React (3 found)",
-        "[19:16:42] SUCCESS: Writing / Creative (0 found)",
-        "[19:16:45] SUCCESS: Virtual Assistant (0 found)"
+        "[22:07:12] SUCCESS: Machine Learning (3 found)",
+        "[22:07:15] SUCCESS: Front-End / React (3 found)",
+        "[22:07:17] SUCCESS: Writing / Creative (0 found)",
+        "[22:07:20] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-stellar-ai-1128869"
                 },
                 {
-                    "position": "Java Developer",
-                    "link": "https://remoteok.com/remote-jobs/remote-java-developer-clera-1136188"
+                    "position": "There is no such thing as coincidence",
+                    "link": "https://remoteok.com/remote-jobs/remote-there-is-no-such-thing-as-coincidence-radical-reversibility-1136203"
                 }
             ]
         },
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
-                    "position": "Join Our Team",
-                    "link": "https://remoteok.com/remote-jobs/remote-join-our-team-bay-plumbing-amp-drainage-1136024"
+                    "position": "Freelance Designer",
+                    "link": "https://remoteok.com/remote-jobs/remote-freelance-designer-control-shift-video-1136213"
                 },
                 {
-                    "position": "Product Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-product-engineer-superplane-1135739"
+                    "position": "Resource Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-resource-manager-the-story-shack-1136212"
                 },
                 {
-                    "position": "Plant Fitter",
-                    "link": "https://remoteok.com/remote-jobs/remote-plant-fitter-queensland-rail-1136027"
+                    "position": "Head of Security",
+                    "link": "https://remoteok.com/remote-jobs/remote-head-of-security-tremendous-1136210"
                 }
             ]
         },
