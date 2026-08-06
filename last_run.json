@@ -1,12 +1,12 @@
 {
-    "last_update": "August 05, 2026 | 10:07 PM",
+    "last_update": "August 06, 2026 | 01:44 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[22:07:12] SUCCESS: Machine Learning (3 found)",
-        "[22:07:15] SUCCESS: Front-End / React (3 found)",
-        "[22:07:17] SUCCESS: Writing / Creative (0 found)",
-        "[22:07:20] SUCCESS: Virtual Assistant (0 found)"
+        "[01:44:10] SUCCESS: Machine Learning (3 found)",
+        "[01:44:13] SUCCESS: Front-End / React (3 found)",
+        "[01:44:15] SUCCESS: Writing / Creative (0 found)",
+        "[01:44:19] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Procurement Specialist",
+                    "link": "https://remoteok.com/remote-jobs/remote-procurement-specialist-robert-half-1136214"
+                },
+                {
                     "position": "Freelance Designer",
                     "link": "https://remoteok.com/remote-jobs/remote-freelance-designer-control-shift-video-1136213"
                 },
                 {
                     "position": "Resource Manager",
                     "link": "https://remoteok.com/remote-jobs/remote-resource-manager-the-story-shack-1136212"
-                },
-                {
-                    "position": "Head of Security",
-                    "link": "https://remoteok.com/remote-jobs/remote-head-of-security-tremendous-1136210"
                 }
             ]
         },
