@@ -1,12 +1,12 @@
 {
-    "last_update": "August 08, 2026 | 03:21 PM",
+    "last_update": "August 08, 2026 | 06:24 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[15:21:45] SUCCESS: Machine Learning (3 found)",
-        "[15:21:48] SUCCESS: Front-End / React (3 found)",
-        "[15:21:50] SUCCESS: Writing / Creative (0 found)",
-        "[15:21:53] SUCCESS: Virtual Assistant (0 found)"
+        "[18:23:57] SUCCESS: Machine Learning (3 found)",
+        "[18:24:00] SUCCESS: Front-End / React (3 found)",
+        "[18:24:03] SUCCESS: Writing / Creative (0 found)",
+        "[18:24:05] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-genai-engineer-ai-builder-ai-agent-associate-specialist-magic-compass-limited-1135735"
                 },
                 {
-                    "position": "'This Time Feels Different",
-                    "link": "https://remoteok.com/remote-jobs/remote-this-time-feels-different-chinadebate-1136327"
+                    "position": "St George\u2019s Cares",
+                    "link": "https://remoteok.com/remote-jobs/remote-st-georges-cares-quintessence-films-limited-1136334"
                 },
                 {
-                    "position": "Faint Cracks",
-                    "link": "https://remoteok.com/remote-jobs/remote-faint-cracks-chinadebate-1136323"
+                    "position": "Exit Searcher",
+                    "link": "https://remoteok.com/remote-jobs/remote-exit-searcher-playtomax-1136328"
                 }
             ]
         },
