@@ -1,12 +1,12 @@
 {
-    "last_update": "August 08, 2026 | 09:22 PM",
+    "last_update": "August 09, 2026 | 12:59 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:22:15] SUCCESS: Machine Learning (3 found)",
-        "[21:22:17] SUCCESS: Front-End / React (3 found)",
-        "[21:22:20] SUCCESS: Writing / Creative (0 found)",
-        "[21:22:23] SUCCESS: Virtual Assistant (0 found)"
+        "[00:59:03] SUCCESS: Machine Learning (3 found)",
+        "[00:59:05] SUCCESS: Front-End / React (3 found)",
+        "[00:59:08] SUCCESS: Writing / Creative (0 found)",
+        "[00:59:11] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-genai-engineer-ai-builder-ai-agent-associate-specialist-magic-compass-limited-1135735"
                 },
                 {
-                    "position": "St George\u2019s Cares",
-                    "link": "https://remoteok.com/remote-jobs/remote-st-georges-cares-quintessence-films-limited-1136334"
+                    "position": "Inside Sales Team Leader",
+                    "link": "https://remoteok.com/remote-jobs/remote-inside-sales-team-leader-the-careside-1133121"
                 },
                 {
-                    "position": "YOUR JOB DESCRIPTION HERE",
-                    "link": "https://remoteok.com/remote-jobs/remote-your-job-description-here-compucorp-inc-1136336"
+                    "position": "St George\u2019s Cares",
+                    "link": "https://remoteok.com/remote-jobs/remote-st-georges-cares-quintessence-films-limited-1136334"
                 }
             ]
         },
