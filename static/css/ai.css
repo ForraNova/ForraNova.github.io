@@ -697,8 +697,11 @@ video, audio {
   align-items: center;
   flex-direction: column;
   display: flex;
-
 }
+
+.info::-webkit-scrollbar{ width: 6px; }
+.info::-webkit-scrollbar-thumb{ background: rgba(0,224,255,0.25); border-radius: 8px; }
+
 .art {
   max-height: 18vh;
   border-radius: 8%;
@@ -1150,6 +1153,8 @@ transform:translateY(0);
         margin-bottom: -10px;
       }
     }
+ 
 
+/*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
 
 
