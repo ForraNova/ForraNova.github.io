@@ -1,12 +1,12 @@
 {
-    "last_update": "August 12, 2026 | 09:37 PM",
+    "last_update": "August 13, 2026 | 01:09 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:36:49] SUCCESS: Machine Learning (3 found)",
-        "[21:36:52] SUCCESS: Front-End / React (3 found)",
-        "[21:36:54] SUCCESS: Writing / Creative (0 found)",
-        "[21:36:57] SUCCESS: Virtual Assistant (0 found)"
+        "[01:08:54] SUCCESS: Machine Learning (3 found)",
+        "[01:08:56] SUCCESS: Front-End / React (3 found)",
+        "[01:08:59] SUCCESS: Writing / Creative (0 found)",
+        "[01:09:02] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-1136383"
                 },
                 {
-                    "position": "Software Engineer III Mobile",
-                    "link": "https://remoteok.com/remote-jobs/remote-software-engineer-iii-mobile-stone-1136570"
+                    "position": "Product Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-product-manager-resourceful-talent-group-1136579"
                 }
             ]
         },
