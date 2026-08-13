@@ -1154,6 +1154,348 @@ transform:translateY(0);
       }
     }
  
+/* ==========================================================================
+   DYNAMIC HUD ANIMATION STYLES - Futuristic CSS with Transitions & HUD Features
+   ( suggestion-hub )
+   ========================================================================== */
+
+.suggestion-hub {
+  padding: 50px 20px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.hud-container {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 224, 255, 0.3);
+  border-radius: 16px;
+  padding: 36px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 224, 255, 0.15);
+}
+
+.hud-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.hud-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  color: #00e0ff;
+  background: rgba(0, 224, 255, 0.1);
+  border: 1px solid rgba(0, 224, 255, 0.4);
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.hud-title {
+  color: #ffffff;
+  font-size: 1.85rem;
+  margin-bottom: 8px;
+}
+
+.hud-subtitle {
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.hud-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  .form-grid { grid-template-columns: 1fr; }
+}
+
+.hud-label {
+  color: #cbd5e1;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.optional-tag {
+  color: #64748b;
+  font-size: 0.72rem;
+  text-transform: none;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  color: #00e0ff;
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+.hud-input {
+  width: 100%;
+  padding: 12px 14px 12px 42px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 0.92rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.hud-select {
+  padding-left: 14px !important;
+  cursor: pointer;
+  background-color: #0f172a;
+}
+
+.hud-textarea {
+  padding-left: 14px;
+  resize: vertical;
+}
+
+.hud-input:focus {
+  border-color: #00e0ff;
+  box-shadow: 0 0 12px rgba(0, 224, 255, 0.3);
+}
+
+/* Category Chips */
+.chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #94a3b8;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chip:hover { border-color: #00e0ff; color: #fff; }
+
+.chip.active {
+  background: linear-gradient(135deg, rgba(0, 224, 255, 0.2), rgba(147, 51, 234, 0.2));
+  border-color: #00e0ff;
+  color: #00e0ff;
+  box-shadow: 0 0 12px rgba(0, 224, 255, 0.25);
+}
+
+/* Phone Selector Container */
+.phone-wrapper { display: flex; gap: 10px; }
+
+.country-selector {
+  display: flex;
+  align-items: center;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 0 10px;
+  gap: 6px;
+  min-width: 125px;
+}
+
+.country-dropdown {
+  background: transparent;
+  border: none;
+  color: #00e0ff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  outline: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.country-dropdown option { background: #0f172a; color: #fff; }
+.phone-input { padding-left: 14px !important; }
+
+/* Dynamic Content Swap Transitions (Slide Down / Fade In) */
+.swap-container {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.swap-container.fade-out {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.swap-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.content-set {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.content-set.hidden-set {
+  display: none !important;
+}
+
+/* Technical Urgency Toggle */
+.urgency-toggle {
+  display: flex;
+  gap: 6px;
+  height: 44px;
+}
+
+.urgency-btn {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #94a3b8;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.urgency-btn.active {
+  background: rgba(0, 224, 255, 0.2);
+  border-color: #00e0ff;
+  color: #00e0ff;
+}
+
+.urgency-btn.priority.active {
+  background: rgba(245, 158, 11, 0.2);
+  border-color: #f59e0b;
+  color: #fbbf24;
+}
+
+.urgency-btn.critical.active {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: #ef4444;
+  color: #f87171;
+}
+
+/* File Payload Dropzone */
+.dropzone {
+  border: 2px dashed rgba(0, 224, 255, 0.3);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  background: rgba(15, 23, 42, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dropzone:hover, .dropzone.drag-over {
+  border-color: #00e0ff;
+  background: rgba(0, 224, 255, 0.08);
+}
+
+.drop-icon { color: #00e0ff; font-size: 1.2rem; }
+.drop-text { color: #94a3b8; font-size: 0.82rem; }
+.hidden-file-input { display: none; }
+
+/* Live Telemetry Preview HUD */
+.payload-preview-box {
+  background: rgba(5, 8, 17, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.preview-header {
+  padding: 10px 14px;
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  color: #64748b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background: rgba(15, 23, 42, 0.9);
+}
+
+.preview-header:hover { color: #00e0ff; }
+
+.preview-code {
+  padding: 12px 14px;
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.75rem;
+  color: #38bdf8;
+  max-height: 160px;
+  overflow-y: auto;
+  transition: all 0.3s ease;
+}
+
+.preview-code.collapsed {
+  max-height: 0;
+  padding: 0 14px;
+  opacity: 0;
+}
+
+/* Submit Button & Status */
+.hud-submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #00e0ff 0%, #7c3aed 100%);
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 224, 255, 0.3);
+}
+
+.hud-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 224, 255, 0.5);
+}
+
+.hud-status {
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+}
+
+.hud-status.success {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid #10b981;
+  color: #34d399;
+}
+
 
 /*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
 
