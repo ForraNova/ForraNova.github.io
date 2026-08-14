@@ -1,12 +1,12 @@
 {
-    "last_update": "August 14, 2026 | 09:53 AM",
+    "last_update": "August 14, 2026 | 12:43 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[09:53:16] SUCCESS: Machine Learning (3 found)",
-        "[09:53:19] SUCCESS: Front-End / React (3 found)",
-        "[09:53:22] SUCCESS: Writing / Creative (0 found)",
-        "[09:53:25] SUCCESS: Virtual Assistant (0 found)"
+        "[12:43:11] SUCCESS: Machine Learning (3 found)",
+        "[12:43:14] SUCCESS: Front-End / React (3 found)",
+        "[12:43:17] SUCCESS: Writing / Creative (0 found)",
+        "[12:43:20] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-1136383"
                 },
                 {
-                    "position": "Engineering Manager Thailand",
-                    "link": "https://remoteok.com/remote-jobs/remote-engineering-manager-thailand-bjak-1136670"
+                    "position": "Engineer Officer",
+                    "link": "https://remoteok.com/remote-jobs/remote-engineer-officer-canadian-armed-forces-forces-armees-canadiennes-1136678"
                 }
             ]
         },
