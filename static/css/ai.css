@@ -693,7 +693,7 @@ video, audio {
 .info{
   margin: -5px;
   max-height: 220px; /* Card scrollable window */
-  overflow: scroll;
+  overflow: auto;  
   align-items: center;
   flex-direction: column;
   display: flex;
@@ -704,6 +704,7 @@ video, audio {
 
 .art {
   max-height: 18vh;
+  max-width: 37vh; /* Adjust image width of bigger image */
   border-radius: 8%;
 }
 
