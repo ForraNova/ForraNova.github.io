@@ -153,9 +153,6 @@
       <div class="project-grid">
 
 
-
-
-
         <div class="project-card mixed pdc bio" data-release-time="2026-08-14 07:00:01">
           <div class="card-content">
             <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> Biogenetics</i>
@@ -3999,31 +3996,446 @@
   </div>
 
 </section>
-<section id="suggestion-box" class="project-studio" style="border-top: 1px solid #00e0ff; padding-top: 50px;">
-  <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-    <h2>Suggest a Topic</h2>
-    <p style="color: #4fc3f7; margin-bottom: 30px;">
-      Is there a concept in AI, tech, or linguistics you want us to research? <br>
-      Drop your suggestion below, and we might feature it in a future <strong>ForraNova Podcast</strong> episode.
-    </p>
 
-    <form class="comment-form" id="topicForm" style="display: flex; flex-direction: column; gap: 15px; background: rgba(27, 31, 41, 0.8); padding: 30px; border-radius: 15px; border: 1px solid #7b5ea7;">
-      <input type="text" id="userName" placeholder="Your Name" required 
-             style="padding: 12px; border-radius: 8px; border: 1px solid #00e0ff; background: #020b18; color: white;">
+<!-- FUTURISTIC DYNAMIC HUD TRANSMISSION HUB -->
+<section id="suggestion-box" class="suggestion-hub">
+  <div class="hud-container">
+    
+    <!-- Header -->
+    <div class="hud-header">
+      <span class="hud-badge" style="font-size:0.95rem;"><i class="fas fa-satellite-dish" ></i> Neural Feed: Active</span>
+      <h2 class="hud-title">Transmit Your Perspective</h2>
+      <p class="hud-subtitle">
+       Select a Feedback Type to configure a custom payload. <br>
+       (Your perspective, input or feedback can shape future episodes of <strong>The AI Chat Show</strong>.)
+      </p>
+    </div>
+
+    <!-- Main HUD Form -->
+    <form id="suggestionForm" class="hud-form" onsubmit="handleTransmission(event)">
       
-      <input type="email" id="userEmail" placeholder="Your Email Address" required 
-             style="padding: 12px; border-radius: 8px; border: 1px solid #00e0ff; background: #020b18; color: white;">
-      
-      <textarea id="topicSuggestion" placeholder="Describe the topic or research area you're interested in..." rows="5" required 
-                style="padding: 12px; border-radius: 8px; border: 1px solid #00e0ff; background: #020b18; color: white; resize: none;"></textarea>
-      
-      <button type="submit" style="padding: 15px; border-radius: 8px; background: #00e0ff; color: #020b18; font-weight: bold; border: none; cursor: pointer; transition: 0.3s;">
-        <i class="fas fa-paper-plane"></i> Submit Suggestion
-      </button>
-      <p style="font-size: 0.8rem; color: #888; margin-top: 10px;">*Your information is used only for direct contact and will not be shared.</p>
+      <!-- Transmission Category Chips -->
+      <div class="form-group">
+        <label class="hud-label">Feedback Type: </label>
+        <div class="chip-group" id="categoryChips">
+          <button type="button" class="chip active" data-value="topic"><i class="fa-solid fa-lightbulb"></i> Topic Proposal</button>
+          <button type="button" class="chip" data-value="technical"><i class="fa-solid fa-bug"></i> Technical Feedback</button>
+          <button type="button" class="chip" data-value="inquiry"><i class="fa-solid fa-circle-question"></i> Inquiry</button>
+          <button type="button" class="chip" data-value="collaboration"><i class="fa-solid fa-handshake"></i> Collaboration</button>
+        </div>
+        <input type="hidden" name="category" id="selectedCategory" value="Topic Proposal">
+      </div>
+
+      <!-- Static Base Fields: Identity & Frequency -->
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="userName" class="hud-label">Identity / Name: </label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-user input-icon"></i>
+            <input type="text" id="userName" name="name" placeholder="e.g. Dr. Alex Vance" required class="hud-input" oninput="updateLivePayload()">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="userEmail" class="hud-label"> Email: </label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-envelope input-icon"></i>
+            <input type="email" id="userEmail" name="email" placeholder="alex@domain.com" required class="hud-input" oninput="updateLivePayload()">
+          </div>
+        </div>
+      </div>
+
+      <!-- Smart Phone Input (Auto-Formatted per Flag) -->
+      <div class="form-group">
+        <label for="userPhone" class="hud-label">Direct Comms / Phone: <span class="optional-tag">(Optional)</span></label>
+        <div class="phone-wrapper">
+          <div class="country-selector">
+            <span class="flag-icon" id="flagDisplay">🇳🇬</span>
+            <select id="countryCode" name="country_code" class="country-dropdown" onchange="handleCountryChange()">
+              <!-- A -->
+              <option value="+93" data-flag="🇦🇫" data-mask="XXX XXX XXXX">Afghanistan +93</option>
+              <option value="+355" data-flag="🇦🇱" data-mask="XXX XXX XXXX">Albania +355</option>
+              <option value="+213" data-flag="🇩🇿" data-mask="XXX XXX XXXX">Algeria +213</option>
+              <option value="+1684" data-flag="🇦🇸" data-mask="XXX XXX XXXX">American Samoa +1684</option>
+              <option value="+376" data-flag="🇦🇩" data-mask="XXX XXX XXXX">Andorra +376</option>
+              <option value="+244" data-flag="🇦🇴" data-mask="XXX XXX XXXX">Angola +244</option>
+              <option value="+1268" data-flag="🇦🇬" data-mask="XXX XXX XXXX">Antigua and Barbuda +1268</option>
+              <option value="+54" data-flag="🇦🇷" data-mask="XXX XXX XXXX">Argentina +54</option>
+              <option value="+374" data-flag="🇦🇲" data-mask="XXX XXX XXXX">Armenia +374</option>
+              <option value="+297" data-flag="🇦🇼" data-mask="XXX XXX XXXX">Aruba +297</option>
+              <option value="+61" data-flag="🇦🇺" data-mask="XXX XXX XXXX">Australia +61</option>
+              <option value="+43" data-flag="🇦🇹" data-mask="XXX XXX XXXX">Austria +43</option>
+              <option value="+994" data-flag="🇦🇿" data-mask="XXX XXX XXXX">Azerbaijan +994</option>
+
+              <!-- B -->
+              <option value="+1242" data-flag="🇧🇸" data-mask="XXX XXX XXXX">Bahamas +1242</option>
+              <option value="+973" data-flag="🇧🇭" data-mask="XXX XXX XXXX">Bahrain +973</option>
+              <option value="+880" data-flag="🇧🇩" data-mask="XXX XXX XXXX">Bangladesh +880</option>
+              <option value="+1246" data-flag="🇧🇧" data-mask="XXX XXX XXXX">Barbados +1246</option>
+              <option value="+375" data-flag="🇧🇾" data-mask="XXX XXX XXXX">Belarus +375</option>
+              <option value="+32" data-flag="🇧🇪" data-mask="XXX XXX XXXX">Belgium +32</option>
+              <option value="+501" data-flag="🇧🇿" data-mask="XXX XXX XXXX">Belize +501</option>
+              <option value="+229" data-flag="🇧🇯" data-mask="XXX XXX XXXX">Benin +229</option>
+              <option value="+1441" data-flag="🇧🇲" data-mask="XXX XXX XXXX">Bermuda +1441</option>
+              <option value="+975" data-flag="🇧🇹" data-mask="XXX XXX XXXX">Bhutan +975</option>
+              <option value="+591" data-flag="🇧🇴" data-mask="XXX XXX XXXX">Bolivia +591</option>
+              <option value="+387" data-flag="🇧🇦" data-mask="XXX XXX XXXX">Bosnia and Herzegovina +387</option>
+              <option value="+267" data-flag="🇧🇼" data-mask="XXX XXX XXXX">Botswana +267</option>
+              <option value="+55" data-flag="🇧🇷" data-mask="XXX XXX XXXX">Brazil +55</option>
+              <option value="+673" data-flag="🇧🇳" data-mask="XXX XXX XXXX">Brunei +673</option>
+              <option value="+359" data-flag="🇧🇬" data-mask="XXX XXX XXXX">Bulgaria +359</option>
+              <option value="+226" data-flag="🇧🇫" data-mask="XXX XXX XXXX">Burkina Faso +226</option>
+              <option value="+257" data-flag="🇧🇮" data-mask="XXX XXX XXXX">Burundi +257</option>
+
+              <!-- C -->
+              <option value="+238" data-flag="🇨🇻" data-mask="XXX XXX XXXX">Cabo Verde +238</option>
+              <option value="+855" data-flag="🇰🇭" data-mask="XXX XXX XXXX">Cambodia +855</option>
+              <option value="+237" data-flag="🇨🇲" data-mask="XXX XXX XXXX">Cameroon +237</option>
+              <option value="+1" data-flag="🇨🇦" data-mask="(XXX) XXX-XXXX">Canada +1</option>
+              <option value="+236" data-flag="🇨🇫" data-mask="XXX XXX XXXX">Central African Republic +236</option>
+              <option value="+235" data-flag="🇹🇩" data-mask="XXX XXX XXXX">Chad +235</option>
+              <option value="+56" data-flag="🇨🇱" data-mask="XXX XXX XXXX">Chile +56</option>
+              <option value="+86" data-flag="🇨🇳" data-mask="XXX XXX XXXX">China +86</option>
+              <option value="+57" data-flag="🇨🇴" data-mask="XXX XXX XXXX">Colombia +57</option>
+              <option value="+269" data-flag="🇰🇲" data-mask="XXX XXX XXXX">Comoros +269</option>
+              <option value="+242" data-flag="🇨🇬" data-mask="XXX XXX XXXX">Congo (Republic of the) +242</option>
+              <option value="+243" data-flag="🇨🇩" data-mask="XXX XXX XXXX">Congo (Democratic Republic of the) +243</option>
+              <option value="+506" data-flag="🇨🇷" data-mask="XXX XXX XXXX">Costa Rica +506</option>
+              <option value="+385" data-flag="🇭🇷" data-mask="XXX XXX XXXX">Croatia +385</option>
+              <option value="+53" data-flag="🇨🇺" data-mask="XXX XXX XXXX">Cuba +53</option>
+              <option value="+357" data-flag="🇨🇾" data-mask="XXX XXX XXXX">Cyprus +357</option>
+              <option value="+420" data-flag="🇨🇿" data-mask="XXX XXX XXXX">Czech Republic +420</option>
+
+              <!-- D -->
+              <option value="+45" data-flag="🇩🇰" data-mask="XX XX XX XX">Denmark +45</option>
+              <option value="+253" data-flag="🇩🇯" data-mask="XX XX XX XX">Djibouti +253</option>
+              <option value="+1767" data-flag="🇩🇲" data-mask="XXX XXX XXXX">Dominica +1767</option>
+              <option value="+1849" data-flag="🇩🇴" data-mask="XXX XXX XXXX">Dominican Republic +1849</option>
+
+              <!-- E -->
+              <option value="+593" data-flag="🇪🇨" data-mask="XXX XXX XXXX">Ecuador +593</option>
+              <option value="+20" data-flag="🇪🇬" data-mask="XXX XXX XXXX">Egypt +20</option>
+              <option value="+503" data-flag="🇸🇻" data-mask="XXX XXX XXXX">El Salvador +503</option>
+              <option value="+240" data-flag="🇬🇶" data-mask="XXX XXX XXXX">Equatorial Guinea +240</option>
+              <option value="+291" data-flag="🇪🇷" data-mask="XXX XXX XXXX">Eritrea +291</option>
+              <option value="+372" data-flag="🇪🇪" data-mask="XXX XXX XXXX">Estonia +372</option>
+              <option value="+268" data-flag="🇸🇿" data-mask="XXX XXX XXXX">Eswatini +268</option>
+              <option value="+251" data-flag="🇪🇹" data-mask="XXX XXX XXXX">Ethiopia +251</option>
+
+              <!-- F -->
+              <option value="+679" data-flag="🇫🇯" data-mask="XXX XXX XXXX">Fiji +679</option>
+              <option value="+358" data-flag="🇫🇮" data-mask="XXX XXX XXXX">Finland +358</option>
+              <option value="+33" data-flag="🇫🇷" data-mask="XX XX XX XX XX">France +33</option>
+
+              <!-- G -->
+              <option value="+241" data-flag="🇬🇦" data-mask="XX XX XX XX">Gabon +241</option>
+              <option value="+220" data-flag="🇬🇲" data-mask="XXX XXX XXXX">Gambia +220</option>
+              <option value="+995" data-flag="🇬🇪" data-mask="XXX XXX XXXX">Georgia +995</option>
+              <option value="+49" data-flag="🇩🇪" data-mask="XXX XXX XXXX">Germany +49</option>
+              <option value="+233" data-flag="🇬🇭" data-mask="XXX XXX XXXX">Ghana +233</option>
+              <option value="+30" data-flag="🇬🇷" data-mask="XXX XXX XXXX">Greece +30</option>
+              <option value="+1473" data-flag="🇬🇩" data-mask="XXX XXX XXXX">Grenada +1473</option>
+              <option value="+502" data-flag="🇬🇹" data-mask="XXX XXX XXXX">Guatemala +502</option>
+              <option value="+224" data-flag="🇬🇳" data-mask="XXX XXX XXXX">Guinea +224</option>
+              <option value="+245" data-flag="🇬🇼" data-mask="XXX XXX XXXX">Guinea-Bissau +245</option>
+              <option value="+592" data-flag="🇬🇾" data-mask="XXX XXX XXXX">Guyana +592</option>
+
+              <!-- H -->
+              <option value="+509" data-flag="🇭🇹" data-mask="XX XX XX XX">Haiti +509</option>
+              <option value="+504" data-flag="🇭🇳" data-mask="XXXX-XXXX">Honduras +504</option>
+              <option value="+36" data-flag="🇭🇺" data-mask="XX XXX XXXX">Hungary +36</option>
+
+              <!-- I -->
+              <option value="+354" data-flag="🇮🇸" data-mask="XXX XXX XXXX">Iceland +354</option>
+              <option value="+91" data-flag="🇮🇳" data-mask="XXXXX XXXXX">India +91</option>
+              <option value="+62" data-flag="🇮🇩" data-mask="XXX XXX XXXX">Indonesia +62</option>
+              <option value="+98" data-flag="🇮🇷" data-mask="XXX XXX XXXX">Iran +98</option>
+              <option value="+964" data-flag="🇮🇶" data-mask="XXX XXX XXXX">Iraq +964</option>
+              <option value="+353" data-flag="🇮🇪" data-mask="XXX XXX XXXX">Ireland +353</option>
+              <option value="+972" data-flag="🇮🇱" data-mask="XXX XXX XXXX">Israel +972</option>
+              <option value="+39" data-flag="🇮🇹" data-mask="XXX XXX XXXX">Italy +39</option>
+
+              <!-- J -->
+              <option value="+1876" data-flag="🇯🇲" data-mask="XXX XXX XXXX">Jamaica +1876</option>
+              <option value="+81" data-flag="🇯🇵" data-mask="XXX XXX XXXX">Japan +81</option>
+              <option value="+962" data-flag="🇯🇴" data-mask="XXX XXX XXXX">Jordan +962</option>
+
+              <!-- K -->
+              <option value="+7" data-flag="🇰🇿" data-mask="XXX XXX XXXX">Kazakhstan +7</option>
+              <option value="+254" data-flag="🇰🇪" data-mask="XXX XXXXXX">Kenya +254</option>
+              <option value="+686" data-flag="🇰🇮" data-mask="XXX XXX XXXX">Kiribati +686</option>
+              <option value="+383" data-flag="🇽🇰" data-mask="XXX XXX XXXX">Kosovo +383</option>
+              <option value="+965" data-flag="🇰🇼" data-mask="XXX XXX XXXX">Kuwait +965</option>
+              <option value="+996" data-flag="🇰🇬" data-mask="XXX XXX XXXX">Kyrgyzstan +996</option>
+
+              <!-- L -->
+              <option value="+856" data-flag="🇱🇦" data-mask="XX XXX XXXX">Laos +856</option>
+              <option value="+371" data-flag="🇱🇻" data-mask="XX XXX XXXX">Latvia +371</option>
+              <option value="+961" data-flag="🇱🇧" data-mask="XXX XXX XXXX">Lebanon +961</option>
+              <option value="+266" data-flag="🇱🇸" data-mask="XXX XXX XXXX">Lesotho +266</option>
+              <option value="+231" data-flag="🇱🇷" data-mask="XXX XXX XXXX">Liberia +231</option>
+              <option value="+218" data-flag="🇱🇾" data-mask="XX XXX XXXX">Libya +218</option>
+              <option value="+423" data-flag="🇱🇮" data-mask="XXX XXX XXXX">Liechtenstein +423</option>
+              <option value="+370" data-flag="🇱🇹" data-mask="XXX XXX XXXX">Lithuania +370</option>
+              <option value="+352" data-flag="🇱🇺" data-mask="XXX XXX XXXX">Luxembourg +352</option>
+
+              <!-- M -->
+              <option value="+261" data-flag="🇲🇬" data-mask="XX XXX XXXX">Madagascar +261</option>
+              <option value="+265" data-flag="🇲🇼" data-mask="XXX XXX XXXX">Malawi +265</option>
+              <option value="+60" data-flag="🇲🇾" data-mask="XX XXX XXXX">Malaysia +60</option>
+              <option value="+960" data-flag="🇲🇻" data-mask="XXX XXXX">Maldives +960</option>
+              <option value="+223" data-flag="🇲🇱" data-mask="XX XX XX XX">Mali +223</option>
+              <option value="+356" data-flag="🇲🇹" data-mask="XXXX XXXX">Malta +356</option>
+              <option value="+692" data-flag="🇲🇭" data-mask="XXX XXX XXXX">Marshall Islands +692</option>
+              <option value="+222" data-flag="🇲🇷" data-mask="XX XX XX XX">Mauritania +222</option>
+              <option value="+230" data-flag="🇲🇺" data-mask="XXX XXXX">Mauritius +230</option>
+              <option value="+52" data-flag="🇲🇽" data-mask="XXX XXX XXXX">Mexico +52</option>
+              <option value="+691" data-flag="🇫🇲" data-mask="XXX XXX XXXX">Micronesia +691</option>
+              <option value="+373" data-flag="🇲🇩" data-mask="XXX XXX XXXX">Moldova +373</option>
+              <option value="+377" data-flag="🇲🇨" data-mask="XX XXX XXXX">Monaco +377</option>
+              <option value="+976" data-flag="🇲🇳" data-mask="XXX XXX XXXX">Mongolia +976</option>
+              <option value="+382" data-flag="🇲🇪" data-mask="XX XXX XXXX">Montenegro +382</option>
+              <option value="+212" data-flag="🇲🇦" data-mask="XX XXX XXXX">Morocco +212</option>
+              <option value="+258" data-flag="🇲🇿" data-mask="XX XXX XXXX">Mozambique +258</option>
+              <option value="+95" data-flag="🇲🇲" data-mask="XXX XXX XXXX">Myanmar +95</option>
+
+              <!-- N -->
+              <option value="+264" data-flag="🇳🇦" data-mask="XX XXX XXXX">Namibia +264</option>
+              <option value="+674" data-flag="🇳🇷" data-mask="XXX XXX XXXX">Nauru +674</option>
+              <option value="+977" data-flag="🇳🇵" data-mask="XXX XXX XXXX">Nepal +977</option>
+              <option value="+31" data-flag="🇳🇱" data-mask="XX XXX XXXX">Netherlands +31</option>
+              <option value="+64" data-flag="🇳🇿" data-mask="XXX XXX XXXX">New Zealand +64</option>
+              <option value="+505" data-flag="🇳🇮" data-mask="XXXX XXXX">Nicaragua +505</option>
+              <option value="+227" data-flag="🇳🇪" data-mask="XX XX XX XX">Niger +227</option>
+              <option value="+234" data-flag="🇳🇬" data-mask="XXX XXX XXXX" selected>Nigeria +234</option>
+              <option value="+850" data-flag="🇰🇵" data-mask="XXX XXX XXXX">North Korea +850</option>
+              <option value="+389" data-flag="🇲🇰" data-mask="XX XXX XXXX">North Macedonia +389</option>
+              <option value="+47" data-flag="🇳🇴" data-mask="XXX XX XXX">Norway +47</option>
+
+              <!-- O -->
+              <option value="+968" data-flag="🇴🇲" data-mask="XXXX XXXX">Oman +968</option>
+
+              <!-- P -->
+              <option value="+92" data-flag="🇵🇰" data-mask="XXX XXX XXXX">Pakistan +92</option>
+              <option value="+680" data-flag="🇵🇼" data-mask="XXX XXX XXXX">Palau +680</option>
+              <option value="+970" data-flag="🇵🇸" data-mask="XXX XXX XXXX">Palestine +970</option>
+              <option value="+507" data-flag="🇵🇦" data-mask="XXX XXXX">Panama +507</option>
+              <option value="+675" data-flag="🇵🇬" data-mask="XXX XXX XXXX">Papua New Guinea +675</option>
+              <option value="+595" data-flag="🇵🇾" data-mask="XXX XXX XXXX">Paraguay +595</option>
+              <option value="+51" data-flag="🇵🇪" data-mask="XXX XXX XXXX">Peru +51</option>
+              <option value="+63" data-flag="🇵🇭" data-mask="XXX XXX XXXX">Philippines +63</option>
+              <option value="+48" data-flag="🇵🇱" data-mask="XXX XXX XXXX">Poland +48</option>
+              <option value="+351" data-flag="🇵🇹" data-mask="XXX XXX XXXX">Portugal +351</option>
+
+              <!-- Q -->
+              <option value="+974" data-flag="🇶🇦" data-mask="XXXX XXXX">Qatar +974</option>
+
+              <!-- R -->
+              <option value="+40" data-flag="🇷🇴" data-mask="XX XXX XXXX">Romania +40</option>
+              <option value="+7" data-flag="🇷🇺" data-mask="XXX XXX XXXX">Russia +7</option>
+              <option value="+250" data-flag="🇷🇼" data-mask="XXX XXX XXXX">Rwanda +250</option>
+
+              <!-- S -->
+              <option value="+1869" data-flag="🇰🇳" data-mask="XXX XXX XXXX">Saint Kitts and Nevis +1869</option>
+              <option value="+1758" data-flag="🇱🇨" data-mask="XXX XXX XXXX">Saint Lucia +1758</option>
+              <option value="+1784" data-flag="🇻🇨" data-mask="XXX XXX XXXX">Saint Vincent and the Grenadines +1784</option>
+              <option value="+685" data-flag="🇼🇸" data-mask="XXX XXX XXXX">Samoa +685</option>
+              <option value="+378" data-flag="🇸🇲" data-mask="XX XX XX XX">San Marino +378</option>
+              <option value="+239" data-flag="🇸🇹" data-mask="XX XXX XXXX">Sao Tome and Principe +239</option>
+              <option value="+966" data-flag="🇸🇦" data-mask="XXX XXX XXXX">Saudi Arabia +966</option>
+              <option value="+221" data-flag="🇸🇳" data-mask="XX XXX XXXX">Senegal +221</option>
+              <option value="+381" data-flag="🇷🇸" data-mask="XX XXX XXXX">Serbia +381</option>
+              <option value="+248" data-flag="🇸🇨" data-mask="XXX XXXX">Seychelles +248</option>
+              <option value="+232" data-flag="🇸🇱" data-mask="XX XXX XXXX">Sierra Leone +232</option>
+              <option value="+65" data-flag="🇸🇬" data-mask="XXXX XXXX">Singapore +65</option>
+              <option value="+421" data-flag="🇸🇰" data-mask="XXX XXX XXXX">Slovakia +421</option>
+              <option value="+386" data-flag="🇸🇮" data-mask="XXX XXX XXXX">Slovenia +386</option>
+              <option value="+677" data-flag="🇸🇧" data-mask="XXX XXX XXXX">Solomon Islands +677</option>
+              <option value="+252" data-flag="🇸🇴" data-mask="XX XXX XXXX">Somalia +252</option>
+              <option value="+27" data-flag="🇿🇦" data-mask="XX XXX XXXX">South Africa +27</option>
+              <option value="+82" data-flag="🇰🇷" data-mask="XXX XXX XXXX">South Korea +82</option>
+              <option value="+211" data-flag="🇸🇸" data-mask="XX XXX XXXX">South Sudan +211</option>
+              <option value="+34" data-flag="🇪🇸" data-mask="XXX XXX XXXX">Spain +34</option>
+              <option value="+94" data-flag="🇱🇰" data-mask="XX XXX XXXX">Sri Lanka +94</option>
+              <option value="+249" data-flag="🇸🇩" data-mask="XX XXX XXXX">Sudan +249</option>
+              <option value="+597" data-flag="🇸🇷" data-mask="XXX XXXX">Suriname +597</option>
+              <option value="+46" data-flag="🇸🇪" data-mask="XX XXX XXXX">Sweden +46</option>
+              <option value="+41" data-flag="🇨🇭" data-mask="XX XXX XXXX">Switzerland +41</option>
+              <option value="+963" data-flag="🇸🇾" data-mask="XX XXX XXXX">Syria +963</option>
+
+              <!-- T -->
+              <option value="+886" data-flag="🇹🇼" data-mask="XXXX XXXX">Taiwan +886</option>
+              <option value="+992" data-flag="🇹🇯" data-mask="XX XXX XXXX">Tajikistan +992</option>
+              <option value="+255" data-flag="🇹🇿" data-mask="XX XXX XXXX">Tanzania +255</option>
+              <option value="+66" data-flag="🇹🇭" data-mask="XXX XXX XXXX">Thailand +66</option>
+              <option value="+670" data-flag="🇹🇱" data-mask="XXX XXX XXXX">Timor-Leste +670</option>
+              <option value="+228" data-flag="🇹🇬" data-mask="XX XXX XXXX">Togo +228</option>
+              <option value="+690" data-flag="🇹🇰" data-mask="XXX XXX XXXX">Tokelau +690</option>
+              <option value="+676" data-flag="🇹🇴" data-mask="XXX XXX XXXX">Tonga +676</option>
+              <option value="+1868" data-flag="🇹🇹" data-mask="XXX XXX XXXX">Trinidad and Tobago +1868</option>
+              <option value="+216" data-flag="🇹🇳" data-mask="XX XXX XXXX">Tunisia +216</option>
+              <option value="+90" data-flag="🇹🇷" data-mask="XXX XXX XXXX">Turkey +90</option>
+              <option value="+993" data-flag="🇹🇲" data-mask="XX XXX XXXX">Turkmenistan +993</option>
+              <option value="+688" data-flag="🇹🇻" data-mask="XXX XXX XXXX">Tuvalu +688</option>
+
+              <!-- U -->
+              <option value="+256" data-flag="🇺🇬" data-mask="XX XXX XXXX">Uganda +256</option>
+              <option value="+380" data-flag="🇺🇦" data-mask="XX XXX XXXX">Ukraine +380</option>
+              <option value="+971" data-flag="🇦🇪" data-mask="XX XXX XXXX">United Arab Emirates +971</option>
+              <option value="+44" data-flag="🇬🇧" data-mask="XXXX XXXXXX">United Kingdom +44</option>
+              <option value="+1" data-flag="🇺🇸" data-mask="(XXX) XXX-XXXX">United States +1</option>
+              <option value="+598" data-flag="🇺🇾" data-mask="XXX XXX XXXX">Uruguay +598</option>
+              <option value="+998" data-flag="🇺🇿" data-mask="XX XXX XXXX">Uzbekistan +998</option>
+
+              <!-- V -->
+              <option value="+678" data-flag="🇻🇺" data-mask="XXX XXX XXXX">Vanuatu +678</option>
+              <option value="+379" data-flag="🇻🇦" data-mask="XXX XXX XXXX">Vatican City +379</option>
+              <option value="+58" data-flag="🇻🇪" data-mask="XXX XXX XXXX">Venezuela +58</option>
+              <option value="+84" data-flag="🇻🇳" data-mask="XXX XXX XXXX">Vietnam +84</option>
+
+              <!-- W -->
+              <option value="+681" data-flag="🇼🇫" data-mask="XX XXX XXXX">Wallis and Futuna +681</option>
+
+              <!-- Y -->
+              <option value="+967" data-flag="🇾🇪" data-mask="XXX XXX XXXX">Yemen +967</option>
+
+              <!-- Z -->
+              <option value="+260" data-flag="🇿🇲" data-mask="XX XXX XXXX">Zambia +260</option>
+              <option value="+263" data-flag="🇿🇼" data-mask="XX XXX XXXX">Zimbabwe +263</option>
+
+              <!-- Other -->
+              <option value=" " data-flag="" data-mask="XXX XXXXXX">Other</option>
+            </select>
+          </div>
+          <input type="tel" id="userPhone" name="phone" placeholder="+234 806 XXX XXXX" class="hud-input phone-input" oninput="formatPhone(this)">
+        </div>
+      </div>
+
+      <!-- DYNAMIC CONTENT CONTAINER (Full Content Swap via Option B) -->
+      <div id="dynamicContentArea" class="swap-container visible">
+        
+        <!-- 1. TOPIC PROPOSAL CONTENT (DEFAULT) -->
+        <div id="set-topic" class="content-set">
+          <div class="form-group">
+            <label for="suggestedTopic" class="hud-label">Your Suggested Episode Topic: </label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-heading input-icon"></i>
+              <input type="text" id="suggestedTopic" name="suggested_topic" placeholder="e.g. Menstrual cramps and pains due to sugar." class="hud-input" oninput="updateLivePayload()">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="label-row">
+              <label for="topicNote" class="hud-label">Additional Perspective / Context</label>
+              <span class="char-counter" id="topicCounter"> (0 / 1000)</span>
+            </div>
+            <textarea id="topicNote" name="topic_notes" maxlength="1000" rows="3" placeholder="Outline key questions, references, or explanation of your desired topic for the show..." class="hud-input hud-textarea" oninput="updateCounter(this, 'topicCounter'); updateLivePayload();"></textarea>
+          </div>
+        </div>
+
+        <!-- 2. TECHNICAL FEEDBACK CONTENT -->
+        <div id="set-technical" class="content-set hidden-set">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="hud-label">Affected Subsystem: </label>
+              <select name="subsystem" class="hud-input hud-select" onchange="updateLivePayload()">
+                <option value="Audio / Stream Quality">Audio / Stream Quality</option>
+                <option value="Website / Portal UI">Website / Portal UI</option>
+                <option value="Chatbot / Neural Core">Chatbot / Neural Core</option>
+                <option value="RSS / Podcast Feed">Really Simple Syndication (RSS) / Podcast Feed</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="hud-label">Signal Urgency Level:</label>
+              <div class="urgency-toggle">
+                <button type="button" class="urgency-btn active" data-urgency="Normal" onclick="setUrgency(this)">Normal</button>
+                <button type="button" class="urgency-btn priority" data-urgency="Priority" onclick="setUrgency(this)">Priority</button>
+                <button type="button" class="urgency-btn critical" data-urgency="Critical" onclick="setUrgency(this)">Critical</button>
+              </div>
+              <input type="hidden" name="urgency_level" id="urgencyInput" value="Normal">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="techSteps" class="hud-label">Description, Observations, or Suggestions: </label>
+            <textarea id="techSteps" name="bug_description" rows="3" placeholder="Kindly describe what occurred, browser used, or error messages..." class="hud-input hud-textarea" oninput="updateLivePayload()"></textarea>
+          </div>
+        </div>
+
+        <!-- 3. INQUIRY CONTENT -->
+        <div id="set-inquiry" class="content-set hidden-set">
+          <div class="form-group">
+            <label class="hud-label">Inquiry Scope: </label>
+            <select name="inquiry_scope" class="hud-input hud-select" onchange="updateLivePayload()">
+              <option value="General Question">General Question</option>
+              <option value="Media & Press">Media & Press</option>
+              <option value="Speaking / Event Appearance">Speaking / Event Appearance</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <div class="label-row">
+              <label for="inquiryDetails" class="hud-label">Query Specification: </label>
+              <span class="char-counter" id="inquiryCounter">(0 / 500)</span>
+            </div>
+            <textarea id="inquiryDetails" name="inquiry_details" maxlength="500" rows="3" placeholder="Provide details regarding your inquiry..." class="hud-input hud-textarea" oninput="updateCounter(this, 'inquiryCounter'); updateLivePayload();"></textarea>
+          </div>
+        </div>
+
+        <!-- 4. COLLABORATION CONTENT -->
+        <div id="set-collaboration" class="content-set hidden-set">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="orgName" class="hud-label">Organization / Brand Alias: </label>
+              <input type="text" id="orgName" name="organization" placeholder="e.g. Name of Company / Independent" class="hud-input" oninput="updateLivePayload()">
+            </div>
+            <div class="form-group">
+              <label class="hud-label">Collaboration Mode: </label>
+              <select name="collab_mode" class="hud-input hud-select" onchange="updateLivePayload()">
+                <option value="Sponsorship / Partner">Sponsorship / Partner</option>
+                <option value="Guest Appearance">Guest Appearance</option>
+                <option value="Joint AI Venture">Joint AI Venture</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="collabProposal" class="hud-label">Proposal Pitch Summary: </label>
+            <textarea id="collabProposal" name="proposal_summary" rows="3" placeholder="Summarize your vision, mutual objectives, or proposal..." class="hud-input hud-textarea" oninput="updateLivePayload()"></textarea>
+          </div>
+        </div>
+
+      </div> <!-- End Dynamic Container -->
+
+      <!-- Universal File Payload Dropzone -->
+      <div class="form-group">
+        <label class="hud-label">Attach Telemetry / Payload File: <span class="optional-tag">(Logs, PDF, Media)</span></label>
+        <div class="dropzone" id="fileDropzone" onclick="document.getElementById('fileInput').click()">
+          <i class="fa-solid fa-cloud-arrow-up drop-icon"></i>
+          <span class="drop-text" id="dropzoneText">Drag & Drop payload files here or <strong>Browse</strong></span>
+          <input type="file" id="fileInput" name="attachment" class="hidden-file-input" onchange="handleFileSelect(this)">
+        </div>
+      </div>
+
+      <!-- Collapsible Live Payload JSON Preview HUD -->
+      <div class="payload-preview-box">
+        <div class="preview-header" onclick="togglePreviewHUD()">
+          <span><i class="fa-solid fa-code"></i> LIVE SIGNAL PAYLOAD TELEMETRY</span>
+          <i class="fa-solid fa-chevron-down" id="previewChevron"></i>
+        </div>
+        <pre class="preview-code collapsed" id="jsonPreview"><code>{\n  "status": "awaiting_input"\n}</code></pre>
+      </div>
+
+      <!-- Action Button -->
+      <div class="form-action">
+        <button type="submit" class="hud-submit-btn" id="submitBtn">
+          <span class="btn-text">Transmit Message</span>
+          <i class="fa-solid fa-paper-plane btn-icon"></i>
+        </button>
+      </div>
+
+      <!-- Status Display -->
+      <div id="formStatus" class="hud-status" style="display: none;"></div>
     </form>
   </div>
 </section>
+
 
 <footer>
       <a href=".html"></p><img  src="../static/images/logoFN_1.png" class="foota" alt="FN Logo"/></p></a>
@@ -5035,30 +5447,16 @@ document.getElementById('topicForm').addEventListener('submit', function(event) 
         desc: "The AI Chat Show Program Anchors",
         img: "../static/images/0.png"
       },
-*/
-      {
-        title: "COMING UP: August 13, 2026",
-        desc: "How Sugar Fuels Painful Period / Menstrual Cramps",
-        img: "../static/images/11.png"
-      }, 
-      {
-        title: "COMING UP: August 14, 2026",
-        desc: "Secondhand Smoke Effect on you and the Distruction in Childern health.",
-        img: "../static/images/12.png"
-      },
-/*  
       {
         title: "",
         desc: "With a master creator of Electric Vehicles.",
         img: "../static/images/1.png"
       },
-*/
       {
         title: "Episode 050",
         desc: "The \"PEARLS of Prompting\" User Experience",
         img: "../static/images/2.png"
       },
-/*       
       {
         title: "",
         desc: "The \"PEARLS of Prompting\" User Interactions",
@@ -5074,17 +5472,10 @@ document.getElementById('topicForm').addEventListener('submit', function(event) 
         desc: "Analysis on the \"PEARLS of Prompting.\'",
         img: "../static/images/5.png"
       },
-
       {
         title: "",
         desc: "A chat with the Founder",
         img: "../static/images/6.png"
-      },
- */     
-      {
-        title: "Episode 057",
-        desc: "Blu-ray Effects of Digital Devices on the Eyes & Health",
-        img: "../static/images/7.png"
       },
       {
         title: "The Deep Dive",
@@ -5100,6 +5491,45 @@ document.getElementById('topicForm').addEventListener('submit', function(event) 
         title: "The Brief",
         desc: "Analysis on The Brief.",
         img: "../static/images/10.png"
+      }
+ */     
+       {
+        title: "Episode 058",
+        desc: "The Art of War: 20 Tactical Principles by Sun Tzu",
+        img: "../static/images/15.png"
+      }, 
+      {
+        title: "Episode 062",
+        desc: "How LLM Generate Audio Songs From Text (Prompt)",
+        img: "../static/images/13.png"
+      }, 
+      {
+        title: "Episode 061",
+        desc: "Using AI To Help Couple Have Baby & Know The Sex",
+        img: "../static/images/16.png"
+      }, 
+      {
+        title: "Episode 063",
+        desc: "Why AI Forgets the Middle of Documents",
+        img: "../static/images/14.png"
+      }, 
+
+      {
+        title: "Episode 068",
+        desc: "Secondhand Smoke Effect on you and the Distruction in Childern health.",
+        img: "../static/images/12.png"
+      },
+
+       {
+        title: "Episode 057",
+        desc: "Blu-ray Effects of Digital Devices on the Eyes & Health",
+        img: "../static/images/7.png"
+      },
+
+      {
+        title: "Episode 067",
+        desc: "How Sugar Fuels Painful Period / Menstrual Cramps",
+        img: "../static/images/11.png"
       }
     ];
 
@@ -5970,6 +6400,233 @@ document.getElementById('topicForm').addEventListener('submit', function(event) 
   }
 })();
   </script>
+
+ <script>
+/* ========================================================================
+   DYNAMIC INTERACTION ENGINE - Swapping, Masking, and Email Endpoint Payload
+    ( suggestion-hub )
+========================================================================= */
+
+// 1. Dynamic Phone Masking per Selected Country
+function handleCountryChange() {
+  const select = document.getElementById('countryCode');
+  const selectedOption = select.options[select.selectedIndex];
+  const flag = selectedOption.getAttribute('data-flag');
+  const mask = selectedOption.getAttribute('data-mask');
+
+  document.getElementById('flagDisplay').textContent = flag;
+  
+  const phoneInput = document.getElementById('userPhone');
+  phoneInput.placeholder = `${select.value} ${mask}`;
+  phoneInput.value = ''; // Reset input to re-apply mask
+  updateLivePayload();
+}
+
+function formatPhone(input) {
+  const select = document.getElementById('countryCode');
+  const code = select.value;
+  let digits = input.value.replace(/\D/g, '');
+
+  // Strip leading zero if typed for local formats
+  if (digits.startsWith('0')) digits = digits.substring(1);
+
+  /*
+
+  // Auto-format for display: e.g. +234 806 XXX XXXX
+  if (digits.length > 0) {
+    let formatted = `${code} `;
+    if (digits.length <= 3) {
+      formatted += digits;
+    } else if (digits.length <= 6) {
+      formatted += `${digits.substring(0, 3)} ${digits.substring(3)}`;
+    } else {
+      formatted += `${digits.substring(0, 3)} ${digits.substring(3, 6)} ${digits.substring(6, 15)}`;
+    }
+    input.value = formatted;
+  }
+
+  */
+  updateLivePayload();
+}
+
+// 2.Full Content Swap with Slide-Down / Fade Transition
+document.querySelectorAll('#categoryChips .chip').forEach(chip => {
+  chip.addEventListener('click', function() {
+    if (this.classList.contains('active')) return;
+
+    // Active chip toggling
+    document.querySelectorAll('#categoryChips .chip').forEach(c => c.classList.remove('active'));
+    this.classList.add('active');
+
+    const targetType = this.getAttribute('data-value');
+    const categoryLabels = {
+      'topic': 'Topic Proposal',
+      'technical': 'Technical Feedback',
+      'inquiry': 'Inquiry',
+      'collaboration': 'Collaboration'
+    };
+    document.getElementById('selectedCategory').value = categoryLabels[targetType];
+
+    const container = document.getElementById('dynamicContentArea');
+
+    // Trigger Fade-Out & Slide-Up
+    container.classList.remove('visible');
+    container.classList.add('fade-out');
+
+    setTimeout(() => {
+      // Hide all dynamic sets
+      document.querySelectorAll('.content-set').forEach(set => set.classList.add('hidden-set'));
+
+      // Show target content set
+      const targetSet = document.getElementById(`set-${targetType}`);
+      if (targetSet) targetSet.classList.remove('hidden-set');
+
+      // Trigger Fade-In & Slide-Down
+      container.classList.remove('fade-out');
+      container.classList.add('visible');
+
+      updateLivePayload();
+    }, 250);
+  });
+});
+
+// 3. Technical Urgency Selection
+function setUrgency(btn) {
+  document.querySelectorAll('.urgency-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('urgencyInput').value = btn.getAttribute('data-urgency');
+  updateLivePayload();
+}
+
+// 4. File Dropzone Interaction
+function handleFileSelect(input) {
+  const text = document.getElementById('dropzoneText');
+  if (input.files && input.files[0]) {
+    text.innerHTML = `<i class="fa-solid fa-file-code" style="color:#00e0ff;"></i> Payload File Attached: <strong>${input.files[0].name}</strong>`;
+  }
+  updateLivePayload();
+}
+
+// Drag and drop visual feedback
+const dropzone = document.getElementById('fileDropzone');
+['dragenter', 'dragover'].forEach(eventName => {
+  dropzone.addEventListener(eventName, (e) => { e.preventDefault(); dropzone.classList.add('drag-over'); });
+});
+['dragleave', 'drop'].forEach(eventName => {
+  dropzone.addEventListener(eventName, (e) => { e.preventDefault(); dropzone.classList.remove('drag-over'); });
+});
+dropzone.addEventListener('drop', (e) => {
+  const files = e.dataTransfer.files;
+  if (files.length) {
+    document.getElementById('fileInput').files = files;
+    handleFileSelect(document.getElementById('fileInput'));
+  }
+});
+
+// 5. Live Payload Telemetry HUD & Collapsible Preview
+function togglePreviewHUD() {
+  const codeBox = document.getElementById('jsonPreview');
+  const chevron = document.getElementById('previewChevron');
+  codeBox.classList.toggle('collapsed');
+  chevron.style.transform = codeBox.classList.contains('collapsed') ? 'rotate(0deg)' : 'rotate(180deg)';
+}
+
+function updateLivePayload() {
+  const form = document.getElementById('suggestionForm');
+  const formData = new FormData(form);
+  const payload = {};
+
+  formData.forEach((value, key) => {
+    if (value && typeof value === 'object') {
+      payload[key] = value.name ? `[File] ${value.name}` : undefined;
+    } else if (value) {
+      payload[key] = value;
+    }
+  });
+
+  document.getElementById('jsonPreview').textContent = JSON.stringify(payload, null, 2);
+}
+
+function updateCounter(textarea, counterId) {
+  document.getElementById(counterId).textContent = `${textarea.value.length} / 500`;
+}
+
+// 6. Direct Submission Handler (Mailto Protocol Integration)
+function handleTransmission(event) {
+  event.preventDefault();
+  const submitBtn = document.getElementById('submitBtn');
+  const status = document.getElementById('formStatus');
+
+  submitBtn.disabled = true;
+  submitBtn.style.opacity = '0.7';
+  submitBtn.querySelector('.btn-text').textContent = 'Encrypting & Transmitting Payload...';
+
+  // Recipient email address
+  const recipientEmail = 'forracorp1@gmail.com';
+  
+  // Collect all input fields into payload object
+  const form = document.getElementById('suggestionForm');
+  const formData = new FormData(form);
+  
+  const category = formData.get('category') || 'General Transmission';
+  const name = formData.get('name') || 'Anonymous';
+  const email = formData.get('email') || 'Not Provided';
+  const phone = formData.get('phone') || 'Not Provided';
+  
+  // Format body text dynamically based on active channel
+  let bodyContent = `A new mail has been submitted via The AI Chat Show Connect portal:\n\n`;
+  bodyContent += `Feedback Type: ${category}\n`;
+  bodyContent += `Sender Name: ${name}\n`;
+  bodyContent += `Sender Email: ${email}\n`;
+  bodyContent += `Phone: ${phone}\n\n`;
+  bodyContent += `-------------- TRANSMISSION --------------\n`;
+  bodyContent += `FEEDBACK PAYLOAD:\n\n`;
+
+  formData.forEach((value, key) => {
+    // Skip static base fields to avoid duplication in email body
+    if (['category', 'name', 'email', 'phone'].includes(key)) return;
+
+    if (value && typeof value === 'object') {
+      if (value.name) {
+        bodyContent += `Attachment: ${value.name} (Note: Standard mailto cannot auto-attach physical files; user must attach manually)\n`;
+      }
+    } else if (value) {
+      // Format field keys cleanly (e.g. suggested_topic -> Suggested Topic)
+      const formattedKey = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+      bodyContent += `${formattedKey}: ${value}\n\n • `;
+    }
+  });
+
+  const subject = encodeURIComponent(`[${category}] Feed Transmission from ${name}`);
+  const body = encodeURIComponent(bodyContent);
+
+  // Construct mailto link
+  const mailtoLink = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
+
+  setTimeout(() => {
+    // Open default mail client
+    window.location.href = mailtoLink;
+
+    submitBtn.disabled = false;
+    submitBtn.style.opacity = '1';
+    submitBtn.querySelector('.btn-text').textContent = 'Transmit Signal';
+
+    status.className = 'hud-status success';
+    status.innerHTML = '<i class="fa-solid fa-circle-check"></i> Your Feedback Transmission payload is ready. Please confirm and send in your email client.';
+    status.style.display = 'block';
+
+    document.getElementById('suggestionForm').reset();
+    document.getElementById('dropzoneText').innerHTML = 'Drag & Drop payload files here or <strong>Browse</strong>';
+    handleCountryChange(); // Reset phone mask format
+    updateLivePayload();
+  }, 1000);
+}
+
+// Initial Telemetry Load
+document.addEventListener('DOMContentLoaded', () => {
+  updateLivePayload();
+});
+</script>
 
 </body>
 </html>
