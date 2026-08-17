@@ -252,7 +252,7 @@ a:hover {
   padding: 10px 10px 8px;
   flex-shrink: 0;
 }
-.nv-input-row{ display:flex; align-items:center; gap:8px; border-radius:20px; padding: 2px 5px; background: rgba(46,230,114,0.08);}
+.nv-input-row{ display:flex; align-items:center; gap:8px; border-radius:20px; width:90%; padding: 3px 5px; background: rgba(46,230,114,0.08);}
 .nv-input-row input[type="text"]{
   flex: 1; background: transparent; border: none; outline: none;
   color: var(--nv-text); font-size: 13.5px; font-family: var(--nv-font);
@@ -263,7 +263,7 @@ a:hover {
   width: 34px; height: 34px; border-radius: 50%; border: none; cursor: pointer;
   background: linear-gradient(135deg, var(--nv-primary), var(--nv-primary-2));
   display:flex; align-items:center; justify-content:center; flex-shrink:0;
-  transition: transform .15s ease;
+  transition: transform .15s ease; float: right; margin-top: -35px;
 }
 .nv-send-btn:hover{ transform: scale(1.06); }
 .nv-send-btn:disabled{ opacity:.4; cursor:not-allowed; transform:none; }
