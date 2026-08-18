@@ -1,12 +1,12 @@
 {
-    "last_update": "August 18, 2026 | 03:23 PM",
+    "last_update": "August 18, 2026 | 06:24 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[15:23:36] SUCCESS: Machine Learning (3 found)",
-        "[15:23:38] SUCCESS: Front-End / React (3 found)",
-        "[15:23:41] SUCCESS: Writing / Creative (0 found)",
-        "[15:23:44] SUCCESS: Virtual Assistant (0 found)"
+        "[18:24:20] SUCCESS: Machine Learning (3 found)",
+        "[18:24:23] SUCCESS: Front-End / React (3 found)",
+        "[18:24:25] SUCCESS: Writing / Creative (0 found)",
+        "[18:24:28] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
                 },
                 {
-                    "position": "Junior Crypto Trader",
-                    "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-trader-atom-partners-1136383"
+                    "position": "Marketing Operations Specialist",
+                    "link": "https://remoteok.com/remote-jobs/remote-marketing-operations-specialist-engine-1136950"
                 }
             ]
         },
