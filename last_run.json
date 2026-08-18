@@ -1,12 +1,12 @@
 {
-    "last_update": "August 17, 2026 | 09:18 PM",
+    "last_update": "August 18, 2026 | 12:42 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:18:26] SUCCESS: Machine Learning (3 found)",
-        "[21:18:29] SUCCESS: Front-End / React (3 found)",
-        "[21:18:32] SUCCESS: Writing / Creative (0 found)",
-        "[21:18:34] SUCCESS: Virtual Assistant (0 found)"
+        "[00:42:03] SUCCESS: Machine Learning (3 found)",
+        "[00:42:05] SUCCESS: Front-End / React (3 found)",
+        "[00:42:08] SUCCESS: Writing / Creative (0 found)",
+        "[00:42:11] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Aviation Maintenance Technician",
+                    "link": "https://remoteok.com/remote-jobs/remote-aviation-maintenance-technician-fedex-1136922"
+                },
+                {
+                    "position": "Valet Driver",
+                    "link": "https://remoteok.com/remote-jobs/remote-valet-driver-marina-bay-sands-1136920"
+                },
+                {
                     "position": "Senior React Full stack Developer",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-react-full-stack-developer-lemon-io-1136299"
-                },
-                {
-                    "position": "Procurement Specialist",
-                    "link": "https://remoteok.com/remote-jobs/remote-procurement-specialist-robert-half-1136214"
-                },
-                {
-                    "position": "Freelance Designer",
-                    "link": "https://remoteok.com/remote-jobs/remote-freelance-designer-control-shift-video-1136213"
                 }
             ]
         },
