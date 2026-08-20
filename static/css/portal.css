@@ -197,12 +197,18 @@
       margin-top: 20px;
     }
 
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+
     .portal-card {
       background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(0, 224, 255, 0.3);
       border-radius: 15px;
-      overflow: hidden;
       transition: transform 0.3s ease, border-color 0.3s ease;
       display: flex;
       flex-direction: column;
@@ -214,6 +220,37 @@
       border: 2px solid rgba(0, 224, 255, 0.9);
       filter: drop-shadow(0 0 15px var(--primary-color));
     }
+
+    .gamecard {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 224, 255, 0.3);
+      border-radius: 15px;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      min-width: 300px;
+      padding: 0 -30px 0 -30px;
+
+    }
+
+    .gamecard:hover {
+      transform: translateY(-5px);
+      border: 2px solid rgba(0, 224, 255, 0.9);
+      filter: drop-shadow(0 0 200px var(--primary-color));
+    }
+    .gamecard:hover .portal-btn {
+      background: var(--primary-color);
+      color: var(--text-white);
+    } 
+
+    .game-btn :hover {
+        transform: translateY(-5px);
+        color: var(--text-white);
+
+    }
+    
 
     .card-banner {
       background: rgba(0, 224, 255, 0.1);
@@ -348,6 +385,7 @@
       }
       .portal-container {
         padding-top: 220px;
+        padding: 220px 5% 60px 5%;
       }
       .portal-intro, .domain-portal, .section {
       padding-top: 120px;
@@ -633,4 +671,91 @@
             }
 
         }
+/* 
+XXXXXXXXXXXXXXXXXXXX GAME PORTAL XXXXXXXXXXXXXXXXXXXX */
 
+    .game-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #4fc3ff;
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .game-title .badge {
+      font-size: 0.7rem;
+      background: rgba(79,195,255,0.15);
+      color: #8fd6ff;
+      padding: 2px 8px;
+      border-radius: 30px;
+      letter-spacing: 0.02em;
+      font-weight: 200;
+      margin: 0.1rem auto;
+      border: 1px solid rgba(79,195,255,0.1);
+    }
+    .game-tagline {
+      color: #8c9bb5;
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-style: italic;
+    }
+    .guide {
+      margin-top: 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+    .guide h3 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-white);
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+    .guide p {
+      color: #bccbe0;
+      font-size: 0.95rem;
+      margin-bottom: 0.6rem;
+    }
+    .guide ul {
+      list-style: none;
+      padding-left: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 16px;
+    }
+    .guide ul li {
+      color: #b0c7dd;
+      font-size: 0.9rem;
+      position: relative;
+      padding-left: 18px;
+    }
+    .guide ul li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #4fc3ff;
+      opacity: 0.5;
+    }
+    .key-highlight {
+      display: inline-block;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 4px;
+      padding: 0 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.95rem;
+      color: var(--primary-color);
+    }
+    .divider {
+      height: 3px;
+      background: linear-gradient(90deg, transparent, rgba(79,195,255,0.85), transparent);
+      margin: 0.8rem 0;
+    }
+    @media (max-width: 640px) {
+      h1 { font-size: 2rem; }
+      .game-title { font-size: 1.4rem; flex-wrap: wrap; }
+    }
+/* GAME END */
