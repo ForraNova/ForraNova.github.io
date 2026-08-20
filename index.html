@@ -7,6 +7,8 @@
   <!-- Inline styles utilizing your exact shared CSS theme layout -->
 
       <link rel="stylesheet" href="static/css/portal.css" />
+      <link rel="stylesheet" href="static/css/online.css">
+
 </head>
 <body>
 
@@ -66,7 +68,7 @@
         </a>
         <div class="card-body">
           <div>
-            <h3>AI Chat-Show</h3>
+            <h3>AI Chat Show</h3>
             <p>Access structured audio archives, linear problem-solving breakdowns, structural delimiter explanations, and forensic machine intelligence analysis transcripts.</p>
           </div>
           <a href="templates/chat-show.html" class="portal-btn">Enter Studio</a>
@@ -219,42 +221,43 @@
             </div>
         </article>
 
-        <!-- Node 6: COMING SOON -->
+        <!-- Node 6: GAMES -->
         <article class="portal-card">
           <a href="#games" onclick="navigateTo('games', event)">
             <div class="card-banner">Game Console</div>
           </a>
           <div class="card-body">
             <ul class="seminar-list">
-              <li class="seminar-item">
-                <span class="seminar-trigger" onclick="toggleDropdown('rop-game1')">Cell Jump</span>
-                <div id="rop-game1" class="dropdown-content">
-                  <p>Master attention to details, respons to environment while under pressure.</p>
-                  <a href="templates/recess/cell_jump.html" class="portal-btn">Launch Cell Jump</a>
-                </div>
-              </li>
 
               <li class="seminar-item">
-                <span class="seminar-trigger" onclick="toggleDropdown('rop-game2')">Convergence</span>
+                <span class="seminar-trigger" onclick="toggleDropdown('rop-game2')">⌨️ TypeStrike</span>
                 <div id="rop-game2" class="dropdown-content">
-                  <p>As a master builder, fix the broken system.</p>
-                  <a href="templates/recess/convergence.html" class="portal-btn">Launch Convergence</a>
+                  <div class="game-tagline">A high-velocity typing arcade where you strike moving targets by typing their text before they escape the screen.</div>
+                  <a href="templates/recess/typestrike.html" class="portal-btn">Accept Mission</a>
                 </div>
               </li>
 
               <li class="seminar-item">
-                <span class="seminar-trigger" onclick="toggleDropdown('rop-game3')">Transporter</span>
+                <span class="seminar-trigger" onclick="toggleDropdown('rop-game1')">⚡ Cell Jump</span>
+                <div id="rop-game1" class="dropdown-content">
+                  <div class="game-tagline">A high-speed grid-based reflex test where you must strike the glowing cell before time expires.</div>
+                  <a href="templates/recess/cell_jump.html" class="portal-btn">Take A Leap</a>
+                </div>
+              </li>
+
+              <li class="seminar-item">
+                <span class="seminar-trigger" onclick="toggleDropdown('rop-game3')">🚗 Transporter</span>
                 <div id="rop-game3" class="dropdown-content">
-                  <p>Drive for survival. As a defensive, Evasive and Aggressive driver.</p>
-                  <a href="templates/recess/transporter.html" class="portal-btn">Take the Wheels</a>
+                  <div class="game-tagline">A dynamic road-racing game where you navigate a procedurally generated scribbled route while evading police or chasing hostiles.</div>
+                  <a href="templates/recess/transporter.html" class="portal-btn">Start the Engine</a>
                 </div>
               </li>
 
               <li class="seminar-item">
-                <span class="seminar-trigger" onclick="toggleDropdown('rop-game4')">City Build</span>
+                <span class="seminar-trigger" onclick="toggleDropdown('rop-game4')">🏗️ City Build</span>
                 <div id="rop-game4" class="dropdown-content">
-                  <p>The city is broken. Your mission is to fix it.</p>
-                  <a href="templates/recess/citibuild.html" class="portal-btn">Let's Build</a>
+                  <div class="game-tagline">Operate a construction crane to place blocks with millimeter precision — wind and time are against you.</div>
+                  <a href="templates/recess/citibuild.html" class="portal-btn">Begin the Build</a>
                 </div>
               </li>
 
@@ -382,53 +385,153 @@
     <section id="games" class="section">
       <h1 class="domain-portal">GAMES PORTAL</h1>
       <div style="max-width: 1000px; margin: 0 auto;">
-        <div class="portal-grid">
+        <div class="game-grid">
 
-          <!-- Cell Jump -->
-          <article class="portal-card">
-            <div class="card-banner">Cell Jump</div>
-            <div class="card-body">
-              <div>
-                <h3>Cell Jump</h3>
-                <p>Master attention to details, respons to environment while under pressure.</p>
+          <!-- ===== TYPESTRIKE ===== -->
+          <article class="gamecard">
+            <a href="templates/recess/typestrike.html" class="game-btn">
+              <div class="card-banner">
+                <h3>⌨️ TypeStrike</h3>
+                <div class="game-title">
+                  <span class="badge">· typing</span><span class="badge">· speed</span><span class="badge">· accuracy</span><span class="badge">· multiplayer</span>
+                </div>
               </div>
-              <a href="templates/recess/cell_jump.html" class="portal-btn">Launch Cell Jump</a>
+            </a>
+            <div class="card-body">
+              
+              <div class="game-tagline">A high-velocity typing arcade where you strike moving targets by typing their text before they escape the screen.</div>
+
+              <div class="guide">
+                <h3>▶ Briefing</h3>
+                <p>Typestrike is a mission-based typing game with 10 escalating stages. Targets — letters, numbers, symbols, or words — appear with various movement patterns: ricochet, falling, flying, zigzag, converging, spiraling, or chaotic. Your job: type the target's text before it leaves the play area or before time runs out. Each correct hit builds combo and score; missed targets and wrong keystrokes cost you. Complete all targets in a stage to advance.</p>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="guide">
+                <h3>▶ How to Play</h3>
+                <ul>
+                  <li><span class="key-highlight">Type</span> the text of any visible target — the game automatically locks onto the most urgent target matching your input.</li>
+                  <li><span class="key-highlight">SPACE</span> — detonate all active targets (costs 10s from the timer).</li>
+                  <li><span class="key-highlight">ENTER</span> — start/continue through menus.</li>
+                  <li>On touch devices, use the <span class="key-highlight">on-screen keyboard</span> (toggle with the ⌨ button).</li>
+                  <li>Each stage has a <span class="key-highlight">goal</span> (number of targets to destroy) and a <span class="key-highlight">time budget</span>. Complete the goal before time runs out.</li>
+                  <li>Your <span class="key-highlight">combo</span> resets on miss — maintain it for higher scores.</li>
+                </ul>
+              </div>
+
+              <a href="templates/recess/typestrike.html" class="portal-btn">Accept Mission</a>
             </div>
           </article>
 
-          <!-- Transporter -->
-          <article class="portal-card">
-            <div class="card-banner">Transporter</div>
-            <div class="card-body">
-              <div>
-                <h3>Transporter</h3>
-                <p>Your mission one and simple. As a contract driver in the DIVENSIVE DRIVING mode, carefully navigate in the busy road. In the AGGRESSIVE DRIVING mode and the EVASIVE DRIVING mode, catch up or outrun the chase.</p>
+          <!-- ===== CELL JUMP ===== -->
+          <article class="gamecard">
+            <a href="templates/recess/cell_jump.html" class="game-btn">
+              <div class="card-banner">
+                <h3>⚡ Cell Jump</h3>
+                <div class="game-title">
+                  <span class="badge">· tapping</span><span class="badge">· reflex</span><span class="badge">· speed</span><span class="badge">· timing</span>
+                </div>
               </div>
-              <a href="templates/recess/transporter.html" class="portal-btn">Launch Car Game</a>
+            </a>
+            <div class="card-body">
+              
+              <div class="game-tagline">A high-speed grid-based reflex test where you must strike the glowing cell before time expires.</div>
+
+              <div class="guide">
+                <h3>▶ Briefing</h3>
+                <p>Cell Jump is a pulse-pounding reaction game for 1–6 players. A single cell on a grid lights up with a glowing orb. Your mission: tap it before the timer hits zero. Each successful hit increases your streak and slightly reduces the next turn's time — pushing your reflexes to the limit. In multiplayer, players rotate turns, and the one with the highest streak at the end wins.</p>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="guide">
+                <h3>▶ How to Play</h3>
+                <ul>
+                  <li>Set the <span class="key-highlight">grid size</span> (columns × rows), <span class="key-highlight">time limit</span> (0–5s), and number of <span class="key-highlight">players</span>.</li>
+                  <li>Click the <span class="key-highlight">glowing cell</span> before the timer runs out.</li>
+                  <li>Each correct hit: <span class="key-highlight">+1 streak</span>, time shrinks slightly.</li>
+                  <li>Each miss: <span class="key-highlight">streak resets</span>, turn passes to next player.</li>
+                  <li>In single-player: the game ends when you miss — your final streak is your score.</li>
+                </ul>
+              </div>
+
+              <a href="templates/recess/cell_jump.html" class="portal-btn">Take A Leap</a>
             </div>
           </article>
 
-          <!-- Convergence -->
-          <article class="portal-card">
-            <div class="card-banner">Convergence</div>
-            <div class="card-body">
-              <div>
-                <h3>Convergence</h3>
-                <p>You are a fixer of things. fix the falling structures.</p>
+          <!-- ===== TRANSPORTER DRIVE ===== -->
+          <article class="gamecard">
+            <a href="templates/recess/transporter.html" class="game-btn">
+              <div class="card-banner">
+                <h3>🚗 Transporter</h3>
+                <div class="game-title">
+                  <span class="badge">· driving</span><span class="badge">· speed</span><span class="badge">· precision</span><span class="badge">· pursuit</span>
+                </div>
               </div>
-              <a href="templates/recess/convergence.html" class="portal-btn">Start Fixing</a>
+            </a>
+            <div class="card-body">
+              
+              <div class="game-tagline">A dynamic road-racing game where you navigate a procedurally generated scribbled route while evading police or chasing hostiles.</div>
+
+              <div class="guide">
+                <h3>▶ Briefing</h3>
+                <p>Trinity Drive drops you behind the wheel of a high-performance vehicle on a road that never stays the same. The path from point A to point Z is randomly generated each time — a winding, scribbled line through a 3D landscape. Choose your mode: <span class="key-highlight">Defensive</span> (safe driving), <span class="key-highlight">Aggressive</span> (chase fleeing hostiles), or <span class="key-highlight">Evasive</span> (outrun police). The mini-map shows your position, enemies, and the road ahead.</p>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="guide">
+                <h3>▶ How to Play</h3>
+                <ul>
+                  <li><span class="key-highlight">WASD</span> or <span class="key-highlight">Arrow Keys</span> — drive (up/down/left/right).</li>
+                  <li><span class="key-highlight">SPACE</span> — auto-stop / brake.</li>
+                  <li><span class="key-highlight">ENTER</span> — speed boost (×2).</li>
+                  <li><span class="key-highlight">V</span> — cycle through camera views (First, Rear, Third, Drone).</li>
+                  <li><span class="key-highlight">P</span> — pause the game.</li>
+                  <li>Follow the road from <span class="key-highlight">A</span> (green marker) to <span class="key-highlight">Z</span> (red marker). Reaching Z regenerates a new road and awards points.</li>
+                  <li>Use the <span class="key-highlight">mini-map</span> (draggable) to plan your route and track enemies.</li>
+                </ul>
+              </div>
+
+              <a href="templates/recess/transporter.html" class="portal-btn">Start the Engine</a>
             </div>
           </article>
 
-          <!-- City Build -->
-          <article class="portal-card">
-            <div class="card-banner">City Build</div>
-            <div class="card-body">
-              <div>
-                <h3>City Build</h3>
-                <p>The city is broken. Your mission is to fix it.</p>
+          <!-- ===== CITIBUILD ===== -->
+          <article class="gamecard">
+            <a href="templates/recess/citibuild.html" class="game-btn">
+              <div class="card-banner">
+                <h3>🏗️ Citibuild</h3>
+                <div class="game-title">
+                  <span class="badge">· crane</span><span class="badge">· precision</span><span class="badge">· accuracy</span><span class="badge">· control</span>
+                </div>
               </div>
-              <a href="templates/recess/citibuild.html" class="portal-btn">Start Building</a>
+            </a>
+            <div class="card-body">
+              
+              <div class="game-tagline">Operate a construction crane to place blocks with millimeter precision — wind and time are against you.</div>
+
+              <div class="guide">
+                <h3>▶ Briefing</h3>
+                <p>Citibuild puts you in the cab of a tower crane at the Riverreach Bay reconstruction site. Your task: pick up blocks from the spawn pile and lower them into target slots. The wind sways your load, and the clock is ticking. Each perfect placement earns gold; each miss reduces structural integrity. Complete all slots to finish the stage and unlock the next chapter of the harbor's revival.</p>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="guide">
+                <h3>▶ How to Play</h3>
+                <ul>
+                  <li><span class="key-highlight">WASD</span> or <span class="key-highlight">Arrow Keys</span> — move the trolley horizontally.</li>
+                  <li><span class="key-highlight">Q / E</span> or vertical pad — raise/lower the hook.</li>
+                  <li><span class="key-highlight">SPACE</span> or <span class="key-highlight">GRAB</span> button — pick up a block from the spawn pile.</li>
+                  <li>Move the block over a <span class="key-highlight">ghost slot</span> (it turns green when aligned).</li>
+                  <li>Press <span class="key-highlight">SPACE</span> or <span class="key-highlight">GRAB</span> again to drop the block.</li>
+                  <li>Place all blocks to complete the stage. Misses reduce your integrity — if it hits zero, the structure collapses.</li>
+                </ul>
+              </div>
+
+              <a href="templates/recess/citibuild.html" class="portal-btn">Begin the Build</a>
             </div>
           </article>
 
@@ -557,7 +660,7 @@
         </div>
       </div>
     </section>
-
+    
   </main>
 
   <!-- GLOBAL CONTROL FOOTER -->
@@ -739,5 +842,49 @@
     resize();
     requestAnimationFrame(draw);
   </script>
+
+
+
+<script>
+  // Dynamic Category Selection
+document.querySelectorAll('#categoryChips .chip').forEach(chip => {
+  chip.addEventListener('click', function() {
+    document.querySelectorAll('#categoryChips .chip').forEach(c => c.classList.remove('active'));
+    this.classList.add('active');
+    document.getElementById('selectedCategory').value = this.getAttribute('data-value');
+  });
+});
+
+// Real-Time Character Counter
+function updateCounter(textarea) {
+  const counter = document.getElementById('charCounter');
+  counter.textContent = `${textarea.value.length} / 500`;
+}
+
+// Simulated High-Tech Submission Feedback
+function handleTransmission() {
+  const submitBtn = document.getElementById('submitBtn');
+  const status = document.getElementById('formStatus');
+
+  submitBtn.disabled = true;
+  submitBtn.style.opacity = '0.7';
+  submitBtn.querySelector('.btn-text').textContent = 'Encrypting & Transmitting...';
+
+  setTimeout(() => {
+    submitBtn.disabled = false;
+    submitBtn.style.opacity = '1';
+    submitBtn.querySelector('.btn-text').textContent = 'Transmit Signal';
+
+    status.className = 'hud-status success';
+    status.innerHTML = '<i class="fa-solid fa-circle-check"></i> Transmission Received. Thank you for enriching the ForraNova Network.';
+    status.style.display = 'block';
+
+    document.getElementById('suggestionForm').reset();
+    document.getElementById('charCounter').textContent = '0 / 500';
+  }, 1200);
+}
+</script>
+
+
 </body>
 </html>
