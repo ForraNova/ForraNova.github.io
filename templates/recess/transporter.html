@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Trinity Drive · Dynamic Road</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.126.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.126.0/examples/jsm/"
+      }
+    }
+  </script>
+  <style>
+    * { box-sizing: border-box; user-select: none; }
+    body { margin: 0; overflow: hidden; font-family: 'Segoe UI', system-ui, sans-serif; background: #0b0e14; }
+    #game-container { width: 100vw; height: 100vh; display: block; position: relative; }
+    #ui-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+    #ui-overlay > * { pointer-events: auto; }
+    .glass-panel { background: rgba(10, 10, 20, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.12); }
+    .mode-btn { transition: all 0.2s; border: 1px solid transparent; }
+    .mode-btn.active { border-color: #facc15; background: rgba(250, 204, 21, 0.2); box-shadow: 0 0 20px #facc1566; }
+    .hud-value { font-variant-numeric: tabular-nums; }
+    #view-toggle button { background: rgba(0,0,0,0.5); border-radius: 30px; padding: 4px 12px; font-size: 0.7rem; border: 1px solid #444; color: #ccc; transition: 0.15s; }
+    #view-toggle button.active-view { border-color: #facc15; background: rgba(250,204,21,0.25); color: #fff; }
+    #mission-log { max-height: 60px; overflow-y: auto; scrollbar-width: thin; }
+    #mission-log::-webkit-scrollbar { width: 3px; }
+    #mission-log::-webkit-scrollbar-thumb { background: #facc15; border-radius: 8px; }
+    .steer-btn { width: 56px; height: 56px; border-radius: 60px; background: rgba(20,25,45,0.8); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.2); color: white; font-size: 1.4rem; display: flex; align-items: center; justify-content: center; transition: all 0.08s; touch-action: none; }
+    .steer-btn:active { transform: scale(0.90); background: rgba(250,204,21,0.25); }
+    .steer-btn.accel { background: rgba(34, 197, 94, 0.25); border-color: #22c55e88; }
+    .steer-btn.brake { background: rgba(239, 68, 68, 0.25); border-color: #ef444488; }
+    #chat-input { background: rgba(0,0,0,0.6); border: 1px solid #444; color: white; border-radius: 30px; padding: 6px 14px; width: 160px; outline: none; font-size: 0.8rem; }
+    #chat-input:focus { border-color: #facc15; }
+    #chat-box { max-height: 80px; overflow-y: auto; font-size: 0.75rem; line-height: 1.3; }
+    /* Mini-map - movable */
+    #minimap {
+      position: absolute;
+      width: 200px; height: 200px;
+      border-radius: 20px;
+      background: rgba(0,0,0,0.0001);
+      border: 2px solid rgba(255,255,255,0.15);
+      overflow: hidden;
+      pointer-events: auto;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+      cursor: grab;
+      touch-action: none;
+      z-index: 50;
+    }
+    #minimap:active { cursor: grabbing; }
+    #minimap canvas { width: 100%; height: 100%; display: block; }
+    .minimap-handle {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 24px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 20px 20px 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 2px;
+      cursor: grab;
+    }
+    .minimap-handle:active { cursor: grabbing; }
+    /* Center panel - combined HUD */
+    #center-hud {
+      position: absolute;
+      top: 1%;
+      left: 220px;
+      display: grid;
+      align-items: center;
+      gap: 1px;
+      pointer-events: none;
+      z-index: 10;
+      width: auto;
+      margin: auto;
+      max-width: 100vw;
+    }
+    #center-hud > * { pointer-events: auto; }
+    #center-hud .hud-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 16px;
+      background: rgba(10, 10, 20, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      padding: 10px 20px;
+      width: fit-content;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    #center-hud .hud-item {
+      color: #fff;
+      font-size: 0.75rem;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    #center-hud .hud-item .label { opacity: 0.6; }
+    #center-hud .hud-item .value { font-weight: bold; }
+    #center-hud .hud-item .value.gold { color: #facc15; }
+    #center-hud .hud-item .value.green { color: #4ade80; }
+    #center-hud .hud-item .value.cyan { color: #22d3ee; }
+    #center-hud .hud-item .value.red { color: #f87171; }
+
+    /* View toggle - floated left grid (c x r) */
+    #view-toggle-container {
+      position: absolute;
+      left: 20px;
+      top: 80%;
+      transform: translateY(-50%);
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-template-rows: auto auto;
+      gap: 6px;
+      z-index: 30;
+      pointer-events: none;
+    }
+    #view-toggle-container > * { pointer-events: auto; }
+    #view-toggle-container button {
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #ccc;
+      padding: 6px 12px;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      transition: 0.15s;
+      cursor: pointer;
+      min-width: 56px;
+      text-align: center;
+    }
+    #view-toggle-container button.active-view {
+      border-color: #facc15;
+      background: rgba(250,204,21,0.25);
+      color: #fff;
+    }
+    /* positions: a1=top-left, a2=bottom-left, b1=top-right, b2=bottom-right */
+    #view-toggle-container .pos-a1 { grid-column: 1; grid-row: 1; }
+    #view-toggle-container .pos-a2 { grid-column: 1; grid-row: 2; }
+    #view-toggle-container .pos-b1 { grid-column: 2; grid-row: 1; }
+    #view-toggle-container .pos-b2 { grid-column: 2; grid-row: 2; }
+
+    /* Steer panel - floated right grid (c x r) */
+    #steer-container {
+      position: absolute;
+      right: 20px;
+      bottom: 120px;
+      display: grid;
+      grid-template-columns: auto auto auto;
+      grid-template-rows: auto auto auto;
+      gap: 6px;
+      z-index: 30;
+      pointer-events: none;
+    }
+    #steer-container > * { pointer-events: auto; }
+    #steer-container .steer-btn {
+      width: 52px;
+      height: 52px;
+      border-radius: 60px;
+      background: rgba(20,25,45,0.8);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.08s;
+      touch-action: none;
+      cursor: pointer;
+    }
+    #steer-container .steer-btn:active { transform: scale(0.90); background: rgba(250,204,21,0.25); }
+    #steer-container .steer-btn.accel { background: rgba(34, 197, 94, 0.25); border-color: #22c55e88; }
+    #steer-container .steer-btn.brake { background: rgba(239, 68, 68, 0.25); border-color: #ef444488; }
+    /* positions: a2=col1 row2, c2=col3 row2, b1=col2 row1, b3=col2 row3 */
+    #steer-container .pos-a2 { grid-column: 1; grid-row: 2; }
+    #steer-container .pos-c2 { grid-column: 3; grid-row: 2; }
+    #steer-container .pos-b1 { grid-column: 2; grid-row: 1; }
+    #steer-container .pos-b3 { grid-column: 2; grid-row: 3; }
+
+    /* Chat stays bottom center */
+    #chat-container {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 30;
+      pointer-events: none;
+      width: 90%;
+      max-width: 480px;
+    }
+    #chat-container > * { pointer-events: auto; }
+
+    @media (max-width: 640px) {
+      #minimap { width: 200px; height: 200px; }
+      #view-toggle-container { left: 8px; }
+      #view-toggle-container button { font-size: 0.6rem; padding: 4px 8px; min-width: 44px; }
+      #steer-container { right: 8px; bottom: 100px; }
+      #steer-container .steer-btn { width: 44px; height: 44px; font-size: 1.1rem; }
+      #center-hud .hud-item { font-size: 0.65rem; }
+      #center-hud .hud-row { padding: 6px 12px; gap: 4px 10px; }
+      #center-hud { top:10%; position: absolute; top: 1%;
+      left: 220px; display: grid; align-items: center; gap: 1px; pointer-events: none; z-index: 10; width: auto; margin: auto; max-width: 100vw; }
+    }
+    @media (max-width: 480px) {
+      #minimap { width: 200px; height: 200px; }
+      #steer-container .steer-btn { width: 38px; height: 38px; font-size: 0.9rem; }
+      #view-toggle-container button { font-size: 0.5rem; padding: 3px 6px; min-width: 36px; }
+    }
+  </style>
+</head>
+<body>
+<div id="game-container">
+  <!-- UI Overlay -->
+  <div id="ui-overlay">
+    
+    <!-- CENTER HUD - combined panel -->
+    <div id="center-hud">
+      <div class="hud-row">
+        <div class="hud-item"><span class="label">SPEED</span> <span id="speed-display" class="value gold text-lg">0</span><span class="text-[0.6rem] opacity-60">km/h</span></div>
+        <div class="hud-item"><span class="label">SCORE</span> <span id="score-display" class="value gold text-lg">0</span></div>
+        <div class="hud-item"><span class="label">MISSION</span> <span id="mission-status" class="value green">▶ active</span></div>
+        <div class="hud-item"><span class="label">PURSUIT</span> <span id="pursuit-count" class="value red">0</span></div>
+        <div class="hud-item"><span class="label">ZONE</span> <span id="zone-display" class="value cyan">A</span></div>
+
+        <!-- TOP BAR: mode buttons only -->
+        <div class="flex flex-wrap items-center gap-2 glass-panel p-2 rounded-2xl shadow-2xl text-white w-fit max-w-full text-sm" >
+          <div class="flex gap-1 flex-wrap">
+            <button id="mode-defensive" class="mode-btn active px-3 py-1 rounded-full text-xs font-medium bg-gray-800/60">🛡️ Defensive</button>
+            <button id="mode-aggressive" class="mode-btn px-3 py-1 rounded-full text-xs font-medium bg-gray-800/60">⚡ Aggressive</button>
+            <button id="mode-evasive" class="mode-btn px-3 py-1 rounded-full text-xs font-medium bg-gray-800/60">🏃 Evasive</button>
+          </div>
+          <div class="flex items-center gap-2 ml-auto">
+            <span class="text-xs opacity-60">⭐ Rep</span>
+            <span id="reputation-display" class="font-bold text-yellow-300 text-sm">4.8</span>
+          </div>
+        </div>
+      </div>      
+    </div>
+
+
+    <!-- VIEW TOGGLE - floated left grid (a1, a2, b1, b2) -->
+    <div id="view-toggle-container">
+      <button data-view="first" class="pos-a1 active-view">🚗 1st</button>
+      <button data-view="drone" class="pos-a2">🛸 Drone</button>
+      <button data-view="third" class="pos-b1">📷 3rd</button>
+      <button data-view="rear" class="pos-b2">🔁 Rear</button>
+    </div>
+
+    <!-- STEER CONTAINER - floated right grid (a2, c2, b1, b3) -->
+    <div id="steer-container">
+      <button id="steer-left" class="steer-btn pos-a2">◀</button>
+      <button id="steer-right" class="steer-btn pos-c2">▶</button>
+      <button id="steer-accel" class="steer-btn accel pos-b1">⏫</button>
+      <button id="steer-brake" class="steer-btn brake pos-b3">⏬</button>
+    </div>
+
+
+
+
+    <!-- CHAT - bottom center -->
+    <div id="chat-container">
+
+
+
+      <div class="glass-panel p-2 rounded-2xl text-white w-full backdrop-blur-sm flex flex-col">
+        <div id="chat-box" class="text-xs opacity-90 h-10 overflow-y-auto leading-relaxed mb-1">🚦 AI: Follow the scribbled road to Z.</div>
+        <div class="flex gap-1">
+          <input id="chat-input" type="text" placeholder="Talk to AI..." class="flex-1 text-xs rounded-full px-3 py-1 bg-black/40 border border-white/10">
+          <button id="chat-send" class="bg-yellow-500/30 px-3 py-1 rounded-full text-xs border border-yellow-500/40">Send</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- MINI-MAP - movable -->
+    <div id="minimap">
+      <div class="minimap-handle">⟳ DRAG</div>
+      <canvas id="minimap-canvas" width="200" height="200"></canvas>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+// ----- GAME STATE -----
+const GameState = { MENU: 'menu', PLAYING: 'playing', PAUSED: 'paused', GAME_OVER: 'gameover' };
+let gameState = GameState.PLAYING;
+
+// ----- DOM REFS -----
+const speedDisplay = document.getElementById('speed-display');
+const scoreDisplay = document.getElementById('score-display');
+const repDisplay = document.getElementById('reputation-display');
+const missionStatus = document.getElementById('mission-status');
+const chatBox = document.getElementById('chat-box');
+const chatInput = document.getElementById('chat-input');
+const pursuitDisplay = document.getElementById('pursuit-count');
+const zoneDisplay = document.getElementById('zone-display');
+const minimapCanvas = document.getElementById('minimap-canvas');
+const ctx = minimapCanvas.getContext('2d');
+const minimapEl = document.getElementById('minimap');
+
+// ----- MINI-MAP DRAG (movable) -----
+let isDragging = false;
+let dragStartX, dragStartY, mapStartX, mapStartY;
+
+function initMinimapDrag() {
+  const handle = minimapEl.querySelector('.minimap-handle');
+  const onStart = (e) => {
+    isDragging = true;
+    const touch = e.touches ? e.touches[0] : e;
+    dragStartX = touch.clientX;
+    dragStartY = touch.clientY;
+    const rect = minimapEl.getBoundingClientRect();
+    mapStartX = rect.left;
+    mapStartY = rect.top;
+    minimapEl.style.cursor = 'grabbing';
+    e.preventDefault();
+  };
+  const onMove = (e) => {
+    if (!isDragging) return;
+    const touch = e.touches ? e.touches[0] : e;
+    const dx = touch.clientX - dragStartX;
+    const dy = touch.clientY - dragStartY;
+    minimapEl.style.left = (mapStartX + dx) + 'px';
+    minimapEl.style.top = (mapStartY + dy) + 'px';
+    minimapEl.style.right = 'auto';
+    minimapEl.style.bottom = 'auto';
+    e.preventDefault();
+  };
+  const onEnd = () => {
+    isDragging = false;
+    minimapEl.style.cursor = 'grab';
+  };
+  handle.addEventListener('mousedown', onStart);
+  document.addEventListener('mousemove', onMove);
+  document.addEventListener('mouseup', onEnd);
+  handle.addEventListener('touchstart', onStart, { passive: false });
+  document.addEventListener('touchmove', onMove, { passive: false });
+  document.addEventListener('touchend', onEnd);
+}
+initMinimapDrag();
+
+// ----- AUDIO -----
+let audioCtx, engineOsc, engineGain, sirenOsc, sirenGain;
+let isAudioReady = false;
+
+function initAudio() {
+  if (isAudioReady) return;
+  try {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    engineOsc = audioCtx.createOscillator();
+    engineGain = audioCtx.createGain();
+    engineOsc.type = 'sawtooth';
+    engineOsc.frequency.setValueAtTime(40, audioCtx.currentTime);
+    engineGain.gain.setValueAtTime(0.0, audioCtx.currentTime);
+    engineOsc.connect(engineGain);
+    engineGain.connect(audioCtx.destination);
+    engineOsc.start();
+
+    sirenOsc = audioCtx.createOscillator();
+    sirenGain = audioCtx.createGain();
+    sirenOsc.type = 'square';
+    sirenOsc.frequency.setValueAtTime(600, audioCtx.currentTime);
+    sirenGain.gain.setValueAtTime(0.0, audioCtx.currentTime);
+    sirenOsc.connect(sirenGain);
+    sirenGain.connect(audioCtx.destination);
+    sirenOsc.start();
+    isAudioReady = true;
+  } catch(e) { console.warn('Audio init error', e); }
+}
+
+function updateAudio(speedVal) {
+  if (!isAudioReady) return;
+  const absSpeed = Math.abs(speedVal);
+  const freq = 35 + absSpeed * 1.2;
+  engineOsc.frequency.setTargetAtTime(freq, audioCtx.currentTime, 0.1);
+  const gain = Math.min(0.15, absSpeed / 300);
+  engineGain.gain.setTargetAtTime(gain, audioCtx.currentTime, 0.1);
+  const sirenActive = (mode === 'aggressive' || mode === 'evasive') && absSpeed > 20;
+  sirenGain.gain.setTargetAtTime(sirenActive ? 0.08 : 0.0, audioCtx.currentTime, 0.2);
+  if (sirenActive) {
+    sirenOsc.frequency.setTargetAtTime(400 + Math.sin(Date.now()*0.003)*200, audioCtx.currentTime, 0.1);
+  }
+}
+
+// ----- THREE.JS -----
+let scene, camera, renderer, vehicle, clock = new THREE.Clock();
+let controls;
+let currentView = 'first';
+let speed = 0, maxSpeed = 80, score = 0, reputation = 4.8;
+let mode = 'defensive';
+let keys = { w: false, a: false, s: false, d: false, space: false, enter: false, ArrowUp: false, ArrowDown: false, ArrowLeft: false, ArrowRight: false };
+let npcs = [], pedestrians = [], obstacles = [];
+let policeCars = [];
+let hostileCars = [];
+let missionLog = [];
+let frameCount = 0;
+let pursuitCount = 0;
+let gameActive = true;
+
+// ---- DYNAMIC ROAD SYSTEM ----
+const roadNodes = [];
+const roadSegments = [];
+const NODE_COUNT = 18;
+const ROAD_WIDTH = 3.5;
+let currentZoneIndex = 0;
+let nextZoneIndex = 1;
+const ZONE_LABELS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+
+function generateRoadNodes() {
+  roadNodes.length = 0;
+  roadNodes.push({ x: 0, z: 0 });
+  for (let i = 1; i < NODE_COUNT; i++) {
+    let x, z, ok;
+    let attempts = 0;
+    do {
+      const angle = (Math.random() - 0.5) * 1.2;
+      const dist = 6 + Math.random() * 12;
+      const prev = roadNodes[i-1];
+      x = prev.x + Math.sin(angle) * dist;
+      z = prev.z - Math.cos(angle) * dist;
+      x = Math.max(-35, Math.min(35, x));
+      z = Math.max(-55, Math.min(5, z));
+      ok = true;
+      for (let j = 0; j < roadNodes.length - 1; j++) {
+        const dx = roadNodes[j].x - x;
+        const dz = roadNodes[j].z - z;
+        if (dx*dx + dz*dz < 20) { ok = false; break; }
+      }
+      attempts++;
+    } while (!ok && attempts < 30);
+    roadNodes.push({ x, z });
+  }
+  const last = roadNodes[roadNodes.length-1];
+  roadNodes[roadNodes.length-1] = { x: last.x * 0.8, z: Math.min(last.z, -45) };
+}
+
+function buildRoadMesh() {
+  roadSegments.forEach(obj => scene.remove(obj));
+  roadSegments.length = 0;
+  
+  const roadMat = new THREE.MeshStandardMaterial({ color: 0x3a3a3a, roughness: 0.8 });
+  const lineMat = new THREE.MeshBasicMaterial({ color: 0xcccccc });
+  
+  for (let i = 0; i < roadNodes.length - 1; i++) {
+    const p1 = roadNodes[i];
+    const p2 = roadNodes[i+1];
+    const dx = p2.x - p1.x;
+    const dz = p2.z - p1.z;
+    const len = Math.sqrt(dx*dx + dz*dz);
+    if (len < 0.1) continue;
+    const midX = (p1.x + p2.x) / 2;
+    const midZ = (p1.z + p2.z) / 2;
+    const angle = Math.atan2(dx, dz);
+    
+    const seg = new THREE.Mesh(new THREE.PlaneGeometry(ROAD_WIDTH, len), roadMat);
+    seg.rotation.x = -Math.PI / 2;
+    seg.rotation.y = -angle;
+    seg.position.set(midX, 0.05, midZ);
+    seg.receiveShadow = true;
+    scene.add(seg);
+    roadSegments.push(seg);
+    
+    const dashCount = Math.floor(len / 2.5);
+    for (let d = 0; d < dashCount; d++) {
+      const t = (d + 0.5) / dashCount;
+      const lx = p1.x + dx * t;
+      const lz = p1.z + dz * t;
+      const dash = new THREE.Mesh(new THREE.PlaneGeometry(0.15, 0.8), lineMat);
+      dash.rotation.x = -Math.PI / 2;
+      dash.rotation.y = -angle;
+      dash.position.set(lx, 0.1, lz);
+      scene.add(dash);
+      roadSegments.push(dash);
+    }
+  }
+  
+  roadNodes.forEach((node, idx) => {
+    if (idx === 0 || idx === roadNodes.length-1) {
+      const marker = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.2, 1.2), 
+        new THREE.MeshStandardMaterial({ color: idx === 0 ? 0x00ff88 : 0xff4488, emissive: idx === 0 ? 0x00ff88 : 0xff4488, emissiveIntensity: 0.3 }));
+      marker.position.set(node.x, 0.1, node.z);
+      scene.add(marker);
+      roadSegments.push(marker);
+    }
+  });
+}
+
+// ----- SCENE INIT -----
+function initScene() {
+  scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x1a2a3a);
+  scene.fog = new THREE.Fog(0x1a2a3a, 60, 150);
+
+  camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 500);
+  camera.position.set(0, 6, 12);
+
+  renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  document.getElementById('game-container').prepend(renderer.domElement);
+
+  scene.add(new THREE.AmbientLight(0x404060));
+  const sun = new THREE.DirectionalLight(0xffeedd, 1.2);
+  sun.position.set(30, 40, 20);
+  sun.castShadow = true;
+  sun.shadow.mapSize.width = 1024;
+  sun.shadow.mapSize.height = 1024;
+  sun.shadow.camera.left = -60;
+  sun.shadow.camera.right = 60;
+  sun.shadow.camera.top = 60;
+  sun.shadow.camera.bottom = -60;
+  sun.shadow.camera.near = 1;
+  sun.shadow.camera.far = 80;
+  scene.add(sun);
+  scene.add(new THREE.DirectionalLight(0x446688, 0.5));
+  scene.add(new THREE.HemisphereLight(0x87CEEB, 0x362d1e, 0.6));
+
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(300, 300), new THREE.MeshStandardMaterial({ color: 0x2a4a3a, roughness: 0.9 }));
+  ground.rotation.x = -Math.PI / 2;
+  ground.receiveShadow = true;
+  scene.add(ground);
+
+  generateRoadNodes();
+  buildRoadMesh();
+
+  for (let i = 0; i < 60; i++) {
+    const idx = Math.floor(Math.random() * (roadNodes.length - 1));
+    const p1 = roadNodes[idx];
+    const p2 = roadNodes[idx+1];
+    const t = Math.random();
+    const x = p1.x + (p2.x - p1.x) * t + (Math.random() - 0.5) * 6;
+    const z = p1.z + (p2.z - p1.z) * t + (Math.random() - 0.5) * 6;
+    let distToRoad = 999;
+    for (let i2 = 0; i2 < roadNodes.length - 1; i2++) {
+      const p1n = roadNodes[i2], p2n = roadNodes[i2+1];
+      const dx = p2n.x - p1n.x, dz = p2n.z - p1n.z;
+      const t2 = ((x - p1n.x)*dx + (z - p1n.z)*dz) / (dx*dx + dz*dz + 0.001);
+      const cX = p1n.x + Math.max(0, Math.min(1, t2)) * dx;
+      const cZ = p1n.z + Math.max(0, Math.min(1, t2)) * dz;
+      const d = Math.sqrt((x-cX)*(x-cX) + (z-cZ)*(z-cZ));
+      if (d < distToRoad) distToRoad = d;
+    }
+    if (distToRoad < 1.5) continue;
+    
+    const isTree = Math.random() > 0.4;
+    if (isTree) {
+      const tree = new THREE.Mesh(new THREE.ConeGeometry(0.4 + Math.random()*0.3, 0.8 + Math.random()*0.6, 5), 
+        new THREE.MeshStandardMaterial({ color: 0x2d7a3a }));
+      tree.position.set(x, 0.3, z);
+      tree.castShadow = true;
+      scene.add(tree);
+      obstacles.push(tree);
+    } else {
+      const rock = new THREE.Mesh(new THREE.DodecahedronGeometry(0.2 + Math.random()*0.3), 
+        new THREE.MeshStandardMaterial({ color: 0x666666, roughness: 0.9 }));
+      rock.position.set(x, 0.1, z);
+      rock.castShadow = true;
+      scene.add(rock);
+      obstacles.push(rock);
+    }
+  }
+
+  const car = new THREE.Group();
+  const body = new THREE.Mesh(new THREE.BoxGeometry(1.8, 0.5, 4), new THREE.MeshStandardMaterial({ color: 0xff3333, roughness: 0.3, metalness: 0.6 }));
+  body.position.y = 0.3; body.castShadow = true;
+  car.add(body);
+  const cab = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.4, 1.6), new THREE.MeshStandardMaterial({ color: 0x88ccff, roughness: 0.2, metalness: 0.2 }));
+  cab.position.set(0, 0.7, -0.6); cab.castShadow = true;
+  car.add(cab);
+  [[-0.9,0.1,1.2],[0.9,0.1,1.2],[-0.9,0.1,-1.2],[0.9,0.1,-1.2]].forEach(p => {
+    const w = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 0.2, 8), new THREE.MeshStandardMaterial({ color: 0x222222, roughness: 0.9 }));
+    w.rotation.z = Math.PI/2; w.position.set(p[0], p[1], p[2]); car.add(w);
+  });
+  car.position.set(0, 0.2, 0);
+  scene.add(car);
+  vehicle = car;
+
+  for (let i = 0; i < 6; i++) {
+    const npc = createNPCCar(0x66aaff);
+    const idx = Math.floor(Math.random() * (roadNodes.length - 1));
+    const p1 = roadNodes[idx], p2 = roadNodes[idx+1];
+    const t = Math.random();
+    npc.position.set(p1.x + (p2.x - p1.x) * t, 0.1, p1.z + (p2.z - p1.z) * t);
+    npc.rotation.y = Math.atan2(p2.x - p1.x, p2.z - p1.z);
+    scene.add(npc);
+    npcs.push(npc);
+  }
+
+  controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.05;
+  controls.target.set(0, 2, 0);
+  controls.enabled = false;
+}
+
+function createNPCCar(color) {
+  const g = new THREE.Group();
+  const b = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.4, 3.5), new THREE.MeshStandardMaterial({ color, roughness: 0.5 }));
+  b.position.y = 0.2; b.castShadow = true;
+  g.add(b);
+  const cab = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.35, 1.4), new THREE.MeshStandardMaterial({ color: 0x88ccff, roughness: 0.3 }));
+  cab.position.set(0, 0.5, -0.5); cab.castShadow = true;
+  g.add(cab);
+  return g;
+}
+
+function createPoliceCar() {
+  const g = createNPCCar(0x2244aa);
+  const light = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.2, 1.2), new THREE.MeshStandardMaterial({ color: 0xff3333, emissive: 0xff0000, emissiveIntensity: 0.8 }));
+  light.position.set(0, 0.7, -0.3);
+  g.add(light);
+  const light2 = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.2, 1.2), new THREE.MeshStandardMaterial({ color: 0x3333ff, emissive: 0x0000ff, emissiveIntensity: 0.8 }));
+  light2.position.set(0, 0.7, 0.3);
+  g.add(light2);
+  return g;
+}
+
+// ----- VIEWS -----
+function setView(view) {
+  currentView = view;
+  controls.enabled = (view === 'drone' || view === 'third');
+  if (view === 'first') { camera.position.set(0, 1.6, 0); camera.lookAt(0, 0, -10); }
+  else if (view === 'rear') { camera.position.set(0, 1.8, 6); camera.lookAt(0, 0, -4); }
+  else if (view === 'third') { controls.target.copy(vehicle.position); controls.target.y += 2; camera.position.set(vehicle.position.x+5, vehicle.position.y+5, vehicle.position.z+8); controls.update(); }
+  else if (view === 'drone') { controls.target.copy(vehicle.position); controls.target.y += 5; camera.position.set(vehicle.position.x+15, vehicle.position.y+20, vehicle.position.z+15); controls.update(); }
+  document.querySelectorAll('#view-toggle-container button').forEach(b => b.classList.remove('active-view'));
+  document.querySelector(`#view-toggle-container button[data-view="${view}"]`)?.classList.add('active-view');
+}
+
+// ----- AI CHAT -----
+function aiSpeak(msg) {
+  missionLog.push(msg);
+  if (missionLog.length > 6) missionLog.shift();
+  chatBox.innerHTML = missionLog.map(m => `🗣️ ${m}`).join('<br>');
+  if (msg.includes('pickup') || msg.includes('secure') || msg.includes('evade') || msg.includes('chase')) missionStatus.innerText = '⏳ mission';
+  else if (msg.includes('complete') || msg.includes('safe')) missionStatus.innerText = '✅ done';
+}
+
+function handleChatInput(text) {
+  const lower = text.toLowerCase();
+  if (lower.includes('hello') || lower.includes('hi')) aiSpeak('Hello driver! Follow the road to Z.');
+  else if (lower.includes('speed')) aiSpeak(`Current speed: ${Math.round(Math.abs(speed))} km/h.`);
+  else if (lower.includes('mode')) aiSpeak(`Mode: ${mode.toUpperCase()}.`);
+  else if (lower.includes('score')) aiSpeak(`Score: ${score}. Reputation: ${reputation.toFixed(1)}.`);
+  else if (lower.includes('help')) aiSpeak('Arrow keys drive, Space brake, Enter boost, V view, P pause.');
+  else if (lower.includes('zone')) aiSpeak(`You are at zone ${ZONE_LABELS[currentZoneIndex]}. Target: ${ZONE_LABELS[nextZoneIndex]}.`);
+  else aiSpeak(`I heard: "${text}". Drive carefully!`);
+}
+
+// ----- MODE MANAGEMENT -----
+function clearSpecialCars() {
+  policeCars.forEach(c => scene.remove(c));
+  hostileCars.forEach(c => scene.remove(c));
+  policeCars = [];
+  hostileCars = [];
+  pursuitCount = 0;
+  pursuitDisplay.innerText = '0';
+}
+
+function setMode(newMode) {
+  if (gameState === GameState.GAME_OVER) return;
+  mode = newMode;
+  clearSpecialCars();
+  document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(`mode-${newMode}`).classList.add('active');
+  
+  if (newMode === 'evasive') {
+    for (let i = 0; i < 3; i++) {
+      const police = createPoliceCar();
+      const idx = Math.floor(Math.random() * (roadNodes.length - 1));
+      const p1 = roadNodes[idx], p2 = roadNodes[idx+1];
+      const t = Math.random();
+      police.position.set(p1.x + (p2.x - p1.x) * t, 0.1, p1.z + (p2.z - p1.z) * t);
+      police.rotation.y = Math.atan2(p2.x - p1.x, p2.z - p1.z);
+      scene.add(police);
+      policeCars.push(police);
+    }
+    aiSpeak('🚨 EVASIVE: Police are chasing you! Evade!');
+  } else if (newMode === 'aggressive') {
+    for (let i = 0; i < 3; i++) {
+      const hostile = createNPCCar(0xaa2244);
+      const idx = Math.floor(Math.random() * (roadNodes.length - 1));
+      const p1 = roadNodes[idx], p2 = roadNodes[idx+1];
+      const t = Math.random();
+      hostile.position.set(p1.x + (p2.x - p1.x) * t, 0.1, p1.z + (p2.z - p1.z) * t);
+      hostile.rotation.y = Math.atan2(p2.x - p1.x, p2.z - p1.z);
+      scene.add(hostile);
+      hostileCars.push(hostile);
+    }
+    aiSpeak('⚡ AGGRESSIVE: Hostiles are fleeing! Pursue them!');
+  } else {
+    aiSpeak('🛡️ Defensive mode: Drive safely.');
+  }
+  score = 0;
+  updateUI();
+}
+
+// ----- MINI-MAP -----
+function updateMinimap() {
+  const w = minimapCanvas.width, h = minimapCanvas.height;
+  ctx.clearRect(0, 0, w, h);
+  
+  ctx.fillStyle = 'rgba(10,15,25,0.8)';
+  ctx.fillRect(0, 0, w, h);
+  
+  let minX = Infinity, maxX = -Infinity, minZ = Infinity, maxZ = -Infinity;
+  roadNodes.forEach(n => { if (n.x < minX) minX = n.x; if (n.x > maxX) maxX = n.x; if (n.z < minZ) minZ = n.z; if (n.z > maxZ) maxZ = n.z; });
+  const rangeX = Math.max(1, maxX - minX);
+  const rangeZ = Math.max(1, maxZ - minZ);
+  const scale = Math.min((w - 20) / rangeX, (h - 20) / rangeZ);
+  
+  function toCanvas(x, z) {
+    const cx = 10 + (x - minX) * scale + (w - 20 - rangeX * scale) / 2;
+    const cy = 10 + (z - minZ) * scale + (h - 20 - rangeZ * scale) / 2;
+    return { x: cx, y: h - cy };
+  }
+  
+  ctx.strokeStyle = '#666';
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  roadNodes.forEach((n, i) => {
+    const p = toCanvas(n.x, n.z);
+    if (i === 0) ctx.moveTo(p.x, p.y);
+    else ctx.lineTo(p.x, p.y);
+  });
+  ctx.stroke();
+  
+  roadNodes.forEach((n, i) => {
+    const p = toCanvas(n.x, n.z);
+    ctx.fillStyle = i === 0 ? '#00ff88' : (i === roadNodes.length-1 ? '#ff4488' : '#aaddff');
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, 3, 0, Math.PI*2);
+    ctx.fill();
+    if (i % 2 === 0 && i < roadNodes.length-1) {
+      ctx.fillStyle = '#ffffff40';
+      ctx.font = '6px monospace';
+      ctx.fillText(ZONE_LABELS[i] || '', p.x-4, p.y-6);
+    }
+  });
+  
+  if (vehicle) {
+    const p = toCanvas(vehicle.position.x, vehicle.position.z);
+    ctx.fillStyle = '#ff3333';
+    ctx.shadowColor = '#ff3333';
+    ctx.shadowBlur = 8;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, 5, 0, Math.PI*2);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+    const dir = new THREE.Vector3(0, 0, -1).applyQuaternion(vehicle.quaternion);
+    ctx.strokeStyle = '#ff3333';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(p.x, p.y);
+    ctx.lineTo(p.x + dir.x * 8, p.y - dir.z * 8);
+    ctx.stroke();
+  }
+  
+  policeCars.forEach(pc => {
+    const p = toCanvas(pc.position.x, pc.position.z);
+    ctx.fillStyle = '#ff8800';
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, 3, 0, Math.PI*2);
+    ctx.fill();
+  });
+  hostileCars.forEach(hc => {
+    const p = toCanvas(hc.position.x, hc.position.z);
+    ctx.fillStyle = '#ff4488';
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, 3, 0, Math.PI*2);
+    ctx.fill();
+  });
+  
+  ctx.fillStyle = '#ffffff60';
+  ctx.font = '8px monospace';
+  const start = toCanvas(roadNodes[0].x, roadNodes[0].z);
+  ctx.fillText('A', start.x-4, start.y-8);
+  const end = toCanvas(roadNodes[roadNodes.length-1].x, roadNodes[roadNodes.length-1].z);
+  ctx.fillText('Z', end.x-4, end.y-8);
+}
+
+// ----- PHYSICS & UPDATE -----
+function updatePhysics(delta) {
+  if (!vehicle || gameState !== GameState.PLAYING) return;
+  const accel = 45, brake = 35, turnSpeed = 3.2, friction = 0.96;
+  
+  const forward = keys.w || keys.ArrowUp;
+  const backward = keys.s || keys.ArrowDown;
+  const left = keys.a || keys.ArrowLeft;
+  const right = keys.d || keys.ArrowRight;
+  
+  if (forward) speed = Math.min(speed + accel * delta, maxSpeed);
+  else if (backward) speed = Math.max(speed - brake * delta, -maxSpeed * 0.2);
+  else speed *= friction;
+  
+  if (keys.space) speed *= 0.90;
+  if (keys.enter) { speed = Math.min(speed + accel * delta * 2, maxSpeed * 1.2); }
+
+  if (Math.abs(speed) > 0.5) {
+    const turn = (left ? 1 : 0) - (right ? 1 : 0);
+    vehicle.rotation.y += turn * turnSpeed * delta * (speed / maxSpeed);
+  }
+  const forwardVec = new THREE.Vector3(0, 0, -1).applyQuaternion(vehicle.quaternion);
+  vehicle.position.add(forwardVec.multiplyScalar(speed * delta * 0.7));
+  
+  if (Math.abs(vehicle.position.x) > 45) vehicle.position.x *= -0.8;
+  if (vehicle.position.z > 5) vehicle.position.z = 5;
+  if (vehicle.position.z < -55) vehicle.position.z = -55;
+
+  let minDist = Infinity;
+  let nearestIdx = 0;
+  roadNodes.forEach((n, i) => {
+    const d = Math.sqrt((vehicle.position.x - n.x)**2 + (vehicle.position.z - n.z)**2);
+    if (d < minDist) { minDist = d; nearestIdx = i; }
+  });
+  currentZoneIndex = Math.min(nearestIdx, roadNodes.length-1);
+  nextZoneIndex = Math.min(currentZoneIndex + 1, roadNodes.length-1);
+  zoneDisplay.innerText = ZONE_LABELS[currentZoneIndex] || '?';
+  
+  if (currentZoneIndex >= roadNodes.length - 2) {
+    aiSpeak('🏁 You reached Z! Mission complete! +500 points.');
+    score += 500;
+    generateRoadNodes();
+    buildRoadMesh();
+    vehicle.position.set(roadNodes[0].x, 0.2, roadNodes[0].z);
+    vehicle.rotation.y = 0;
+    aiSpeak('🔄 New road generated! Drive from A to Z again.');
+  }
+
+  npcs.forEach((npc, idx) => {
+    const targetIdx = (idx + Math.floor(frameCount / 120)) % (roadNodes.length - 1);
+    const p1 = roadNodes[targetIdx];
+    const p2 = roadNodes[Math.min(targetIdx+1, roadNodes.length-1)];
+    const t = (Math.sin(frameCount*0.002 + idx*2) * 0.5 + 0.5);
+    const x = p1.x + (p2.x - p1.x) * t;
+    const z = p1.z + (p2.z - p1.z) * t;
+    npc.position.x += (x - npc.position.x) * delta * 0.5;
+    npc.position.z += (z - npc.position.z) * delta * 0.5;
+    npc.rotation.y = Math.atan2(p2.x - p1.x, p2.z - p1.z);
+  });
+
+  if (mode === 'evasive') {
+    pursuitCount = policeCars.length;
+    pursuitDisplay.innerText = pursuitCount;
+    policeCars.forEach((police, idx) => {
+      const dir = new THREE.Vector3().copy(vehicle.position).sub(police.position);
+      dir.y = 0;
+      const dist = dir.length();
+      if (dist > 1.5) {
+        dir.normalize();
+        police.position.add(dir.multiplyScalar(delta * (5 + idx * 0.5)));
+        police.rotation.y = Math.atan2(dir.x, dir.z);
+      }
+      if (dist < 2.2) {
+        speed *= 0.2;
+        aiSpeak('💥 Police collided! Reputation down.');
+        reputation = Math.max(1, reputation - 0.3);
+        scene.remove(police);
+        policeCars.splice(idx, 1);
+        pursuitCount = policeCars.length;
+        pursuitDisplay.innerText = pursuitCount;
+        if (policeCars.length === 0) {
+          aiSpeak('✅ Evaded all police! Mission complete.');
+          score += 100;
+        }
+        updateUI();
+      }
+    });
+    if (policeCars.length < 2 && frameCount % 120 === 0) {
+      const police = createPoliceCar();
+      const idx = Math.floor(Math.random() * (roadNodes.length - 1));
+      const p1 = roadNodes[idx], p2 = roadNodes[idx+1];
+      const t = Math.random();
+      police.position.set(p1.x + (p2.x - p1.x) * t, 0.1, p1.z + (p2.z - p1.z) * t);
+      scene.add(police);
+      policeCars.push(police);
+      aiSpeak('🚨 More police are joining the chase!');
+    }
+  }
+
+  if (mode === 'aggressive') {
+    pursuitCount = hostileCars.length;
+    pursuitDisplay.innerText = pursuitCount;
+    hostileCars.forEach((hostile, idx) => {
+      const dir = new THREE.Vector3().copy(hostile.position).sub(vehicle.position);
+      dir.y = 0;
+      const dist = dir.length();
+      if (dist < 30 && dist > 1.5) {
+        dir.normalize();
+        hostile.position.add(dir.multiplyScalar(delta * (4 + idx * 0.3)));
+        hostile.rotation.y = Math.atan2(dir.x, dir.z);
+      }
+      if (dist < 2.5) {
+        aiSpeak('🚔 Hostile captured! +50 points.');
+        score += 50;
+        scene.remove(hostile);
+        hostileCars.splice(idx, 1);
+        pursuitCount = hostileCars.length;
+        pursuitDisplay.innerText = pursuitCount;
+        if (hostileCars.length === 0) {
+          aiSpeak('🏁 All hostiles captured! Mission complete.');
+          score += 200;
+        }
+        updateUI();
+      }
+    });
+    if (hostileCars.length < 2 && frameCount % 150 === 0) {
+      const hostile = createNPCCar(0xaa2244);
+      const idx = Math.floor(Math.random() * (roadNodes.length - 1));
+      const p1 = roadNodes[idx], p2 = roadNodes[idx+1];
+      const t = Math.random();
+      hostile.position.set(p1.x + (p2.x - p1.x) * t, 0.1, p1.z + (p2.z - p1.z) * t);
+      scene.add(hostile);
+      hostileCars.push(hostile);
+      aiSpeak('⚡ New hostile spotted! Pursue!');
+    }
+  }
+
+  if (mode === 'defensive' && frameCount % 60 === 0 && speed > 5) score += 1;
+  else if (mode === 'aggressive' && frameCount % 30 === 0 && speed > 15) score += 2;
+  else if (mode === 'evasive' && frameCount % 20 === 0 && speed > 25) score += 3;
+
+  updateAudio(speed);
+
+  if (currentView === 'first') {
+    const offset = new THREE.Vector3(0, 1.8, 0).applyQuaternion(vehicle.quaternion);
+    camera.position.copy(vehicle.position.clone().add(offset));
+    const lookTarget = new THREE.Vector3(0, 0, -10).applyQuaternion(vehicle.quaternion);
+    camera.lookAt(vehicle.position.clone().add(lookTarget));
+  } else if (currentView === 'rear') {
+    const offset = new THREE.Vector3(0, 2.0, 6).applyQuaternion(vehicle.quaternion);
+    camera.position.copy(vehicle.position.clone().add(offset));
+    camera.lookAt(vehicle.position);
+  } else if (currentView === 'third' || currentView === 'drone') {
+    controls.target.copy(vehicle.position);
+    controls.target.y += 2;
+    controls.update();
+  }
+
+  if (frameCount % 200 === 0) {
+    const msgs = ['🚦 Keep moving!', '📌 Follow the scribbled road.', '⚡ Watch for hostiles!', '🛡️ Stay defensive!'];
+    aiSpeak(msgs[Math.floor(Math.random() * msgs.length)]);
+  }
+  
+  updateUI();
+  updateMinimap();
+}
+
+function updateUI() {
+  speedDisplay.innerText = Math.round(Math.abs(speed));
+  scoreDisplay.innerText = score;
+  repDisplay.innerText = reputation.toFixed(1);
+}
+
+// ----- INPUT SETUP -----
+function setupInput() {
+  document.addEventListener('keydown', (e) => {
+    const k = e.key;
+    if (k === 'w' || k === 'W' || k === 'ArrowUp') { e.preventDefault(); keys.w = true; keys.ArrowUp = true; }
+    if (k === 's' || k === 'S' || k === 'ArrowDown') { e.preventDefault(); keys.s = true; keys.ArrowDown = true; }
+    if (k === 'a' || k === 'A' || k === 'ArrowLeft') { e.preventDefault(); keys.a = true; keys.ArrowLeft = true; }
+    if (k === 'd' || k === 'D' || k === 'ArrowRight') { e.preventDefault(); keys.d = true; keys.ArrowRight = true; }
+    if (k === ' ') { e.preventDefault(); keys.space = true; }
+    if (k === 'Enter') { e.preventDefault(); keys.enter = true; }
+    if (k === 'p' || k === 'P') { togglePause(); }
+    if (k === 'r' || k === 'R') { if (gameState === GameState.GAME_OVER) resetGame(); }
+    if (k === 'v' || k === 'V') {
+      const views = ['first', 'rear', 'third', 'drone'];
+      let idx = views.indexOf(currentView);
+      idx = (idx + 1) % views.length;
+      setView(views[idx]);
+    }
+  });
+  document.addEventListener('keyup', (e) => {
+    const k = e.key;
+    if (k === 'w' || k === 'W' || k === 'ArrowUp') { keys.w = false; keys.ArrowUp = false; }
+    if (k === 's' || k === 'S' || k === 'ArrowDown') { keys.s = false; keys.ArrowDown = false; }
+    if (k === 'a' || k === 'A' || k === 'ArrowLeft') { keys.a = false; keys.ArrowLeft = false; }
+    if (k === 'd' || k === 'D' || k === 'ArrowRight') { keys.d = false; keys.ArrowRight = false; }
+    if (k === ' ') { keys.space = false; }
+    if (k === 'Enter') { keys.enter = false; }
+  });
+
+  document.getElementById('mode-defensive').addEventListener('click', () => setMode('defensive'));
+  document.getElementById('mode-aggressive').addEventListener('click', () => setMode('aggressive'));
+  document.getElementById('mode-evasive').addEventListener('click', () => setMode('evasive'));
+  
+  document.querySelectorAll('#view-toggle-container button').forEach(btn => btn.addEventListener('click', () => setView(btn.dataset.view)));
+
+  const steerLeft = document.getElementById('steer-left');
+  const steerRight = document.getElementById('steer-right');
+  const steerAccel = document.getElementById('steer-accel');
+  const steerBrake = document.getElementById('steer-brake');
+  
+  function addTouchListeners(el, keyOn) {
+    el.addEventListener('mousedown', (e) => { e.preventDefault(); keys[keyOn] = true; });
+    el.addEventListener('mouseup', () => { keys[keyOn] = false; });
+    el.addEventListener('mouseleave', () => { keys[keyOn] = false; });
+    el.addEventListener('touchstart', (e) => { e.preventDefault(); keys[keyOn] = true; }, { passive: false });
+    el.addEventListener('touchend', (e) => { e.preventDefault(); keys[keyOn] = false; }, { passive: false });
+    el.addEventListener('touchcancel', () => { keys[keyOn] = false; });
+  }
+  addTouchListeners(steerLeft, 'a');
+  addTouchListeners(steerRight, 'd');
+  addTouchListeners(steerAccel, 'w');
+  addTouchListeners(steerBrake, 's');
+
+  document.getElementById('chat-send').addEventListener('click', () => {
+    const txt = chatInput.value.trim();
+    if (txt) { handleChatInput(txt); chatInput.value = ''; }
+  });
+  chatInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      const txt = chatInput.value.trim();
+      if (txt) { handleChatInput(txt); chatInput.value = ''; }
+    }
+  });
+}
+
+function togglePause() {
+  if (gameState === GameState.PLAYING) {
+    gameState = GameState.PAUSED;
+    aiSpeak('⏸️ Game paused. Press P to resume.');
+  } else if (gameState === GameState.PAUSED) {
+    gameState = GameState.PLAYING;
+    aiSpeak('▶️ Resumed.');
+  }
+}
+
+function resetGame() {
+  gameState = GameState.PLAYING;
+  speed = 0;
+  score = 0;
+  reputation = 4.8;
+  vehicle.position.set(0, 0.2, 0);
+  vehicle.rotation.y = 0;
+  clearSpecialCars();
+  generateRoadNodes();
+  buildRoadMesh();
+  setMode('defensive');
+  aiSpeak('🔄 Game reset. Drive from A to Z!');
+  updateUI();
+}
+
+function onResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+}
+
+function animate() {
+  requestAnimationFrame(animate);
+  const delta = Math.min(clock.getDelta(), 0.05);
+  frameCount++;
+  if (gameState === GameState.PLAYING) {
+    updatePhysics(delta);
+  }
+  renderer.render(scene, camera);
+}
+
+function init() {
+  initScene();
+  setupInput();
+  setView('first');
+  setMode('defensive');
+  window.addEventListener('resize', onResize);
+  animate();
+  initAudio();
+  aiSpeak('🚗 Arrow keys drive, Space brake, Enter boost, V view, P pause.');
+}
+
+init();
+</script>
+</body>
+</html>
