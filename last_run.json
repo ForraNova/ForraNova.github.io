@@ -1,12 +1,12 @@
 {
-    "last_update": "August 21, 2026 | 06:31 AM",
+    "last_update": "August 21, 2026 | 09:28 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[06:30:51] SUCCESS: Machine Learning (3 found)",
-        "[06:30:54] SUCCESS: Front-End / React (3 found)",
-        "[06:30:56] SUCCESS: Writing / Creative (0 found)",
-        "[06:30:59] SUCCESS: Virtual Assistant (0 found)"
+        "[09:28:18] SUCCESS: Machine Learning (3 found)",
+        "[09:28:21] SUCCESS: Front-End / React (3 found)",
+        "[09:28:23] SUCCESS: Writing / Creative (0 found)",
+        "[09:28:26] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
                 },
                 {
-                    "position": "Open positions",
-                    "link": "https://remoteok.com/remote-jobs/remote-open-positions-uzeats-1137037"
+                    "position": "Reddy Express Alice Springs Mt Gillen Customer Service Representative",
+                    "link": "https://remoteok.com/remote-jobs/remote-reddy-express-alice-springs-mt-gillen-customer-service-representative-otr-1137043"
                 }
             ]
         },
