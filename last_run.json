@@ -1,12 +1,12 @@
 {
-    "last_update": "August 21, 2026 | 09:16 PM",
+    "last_update": "August 22, 2026 | 12:42 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:16:34] SUCCESS: Machine Learning (3 found)",
-        "[21:16:37] SUCCESS: Front-End / React (3 found)",
-        "[21:16:39] SUCCESS: Writing / Creative (0 found)",
-        "[21:16:42] SUCCESS: Virtual Assistant (0 found)"
+        "[00:42:06] SUCCESS: Machine Learning (3 found)",
+        "[00:42:08] SUCCESS: Front-End / React (3 found)",
+        "[00:42:11] SUCCESS: Writing / Creative (0 found)",
+        "[00:42:14] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
                 },
                 {
-                    "position": "Estimator Brisbane",
-                    "link": "https://remoteok.com/remote-jobs/remote-estimator-brisbane-mcnab-1137047"
+                    "position": "DESARROLLADOR FULL STACK",
+                    "link": "https://remoteok.com/remote-jobs/remote-desarrollador-full-stack-kruger-nearshore-llc-rekluti-1137062"
                 }
             ]
         },
