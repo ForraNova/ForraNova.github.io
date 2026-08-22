@@ -1,12 +1,12 @@
 {
-    "last_update": "August 22, 2026 | 03:35 AM",
+    "last_update": "August 22, 2026 | 06:24 AM",
     "status": "Online",
-    "total_found": 6,
+    "total_found": 3,
     "logs": [
-        "[03:35:37] SUCCESS: Machine Learning (3 found)",
-        "[03:35:39] SUCCESS: Front-End / React (3 found)",
-        "[03:35:42] SUCCESS: Writing / Creative (0 found)",
-        "[03:35:45] SUCCESS: Virtual Assistant (0 found)"
+        "[06:24:12] SUCCESS: Machine Learning (3 found)",
+        "[06:24:14] SUCCESS: Front-End / React (0 found)",
+        "[06:24:16] SUCCESS: Writing / Creative (0 found)",
+        "[06:24:19] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,27 +21,14 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
                 },
                 {
-                    "position": "DESARROLLADOR FULL STACK",
-                    "link": "https://remoteok.com/remote-jobs/remote-desarrollador-full-stack-kruger-nearshore-llc-rekluti-1137062"
+                    "position": "Parcel Delivery Drivers",
+                    "link": "https://remoteok.com/remote-jobs/remote-parcel-delivery-drivers-inpost-group-1137066"
                 }
             ]
         },
         {
             "query": "Front-End / React",
-            "jobs": [
-                {
-                    "position": "Aviation Maintenance Technician",
-                    "link": "https://remoteok.com/remote-jobs/remote-aviation-maintenance-technician-fedex-1136922"
-                },
-                {
-                    "position": "Valet Driver",
-                    "link": "https://remoteok.com/remote-jobs/remote-valet-driver-marina-bay-sands-1136920"
-                },
-                {
-                    "position": "Senior React Full stack Developer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-react-full-stack-developer-lemon-io-1136299"
-                }
-            ]
+            "jobs": []
         },
         {
             "query": "Writing / Creative",
