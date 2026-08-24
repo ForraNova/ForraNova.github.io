@@ -1,12 +1,12 @@
 {
-    "last_update": "August 24, 2026 | 03:47 AM",
+    "last_update": "August 24, 2026 | 06:39 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[03:46:56] SUCCESS: Machine Learning (3 found)",
-        "[03:46:59] SUCCESS: Front-End / React (3 found)",
-        "[03:47:01] SUCCESS: Writing / Creative (0 found)",
-        "[03:47:05] SUCCESS: Virtual Assistant (0 found)"
+        "[06:38:51] SUCCESS: Machine Learning (3 found)",
+        "[06:38:54] SUCCESS: Front-End / React (3 found)",
+        "[06:38:56] SUCCESS: Writing / Creative (0 found)",
+        "[06:38:59] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-genai-engineer-ai-builder-ai-agent-associate-specialist-magic-compass-limited-1135735"
                 },
                 {
-                    "position": "Senior Marketing Manager Paid Ads",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
+                    "position": "Residential Technician",
+                    "link": "https://remoteok.com/remote-jobs/remote-residential-technician-the-abaco-club-1137096"
                 },
                 {
-                    "position": "Electrical Tradesperson",
-                    "link": "https://remoteok.com/remote-jobs/remote-electrical-tradesperson-territory-generation-1137092"
+                    "position": "Senior Marketing Manager Paid Ads",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-marketing-manager-paid-ads-acebet-com-1129629"
                 }
             ]
         },
