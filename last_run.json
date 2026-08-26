@@ -1,12 +1,12 @@
 {
-    "last_update": "August 26, 2026 | 09:33 AM",
+    "last_update": "August 26, 2026 | 12:33 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[09:33:11] SUCCESS: Machine Learning (3 found)",
-        "[09:33:13] SUCCESS: Front-End / React (3 found)",
-        "[09:33:16] SUCCESS: Writing / Creative (0 found)",
-        "[09:33:19] SUCCESS: Virtual Assistant (0 found)"
+        "[12:32:55] SUCCESS: Machine Learning (3 found)",
+        "[12:32:58] SUCCESS: Front-End / React (3 found)",
+        "[12:33:00] SUCCESS: Writing / Creative (0 found)",
+        "[12:33:03] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-back-of-house-buffalo-wild-wings-fralich-inc-1137129"
                 },
                 {
-                    "position": "OVERNIGHT SHIFT Retail Merchandiser",
-                    "link": "https://remoteok.com/remote-jobs/remote-overnight-shift-retail-merchandiser-bass-pro-shops-1137123"
+                    "position": "Store Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-store-manager-carters-inc-1137135"
                 }
             ]
         },
