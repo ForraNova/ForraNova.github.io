@@ -1,12 +1,12 @@
 {
-    "last_update": "August 26, 2026 | 06:32 AM",
+    "last_update": "August 26, 2026 | 09:33 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[06:32:48] SUCCESS: Machine Learning (3 found)",
-        "[06:32:51] SUCCESS: Front-End / React (3 found)",
-        "[06:32:53] SUCCESS: Writing / Creative (0 found)",
-        "[06:32:56] SUCCESS: Virtual Assistant (0 found)"
+        "[09:33:11] SUCCESS: Machine Learning (3 found)",
+        "[09:33:13] SUCCESS: Front-End / React (3 found)",
+        "[09:33:16] SUCCESS: Writing / Creative (0 found)",
+        "[09:33:19] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-genai-engineer-ai-builder-ai-agent-associate-specialist-magic-compass-limited-1135735"
                 },
                 {
-                    "position": "OVERNIGHT SHIFT Retail Merchandiser",
-                    "link": "https://remoteok.com/remote-jobs/remote-overnight-shift-retail-merchandiser-bass-pro-shops-1137123"
+                    "position": "BACK OF HOUSE",
+                    "link": "https://remoteok.com/remote-jobs/remote-back-of-house-buffalo-wild-wings-fralich-inc-1137129"
                 },
                 {
-                    "position": "Find a job 3rd comi",
-                    "link": "https://remoteok.com/remote-jobs/remote-find-a-job-3rd-comi-lemon-tree-premier-1137127"
+                    "position": "OVERNIGHT SHIFT Retail Merchandiser",
+                    "link": "https://remoteok.com/remote-jobs/remote-overnight-shift-retail-merchandiser-bass-pro-shops-1137123"
                 }
             ]
         },
