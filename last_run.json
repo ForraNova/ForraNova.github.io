@@ -1,12 +1,12 @@
 {
-    "last_update": "August 26, 2026 | 12:33 PM",
+    "last_update": "August 26, 2026 | 04:12 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[12:32:55] SUCCESS: Machine Learning (3 found)",
-        "[12:32:58] SUCCESS: Front-End / React (3 found)",
-        "[12:33:00] SUCCESS: Writing / Creative (0 found)",
-        "[12:33:03] SUCCESS: Virtual Assistant (0 found)"
+        "[16:11:57] SUCCESS: Machine Learning (3 found)",
+        "[16:12:00] SUCCESS: Front-End / React (3 found)",
+        "[16:12:02] SUCCESS: Writing / Creative (0 found)",
+        "[16:12:05] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-genai-engineer-ai-builder-ai-agent-associate-specialist-magic-compass-limited-1135735"
                 },
                 {
-                    "position": "BACK OF HOUSE",
-                    "link": "https://remoteok.com/remote-jobs/remote-back-of-house-buffalo-wild-wings-fralich-inc-1137129"
+                    "position": "Course Director UX UI and AI",
+                    "link": "https://remoteok.com/remote-jobs/remote-course-director-ux-ui-and-ai-interaction-design-foundation-1137139"
                 },
                 {
-                    "position": "Store Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-store-manager-carters-inc-1137135"
+                    "position": "Education Designer UX UI and AI",
+                    "link": "https://remoteok.com/remote-jobs/remote-education-designer-ux-ui-and-ai-interaction-design-foundation-1137138"
                 }
             ]
         },
