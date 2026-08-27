@@ -1,12 +1,12 @@
 {
-    "last_update": "August 26, 2026 | 07:40 PM",
+    "last_update": "August 27, 2026 | 12:23 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[19:40:38] SUCCESS: Machine Learning (3 found)",
-        "[19:40:41] SUCCESS: Front-End / React (3 found)",
-        "[19:40:44] SUCCESS: Writing / Creative (0 found)",
-        "[19:40:47] SUCCESS: Virtual Assistant (0 found)"
+        "[00:23:12] SUCCESS: Machine Learning (3 found)",
+        "[00:23:14] SUCCESS: Front-End / React (3 found)",
+        "[00:23:16] SUCCESS: Writing / Creative (0 found)",
+        "[00:23:20] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-genai-engineer-ai-builder-ai-agent-associate-specialist-magic-compass-limited-1135735"
                 },
                 {
-                    "position": "Course Director UX UI and AI",
-                    "link": "https://remoteok.com/remote-jobs/remote-course-director-ux-ui-and-ai-interaction-design-foundation-1137139"
+                    "position": "Senior Level Designer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-level-designer-blackbird-interactive-1137156"
                 },
                 {
-                    "position": "Education Designer UX UI and AI",
-                    "link": "https://remoteok.com/remote-jobs/remote-education-designer-ux-ui-and-ai-interaction-design-foundation-1137138"
+                    "position": "Oracle Fusion Cloud Lead \u2014 Logistics & Supply Chain Management",
+                    "link": "https://remoteok.com/remote-jobs/remote-oracle-fusion-cloud-lead-logistics-supply-chain-management-tessera-labs-1137155"
                 }
             ]
         },
