@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jesse Okoro's personal portfolio — student and aspiring web developer building projects with HTML, CSS, and JavaScript.">
+    <title>Jesse Okoro | Web Developer & Student</title>
+    <link rel="icon" href="data:,">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* 1. Reset and Core Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --bg-dark: #121214;
+            --bg-card: #1c1c24;
+            --primary-accent: #ff007f; /* Neon Pink */
+            --secondary-accent: #00e5ff; /* Cyan */
+            --tertiary-accent: #7928ca; /* Deep Purple */
+            --other-accent: #0066ff; /* Blue */
+            --text-main: #ffffff;
+            --text-sub: #b3b3b3;
+            --card-hover-bg: #2a2a35;
+            --focus-ring: 2px solid var(--secondary-accent);
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* 2. Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 10%;
+            background-color: rgba(18, 18, 20, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--tertiary-accent);
+        }
+
+        .heroName {
+            font-size: 3.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--primary-accent), var(--secondary-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--secondary-accent);
+        }
+
+        nav a:focus-visible,
+        .btn:focus-visible,
+        .profile-photo:focus-visible {
+            outline: var(--focus-ring);
+            outline-offset: 3px;
+        }
+
+        /* 3. Hero Section */
+        #hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 15rem 1rem;
+            background: radial-gradient(circle at center, rgba(121, 40, 202, 0.2) 0%, transparent 70%);
+        }
+
+        .logo {
+            position: relative;
+            margin-bottom: -1rem;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            overflow: visible;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        } 
+        .logoFooter {
+            position: relative;
+            margin-bottom: 1rem;
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            overflow: visible;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Profile Photo Styling */
+        .profile-photo-container {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+
+
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--secondary-accent);
+            box-shadow:0 0 25px rgba(0, 229, 255, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 35px rgba(255, 0, 127, 0.7);
+            border-color: var(--primary-accent);
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        #hero h1 span {
+            color: var(--secondary-accent);
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            color: var(--text-sub);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .highlight {
+            color: var(--primary-accent);
+            font-weight: bold;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, var(--primary-accent), var(--tertiary-accent));
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor:pointer;
+            box-shadow: 0 4px 15px rgba(255, 0, 127, 0.4);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 229, 255, 0.6);
+        }
+
+        /* 4. Layout Sections */
+        section {
+            padding: 15rem 10%;
+            min-height: 85vh;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--secondary-accent);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-card {
+            background-color: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-accent);
+        }
+
+        .info-card h3 {
+            color: var(--secondary-accent);
+            margin-bottom: 1rem;
+        }
+        .info-card:hover {
+            color: #ffffff;
+            background: var(--card-hover-bg);
+            transition: background-color 0.3s ease;
+        }
+        .info-card--cyan {
+            border-left-color: var(--secondary-accent);
+        }
+        .info-card--purple {
+            border-left-color: var(--tertiary-accent);
+        }
+        .info-card--blue {
+            border-left-color: var(--other-accent);
+        }
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .skill-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--secondary-accent);
+            padding: 0.8rem 1.5rem;
+            border-radius: 20px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Interactive Counter Section */
+        .widget-section {
+            background-color: var(--bg-card);
+            border-radius: 15px;
+            padding: 2.5rem;
+            text-align: center;
+            border: 1px solid var(--tertiary-accent);
+        }
+
+        .counter-display {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--secondary-accent);
+            margin: 1rem 0;
+        }
+
+        /* 5. Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #hero h1 { font-size: 2.5rem; }
+            nav { flex-direction: column; gap: 1rem; }
+
+            section, #hero {
+                padding: 15rem 10%;
+                min-height: 85vh;
+            }
+
+            .profile-photo { width: 140px; height: 140px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>            
+        <img src="../static/images/jakeLogo.png" alt="JakeCorp Logo" class="logo" loading="lazy">
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+        </ul>
+    </nav>
+
+    <section id="hero">
+        <div class="profile-photo-container">
+            <img src="../static/images/jake.jpg" alt="Jesse Okoro" class="profile-photo" loading="lazy">
+        </div>
+
+        <h1>Hi, I'm <span class="heroName">Jesse Okoro</span></h1>
+        <p class="tagline">An ambitious <span class="highlight">SS1 Student</span> and passionate <span class="highlight">Web Developer</span> based in <span class="highlight">Rivers State</span>.</p>
+        <a href="#about" class="btn">Explore My World</a>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
+            <div class="info-card">
+                <h3>My Education</h3>
+                <p>I am currently a Senior Secondary 1 (<strong>SS1</strong>) student balancing my high school academic goals with learning modern web technologies.</p>
+            </div>
+            <div class="info-card info-card--cyan">
+                <h3>My Location</h3>
+                <p>Living in <strong>Rivers State, Nigeria</strong>, I am inspired by the energy of my local community to build web projects that can make a real impact locally and beyond.</p>
+            </div>
+            <div class="info-card info-card--purple">
+                <h3>My Interests</h3>
+                <p>Exploring creative UI designs, experimenting with new JavaScript frameworks, and reading tech blogs to stay ahead of modern web trends.</p>
+            </div>
+            <div class="info-card info-card--blue">
+                <h3>My Goal</h3>
+                <p>To master front-end technologies and continuously grow into a full-stack engineer, turning bold creative concepts into fast, responsive websites.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Core Skills</h2>
+        <div class="skills-container">
+            <div class="skill-badge"><span><i class="fa-solid fa-code"></i></span> HTML5 Structure</div>
+            <div class="skill-badge"><span><i class="fas fa-palette"></i> </span> CSS3 & Layouts</div>
+            <div class="skill-badge"><span><i class="fas fa-spinner fa-pulse"></i></span> JavaScript</div>
+            <div class="skill-badge"><span>📲</span> Responsive Design</div>
+            <div class="skill-badge"><span><i class="fas fa-search"></i> </span> Debugging</div>
+            <div class="skill-badge"><span><i class="fas fa-desktop"></i> </span> Prompt Engineering</div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Interactive Project Demo</h2>
+        <div class="widget-section">
+            <h3>Motivational Goal Counter</h3>
+            <p style="color: var(--text-sub);">Click the button below to log your daily coding practice session!</p>
+            <div class="counter-display" id="sessionCounter" aria-live="polite" aria-atomic="true">0</div>
+            <button class="btn" onclick="incrementCounter()">Log Session</button>
+            <button class="btn" onclick="resetCounter()" style="background: transparent; border: 1px solid var(--text-sub); margin-left: 0.5rem; box-shadow: none;">Reset</button>
+        </div>
+    </section>
+
+    <footer>        
+        <img src="../static/images/logoJC.png" alt="JakeCorp Logo" class="logoFooter" loading="lazy">
+        <p>&copy; <span id="year"></span> <span style="background: linear-gradient(45deg, var(--primary-accent), var(--secondary-accent));-webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;">Jesse Okoro</span> | 
+
+<jake style="color: #0066ff;">Jake</jake><jake style="color:#708090;">Corp</jake>
+
+
+        </p>
+    </footer>
+
+    <script>
+        // Set dynamic year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Counter functionality (persists across page reloads via localStorage)
+        const STORAGE_KEY = 'jesse-portfolio-session-count';
+        let count = parseInt(localStorage.getItem(STORAGE_KEY), 10) || 0;
+        const counterDisplay = document.getElementById('sessionCounter');
+        counterDisplay.textContent = count;
+
+        function incrementCounter() {
+            count += 1;
+            counterDisplay.textContent = count;
+            counterDisplay.style.color = count % 2 === 0 ? 'var(--primary-accent)' : 'var(--secondary-accent)';
+            localStorage.setItem(STORAGE_KEY, count);
+        }
+
+        function resetCounter() {
+            count = 0;
+            counterDisplay.textContent = count;
+            counterDisplay.style.color = 'var(--secondary-accent)';
+            localStorage.setItem(STORAGE_KEY, count);
+        }
+    </script>
+</body>
+</html>
