@@ -1,12 +1,12 @@
 {
-    "last_update": "August 31, 2026 | 09:06 AM",
+    "last_update": "August 31, 2026 | 06:29 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[09:06:35] SUCCESS: Machine Learning (3 found)",
-        "[09:06:37] SUCCESS: Front-End / React (3 found)",
-        "[09:06:40] SUCCESS: Writing / Creative (0 found)",
-        "[09:06:43] SUCCESS: Virtual Assistant (0 found)"
+        "[18:28:50] SUCCESS: Machine Learning (3 found)",
+        "[18:28:53] SUCCESS: Front-End / React (3 found)",
+        "[18:28:55] SUCCESS: Writing / Creative (0 found)",
+        "[18:28:59] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-demand-generation-manager-testgorilla-1135606"
                 },
                 {
-                    "position": "Manager Rewards Management",
-                    "link": "https://remoteok.com/remote-jobs/remote-manager-rewards-management-coca-cola-cambodia-beverage-company-ltd-1137227"
+                    "position": "Construction Estimator",
+                    "link": "https://remoteok.com/remote-jobs/remote-construction-estimator-streamline-search-1137238"
                 }
             ]
         },
