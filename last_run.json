@@ -1,17 +1,21 @@
 {
-    "last_update": "September 02, 2026 | 06:17 PM",
+    "last_update": "September 02, 2026 | 10:57 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[18:17:26] SUCCESS: Machine Learning (3 found)",
-        "[18:17:29] SUCCESS: Front-End / React (3 found)",
-        "[18:17:31] SUCCESS: Writing / Creative (0 found)",
-        "[18:17:34] SUCCESS: Virtual Assistant (0 found)"
+        "[22:57:13] SUCCESS: Machine Learning (3 found)",
+        "[22:57:16] SUCCESS: Front-End / React (3 found)",
+        "[22:57:18] SUCCESS: Writing / Creative (0 found)",
+        "[22:57:21] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
             "jobs": [
+                {
+                    "position": "Data Entry Clerk",
+                    "link": "https://remoteok.com/remote-jobs/remote-data-entry-clerk-astrek-careers-1137286"
+                },
                 {
                     "position": "Senior Demand Generation Manager",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-demand-generation-manager-testgorilla-1135606"
@@ -19,10 +23,6 @@
                 {
                     "position": "Service Sales Executive",
                     "link": "https://remoteok.com/remote-jobs/remote-service-sales-executive-emplyfy-1137280"
-                },
-                {
-                    "position": "Regional Sales Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-regional-sales-manager-orderyoyo-1137279"
                 }
             ]
         },
