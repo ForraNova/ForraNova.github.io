@@ -1,12 +1,12 @@
 {
-    "last_update": "September 02, 2026 | 01:07 PM",
+    "last_update": "September 02, 2026 | 06:17 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[13:07:20] SUCCESS: Machine Learning (3 found)",
-        "[13:07:22] SUCCESS: Front-End / React (3 found)",
-        "[13:07:25] SUCCESS: Writing / Creative (0 found)",
-        "[13:07:28] SUCCESS: Virtual Assistant (0 found)"
+        "[18:17:26] SUCCESS: Machine Learning (3 found)",
+        "[18:17:29] SUCCESS: Front-End / React (3 found)",
+        "[18:17:31] SUCCESS: Writing / Creative (0 found)",
+        "[18:17:34] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-demand-generation-manager-testgorilla-1135606"
                 },
                 {
-                    "position": "Amazon Specialist",
-                    "link": "https://remoteok.com/remote-jobs/remote-amazon-specialist-volar-fashion-1137268"
+                    "position": "Service Sales Executive",
+                    "link": "https://remoteok.com/remote-jobs/remote-service-sales-executive-emplyfy-1137280"
                 },
                 {
-                    "position": "Multi Skilled Maintenance Technician",
-                    "link": "https://remoteok.com/remote-jobs/remote-multi-skilled-maintenance-technician-sigma-1137273"
+                    "position": "Regional Sales Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-regional-sales-manager-orderyoyo-1137279"
                 }
             ]
         },
