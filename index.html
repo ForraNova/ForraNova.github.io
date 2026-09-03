@@ -32,7 +32,7 @@
                 <li><a href="#domain-portal" onclick="navigateTo('domain-portal', event)" class="nav-link active">Domain</a></li>                        
                 <li><a href="#about" onclick="navigateTo('about', event)" class="nav-link">About</a></li>
                 <li><a href="templates/chat-show.html">Chat Show</a></li>
-                <li><a href="#training" onclick="navigateTo('training', event)" class="nav-link">Training</a></li>
+                <li><a href="#training" onclick="navigateTo('training', event)" class="nav-link">Seminars</a></li>
                 <li><a href="#tools" onclick="navigateTo('tools', event)" class="nav-link">Tools</a></li>
                 <li><a href="#games" onclick="navigateTo('games', event)" class="nav-link">Games</a></li>
             </ul>
@@ -117,6 +117,17 @@
                   <a href="templates/hub/finAI.html" class="portal-btn">Financial AI</a>
               </div>
             </li>
+
+
+            <li class="seminar-item">
+              <span class="seminar-trigger" onclick="toggleDropdown('smart-drop')">Smart School Advantage</span>
+              <div id="smart-drop" class="dropdown-content">
+                <p>Use AI, take back time for other important task.</p>
+                  <a href="templates/hub/smart.html" class="portal-btn">Smart School</a>
+              </div>
+            </li>
+
+
             <li class="seminar-item">
               <span class="seminar-trigger" onclick="toggleDropdown('grow-drop')">School Growth & Finance</span>
               <div id="grow-drop" class="dropdown-content">
@@ -167,25 +178,25 @@
               </li>
 
               <li class="seminar-item">
-                <span class="seminar-trigger" onclick="toggleDropdown('drop-pearls-1')"> Prompt Compiler 1</span>
+                <span class="seminar-trigger" onclick="toggleDropdown('drop-pearls-1')">Prompt Compiler X-Pro.</span>
                 <div id="drop-pearls-1" class="dropdown-content">
-                  <p>Deploy a modular, P-E-A-R-L-S-based interface to structure raw requests into optimized prompt syntax with automated nuance injection and real-time output compilation.</p>
+                  <p>Deploy an expert, professional modular, P-E-A-R-L-S based interface to structure raw requests into optimized prompt syntax with automated nuance injection and real-time output compilation.</p>
                   <div class="dropdown-content-link">
-                    <a href="templates/resources/prompt-compiler_1.html" class="portal-btn">Prompt Compiler 1</a>
+                    <a href="templates/resources/Prompt-Compiler/index.html" class="portal-btn">Prompt Compiler X-Pro</a>
                   </div>
                 </div>
               </li>
               
               <li class="seminar-item">
-                <span class="seminar-trigger" onclick="toggleDropdown('drop-pearls-2')"> Prompt Compiler 2</span>
+                <span class="seminar-trigger" onclick="toggleDropdown('drop-pearls-2')"> Prompt Compiler Lit.</span>
                 <div id="drop-pearls-2" class="dropdown-content">
-                  <p>Deploy a modular, P-E-A-R-L-S-based interface to structure raw requests into optimized prompt syntax with automated nuance injection and real-time output compilation.</p>
+                  <p>Deploy a modular, P-E-A-R-L-S based interface to structure raw requests into optimized prompt syntax with automated nuance injection and real-time output compilation.</p>
                   <div class="dropdown-content-link">
-                    <a href="templates/resources/prompt-compiler_2.html" class="portal-btn">Prompt Compiler 2</a>
+                    <a href="templates/resources/prompt-compiler.html" class="portal-btn">Prompt Compiler Lit</a>
                   </div>
                 </div>
               </li>
-
+<!---
               <li class="seminar-item">
                 <span class="seminar-trigger" onclick="toggleDropdown('drop-calc')">Calculator</span>
                 <div id="drop-calc" class="dropdown-content">
@@ -193,7 +204,7 @@
                   <a href="https://blue-print-nyo-cal--eveeubi.replit.app/" class="portal-btn">Lunch FxCalc</a>
                 </div>
               </li>    
-
+--->
               <li class="seminar-item">
                 <span class="seminar-trigger" onclick="toggleDropdown('drop-chrono')">⏱️ ChronoSuite</span>
                 <div id="drop-chrono" class="dropdown-content">
@@ -322,6 +333,18 @@
 
           <!-- The Growth & Finance of Prompting -->
           <article class="portal-card">
+            <div class="card-banner">Smart School Advantage:</div>
+            <div class="card-body">
+              <div>
+                <h3>Smart School Advantage: Using AI to Improve Teaching, Administration and Growth</h3>
+                <p>Truth be told: The new reality of education have seen schools changing, whether we plan for it or not. Technology is already reshaping how lessons are prepared, how records are kept and how parents are communicated with. Use AI, take back time for other important task.</p>
+              </div>
+              <a href="templates/hub/smart.html" class="portal-btn">Launch Training</a>
+            </div>
+          </article>
+
+          <!-- The Growth & Finance of Prompting -->
+          <article class="portal-card">
             <div class="card-banner">School Growth & Finance:</div>
             <div class="card-body">
               <div>
@@ -383,29 +406,29 @@
 
           <!-- The PEARLS of Prompting -->
           <article class="portal-card">
-            <div class="card-banner">The Prompt Compiler 1</div>
+            <div class="card-banner">Prompt Compiler X-Pro</div>
             <div class="card-body">
               <div>
-                <h3>Prompt Compiler 1</h3>
-                <p>Deploy a modular, P-E-A-R-L-S-based interface to structure raw requests into optimized prompt syntax with automated nuance injection and real-time output compilation.</p>
+                <h3> Prompt Compiler X-Pro</h3>
+                <p>Deploy an expert, professional modular, P-E-A-R-L-S-based interface to structure raw requests into optimized prompt syntax with automated nuance injection and real-time output compilation.</p>
               </div>
-              <a href="templates/resources/prompt-compiler_1.html" class="portal-btn">Launch Tool</a>
+              <a href="templates/resources/Prompt-Compiler/index.html" class="portal-btn">Launch Tool</a>
             </div>
           </article>
           
           <!-- The PEARLS of Prompting -->
           <article class="portal-card">
-            <div class="card-banner">The Prompt Compiler 2</div>
+            <div class="card-banner">Prompt Compiler Lit.</div>
             <div class="card-body">
               <div>
-                <h3>Prompt Compiler 2</h3>
+                <h3>Prompt Compiler Lit.</h3>
                 <p>Deploy a modular, P-E-A-R-L-S-based interface to structure raw requests into optimized prompt syntax with automated nuance injection and real-time output compilation.</p>
               </div>
-              <a href="templates/resources/prompt-compiler_2.html" class="portal-btn">Launch Tool</a>
+              <a href="templates/resources/prompt-compiler.html" class="portal-btn">Launch Tool</a>
             </div>
           </article>
-
-          <!-- The PEARLS of Prompting -->
+<!-- 
+          <!-- The PEARLS of Prompting --- >
           <article class="portal-card">
             <div class="card-banner">Calculator</div>
             <div class="card-body">
@@ -416,7 +439,7 @@
               <a href="https://blue-print-nyo-cal--eveeubi.replit.app/" class="portal-btn">Launch FxCalc</a>
             </div>
           </article>
-
+-->
           <!-- ChronoSuite -->
           <article class="portal-card">
             <div class="card-banner">ChronoSuite - Productivity</div>
@@ -735,7 +758,7 @@
 
           <div class="forra-card">
             <h2>ForraNova Domain</h2>
-            <p>As the ecosystem of Fredrick Ubi's career continues to expand, his platform is structured across two primary portals<!---: <strong>fofem.github.io</strong> and <strong>forranova.github.io</strong>--->.</p>
+            <p>As the ecosystem of Fredrick Ubi's career continues to expand, the ForraNova Domain is structured across the folowing portals.<!---: <strong>fofem.github.io</strong> and <strong>forranova.github.io</strong>--->.</p>
 
             <ul class="mt-16" style="list-style-type: none; padding-left: 0;">
               <li style="padding: 6px 0; position: relative; padding-left: 20px;"><span style="position: absolute; left: 0; color: var(--primary-color);">▹</span> <strong>AI Chat Show:</strong> Informative Podcast, Debate, and Analysis on AI, Biogenetics, Psychology, etc.</li>
