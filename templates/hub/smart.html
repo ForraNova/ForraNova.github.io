@@ -1,0 +1,3210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+
+<title>The Smart School Advantage | AI for Teaching, Administration &amp; Growth</title>
+<link rel="stylesheet" href="../../static/css/XXXXX.css">
+
+<!-- Google Fonts & Font Awesome -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=DM+Sans:wght@400;500;700;800;900&family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+/* ===============================
+   Background Animation host
+   (structure preserved from finAI_.html)
+================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      font-family: monospace;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      transition: background 0.3s, color 0.2s;
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    #space {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      display: block;
+      background: radial-gradient(circle at center, rgba(0, 25, 50, 0.3), #000 70%);
+    }
+
+    .hud {
+      position: relative;
+      z-index: 20;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      letter-spacing: 0.1em;
+    }
+
+/* ===============================
+   FUTURISTIC THEME TOKENS
+================================ */
+
+body.dark {
+    --bg-page: #05060c;
+    --slide-bg: rgba(10, 13, 24, 0.55);
+    --text-primary: #eaf2ff;
+    --text-secondary: #a7b4d4;
+    --text-muted: #6b7796;
+
+    --accent-cyan: #ff9f43;
+    --accent-violet: #ff4757;
+
+    --card-bg: rgba(22, 27, 46, 0.55);
+    --border-light: rgba(0, 229, 255, 0.18);
+    --nav-dot-bg: rgba(167, 180, 212, 0.35);
+    --nav-dot-active: #ff4757;
+    --opaque: rgba(0, 229, 255, 0.05);
+    --transition: all 0.35s cubic-bezier(255, 255, 255, 0.94);
+    --shadow-sm: 0 20px 45px -12px rgba(255, 255, 255, 0.55);
+    --accent-emerald: #2df7a3;
+    --accent-amber: #ffb84d;
+    --grid-line: rgba(0, 229, 255, 0.08);
+}
+
+/* light mode = "daylight lab" inversion, still futuristic */
+body.light {
+    --bg-page: #fff;
+    --slide-bg: rgba(255, 255, 255, 0.72);
+    --text-primary: #0b0f1e;
+    --text-secondary: #2c3552;
+    --text-muted: #5b6584;
+
+    --accent-cyan: #ff4757;
+    --accent-violet: #ff9f43;
+    
+    --card-bg: rgba(255, 255, 255, 0.6);
+    --border-light: rgba(8, 145, 178, 0.25);
+    --nav-dot-bg: rgba(44, 53, 82, 0.25);
+    --nav-dot-active: #ff9f43;
+    --opaque: rgba(8, 145, 178, 0.06);
+    --transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --shadow-sm: 0 20px 45px -12px rgba(0, 0, 0, 0.55);
+    --accent-emerald: #059669;
+    --accent-amber: #d97706;
+    --grid-line: rgba(8, 145, 178, 0.06);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
+    overflow: hidden;
+    transition: var(--transition);
+    height: 100vh;
+    width: 100vw;
+}
+
+/* ===============================
+   HEADER AND NAVIGATION
+   (structure preserved from finAI_.html — restyled)
+================================ */
+header {
+    position: fixed;
+    top: 5px;
+    width: 100%;
+    max-height: 110px;
+    z-index: 1000;
+    background: rgba(5, 6, 12, 0.45);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0, 229, 255, 0.15);
+    margin-top: -20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+    padding: 5px 5%;
+    color: var(--accent-cyan);
+}
+
+.slogan {
+    font-size: 1.1rem;
+    flex-direction: column;
+    text-align: center;
+    color: #00e0ff;
+    padding-right: -50px;
+    margin-left: -50px;
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 18px rgba(0, 229, 255, 0.45);
+}
+
+.foota {
+    z-index: -0.3;
+    height: 55px;
+    filter: drop-shadow(0 0 10px rgba(128, 255, 255, 0.6));
+}
+
+.nav-links a {
+    font-size: 1.2rem;
+    transition: 0.3s;
+    color: #cfe9ff;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    font-family: 'Space Grotesk', sans-serif;
+    text-transform: uppercase;
+}
+
+.nav-links li {
+    margin-left: 22px;
+    font-weight: 600;
+    position: relative;
+}
+
+.nav-links li::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 1px;
+    background: var(--accent-cyan);
+    transition: width 0.25s ease;
+}
+
+.nav-links li:hover::after { width: 100%; }
+.nav-links li:hover a, .nav-links a:hover { color: var(--accent-cyan); }
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 8px;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 2px;
+    background-color: #00e0ff;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 6px rgba(0, 229, 255, 0.6);
+}
+
+@media screen and (max-width: 900px) {
+    .menu-toggle { display: flex; }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 90px;
+        left: 0;
+        background: rgba(5, 6, 12, 0.97);
+        text-align: center;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(0,229,255,0.2);
+    }
+    .nav-links.active, .nav-links.open { display: flex; }
+    .nav-links li { margin: 10px 0; }
+    .menu-toggle.active .bar {
+        width: 3px;
+        height: 22px;
+        margin: 0 2px;
+        display: inline-block;
+    }
+    .menu-toggle.active { flex-direction: row; gap: 4px; }
+}
+
+/* ================== Animated Logo ==================
+   (kept structurally identical — geometry vars preserved)
+   ============================================================ */
+:root {
+    --canvas-width: 150px;
+    --canvas-height: 160px;
+    --bg-logo-sizeW: 92px;
+    --bg-logo-sizeH: 92px;
+    --bg-logo-top: 14px;
+    --bg-logo-left: 28px;
+    --brain-size: 56px;
+    --brain-top: 30px;
+    --brain-left: 60px;
+    --heartbeat-speed: 2s;
+    --text-width: 158px;
+    --text-bottom: 28px;
+    --text-down: 18px;
+    --text-left: -10px;
+    --spin-speed: 6s;
+}
+
+.logo-component {
+    position: relative;
+    width: var(--canvas-width);
+    height: var(--canvas-height);
+    margin-left: 20px;
+    overflow: hidden;
+    perspective: 1000px;
+    background: transparent;
+    float: left;
+}
+.logo-layer {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.layer-bg-logo {
+    width: var(--bg-logo-sizeW);
+    height: var(--bg-logo-sizeH);
+    top: var(--bg-logo-top);
+    left: var(--bg-logo-left);
+    z-index: 1000;
+    border-radius: 50%;
+}
+.layer-brain {
+    width: var(--brain-size);
+    height: var(--brain-size);
+    top: var(--brain-top);
+    left: var(--brain-left);
+    z-index: 2000;
+    animation: heartbeat var(--heartbeat-speed) ease-in-out infinite;
+    transform-origin: center center;
+    filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.65));
+}
+.layer-text {
+    width: var(--text-width);
+    height: calc(var(--text-width) * 0.25);
+    bottom: var(--text-bottom);
+    left: var(--text-left);
+    z-index: 3000;
+    transform-style: preserve-3d;
+    animation: spin3D var(--spin-speed) linear infinite;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.05); }
+    45% { transform: scale(1.02); }
+    65% { transform: scale(1.07); }
+    100% { transform: scale(1); }
+}
+@keyframes spin3D {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+@media (max-width: 600px) {
+    .logo-component { overflow: visible; margin-left: 20px; }
+    .layer-text { bottom: var(--text-down); }
+}
+
+/* MAIN APP LAYOUT */
+.app-container {
+    display: flex;
+    top: 100px;
+    height: 90%;
+    width: 100%;
+    position: relative;
+    left: -15px;
+}
+
+/* LEFT NAVIGATION — vertical dot rail
+   (structure preserved from finAI_.html — restyled futuristic) */
+.nav-dots-bar {
+    position: fixed;
+    transform: rotate(90deg);
+    left: -200px;
+    top: 50%;
+    background: rgba(8, 10, 20, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 60px;
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    z-index: 1000;
+    box-shadow: 0 8px 30px rgba(0, 229, 255, 0.12);
+    border: 1px solid rgba(0, 229, 255, 0.22);
+    transition: var(--transition);
+}
+.nav-dot {
+    width: 18px;
+    height: 18px;
+    background: var(--nav-dot-bg);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    opacity: 0.6;
+    position: relative;
+}
+.nav-dot.active {
+    background: var(--nav-dot-active);
+    transform: scale(1.55);
+    opacity: 1;
+    box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.22), 0 0 14px rgba(0, 229, 255, 0.65);
+}
+.nav-dot:hover {
+    opacity: 1;
+    transform: scale(1.25);
+    background: var(--accent-cyan);
+}
+
+/* SLIDES CONTAINER */
+.slides-container {
+    flex: 1;
+    margin-left: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    overflow: hidden;
+    position: relative;
+    touch-action: pan-y;
+}
+.slide-view {
+    width: 100%;
+    max-width: 1180px;
+    height: 80vh;
+    min-height: 570px;
+    background: var(--slide-bg);
+    box-shadow: var(--shadow-sm);
+    overflow-y: auto;
+    padding: 44px 52px;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+    scrollbar-width: thin;
+    border-radius: 18px;
+    margin-top: -40px;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid var(--border-light);
+    position: relative;
+}
+.slide-view::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-violet), transparent);
+    opacity: 0.8;
+}
+@keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(24px) scale(0.985); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.slide-view.entering { animation: fadeSlideUp 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+
+/* swipe transient transforms */
+.slide-view.swipe-out-left  { transform: translateX(-60px); opacity: 0; }
+.slide-view.swipe-out-right { transform: translateX(60px); opacity: 0; }
+.slide-view.swipe-out-down  { transform: translateY(60px) scale(0.96); opacity: 0; }
+
+.slide-view::-webkit-scrollbar { width: 6px; }
+.slide-view::-webkit-scrollbar-track { background: transparent; }
+.slide-view::-webkit-scrollbar-thumb { background: var(--accent-cyan); border-radius: 8px; }
+
+.dark-mode-toggle {
+    position: fixed;
+    top: 105px;
+    right: 12px;
+    z-index: 1100;
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    border-radius: 60px;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 18px rgba(0, 229, 255, 0.15);
+    transition: 0.2s;
+    border: 1px solid var(--border-light);
+}
+.fa-moon, .fa-sun { font-size: 1.25rem; color: var(--accent-cyan); }
+
+/* gesture hint indicator */
+.gesture-hint {
+    position: fixed;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    background: rgba(8, 10, 20, 0.85);
+    border: 1px solid var(--border-light);
+    border-radius: 40px;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    backdrop-filter: blur(14px);
+    opacity: 0.85;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+.gesture-hint i { color: var(--accent-cyan); }
+.gesture-hint.fade { opacity: 0; }
+
+/* progress rail (top thin bar) */
+.progress-rail {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-violet));
+    z-index: 1200;
+    transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.7);
+}
+
+/* slide counter */
+.slide-counter {
+    position: fixed;
+    bottom: 22px;
+    right: 24px;
+    z-index: 1050;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    background: rgba(8, 10, 20, 0.55);
+    border: 1px solid var(--border-light);
+    padding: 6px 12px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+.slide-counter span { color: var(--accent-cyan); font-weight: 600; }
+
+/* prev/next arrow controls */
+.slide-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1050;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(8, 10, 20, 0.55);
+    border: 0px solid var(--border-light);
+    color: var(--accent-cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: 0.2s;
+}
+.slide-arrow:hover { background: rgba(0, 229, 255, 0.15); transform: translateY(-50%) scale(1.08); }
+.slide-arrow.prev { right: 84px; }
+.slide-arrow.next { right: 24px; }
+.slide-arrow:disabled, .slide-arrow.disabled { opacity: 0.25; pointer-events: none; }
+
+@media (max-width: 1400px) {
+    .nav-dots-bar { left: -200px; padding: 12px 8px; gap: 12px; }
+}
+@media (max-width: 860px) {
+    .nav-dots-bar { left: -220px; padding: 12px 8px; gap: 12px; }
+    .slides-container { margin-left: 70px; padding: 16px; }
+    .slide-view { padding: 30px 22px; height: 82vh; }
+    .pillar-grid, .tool-grid { grid-template-columns: 1fr; }
+    .slide-arrow { display: flex;}
+}
+@media (max-width: 580px) {
+    .nav-dots-bar { left: -215px; gap: 10px; padding: 12px 6px; }
+    .slide-view { padding: 22px 16px; }
+    h2 { font-size: 1.9rem; }
+        .slide-arrow { display: flex;}
+
+}
+
+/* ===============================
+   TYPOGRAPHY & CONTENT SYSTEM
+   (redesigned — AI for Smarter Schools)
+================================ */
+h1, h2, h3, .display-head {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+.eyebrowHead {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.55rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent-cyan);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    padding: 6px 14px 6px 10px;
+}
+.eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent-cyan);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    padding: 6px 14px 6px 10px;
+    border: 1px solid var(--border-light);
+    border-radius: 5px;
+    background: var(--opaque);
+}
+.eyebrow::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-cyan);
+    box-shadow: 0 0 10px var(--accent-cyan);
+    flex-shrink: 0;
+}
+.cyan-accent { color: var(--accent-cyan); }
+.violet-accent { color: var(--accent-violet); }
+.emerald-accent { color: var(--accent-emerald); }
+.amber-accent { color: var(--accent-amber); }
+.gradient-text {
+    background: linear-gradient(120deg, var(--accent-cyan), var(--accent-violet));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+h1 { font-size: 2.5rem; line-height: 1.14; margin-bottom: 14px; }
+h2 { font-size: 2rem; line-height: 1.2; margin-bottom: 10px; letter-spacing: -0.02em; }
+h3 { font-size: 1.2rem; margin-bottom: 8px; }
+p { color: var(--text-secondary); line-height: 1.7; }
+.lede { font-size: 1.08rem; color: var(--text-secondary); max-width: 780px; }
+.slide-view a { color: var(--accent-cyan); text-decoration: none; font-weight: 600; }
+.slide-view a:hover { text-decoration: underline; }
+
+.badge {
+    display: inline-block;
+    background: linear-gradient(120deg, var(--accent-cyan), var(--accent-violet));
+    color: #041014;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 30px;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+hr {
+    border: none;
+    margin: 24px 0;
+    border-top: 1px solid var(--border-light);
+}
+
+/* ===============================
+   SLIDE INDEX RIBBON
+   small numbered marker echoing the keypad/dot navigation
+================================ */
+.slide-index {
+    position: absolute;
+    top: 20px;
+    right: 28px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    border: 1px solid var(--border-light);
+    border-radius: 20px;
+    padding: 4px 12px;
+    background: var(--opaque);
+}
+
+/* ===============================
+   GRID SYSTEMS — asymmetric "console" bento grid
+================================ */
+.pillar-grid, .tool-grid, .insight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 18px;
+    margin: 26px 0;
+}
+.XX { grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+}
+
+.pillar-card, .tool-card {
+    background:
+        linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+        linear-gradient(135deg, var(--accent-cyan), transparent 60%) border-box;
+    border-radius: 4px 18px 4px 18px;
+    padding: 24px 22px 22px;
+    transition: transform 0.28s ease, box-shadow 0.28s ease;
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+.pillar-card::after, .tool-card::after {
+    content: '';
+    position: absolute;
+    top: -30%; right: -30%;
+    width: 120px; height: 120px;
+    background: radial-gradient(circle, var(--accent-violet) 0%, transparent 70%);
+    opacity: 0.18;
+    pointer-events: none;
+}
+.pillar-card:hover, .tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 36px -18px rgba(0, 229, 255, 0.35);
+}
+.pillar-card i, .tool-card i {
+    font-size: 1.15rem;
+    color: var(--bg-page);
+    background: linear-gradient(135deg, var(--accent-amber), var(--accent-cyan), var(--accent-emerald), var(--accent-violet));
+    width: 42px; height: 42px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+}
+.pillar-card h3, .tool-card h3 { font-size: 1.29rem; margin-bottom: 8px; }
+.pillar-card p, .tool-card p { font-size: 1.14rem; }
+.tool-card .tier {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+.tier.free { background: rgba(45, 247, 163, 0.15); color: var(--accent-emerald); }
+.tier.paid { background: rgba(139, 92, 246, 0.18); color: var(--accent-violet); }
+
+/* accent-cycling for card icon badges: nth-of-type variety */
+.pillar-grid .pillar-card:nth-of-type(6n+2) i { background: linear-gradient(135deg, var(--accent-violet), var(--accent-amber), var(--accent-emerald), var(--accent-cyan)); }
+.pillar-grid .pillar-card:nth-of-type(6n+3) i { background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet), var(--accent-amber), var(--accent-emerald)); }
+.pillar-grid .pillar-card:nth-of-type(6n+4) i { background: linear-gradient(135deg, var(--accent-cyan), var(--accent-emerald), var(--accent-violet), var(--accent-amber)); }
+.pillar-grid .pillar-card:nth-of-type(6n+5) i { background: linear-gradient(135deg, var(--accent-emerald), var(--accent-violet), var(--accent-cyan), var(--accent-amber)); }
+.pillar-grid .pillar-card:nth-of-type(6n+6) i { background: linear-gradient(135deg, var(--accent-violet), var(--accent-emerald), var(--accent-amber), var(--accent-cyan)); }
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    font-family: 'Space Grotesk', sans-serif;
+    background: linear-gradient(120deg, var(--accent-cyan), var(--accent-violet));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.stat-row { display: flex; align-items: stretch; justify-content: center; flex-wrap: wrap; gap: 16px; margin: 26px 0; }
+.stat-item {
+    flex: 1 1 220px;
+    max-width: 260px;
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 18px 16px;
+    background: var(--opaque);
+    text-align: center;
+}
+.stat-item .stat-label { font-size: 0.92rem; color: var(--text-muted); margin-top: 6px; }
+
+/* STEP WORKFLOW — numbered console track */
+.step-list { counter-reset: step; margin: 26px 0; display: flex; flex-direction: column; gap: 12px; }
+.step-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    border-left: 3px solid var(--accent-cyan);
+    border-radius: 4px 14px 14px 4px;
+    padding: 16px 18px;
+}
+.step-item:nth-child(2n) { border-left-color: var(--accent-violet); }
+.step-item:nth-child(3n) { border-left-color: var(--accent-emerald); }
+.step-item:nth-child(4n) { border-left-color: var(--text-primary); }
+
+.key-btn-grid {
+        display: flex; align-items: center; justify-content: center; gap: 10px;
+        margin: 10px auto;
+}
+.key-btn {
+    flex-shrink: 0;
+    height: 32px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+    color: var(--text-primary);
+    font-weight: 800;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    padding: 10px 10px 20px 10px;
+}
+
+.key-btn:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(135deg, var(--accent-violet), var(--accent-cyan));
+    color: var(--accent-emerald);
+}
+.step-num {
+    counter-increment: step;
+    flex-shrink: 0;
+    width: 32px; height: 32px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+    color: #041014;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+}
+.step-num::before { content: counter(step); }
+.step-text h4 { font-size: 1rem; margin-bottom: 4px; color: var(--text-primary); }
+.step-text p { font-size: 0.92rem; margin: 0; }
+
+/* ROADMAP / CHALLENGE PHASES */
+.phase-grid { 
+    display: grid; 
+    gap: 18px; 
+    margin: 26px 0; }
+.phase-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 22px;
+    position: relative;
+}
+.phase-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 22px; right: 22px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-violet));
+    border-radius: 2px;
+}
+.phase-days {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent-cyan);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+.phase-card h3 { margin-top: 8px; }
+.phase-card ul { margin-top: 12px; padding-left: 18px; color: var(--text-secondary); font-size: 0.92rem; line-height: 1.8; }
+
+/* IMAGE / MEDIA */
+.image-illustration {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px -12px rgba(0,0,0,0.5);
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border-light);
+    max-width:640px;
+    margin:0 auto 28px;
+}
+.image-illustration img { width: 100%; height: auto; display: block; object-fit: cover; max-height: 300px; }
+.imgPlaceholder {
+    background: rgba(255,255,255,0.04);
+    border: 1px dashed var(--border-light);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    min-height: 220px;
+}
+
+.media-block {
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 20px;
+    margin: 18px 0;
+}
+.media-block h4 { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 1rem; }
+.media-block h4 i { color: var(--accent-cyan); }
+.media-block audio, .media-block video { width: 100%; border-radius: 10px; }
+.media-block iframe { width: 100%; height: 260px; border: none; border-radius: 10px; }
+
+.hero { text-align: center; }
+.hero p { text-align: center; }
+.footer-note { font-size: 0.75rem; text-align: center; margin-top: 32px; color: var(--text-muted); }
+
+table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+th { border-bottom: 2px solid var(--border-light); text-align: left; padding: 10px; color: var(--accent-cyan); font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+td { border-bottom: 1px solid var(--border-light); text-align: left; padding: 10px; color: var(--text-secondary); }
+tr:nth-child(even) { background-color: var(--opaque); }
+
+.contact-grid { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 20px; }
+
+.contact-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    border-radius: 4px 22px 4px 22px;
+    padding: 12px;
+    flex: 1;
+    min-width: 300px;
+    max-height: 310px;
+    text-align: center;
+}
+
+.btn-outline-gold {
+    border: 1px solid var(--accent-cyan);
+    background: transparent;
+    padding: 10px 22px;
+    border-radius: 40px;
+    font-weight: 600;
+    color: var(--accent-cyan);
+    transition: 0.2s;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Space Grotesk', sans-serif;
+    text-decoration: none;
+}
+.btn-outline-gold:hover { background: var(--accent-cyan); color: #041014; box-shadow: 0 0 20px rgba(0,229,255,0.4); }
+
+/* Container & Section Styling */
+.finance-pillar-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: inherit;
+  color: var(--text-primary);
+}
+.section-header { margin-bottom: 1.5rem; }
+.section-header h2 { font-size: 1.5rem; color: var(--accent-cyan); margin-bottom: 0.5rem; }
+.section-header p { color: var(--text-secondary); font-size: 0.95rem; }
+
+/* ===============================
+   ACCORDION — recessed "console panel" styling
+================================ */
+.accordion-container { display: flex; flex-direction: column; gap: 0.85rem; }
+
+.accordion-item {
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: var(--transition);
+}
+.accordion-item:hover { border-color: var(--accent-cyan); }
+
+.accordion-trigger {
+  width: 100%;
+  padding: 1.05rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  transition: var(--transition);
+  font-family: 'JetBrains Mono', monospace;
+}
+.accordion-trigger:focus-visible { outline: 2px solid var(--accent-cyan); }
+
+.pillar-title { font-size: 1.05rem; font-weight: 700; color: var(--text-primary); display: block; }
+.pillar-subtitle { font-size: 0.875rem; color: var(--text-secondary); display: block; margin-top: 0.25rem; }
+
+.accordion-trigger .icon {
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: var(--accent-violet);
+  transition: transform 0.35s ease, color 0.35s ease;
+  margin-left: 1rem;
+  flex-shrink: 0;
+}
+.accordion-item.active { border-color: var(--accent-cyan); }
+.accordion-item.active .accordion-trigger { background: var(--opaque); }
+.accordion-item.active .accordion-trigger .icon { transform: rotate(45deg); color: var(--accent-cyan); }
+
+.accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0, 1, 0, 1); }
+.accordion-item.active .accordion-content {
+  max-height: 1000px;
+  transition: max-height 0.4s cubic-bezier(0.5, 0, 0.1, 1);
+}
+.content-inner {
+  padding: 0 1.25rem 1.35rem 1.25rem;
+  border-top: 1px solid var(--border-light);
+  color: var(--text-secondary);
+  font-size: 0.94rem;
+  line-height: 1.65;
+  padding-top: 1.1rem;
+}
+.content-inner .description { margin-bottom: 1rem; color: var(--text-primary); }
+.strategy-block { margin-bottom: 1rem; }
+.strategy-block strong { color: var(--accent-cyan); display: block; margin-bottom: 0.5rem; }
+.strategy-block ul { padding-left: 1.25rem; margin: 0; }
+.strategy-block li { margin-bottom: 0.5rem; }
+.strategy-block li strong { display: inline; color: var(--text-primary); }
+
+.example-box {
+  background: var(--opaque);
+  border-left: 3px solid var(--accent-violet);
+  padding: 0.85rem 1rem;
+  border-radius: 0 10px 10px 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+.example-box strong0 { color: var(--accent-violet); }
+.example-box strong1 { color: var(--accent-emerald); }
+
+.caution-box {
+  background: rgba(217, 119, 6, 0.08);
+  border-left: 3px solid var(--accent-amber);
+  padding: 0.85rem 1rem;
+  border-radius: 0 10px 10px 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: 0.85rem;
+}
+.caution-box strong { color: var(--accent-amber); }
+
+.divider {
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-violet), transparent);
+  margin: 20px auto;
+}
+
+.send-btn {
+    display: inline-block;
+    background: linear-gradient(120deg, var(--accent-cyan), var(--accent-violet));
+    color: #041014;
+    font-size: 1.05rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 30px;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+    font-family: 'JetBrains Mono', monospace;
+}
+.send-btn:hover {
+    background: linear-gradient(120deg, var(--accent-violet), var(--accent-cyan));
+    border: 3px solid var(--bg-page);
+}
+.send { margin-top:16px; align-items: center; justify-content: center; display: flex; padding: 20px auto; }
+.send:hover { transform: translateY(-2px); transition: transform 0.35s ease, color 0.35s ease; }
+
+a:hover { text-decoration: none!important; color: var(--accent-violet); }
+
+/* ===============================
+   CHECKLIST STYLES (for slide 15)
+================================ */
+.check-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 20px 0;
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 24px;
+}
+.check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 6px 4px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+.check-item:hover {
+    background: var(--opaque);
+}
+.check-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--accent-cyan);
+    margin-top: 4px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+.check-item strong {
+    color: var(--accent-cyan);
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 2px;
+}
+.check-item .desc {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+.result-box {
+    background: var(--opaque);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+.result-box h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+#survey {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    color: var(--accent-cyan);
+    font-size: 1.5rem;
+}
+.feedback {
+    margin-top: 20px;
+    background: var(--card-bg);
+    border-left: 4px solid var(--accent-violet);
+    padding: 14px 20px;
+    border-radius: 0 12px 12px 0;
+}
+.feedback p {
+    margin: 0;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+.feedback strong {
+    color: var(--text-primary);
+}
+@media (max-width: 760px) {
+    .check-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===============================
+ Audio Player Stylings (retained for reuse if audio is added later)
+================================ */
+.podcast-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 24px;
+    margin: 20px 0;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+.podcast-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(180deg, var(--accent-cyan), var(--accent-violet));
+}
+.podcast-meta { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; color: var(--text-primary); margin-bottom: 18px; font-weight: 700; }
+.podcast-show-link { color: var(--accent-cyan); font-weight: 600; text-decoration: none; }
+.podcast-show-link:hover { color: var(--accent-violet); text-decoration: underline; }
+.podcast-title { font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 8px; font-weight: 550; }
+.podcast-player-container { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.audio-wrapper { flex: 1; min-width: 260px; }
+.audio-wrapper audio { width: 100%; height: 44px; border-radius: 30px; outline: none; }
+.btn-download {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 10px 22px; height: 44px; border-radius: 40px;
+    background: linear-gradient(120deg, var(--accent-cyan), var(--accent-violet));
+    color: var(--slide-bg); font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 1.2rem;
+    text-decoration: none; letter-spacing: 0.5px; white-space: nowrap; transition: var(--transition);
+}
+.btn-download:hover { box-shadow: 0 0 16px rgba(0, 229, 255, 0.5); transform: translateY(-2px); color: var(--text-primary); }
+.dl-icon { font-size: 1.1rem; }
+
+/* Responsive collapse for small devices */
+@media (max-width: 700px) {
+    .contact-grid { flex-direction: column; }
+}
+@media (max-width: 580px) {
+    .podcast-player-container { flex-direction: column; align-items: stretch; }
+    .XX { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 20px; margin: 28px 0; }
+
+    .btn-download { width: 100%; }
+    .slide-index { display: none; }
+    .app-container {
+        display: flex;
+        top: 100px;
+        height: 90%;
+        width: 110%;
+        position: relative;
+        left: -38px;
+    }
+
+}
+
+</style>
+</head>
+<body>
+
+    <div class="progress-rail" id="progressRail"></div>
+
+    <!-- ===============================
+         NAVIGATION HTML (structure preserved from finAI_.html)
+         ================================ -->
+    <header>
+        <nav class="navbar">
+            <!-- Left: Logo + Slogan -->
+            <div class="nav-brand">
+                <div class="logo-component">
+                    <img src="../../static/images/logo.png" alt="ForraCorp Base Logo" class="logo-layer layer-bg-logo" />
+                    <img src="../../static/images/logoFN_0.png" alt="Forra Nova AI Brain" class="logo-layer layer-brain" />
+                    <img src="../../static/images/logoFN_2.png" alt="Forra Nova Text" class="logo-layer layer-text" />
+                </div>
+                <div class="slogan-wrap">
+                    <img src="../../static/images/logoFN_2.png" class="foota" alt="FN Logo" />
+                </div>
+            </div><h3 class="slogan">Knowledge Is For The Living</h3>
+
+            <!-- Hamburger toggle (mobile) -->
+            <div class="menu-toggle" id="hamburger-menu" aria-label="Toggle navigation" role="button" tabindex="0">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <!-- Navigation links -->
+            <ul class="nav-links" id="main-nav">
+                <li><a href="../../index.html">ForraNova</a></li>
+                <li><a href="../chat-show.html">AI Chat Show</a></li>                
+                <li><a href="../../index.html#training">Seminars</a></li>
+                <li><a href="../../index.html#tools">Tools</a></li>
+                <li><a href="../chat-show.html#suggestion-box">Connect</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="app-container">
+        <!-- left side vertical dot navigation (vertical bar on left) -->
+        <div class="nav-dots-bar" id="navDotsBar"></div>
+
+        <!-- dark mode toggle -->
+        <div class="dark-mode-toggle" id="darkModeToggle">
+            <i class="fas fa-moon"></i>
+        </div>
+
+        <!-- prev / next arrow controls -->
+        <div class="slide-arrow prev" id="prevArrow" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></div>
+        <div class="slide-arrow next" id="nextArrow" aria-label="Next slide"><i class="fas fa-chevron-right"></i></div>
+
+        <!-- slides container -->
+        <div class="slides-container" id="slidesContainer">
+            <!-- dynamic slide views will be injected here -->
+        </div>
+    </div>
+
+    <div class="slide-counter" id="slideCounter"><span id="counterCurrent">1</span> / <span id="counterTotal">8</span></div>
+    <div class="gesture-hint" id="gestureHint"><i class="fas fa-hand-pointer"></i> Swipe left/right to navigate · Swipe down to jump to close</div>
+    <canvas id="space"></canvas>
+
+<script>
+/* ===============================
+   SLIDE DATA
+================================ */
+const slidesData = [
+{
+    // Slide 1 — Title
+    html: `
+        <span class="slide-index">01 / 16</span>
+        <div class="hero">
+            <div class="badge">ForraCorp · ForraNova</div>
+
+            <h1 class="gradient-text">The Smart School Advantage</h1>
+            <div class="eyebrowHead">Using AI to Improve Teaching, Administration and Growth</div>
+
+            <div class="image-illustration">
+                <picture>
+                    <img src="https://edves.us//uploads/cms/1784032969_b2dcd33b.png"
+                       alt="AI in the classroom illustration" loading="lazy" width="100%" height="100%">
+                </picture>
+            </div>
+            <p class="lede" style="margin:0 auto 28px;">A Practical Seminar for School Owners, Administrators and Educators</p>
+
+            <div class="divider"></div>
+
+            <h3 style="color:var(--text-primary);">Fredrick Ethan U.</h3>
+            <p>ForraNova <span class="cyan-accent">·</span> a sector of ForraCorp<br>in collaboration with Teadro Systems</p>
+            <p style="margin-top:14px;"><i class="fas fa-globe"></i> <a href="https://forranova.github.io" target="_blank">forranova.github.io</a></p>
+        </div>
+    `
+},
+{
+    // Slide 2 — The New Reality of Education
+    html: `
+        <span class="slide-index">02 / 16</span>
+        <div class="eyebrow">The Paradigm Shifts</div>
+            <h2>The Tidal Wave Is Here; <span class="gradient-text"> It's Your Choice To Make!</span></h2>
+
+            <div class="image-illustration">
+                <picture>
+                    <img src="https://static0.srcdn.com/wordpress/wp-content/uploads/2020/01/Jack-Bauer-24.jpg?q=50&fit=crop&w=1232&h=693&dpr=1.5"
+                       alt="Jack Bauer- 24" loading="lazy" width="100%" height="100%">
+                </picture>
+            </div>
+
+            <p style="margin:20px 0; text-align:center;"><i class="fas fa-quote-left"></i> <i>For a combat soldier, the difference between success and failure is your ability to adapt to your enemy.</i> <i class="fas fa-quote-right"></i> <b>— Jack Bauer, 24</b></p>
+
+            <p class="lede">Truth be told: The new reality of education have seen schools changing, whether we plan for it or not. Technology is already reshaping how <b>lessons are prepared,</b> how <b>records are kept</b> and how <b>parents are communicated with.</b> <br><br>The schools that adapt deliberately tend to run more smoothly than the ones that adapt by accident, under pressure, after something has already gone wrong.</p>
+
+            <div class="pillar-grid">
+                <div class="pillar-card">
+                    <i class="fas fa-arrows-spin"></i>
+                    <h3>Teaching &amp; Management Are Shifting</h3>
+                    <p>Lesson preparation, record-keeping and parent communication are steadily moving onto digital and AI-assisted tools (IoTs), changing what "normal" school administration looks like.</p>
+                </div>
+                <div class="pillar-card">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Preparing Staff &amp; Students Matters</h3>
+                    <p>Students will graduate into a workplace that already uses AI daily. Staff who understand these tools now are better placed to guide learners responsibly, rather than react to them later.</p>
+                </div>
+                <div class="pillar-card">
+                    <i class="fas fa-triangle-exclamation"></i>
+                    <h3>The Cost of Standing Still</h3>
+                    <p>Schools that ignore this shift risk slower administration, weaker parent communication and a widening gap with institutions already using AI to save time and improve quality.</p>
+                </div>
+            </div>
+            <p style="font-size:0.85rem;margin-top:4px;">This session is about introducing AI <b>responsibly and gradually</b> — not replacing teachers or administrators, but supporting the work they already do.</p>
+    `
+},
+{
+    // Slide 3 — AI Explained in Simple Terms
+    html: `
+        <span class="slide-index">03 / 16</span>
+        <div class="eyebrow">AI EXPLAINED</div>
+        <h2>AI In Its Simplest — <span class="gradient-text">No Jargon</span></h2>
+
+            <div class="image-illustration">
+                <picture>
+                    <img src="https://www.ucf.edu/wp-content/blogs.dir/16/files/2026/04/artificial-intelligence-new-technology-science-futuristic-abstract-human-brain-ai-technology-cpu-central-processor-unit-chipset-big-data-machine-learning-cyber-mind-domination-generative-ai-scaled-760.jpg"
+                       alt="AI in the classroom illustration" loading="lazy" width="100%" height="100%">
+                </picture>
+            </div>
+
+            <p class="lede">Artificial intelligence (AI), in the form most schools will use, is software trained on large amounts of text and data to recognise patterns and generate useful outputs — drafting text, answering questions, organising information. It is a tool that assists a human, not a replacement for professional judgement.</p>
+
+        <div class="accordion-container">
+            <div class="accordion-item" id="ai-1">
+                <button class="accordion-trigger" onclick="toggleAccordion('ai-1')" aria-expanded="false">
+                    <span class="pillar-title"><i class="fas fa-brain cyan-accent"></i>&nbsp; AI Is . . .</span>
+                    <span class="icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <p class="description">In this context, AI refers mainly to <b>large language model (LLM) assistants</b> — tools such as chat-based AI systems that can read instructions and produce written text, summaries, drafts or answers in response.</p>
+                        <div class="example-box"><strong>In practice:</strong> Typing a request such as "draft a polite reminder to parents about outstanding fees" into a computer device and receiving a usable first draft output in seconds.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item" id="ai-2">
+                <button class="accordion-trigger" onclick="toggleAccordion('ai-2')" aria-expanded="false">
+                    <span class="pillar-title"><i class="fas fa-scale-balanced violet-accent"></i>&nbsp; AI Can and Cannot Do . . . </span>
+                    <span class="icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <p class="description">AI is strong at drafting, summarising, organising and generating first-pass ideas quickly. It is weak at knowing your school's specific facts, verifying truth on its own, or making judgement calls about individual students.</p>
+                        <div class="strategy-block">
+                            <strong>Rule of thumb:</strong>
+                            <ul>
+                                <li><strong>Good for:</strong> first drafts, ideas, formatting, repetitive writing tasks.</li>
+                                <li><strong>Not good for:</strong> final decisions, sensitive judgements, or anything published without a human check.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item" id="ai-3">
+                <button class="accordion-trigger" onclick="toggleAccordion('ai-3')" aria-expanded="false">
+                    <span class="pillar-title"><i class="fas fa-toolbox emerald-accent"></i>&nbsp;  AI Common Tools Relevant to Schools . . .</span>
+                    <span class="icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <p class="description">Most school use-cases only need one or two categories of tool:</p>
+                        <div class="strategy-block">
+                            <ul>
+                                <li><strong>Chat-based AI assistants:</strong> for drafting letters, lesson notes, quizzes and messages. E.g. ChatGPT, Google Gemini, Claude, Microsoft Copilot.</li>
+                                <li><strong>AI-assisted document &amp; spreadsheet tools:</strong> for organising records, attendance and fee data. E.g. Google Docs with Gemini, Microsoft Word with Copilot, Brisk Teaching, Notion AI.</li>                                <li><strong>AI image/design tools:</strong> for adverts, posters and social-media graphics. E.g. Canva:, Adobe Firefly, DALL-E, Microsoft Designer.</li> 
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Audio Player -->
+            <div class="podcast-card">
+              <!-- Section A -->
+              <h4 class="podcast-meta">
+                <i class="fas fa-headphones"></i>  <a href="../chat-show.html" class="podcast-show-link">AI Chat Show</a> | Episode 004 | The Deep Dive
+
+              </h4>
+
+              <!-- Section B -->
+              <h5 class="podcast-title"> Artificial General Intelligence (AGI) </h5>
+                <h6>Artificial General Intelligence: The Theoretical "Holy Grail" of AI.</h6>
+
+              <!-- Controls Container: Side-by-Side (C & D) -->
+              <div class="podcast-player-container">
+                <!-- Section D: Audio Player -->
+                <div class="audio-wrapper">
+                  <audio controls>
+                    <source src="../../static/downloads/audio/Ep003.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                  </audio>
+                </div>
+
+                <!-- Section C: Download Button -->
+                <a href="../../static/downloads/audio/Ep003.mp3" download="AGI - Holy Grail of AI.mp3"               
+                    class="btn-download"><span class="dl-icon">⬇</span> Download
+                </a>
+              </div>
+            </div>
+        </div>
+    `
+},
+{
+    // Slide 4 — AI for School Owners and Administrators
+    html: `
+        <span class="slide-index">04 / 16</span>
+        <div class="eyebrow">LOST TIME... LOST FOREVER</div>
+        <h2>Time to <span class="gradient-text">Take Back Time</span></h2>
+            <div class="image-illustration">
+                <picture>
+                    <img src="../../static/images/prompt9.webp"
+                       alt="AI in the classroom illustration" loading="lazy" width="100%" height="100%">
+                </picture>
+            </div>
+        <p class="lede">Much of an administrator's week is spent on writing and organising — the kind of work AI can meaningfully speed up, so leadership time goes back to decisions only a person can make, and caring for much weightier matters.</p>
+
+        <div class="accordion-container">
+            <div class="accordion-item" id="admin-1">
+                <button class="accordion-trigger" onclick="toggleAccordion('admin-1')" aria-expanded="false">
+                    <span class="pillar-title"><i class="fas fa-file-signature cyan-accent"></i>&nbsp; Letters, Reports, Policies &amp; Minutes</span>
+                    <span class="icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <p class="description">AI can produce a strong first draft of routine correspondence, board reports, policy documents and meeting minutes, leaving the administrator to review, correct and finalise rather than start from a blank page.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item" id="admin-2">
+                <button class="accordion-trigger" onclick="toggleAccordion('admin-2')" aria-expanded="false">
+                    <span class="pillar-title"><i class="fas fa-calendar-days violet-accent"></i>&nbsp; School Calendars &amp; Operational Plans</span>
+                    <span class="icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <p class="description">Termly calendars, event schedules and operational checklists can be drafted and reformatted quickly, then adjusted to fit the school's actual dates and constraints.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item" id="admin-3">
+                <button class="accordion-trigger" onclick="toggleAccordion('admin-3')" aria-expanded="false">
+                    <span class="pillar-title"><i class="fas fa-chart-pie emerald-accent"></i>&nbsp; Enrolment, Attendance &amp; Fee-Payment Data</span>
+                    <span class="icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <p class="description">AI-assisted spreadsheet tools can help summarise enrolment trends, flag attendance patterns and highlight outstanding fee balances — turning raw records into a short, readable summary for leadership review.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item" id="admin-4">
+                <button class="accordion-trigger" onclick="toggleAccordion('admin-4')" aria-expanded="false">
+                    <span class="pillar-title"><i class="fas fa-comments amber-accent"></i>&nbsp; Communication With Parents</span>
+                    <span class="icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <p class="description">Circulars, reminders and responses to common parent questions can be drafted in a consistent, professional tone in a fraction of the time — then reviewed before sending.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `
+},
+{
+    // Slide 5 — AI for Teachers
+    html: `
+        <span class="slide-index">05 / 16</span>
+        <div class="eyebrow">FOR TEACHERS</div>
+        <h2>Working Smarter, <span class="gradient-text">Not Harder </span></h2>
+            <div class="image-illustration">
+                <picture>
+                    <img src="https://i0.wp.com/40hourprincipal.com/wp-content/uploads/2019/10/Turtle-on-skateboard.jpg?w=500&ssl=1"
+                       alt="AI in the classroom illustration" loading="lazy" width="100%" height="100%">
+                </picture>
+            </div>
+
+        <p class="lede">Lesson preparation, and marking students' homework can be strenuous tasks, take up hours that AI can help compress.</p>
+
+        <div class="accordion-container">
+            <div class="accordion-item" id="teach-1">
+                <button class="accordion-trigger" onclick="toggleAccordion('teach-1')" aria-expanded="false">
+                    <span class="pillar-title"><i class="fas fa-chalkboard-teacher cyan-accent"></i>&nbsp; Lesson Planning &amp; Scheme of Work</span>
+                    <span class="icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <p class="description">A teacher can describe a topic, class level and duration, and receive a structured lesson plan or scheme-of-work outline to adapt — cutting preparation time while keeping the teacher in control of final content.</p>
+                        <p>For more lessons on how to <a href="pearls.html">Talk To AI</a> / Write proper Prompt, click the link <a href="pearls.html">The PEARLS of Prompting</a> </p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item" id="teach-2">
+                <button class="accordion-trigger" onclick="toggleAccordion('teach-2')" aria-expanded="false">
+                    <span class="pillar-title"><i class="fas fa-list-check violet-accent"></i>&nbsp; Worksheets, Quizzes &amp; Exam Questions</span>
+                    <span class="icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <p class="description">AI can generate a first set of practice questions, worksheets or exam items at a stated difficulty level, which the teacher then edits, verifies and aligns to the syllabus before use.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item" id="teach-3">
+                <button class="accordion-trigger" onclick="toggleAccordion('teach-3')" aria-expanded="false">
+                    <span class="pillar-title"><i class="fas fa-lightbulb emerald-accent"></i>&nbsp; Simplifying Difficult Topics</span>
+                    <span class="icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <p class="description">A teacher can ask AI to re-explain a concept "for a 9-year-old" or "using a local, everyday example," producing alternative explanations to try with different age groups.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item" id="teach-4">
+                <button class="accordion-trigger" onclick="toggleAccordion('teach-4')" aria-expanded="false">
+                    <span class="pillar-title"><i class="fas fa-people-arrows amber-accent"></i>&nbsp; Supporting Struggling &amp; Advanced Learners</span>
+                    <span class="icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <p class="description">AI can help draft simplified practice material for learners who need extra support, and extension tasks for advanced learners, without the teacher writing two full versions of every worksheet from scratch.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `
+},
+{
+    // Slide 6 — AI for Marketing and Enrolment
+    html: `
+        <span class="slide-index">06 / 16</span>
+        <div class="eyebrow">MARKETING &amp; ENROLMENT</div>
+        <h2>Tell the <span class="gradient-text">School's Story</span></h2>
+
+        <div class="image-illustration">
+            <picture>
+                <img src="../../static/images/prompt6.webp" 
+                   alt="image-illustration" loading="lazy" width="100%" height="100%">
+            </picture>
+        </div>
+        <p class="lede">Admissions and marketing depend on fast, clear, professional communication. AI helps schools respond promptly and present themselves well, without needing a dedicated marketing team.</p>
+
+        <div class="pillar-grid XX">
+            <div class="pillar-card">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Adverts &amp; Social Content</h3>
+                <p>Draft captions, flyers text and short-form social posts that stay on-brand and consistent, ready for a staff member to review and post.</p>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Compelling Admission Messages</h3>
+                <p>Turn a plain list of school features into a warm, persuasive admissions message that speaks to what parents actually care about.</p>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-reply-all"></i>
+                <h3>Responding to Enquiries</h3>
+                <p>Draft prompt, professional replies to common parent questions about fees, curriculum and facilities — reducing response time from days to hours.</p>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-globe"></i>
+                <h3>Strengthening Online Presence</h3>
+                <p>Keep website copy, profiles and recurring announcements fresh and consistent without needing to write every piece from a blank page.</p>
+            </div>
+        </div>
+    `
+},
+{
+    // Slide 7 — SMART Prompt Framework (new from PDF)
+    html: `
+        <span class="slide-index">11 / 16</span>
+        <div class="eyebrow">SMART PROMPT FRAMEWORK</div>
+        <h2>How To <span class="gradient-text">Talk To AI</span></h2>
+
+        <div class="image-illustration">
+            <picture>
+                <img src="../../static/images/pearls.png" 
+                   alt="image-illustration" loading="lazy" width="100%" height="100%">
+            </picture>
+        </div>
+            
+        <p class="lede">To <b>Receive</b> better drafts, you need <b>Give</b> better and clear instructions. These instructions are called Prompt. Weak prompts produce vague output. Let's analyse the <strong style="color:#fff;">PEARLS framework.</strong></p>
+
+        <div class="pillar-grid">
+            <div class="pillar-card">
+                <i class="fas fa-user-plus"></i>
+                <h3>P — Persona</h3>
+                <p>Assign an expert/ professional role, giving it a context.</p>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-list"></i>
+                <h3>E — Example</h3>
+                <p>Provide 1, 2, or 3 examples of what you want, and how you want it.</p>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-gears"></i> 
+                <h3>A — Action</h3>
+                <p>State exactly what the AI should do.</p>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-layer-group"></i> 
+                <h3>R — Results</h3>
+                <p>State how you would want your output type/ format.</p>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-user-shield"></i>
+                <h3>L — Limit</h3>
+                <p>Set guardrails — what to add or not to add, the length, facts to use, tone, exclusions and privacy limits.</p>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-spell-check"></i> 
+                <h3>S — Scrutiny</h3>
+                <p>Ask it to ensure, review, check, or critique its work before output.</p>
+            </div>
+        </div>
+
+        <!-- Audio Player -->
+        <div class="podcast-card">
+          <!-- Section A -->
+          <h4 class="podcast-meta">
+            <i class="fas fa-headphones"></i>  <a href="../chat-show.html" class="podcast-show-link">AI Chat Show</a> | Episode 050 | Podcast
+          </h4>
+
+          <!-- Section B -->
+          <h5 class="podcast-title">PEARLS Framework - The holy grail of Prompting</h5>
+            <h6> The PEARLS Framework: An Overview on the Master Blueprint of AI Programming.</h6>
+
+          <!-- Controls Container: Side-by-Side (C & D) -->
+          <div class="podcast-player-container">
+            <!-- Section D: Audio Player -->
+            <div class="audio-wrapper">
+              <audio controls>
+                <source src="../../static/downloads/audio/Ep049.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+
+            <!-- Section C: Download Button -->
+            <a href="../../static/downloads/audio/Ep049.mp3" download="PEARLS Framework.mp3"               
+                class="btn-download"><span class="dl-icon">⬇</span> Download
+            </a>
+          </div>
+    `
+},
+{
+    // Slide 8 — Practical AI Demonstration
+    html: `
+        <span class="slide-index">07 / 16</span>
+        <div class="eyebrow">LIVE DEMONSTRATION</div>
+        <h2>Seeing It <span class="gradient-text">In Action</span></h2>
+
+        <div class="image-illustration">
+            <picture>
+                <img src="../../static/images/prompt8.webp" 
+                   alt="image-illustration" loading="lazy" width="100%" height="100%">
+            </picture>
+        </div>
+        <p class="lede">A short walk-through of four everyday school tasks, done live with AI assistance, to show the process end-to-end — prompt in, reviewed draft out.</p>
+
+        <div class="step-list">
+            <div class="step-item">
+                <div class="step-num"></div>
+                <div class="step-text">
+                    <h4>Quick response to a Parent's query</h4>
+                    <p>A parent sent you a whatsApp message asking you about their child's assignment on "Periplaneta americana and Blatta orientalis".</p>
+                    <p>- Meta AI</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-num"></div>
+                <div class="step-text">
+                    <h4>Drafting a Parents' Circular</h4>
+                    <p>Turning a rough, hand-sketched drawing of a school uniform into a clear image for a tailor to understand your idea.</p>
+                    <p>- Google Gemini</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-num"></div>
+                <div class="step-text">
+                    <h4>Producing Examination Questions</h4>
+                    <p>Generating a first set of exam questions at a stated difficulty and format, ready for teacher review.</p>
+                    <p>- Claude</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-num"></div>
+                <div class="step-text">
+                    <h4>Developing an Admission Campaign</h4>
+                    <p>Generate nice adverts for the banner to informing the public that admissions into various classes are ongoing.</p>
+                    <p>- ChatGPT</p>
+                </div>
+            </div>
+
+            <div class="example-box"> <h3>Class Work:</h3>
+                <p style="margin-top:12px;">Before using any AI-generated output as the final draft, apply the <strong>Human-In-The-Loop</strong> principle. Review it, facts check, does it match your audience, and the tone.</p><br>
+
+                <strong0><b>Weak Prompt:</b></strong0> "Write a message to parents about resumption."<br><br>
+                <strong1><b>Strong prompt:</b></strong1> "Act as the administrator of a private school in Port Harcourt. Draft a warm, professional WhatsApp message to parents confirming resumption on [date] by [time]. Include three preparation reminders, keep it below 130 words, use only the facts provided and flag any missing information before drafting."
+            </div>
+            <div class="key-btn-grid ">
+                <a href="../resources/prompt-compiler.html" >
+                    <button class="key-btn" onclick="alert('You are going to the Prompt Compiler X-Pro. tool. Try applying PEARLS now with your own scenario! 📝')">Prompt Compiler X-Pro. 
+                    </button>             
+                </a>
+                <a href="../resources/Prompt-Compiler/index.html" >
+                    <button class="key-btn" onclick="alert('You are going to the Prompt Compiler Lit. tool. Try applying PEARLS now with your own scenario! 📝')">Prompt Compiler Lit.
+                    </button>               
+                </a>
+            </div>
+    `
+},
+{
+    // Slide 9 — Responsible and Safe Use of AI
+    html: `
+        <span class="slide-index">08 / 16</span>
+        <div class="eyebrow">Use Responsibly</div>
+        <h2>Use AI,<span class="gradient-text"> Don't Be Used By AI</span></h2>
+
+        <div class="image-illustration">
+            <picture>
+                <img src="https://substackcdn.com/image/fetch/$s_!1Ptj!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F245e2324-8db0-431e-afb2-9589d2c62d10_1149x609.png" 
+                   alt="image-illustration" loading="lazy" width="100%" height="100%">
+            </picture>
+        </div>
+        <p class="lede">AI adoption in a school setting carries real responsibilities around privacy, accuracy and academic integrity. These are not reasons to avoid AI — they are the guardrails that make its use safe. That way, you can  safely use AI without letting AI use you.</p>
+
+        <div class="pillar-grid XX">
+            <div class="pillar-card">
+                <i class="fas fa-user-shield"></i>
+                <h3>Protecting Students' &amp; Parents' Information</h3>
+                <p>Avoid entering identifiable student or family details into AI tools; use anonymised or general descriptions wherever possible.</p>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-magnifying-glass"></i>
+                <h3>Checking AI-Generated Information</h3>
+                <p>Treat every AI output as a draft to verify, not a finished, guaranteed-accurate answer — especially for facts, figures and dates.</p>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-user-graduate"></i>
+                <h3>Preventing Plagiarism &amp; Misuse</h3>
+                <p>Set clear expectations with students on when and how AI assistance is acceptable in their own work, and design tasks that require original thinking.</p>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-hand"></i>
+                <h3>Keeping Teachers In Control</h3>
+                <p>While AI drafts, the teacher or administrator should decide the fact of the draft. Every output should pass through a human before it reaches a student or parent.</p>
+            </div>
+
+        </div>
+        <div class="caution-box">
+            <strong><b>Guiding Principle:</b></strong> if a piece of AI-generated content would embarrass the school when read back publicly, it was not reviewed carefully enough before use.
+        </div>
+        
+        <!-- Audio Player -->
+        <div class="podcast-card">
+          <!-- Section A -->
+          <h4 class="podcast-meta">
+            <i class="fas fa-headphones"></i>  <a href="../chat-show.html" class="podcast-show-link">AI Chat Show</a> | Episode 052 | Podcast
+          </h4>
+
+          <!-- Section B -->
+          <h5 class="podcast-title">Redact: Data Masking, Privacy and Confidentiality</h5>
+            <h6>Whispers in the Machine: Mastering Data Redaction and Privacy Engineering in AI.</h6>
+
+          <!-- Controls Container: Side-by-Side (C & D) -->
+          <div class="podcast-player-container">
+            <!-- Section D: Audio Player -->
+            <div class="audio-wrapper">
+              <audio controls>
+                <source src="../../static/downloads/audio/Ep051.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+
+            <!-- Section C: Download Button -->
+            <a href="../../static/downloads/audio/Ep051.mp3" download="Redact- Data Privacy Masking.mp3"               
+                class="btn-download"><span class="dl-icon">⬇</span> Download
+            </a>
+          </div>
+    `
+},
+{
+    // Slide 10 — Building an AI-Ready School
+    html: `
+        <span class="slide-index">09 / 16</span>
+        <div class="eyebrow">AI Scalability</div>
+        <h2>Getting the <span class="gradient-text">Foundations Right</span></h2>
+
+        <div class="image-illustration">
+            <picture>
+                <img src="https://fvms-edu.github.io/static/images/bg.webp" 
+                   alt="image-illustration" loading="lazy" width="100%" height="100%">
+            </picture>
+        </div>
+        <p class="lede">A school does not need to overhaul everything at once. A short, deliberate foundation makes AI adoption safe, sustainable and staff-friendly.</p>
+
+        <div class="phase-grid XX">
+            <div class="phase-card">
+                <div class="phase-days">FOUNDATION</div>
+                <h3>Staff Orientation &amp; Training</h3>
+                <ul>
+                    <li>Short hands-on sessions, not long lectures</li>
+                    <li>Focus on 2–3 tools staff will actually use</li>
+                </ul>
+            </div>
+            <div class="phase-card">
+                <div class="phase-days">INFRASTRUCTURE</div>
+                <h3>Basic Devices &amp; Internet</h3>
+                <ul>
+                    <li>Reliable internet access in the staff room</li>
+                    <li>At least shared access to a smartphone, tablet or computer</li>
+                </ul>
+            </div>
+            <div class="phase-card">
+                <div class="phase-days">GOVERNANCE</div>
+                <h3>A Simple School AI Policy</h3>
+                <ul>
+                    <li>One page: what's allowed, what isn't, and why</li>
+                    <li>Shared with staff, students and parents</li>
+                </ul>
+            </div>
+            <div class="phase-card">
+                <div class="phase-days">ROLLOUT</div>
+                <h3>Introducing AI Gradually</h3>
+                <ul>
+                    <li>Start with one or two administrative tasks</li>
+                    <li>Expand only once the first tasks feel comfortable</li>
+                </ul>
+            </div>
+        </div>
+    `
+},
+{
+    // Slide 11 — The 30-Day Smart School Challenge
+    html: `
+        <span class="slide-index">10 / 16</span>
+        <div class="eyebrow">THE 30-DAY CHALLENGE</div>
+        <h2>Start This Week; <span class="gradient-text">Start Simple</span></h2>
+
+        <div class="image-illustration">
+            <picture>
+                <img src="https://static01.nyt.com/images/2026/02/19/multimedia/00biz-AI-LITERACY-01-mljq/00biz-AI-LITERACY-01-mljq-jumbo.jpg?quality=75&auto=webp" 
+                   alt="image-illustration" loading="lazy" width="100%" height="100%">
+            </picture>
+        </div>
+        <p class="lede">Here is a structured, low-risk way to introduce AI without disrupting the term.<br> — pick a few tasks, train a few people, and measure what actually changes.</p>
+
+        <div class="phase-grid XX">
+            <div class="phase-card">
+                <div class="phase-days">DAYS 1–3</div>
+                <h3>Select Three Tasks</h3>
+                <ul>
+                    <li>Choose three administrative tasks to support with AI</li>
+                    <li>Pick tasks that are repetitive and time-consuming</li>
+                </ul>
+            </div>
+            <div class="phase-card">
+                <div class="phase-days">DAYS 4–10</div>
+                <h3>Train Selected Staff</h3>
+                <ul>
+                    <li>Short, focused training on the chosen tools</li>
+                    <li>Provide simple written prompts staff can reuse</li>
+                </ul>
+            </div>
+            <div class="phase-card">
+                <div class="phase-days">DAYS 11–25</div>
+                <h3>Measure Time Saved &amp; Results</h3>
+                <ul>
+                    <li>Track time spent before and after AI assistance</li>
+                    <li>Note quality and consistency of the output</li>
+                </ul>
+            </div>
+            <div class="phase-card">
+                <div class="phase-days">DAYS 26–30</div>
+                <h3>Review &amp; Expand Responsibly</h3>
+                <ul>
+                    <li>Share results with leadership and staff</li>
+                    <li>Decide which tasks to keep, adjust or expand</li>
+                </ul>
+            </div>
+        </div>
+    `
+},
+{
+    // Slide 12 — Ready-to-Use Prompts (new from PDF)
+    html: `
+        <span class="slide-index">12 / 16</span>
+        <div class="eyebrow">Prompts Documentation</div>
+        <h2>Copy, Paste, <span class="gradient-text">Review, Adapt</span></h2>
+
+        <div class="image-illustration">
+            <picture>
+                <img src="https://ideasforcounseling.com/wp-content/uploads/2026/06/AI-prompts.jpg" 
+                   alt="image-illustration" loading="lazy" width="100%" height="100%">
+            </picture>
+        </div>
+
+        <p class="lede">Create a library of standard prompts for common school tasks. Always review the output before each use and update prompts version.</p>
+
+        <div class="accordion-container">
+            <div class="accordion-item" id="prompt-1">
+                <button class="accordion-trigger" onclick="toggleAccordion('prompt-1')" aria-expanded="false">
+                    <span class="pillar-title"><i class="fas fa-file-alt cyan-accent"></i>&nbsp; Parents' Circular</span>
+                    <span class="icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <p class="description">Act as an experienced school administrator. Draft a clear circular to [audience] about [subject]. Use these approved facts only: [facts]. Tone: respectful and reassuring. Include the required action and deadline. Keep it under [word count] words. Flag missing information before drafting.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item" id="prompt-2">
+                <button class="accordion-trigger" onclick="toggleAccordion('prompt-2')" aria-expanded="false">
+                    <span class="pillar-title"><i class="fas fa-list-check violet-accent"></i>&nbsp; Meeting Action Summary</span>
+                    <span class="icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <p class="description">Turn the following verified meeting notes into a management action table with columns for decision, task, responsible person, deadline, dependency and status. Do not invent missing owners or dates; mark them as TO BE CONFIRMED. Notes: [paste non-sensitive notes].</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item" id="prompt-3">
+                <button class="accordion-trigger" onclick="toggleAccordion('prompt-3')" aria-expanded="false">
+                    <span class="pillar-title"><i class="fas fa-calendar-week emerald-accent"></i>&nbsp; Weekly Operations Report</span>
+                    <span class="icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <p class="description">Organise these department updates into a concise weekly report for the school proprietor. Use the headings: achievements, unresolved issues, risks, decisions required, deadlines and next-week priorities. Separate facts from recommendations. Updates: [notes].</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item" id="prompt-4">
+                <button class="accordion-trigger" onclick="toggleAccordion('prompt-4')" aria-expanded="false">
+                    <span class="pillar-title"><i class="fas fa-user-plus amber-accent"></i>&nbsp; Staff Onboarding Checklist</span>
+                    <span class="icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <p class="description">Create a practical onboarding checklist for a new [role] joining a [type of school]. Cover documents, safeguarding orientation, school policies, systems access, classroom or office handover, performance expectations and first-week review. Present it as a tick-box list.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item" id="prompt-5">
+                <button class="accordion-trigger" onclick="toggleAccordion('prompt-5')" aria-expanded="false">
+                    <span class="pillar-title"><i class="fas fa-chalkboard-teacher cyan-accent"></i>&nbsp; Lesson Plan Draft</span>
+                    <span class="icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <p class="description">Act as a teaching assistant. Create a [duration]-minute lesson outline for [class level] on [topic]. Objectives: [objectives]. Include prior-knowledge check, teacher explanation, guided practice, independent activity, differentiation, assessment and homework. Use age-appropriate language and identify facts the teacher should verify.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `
+},
+{
+    // Slide 13 — Responsible Use Rules & RED-LIGHT List (new from PDF)
+    html: `
+        <span class="slide-index">13 / 16</span>
+        <div class="eyebrow">Responsible Guardrails</div>
+        <h2>Protect Students, Staff and <span class="gradient-text">School Trust</span></h2>
+
+            <div class="image-illustration">
+                <picture>
+                    <img src="../../static/images/prompt3.webp"
+                       alt="AI in the classroom illustration" loading="lazy" width="100%" height="100%">
+                </picture>
+            </div>
+        <p class="lede">The school's reputation depends on how information is handled and how decisions are made. Responsible AI use requires clear boundaries before access is expanded.</p>
+
+        <div class="pillar-grid">
+            <div class="pillar-card">
+                <i class="fas fa-lock"></i>
+                <h3>Privacy</h3>
+                <p>Do not enter student records, medical information, passwords, payment details, staff files or confidential complaints into unapproved tools.</p>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-check-circle"></i>
+                <h3>Accuracy</h3>
+                <p>Check names, dates, calculations, curriculum facts, policies and claims against reliable school records.</p>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-scale-balanced"></i>
+                <h3>Fairness</h3>
+                <p>Review output for stereotypes, unequal assumptions or language that disadvantages any learner or family.</p>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-user-tie"></i>
+                <h3>Human Accountability</h3>
+                <p>A named teacher or administrator must approve important output and remain responsible for the decision.</p>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Academic Integrity</h3>
+                <p>Set clear student rules (and enforce them when needed,) for permitted assistance, disclosure, original work, assessment and plagiarism.</p>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-shield-halved"></i>
+                <h3>Child Safety</h3>
+                <p>Do not use AI as a substitute for professional safeguarding, counselling, medical or disciplinary judgement.</p>
+            </div>
+        </div>
+
+        <div class="example-box" style="margin-top:20px; padding-left:10px;">
+            <strong0><b>DO NOT List:</b></strong0> There should be 
+            <ul style="margin-top:10px; padding-left:25px;"> 
+                <li>No autonomous admission, discipline, employment or welfare decisions.</li>
+                <li>No uploading confidential files unless the tool is formally approved.</li>
+                <li>No publishing AI output without fact-checking and authorised review.</li>
+                <li>No impersonating parents, students, staff or external authorities.</li>
+                <li>No generating deceptive results, fake testimonials or false school achievements.</li>
+            </ul>
+        </div>
+    `
+},
+{
+    // Slide 14 — School AI Policy Template (new from PDF)
+    html: `
+        <span class="slide-index">14 / 16</span>
+        <div class="eyebrow">AI POLICY TEMPLATE</div>
+        <h2>Clear Rules; <span class="gradient-text">Safe Adoption</span></h2>
+
+        <div class="image-illustration">
+            <picture>
+                <img src="https://www.goldleafvalley.com/wp-content/uploads/2025/11/Gold-School-Management-System-in-Kenya.png"
+                   alt="AI in the classroom illustration" loading="lazy" width="100%" height="100%">
+            </picture>
+        </div>
+        <p class="lede">A simple, one-page policy helps staff, students and parents understand expectations. Review and update at least once per term.</p>
+
+        <div style="background:var(--card-bg); border:1px solid var(--border-light); border-radius:16px; padding:20px; margin:20px 0;">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; font-size:0.92rem;">
+                <div><strong style="color:var(--accent-cyan);">1. Purpose</strong><br>AI may support approved educational and administrative tasks. It does not replace accountable staff decisions.</div>
+                <div><strong style="color:var(--accent-cyan);">2. Approved Users</strong><br>Only authorised staff and students may use approved tools for agreed purposes.</div>
+                <div><strong style="color:var(--accent-cyan);">3. Data Protection</strong><br>Confidential or personally identifiable information must not be entered into unapproved AI systems.</div>
+                <div><strong style="color:var(--accent-cyan);">4. Human Review</strong><br>AI-generated work must be checked for accuracy, suitability, bias, tone and compliance before use.</div>
+                <div><strong style="color:var(--accent-cyan);">5. Student Work</strong><br>Teachers must define when AI assistance is permitted, how it should be acknowledged and what remains independent work.</div>
+                <div><strong style="color:var(--accent-cyan);">6. Prohibited Use</strong><br>AI must not be used for deception, harmful content, impersonation or final high-impact decisions.</div>
+                <div><strong style="color:var(--accent-cyan);">7. Incident Reporting</strong><br>Suspected privacy, safety or misuse incidents must be reported immediately to the designated school leader.</div>
+                <div><strong style="color:var(--accent-cyan);">8. Review Cycle</strong><br>The school will review approved tools, staff practices and this policy at least once each term.</div>
+            </div>
+        </div>
+    `
+},
+{
+    // Slide 15 — Readiness Checklist (enhanced with real-time counter & percentage feedback)
+    html: `
+        <span class="slide-index">15 / 16</span>
+        <div class="eyebrow">AI READINESS CHECKLIST</div>
+        <h2>Score Your <span class="gradient-text">Current Position</span></h2>
+        <p class="lede">Use this checklist to assess your school's readiness for AI adoption. Check each item that is fully in place.</p>
+
+        <!-- checklist grid injected by js -->
+        <div class="check-grid" id="checklistContainer"></div>
+
+        <!-- result -->
+        <div class="result-box">
+            <h3><i class="fas fa-chart-simple" style="color:var(--accent-cyan);"></i> AI READINESS RESULT:</h3>
+            <div id="survey">0 / 0</div>
+            <div style="font-weight:600; color:var(--text-secondary);"><span id="percentDisplay">0</span>% Ready</div>
+        </div>
+
+        <!-- feedback with detailed ranges -->
+        <div class="feedback" id="feedbackArea">
+            <p><strong>ggg:</strong> 
+            <br>91–100% = KUDOS! You are ready for a controlled Copilot; 
+            <br>81–90% = [Give Feedback]; 
+            <br>71–80% = [Give Feedback]; 
+            <br>61–70% = [Give Feedback]; 
+            <br>51–60% = [Give Feedback]; 
+            <br>41–50% = address key gaps first; 
+            <br>36–40% = strengthen foundations; 
+            <br>35% and below = Preparation is the key. Start small and raise.
+            </p>
+        </div>
+        <div style="margin-top:8px; font-size:0.85rem; color:var(--text-muted); text-align:right;"><i class="fas fa-rotate-right"></i> real‑time counter</div>
+    `
+},
+{
+    // Slide 16 — Readiness Checklist (enhanced with real-time counter & percentage feedback)
+    html: `
+        <span class="slide-index">15 / 16</span>
+        <div class="eyebrow">REVIEW</div>
+        <h2>Podcast: <span class="gradient-text">The Deep Dive</span></h2>
+        <p class="lede">
+
+        </p>
+
+
+        <!-- Audio Player -->
+        <div class="podcast-card">
+          <!-- Section A -->
+          <h4 class="podcast-meta">
+            <i class="fas fa-headphones"></i>  <a href="../chat-show.html" class="podcast-show-link">AI Chat Show</a> | Episode 091 | Podcast
+          </h4>
+
+          <!-- Section B -->
+          <h5 class="podcast-title">The Smart School Advantage</h5>
+            <h6>Using AI to Improve Teaching, Administration and Growth.</h6>
+
+          <!-- Controls Container: Side-by-Side (C & D) -->
+          <div class="podcast-player-container">
+            <!-- Section D: Audio Player -->
+            <div class="audio-wrapper">
+              <audio controls>
+                <source src="../../static/downloads/audio/Ep091.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+
+            <!-- Section C: Download Button -->
+            <a href="../../static/downloads/audio/Ep091.mp3" download="The Smart School Advantage.mp3"               
+                class="btn-download"><span class="dl-icon">⬇</span> Download
+            </a>
+          </div>
+    `
+},
+{
+    // Slide 17 — Contact (updated with Teadro Systems info)
+    html: `
+        <span class="slide-index">17 / 17</span>
+        <div class="eyebrow">CONTACT</div>
+
+        <h2>Connect with
+            <a href="https://forranova.github.io">
+            <strong style="margin-bottom:10px;color:var(--text-primary);">
+            <forra style="color:#708090;">Forra</forra>
+            <forra style="color:#696969;">|</forra>
+            <forra style="color:#00FFFF;">Nova</forra></strong></a>
+        </h2><hr>
+
+        <p>For hands-on training and support for this or other sessions — including staff workshops, an AI-ready-school policy template, and ongoing practice at your school — reach out to the team.</p>
+
+        <div class="send">
+            <button class="send-btn" onclick="window.location.href='mailto:forracorp1@gmail.com'"><i class="fas fa-paper-plane"></i> Mail ForraNova Admin</button>
+        </div>
+
+        <div class="contact-grid">
+            <div class="image-illustration">
+                <picture>
+                    <img src="../../static/images/ceo.png"
+                       alt="image-illustration" loading="lazy" width="100%" height="100%">
+                </picture>
+            </div>
+
+            <div class="contact-card">
+                <p><strong>Fredrick Ethan U.</strong>
+                <div class="divider"></div>
+
+                <br> AI Practitioner | Machine Learning Engineer | Web Developer | Electrical and Electronics Engineer</p>
+                         
+                <p style="margin:20px 0;"><i class="fas fa-quote-left"></i> Knowledge is for the living. <i class="fas fa-quote-right"></i></p>
+                <a href="mailto:forracorp1@gmail.com" style="color:inherit; text-decoration:none;"><h2 style="font-size:1.2rem; font-weight:900; color:var(--mint); margin:20px 0;"><i class="fas fa-envelope"></i> forracorp1@gmail.com</h2></a> 
+                <a href="https://forranova.github.io><i class="fas fa-globe"></i>  <h2 style="font-size:1.2rem; font-weight:900; color:var(--mint); margin:20px 0;"><strong><i class="fas fa-globe"></i>  forranova.github.io</h2></strong></a>
+            </div>
+        </div>
+
+        <div class="footer-note"> &copy; ForraNova Academy — The Smart School Advantage: AI for Teaching, Administration &amp; Growth</div>
+    `
+}
+];
+
+/* ===============================
+   AI READINESS CHECKLIST ENGINE (for slide 15)
+================================ */
+(function initReadinessChecklist() {
+    // Wait for slide to render
+    const observer = new MutationObserver(function() {
+        const container = document.getElementById('checklistContainer');
+        if (container && container.children.length === 0) {
+            renderChecklist(container);
+            setupChecklistListener(container);
+            updateCounter();
+        }
+    });
+
+    observer.observe(document.getElementById('slidesContainer'), { childList: true, subtree: true });
+
+    // Also run on initial load
+    setTimeout(function() {
+        const container = document.getElementById('checklistContainer');
+        if (container && container.children.length === 0) {
+            renderChecklist(container);
+            setupChecklistListener(container);
+            updateCounter();
+        }
+    }, 100);
+
+    // ----- checklist data (extended for Nigerian schools) -----
+    const checklistItems = [
+        { label: 'Leadership', desc: 'A named leader is responsible for AI adoption and approval.' },
+        { label: 'Purpose', desc: 'The school has identified specific problems AI should help solve.' },
+        { label: 'Devices', desc: 'Pilot staff have reliable computers or tablets for approved work.' },
+        { label: 'Connectivity', desc: 'Internet access is stable enough for intended tasks.' },
+        { label: 'Skills', desc: 'Pilot users understand prompting, checking and privacy basics.' },
+        { label: 'Policy', desc: 'There are written rules for staff and student use.' },
+        { label: 'Privacy', desc: 'Sensitive data categories and prohibited inputs are understood.' },
+        { label: 'Review', desc: 'Every important AI output has a responsible human reviewer.' },
+        { label: 'Workflow', desc: 'Approved prompts and review checklists are documented.' },
+        { label: 'Measurement', desc: 'The school can track time, quality, adoption and incidents.' },
+        { label: 'Stakeholder buy-in', desc: 'Parents, teachers and board are aware and supportive.' },
+        { label: 'Digital literacy', desc: 'Staff have baseline digital skills for AI tools.' },
+        { label: 'Data governance', desc: 'Clear policies for student data and AI usage.' },
+        { label: 'Infrastructure', desc: 'Power and backup are reliable during pilot hours.' },
+        { label: 'Continuous PD', desc: 'Plan for ongoing professional development on AI.' }
+    ];
+
+    function renderChecklist(container) {
+        container.innerHTML = '';
+        checklistItems.forEach((item, idx) => {
+            const div = document.createElement('div');
+            div.className = 'check-item';
+            div.innerHTML = `
+                <input type="checkbox" id="chk_${idx}" data-index="${idx}">
+                <label for="chk_${idx}" style="cursor:pointer;">
+                    <strong>${item.label}</strong>
+                    <div class="desc">${item.desc}</div>
+                </label>
+            `;
+            container.appendChild(div);
+        });
+    }
+
+    function setupChecklistListener(container) {
+        container.removeEventListener('change', handleChecklistChange);
+        container.addEventListener('change', handleChecklistChange);
+    }
+
+    function handleChecklistChange(e) {
+        if (e.target && e.target.matches('input[type="checkbox"]')) {
+            updateCounter();
+        }
+    }
+
+    function getInterpretation(percent) {
+        if (percent >= 91) return 'KUDOS! You are ready for a controlled Copilot.';
+        if (percent >= 81) return 'Strong foundation – refine a few areas before pilot.';
+        if (percent >= 71) return 'Good progress; address remaining gaps for smoother adoption.';
+        if (percent >= 61) return 'Moderate readiness – focus on key missing pillars.';
+        if (percent >= 51) return 'Several gaps identified – prioritise foundational elements.';
+        if (percent >= 41) return 'Address key gaps first before considering AI.';
+        if (percent >= 36) return 'Strengthen foundations before expanding AI use.';
+        return 'Preparation is the key. Start small and raise.';
+    }
+
+    function updateCounter() {
+        const container = document.getElementById('checklistContainer');
+        if (!container) return;
+
+        const checkboxes = container.querySelectorAll('input[type="checkbox"]');
+        const total = checkboxes.length;
+        let checked = 0;
+        checkboxes.forEach(cb => { if (cb.checked) checked++; });
+
+        const fraction = total > 0 ? (checked / total) : 0;
+        const percent = Math.round(fraction * 100);
+
+        const surveyEl = document.getElementById('survey');
+        const percentEl = document.getElementById('percentDisplay');
+        const feedbackArea = document.getElementById('feedbackArea');
+
+        if (surveyEl) surveyEl.textContent = `${checked} / ${total}`;
+        if (percentEl) percentEl.textContent = percent;
+
+        if (feedbackArea) {
+            const customMsg = getInterpretation(percent);
+            const base = ' Percentage Feedback:';
+            feedbackArea.innerHTML = `<p><strong>Interpretation:</strong> ${base} <br><span style="color:var(--accent-cyan); font-weight:500;">→ ${customMsg}</span></p>`;
+        }
+    }
+
+    // Expose updateCounter globally so it can be called from other scripts if needed
+    window.updateReadinessCounter = updateCounter;
+})();
+
+
+/* ===============================
+   SLIDE ENGINE + NAV DOTS
+   (rendering/dot logic preserved from finAI_.html, extended)
+================================ */
+let currentSlideIndex = 0;
+let isAnimating = false;
+const slideContainer = document.getElementById('slidesContainer');
+const navDotsBar = document.getElementById('navDotsBar');
+const progressRail = document.getElementById('progressRail');
+const counterCurrent = document.getElementById('counterCurrent');
+const counterTotal = document.getElementById('counterTotal');
+const prevArrow = document.getElementById('prevArrow');
+const nextArrow = document.getElementById('nextArrow');
+const gestureHint = document.getElementById('gestureHint');
+
+counterTotal.textContent = slidesData.length;
+
+function renderActiveSlide(direction) {
+    if (!slideContainer) return;
+    const slide = slidesData[currentSlideIndex];
+    const slideHtml = `<div class="slide-view entering" id="activeSlideView">${slide.html}</div>`;
+    slideContainer.innerHTML = slideHtml;
+    updateActiveDot();
+    updateProgress();
+    updateArrows();
+}
+
+function updateActiveDot() {
+    const dots = document.querySelectorAll('.nav-dot');
+    dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentSlideIndex);
+    });
+}
+
+function updateProgress() {
+    const pct = ((currentSlideIndex + 1) / slidesData.length) * 100;
+    progressRail.style.width = pct + '%';
+    counterCurrent.textContent = currentSlideIndex + 1;
+}
+
+function updateArrows() {
+    prevArrow.classList.toggle('disabled', currentSlideIndex === 0);
+    nextArrow.classList.toggle('disabled', currentSlideIndex === slidesData.length - 1);
+}
+
+function createNavigationDots() {
+    navDotsBar.innerHTML = '';
+    slidesData.forEach((_, idx) => {
+        const dot = document.createElement('div');
+        dot.classList.add('nav-dot');
+        if (idx === currentSlideIndex) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+            if (idx === currentSlideIndex) return;
+            currentSlideIndex = idx;
+            renderActiveSlide();
+        });
+        navDotsBar.appendChild(dot);
+    });
+}
+
+function goToSlide(newIndex, exitClass) {
+    if (isAnimating) return;
+    if (newIndex < 0 || newIndex > slidesData.length - 1) return;
+    const activeView = document.getElementById('activeSlideView');
+    isAnimating = true;
+    if (activeView) {
+        activeView.classList.add(exitClass);
+        setTimeout(() => {
+            currentSlideIndex = newIndex;
+            renderActiveSlide();
+            isAnimating = false;
+        }, 220);
+    } else {
+        currentSlideIndex = newIndex;
+        renderActiveSlide();
+        isAnimating = false;
+    }
+}
+
+function nextSlide() { goToSlide(currentSlideIndex + 1, 'swipe-out-left'); }
+function prevSlide() { goToSlide(currentSlideIndex - 1, 'swipe-out-right'); }
+function jumpToClose() { goToSlide(slidesData.length - 1, 'swipe-out-down'); }
+
+prevArrow.addEventListener('click', prevSlide);
+nextArrow.addEventListener('click', nextSlide);
+
+/* dark / light mode toggle */
+const darkToggle = document.getElementById('darkModeToggle');
+function initTheme() {
+    const saved = localStorage.getItem('schoolTheme') || 'dark';
+    document.body.classList.toggle('light', saved === 'light');
+    document.body.classList.toggle('dark', saved !== 'light');
+    darkToggle.innerHTML = saved === 'light' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+}
+darkToggle.addEventListener('click', () => {
+    const goingLight = !document.body.classList.contains('light');
+    document.body.classList.toggle('light', goingLight);
+    document.body.classList.toggle('dark', !goingLight);
+    localStorage.setItem('schoolTheme', goingLight ? 'light' : 'dark');
+    darkToggle.innerHTML = goingLight ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+});
+
+/* keyboard navigation */
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') prevSlide();
+    else if (e.key === 'ArrowUp') prevSlide();
+    else if (e.key === 'ArrowRight') nextSlide();
+    else if (e.key === 'ArrowDown') nextSlide();
+    else if (e.key === 'Escape') jumpToClose();
+});
+
+/* ===============================
+   GESTURE / SWIPE NAVIGATION
+   left/right swipe = prev/next slide
+   forceful downward swipe = jump to closing slide
+================================ */
+(function initGestures() {
+    const target = document.getElementById('slidesContainer');
+    let startX = 0, startY = 0, startTime = 0;
+    let tracking = false;
+
+    const THRESH_X = 60;       // px, horizontal swipe distance
+    const THRESH_Y_SOFT = 70;  // px, vertical swipe distance
+    const THRESH_Y_FORCE = 140; // px, "forceful" downward swipe
+    const MAX_TIME = 900;      // ms, must be a swipe not a drag
+
+    function pointerDown(x, y) {
+        startX = x; startY = y; startTime = Date.now();
+        tracking = true;
+    }
+    function pointerUp(x, y) {
+        if (!tracking) return;
+        tracking = false;
+        const dx = x - startX;
+        const dy = y - startY;
+        const dt = Date.now() - startTime;
+        if (dt > MAX_TIME) return;
+
+        const absX = Math.abs(dx);
+        const absY = Math.abs(dy);
+
+        // forceful downward swipe -> jump to close
+        if (dy > THRESH_Y_FORCE && absY > absX) {
+            jumpToClose();
+            hideHint();
+            return;
+        }
+        // horizontal swipe -> prev/next
+        if (absX > THRESH_X && absX > absY) {
+            if (dx < 0) nextSlide(); else prevSlide();
+            hideHint();
+            return;
+        }
+        // soft vertical swipe up -> next as well (alt gesture)
+        if (dy < -THRESH_Y_SOFT && absY > absX) {
+            nextSlide();
+            hideHint();
+        }
+    }
+
+    target.addEventListener('touchstart', (e) => {
+        const t = e.changedTouches[0];
+        pointerDown(t.clientX, t.clientY);
+    }, { passive: true });
+
+    target.addEventListener('touchend', (e) => {
+        const t = e.changedTouches[0];
+        pointerUp(t.clientX, t.clientY);
+    }, { passive: true });
+
+    // mouse drag support for desktop trackpads/mice
+    let mouseDown = false;
+    target.addEventListener('mousedown', (e) => {
+        mouseDown = true;
+        pointerDown(e.clientX, e.clientY);
+    });
+    window.addEventListener('mouseup', (e) => {
+        if (!mouseDown) return;
+        mouseDown = false;
+        pointerUp(e.clientX, e.clientY);
+    });
+
+    function hideHint() {
+        if (gestureHint) gestureHint.classList.add('fade');
+    }
+    setTimeout(hideHint, 5000);
+})();
+
+/* responsive init */
+function init() {
+    createNavigationDots();
+    renderActiveSlide();
+    initTheme();
+}
+init();
+</script>
+
+<script>
+/* ===============================
+   HAMBURGER MENU TOGGLE
+   (preserved from finAI_.html)
+================================ */
+const hamburger = document.getElementById('hamburger-menu');
+const mainNav = document.getElementById('main-nav');
+
+if (hamburger && mainNav) {
+    hamburger.addEventListener('click', function (e) {
+        e.stopPropagation();
+        this.classList.toggle('active');
+        mainNav.classList.toggle('open');
+    });
+    mainNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mainNav.classList.remove('open');
+        });
+    });
+    document.addEventListener('click', function (e) {
+        if (!hamburger.contains(e.target) && !mainNav.contains(e.target)) {
+            hamburger.classList.remove('active');
+            mainNav.classList.remove('open');
+        }
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            hamburger.classList.remove('active');
+            mainNav.classList.remove('open');
+        }
+    });
+}
+</script>
+
+<script>
+/* =======================================================================
+BACKGROUND ANIMATION SCRIPT
+(preserved verbatim from finAI_.html — Deep Space Simulation engine)
+==========================================================================
+/**
+ * Deep Space Simulation
+ * A highly performant, visually stunning space background
+ * featuring blinking stars, shooting stars with multilingual
+ * character rain, floating planets, and galactic orbital lines.
+ */
+
+// ──────────────────────────────────────
+// MULTILINGUAL CHARACTER SET
+// ──────────────────────────────────────
+
+    (() => {
+      const canvas = document.getElementById('space');
+      const ctx = canvas.getContext('2d', { alpha: false });
+
+      const DPR = Math.min(window.devicePixelRatio || 1, 2);
+
+      let width = window.innerWidth;
+      let height = window.innerHeight;
+      let centerX = width * 0.5;
+      let centerY = height * 0.5;
+
+      function resize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        centerX = width * 0.5;
+        centerY = height * 0.5;
+
+        canvas.width = width * DPR;
+        canvas.height = height * DPR;
+
+        canvas.style.width = width + 'px';
+        canvas.style.height = height + 'px';
+
+        ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      }
+
+      resize();
+      window.addEventListener('resize', resize);
+
+      const SPEED = 0.5;
+      const STAR_COUNT = 1500;
+      const BRIGHT_STAR_COUNT = 20;
+      const ASTEROID_COUNT = 40;
+
+      const stars = [];
+      const brightStars = [];
+      const asteroids = [];
+      const shootingStars = [];
+      const nebulae = [];
+      const matrixParticles = [];
+      const planets = [];
+
+      const characters = '01アカサタナｦｧｨｩｪｫｬｭｮｯｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ0123456789ABCDEF';
+
+      function rand(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+      function perspective(x, y, z) {
+        const scale = 600 / z;
+
+        return {
+          x: x * scale + centerX,
+          y: y * scale + centerY,
+          scale
+        };
+      }
+
+      class Star {
+        constructor(bright = false) {
+          this.bright = bright;
+          this.reset();
+        }
+
+        reset() {
+          this.x = rand(-2200, 2200);
+          this.y = rand(-2200, 2200);
+          this.z = rand(200, 2000);
+          this.baseSize = this.bright ? rand(2, 7) : rand(0.3, 1.4);
+          this.twinkle = rand(0, Math.PI * 2);
+          this.speed = this.bright ? SPEED * 1.4 : SPEED;
+        }
+
+        update() {
+          this.z -= this.speed;
+
+          if (this.z <= 1) {
+            this.reset();
+            this.z = 2000;
+          }
+        }
+
+        draw() {
+          const p = perspective(this.x, this.y, this.z);
+
+          if (
+            p.x < -100 ||
+            p.x > width + 100 ||
+            p.y < -100 ||
+            p.y > height + 100
+          ) {
+            return;
+          }
+
+          const pulse = 0.5 + Math.sin(performance.now() * 0.002 + this.twinkle) * 0.5;
+          const radius = this.baseSize * p.scale * 1.2;
+
+          if (this.bright) {
+            ctx.save();
+            ctx.globalCompositeOperation = 'screen';
+
+            const glow = ctx.createRadialGradient(
+              p.x,
+              p.y,
+              0,
+              p.x,
+              p.y,
+              radius * 12
+            );
+
+            glow.addColorStop(0, `rgba(255,255,255,${0.9 * pulse})`);
+            glow.addColorStop(0.2, `rgba(120,220,255,${0.4 * pulse})`);
+            glow.addColorStop(0.4, `rgba(120,220,255,${0.2 * pulse})`);
+            glow.addColorStop(1, 'rgba(0,0,0,0)');
+
+            ctx.fillStyle = glow;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, radius * 12, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.strokeStyle = `rgba(255,255,255,${0.7 * pulse})`;
+            ctx.lineWidth = radius * 0.6;
+
+            ctx.beginPath();
+            ctx.moveTo(p.x - radius * 10, p.y);
+            ctx.lineTo(p.x + radius * 10, p.y);
+            ctx.moveTo(p.x, p.y - radius * 10);
+            ctx.lineTo(p.x, p.y + radius * 10);
+            ctx.stroke();
+
+            ctx.restore();
+          }
+
+          ctx.fillStyle = this.bright
+            ? `rgba(255,255,255,${pulse})`
+            : `rgba(255,255,255,${0.45 + pulse * 0.45})`;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, Math.max(radius, 0.4), 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      class Asteroid {
+        constructor() {
+          this.reset();
+        }
+
+        reset() {
+          this.x = rand(-1800, 1800);
+          this.y = rand(-1000, 1000);
+          this.z = rand(300, 2200);
+          this.radius = rand(10, 45);
+          this.rotation = rand(0, Math.PI * 2);
+          this.rotationSpeed = rand(-0.02, 0.02);
+          this.vertices = [];
+
+          const count = Math.floor(rand(5, 9));
+
+          for (let i = 0; i < count; i++) {
+            this.vertices.push({
+              angle: (Math.PI * 2 * i) / count,
+              offset: rand(0.7, 1.35)
+            });
+          }
+        }
+
+        update() {
+          this.z -= SPEED * 1.6;
+          this.rotation += this.rotationSpeed;
+
+          if (this.z <= 1) {
+            this.reset();
+            this.z = 2400;
+          }
+        }
+
+        draw() {
+          const p = perspective(this.x, this.y, this.z);
+          const r = this.radius * p.scale;
+
+          if (r < 0.4) return;
+
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(this.rotation);
+
+          ctx.beginPath();
+
+          this.vertices.forEach((v, i) => {
+            const px = Math.cos(v.angle) * r * v.offset;
+            const py = Math.sin(v.angle) * r * v.offset;
+
+            if (i === 0) {
+              ctx.moveTo(px, py);
+            } else {
+              ctx.lineTo(px, py);
+            }
+          });
+
+          ctx.closePath();
+
+          const gradient = ctx.createLinearGradient(-r, -r, r, r);
+          gradient.addColorStop(0, '#8a8a8a');
+          gradient.addColorStop(0.5, '#3d3d3d');
+          gradient.addColorStop(1, '#171717');
+
+          ctx.fillStyle = gradient;
+          ctx.fill();
+
+          ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+          ctx.stroke();
+
+          ctx.restore();
+        }
+      }
+
+      class ShootingStar {
+        constructor() {
+          this.reset(true);
+        }
+
+        reset(initial = false) {
+          this.x = rand(width * 0.2, width * 0.9);
+          this.y = rand(-100, height * 0.4);
+          this.length = rand(180, 420);
+          this.speed = rand(40, 70);
+          this.angle = rand(-0.4, -0.9);
+          this.life = rand(40, 90);
+          this.opacity = 1;
+
+          if (!initial) {
+            for (let i = 0; i < 28; i++) {
+              matrixParticles.push(new MatrixParticle(this.x, this.y));
+            }
+          }
+        }
+
+        update() {
+          this.x += Math.cos(this.angle) * this.speed;
+          this.y += Math.sin(this.angle) * this.speed;
+          this.life--;
+          this.opacity *= 0.97;
+
+          if (this.life <= 0) {
+            this.reset();
+          }
+        }
+
+        draw() {
+          ctx.save();
+          ctx.globalCompositeOperation = 'screen';
+
+          const tailX = this.x - Math.cos(this.angle) * this.length;
+          const tailY = this.y - Math.sin(this.angle) * this.length;
+
+          const grad = ctx.createLinearGradient(this.x, this.y, tailX, tailY);
+          grad.addColorStop(0, `rgba(255,255,255,${this.opacity})`);
+          grad.addColorStop(0.2, `rgba(120,220,255,${this.opacity * 0.8})`);
+          grad.addColorStop(1, 'rgba(0,0,0,0)');
+
+          ctx.strokeStyle = grad;
+          ctx.lineWidth = 3;
+
+          ctx.beginPath();
+          ctx.moveTo(this.x, this.y);
+          ctx.lineTo(tailX, tailY);
+          ctx.stroke();
+
+          ctx.restore();
+        }
+      }
+
+      class MatrixParticle {
+        constructor(x, y) {
+          this.x = x;
+          this.y = y;
+          this.vx = rand(-6, 6);
+          this.vy = rand(-6, 6);
+          this.life = rand(30, 90);
+          this.char = characters[Math.floor(rand(0, characters.length))];
+          this.size = rand(10, 18);
+          this.opacity = 1;
+        }
+
+        update(index) {
+          this.x += this.vx;
+          this.y += this.vy;
+          this.vx *= 0.985;
+          this.vy *= 0.985;
+          this.life--;
+          this.opacity *= 0.97;
+
+          if (this.life <= 0) {
+            matrixParticles.splice(index, 1);
+          }
+        }
+
+        draw() {
+          ctx.save();
+          ctx.globalCompositeOperation = 'screen';
+          ctx.fillStyle = `rgba(0,255,180,${this.opacity})`;
+          ctx.font = `${this.size}px monospace`;
+          ctx.fillText(this.char, this.x, this.y);
+          ctx.restore();
+        }
+      }
+
+      class Nebula {
+        constructor() {
+          this.reset();
+        }
+
+        reset() {
+          this.x = rand(-width * 0.5, width);
+          this.y = rand(-height * 0.5, height);
+          this.radius = rand(300, 1000);
+          this.hue = rand(180, 320);
+          this.opacity = rand(0.02, 0.05);
+          this.drift = rand(0.05, 0.3);
+        }
+
+        update() {
+          this.x += this.drift;
+
+          if (this.x > width + this.radius) {
+            this.x = -this.radius;
+          }
+        }
+
+        draw() {
+          ctx.save();
+          ctx.globalCompositeOperation = 'screen';
+
+          const gradient = ctx.createRadialGradient(
+            this.x,
+            this.y,
+            0,
+            this.x,
+            this.y,
+            this.radius
+          );
+
+          gradient.addColorStop(0, `hsla(${this.hue},100%,70%,${this.opacity})`);
+          gradient.addColorStop(0.3, `hsla(${this.hue + 40},100%,60%,${this.opacity * 0.8})`);
+          gradient.addColorStop(1, 'rgba(0,0,0,0)');
+
+          ctx.fillStyle = gradient;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.restore();
+        }
+      }
+
+      class Planet {
+        constructor(data, index) {
+          this.name = data.name;
+          this.color = data.color;
+          this.radius = data.radius;
+          this.type = data.type;
+          this.rings = data.rings;
+          this.index = index;
+
+          this.x = data.x;
+          this.y = data.y;
+          this.z = 8000 + index * 2200;
+        }
+
+        update() {
+          const localSpeed = this.name === 'Jupiter' ? SPEED * 0.5 : SPEED;
+          this.z -= localSpeed;
+        }
+
+        drawPlanetTexture(px, py, pr) {
+          const gradient = ctx.createRadialGradient(
+            px - pr * 0.3,
+            py - pr * 0.3,
+            pr * 0.2,
+            px,
+            py,
+            pr
+          );
+
+          switch (this.name) {
+            case 'Mercury':
+              gradient.addColorStop(0, '#d2d2d2');
+              gradient.addColorStop(1, '#575757');
+              break;
+
+            case 'Venus':
+              gradient.addColorStop(0, '#ffe59f');
+              gradient.addColorStop(1, '#bc8d23');
+              break;
+
+            case 'Earth':
+              gradient.addColorStop(0, '#79d4ff');
+              gradient.addColorStop(0.5, '#1b63ff');
+              gradient.addColorStop(1, '#0036a3');
+              break;
+
+            case 'Mars':
+              gradient.addColorStop(0, '#ffb37d');
+              gradient.addColorStop(1, '#8d2d08');
+              break;
+
+            case 'Jupiter':
+              gradient.addColorStop(0, '#f8dfb0');
+              gradient.addColorStop(1, '#ad6930');
+              break;
+
+            case 'Saturn':
+              gradient.addColorStop(0, '#fff0bf');
+              gradient.addColorStop(1, '#af8a40');
+              break;
+
+            case 'Uranus':
+              gradient.addColorStop(0, '#dffcff');
+              gradient.addColorStop(1, '#8fd6e5');
+              break;
+
+            case 'Neptune':
+              gradient.addColorStop(0, '#7bb6ff');
+              gradient.addColorStop(1, '#001c7f');
+              break;
+
+            case 'Pluto':
+              gradient.addColorStop(0, '#d4d4d4');
+              gradient.addColorStop(1, '#7d7d7d');
+              break;
+          }
+
+          ctx.fillStyle = gradient;
+          ctx.beginPath();
+          ctx.arc(px, py, pr, 0, Math.PI * 2);
+          ctx.fill();
+
+          if (this.name === 'Earth') {
+            ctx.save();
+            ctx.shadowBlur = pr * 0.7;
+            ctx.shadowColor = 'rgba(100,180,255,0.9)';
+            ctx.strokeStyle = 'rgba(120,220,255,0.4)';
+            ctx.lineWidth = pr * 0.05;
+            ctx.beginPath();
+            ctx.arc(px, py, pr * 1.03, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.restore();
+          }
+
+          if (this.name === 'Jupiter') {
+            ctx.save();
+            ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+
+            for (let i = -3; i <= 3; i++) {
+              ctx.beginPath();
+              ctx.moveTo(px - pr * 0.9, py + i * pr * 0.18);
+              ctx.lineTo(px + pr * 0.9, py + i * pr * 0.18);
+              ctx.stroke();
+            }
+
+            ctx.restore();
+          }
+        }
+
+        draw() {
+          if (this.z <= 1) return;
+
+          const p = perspective(this.x, this.y, this.z);
+          const pr = this.radius * p.scale;
+
+          if (pr < 1) return;
+
+          ctx.save();
+
+          if (this.rings) {
+            ctx.strokeStyle = 'rgba(255,230,180,0.7)';
+            ctx.lineWidth = pr * 0.08;
+
+            ctx.beginPath();
+            ctx.ellipse(
+              p.x,
+              p.y,
+              pr * 1.9,
+              pr * 0.5,
+              -0.5,
+              0,
+              Math.PI * 2
+            );
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.ellipse(
+              p.x,
+              p.y,
+              pr * 2.3,
+              pr * 0.65,
+              -0.5,
+              0,
+              Math.PI * 2
+            );
+            ctx.stroke();
+          }
+
+          this.drawPlanetTexture(p.x, p.y, pr);
+
+          ctx.fillStyle = 'rgba(255,255,255,0.7)';
+          ctx.font = `${Math.max(pr * 0.18, 11)}px sans-serif`;
+          ctx.fillText(this.name, p.x + pr * 1.4, p.y - pr * 1.2);
+
+          ctx.restore();
+        }
+      }
+
+      const planetData = [
+        {
+          name: 'Mercury',
+          radius: 17,
+          x: -180,
+          y: -90
+        },
+        {
+          name: 'Venus',
+          radius: 42,
+          x: -1900,
+          y: -1140
+        },
+        {
+          name: 'Earth',
+          radius: 45,
+          x: -200,
+          y: 80
+        },
+        {
+          name: 'Mars',
+          radius: 24,
+          x: 250,
+          y: 1920
+        },
+        {
+          name: 'Jupiter',
+          radius: 500,
+          x: -900,
+          y: -60
+        },
+        {
+          name: 'Saturn',
+          radius: 421,
+          x: 950,
+          y: 940,
+          rings: true
+        },
+        {
+          name: 'Uranus',
+          radius: 179,
+          x: -280,
+          y: 1040,
+        },
+        {
+          name: 'Neptune',
+          radius: 173,
+          x: 2080,
+          y: -1020
+        },
+        {
+          name: 'Pluto',
+          radius: 9,
+          x: 520,
+          y: 250
+        }
+      ];
+
+      for (let i = 0; i < STAR_COUNT; i++) {
+        stars.push(new Star(false));
+      }
+
+      for (let i = 0; i < BRIGHT_STAR_COUNT; i++) {
+        brightStars.push(new Star(true));
+      }
+
+      for (let i = 0; i < ASTEROID_COUNT; i++) {
+        asteroids.push(new Asteroid());
+      }
+
+      for (let i = 0; i < 3; i++) {
+        shootingStars.push(new ShootingStar());
+      }
+
+      for (let i = 0; i < 5; i++) {
+        nebulae.push(new Nebula());
+      }
+
+      planetData.forEach((p, i) => {
+        planets.push(new Planet(p, i));
+      });
+
+      let lastNebulaShift = 0;
+
+      function drawCockpitOverlay() {
+        ctx.save();
+
+        ctx.strokeStyle = 'rgba(120,220,255,0.08)';
+        ctx.lineWidth = 2;
+
+        ctx.beginPath();
+        ctx.moveTo(0, height);
+        ctx.lineTo(width * 0.2, height * 0.72);
+        ctx.moveTo(width, height);
+        ctx.lineTo(width * 0.8, height * 0.72);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, 30, 0, Math.PI * 2);
+        ctx.stroke();
+
+        ctx.restore();
+      }
+
+      function animate(time) {
+        ctx.fillStyle = 'rgba(0,0,0,0.25)';
+        ctx.fillRect(0, 0, width, height);
+
+        if (time - lastNebulaShift > 12000) {
+          nebulae.push(new Nebula());
+          lastNebulaShift = time;
+
+          if (nebulae.length > 7) {
+            nebulae.shift();
+          }
+        }
+
+        nebulae.forEach(n => {
+          n.update();
+          n.draw();
+        });
+
+        stars.forEach(star => {
+          star.update();
+          star.draw();
+        });
+
+        brightStars.forEach(star => {
+          star.update();
+          star.draw();
+        });
+
+        asteroids.forEach(asteroid => {
+          asteroid.update();
+          asteroid.draw();
+        });
+
+        planets.forEach(planet => {
+          planet.update();
+          planet.draw();
+        });
+
+        shootingStars.forEach(star => {
+          star.update();
+          star.draw();
+        });
+
+        for (let i = matrixParticles.length - 1; i >= 0; i--) {
+          matrixParticles[i].update(i);
+          matrixParticles[i]?.draw();
+        }
+
+        drawCockpitOverlay();
+
+        requestAnimationFrame(animate);
+      }
+
+      requestAnimationFrame(animate);
+    })();
+</script>
+
+<script>
+
+// ──────────────────────────────────────
+// SLIDE 2 HIDDEN DETAIL ENGINE
+// ──────────────────────────────────────
+function toggleAccordion(elementId) {
+  const currentItem = document.getElementById(elementId);
+  const currentTrigger = currentItem.querySelector('.accordion-trigger');
+  const isActive = currentItem.classList.contains('active');
+  
+  // Optional: Close all other accordion items (Single-accordion mode)
+  const allItems = document.querySelectorAll('.accordion-item');
+  allItems.forEach(item => {
+    item.classList.remove('active');
+    const trigger = item.querySelector('.accordion-trigger');
+    if (trigger) trigger.setAttribute('aria-expanded', 'false');
+  });
+
+  // Toggle state of clicked item
+  if (!isActive) {
+    currentItem.classList.add('active');
+    currentTrigger.setAttribute('aria-expanded', 'true');
+  }
+}
+</script>
+
+</body>
+</html>
