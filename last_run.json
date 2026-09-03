@@ -1,17 +1,21 @@
 {
-    "last_update": "September 03, 2026 | 06:17 PM",
+    "last_update": "September 03, 2026 | 10:56 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[18:16:58] SUCCESS: Machine Learning (3 found)",
-        "[18:17:02] SUCCESS: Front-End / React (3 found)",
-        "[18:17:05] SUCCESS: Writing / Creative (0 found)",
-        "[18:17:08] SUCCESS: Virtual Assistant (0 found)"
+        "[22:56:20] SUCCESS: Machine Learning (3 found)",
+        "[22:56:23] SUCCESS: Front-End / React (3 found)",
+        "[22:56:25] SUCCESS: Writing / Creative (0 found)",
+        "[22:56:28] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
             "jobs": [
+                {
+                    "position": "Customer Support & Success Specialist",
+                    "link": "https://remoteok.com/remote-jobs/remote-customer-support-success-specialist-warehance-1137302"
+                },
                 {
                     "position": "Data Entry Clerk",
                     "link": "https://remoteok.com/remote-jobs/remote-data-entry-clerk-astrek-careers-1137286"
@@ -19,10 +23,6 @@
                 {
                     "position": "Senior Demand Generation Manager",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-demand-generation-manager-testgorilla-1135606"
-                },
-                {
-                    "position": "QA Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-qa-engineer-sunnydata-1137300"
                 }
             ]
         },
