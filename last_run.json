@@ -1,12 +1,12 @@
 {
-    "last_update": "September 03, 2026 | 01:09 PM",
+    "last_update": "September 03, 2026 | 06:17 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[13:09:23] SUCCESS: Machine Learning (3 found)",
-        "[13:09:26] SUCCESS: Front-End / React (3 found)",
-        "[13:09:28] SUCCESS: Writing / Creative (0 found)",
-        "[13:09:31] SUCCESS: Virtual Assistant (0 found)"
+        "[18:16:58] SUCCESS: Machine Learning (3 found)",
+        "[18:17:02] SUCCESS: Front-End / React (3 found)",
+        "[18:17:05] SUCCESS: Writing / Creative (0 found)",
+        "[18:17:08] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-demand-generation-manager-testgorilla-1135606"
                 },
                 {
-                    "position": "Urban walker",
-                    "link": "https://remoteok.com/remote-jobs/remote-urban-walker-walkr-turn-your-google-meet-walk-friendly-1137296"
+                    "position": "QA Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-qa-engineer-sunnydata-1137300"
                 }
             ]
         },
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Store Manager BOSS Store Plaza Las Americas",
+                    "link": "https://remoteok.com/remote-jobs/remote-store-manager-boss-store-plaza-las-americas-hugo-boss-1137301"
+                },
+                {
                     "position": "Aviation Maintenance Technician",
                     "link": "https://remoteok.com/remote-jobs/remote-aviation-maintenance-technician-fedex-1136922"
                 },
                 {
                     "position": "Valet Driver",
                     "link": "https://remoteok.com/remote-jobs/remote-valet-driver-marina-bay-sands-1136920"
-                },
-                {
-                    "position": "Senior React Full stack Developer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-react-full-stack-developer-lemon-io-1136299"
                 }
             ]
         },
