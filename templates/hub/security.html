@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+    <title>Safe Haven, Shared Duty · 360° Shield</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ----- RESET & BASE ----- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            font-family: 'Inter', sans-serif;
+            background: #0b0d1a;
+            color: #eef3fc;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+        }
+
+        /* ----- ANIMATED BACKGROUND (canvas) - BEHIND EVERYTHING ----- */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+            background: radial-gradient(circle at 30% 40%, #10172e, #03050b 80%);
+        }
+
+        /* ----- ALL CONTENT LAYERS - ABOVE BACKGROUND ----- */
+        .app-wrapper,
+        header,
+        .app-container,
+        .nav-dots-bar,
+        .slide-arrow,
+        .slide-counter,
+        .gesture-hint,
+        .progress-rail,
+        .dark-mode-toggle,
+        .slides-container,
+        .slide-view {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* header needs higher z-index for dropdown */
+        header { z-index: 1000; }
+        .nav-dots-bar { z-index: 1000; }
+        .dark-mode-toggle { z-index: 1100; }
+        .slide-arrow { z-index: 1050; }
+        .slide-counter { z-index: 1050; }
+        .gesture-hint { z-index: 1050; }
+        .progress-rail { z-index: 1200; }
+
+        /* ----- FUTURISTIC THEME TOKENS (mirror smart.html) ----- */
+        body.dark {
+            --bg-page: #05060c;
+            --slide-bg: rgba(10, 13, 24, 0.75);
+            --text-primary: #eaf2ff;
+            --text-secondary: #c8d6e8;
+            --text-muted: #8895b8;
+            --accent-cyan: #ff9f43;
+            --accent-violet: #ff4757;
+            --card-bg: rgba(22, 27, 46, 0.65);
+            --border-light: rgba(0, 229, 255, 0.2);
+            --nav-dot-bg: rgba(167, 180, 212, 0.35);
+            --nav-dot-active: #ff4757;
+            --opaque: rgba(0, 229, 255, 0.06);
+            --transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --shadow-sm: 0 20px 45px -12px rgba(0, 0, 0, 0.8);
+            --accent-emerald: #2df7a3;
+            --accent-amber: #ffb84d;
+            --grid-line: rgba(0, 229, 255, 0.08);
+        }
+        body.light {
+            --bg-page: #f0f4ff;
+            --slide-bg: rgba(255, 255, 255, 0.85);
+            --text-primary: #0b0f1e;
+            --text-secondary: #2c3552;
+            --text-muted: #5b6584;
+            --accent-cyan: #e8434a;
+            --accent-violet: #e17055;
+            --card-bg: rgba(255, 255, 255, 0.7);
+            --border-light: rgba(8, 145, 178, 0.25);
+            --nav-dot-bg: rgba(44, 53, 82, 0.25);
+            --nav-dot-active: #e17055;
+            --opaque: rgba(8, 145, 178, 0.06);
+            --transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --shadow-sm: 0 20px 45px -12px rgba(0, 0, 0, 0.3);
+            --accent-emerald: #059669;
+            --accent-amber: #d97706;
+            --grid-line: rgba(8, 145, 178, 0.06);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-primary);
+            transition: var(--transition);
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+        a { color: var(--accent-cyan); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* ===== HEADER & NAV (mirror smart.html) ===== */
+        header {
+            position: fixed;
+            top: 5px;
+            width: 100%;
+            max-height: 110px;
+            background: rgba(5, 6, 12, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0, 229, 255, 0.15);
+            margin-top: -20px;
+            z-index: 1000;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            white-space: nowrap;
+            padding: 5px 5%;
+            color: var(--accent-cyan);
+        }
+        .slogan {
+            font-size: 1.1rem;
+            flex-direction: column;
+            text-align: center;
+            color: #00e0ff;
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 18px rgba(0, 229, 255, 0.45);
+        }
+        .foota {
+            z-index: -0.3;
+            height: 55px;
+            filter: drop-shadow(0 0 10px rgba(128, 255, 255, 0.6));
+        }
+        .nav-links a {
+            font-size: 1.2rem;
+            transition: 0.3s;
+            color: #cfe9ff;
+            text-decoration: none;
+            letter-spacing: 0.3px;
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+        }
+        .nav-links li {
+            margin-left: 22px;
+            font-weight: 600;
+            position: relative;
+        }
+        .nav-links li::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0%;
+            height: 1px;
+            background: var(--accent-cyan);
+            transition: width 0.25s ease;
+        }
+        .nav-links li:hover::after { width: 100%; }
+        .nav-links li:hover a, .nav-links a:hover { color: var(--accent-cyan); }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 8px;
+        }
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .menu-toggle .bar {
+            width: 25px;
+            height: 2px;
+            background-color: #00e0ff;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 6px rgba(0, 229, 255, 0.6);
+        }
+        @media screen and (max-width: 900px) {
+            .menu-toggle { display: flex; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 90px;
+                left: 0;
+                background: rgba(5, 6, 12, 0.97);
+                text-align: center;
+                padding: 10px 0;
+                border-bottom: 1px solid rgba(0,229,255,0.2);
+            }
+            .nav-links.active, .nav-links.open { display: flex; }
+            .nav-links li { margin: 10px 0; }
+            .menu-toggle.active .bar {
+                width: 3px;
+                height: 22px;
+                margin: 0 2px;
+                display: inline-block;
+            }
+            .menu-toggle.active { flex-direction: row; gap: 4px; }
+        }
+
+        /* ===== LOGO (mirror smart.html) ===== */
+        :root {
+            --canvas-width: 150px;
+            --canvas-height: 160px;
+            --bg-logo-sizeW: 92px;
+            --bg-logo-sizeH: 92px;
+            --bg-logo-top: 14px;
+            --bg-logo-left: 28px;
+            --brain-size: 56px;
+            --brain-top: 30px;
+            --brain-left: 60px;
+            --heartbeat-speed: 2s;
+            --text-width: 158px;
+            --text-bottom: 28px;
+            --text-down: 18px;
+            --text-left: -10px;
+            --spin-speed: 6s;
+        }
+        .logo-component {
+            position: relative;
+            width: var(--canvas-width);
+            height: var(--canvas-height);
+            margin-left: 20px;
+            overflow: hidden;
+            perspective: 1000px;
+            background: transparent;
+            float: left;
+        }
+        .logo-layer {
+            position: absolute;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
+        .layer-bg-logo {
+            width: var(--bg-logo-sizeW);
+            height: var(--bg-logo-sizeH);
+            top: var(--bg-logo-top);
+            left: var(--bg-logo-left);
+            z-index: 1000;
+            border-radius: 50%;
+        }
+        .layer-brain {
+            width: var(--brain-size);
+            height: var(--brain-size);
+            top: var(--brain-top);
+            left: var(--brain-left);
+            z-index: 2000;
+            animation: heartbeat var(--heartbeat-speed) ease-in-out infinite;
+            transform-origin: center center;
+            filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.65));
+        }
+        .layer-text {
+            width: var(--text-width);
+            height: calc(var(--text-width) * 0.25);
+            bottom: var(--text-bottom);
+            left: var(--text-left);
+            z-index: 3000;
+            transform-style: preserve-3d;
+            animation: spin3D var(--spin-speed) linear infinite;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.05); }
+            45% { transform: scale(1.02); }
+            65% { transform: scale(1.07); }
+            100% { transform: scale(1); }
+        }
+        @keyframes spin3D {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+        @media (max-width: 600px) {
+            .logo-component { overflow: visible; margin-left: 20px; }
+            .layer-text { bottom: var(--text-down); }
+        }
+
+        /* ===== MAIN APP CONTAINER ===== */
+        .app-container {
+            display: flex;
+            top: 100px;
+            height: 90%;
+            width: 100%;
+            position: relative;
+            left: -15px;
+            z-index: 10;
+        }
+
+        /* ===== LEFT NAV DOTS ===== */
+        .nav-dots-bar {
+            position: fixed;
+            transform: rotate(90deg);
+            left: -200px;
+            top: 50%;
+            background: rgba(8, 10, 20, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(14px);
+            border-radius: 60px;
+            padding: 16px 12px;
+            display: flex;
+            flex-direction: row;
+            gap: 16px;
+            box-shadow: 0 8px 30px rgba(0, 229, 255, 0.12);
+            border: 1px solid rgba(0, 229, 255, 0.22);
+            transition: var(--transition);
+            z-index: 1000;
+        }
+        .nav-dot {
+            width: 18px;
+            height: 18px;
+            background: var(--nav-dot-bg);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            opacity: 0.6;
+            position: relative;
+        }
+        .nav-dot.active {
+            background: var(--nav-dot-active);
+            transform: scale(1.55);
+            opacity: 1;
+            box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.22), 0 0 14px rgba(0, 229, 255, 0.65);
+        }
+        .nav-dot:hover {
+            opacity: 1;
+            transform: scale(1.25);
+            background: var(--accent-cyan);
+        }
+
+        /* ===== SLIDES CONTAINER ===== */
+        .slides-container {
+            flex: 1;
+            margin-left: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            overflow: hidden;
+            position: relative;
+            touch-action: pan-y;
+            z-index: 10;
+        }
+        .slide-view {
+            width: 100%;
+            max-width: 1180px;
+            height: 80vh;
+            min-height: 570px;
+            background: var(--slide-bg);
+            box-shadow: var(--shadow-sm);
+            overflow-y: auto;
+            padding: 44px 52px;
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+            scrollbar-width: thin;
+            border-radius: 18px;
+            margin-top: -40px;
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid var(--border-light);
+            position: relative;
+            z-index: 10;
+            color: var(--text-primary);
+        }
+        .slide-view::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-violet), transparent);
+            opacity: 0.8;
+        }
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(24px) scale(0.985); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .slide-view.entering { animation: fadeSlideUp 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+        .slide-view.swipe-out-left  { transform: translateX(-60px); opacity: 0; }
+        .slide-view.swipe-out-right { transform: translateX(60px); opacity: 0; }
+        .slide-view.swipe-out-down  { transform: translateY(60px) scale(0.96); opacity: 0; }
+
+        .slide-view::-webkit-scrollbar { width: 6px; }
+        .slide-view::-webkit-scrollbar-track { background: transparent; }
+        .slide-view::-webkit-scrollbar-thumb { background: var(--accent-cyan); border-radius: 8px; }
+
+        /* ===== DARK MODE TOGGLE ===== */
+        .dark-mode-toggle {
+            position: fixed;
+            top: 105px;
+            right: 12px;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 60px;
+            width: 46px;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 18px rgba(0, 229, 255, 0.15);
+            transition: 0.2s;
+            border: 1px solid var(--border-light);
+            z-index: 1100;
+        }
+        .fa-moon, .fa-sun { font-size: 1.25rem; color: var(--accent-cyan); }
+
+        /* ===== ARROWS ===== */
+        .slide-arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(8, 10, 20, 0.55);
+            border: 0px solid var(--border-light);
+            color: var(--accent-cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: 0.2s;
+            z-index: 1050;
+        }
+        .slide-arrow:hover { background: rgba(0, 229, 255, 0.15); transform: translateY(-50%) scale(1.08); }
+        .slide-arrow.prev { right: 84px; }
+        .slide-arrow.next { right: 24px; }
+        .slide-arrow:disabled, .slide-arrow.disabled { opacity: 0.25; pointer-events: none; }
+
+        /* ===== COUNTER + HINT ===== */
+        .slide-counter {
+            position: fixed;
+            bottom: 22px;
+            right: 24px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 15px;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            background: rgba(8, 10, 20, 0.55);
+            border: 1px solid var(--border-light);
+            padding: 6px 12px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            z-index: 1050;
+        }
+        .slide-counter span { color: var(--accent-cyan); font-weight: 600; }
+        .gesture-hint {
+            position: fixed;
+            bottom: 22px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 16px;
+            background: rgba(8, 10, 20, 0.85);
+            border: 1px solid var(--border-light);
+            border-radius: 40px;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 0.4px;
+            backdrop-filter: blur(14px);
+            opacity: 0.85;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            z-index: 1050;
+        }
+        .gesture-hint i { color: var(--accent-cyan); }
+        .gesture-hint.fade { opacity: 0; }
+
+        /* ===== PROGRESS RAIL ===== */
+        .progress-rail {
+            position: fixed;
+            top: 0; left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-violet));
+            transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            box-shadow: 0 0 10px rgba(0, 229, 255, 0.7);
+            z-index: 1200;
+        }
+
+        /* ===== CONTENT STYLES (security.html specific) ===== */
+        .eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.95rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-cyan);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+            padding: 6px 14px 6px 10px;
+            border: 1px solid var(--border-light);
+            border-radius: 5px;
+            background: var(--opaque);
+        }
+        .eyebrow::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-cyan);
+            box-shadow: 0 0 10px var(--accent-cyan);
+            flex-shrink: 0;
+        }
+        .gradient-text {
+            background: linear-gradient(120deg, var(--accent-cyan), var(--accent-violet));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        h1 { font-size: 2.5rem; line-height: 1.14; margin-bottom: 14px; color: var(--text-primary); }
+        h2 { font-size: 2rem; line-height: 1.2; margin-bottom: 10px; letter-spacing: -0.02em; color: var(--text-primary); }
+        h3 { font-size: 1.2rem; margin-bottom: 8px; color: var(--text-primary); }
+        h4 { color: var(--text-primary); }
+        p { color: var(--text-secondary); line-height: 1.7; }
+        .lede { font-size: 1.08rem; color: var(--text-secondary); max-width: 780px; }
+        strong { color: var(--text-primary); }
+
+        .pillar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 18px;
+            margin: 26px 0;
+        }
+        .pillar-card {
+            background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+                        linear-gradient(135deg, var(--accent-cyan), transparent 60%) border-box;
+            border-radius: 4px 18px 4px 18px;
+            padding: 24px 22px 22px;
+            transition: transform 0.28s ease, box-shadow 0.28s ease;
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        .pillar-card::after {
+            content: '';
+            position: absolute;
+            top: -30%; right: -30%;
+            width: 120px; height: 120px;
+            background: radial-gradient(circle, var(--accent-violet) 0%, transparent 70%);
+            opacity: 0.18;
+            pointer-events: none;
+        }
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 36px -18px rgba(0, 229, 255, 0.35);
+        }
+        .pillar-card i {
+            font-size: 1.15rem;
+            color: var(--bg-page);
+            background: linear-gradient(135deg, var(--accent-amber), var(--accent-cyan), var(--accent-emerald), var(--accent-violet));
+            width: 42px; height: 42px;
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 16px;
+        }
+        .pillar-card h3 { font-size: 1.29rem; margin-bottom: 8px; color: var(--text-primary); }
+        .pillar-card p { font-size: 1.14rem; }
+
+        .check-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin: 20px 0;
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 24px;
+        }
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 6px 4px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        .check-item:hover { background: var(--opaque); }
+        .check-item strong { color: var(--accent-cyan); font-weight: 600; display: inline-block; margin-bottom: 2px; }
+        .check-item .desc { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.4; }
+
+        .conclusion-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 26px 0;
+            text-align: center;
+        }
+        .resp-grid {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 16px 0;
+        }
+        .resp-item {
+            background: var(--opaque);
+            border-radius: 40px;
+            padding: 6px 18px;
+            border: 1px solid var(--border-light);
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+        .resp-item strong { color: var(--text-primary); }
+
+        .slide-index {
+            position: absolute;
+            top: 20px;
+            right: 28px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: 4px 12px;
+            background: var(--opaque);
+        }
+
+        .quote-block {
+            background: var(--opaque);
+            border-left: 3px solid var(--accent-cyan);
+            padding: 14px 20px;
+            margin: 18px 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .quote-block p { margin: 0; color: var(--text-secondary); }
+        .quote-block strong { color: var(--text-primary); }
+
+        ul {
+            color: var(--text-secondary);
+            padding-left: 20px;
+            line-height: 1.8;
+        }
+        ul li strong { color: var(--text-primary); }
+
+        @media (max-width: 860px) {
+            .nav-dots-bar { left: -220px; padding: 12px 8px; gap: 12px; }
+            .slides-container { margin-left: 70px; padding: 16px; }
+            .slide-view { padding: 30px 22px; height: 82vh; }
+            .pillar-grid, .check-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 580px) {
+            .nav-dots-bar { left: -215px; gap: 10px; padding: 12px 6px; }
+            .slide-view { padding: 22px 16px; }
+            h2 { font-size: 1.9rem; }
+            h1 { font-size: 2rem; }
+        }
+
+        .btn-outline-gold {
+            border: 1px solid var(--accent-cyan);
+            background: transparent;
+            padding: 10px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: var(--accent-cyan);
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Space Grotesk', sans-serif;
+            text-decoration: none;
+        }
+        .btn-outline-gold:hover { background: var(--accent-cyan); color: #041014; box-shadow: 0 0 20px rgba(0,229,255,0.4); }
+    </style>
+</head>
+<body>
+    <!-- progress rail -->
+    <div class="progress-rail" id="progressRail"></div>
+
+    <!-- ===== HEADER (mirror smart.html) ===== -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <div class="logo-component">
+                    <img src="../../static/images/logo.png" alt="ForraCorp Base Logo" class="logo-layer layer-bg-logo" />
+                    <img src="../../static/images/logoFN_0.png" alt="Forra Nova AI Brain" class="logo-layer layer-brain" />
+                    <img src="../../static/images/logoFN_2.png" alt="Forra Nova Text" class="logo-layer layer-text" />
+                </div>
+                <div class="slogan-wrap">
+                    <img src="../../static/images/logoFN_2.png" class="foota" alt="FN Logo" />
+                </div>
+            </div><h3 class="slogan">Knowledge Is For The Living</h3>
+
+            <div class="menu-toggle" id="hamburger-menu" aria-label="Toggle navigation" role="button" tabindex="0">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <ul class="nav-links" id="main-nav">
+                <li><a href="../../index.html">ForraNova</a></li>
+                <li><a href="../chat-show.html">AI Chat Show</a></li>
+                <li><a href="../../index.html#training">Seminars</a></li>
+                <li><a href="../../index.html#tools">Tools</a></li>
+                <li><a href="../chat-show.html#suggestion-box">Connect</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===== MAIN SPA CONTAINER ===== -->
+    <div class="app-container">
+        <div class="nav-dots-bar" id="navDotsBar"></div>
+        <div class="dark-mode-toggle" id="darkModeToggle">
+            <i class="fas fa-moon"></i>
+        </div>
+        <div class="slide-arrow prev" id="prevArrow" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></div>
+        <div class="slide-arrow next" id="nextArrow" aria-label="Next slide"><i class="fas fa-chevron-right"></i></div>
+
+        <div class="slides-container" id="slidesContainer">
+            <!-- dynamic slides -->
+        </div>
+    </div>
+
+    <div class="slide-counter" id="slideCounter"><span id="counterCurrent">1</span> / <span id="counterTotal">6</span></div>
+    <div class="gesture-hint" id="gestureHint"><i class="fas fa-hand-pointer"></i> Swipe left/right · down to close</div>
+
+    <!-- canvas background (behind everything) -->
+    <canvas id="particles-canvas"></canvas>
+
+    <script>
+        // ===== SLIDE DATA (full content from .txt, preserved verbatim) =====
+        const slidesData = [
+            {
+                // Slide 1 — Introduction & Core Question
+                html: `
+                    <span class="slide-index">01 / 06</span>
+                    <div class="eyebrow">Safe Haven, Shared Duty</div>
+                    <h1 class="gradient-text">Building a 360° Shield Around the Child</h1>
+                    <p class="lede" style="margin:0 0 24px;">Speaker: Fredrick · Duration: ~20 Minutes · Audience: Teachers & Academic Staff</p>
+                    <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:28px;">
+                        <span style="background:var(--opaque); padding:4px 16px; border-radius:30px; border:1px solid var(--border-light);"><i class="fas fa-user"></i> Fredrick</span>
+                        <span style="background:var(--opaque); padding:4px 16px; border-radius:30px; border:1px solid var(--border-light);"><i class="fas fa-users"></i> Teachers & Staff</span>
+                    </div>
+
+                    <h2>I. Introduction & The Core Question</h2>
+                    <p><strong>Good morning, colleagues.</strong></p>
+                    <p>When parents hand their children over to us at the school gates every morning, an unspoken contract is signed. It isn't just about coverages, phonics, mathematics, or Montessori work cycles. First and foremost, it is a contract of trust and safety.</p>
+                    <p>Today, our topic asks a straightforward question: <strong>"The Child's Security and Safety in the School — Who Is Responsible?"</strong></p>
+
+                    <div class="quote-block">
+                        <p><i class="fas fa-quote-left" style="color:var(--accent-cyan);"></i> Imagine a child running across the playground who trips on a exposed concrete edge.</p>
+                        <p style="margin-top:8px;">Is it the fault of the teacher on duty who looked away for five seconds?<br>
+                        Is it the fault of the facilities manager who didn't cover the edge?<br>
+                        Is it the fault of the administrator who didn't approve the repair budget?<br>
+                        Or is it the fault of the gatekeeper who let an unsupervised child into that zone?</p>
+                        <p style="margin-top:8px; font-weight:600; color:var(--accent-cyan);">The answer, of course, is everyone.</p>
+                    </div>
+
+                    <p>School safety is not a single person's job description. It is not exclusively the duty of the security guard at the gate, nor is it solely the responsibility of the school management. Safety is an active, continuous, 360-degree ecosystem where every single staff member plays a vital role.</p>
+                `
+            },
+            {
+                // Slide 2 — Three Pillars overview
+                html: `
+                    <span class="slide-index">02 / 06</span>
+                    <div class="eyebrow">The Three Pillars</div>
+                    <h2>II. The <span class="gradient-text">Three Pillars of School Safety</span></h2>
+                    <p style="margin-bottom:18px;">To make school safety operational and effective, we break responsibility into three distinct pillars:</p>
+
+                    <div style="text-align:center; margin:12px 0 18px; font-family:'JetBrains Mono',monospace; font-size:0.85rem; color:var(--accent-cyan);">
+                        <div style="background:var(--card-bg); border:1px solid var(--border-light); border-radius:16px; padding:16px; display:inline-block;">
+                            <i class="fas fa-shield-halved" style="font-size:2rem; display:block; margin-bottom:6px;"></i>
+                            360° SCHOOL SAFETY SHIELD
+                        </div>
+                    </div>
+
+                    <div class="pillar-grid">
+                        <div class="pillar-card">
+                            <i class="fas fa-lock"></i>
+                            <h3>1. Physical Security</h3>
+                            <p><strong>Outer Shield</strong> — Gates, Visitors, Access</p>
+                            <p style="font-size:0.9rem; margin-top:6px; color:var(--text-secondary);">Security begins at the perimeter. Unregistered visitors, unverified pickup arrangements, or open back access points are critical vulnerabilities.</p>
+                        </div>
+                        <div class="pillar-card">
+                            <i class="fas fa-triangle-exclamation"></i>
+                            <h3>2. Environment & Risk</h3>
+                            <p><strong>Classroom & Compound</strong> — Hazard Audits</p>
+                            <p style="font-size:0.9rem; margin-top:6px; color:var(--text-secondary);">Montessori context: freedom of movement means hazard mapping is doubly important.</p>
+                        </div>
+                        <div class="pillar-card">
+                            <i class="fas fa-heart-circle-check"></i>
+                            <h3>3. Emotional & Digital</h3>
+                            <p><strong>Invisible Shield</strong> — Psychological Safety</p>
+                            <p style="font-size:0.9rem; margin-top:6px; color:var(--text-secondary);">Bullying, exclusion, digital footprint — safety isn't just walls.</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                // Slide 3 — Physical Security (detailed)
+                html: `
+                    <span class="slide-index">03 / 06</span>
+                    <div class="eyebrow">Pillar 1</div>
+                    <h2>Physical Security & <span class="gradient-text">Access Control</span></h2>
+                    <p><strong>The Gate standard:</strong> Security begins at the perimeter. Unregistered visitors, unverified pickup arrangements, or open back access points are critical vulnerabilities.</p>
+
+                    <div class="quote-block">
+                        <p><strong>Illustration / Example:</strong> Imagine a busy closing period where an unfamiliar relative arrives to pick up a child, claiming it's an emergency.</p>
+                        <p style="margin-top:8px;"><strong>Responsibility:</strong> The classroom teacher must not rely on verbal assurances. The protocol requires verifying with the front desk/management and confirming authorization records before release. A simple delay of two minutes saves a child from potential abduction or custody disputes.</p>
+                    </div>
+
+                    <div style="background:var(--card-bg); border:1px solid var(--border-light); border-radius:16px; padding:18px 22px; margin-top:16px;">
+                        <h4 style="display:flex; align-items:center; gap:8px; color:var(--accent-amber);"><i class="fas fa-key"></i> Key takeaway</h4>
+                        <p style="margin:0; color:var(--text-secondary);">Verify. Confirm. Delay if uncertain. Two minutes can save a child.</p>
+                    </div>
+                `
+            },
+            {
+                // Slide 4 — Environmental Risk + Psychological & Digital
+                html: `
+                    <span class="slide-index">04 / 06</span>
+                    <div class="eyebrow">Pillars 2 & 3</div>
+                    <h2>Environment & Risk + <span class="gradient-text">Emotional & Digital</span></h2>
+
+                    <h3 style="color:var(--accent-cyan);">2. Environmental Risk Management (The Classroom & Compound)</h3>
+                    <p><strong>The Montessori Context:</strong> In a Montessori setup, independence is encouraged. Children move freely, interact with materials, and explore their environment. Because freedom of movement is fundamental, environmental hazard mapping becomes doubly important.</p>
+                    <div class="quote-block">
+                        <p><strong>Illustration / Example:</strong> A spilled water cup on a tiled floor near the practical life area, or an improperly stored heavy wooden shelf unit.</p>
+                        <p style="margin-top:8px;"><strong>Responsibility:</strong> If you see a hazard, you own the hazard. "It's not my classroom" or "the cleaners will get it" leaves a window open for injury. The duty of care requires immediate reporting or resolution on the spot.</p>
+                    </div>
+
+                    <h3 style="color:var(--accent-violet); margin-top:22px;">3. Psychological & Digital Safety (The Invisible Shield)</h3>
+                    <p>Security is not merely physical walls and gates; it is also emotional safety and online protection.</p>
+                    <ul>
+                        <li><strong>Bullying and Exclusion:</strong> A child who feels threatened, bullied, or intimidated in a hallway or washroom area is not safe.</li>
+                        <li><strong>Digital Footprint:</strong> Ensuring photos or details of students are never shared on personal social media accounts or unsecured networks.</li>
+                    </ul>
+                `
+            },
+            {
+                // Slide 5 — Teacher's Daily Safety Checklist
+                html: `
+                    <span class="slide-index">05 / 06</span>
+                    <div class="eyebrow">Daily Blueprint</div>
+                    <h2>III. The Teacher's <span class="gradient-text">Daily Safety Checklist</span></h2>
+                    <p>As teachers in the field, here is your practical, daily actionable blueprint to maintain maximum security:</p>
+
+                    <div class="check-grid">
+                        <div class="check-item"><i class="fas fa-sun" style="font-size:1.6rem; color:var(--accent-amber);"></i><div><strong>Morning Sweep (2 Minutes)</strong><div class="desc">Inspect your classroom before students arrive: Are outlets covered? Are sharp objects stored? Are pathways clear?</div></div></div>
+                        <div class="check-item"><i class="fas fa-eye" style="font-size:1.6rem; color:var(--accent-cyan);"></i><div><strong>Active Supervision (Every Minute)</strong><div class="desc">Passive supervision is standing in a corner checking your phone; active supervision is moving, scanning, and positioning yourself where you can see all blind spots during outdoor play or group work.</div></div></div>
+                        <div class="check-item"><i class="fas fa-people-group" style="font-size:1.6rem; color:var(--accent-emerald);"></i><div><strong>Headcounts & Transition Audits</strong><div class="desc">Count heads before leaving the classroom, count when arriving at the playground, and count before re-entering. Never assume everyone followed the line.</div></div></div>
+                        <div class="check-item"><i class="fas fa-hand-holding-heart" style="font-size:1.6rem; color:var(--accent-violet);"></i><div><strong>Empowering the Child</strong><div class="desc">Teach children body autonomy, safe touch/unsafe touch boundaries, and how to report feeling unsafe without fear of reprimand.</div></div></div>
+                    </div>
+
+                    <div style="background:var(--card-bg); border:1px solid var(--border-light); border-radius:16px; padding:18px 22px; margin-top:16px;">
+                        <h4 style="display:flex; align-items:center; gap:8px; color:var(--accent-gold);"><i class="fas fa-bolt"></i> Active Supervision = Moving + Scanning</h4>
+                        <p style="margin:0; color:var(--text-secondary);">Passive supervision is standing in a corner checking your phone; active supervision is positioning yourself to see all blind spots.</p>
+                    </div>
+                `
+            },
+            {
+                // Slide 6 — Conclusion & Call to Action
+                html: `
+                    <span class="slide-index">06 / 06</span>
+                    <div class="eyebrow">A Shared Culture</div>
+                    <h2>IV. Conclusion & <span class="gradient-text">Call to Action</span></h2>
+
+                    <p><strong>To answer our initial question directly: Who is responsible for the child's security and safety in the school?</strong></p>
+
+                    <div class="conclusion-box">
+                        <div class="resp-grid">
+                            <span class="resp-item"><strong>Management</strong> · Policy, infrastructure, resources</span>
+                            <span class="resp-item"><strong>Security Personnel</strong> · Perimeter control & access management</span>
+                            <span class="resp-item"><strong>Teachers</strong> · Active supervision, hazard detection, emotional sanctuary</span>
+                            <span class="resp-item"><strong>Parents & Students</strong> · Adherence to drop-off/pick-up guidelines & transparent communication</span>
+                        </div>
+
+                        <div class="quote-block" style="border-left-color:var(--accent-gold);">
+                            <p><i class="fas fa-quote-left" style="color:var(--accent-gold);"></i> Ultimately, safety is not a static checklist you complete once a term—it is an ongoing culture. When we return for the new term this Thursday, September 3rd, let us commit to being the active guardians of that culture. Every eyes-on moment, every checked gate, and every remediated hazard ensures our school remains the safe haven our children deserve to learn and grow in. <i class="fas fa-quote-right" style="color:var(--accent-gold);"></i></p>
+                        </div>
+
+                        <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin:18px 0 6px;">
+                            <span style="background:var(--opaque); padding:6px 18px; border-radius:30px; border:1px solid var(--border-light);"><i class="fas fa-calendar-check"></i> New Term · Thursday, Sept 3</span>
+                            <span style="background:var(--opaque); padding:6px 18px; border-radius:30px; border:1px solid var(--border-light);"><i class="fas fa-user-shield"></i> Be the active guardian</span>
+                        </div>
+                    </div>
+
+                    <div style="text-align:center; margin-top:12px;">
+                        <a href="#" class="btn-outline-gold" onclick="event.preventDefault(); alert('Thank you! Commit to the Shield.');"><i class="fas fa-shield-halved"></i> Commit to the Shield</a>
+                    </div>
+                    <p style="text-align:center; font-size:0.8rem; color:var(--text-muted); margin-top:24px;">© ForraNova Academy — Safe Haven, Shared Duty</p>
+                `
+            }
+        ];
+
+        // ===== SLIDE ENGINE (mirror smart.html) =====
+        let currentSlideIndex = 0;
+        let isAnimating = false;
+        const slideContainer = document.getElementById('slidesContainer');
+        const navDotsBar = document.getElementById('navDotsBar');
+        const progressRail = document.getElementById('progressRail');
+        const counterCurrent = document.getElementById('counterCurrent');
+        const counterTotal = document.getElementById('counterTotal');
+        const prevArrow = document.getElementById('prevArrow');
+        const nextArrow = document.getElementById('nextArrow');
+        const gestureHint = document.getElementById('gestureHint');
+        counterTotal.textContent = slidesData.length;
+
+        function renderActiveSlide(direction) {
+            if (!slideContainer) return;
+            const slide = slidesData[currentSlideIndex];
+            const slideHtml = `<div class="slide-view entering" id="activeSlideView">${slide.html}</div>`;
+            slideContainer.innerHTML = slideHtml;
+            updateActiveDot();
+            updateProgress();
+            updateArrows();
+        }
+
+        function updateActiveDot() {
+            const dots = document.querySelectorAll('.nav-dot');
+            dots.forEach((dot, idx) => {
+                dot.classList.toggle('active', idx === currentSlideIndex);
+            });
+        }
+
+        function updateProgress() {
+            const pct = ((currentSlideIndex + 1) / slidesData.length) * 100;
+            progressRail.style.width = pct + '%';
+            counterCurrent.textContent = currentSlideIndex + 1;
+        }
+
+        function updateArrows() {
+            prevArrow.classList.toggle('disabled', currentSlideIndex === 0);
+            nextArrow.classList.toggle('disabled', currentSlideIndex === slidesData.length - 1);
+        }
+
+        function createNavigationDots() {
+            navDotsBar.innerHTML = '';
+            slidesData.forEach((_, idx) => {
+                const dot = document.createElement('div');
+                dot.classList.add('nav-dot');
+                if (idx === currentSlideIndex) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                    if (idx === currentSlideIndex) return;
+                    currentSlideIndex = idx;
+                    renderActiveSlide();
+                });
+                navDotsBar.appendChild(dot);
+            });
+        }
+
+        function goToSlide(newIndex, exitClass) {
+            if (isAnimating) return;
+            if (newIndex < 0 || newIndex > slidesData.length - 1) return;
+            const activeView = document.getElementById('activeSlideView');
+            isAnimating = true;
+            if (activeView) {
+                activeView.classList.add(exitClass);
+                setTimeout(() => {
+                    currentSlideIndex = newIndex;
+                    renderActiveSlide();
+                    isAnimating = false;
+                }, 220);
+            } else {
+                currentSlideIndex = newIndex;
+                renderActiveSlide();
+                isAnimating = false;
+            }
+        }
+
+        function nextSlide() { goToSlide(currentSlideIndex + 1, 'swipe-out-left'); }
+        function prevSlide() { goToSlide(currentSlideIndex - 1, 'swipe-out-right'); }
+        function jumpToClose() { goToSlide(slidesData.length - 1, 'swipe-out-down'); }
+
+        prevArrow.addEventListener('click', prevSlide);
+        nextArrow.addEventListener('click', nextSlide);
+
+        // ===== DARK MODE TOGGLE =====
+        const darkToggle = document.getElementById('darkModeToggle');
+        function initTheme() {
+            const saved = localStorage.getItem('schoolTheme') || 'dark';
+            document.body.classList.toggle('light', saved === 'light');
+            document.body.classList.toggle('dark', saved !== 'light');
+            darkToggle.innerHTML = saved === 'light' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+        }
+        darkToggle.addEventListener('click', () => {
+            const goingLight = !document.body.classList.contains('light');
+            document.body.classList.toggle('light', goingLight);
+            document.body.classList.toggle('dark', !goingLight);
+            localStorage.setItem('schoolTheme', goingLight ? 'light' : 'dark');
+            darkToggle.innerHTML = goingLight ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+        });
+
+        // ===== KEYBOARD =====
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') prevSlide();
+            else if (e.key === 'ArrowUp') prevSlide();
+            else if (e.key === 'ArrowRight') nextSlide();
+            else if (e.key === 'ArrowDown') nextSlide();
+            else if (e.key === 'Escape') jumpToClose();
+        });
+
+        // ===== GESTURE / SWIPE =====
+        (function initGestures() {
+            const target = document.getElementById('slidesContainer');
+            let startX = 0, startY = 0, startTime = 0;
+            let tracking = false;
+            const THRESH_X = 60;
+            const THRESH_Y_SOFT = 70;
+            const THRESH_Y_FORCE = 140;
+            const MAX_TIME = 900;
+
+            function pointerDown(x, y) {
+                startX = x; startY = y; startTime = Date.now();
+                tracking = true;
+            }
+            function pointerUp(x, y) {
+                if (!tracking) return;
+                tracking = false;
+                const dx = x - startX;
+                const dy = y - startY;
+                const dt = Date.now() - startTime;
+                if (dt > MAX_TIME) return;
+                const absX = Math.abs(dx);
+                const absY = Math.abs(dy);
+                if (dy > THRESH_Y_FORCE && absY > absX) {
+                    jumpToClose();
+                    hideHint();
+                    return;
+                }
+                if (absX > THRESH_X && absX > absY) {
+                    if (dx < 0) nextSlide(); else prevSlide();
+                    hideHint();
+                    return;
+                }
+                if (dy < -THRESH_Y_SOFT && absY > absX) {
+                    nextSlide();
+                    hideHint();
+                }
+            }
+            target.addEventListener('touchstart', (e) => {
+                const t = e.changedTouches[0];
+                pointerDown(t.clientX, t.clientY);
+            }, { passive: true });
+            target.addEventListener('touchend', (e) => {
+                const t = e.changedTouches[0];
+                pointerUp(t.clientX, t.clientY);
+            }, { passive: true });
+            let mouseDown = false;
+            target.addEventListener('mousedown', (e) => {
+                mouseDown = true;
+                pointerDown(e.clientX, e.clientY);
+            });
+            window.addEventListener('mouseup', (e) => {
+                if (!mouseDown) return;
+                mouseDown = false;
+                pointerUp(e.clientX, e.clientY);
+            });
+            function hideHint() {
+                if (gestureHint) gestureHint.classList.add('fade');
+            }
+            setTimeout(hideHint, 5000);
+        })();
+
+        // ===== HAMBURGER MENU TOGGLE =====
+        const hamburger = document.getElementById('hamburger-menu');
+        const mainNav = document.getElementById('main-nav');
+        if (hamburger && mainNav) {
+            hamburger.addEventListener('click', function (e) {
+                e.stopPropagation();
+                this.classList.toggle('active');
+                mainNav.classList.toggle('open');
+            });
+            mainNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    mainNav.classList.remove('open');
+                });
+            });
+            document.addEventListener('click', function (e) {
+                if (!hamburger.contains(e.target) && !mainNav.contains(e.target)) {
+                    hamburger.classList.remove('active');
+                    mainNav.classList.remove('open');
+                }
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    hamburger.classList.remove('active');
+                    mainNav.classList.remove('open');
+                }
+            });
+        }
+
+        // ===== INIT =====
+        function init() {
+            createNavigationDots();
+            renderActiveSlide();
+            initTheme();
+        }
+        init();
+
+        // ===== PARTICLES BACKGROUND (behind everything) =====
+        (function initParticles() {
+            const canvas = document.getElementById('particles-canvas');
+            const ctx = canvas.getContext('2d');
+            let w, h;
+            const particles = [];
+            const COUNT = 220;
+
+            function resize() {
+                w = window.innerWidth;
+                h = window.innerHeight;
+                canvas.width = w;
+                canvas.height = h;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            class Particle {
+                constructor() { this.reset(); }
+                reset() {
+                    this.x = Math.random() * w;
+                    this.y = Math.random() * h;
+                    this.size = Math.random() * 2.2 + 0.8;
+                    this.speedX = (Math.random() - 0.5) * 0.4;
+                    this.speedY = (Math.random() - 0.5) * 0.4;
+                    this.opacity = Math.random() * 0.6 + 0.2;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if (this.x < 0 || this.x > w || this.y < 0 || this.y > h) this.reset();
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(180, 220, 255, ${this.opacity})`;
+                    ctx.fill();
+                    if (this.size > 1.6) {
+                        ctx.shadowBlur = 12;
+                        ctx.shadowColor = 'rgba(0, 180, 255, 0.3)';
+                    } else { ctx.shadowBlur = 0; }
+                }
+            }
+            for (let i = 0; i < COUNT; i++) particles.push(new Particle());
+
+            function animate() {
+                ctx.clearRect(0, 0, w, h);
+                // subtle dark overlay
+                ctx.fillStyle = 'rgba(8, 10, 23, 0.15)';
+                ctx.fillRect(0, 0, w, h);
+                particles.forEach(p => { p.update(); p.draw(); });
+                requestAnimationFrame(animate);
+            }
+            animate();
+            window.addEventListener('resize', () => { resize(); particles.forEach(p => p.reset()); });
+        })();
+    </script>
+</body>
+</html>
