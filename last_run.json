@@ -1,12 +1,12 @@
 {
-    "last_update": "September 04, 2026 | 01:03 PM",
+    "last_update": "September 04, 2026 | 05:56 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[13:03:16] SUCCESS: Machine Learning (3 found)",
-        "[13:03:19] SUCCESS: Front-End / React (3 found)",
-        "[13:03:21] SUCCESS: Writing / Creative (0 found)",
-        "[13:03:24] SUCCESS: Virtual Assistant (0 found)"
+        "[17:56:22] SUCCESS: Machine Learning (3 found)",
+        "[17:56:24] SUCCESS: Front-End / React (3 found)",
+        "[17:56:27] SUCCESS: Writing / Creative (0 found)",
+        "[17:56:30] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-customer-support-success-specialist-warehance-1137302"
                 },
                 {
-                    "position": "Data Entry Clerk",
-                    "link": "https://remoteok.com/remote-jobs/remote-data-entry-clerk-astrek-careers-1137286"
+                    "position": "Junior Crypto Analyst & Trader",
+                    "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-empire-assets-1137307"
                 },
                 {
-                    "position": "Senior Demand Generation Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-demand-generation-manager-testgorilla-1135606"
+                    "position": "Data Entry Clerk",
+                    "link": "https://remoteok.com/remote-jobs/remote-data-entry-clerk-astrek-careers-1137286"
                 }
             ]
         },
