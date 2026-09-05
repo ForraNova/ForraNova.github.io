@@ -1,47 +1,21 @@
 {
-    "last_update": "September 05, 2026 | 02:05 AM",
+    "last_update": "September 05, 2026 | 07:16 AM",
     "status": "Online",
-    "total_found": 6,
+    "total_found": 0,
     "logs": [
-        "[02:05:13] SUCCESS: Machine Learning (3 found)",
-        "[02:05:16] SUCCESS: Front-End / React (3 found)",
-        "[02:05:19] SUCCESS: Writing / Creative (0 found)",
-        "[02:05:22] SUCCESS: Virtual Assistant (0 found)"
+        "[07:15:14] SUCCESS: Machine Learning (0 found)",
+        "[07:16:08] SUCCESS: Front-End / React (0 found)",
+        "[07:16:36] SUCCESS: Writing / Creative (0 found)",
+        "[07:16:39] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
-            "jobs": [
-                {
-                    "position": "Customer Support & Success Specialist",
-                    "link": "https://remoteok.com/remote-jobs/remote-customer-support-success-specialist-warehance-1137302"
-                },
-                {
-                    "position": "Junior Crypto Analyst & Trader",
-                    "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-empire-assets-1137307"
-                },
-                {
-                    "position": "Data Entry Clerk",
-                    "link": "https://remoteok.com/remote-jobs/remote-data-entry-clerk-astrek-careers-1137286"
-                }
-            ]
+            "jobs": []
         },
         {
             "query": "Front-End / React",
-            "jobs": [
-                {
-                    "position": "Store Manager BOSS Store Plaza Las Americas",
-                    "link": "https://remoteok.com/remote-jobs/remote-store-manager-boss-store-plaza-las-americas-hugo-boss-1137301"
-                },
-                {
-                    "position": "Aviation Maintenance Technician",
-                    "link": "https://remoteok.com/remote-jobs/remote-aviation-maintenance-technician-fedex-1136922"
-                },
-                {
-                    "position": "Valet Driver",
-                    "link": "https://remoteok.com/remote-jobs/remote-valet-driver-marina-bay-sands-1136920"
-                }
-            ]
+            "jobs": []
         },
         {
             "query": "Writing / Creative",
