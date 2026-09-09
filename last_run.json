@@ -1,12 +1,12 @@
 {
-    "last_update": "September 09, 2026 | 06:14 PM",
+    "last_update": "September 09, 2026 | 10:53 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[18:13:58] SUCCESS: Machine Learning (3 found)",
-        "[18:14:01] SUCCESS: Front-End / React (3 found)",
-        "[18:14:04] SUCCESS: Writing / Creative (0 found)",
-        "[18:14:07] SUCCESS: Virtual Assistant (0 found)"
+        "[22:53:27] SUCCESS: Machine Learning (3 found)",
+        "[22:53:30] SUCCESS: Front-End / React (3 found)",
+        "[22:53:32] SUCCESS: Writing / Creative (0 found)",
+        "[22:53:35] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
-                    "position": "Store Manager BOSS Store Plaza Las Americas",
-                    "link": "https://remoteok.com/remote-jobs/remote-store-manager-boss-store-plaza-las-americas-hugo-boss-1137301"
+                    "position": "Store Manager Plaza Palma Real",
+                    "link": "https://remoteok.com/remote-jobs/remote-store-manager-plaza-palma-real-pandora-1137364"
                 },
                 {
-                    "position": "Aviation Maintenance Technician",
-                    "link": "https://remoteok.com/remote-jobs/remote-aviation-maintenance-technician-fedex-1136922"
+                    "position": "Assistant Store Manager",
+                    "link": "https://remoteok.com/remote-jobs/remote-assistant-store-manager-pandora-1137365"
                 },
                 {
-                    "position": "Valet Driver",
-                    "link": "https://remoteok.com/remote-jobs/remote-valet-driver-marina-bay-sands-1136920"
+                    "position": "Store Manager Unassigned",
+                    "link": "https://remoteok.com/remote-jobs/remote-store-manager-unassigned-walgreens-1137359"
                 }
             ]
         },
