@@ -1,12 +1,12 @@
 {
-    "last_update": "September 18, 2026 | 08:24 PM",
+    "last_update": "September 18, 2026 | 10:58 PM",
     "status": "Online",
-    "total_found": 3,
+    "total_found": 6,
     "logs": [
-        "[20:24:45] SUCCESS: Machine Learning (3 found)",
-        "[20:24:48] SUCCESS: Front-End / React (0 found)",
-        "[20:24:52] SUCCESS: Writing / Creative (0 found)",
-        "[20:24:55] SUCCESS: Virtual Assistant (0 found)"
+        "[22:57:56] SUCCESS: Machine Learning (3 found)",
+        "[22:57:59] SUCCESS: Front-End / React (3 found)",
+        "[22:58:01] SUCCESS: Writing / Creative (0 found)",
+        "[22:58:05] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -28,7 +28,20 @@
         },
         {
             "query": "Front-End / React",
-            "jobs": []
+            "jobs": [
+                {
+                    "position": "Freelance Designer",
+                    "link": "https://remoteok.com/remote-jobs/remote-freelance-designer-control-shift-video-1136213"
+                },
+                {
+                    "position": "Head of Security",
+                    "link": "https://remoteok.com/remote-jobs/remote-head-of-security-tremendous-1136210"
+                },
+                {
+                    "position": "Healthcare Virtual Assistant Athena EMR Experience",
+                    "link": "https://remoteok.com/remote-jobs/remote-healthcare-virtual-assistant-athena-emr-experience-snapscale-philippines-1135688"
+                }
+            ]
         },
         {
             "query": "Writing / Creative",
