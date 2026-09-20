@@ -1,12 +1,12 @@
 {
-    "last_update": "September 19, 2026 | 10:37 PM",
+    "last_update": "September 20, 2026 | 02:28 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[22:36:50] SUCCESS: Machine Learning (3 found)",
-        "[22:36:53] SUCCESS: Front-End / React (3 found)",
-        "[22:36:55] SUCCESS: Writing / Creative (0 found)",
-        "[22:36:59] SUCCESS: Virtual Assistant (0 found)"
+        "[02:28:05] SUCCESS: Machine Learning (3 found)",
+        "[02:28:08] SUCCESS: Front-End / React (3 found)",
+        "[02:28:10] SUCCESS: Writing / Creative (0 found)",
+        "[02:28:13] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-customer-support-success-specialist-warehance-1137302"
                 },
                 {
-                    "position": "Software Engineer C",
-                    "link": "https://remoteok.com/remote-jobs/remote-software-engineer-c-octo-horizon-1128583"
+                    "position": "Senior .NET Software Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-net-software-engineer-okwhen-1137411"
                 },
                 {
-                    "position": "Backend Software Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-backend-software-engineer-airspace-link-1137409"
+                    "position": "Frontend Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-frontend-engineer-bjak-1137410"
                 }
             ]
         },
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Frontend Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-frontend-engineer-bjak-1137410"
+                },
+                {
                     "position": "Freelance Designer",
                     "link": "https://remoteok.com/remote-jobs/remote-freelance-designer-control-shift-video-1136213"
                 },
                 {
                     "position": "Head of Security",
                     "link": "https://remoteok.com/remote-jobs/remote-head-of-security-tremendous-1136210"
-                },
-                {
-                    "position": "Healthcare Virtual Assistant Athena EMR Experience",
-                    "link": "https://remoteok.com/remote-jobs/remote-healthcare-virtual-assistant-athena-emr-experience-snapscale-philippines-1135688"
                 }
             ]
         },
