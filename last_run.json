@@ -1,12 +1,12 @@
 {
-    "last_update": "September 22, 2026 | 08:06 AM",
+    "last_update": "September 22, 2026 | 01:49 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[08:06:47] SUCCESS: Machine Learning (3 found)",
-        "[08:06:50] SUCCESS: Front-End / React (3 found)",
-        "[08:06:52] SUCCESS: Writing / Creative (0 found)",
-        "[08:06:55] SUCCESS: Virtual Assistant (0 found)"
+        "[13:49:33] SUCCESS: Machine Learning (3 found)",
+        "[13:49:36] SUCCESS: Front-End / React (3 found)",
+        "[13:49:39] SUCCESS: Writing / Creative (0 found)",
+        "[13:49:42] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-customer-support-success-specialist-warehance-1137302"
                 },
                 {
-                    "position": "Freelance grabaci\u00f3n de tareas cotidianas para proyecto de IA",
-                    "link": "https://remoteok.com/remote-jobs/remote-freelance-grabacion-de-tareas-cotidianas-para-proyecto-de-ia-mindrift-data-annotation-1137415"
+                    "position": "Software Developer Security Analytics",
+                    "link": "https://remoteok.com/remote-jobs/remote-software-developer-security-analytics-redmimicry-1137417"
                 },
                 {
-                    "position": "Senior Growth Product Manager AI Native",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-growth-product-manager-ai-native-magic-eden-1137414"
+                    "position": "Freelance grabaci\u00f3n de tareas cotidianas para proyecto de IA",
+                    "link": "https://remoteok.com/remote-jobs/remote-freelance-grabacion-de-tareas-cotidianas-para-proyecto-de-ia-mindrift-data-annotation-1137415"
                 }
             ]
         },
