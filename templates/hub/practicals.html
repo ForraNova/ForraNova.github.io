@@ -1,0 +1,3138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+
+<title>AI For School Growth · Live Practicals | ForraNova</title>
+
+<!-- Google Fonts & Font Awesome -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+/* ===============================
+   Background Animation host
+================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #03050a;
+    font-family: monospace;
+}
+
+#space-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    display: block;
+}
+
+/* ===============================
+   FUTURISTIC THEME TOKENS
+================================ */
+
+body.dark {
+    --bg-page: #06080f;
+    --slide-bg: rgba(8, 11, 20, 0.72);
+    --text-primary: #eef3ff;
+    --text-secondary: #9aa8c7;
+    --text-muted: #5e6a8a;
+    --accent-cyan: #00d4ff;          /* Plasma Blue */
+    --accent-violet: #ffc266;        /* Electric Indigo */
+    --accent-emerald: #00e5a0;       /* Quantum Mint */
+    --accent-amber: #ffb347;         /* Solar Flare */
+    --card-bg: rgba(15, 20, 36, 0.65);
+    --border-light: rgba(0, 212, 255, 0.15);
+    --nav-dot-bg: rgba(154, 168, 199, 0.28);
+    --nav-dot-active: #ffb347;
+    --opaque: rgba(0, 212, 255, 0.04);
+    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    --shadow-sm: 0 20px 50px -16px rgba(123, 47, 252, 0.3);
+    --glow-cyan: 0 0 20px rgba(0, 212, 255, 0.35);
+    --glow-violet: 0 0 20px rgba(123, 47, 252, 0.4);
+}
+
+body.light {
+    --bg-page: #f5f7fc;
+    --slide-bg: rgba(255, 255, 255, 0.85);
+    --text-primary: #0a0e1a;
+    --text-secondary: #2a3350;
+    --text-muted: #5a6484;
+    --accent-cyan: #7b2ffc;          /* Electric Indigo in light mode */
+    --accent-violet: #995c00;        /* Plasma Blue in light mode */
+    --accent-emerald: #00a86b;
+    --accent-amber: #d97706;
+    --card-bg: rgba(255, 255, 255, 0.75);
+    --border-light: rgba(123, 47, 252, 0.18);
+    --nav-dot-bg: rgba(42, 51, 80, 0.2);
+    --nav-dot-active: #d97706;
+    --opaque: rgba(123, 47, 252, 0.04);
+    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    --shadow-sm: 0 20px 50px -16px rgba(0, 0, 0, 0.12);
+    --glow-cyan: 0 0 20px rgba(123, 47, 252, 0.2);
+    --glow-violet: 0 0 20px rgba(0, 212, 255, 0.2);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
+    overflow: hidden;
+    transition: var(--transition);
+    height: 100vh;
+    width: 100vw;
+}
+
+/* ===============================
+   HEADER AND NAVIGATION
+================================ */
+header {
+    position: fixed;
+    top: 5px;
+    width: 100%;
+    max-height: 110px;
+    z-index: 1000;
+    background: rgba(5, 6, 12, 0.45);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0, 229, 255, 0.15);
+    margin-top: -20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+    padding: 5px 5%;
+    color: var(--accent-cyan);
+}
+
+.slogan {
+    font-size: 1.2rem;
+    flex-direction: column;
+    text-align: center;
+    color: #00e0ff;
+    padding-right: -50px;
+    margin-left: -50px;
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 18px rgba(0, 229, 255, 0.45);
+}
+
+.foota {
+    z-index: -0.3;
+    height: 55px;
+    filter: drop-shadow(0 0 10px rgba(128, 255, 255, 0.6));
+}
+
+.nav-links a {
+    font-size: 1.2rem;
+    transition: 0.3s;
+    color: #cfe9ff;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    font-family: 'Space Grotesk', sans-serif;
+    text-transform: uppercase;
+}
+
+.nav-links li {
+    margin-left: 22px;
+    font-weight: 600;
+    position: relative;
+}
+
+.nav-links li::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 1px;
+    background: var(--accent-cyan);
+    transition: width 0.25s ease;
+}
+
+.nav-links li:hover::after { width: 100%; }
+.nav-links li:hover a, .nav-links a:hover { color: var(--accent-cyan); }
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 8px;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 2px;
+    background-color: #00e0ff;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 6px rgba(0, 229, 255, 0.6);
+}
+
+@media screen and (max-width: 900px) {
+    .menu-toggle { display: flex; }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 90px;
+        left: 0;
+        background: rgba(5, 6, 12, 0.97);
+        text-align: center;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(0,229,255,0.2);
+    }
+    .nav-links.active, .nav-links.open { display: flex; }
+    .nav-links li { margin: 10px 0; }
+    .menu-toggle.active .bar {
+        width: 3px;
+        height: 22px;
+        margin: 0 2px;
+        display: inline-block;
+    }
+    .menu-toggle.active { flex-direction: row; gap: 4px; }
+}
+
+/* ================== Animated Logo ================== */
+:root {
+    --canvas-width: 150px;
+    --canvas-height: 160px;
+    --bg-logo-sizeW: 92px;
+    --bg-logo-sizeH: 92px;
+    --bg-logo-top: 14px;
+    --bg-logo-left: 28px;
+    --brain-size: 56px;
+    --brain-top: 30px;
+    --brain-left: 60px;
+    --heartbeat-speed: 2s;
+    --text-width: 158px;
+    --text-bottom: 28px;
+    --text-down: 18px;
+    --text-left: -10px;
+    --spin-speed: 6s;
+}
+
+.logo-component {
+    position: relative;
+    width: var(--canvas-width);
+    height: var(--canvas-height);
+    margin-left: 20px;
+    overflow: hidden;
+    perspective: 1000px;
+    background: transparent;
+    float: left;
+}
+.logo-layer {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.layer-bg-logo {
+    width: var(--bg-logo-sizeW);
+    height: var(--bg-logo-sizeH);
+    top: var(--bg-logo-top);
+    left: var(--bg-logo-left);
+    z-index: 1000;
+    border-radius: 50%;
+}
+.layer-brain {
+    width: var(--brain-size);
+    height: var(--brain-size);
+    top: var(--brain-top);
+    left: var(--brain-left);
+    z-index: 2000;
+    animation: heartbeat var(--heartbeat-speed) ease-in-out infinite;
+    transform-origin: center center;
+    filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.65));
+}
+.layer-text {
+    width: var(--text-width);
+    height: calc(var(--text-width) * 0.25);
+    bottom: var(--text-bottom);
+    left: var(--text-left);
+    z-index: 3000;
+    transform-style: preserve-3d;
+    animation: spin3D var(--spin-speed) linear infinite;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.05); }
+    45% { transform: scale(1.02); }
+    65% { transform: scale(1.07); }
+    100% { transform: scale(1); }
+}
+@keyframes spin3D {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+@media (max-width: 600px) {
+    .logo-component { overflow: visible; margin-left: 20px; }
+    .layer-text { bottom: var(--text-down); }
+}
+
+/* MAIN APP LAYOUT */
+.app-container {
+    display: flex;
+    top: 100px;
+    height: 90%;
+    width: 100%;
+    position: relative;
+    left: -15px;
+}
+
+/* LEFT NAVIGATION — vertical dot rail */
+.nav-dots-bar {
+    position: fixed;
+    transform: rotate(90deg);
+    left: -200px;
+    top: 50%;
+    background: rgba(8, 10, 20, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 60px;
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    z-index: 1000;
+    box-shadow: 0 8px 30px rgba(0, 229, 255, 0.12);
+    border: 1px solid rgba(0, 229, 255, 0.22);
+    transition: var(--transition);
+}
+.nav-dot {
+    width: 18px;
+    height: 18px;
+    background: var(--nav-dot-bg);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    opacity: 0.6;
+    position: relative;
+}
+.nav-dot.active {
+    background: var(--nav-dot-active);
+    transform: scale(1.55);
+    opacity: 1;
+    box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.22), 0 0 14px rgba(0, 229, 255, 0.65);
+}
+.nav-dot:hover {
+    opacity: 1;
+    transform: scale(1.25);
+    background: var(--accent-cyan);
+}
+
+/* SLIDES CONTAINER */
+.slides-container {
+    flex: 1;
+    margin-left: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    overflow: hidden;
+    position: relative;
+    touch-action: pan-y;
+}
+.slide-view {
+    width: 100%;
+    max-width: 1180px;
+    height: 80vh;
+    min-height: 570px;
+    background: var(--slide-bg);
+    box-shadow: var(--shadow-sm);
+    overflow-y: auto;
+    padding: 44px 52px;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+    scrollbar-width: thin;
+    border-radius: 18px;
+    margin-top: -40px;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid var(--border-light);
+    position: relative;
+}
+.slide-view::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-violet), transparent);
+    opacity: 0.8;
+}
+@keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(24px) scale(0.985); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.slide-view.entering { animation: fadeSlideUp 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+
+.slide-view.swipe-out-left  { transform: translateX(-60px); opacity: 0; }
+.slide-view.swipe-out-right { transform: translateX(60px); opacity: 0; }
+.slide-view.swipe-out-down  { transform: translateY(60px) scale(0.96); opacity: 0; }
+
+.slide-view::-webkit-scrollbar { width: 6px; }
+.slide-view::-webkit-scrollbar-track { background: transparent; }
+.slide-view::-webkit-scrollbar-thumb { background: var(--accent-cyan); border-radius: 8px; }
+
+.dark-mode-toggle {
+    position: fixed;
+    top: 105px;
+    right: 12px;
+    z-index: 1100;
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    border-radius: 60px;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 18px rgba(0, 229, 255, 0.15);
+    transition: 0.2s;
+    border: 1px solid var(--border-light);
+}
+.fa-moon, .fa-sun { font-size: 1.25rem; color: var(--accent-cyan); }
+
+/* gesture hint indicator */
+.gesture-hint {
+    position: fixed;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    background: rgba(8, 10, 20, 0.85);
+    border: 1px solid var(--border-light);
+    border-radius: 40px;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    backdrop-filter: blur(14px);
+    opacity: 0.85;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+.gesture-hint i { color: var(--accent-cyan); }
+.gesture-hint.fade { opacity: 0; }
+
+/* progress rail (top thin bar) */
+.progress-rail {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-violet));
+    z-index: 1200;
+    transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.7);
+}
+
+/* slide counter */
+.slide-counter {
+    position: fixed;
+    bottom: 22px;
+    right: 24px;
+    z-index: 1050;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    background: rgba(8, 10, 20, 0.55);
+    border: 1px solid var(--border-light);
+    padding: 6px 12px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+.slide-counter span { color: var(--accent-cyan); font-weight: 600; }
+
+/* prev/next arrow controls */
+.slide-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1050;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(8, 10, 20, 0.55);
+    border: 1px solid var(--border-light);
+    color: var(--accent-cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: 0.2s;
+}
+.slide-arrow:hover { background: rgba(0, 229, 255, 0.15); transform: translateY(-50%) scale(1.08); }
+.slide-arrow.prev { right: 84px; }
+.slide-arrow.next { right: 24px; }
+.slide-arrow:disabled, .slide-arrow.disabled { opacity: 0.25; pointer-events: none; }
+
+@media (max-width: 1400px) {
+    .nav-dots-bar { left: -200px; padding: 12px 8px; gap: 12px; }
+}
+@media (max-width: 860px) {
+    .nav-dots-bar { left: -230px; padding: 12px 8px; gap: 12px; }
+    .slides-container { margin-left: 70px; padding: 16px; }
+    .slide-view { padding: 30px 22px; height: 82vh; }
+    .pillar-grid, .tool-grid { grid-template-columns: 1fr; }
+    .slide-arrow { display: flex; }
+}
+@media (max-width: 580px) {
+    .nav-dots-bar { left: -230px; gap: 10px; padding: 12px 6px; }
+    .slide-view { padding: 22px 16px; }
+    h2 { font-size: 1.9rem; }
+}
+
+/* ===============================
+   TYPOGRAPHY & CONTENT SYSTEM
+================================ */
+h1, h2, h3, .display-head {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+.eyebrowHead {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.9rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent-cyan);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent-cyan);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.eyebrow::before {
+    content: '';
+    width: 22px;
+    height: 1px;
+    background: var(--accent-cyan);
+}
+.cyan-accent { color: var(--accent-cyan); }
+.violet-accent { color: var(--accent-violet); }
+.emerald-accent { color: var(--accent-emerald); }
+.amber-accent { color: var(--accent-amber); }
+.gradient-text {
+    background: linear-gradient(120deg, var(--accent-cyan), var(--accent-violet));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+h1 { font-size: 2.6rem; line-height: 1.12; margin-bottom: 14px; }
+h2 { font-size: 2.1rem; line-height: 1.18; margin-bottom: 10px; }
+h3 { font-size: 1.25rem; margin-bottom: 8px; }
+p { color: var(--text-secondary); line-height: 1.65; }
+.lede { font-size: 1.1rem; color: var(--text-secondary);}
+.slide-view a { color: var(--accent-cyan); text-decoration: none; font-weight: 600; }
+.slide-view a:hover { text-decoration: underline; }
+
+.badge {
+    display: inline-block;
+    background: linear-gradient(120deg, var(--accent-cyan), var(--accent-violet));
+    color: #041014;
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 30px;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+hr { 
+    border: none; 
+    margin: 24px 0; 
+    border-top: 1px solid var(--border-light);
+}
+
+/* GRID SYSTEMS */
+.pillar-grid, .tool-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 28px 0;
+}
+.pillar-grid-a {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+    margin: 28px 0;
+}
+.pillar-card, .tool-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 22px 20px;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+    border: 1px solid var(--border-light);
+    position: relative;
+    overflow: hidden;
+}
+.pillar-card::before, .tool-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(180deg, var(--accent-cyan), var(--accent-violet));
+}
+.pillar-card:hover, .tool-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 229, 255, 0.45);
+}
+.pillar-card i, .tool-card i { font-size: 2.3rem; color: var(--accent-cyan); margin-bottom: 14px; display: block; }
+.pillar-card h3, .tool-card h3 { font-size: 1.59rem; margin-bottom: 10px; }
+.tool-card .tier {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 19px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+.tier.free { background: rgba(0, 229, 255, 0.15); color: var(--accent-cyan); }
+.tier.paid { background: rgba(139, 92, 246, 0.18); color: var(--accent-violet); }
+
+.stat-number {
+    font-size: 2.2rem;
+    font-weight: 800;
+    font-family: 'Space Grotesk', sans-serif;
+    background: linear-gradient(120deg, var(--accent-cyan), var(--accent-violet));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.stat-row { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 32px; margin: 24px 0; }
+.stat-item .stat-label { font-size: 1.3rem; color: var(--text-muted); margin-top: 4px; max-width: 300px; }
+
+/* STEP WORKFLOW */
+.step-list { counter-reset: step; margin: 26px 0; display: flex; flex-direction: column; gap: 14px; }
+.step-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    border-radius: 14px;
+    padding: 16px 18px;
+}
+.step-num {
+    counter-increment: step;
+    flex-shrink: 0;
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+    color: #041014;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+}
+.step-num::before { content: counter(step); }
+.step-text h4 { font-size: 29rem; margin-bottom: 4px; color: var(--text-primary); }
+.step-text p { font-size: 0.92rem; margin: 0; }
+
+/* IMAGE / MEDIA */
+.image-illustration {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px -12px rgba(0,0,0,0.5);
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border-light);
+    max-width:500px;
+    margin:0 auto 28px;
+}
+.image-illustration img { width: 100%; height: auto; display: block; object-fit: cover; max-height: 300px; }
+
+.hero { text-align: center; }
+.hero p { text-align: center; }
+.footer-note { font-size: 0.75rem; text-align: center; margin-top: 32px; color: var(--text-muted); }
+
+table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+th { border-bottom: 2px solid var(--border-light); text-align: left; padding: 10px; color: var(--accent-cyan); font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+td { border-bottom: 1px solid var(--border-light); text-align: left; padding: 10px; color: var(--text-secondary); }
+tr:nth-child(even) { background-color: var(--opaque); }
+
+/* ===============================
+   PRACTICAL CARD COMPONENTS
+================================ */
+.practical-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 24px 0;
+}
+
+.practical-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 24px 22px;
+    border: 1px solid var(--border-light);
+    transition: transform 0.25s ease, border-color 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+.practical-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: linear-gradient(180deg, var(--accent-cyan), var(--accent-violet));
+}
+.practical-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 229, 255, 0.45);
+}
+.practical-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent-cyan);
+    margin-bottom: 6px;
+}
+.practical-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.practical-card h3 i {
+    color: var(--accent-cyan);
+    font-size: 1.1rem;
+}
+.task-box {
+    background: var(--opaque);
+    border-left: 3px solid var(--accent-amber);
+    padding: 10px 14px;
+    border-radius: 0 10px 10px 0;
+    margin: 12px 0;
+    font-size: 1.0rem;
+}
+.task-box strong {
+    color: var(--accent-amber);
+}
+.result-box {
+    background: rgba(45, 247, 163, 0.08);
+    border-left: 3px solid var(--accent-emerald);
+    padding: 10px 14px;
+    border-radius: 0 10px 10px 0;
+    margin: 12px 0;
+    font-size: 0.9rem;
+}
+.result-box strong {
+    color: var(--accent-emerald);
+}
+.practical-card .step-list {
+    margin: 14px 0 10px;
+    gap: 10px;
+}
+.practical-card .step-item {
+    padding: 10px 12px;
+    border-radius: 10px;
+}
+.practical-card .step-text h4 {
+    font-size: 1.1rem;
+}
+.practical-card .step-text p {
+    font-size: 1.0rem;
+}
+.practical-card .step-num {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+}
+
+/* ===============================
+   CHECKLIST / INTERACTIVE
+================================ */
+.check-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 20px 0;
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 24px;
+}
+.check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 6px 4px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+.check-item:hover {
+    background: var(--opaque);
+}
+.check-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--accent-cyan);
+    margin-top: 4px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+.check-item strong {
+    color: var(--accent-cyan);
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 2px;
+}
+.check-item .desc {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+@media (max-width: 760px) {
+    .check-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===============================
+   ACCORDION
+================================ */
+.accordion-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.accordion-item {
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: var(--transition);
+}
+.accordion-item:hover {
+  border-color: var(--accent-cyan);
+}
+.accordion-trigger {
+  width: 100%;
+  padding: 1.05rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  transition: var(--transition);
+  font-family: 'Inter', sans-serif;
+}
+.accordion-trigger:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+}
+.pillar-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: block;
+}
+.accordion-trigger .icon {
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: var(--accent-violet);
+  transition: transform 0.35s ease, color 0.35s ease;
+  margin-left: 1rem;
+  flex-shrink: 0;
+}
+.accordion-item.active {
+  border-color: var(--accent-cyan);
+}
+.accordion-item.active .accordion-trigger {
+  background: var(--opaque);
+}
+.accordion-item.active .accordion-trigger .icon {
+  transform: rotate(45deg);
+  color: var(--accent-cyan);
+}
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+}
+.accordion-item.active .accordion-content {
+  max-height: 1000px;
+  transition: max-height 0.4s cubic-bezier(0.5, 0, 0.1, 1);
+}
+.content-inner {
+  padding: 0 1.25rem 1.35rem 1.25rem;
+  border-top: 1px solid var(--border-light);
+  color: var(--text-secondary);
+  font-size: 0.94rem;
+  line-height: 1.65;
+  padding-top: 1.1rem;
+}
+.content-inner .description {
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+.example-box {
+  background: var(--opaque);
+  border-left: 3px solid var(--accent-violet);
+  padding: 0.85rem 1rem;
+  border-radius: 0 10px 10px 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+.example-box strong {
+  color: var(--accent-violet);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 700px) {
+    .contact-grid { flex-direction: column; }
+    .practical-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 580px) {
+    .app-container {
+        display: flex;
+        top: 100px;
+        height: 90%;
+        width: 110%;
+        position: relative;
+        left: -38px;
+    }
+    .check-grid { grid-template-columns: 1fr; }
+}
+
+
+
+
+
+/* ===============================
+ Audio Player Stylings (retained for reuse if audio is added later)
+================================ */
+.podcast-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 24px;
+    margin: 20px 0;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+.podcast-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(180deg, var(--accent-cyan), var(--accent-violet));
+}
+.podcast-meta { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; color: var(--text-primary); margin-bottom: 18px; font-weight: 700; }
+.podcast-show-link { color: var(--accent-cyan); font-weight: 600; text-decoration: none; }
+.podcast-show-link:hover { color: var(--accent-violet); text-decoration: underline; }
+.podcast-title { font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 8px; font-weight: 550; }
+.podcast-player-container { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.audio-wrapper { flex: 1; min-width: 260px; }
+.audio-wrapper audio { width: 100%; height: 44px; border-radius: 30px; outline: none; }
+.btn-download {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 10px 22px; height: 44px; border-radius: 40px;
+    background: linear-gradient(120deg, var(--accent-amber), var(--accent-violet));
+    color: var(--slide-bg); font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 1.2rem;
+    text-decoration: none; letter-spacing: 0.5px; white-space: nowrap; transition: var(--transition);
+}
+.btn-download:hover { box-shadow: 0 0 16px rgba(0, 229, 255, 0.5); transform: translateY(-2px); color: var(--text-primary); }
+.dl-icon { font-size: 1.1rem; }
+
+/* Responsive collapse for small devices */
+@media (max-width: 700px) {
+    .contact-grid { flex-direction: column; }
+}
+@media (max-width: 580px) {
+    .podcast-player-container { flex-direction: column; align-items: stretch; }
+    .XX { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 20px; margin: 28px 0; }
+
+    .btn-download { width: 100%; }
+    .slide-index { display: none; }
+    .app-container {
+        display: flex;
+        top: 100px;
+        height: 90%;
+        width: 110%;
+        position: relative;
+        left: -38px;
+    }
+
+}
+
+</style>
+</head>
+<body>
+    <canvas id="space-canvas"></canvas>
+
+    <div class="progress-rail" id="progressRail"></div>
+
+    <!-- ===============================
+         NAVIGATION HTML
+         ================================ -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <div class="logo-component">
+                    <img src="../../static/images/logo.png" alt="ForraCorp Base Logo" class="logo-layer layer-bg-logo" />
+                    <img src="../../static/images/logoFN_0.png" alt="Forra Nova AI Brain" class="logo-layer layer-brain" />
+                    <img src="../../static/images/logoFN_2.png" alt="Forra Nova Text" class="logo-layer layer-text" />
+                </div>
+                <div class="slogan-wrap">
+                    <img src="../../static/images/logoFN_2.png" class="foota" alt="FN Logo" />
+                </div>
+            </div><h3 class="slogan">Knowledge Is For The Living</h3>
+
+            <div class="menu-toggle" id="hamburger-menu" aria-label="Toggle navigation" role="button" tabindex="0">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <ul class="nav-links" id="main-nav">
+                <li><a href="../../index.html">ForraNova</a></li>
+                <li><a href="../chat-show.html">AI Chat Show</a></li>
+                <li><a href="../../index.html#training">Seminars</a></li>
+                <li><a href="../../index.html#tools">Tools</a></li>
+                <li><a href="../chat-show.html#suggestion-box">Connect</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="app-container">
+        <div class="nav-dots-bar" id="navDotsBar"></div>
+
+        <div class="dark-mode-toggle" id="darkModeToggle">
+            <i class="fas fa-moon"></i>
+        </div>
+
+        <div class="slide-arrow prev" id="prevArrow" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></div>
+        <div class="slide-arrow next" id="nextArrow" aria-label="Next slide"><i class="fas fa-chevron-right"></i></div>
+
+        <div class="slides-container" id="slidesContainer">
+            <!-- dynamic slide views will be injected here -->
+        </div>
+    </div>
+
+    <div class="slide-counter" id="slideCounter"><span id="counterCurrent">1</span> / <span id="counterTotal">18</span></div>
+    <div class="gesture-hint" id="gestureHint"><i class="fas fa-hand-pointer"></i> Swipe left/right to navigate · Swipe down to jump to close</div>
+
+<script>
+/* ===============================
+   SLIDE DATA — 18 SLIDES, 12+ PRACTICALS
+================================ */
+const slidesData = [
+// ──────────────────────────────────────
+// SLIDE 1 — TITLE / WELCOME
+// ──────────────────────────────────────
+{
+    html: `
+        <div class="hero">
+            <div class="badge">ForraCorp · ForraNova</div>
+            <h1 class="gradient-text">AI Applications For School</h1>
+            <div class="eyebrowHead" style="font-size:1.2rem;"><br>Live Practicals · Real Results · Aha Moments</div>
+            
+            <p class="lede" style="margin:0 auto 28px;">A Hands-On Seminar for School Owners, Proprietors &amp; Administrators</p>
+
+            <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin:20px 0;">
+                <div class="stat-item" style="flex:0 1 160px; border:1px solid var(--border-light); border-radius:16px; padding:18px 16px; background:var(--opaque); text-align:center;">
+                    <div class="stat-number">12+</div>
+                    <div class="stat-label">Live Practicals</div>
+                </div>
+                <div class="stat-item" style="flex:0 1 160px; border:1px solid var(--border-light); border-radius:16px; padding:18px 16px; background:var(--opaque); text-align:center;">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Hours of Hands-On</div>
+                </div>
+                <div class="stat-item" style="flex:0 1 160px; border:1px solid var(--border-light); border-radius:16px; padding:18px 16px; background:var(--opaque); text-align:center;">
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Slides of Theory</div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3 style="color:var(--text-primary);">Fredrick Ethan U.</h3>
+            <p>ForraNova <span class="cyan-accent">·</span> a sector of ForraCorp<br>in collaboration with Teadro Systems</p>
+            <p style="margin-top:14px;"><i class="fas fa-globe"></i> <a href="https://forranova.github.io" target="_blank">forranova.github.io</a></p>
+            <div class="footer-note"> Knowledge is for the living.</div>
+        </div>
+    `
+},
+// ──────────────────────────────────────
+// SLIDE 2 — HOW THIS SESSION WORKS
+// ──────────────────────────────────────
+{
+    html: `
+        <div class="eyebrow">GROUND RULES</div>
+        <h2>Show, <span class="gradient-text">Don't Tell</span></h2>
+        
+        <p class="lede">Every slide in this deck puts you to work. You will leave with actual outputs — drafts, plans, messages, and systems — not just notes.</p>
+
+        <div class="pillar-grid-a">
+            <div class="pillar-card">
+                <i class="fas fa-hand-pointer"></i>
+                <h3>You Will Do</h3>
+                <p>Each practical has a clear task, step-by-step instructions, and a target result you can see on your own screen or paper.</p>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-users"></i>
+                <h3>Work In Pairs / Small Groups</h3>
+                <p>Team up. One person types, the other checks. Rotate. Share what works.</p>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-trophy"></i>
+                <h3>Friendly Challenge</h3>
+                <p>At the end of each practical, we compare outputs. Try to identify the reasons an output may be better than yours.</p>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-clock"></i>
+                <h3>Timed Sprints</h3>
+                <p>Most practicals run 5–10 minutes. We move fast. If you fall behind, the next slide catches you up.</p>
+            </div>
+        </div>
+
+        <div class="result-box" style="background:var(--opaque); border-left:4px solid var(--accent-emerald); padding:16px 20px; border-radius:0 12px 12px 0;">
+            <strong><i class="fas fa-lightbulb emerald-accent"></i> Aha Moment Guarantee:</strong> By the end of this session, you will have done at least 12 live tasks that directly save your school time and money. No prior AI experience needed.
+        </div>
+
+
+
+
+        <!-- Audio Player -->
+        <div class="podcast-card">
+
+          <!-- Section A -->
+          <h4 class="podcast-meta">
+            <i class="fas fa-headphones"></i>  <a href="../chat-show.html" class="podcast-show-link"><span class="gradient-text">AI Chat Show</span></a> | Episode 050 | Podcast: <p>Prompting</p>
+          </h4> 
+
+          <!-- Section B -->
+          <h5 class="podcast-title">PEARLS Framework - The holy grail of Prompting</h5>
+            <h5>The PEARLS Framework: An Overview on the Master Blueprint of AI Programming.</h5>
+
+          <!-- Controls Container: Side-by-Side (C & D) -->
+          <div class="podcast-player-container">
+            <!-- Section D: Audio Player -->
+            <div class="audio-wrapper">
+              <audio controls>
+                <source src="../../static/downloads/audio/Ep049.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+
+            <!-- Section C: Download Button -->
+            <a href="../../static/downloads/audio/Ep049.mp3" download="TPEARLS Framework.mp3"               
+                class="btn-download"><span class="dl-icon">⬇</span> Download
+            </a>
+          </div>
+
+        <br>
+        <div class="step-item">
+            NOTE: <p>For more explanation on how to write custom prompts, see the training on <span class="gradient-text"><a href="pearls.html"> 'Talk to AI'</a></span> </p>
+        </div>
+
+            
+    `
+},
+// ──────────────────────────────────────
+// SLIDE 3 — PRACTICAL 01: PARENT WHATSAPP RESPONSE
+// ──────────────────────────────────────
+{
+    html: `
+        <div class="eyebrow">PRACTICAL 01 · PARENT COMMUNICATION</div>
+        <h2>Answer a Parent <span class="gradient-text">In 60 Seconds</span></h2>
+        <div class="image-illustration">
+            <picture>
+                <img src="https://images.unsplash.com/photo-1610484826967-09c5720778c7?w=800&q=80" 
+                   alt="A parent typing a WhatsApp message to a school" loading="lazy" width="100%" height="100%">
+            </picture>
+        </div>
+
+        <div class="practical-grid">
+            <div class="practical-card">
+                <div class="practical-number">Practical 01</div>
+                <h3><i class="fas fa-comments"></i> Parent WhatsApp Response</h3>
+                <div class="task-box">
+                    <strong>Task:</strong> A parent sends this WhatsApp message at 9:47 PM: <em>"Good evening. My daughter said her assignment is on Periplaneta americana and Blatta orientalis. Please what exactly is she supposed to do? I'm confused."</em>
+                </div>
+                <div class="step-list">
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Open an AI assistant</h4><p>Use ChatGPT, Google Gemini, Meta AI, or Claude on your phone or laptop.</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Copy-paste this prompt</h4><p>"Act as a secondary school biology teacher. A parent is confused about their child's assignment on the differences between Periplaneta americana and Blatta orientalis. Write a warm, clear WhatsApp reply explaining the assignment in simple terms, giving 3 practical examples the student can use. Keep it under 120 words. End with a reassuring line."</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Review and personalise</h4><p>Read the output. Add the student's name, your school's name, and any specific instructions your teacher gave.</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Send the reply</h4><p>Copy the final message into WhatsApp and send.</p></div></div>
+                </div>
+                <div class="result-box">
+                    <strong>Expected Result:</strong> A professional, clear, reassuring parent reply — written and sent in under 2 minutes, not 20.
+                </div>
+            </div>
+
+            <div class="practical-card">
+                <div class="practical-number">Challenge</div>
+                <h3><i class="fas fa-stopwatch"></i> Speed Round</h3>
+                <p>Who can go from reading the parent's message to sending a reply in the shortest time — without losing quality?</p>
+                <div class="example-box">
+                    <strong>Weak prompt:</strong> "Write a message to a parent about an assignment."<br>
+                    <strong>Strong prompt:</strong> "Act as a biology teacher. A parent is confused about an assignment on Periplaneta americana vs Blatta orientalis. Write a warm WhatsApp reply in simple terms, give 3 practical examples, keep it under 120 words, and end reassuringly."
+                </div>
+                <div class="result-box">
+                    <strong>Target:</strong> Under 90 seconds. Quality over speed — but aim for both.
+                </div>
+            </div>
+        </div>
+    `
+},
+// ──────────────────────────────────────
+// SLIDE 4 — PRACTICAL 02: FEE REMINDER CAMPAIGN
+// ──────────────────────────────────────
+{
+    html: `
+        <div class="eyebrow">PRACTICAL 02 · FEE COLLECTION</div>
+        <h2>Chase Fees <span class="gradient-text">Without Chasing Parents Away</span></h2>
+        <div class="image-illustration">
+            <picture>
+                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=80" 
+                   alt="School administrator reviewing fee records" loading="lazy" width="100%" height="100%">
+            </picture>
+        </div>
+
+        <div class="practical-grid">
+            <div class="practical-card">
+                <div class="practical-number">Practical 02</div>
+                <h3><i class="fas fa-file-invoice"></i> Fee Reminder Sequence</h3>
+                <div class="task-box">
+                    <strong>Task:</strong> Your school has 47 parents with outstanding fees. You need three messages: 7 days before due date, on due date, and 5 days after. They must be polite, firm, and consistent.
+                </div>
+                <div class="step-list">
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Open your AI assistant</h4><p>Any LLM — ChatGPT, Gemini, Claude, or Copilot.</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Paste this prompt</h4><p>"Act as a school bursar. Write three WhatsApp/SMS reminder messages about outstanding tuition. 
+
+                        <br><br>
+                         * Message 1: 7 days before due date — friendly reminder. 
+                        <br> * Message 2: On due date — polite but firm. 
+                        <br> * Message 3: 5 days after due date — urgent but respectful, offering a payment plan option.  
+                        <br><br>
+
+                        Each under 100 words. Use a warm, professional tone. Include placeholders for [Parent Name], [Student Name], [Amount], [Due Date]."</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Review for tone</h4><p>Read all three. Do they sound like your school? Adjust any phrase that feels off-brand.</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Save and schedule</h4><p>Copy into WhatsApp Business, Google Sheets, or your SMS platform. Set reminders.</p></div></div>
+                </div>
+                <div class="result-box">
+                    <strong>Expected Result:</strong> A complete 3-message fee reminder sequence — professional, consistent, ready to deploy. Saves hours of drafting every term.
+                </div>
+            </div>
+
+            <div class="practical-card">
+                <div class="practical-number">Challenge</div>
+                <h3><i class="fas fa-trophy"></i> Best Tone Wins</h3>
+                <p>Groups compare their sequences. Which one would you be happy to receive as a parent? Which one would make you pay fastest without feeling disrespected?</p>
+                <div class="example-box">
+                    <strong>Before AI:</strong> 3-4 hours writing and re-writing across the term.<br>
+                    <strong>After AI:</strong> 5 minutes drafting, 10 minutes reviewing, done for the whole term.
+                </div>
+            </div>
+        </div>
+    `
+},
+// ──────────────────────────────────────
+// SLIDE 5 — PRACTICAL 03: TERMLY NEWSLETTER
+// ──────────────────────────────────────
+{
+    html: `
+        <div class="eyebrow">PRACTICAL 03 · SCHOOL MARKETING</div>
+        <h2>Your Termly Newsletter, <span class="gradient-text">Written For You</span></h2>
+        <div class="image-illustration">
+            <picture>
+                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80" 
+                   alt="A polished school newsletter being designed" loading="lazy" width="100%" height="100%">
+            </picture>
+        </div>
+
+        <div class="practical-grid">
+            <div class="practical-card">
+                <div class="practical-number">Practical 03</div>
+                <h3><i class="fas fa-newspaper"></i> Termly Newsletter Draft</h3>
+                <div class="task-box">
+                    <strong>Task:</strong> Your school just finished a term. Highlights: inter-house sports (Blue House won), new computer lab donated by an alumni, 98% WAEC pass rate, and a upcoming PTA meeting. Draft a full newsletter.
+                </div>
+                <div class="step-list">
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Give AI the facts</h4><p>Open ChatGPT or Gemini. Provide the highlights listed above — plus your school name and any other key achievements.</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Use this prompt</h4><p>"Act as a school communications officer. Write a warm, professional termly newsletter for parents. School name: [Your School]. Include sections: Head's Message, Academic Highlights (98% WAEC pass rate), Sports Update (Blue House won inter-house), Infrastructure (new computer lab donated by alumni), Upcoming Events (PTA meeting). Tone: celebratory but grounded. End with a call to action to attend the PTA meeting. Under 600 words."</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Review and add photos</h4><p>Read the draft. Insert real photos of the events. Add your school logo and contact details.</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Export and share</h4><p>Copy to Word or Google Docs. Export as PDF. Share on WhatsApp, email, and print for parents without internet.</p></div></div>
+                </div>
+                <div class="result-box">
+                    <strong>Expected Result:</strong> A complete, polished newsletter draft in under 10 minutes — ready for your review, photo insertion, and distribution.
+                </div>
+            </div>
+
+            <div class="practical-card">
+                <div class="practical-number">Aha Moment</div>
+                <h3><i class="fas fa-clock"></i> Time Saved</h3>
+                <p>Most schools spend 3–5 hours writing a termly newsletter. With AI, you spend 10 minutes prompting and 20 minutes reviewing and adding photos. That's <strong>4+ hours saved per term</strong> — over 12 hours per year, per newsletter.</p>
+                <div class="result-box">
+                    <strong>Multiply this:</strong> If you send 3 newsletters a year, that's 12+ hours back. Use it for parent meetings, staff coaching, or rest.
+                </div>
+            </div>
+        </div>
+    `
+},
+// ──────────────────────────────────────
+// SLIDE 6 — PRACTICAL 04: REPORT CARD COMMENTS
+// ──────────────────────────────────────
+{
+    html: `
+        <div class="eyebrow">PRACTICAL 04 · TEACHER SUPPORT</div>
+        <h2>Report Card Comments <span class="gradient-text">For the Whole Class</span></h2>
+        <div class="image-illustration">
+            <picture>
+                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80" 
+                   alt="Teacher writing report card comments" loading="lazy" width="100%" height="100%">
+            </picture>
+        </div>
+
+        <div class="practical-grid">
+            <div class="practical-card">
+                <div class="practical-number">Practical 04</div>
+                <h3><i class="fas fa-pen-fancy"></i> Generate Class Comments</h3>
+                <div class="task-box">
+                    <strong>Task:</strong> You have a class of 30 students. You know each student's strengths and areas for improvement but writing 30 individual comments is exhausting. Use AI to draft comments from a simple list of student notes.
+                </div>
+                <div class="step-list">
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>List your notes</h4><p>Example: 
+                    <br>"Amara — excellent in math, quiet in class, needs to participate more. 
+                    <br>Tunde — very social, struggles with English, improving. 
+                    <br>Zainab — top of class, natural leader, can be bossy."</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Paste this prompt</h4><p>"Act as an class teacher. Write individual report card comments for these students. Each comment should be 2-3 sentences, positive in tone, honest about areas for growth, and personalised. Use the format: [Student Name]: [Comment]. Here are my notes: [paste your notes]. Use encouraging language suitable for parents."</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Review each comment</h4><p>Read all 30. Adjust any that feel generic or inaccurate. Add specific examples from class if needed.</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Export to your report system</h4><p>Copy each comment into your report card template, spreadsheet, or school management system.</p></div></div>
+                </div>
+                <div class="result-box">
+                    <strong>Expected Result:</strong> 30 personalised, professional report card comments in under 15 minutes — a task that normally takes 3+ hours.
+                </div>
+            </div>
+
+            <div class="practical-card">
+                <div class="practical-number">Challenge</div>
+                <h3><i class="fas fa-users"></i> Peer Review</h3>
+                <p>Swap comments with another group. Do the comments sound like they were written by a human who knows the student? Do they motivate or discourage?</p>
+                <div class="example-box">
+                    <strong>Human-in-the-loop:</strong> AI drafts. You review. You approve. You sign. The final comment is yours — the AI just saved you the blank-page struggle.
+                </div>
+            </div>
+        </div>
+    `
+},
+// ──────────────────────────────────────
+// SLIDE 7 — PRACTICAL 05: LESSON PLAN GENERATOR
+// ──────────────────────────────────────
+{
+    html: `
+        <div class="eyebrow">PRACTICAL 05 · TEACHER SUPPORT</div>
+        <h2>A Full Lesson Plan <span class="gradient-text">In 2 Minutes</span></h2>
+        <div class="image-illustration">
+            <picture>
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80" 
+                   alt="Teacher planning a lesson" loading="lazy" width="100%" height="100%">
+            </picture>
+        </div>
+
+        <div class="practical-grid">
+            <div class="practical-card">
+                <div class="practical-number">Practical 05</div>
+                <h3><i class="fas fa-chalkboard-teacher"></i> Lesson Plan Draft</h3>
+                <div class="task-box">
+                    <strong>Task:</strong> You need a 40-minute lesson plan for JSS2 Basic Science on "Photosynthesis." Include objectives, materials, introduction, main activity, assessment, and homework.
+                </div>
+                <div class="step-list">
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Open your AI assistant</h4><p>Claude, ChatGPT, or Gemini all work well.</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Paste this prompt</h4><p>"Act as an experienced JSS2 Basic Science teacher. Create a 40-minute lesson plan on Photosynthesis. Include: Learning Objectives (3), Materials Needed, Introduction (5 mins), Main Activity (25 mins) with teacher explanation and student group work, Assessment (5 mins), Homework (5 mins). Use simple language for 12-13 year olds. Include one local example — e.g., a mango tree in the school compound."</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Adapt to your classroom</h4><p>Check the plan against your syllabus. Adjust timing, examples, or group sizes to fit your class.</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Save and reuse</h4><p>Save this plan. Next year, just ask AI to "update this lesson plan with a new example" or "simplify for a mixed-ability class."</p></div></div>
+                </div>
+                <div class="result-box">
+                    <strong>Expected Result:</strong> A complete, ready-to-use lesson plan in under 3 minutes. Teachers save 30–60 minutes per lesson — multiply by 5 lessons a day, 5 days a week.
+                </div>
+            </div>
+
+            <div class="practical-card">
+                <div class="practical-number">Extension</div>
+                <h3><i class="fas fa-list-check"></i> Quiz Bank From Same Topic</h3>
+                <p>Ask AI to generate 10 quiz questions from the same lesson plan — 5 multiple choice, 3 short answer, 2 essay questions. Save to your question bank.</p>
+                <div class="example-box">
+                    <strong>Prompt:</strong> "Using the same Photosynthesis lesson, generate 10 quiz questions: 5 MCQ with 4 options each, 3 short-answer, 2 long-answer. Include an answer key at the end."
+                </div>
+                <div class="result-box">
+                    <strong>Expected Result:</strong> A complete quiz bank for the topic in under 2 minutes. Ready for end-of-week assessment.
+                </div>
+            </div>
+        </div>
+    `
+},
+// ──────────────────────────────────────
+// SLIDE 8 — PRACTICAL 06: SCHOOL ADVERT / FLYER
+// ──────────────────────────────────────
+{
+    html: `
+        <div class="eyebrow">PRACTICAL 06 · ADMISSIONS MARKETING</div>
+        <h2>Admissions Advert <span class="gradient-text">That Actually Converts</span></h2>
+        <div class="image-illustration">
+            <picture>
+                <img src="https://media.craftyartapp.com/uploadedFiles/thumb_file/0258e7962af43fc2101abc36d4b2556faeaa56a51774612596.webp" 
+                   alt="School flyer design on a desk" loading="lazy" width="100%" height="100%">
+            </picture>
+        </div>
+
+        <div class="practical-grid">
+            <div class="practical-card">
+                <div class="practical-number">Practical 06</div>
+                <h3><i class="fas fa-bullhorn"></i> Admission Campaign Copy</h3>
+                <div class="task-box">
+                    <strong>Task:</strong> Admissions for the new session are open. You need: a WhatsApp broadcast message, an Instagram caption, and a short radio script — all promoting your school's unique strengths.
+                </div>
+                <div class="step-list">
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>List your school's top 5 strengths</h4><p>Example: 98% WAEC pass rate, new computer lab, qualified teachers, secure campus, affordable fees.</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Paste this prompt</h4><p>"Act as a school marketing consultant. Using these strengths: [list strengths], write: (1) a WhatsApp broadcast message under 120 words, (2) an Instagram caption under 60 words with 5 relevant hashtags, (3) a 30-second radio ad script. Tone: warm, confident, welcoming. Include a call to action: 'Call 080-XXXX-XXXX to book a school tour.'"</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Review and brand</h4><p>Add your school name, logo, and correct phone number. Adjust any claim you can't support.</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Deploy</h4><p>Send WhatsApp broadcast. Post Instagram caption with a real photo. Give radio script to your announcer.</p></div></div>
+                </div>
+                <div class="result-box">
+                    <strong>Expected Result:</strong> Three ready-to-use marketing pieces in under 8 minutes. No copywriter needed.
+                </div>
+            </div>
+
+            <div class="practical-card">
+                <div class="practical-number">Bonus</div>
+                <h3><i class="fas fa-image"></i> Generate a Flyer Image</h3>
+                <p>Use Canva (free) or Microsoft Designer. Paste your advert copy. Choose a school template. Generate a flyer in minutes.</p>
+                <div class="example-box">
+                    <strong>Live image generation:</strong> Ask AI to "generate an image of a bright, modern school compound with happy students in uniform." Use it as a background for your flyer.
+                </div>
+                <div class="result-box">
+                    <strong>Expected Result:</strong> A visual flyer to accompany your written advert — all in one session.
+                </div>
+            </div>
+        </div>
+    `
+},
+// ──────────────────────────────────────
+// SLIDE 9 — PRACTICAL 07: BUDGET ANALYSIS
+// ──────────────────────────────────────
+{
+    html: `
+        <div class="eyebrow">PRACTICAL 07 · FINANCE & ADMINISTRATION</div>
+        <h2>Analyse Your Budget With / <span class="gradient-text">Without an Accountant</span></h2>
+        <div class="image-illustration">
+            <picture>
+                <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80" 
+                   alt="Spreadsheet with budget analysis" loading="lazy" width="100%" height="100%">
+            </picture>
+        </div>
+
+        <div class="practical-grid">
+            <div class="practical-card">
+                <div class="practical-number">Practical 07</div>
+                <h3><i class="fas fa-chart-pie"></i> Budget Health Check</h3>
+                <div class="task-box">
+                    <strong>Task:</strong> You have last term's income and expenses in a spreadsheet. Use AI to analyse it and highlight: top 3 costs, any unusual spend, and areas to cut without hurting quality.
+                </div>
+                <div class="step-list">
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Open your spreadsheet</h4><p>Google Sheets or Excel. Copy the table — income lines and expense lines.</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Paste this prompt</h4><p>"Act as a school finance advisor. Analyse this term's income and expenses: [paste table]. Identify: (1) top 3 expense categories, (2) any unusual or outlier spend, (3) 3 practical cost-saving recommendations that won't affect teaching quality, (4) staff cost as a percentage of total income. Present findings in a short table. Use simple language."</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Review the analysis</h4><p>Check AI's math. Does the staff cost ratio match your own calculation? Are the recommendations realistic for your school?</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Share with your bursar</h4><p>Print or forward the analysis. Use it for your next management meeting.</p></div></div>
+                </div>
+                <div class="result-box">
+                    <strong>Expected Result:</strong> A clear, jargon-free budget analysis with actionable recommendations — no accountant needed.
+                </div>
+            </div>
+
+            <div class="practical-card">
+                <div class="practical-number">Quick Check</div>
+                <h3><i class="fas fa-calculator"></i> Staff Cost Ratio</h3>
+                <p><strong>Formula:</strong> (Total Staff Costs ÷ Total Income) × 100</p>
+                <p><strong>Healthy range:</strong> 50–65%</p>
+                <div class="example-box">
+                    <strong>Example:</strong> If total income = ₦20,000,000 and staff costs = ₦11,000,000, ratio = 55%. Healthy. If staff costs = ₦15,000,000, ratio = 75%. Time to review.
+                </div>
+                <div class="result-box">
+                    <strong>Target:</strong> Know this number before you leave today.
+                </div>
+            </div>
+        </div>
+    `
+},
+// ──────────────────────────────────────
+// SLIDE 10 — PRACTICAL 08: ENROLLMENT FOLLOW-UP SYSTEM
+// ──────────────────────────────────────
+{
+    html: `
+        <div class="eyebrow">PRACTICAL 08 · GROWTH</div>
+        <h2>Enquiry / Follow-Up <span class="gradient-text">That Never Falls Through</span></h2>
+        <div class="image-illustration">
+            <picture>
+                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80" 
+                   alt="School admissions office with staff on phone" loading="lazy" width="100%" height="100%">
+            </picture>
+        </div>
+
+        <div class="practical-grid">
+            <div class="practical-card">
+                <div class="practical-number">Practical 08</div>
+                <h3><i class="fas fa-clipboard-list"></i> Enquiry Log & Follow-Up</h3>
+                <div class="task-box">
+                    <strong>Task:</strong> Parents enquire via phone, WhatsApp, and walk-ins. Many fall through because no one follows up. Build a simple system: a log, a response rule, and a follow-up sequence.
+                </div>
+                <div class="step-list">
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Create the log</h4><p>Open Google Sheets. Columns: Date, Parent Name, Phone, Child's Class, Enquiry Source, Status, Follow-up Date, Notes.</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Set the rule</h4><p>Every enquiry gets a response within 2 hours during work hours. No exceptions.</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Draft the follow-up sequence</h4><p>"Act as an admissions officer. Write a 3-message follow-up sequence for a parent who enquired about admission but hasn't visited: (1) Thank you + prospectus, (2) Invitation to tour, (3) Final check-in. Each under 80 words, warm and professional."</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Assign responsibility</h4><p>Who checks the log daily? Who sends follow-ups? Write the name. Train them. Review weekly.</p></div></div>
+                </div>
+                <div class="result-box">
+                    <strong>Expected Result:</strong> A complete enquiry tracking system + follow-up templates, built in 10 minutes, ready to use tomorrow.
+                </div>
+            </div>
+
+            <div class="practical-card">
+                <div class="practical-number">Aha Moment</div>
+                <h3><i class="fas fa-chart-line"></i> The Cost of Slow Response</h3>
+                <p>Research shows that responding to an enquiry within 5 minutes makes you 21x more likely to convert than responding after 30 minutes. Most schools respond in days — or never.</p>
+                <div class="example-box">
+                    <strong>Practical target:</strong> Same-day response. Log every enquiry. Follow up 3 times. Track conversion.
+                </div>
+                <div class="result-box">
+                    <strong>Potential impact:</strong> If you convert just 5 more students per term at ₦150,000 tuition, that's ₦750,000 extra per term — ₦2.25M per year. From follow-up alone.
+                </div>
+            </div>
+        </div>
+    `
+},
+// ──────────────────────────────────────
+// SLIDE 11 — PRACTICAL 09: STAFF MEETING MINUTES
+// ──────────────────────────────────────
+{
+    html: `
+        <div class="eyebrow">PRACTICAL 09 · ADMINISTRATION</div>
+        <h2>Meeting Minutes <span class="gradient-text">In 90 Seconds</span></h2>
+        <div class="image-illustration">
+            <picture>
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80" 
+                   alt="Staff meeting in progress" loading="lazy" width="100%" height="100%">
+            </picture>
+        </div>
+
+        <div class="practical-grid">
+            <div class="practical-card">
+                <div class="practical-number">Practical 09</div>
+                <h3><i class="fas fa-file-alt"></i> Minutes From Rough Notes</h3>
+                <div class="task-box">
+                    <strong>Task:</strong> You just finished a staff meeting. Your notes are messy: 
+                    <br>"* Budget — need to cut diesel, Mrs. Lovelyn to get quotes. 
+                    <br>* Sports day — set for March 15, Mr. Hunt to coordinate. 
+                    <br>* PTA — date changed to Feb 28, send circular."
+                    <br> Turn this into proper minutes.
+                </div>
+                <div class="step-list">
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Open your AI assistant</h4><p>Any LLM. Use the voice-to-text feature on your phone to capture notes live, then paste.</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Paste this prompt</h4><p>"Turn these rough meeting notes into formal staff meeting minutes. Include: Date, Time, Attendees, Agenda Items, Decisions, Action Items (with responsible person and deadline), Next Meeting Date. Use a professional, clear format. Notes: [paste rough notes]."</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Review and correct</h4><p>Check names, dates, and assigned responsibilities. Add anyone AI missed.</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Distribute</h4><p>Copy to email or WhatsApp group. Print for the staff notice board.</p></div></div>
+                </div>
+                <div class="result-box">
+                    <strong>Expected Result:</strong> Professional meeting minutes in under 2 minutes — no more lost action items.
+                </div>
+            </div>
+
+            <div class="practical-card">
+                <div class="practical-number">Bonus</div>
+                <h3><i class="fas fa-bell"></i> Automated Action Reminders</h3>
+                <p>After minutes, ask AI: "Generate a list of action items with responsible persons and deadlines, formatted for a WhatsApp reminder message."</p>
+                <div class="example-box">
+                    <strong>Result:</strong> A ready-to-send reminder that ensures nothing falls through the cracks.
+                </div>
+                <div class="result-box">
+                    <strong>Target:</strong> Every meeting produces clear, tracked actions — not just a chat.
+                </div>
+            </div>
+        </div>
+    `
+},
+// ──────────────────────────────────────
+// SLIDE 12 — PRACTICAL 10: PARENT-TEACHER MEETING SCRIPT
+// ──────────────────────────────────────
+{
+    html: `
+        <div class="eyebrow">PRACTICAL 10 · COMMUNICATION</div>
+        <h2>Handle a Tricky <span class="gradient-text">Parent Meeting</span></h2>
+        <div class="image-illustration">
+            <picture>
+                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80" 
+                   alt="Parent-teacher meeting" loading="lazy" width="100%" height="100%">
+            </picture>
+        </div>
+
+        <div class="practical-grid">
+            <div class="practical-card">
+                <div class="practical-number">Practical 10</div>
+                <h3><i class="fas fa-handshake"></i> Difficult Conversation Script</h3>
+                <div class="task-box">
+                    <strong>Task:</strong> A parent is upset. Their child is failing math. They blame the teacher. You need to: listen, acknowledge, clarify facts, propose a plan, and keep the relationship positive.
+                </div>
+                <div class="step-list">
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Open your AI assistant</h4><p>Claude or ChatGPT — both are excellent for tone-sensitive writing.</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Paste this prompt</h4><p>"Act as a school principal. A parent is angry that their child is failing math and blames the teacher. Write a meeting script with: 
+                    <br>(1) opening statement to defuse tension, 
+                    <br>(2) 3 questions to understand the parent's perspective, 
+                    <br>(3) factual statement about the child's attendance and test scores, 
+                    <br>(4) proposed support plan (extra lessons, weekly check-in), 
+                    <br>(5) closing commitment. Tone: empathetic, professional, solution-focused. Under 300 words."</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Role-play it</h4><p>With a partner, read the script aloud. Adjust any phrase that feels unnatural. Practice the delivery.</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Save as template</h4><p>Keep this script. Adapt it for other difficult conversations: fee disputes, discipline issues, staff conflicts.</p></div></div>
+                </div>
+                <div class="result-box">
+                    <strong>Expected Result:</strong> A complete, empathetic meeting script — so you walk into a tense meeting prepared, not reactive.
+                </div>
+            </div>
+
+            <div class="practical-card">
+                <div class="practical-number">Aha Moment</div>
+                <h3><i class="fas fa-heart"></i> Protect Relationships</h3>
+                <p>Most parent complaints are not about the problem — they're about feeling unheard. A good script ensures the parent feels listened to before you problem-solve.</p>
+                <div class="example-box">
+                    <strong>Rule:</strong> Listen first. Acknowledge second. Solve third. AI can help you get the words right.
+                </div>
+                <div class="result-box">
+                    <strong>Target:</strong> Turn a potential conflict into a partnership — with a script that keeps you calm and focused.
+                </div>
+            </div>
+        </div>
+    `
+},
+// ──────────────────────────────────────
+// SLIDE 13 — PRACTICAL 11: EXAM QUESTION BANK
+// ──────────────────────────────────────
+{
+    html: `
+        <div class="eyebrow">PRACTICAL 11 · ASSESSMENT</div>
+        <h2>Build a Question Bank <span class="gradient-text">In Minutes</span></h2>
+        <div class="image-illustration">
+            <picture>
+                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80" 
+                   alt="Students taking an exam" loading="lazy" width="100%" height="100%">
+            </picture>
+        </div>
+
+        <div class="practical-grid">
+            <div class="practical-card">
+                <div class="practical-number">Practical 11</div>
+                <h3><i class="fas fa-question-circle"></i> Exam Questions From a Topic</h3>
+                <div class="task-box">
+                    <strong>Task:</strong> You need 20 exam questions for JSS3 Biology on "Living Things." Mix: 10 MCQ, 5 short answer, 3 essay, 2 fill-in-the-blank.
+                </div>
+                <div class="step-list">
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Open your AI assistant</h4><p>ChatGPT, Claude, or Gemini.</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Paste this prompt</h4><p>"Act as a JSS3 Biology examiner. Generate 20 exam questions on Living Things. Format: 10 multiple choice (4 options each), 5 short answer, 3 essay questions, 2 fill-in-the-blank. Include a complete answer key. Difficulty: mixed, suitable for JSS3. Focus on characteristics, examples, classes (plants and animals), and the differences in these classes."</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Review for accuracy</h4><p>Check every fact. Ensure questions align with your syllabus. Adjust wording for your students' reading level.</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Save to question bank</h4><p>Copy into a Google Doc or your school's assessment folder. Reuse and adapt each term.</p></div></div>
+                </div>
+                <div class="result-box">
+                    <strong>Expected Result:</strong> A full exam paper with answer key in under 5 minutes. Save 2+ hours per exam.
+                </div>
+            </div>
+
+            <div class="practical-card">
+                <div class="practical-number">Challenge</div>
+                <h3><i class="fas fa-shuffle"></i> Differentiate</h3>
+                <p>Ask AI to "generate a simplified version of question 5 for struggling learners, and a more challenging version for advanced learners."</p>
+                <div class="example-box">
+                    <strong>Same topic, three levels.</strong> One prompt. Differentiated assessment ready.
+                </div>
+                <div class="result-box">
+                    <strong>Target:</strong> Every student gets a question they can engage with — without you writing three papers.
+                </div>
+            </div>
+        </div>
+    `
+},
+// ──────────────────────────────────────
+// SLIDE 14 — PRACTICAL 12: SCHOOL GROWTH DASHBOARD
+// ──────────────────────────────────────
+{
+    html: `
+        <div class="eyebrow">PRACTICAL 12 · GROWTH & FINANCE</div>
+        <h2>Your Monthly <span class="gradient-text">KPI Dashboard</span></h2>
+        <div class="image-illustration">
+            <picture>
+                <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?w=800&q=80" 
+                   alt="School dashboard on a laptop screen" loading="lazy" width="100%" height="100%">
+            </picture>
+        </div>
+
+        <div class="practical-grid">
+            <div class="practical-card">
+                <div class="practical-number">Practical 12</div>
+                <h3><i class="fas fa-chart-line"></i> Build Your KPI Tracker</h3>
+                <div class="task-box">
+                    <strong>Task:</strong> Set up a simple monthly dashboard to track: Enquiry-to-Enrollment Rate, Fee Collection Rate, Cost per Pupil, Staff Cost Ratio, Cash Runway, Re-enrolment Rate.
+                </div>
+                <div class="step-list">
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Open Google Sheets</h4><p>Create a new sheet called "School KPI Dashboard."</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Create columns for each metric</h4><p>Month, Enquiries, Enrolled, Conversion %, Fees Billed, Fees Collected, Collection %, Total Costs, Students, Cost per Pupil, Staff Costs, Staff Cost %, Cash in Bank, Monthly Burn, Runway (months).</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Use AI to build formulas</h4><p>Prompt: "In Google Sheets, write formulas for: Conversion Rate = Enrolled/Enquiries, Collection Rate = Fees Collected/Fees Billed, Cost per Pupil = Total Costs/Students, Staff Cost Ratio = Staff Costs/Total Income, Runway = Cash in Bank/Monthly Burn."</p></div></div>
+                    <div class="step-item"><div class="step-num"></div><div class="step-text"><h4>Update monthly</h4><p>Every month-end, enter the numbers. Review with your bursar. Make one decision per metric.</p></div></div>
+                </div>
+                <div class="result-box">
+                    <strong>Expected Result:</strong> A working KPI dashboard you can update in 15 minutes a month — and a clear picture of your school's financial health.
+                </div>
+            </div>
+
+            <div class="practical-card">
+                <div class="practical-number">Bonus</div>
+                <h3><i class="fas fa-robot"></i> Let AI Read the Dashboard</h3>
+                <p>After entering data, paste it into AI and ask: "Analyse these KPIs. What are the top 3 concerns? What should I focus on this month?"</p>
+                <div class="example-box">
+                    <strong>AI as your analyst:</strong> It spots trends — rising staff costs, falling collection rates, shrinking runway — before they become crises.
+                </div>
+                <div class="result-box">
+                    <strong>Target:</strong> Monthly 15-minute review with AI as your co-analyst. Problems caught early, not after they compound.
+                </div>
+        <br><br><br><br>
+                <div class="step-item">
+                    NOTE: 
+                    <p>A KPI stands for a <b>Key Performance Indicator</b>, which is a measurable value that shows how well a company or person reaches a main goal. </p>
+                </div>
+
+            </div>
+        </div>
+    `
+},
+// ──────────────────────────────────────
+// SLIDE 15 — BONUS ROUND: RAPID-FIRE PROMPTS
+// ──────────────────────────────────────
+{
+    html: `
+        <div class="eyebrow">BONUS ROUND · RAPID FIRE</div>
+        <h2>Six More Tasks <span class="gradient-text">In Six Minutes</span></h2>
+        <div class="image-illustration">
+            <picture>
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80" 
+                   alt="Team working quickly on laptops" loading="lazy" width="100%" height="100%">
+            </picture>
+        </div>
+
+<div class="pillar-grid">
+            <div class="pillar-card">
+                <i class="fas fa-file-invoice"></i>
+                <h3>School Calendar</h3>
+                <p><strong>Prompt:</strong> "As an experienced Nigerian School Administrator (P), use our previous academic year calendar as a reference (E). Draft (A) a structured termly calendar in a Markdown table (R). Include resumption, mid-term break, exams, PTA meeting, inter-house sports, and closing day. Keep it concise, under 200 words, using an encouraging tone (L). Mark key dates for final Principal approval (S)."</p>
+                <div class="result-box"><strong>Result:</strong> One-page calendar in 60 seconds.</div>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Admissions Follow-Up</h3>
+                <p><strong>Prompt:</strong> "As a School Admissions Officer (P), review our sample parent response templates (E). Write (A) a 3-message follow-up sequence as a bulleted email checklist (R) for parents who enquired but haven't visited: thank-you, campus invitation, and final check-in. Keep messages brief, under 150 words total, maintaining a warm tone (L). Add a reminder to check details before sending (S)."</p>
+                <div class="result-box"><strong>Result:</strong> Follow-up templates in 90 seconds.</div>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-user-plus"></i>
+                <h3>Staff Onboarding Checklist</h3>
+                <p><strong>Prompt:</strong> "As a Senior HR Specialist in education (P), draw from our standard teacher handbook (E). Generate (A) a new-teacher onboarding checklist formatted as a structured table (R). Include document submissions, orientation, classroom setup, and a first-week review. Restrict the total length to 150 words with clear instructions (L). Include a sign-off line for the Head Teacher review (S)."</p>
+                <div class="result-box"><strong>Result:</strong> Checklist in 60 seconds.</div>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-envelope"></i>
+                <h3>Fee Policy Summary</h3>
+                <p><strong>Prompt:</strong> "As a School Bursar (P), reference our full institutional financial policy (E). Synthesize (A) the policy into a parent-friendly summary structured with bold headers (R). Cover payment due dates, flexible payment plans, early discounts, and late consequences. Limit the summary strictly to 120–150 words using a supportive tone (L). Note that board sign-off is required before distribution (S)."</p>
+                <div class="result-box"><strong>Result:</strong> Parent-friendly summary in 90 seconds.</div>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-chalkboard"></i>
+                <h3>Exam Timetable</h3>
+                <p><strong>Prompt:</strong> "As an Academic Coordinator (P), model this after last term's JSS3 assessment format (E). Create (A) a balanced two-week exam timetable grid (R) covering Math, English, Basic Science, Social Studies, Business Studies, CRK, and Computer Studies. Schedule exactly two papers per day, keeping notes under 100 words (L). Flag subject overlaps for teacher verification (S)."</p>
+                <div class="result-box"><strong>Result:</strong> Timetable in 60 seconds.</div>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-dress">👕</i>
+                <h3>Student Uniform Ideas</h3>
+                <p><strong>Prompt:</strong> "As a Graphic Designer specializing in school apparel (P), use the attached design blueprint as a baseline (E). Generate (A) a realistic visual preview accompanied by a bulleted feature summary (R). Focus on a complete, modern secondary school dress. Avoid complex accessories and limit descriptions to 60 words (L). Include a reminder for management review before production (S)."</p>
+                <div class="result-box"><strong>Result:</strong> Realistic image in 60 seconds.</div>
+            </div>
+        </div>
+
+    `
+},
+// ──────────────────────────────────────
+// SLIDE 16 — AI READINESS CHECKLIST
+// ──────────────────────────────────────
+{
+    html: `
+        <div class="eyebrow">AI READINESS CHECKLIST</div>
+        <h2>Score Your <span class="gradient-text">Current Position</span></h2>
+        <p class="lede">Check each item that is fully in place. Your score updates live. Use this to decide your next step.</p>
+
+        <div class="check-grid" id="checklistContainer"></div>
+
+        <div class="result-box" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px;">
+            <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.2rem; margin:0; display:flex; align-items:center; gap:8px;"><i class="fas fa-chart-simple" style="color:var(--accent-cyan);"></i> AI READINESS RESULT:</h3>
+            <div id="survey" style="font-family:'JetBrains Mono',monospace; font-weight:600; color:var(--accent-cyan); font-size:1.5rem;">0 / 0</div>
+            <div style="font-weight:600; color:var(--text-secondary); font-size:1.5rem;"><span id="percentDisplay">0</span>% Ready</div>
+        </div>
+
+        <div class="feedback" id="feedbackArea" style="margin-top:20px; background:var(--card-bg); border-left:4px solid var(--accent-violet); padding:14px 20px; border-radius:0 12px 12px 0;">
+            <p style="margin:0; color:var(--text-secondary); line-height:1.6;"><strong>Interpretation:</strong> 
+            <br>91–100% = KUDOS! You are ready for a controlled Copilot; 
+            <br>81–90% = Strong foundation — refine a few areas; 
+            <br>71–80% = Good progress; address remaining gaps; 
+            <br>61–70% = Moderate readiness — focus on key pillars; 
+            <br>51–60% = Several gaps identified — prioritise; 
+            <br>41–50% = Address key gaps first; 
+            <br>36–40% = Strengthen foundations; 
+            <br>35% and below = Preparation is the key. Start small.</p>
+        </div>
+        <div style="margin-top:8px; font-size:0.85rem; color:var(--text-muted); text-align:right;"><i class="fas fa-rotate-right"></i> real-time counter</div>
+    `
+},
+// ──────────────────────────────────────
+// SLIDE 17 — CLOSING: TAKEAWAYS + NEXT STEPS
+// ──────────────────────────────────────
+{
+    html: `
+        <div class="eyebrow">CLOSING</div>
+        <h2>What You <span class="gradient-text">Walk Away With</span></h2>
+        <div class="pillar-grid">
+            <div class="pillar-card">
+                <i class="fas fa-bullseye"></i>
+                <h3>12+ Live Outputs</h3>
+                <p>Parent replies, fee reminders, newsletters, lesson plans, exam questions, budget analysis, KPI dashboard, and more — all created today, with your school's real data.</p>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-clock"></i>
+                <h3>Hours Back Every Week</h3>
+                <p>Each practical saves 20 minutes to 4 hours. Add them up — you're looking at 10+ hours per week back in your schedule.</p>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-users"></i>
+                <h3>A Trained Team</h3>
+                <p>You didn't just learn AI. You used AI. Your staff can do the same. Share one practical with them this week.</p>
+            </div>
+        </div>
+
+        <div class="result-box" style="background:var(--opaque); border-left:4px solid var(--accent-emerald); padding:20px 24px; border-radius:0 12px 12px 0; margin-top:20px;">
+            <strong><i class="fas fa-lightbulb emerald-accent"></i> Your Next Step:</strong> Pick ONE practical from today. Do it again tomorrow — with your own staff, your own data. Then pick another. One new AI task per week. In one term, you'll have transformed how your school runs.
+        </div>
+
+        <div class="image-illustration" style="margin-top:24px;">
+            <picture>
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80" 
+                   alt="School leaders collaborating with AI tools" loading="lazy" width="100%" height="100%">
+            </picture>
+        </div>
+
+        <h2></h2>
+        
+        <!-- Audio Player -->
+        <div class="podcast-card">
+
+          <!-- Section A -->
+          <h4 class="podcast-meta">
+            <i class="fas fa-headphones"></i>  <a href="../chat-show.html" class="podcast-show-link"><span class="gradient-text">AI Chat Show</span></a> | Episode 092 | Podcast: <p>The Deep Dive</p>
+          </h4> 
+
+          <!-- Section B -->
+          <h5 class="podcast-title">The Smart School Advantage</h5>
+            <h5>Using AI to Improve Teaching, Administration and Growth.</h5>
+
+          <!-- Controls Container: Side-by-Side (C & D) -->
+          <div class="podcast-player-container">
+            <!-- Section D: Audio Player -->
+            <div class="audio-wrapper">
+              <audio controls>
+                <source src="../../static/downloads/audio/Ep091.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+
+            <!-- Section C: Download Button -->
+            <a href="../../static/downloads/audio/Ep091.mp3" download="The Smart School Advantage.mp3"               
+                class="btn-download"><span class="dl-icon">⬇</span> Download
+            </a>
+          </div>
+    `
+},
+// ──────────────────────────────────────
+// SLIDE 18 — CONTACT & RESOURCES
+// ──────────────────────────────────────
+{
+    html: `
+        <div class="eyebrow">CONNECT</div>
+        <h2><span class="gradient-text">ForraNova</span> - <em>Empowering Schools Through Technology</em></h2>
+        <hr>
+        
+        <p>Transform your institution’s digital presence, hands-on training, staff capabilities & workshops, and curriculum with our specialized solutions:</p>
+
+        <ul style="margin-left: 50px; color: var(--text-muted);">
+            <li><strong>Custom Website Development &amp; Hosting</strong></li>
+            <li><strong>Prompt Engineering, Staff Workshops &amp; AI Policy Templates</strong></li>
+            <li><strong>Hands-on Electronics &amp; Robotics Training</strong></li>
+        </ul>
+
+        <p>Simple, professional, and built for your school's lasting success.</p>
+
+        <div style="display:flex; justify-content:center; margin:20px 0;">
+            <button class="send-btn" onclick="window.location.href='mailto:forracorp1@gmail.com'" style="display:inline-block; background:linear-gradient(120deg, var(--accent-cyan), var(--accent-violet)); color:#041014; font-size:1.05rem; font-weight:700; padding:10px 24px; border-radius:30px; letter-spacing:0.5px; font-family:'JetBrains Mono',monospace; border:none; cursor:pointer;"><i class="fas fa-paper-plane"></i> Mail ForraNova Admin</button>
+        </div>
+
+        <div style="display:flex; gap:24px; flex-wrap:wrap; margin-top:20px;">
+            <div class="image-illustration" style="flex:1; min-width:260px; margin:0;">
+                <picture>
+                    <img src="../../static/images/ceo.png" 
+                       alt="Fredrick Ethan U." loading="lazy" width="100%" height="100%">
+                </picture>
+            </div>
+
+            <div style="flex:1; min-width:260px; background:var(--card-bg); border:1px solid var(--border-light); border-radius:16px; padding:24px; text-align:center;">
+                <p style="color:var(--text-primary); font-weight:700; font-size:1.1rem;">Fredrick Ethan U.</p>
+                <div class="divider" style="height:2px; background:linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-violet), transparent); margin:16px auto;"></div>
+                <p style="color:var(--text-secondary); font-size:1.1rem;">AI Practitioner | Machine Learning Engineer | Web Developer | Electrical & Electronics Engineer</p>
+                <p style="margin:20px 0; color:var(--text-muted); font-style:italic;"><i class="fas fa-quote-left"></i> Knowledge is for the living. <i class="fas fa-quote-right"></i></p>
+                <a href="mailto:forracorp1@gmail.com" style="color:var(--accent-cyan); text-decoration:none; font-weight:700; font-size:1rem; display:block; margin:12px 0;"><i class="fas fa-envelope"></i> forracorp1@gmail.com</a>
+                <a href="https://forranova.github.io" style="color:var(--accent-cyan); text-decoration:none; font-weight:700; font-size:1rem; display:block; margin:12px 0;"><i class="fas fa-globe"></i> forranova.github.io</a>
+            </div>
+        </div>
+
+        <div class="footer-note" style="margin-top:32px;">&copy; ForraNova Academy — AI Applications For School · Live Practicals</div>
+    `
+}
+];
+
+/* ===============================
+   AI READINESS CHECKLIST ENGINE
+================================ */
+const checklistItems = [
+    { label: 'Leadership', desc: 'A named leader is responsible for AI adoption.' },
+    { label: 'Purpose', desc: 'Specific problems AI should help solve are identified.' },
+    { label: 'Devices', desc: 'Pilot staff have reliable computers or tablets.' },
+    { label: 'Connectivity', desc: 'Internet access is stable enough for intended tasks.' },
+    { label: 'Skills', desc: 'Pilot users understand prompting, checking, and privacy.' },
+    { label: 'Policy', desc: 'Written rules exist for staff and student use.' },
+    { label: 'Privacy', desc: 'Sensitive data categories are understood.' },
+    { label: 'Review', desc: 'Every important output has a human reviewer.' },
+    { label: 'Workflow', desc: 'Approved prompts and checklists are documented.' },
+    { label: 'Measurement', desc: 'The school can track time, quality, adoption, and incidents.' },
+    { label: 'Stakeholder buy-in', desc: 'Parents, teachers, and board are aware and supportive.' },
+    { label: 'Digital literacy', desc: 'Staff have baseline digital skills for AI tools.' },
+    { label: 'Data governance', desc: 'Clear policies for student data and AI usage.' },
+    { label: 'Infrastructure', desc: 'Power and backup are reliable during pilot hours.' },
+    { label: 'Continuous PD', desc: 'Plan for ongoing professional development on AI.' }
+];
+
+function renderChecklist(container) {
+    if (!container) return;
+    container.innerHTML = '';
+    checklistItems.forEach((item, idx) => {
+        const div = document.createElement('div');
+        div.className = 'check-item';
+        div.innerHTML = `
+            <input type="checkbox" id="chk_${idx}" data-index="${idx}">
+            <label for="chk_${idx}" style="cursor:pointer;">
+                <strong>${item.label}</strong>
+                <div class="desc">${item.desc}</div>
+            </label>
+        `;
+        container.appendChild(div);
+    });
+}
+
+function getInterpretation(percent) {
+    if (percent >= 91) return 'KUDOS! You are ready for a controlled Copilot.';
+    if (percent >= 81) return 'Strong foundation — refine a few areas before pilot.';
+    if (percent >= 71) return 'Good progress; address remaining gaps for smoother adoption.';
+    if (percent >= 61) return 'Moderate readiness — focus on key missing pillars.';
+    if (percent >= 51) return 'Several gaps identified — prioritise foundational elements.';
+    if (percent >= 41) return 'Address key gaps first before considering AI.';
+    if (percent >= 36) return 'Strengthen foundations before expanding AI use.';
+    return 'Preparation is the key. Start small and raise.';
+}
+
+function updateCounter() {
+    const container = document.getElementById('checklistContainer');
+    if (!container) return;
+
+    const checkboxes = container.querySelectorAll('input[type="checkbox"]');
+    const total = checkboxes.length;
+    let checked = 0;
+    checkboxes.forEach(cb => { if (cb.checked) checked++; });
+
+    const fraction = total > 0 ? (checked / total) : 0;
+    const percent = Math.round(fraction * 100);
+
+    const surveyEl = document.getElementById('survey');
+    const percentEl = document.getElementById('percentDisplay');
+    const feedbackArea = document.getElementById('feedbackArea');
+
+    if (surveyEl) surveyEl.textContent = `${checked} / ${total}`;
+    if (percentEl) percentEl.textContent = percent;
+
+    if (feedbackArea) {
+        const customMsg = getInterpretation(percent);
+        feedbackArea.innerHTML = `<p style="margin:0; color:var(--text-secondary); line-height:1.6;"><strong>Interpretation:</strong> → <span style="color:var(--accent-cyan); font-weight:500;">${customMsg}</span></p>`;
+    }
+}
+
+function setupChecklistListener(container) {
+    if (!container) return;
+    container.removeEventListener('change', handleChecklistChange);
+    container.addEventListener('change', function(e) {
+        if (e.target && e.target.matches('input[type="checkbox"]')) {
+            updateCounter();
+        }
+    });
+}
+
+function handleChecklistChange(e) {
+    if (e.target && e.target.matches('input[type="checkbox"]')) {
+        updateCounter();
+    }
+}
+
+/* ===============================
+   SLIDE ENGINE + NAV DOTS
+================================ */
+let currentSlideIndex = 0;
+let isAnimating = false;
+const slideContainer = document.getElementById('slidesContainer');
+const navDotsBar = document.getElementById('navDotsBar');
+const progressRail = document.getElementById('progressRail');
+const counterCurrent = document.getElementById('counterCurrent');
+const counterTotal = document.getElementById('counterTotal');
+const prevArrow = document.getElementById('prevArrow');
+const nextArrow = document.getElementById('nextArrow');
+const gestureHint = document.getElementById('gestureHint');
+
+counterTotal.textContent = slidesData.length;
+
+function renderActiveSlide(direction) {
+    if (!slideContainer) return;
+    const slide = slidesData[currentSlideIndex];
+    const slideHtml = `<div class="slide-view entering" id="activeSlideView">${slide.html}</div>`;
+    slideContainer.innerHTML = slideHtml;
+    updateActiveDot();
+    updateProgress();
+    updateArrows();
+    
+    // Re-init checklist if on slide with checklist
+    const container = document.getElementById('checklistContainer');
+    if (container) {
+        renderChecklist(container);
+        setupChecklistListener(container);
+        updateCounter();
+    }
+}
+
+function updateActiveDot() {
+    const dots = document.querySelectorAll('.nav-dot');
+    dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentSlideIndex);
+    });
+}
+
+function updateProgress() {
+    const pct = ((currentSlideIndex + 1) / slidesData.length) * 100;
+    progressRail.style.width = pct + '%';
+    counterCurrent.textContent = currentSlideIndex + 1;
+}
+
+function updateArrows() {
+    prevArrow.classList.toggle('disabled', currentSlideIndex === 0);
+    nextArrow.classList.toggle('disabled', currentSlideIndex === slidesData.length - 1);
+}
+
+function createNavigationDots() {
+    navDotsBar.innerHTML = '';
+    slidesData.forEach((_, idx) => {
+        const dot = document.createElement('div');
+        dot.classList.add('nav-dot');
+        if (idx === currentSlideIndex) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+            if (idx === currentSlideIndex) return;
+            currentSlideIndex = idx;
+            renderActiveSlide();
+        });
+        navDotsBar.appendChild(dot);
+    });
+}
+
+function goToSlide(newIndex, exitClass) {
+    if (isAnimating) return;
+    if (newIndex < 0 || newIndex > slidesData.length - 1) return;
+    const activeView = document.getElementById('activeSlideView');
+    isAnimating = true;
+    if (activeView) {
+        activeView.classList.add(exitClass);
+        setTimeout(() => {
+            currentSlideIndex = newIndex;
+            renderActiveSlide();
+            isAnimating = false;
+        }, 220);
+    } else {
+        currentSlideIndex = newIndex;
+        renderActiveSlide();
+        isAnimating = false;
+    }
+}
+
+function nextSlide() { goToSlide(currentSlideIndex + 1, 'swipe-out-left'); }
+function prevSlide() { goToSlide(currentSlideIndex - 1, 'swipe-out-right'); }
+function jumpToClose() { goToSlide(slidesData.length - 1, 'swipe-out-down'); }
+
+prevArrow.addEventListener('click', prevSlide);
+nextArrow.addEventListener('click', nextSlide);
+
+/* dark / light mode toggle */
+const darkToggle = document.getElementById('darkModeToggle');
+function initTheme() {
+    const saved = localStorage.getItem('schoolTheme') || 'dark';
+    document.body.classList.toggle('light', saved === 'light');
+    document.body.classList.toggle('dark', saved !== 'light');
+    darkToggle.innerHTML = saved === 'light' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+}
+darkToggle.addEventListener('click', () => {
+    const goingLight = !document.body.classList.contains('light');
+    document.body.classList.toggle('light', goingLight);
+    document.body.classList.toggle('dark', !goingLight);
+    localStorage.setItem('schoolTheme', goingLight ? 'light' : 'dark');
+    darkToggle.innerHTML = goingLight ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+});
+
+/* keyboard navigation */
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') prevSlide();
+    else if (e.key === 'ArrowUp') prevSlide();
+    else if (e.key === 'ArrowRight') nextSlide();
+    else if (e.key === 'ArrowDown') nextSlide();
+    else if (e.key === 'Escape') jumpToClose();
+});
+
+/* ===============================
+   GESTURE / SWIPE NAVIGATION
+================================ */
+(function initGestures() {
+    const target = document.getElementById('slidesContainer');
+    let startX = 0, startY = 0, startTime = 0;
+    let tracking = false;
+
+    const THRESH_X = 60;
+    const THRESH_Y_SOFT = 70;
+    const THRESH_Y_FORCE = 140;
+    const MAX_TIME = 900;
+
+    function pointerDown(x, y) {
+        startX = x; startY = y; startTime = Date.now();
+        tracking = true;
+    }
+    function pointerUp(x, y) {
+        if (!tracking) return;
+        tracking = false;
+        const dx = x - startX;
+        const dy = y - startY;
+        const dt = Date.now() - startTime;
+        if (dt > MAX_TIME) return;
+
+        const absX = Math.abs(dx);
+        const absY = Math.abs(dy);
+
+        if (dy > THRESH_Y_FORCE && absY > absX) {
+            jumpToClose();
+            hideHint();
+            return;
+        }
+        if (absX > THRESH_X && absX > absY) {
+            if (dx < 0) nextSlide(); else prevSlide();
+            hideHint();
+            return;
+        }
+        if (dy < -THRESH_Y_SOFT && absY > absX) {
+            nextSlide();
+            hideHint();
+        }
+    }
+
+    target.addEventListener('touchstart', (e) => {
+        const t = e.changedTouches[0];
+        pointerDown(t.clientX, t.clientY);
+    }, { passive: true });
+
+    target.addEventListener('touchend', (e) => {
+        const t = e.changedTouches[0];
+        pointerUp(t.clientX, t.clientY);
+    }, { passive: true });
+
+    let mouseDown = false;
+    target.addEventListener('mousedown', (e) => {
+        mouseDown = true;
+        pointerDown(e.clientX, e.clientY);
+    });
+    window.addEventListener('mouseup', (e) => {
+        if (!mouseDown) return;
+        mouseDown = false;
+        pointerUp(e.clientX, e.clientY);
+    });
+
+    function hideHint() {
+        if (gestureHint) gestureHint.classList.add('fade');
+    }
+    setTimeout(hideHint, 5000);
+})();
+
+/* responsive init */
+function init() {
+    createNavigationDots();
+    renderActiveSlide();
+    initTheme();
+}
+init();
+</script>
+
+<script>
+/* ===============================
+   HAMBURGER MENU TOGGLE
+================================ */
+const hamburger = document.getElementById('hamburger-menu');
+const mainNav = document.getElementById('main-nav');
+
+if (hamburger && mainNav) {
+    hamburger.addEventListener('click', function (e) {
+        e.stopPropagation();
+        this.classList.toggle('active');
+        mainNav.classList.toggle('open');
+    });
+    mainNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mainNav.classList.remove('open');
+        });
+    });
+    document.addEventListener('click', function (e) {
+        if (!hamburger.contains(e.target) && !mainNav.contains(e.target)) {
+            hamburger.classList.remove('active');
+            mainNav.classList.remove('open');
+        }
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            hamburger.classList.remove('active');
+            mainNav.classList.remove('open');
+        }
+    });
+}
+</script>
+
+<script>
+/* =======================================================================
+BACKGROUND ANIMATION SCRIPT — Deep Space Simulation
+==========================================================================
+/**
+ * Deep Space Simulation
+ * A highly performant, visually stunning space background
+ * featuring blinking stars, shooting stars with multilingual
+ * character rain, floating planets, and galactic orbital lines.
+ */
+
+const MULTILINGUAL_CHARS = [
+    'ア', 'イ', 'ウ', 'エ', 'オ', 'カ', 'キ', 'ク', 'ケ', 'コ',
+    'サ', 'シ', 'ス', 'セ', 'ソ', 'タ', 'チ', 'ツ', 'テ', 'ト',
+    'ナ', 'ニ', 'ヌ', 'ネ', 'ノ', 'ハ', 'ヒ', 'フ', 'ヘ', 'ホ',
+    'マ', 'ミ', 'ム', 'メ', 'モ', 'ヤ', 'ユ', 'ヨ', 'ラ', 'リ',
+    'あ', 'い', 'う', 'え', 'お', 'か', 'き', 'く', 'け', 'こ',
+    'さ', 'し', 'す', 'せ', 'そ', 'た', 'ち', 'つ', 'て', 'と',
+    '日', '月', '星', '空', '宙', '銀', '河', '天', '地', '光',
+    '闇', '時', '間', '永', '遠', '無', '限', '夢', '幻', '想',
+    '零', '一', '二', '三', '四', '五', '六', '七', '八', '九',
+    'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И',
+    'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т',
+    'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь',
+    'Α', 'Β', 'Γ', 'Δ', 'Ε', 'Ζ', 'Η', 'Θ', 'Ι', 'Κ',
+    'Λ', 'Μ', 'Ν', 'Ξ', 'Ο', 'Π', 'Ρ', 'Σ', 'Τ', 'Υ',
+    'Φ', 'Χ', 'Ψ', 'Ω', 'ς', 'ϑ', 'ϒ', 'ϖ',
+    'ا', 'ب', 'ت', 'ث', 'ج', 'ح', 'خ', 'د', 'ذ', 'ر',
+    'ز', 'س', 'ش', 'ص', 'ض', 'ط', 'ظ', 'ع', 'غ', 'ف',
+    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K',
+    'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V',
+    'W', 'X', 'Y', 'Z', 'a', 'b', 'd', 'e', 'f', 'g',
+    '00', '01', '10', '11', '0', '1',
+    '∑', '∏', '∫', '∂', '∇', '∞', '⊕', '⊗', '◈', '◆',
+    '◇', '△', '▽', '□', '○', '●', '◉', '◎', '⬡', '⬢',
+    '⟡', '⟢', '⧊', '⧋', '⨀', '⨂', '⨁', '⌀', '⌘', '⌬',
+];
+
+const CONFIG = {
+    starBaseCount: 240,
+    starMinRadius: 0.2,
+    starMaxRadius: 2.9,
+    starBlinkSpeedMin: 0.3,
+    starBlinkSpeedMax: 2.8,
+    starBaseAlphaMin: 0.25,
+    starBaseAlphaMax: 0.75,
+    shootingStarMaxActive: 1,
+    shootingStarSpawnIntervalMin: 250,
+    shootingStarSpawnIntervalMax: 1250,
+    shootingStarSpeedMin: 100,
+    shootingStarSpeedMax: 1100,
+    shootingStarTrailLength: 45,
+    shootingStarHeadRadius: 5.2,
+    shootingStarGlowRadius: 20,
+    shootingStarLifetimeMin: 1400,
+    shootingStarLifetimeMax: 2800,
+    charRainSpawnIntervalPx: 6,
+    charRainFontSizeMin: 10,
+    charRainFontSizeMax: 30,
+    charRainGravity: 140,
+    charRainLifetimeMin: 900,
+    charRainLifetimeMax: 2200,
+    charRainMaxTotal: 220,
+    charRainFriction: 0.92,
+    planetCount: 9,
+    nebulaCount: 4,
+    orbitalPathCount: 5,
+    constellationNodeCount: 14,
+};
+
+const rand = (min, max) => Math.random() * (max - min) + min;
+const randInt = (min, max) => Math.floor(rand(min, max + 1));
+const pickRandom = (arr) => arr[randInt(0, arr.length - 1)];
+const clamp = (val, min, max) => Math.max(min, Math.min(max, val));
+
+class Star {
+    constructor(canvasWidth, canvasHeight) {
+        this.x = Math.random() * canvasWidth;
+        this.y = Math.random() * canvasHeight;
+        this.radius = rand(CONFIG.starMinRadius, CONFIG.starMaxRadius);
+        this.depth = clamp(this.radius / CONFIG.starMaxRadius, 0.1, 1.0);
+        this.baseAlpha = rand(CONFIG.starBaseAlphaMin, CONFIG.starBaseAlphaMax);
+        this.maxAlpha = Math.min(1.0, this.baseAlpha + 0.35);
+        this.blinkSpeed = rand(CONFIG.starBlinkSpeedMin, CONFIG.starBlinkSpeedMax);
+        this.blinkOffset = Math.random() * Math.PI * 2;
+        this.currentAlpha = this.baseAlpha;
+        const temp = rand(0, 1);
+        if (temp < 0.12) {
+            this.color = { r: 180, g: 200, b: 255 };
+        } else if (temp < 0.22) {
+            this.color = { r: 255, g: 240, b: 210 };
+        } else if (temp < 0.28) {
+            this.color = { r: 255, g: 200, b: 180 };
+        } else {
+            this.color = { r: 235, g: 235, b: 250 };
+        }
+    }
+
+    update(time) {
+        const wave = Math.sin(time * this.blinkSpeed + this.blinkOffset) * 0.5 + 0.5;
+        this.currentAlpha = this.baseAlpha + (this.maxAlpha - this.baseAlpha) * wave;
+        const microWave = Math.sin(time * 5.3 + this.blinkOffset * 1.7) * 0.5 + 0.5;
+        this.currentAlpha += microWave * 0.08;
+        this.currentAlpha = clamp(this.currentAlpha, this.baseAlpha * 0.7, this.maxAlpha);
+    }
+
+    draw(ctx) {
+        const alpha = this.currentAlpha;
+        if (alpha < 0.03) return;
+        const { r, g, b } = this.color;
+        ctx.fillStyle = `rgba(${r},${g},${b},${alpha})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fill();
+        if (this.radius > 1.2 && alpha > 0.55) {
+            const glowAlpha = alpha * 0.18;
+            const glowRadius = this.radius * 3.5;
+            const gradient = ctx.createRadialGradient(this.x, this.y, this.radius * 0.5, this.x, this.y, glowRadius);
+            gradient.addColorStop(0, `rgba(${r},${g},${b},${glowAlpha})`);
+            gradient.addColorStop(1, 'rgba(0,0,0,0)');
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, glowRadius, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+}
+
+class CharacterRainParticle {
+    constructor(x, y, shootingStarVx, shootingStarVy) {
+        this.x = x;
+        this.y = y;
+        this.character = pickRandom(MULTILINGUAL_CHARS);
+        this.fontSize = rand(CONFIG.charRainFontSizeMin, CONFIG.charRainFontSizeMax);
+        const inheritedVx = shootingStarVx * rand(0.25, 0.7);
+        const inheritedVy = shootingStarVy * rand(0.25, 0.7);
+        this.vx = inheritedVx + rand(-60, 60);
+        this.vy = inheritedVy + rand(-30, 20);
+        this.gravity = CONFIG.charRainGravity;
+        this.friction = CONFIG.charRainFriction;
+        this.lifetime = rand(CONFIG.charRainLifetimeMin, CONFIG.charRainLifetimeMax);
+        this.maxLifetime = this.lifetime;
+        this.opacity = rand(0.75, 1.0);
+        const colorRoll = Math.random();
+        if (colorRoll < 0.45) {
+            this.color = { r: 80, g: 255, b: 180 };
+        } else if (colorRoll < 0.75) {
+            this.color = { r: 100, g: 240, b: 255 };
+        } else if (colorRoll < 0.9) {
+            this.color = { r: 180, g: 255, b: 220 };
+        } else {
+            this.color = { r: 220, g: 240, b: 255 };
+        }
+    }
+
+    update(dt) {
+        this.vy += this.gravity * dt;
+        this.vx *= this.friction;
+        this.x += this.vx * dt;
+        this.y += this.vy * dt;
+        this.lifetime -= dt * 1000;
+        const lifeRatio = clamp(this.lifetime / this.maxLifetime, 0, 1);
+        this.opacity = lifeRatio * 0.9;
+    }
+
+    get isDead() {
+        return this.lifetime <= 0 || this.opacity < 0.02;
+    }
+
+    draw(ctx) {
+        if (this.opacity < 0.03) return;
+        const { r, g, b } = this.color;
+        ctx.fillStyle = `rgba(${r},${g},${b},${this.opacity})`;
+        ctx.font = `${this.fontSize}px "Courier New", "MS Gothic", "Noto Sans", monospace`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        if (this.opacity > 0.5) {
+            ctx.shadowColor = `rgba(${r},${g},${b},${this.opacity * 0.5})`;
+            ctx.shadowBlur = this.fontSize * 0.6;
+        } else {
+            ctx.shadowColor = 'transparent';
+            ctx.shadowBlur = 0;
+        }
+        ctx.fillText(this.character, this.x, this.y);
+        ctx.shadowColor = 'transparent';
+        ctx.shadowBlur = 0;
+    }
+}
+
+class ShootingStar {
+    constructor(canvasWidth, canvasHeight) {
+        this.canvasWidth = canvasWidth;
+        this.canvasHeight = canvasHeight;
+        this.active = true;
+        this.lifetime = rand(CONFIG.shootingStarLifetimeMin, CONFIG.shootingStarLifetimeMax);
+        this.maxLifetime = this.lifetime;
+        this.speed = rand(CONFIG.shootingStarSpeedMin, CONFIG.shootingStarSpeedMax);
+        this.trail = [];
+        this.maxTrailLength = CONFIG.shootingStarTrailLength;
+        this.distanceSinceLastSpawn = 0;
+        this.spawnInterval = CONFIG.charRainSpawnIntervalPx;
+        this.spawnedParticles = [];
+        this._initializeTrajectory();
+    }
+
+    _initializeTrajectory() {
+        const w = this.canvasWidth;
+        const h = this.canvasHeight;
+        const edge = randInt(0, 3);
+        let startX, startY, angle;
+
+        switch (edge) {
+            case 0:
+                startX = rand(0, w);
+                startY = -20;
+                angle = rand(Math.PI * 0.35, Math.PI * 0.65);
+                break;
+            case 1:
+                startX = w + 20;
+                startY = rand(h * 0.1, h * 0.7);
+                angle = rand(Math.PI * 0.85, Math.PI * 1.15);
+                break;
+            case 2:
+                startX = rand(0, w);
+                startY = h + 20;
+                angle = rand(Math.PI * 1.35, Math.PI * 1.65);
+                break;
+            case 3:
+            default:
+                startX = -20;
+                startY = rand(h * 0.15, h * 0.75);
+                angle = rand(-Math.PI * 0.15, Math.PI * 0.15);
+                break;
+        }
+
+        angle += rand(-0.25, 0.25);
+        this.x = startX;
+        this.y = startY;
+        this.vx = Math.cos(angle) * this.speed;
+        this.vy = Math.sin(angle) * this.speed;
+        this.angle = angle;
+        this.trail.push({ x: this.x, y: this.y, age: 0 });
+    }
+
+    update(dt) {
+        if (!this.active) return;
+        this.lifetime -= dt * 1000;
+        this.x += this.vx * dt;
+        this.y += this.vy * dt;
+
+        for (const point of this.trail) {
+            point.age += dt * 1000;
+        }
+        this.trail.push({ x: this.x, y: this.y, age: 0 });
+        while (this.trail.length > this.maxTrailLength) {
+            this.trail.shift();
+        }
+        const maxTrailAge = 600;
+        this.trail = this.trail.filter(p => p.age < maxTrailAge);
+
+        if (this.trail.length >= 2) {
+            const last = this.trail[this.trail.length - 1];
+            const prev = this.trail[this.trail.length - 2];
+            const dx = last.x - prev.x;
+            const dy = last.y - prev.y;
+            this.distanceSinceLastSpawn += Math.sqrt(dx * dx + dy * dy);
+        }
+
+        while (this.distanceSinceLastSpawn >= this.spawnInterval) {
+            this.distanceSinceLastSpawn -= this.spawnInterval;
+            const particle = new CharacterRainParticle(this.x, this.y, this.vx, this.vy);
+            this.spawnedParticles.push(particle);
+        }
+
+        const buffer = 150;
+        if (
+            this.x < -buffer ||
+            this.x > this.canvasWidth + buffer ||
+            this.y < -buffer ||
+            this.y > this.canvasHeight + buffer
+        ) {
+            this.active = false;
+        }
+        if (this.lifetime <= 0) {
+            this.active = false;
+        }
+    }
+
+    draw(ctx) {
+        if (!this.active || this.trail.length < 2) return;
+        const trailLen = this.trail.length;
+        for (let i = 1; i < trailLen; i++) {
+            const ratio = i / trailLen;
+            const alpha = ratio * 0.75;
+            const width = ratio * 2.8;
+            ctx.strokeStyle = `rgba(180,210,255,${alpha})`;
+            ctx.lineWidth = width;
+            ctx.lineCap = 'round';
+            ctx.beginPath();
+            ctx.moveTo(this.trail[i - 1].x, this.trail[i - 1].y);
+            ctx.lineTo(this.trail[i].x, this.trail[i].y);
+            ctx.stroke();
+        }
+
+        const headAlpha = clamp(this.lifetime / this.maxLifetime, 0.3, 1.0);
+        const glowGradient = ctx.createRadialGradient(
+            this.x, this.y, CONFIG.shootingStarHeadRadius * 0.3,
+            this.x, this.y, CONFIG.shootingStarGlowRadius
+        );
+        glowGradient.addColorStop(0, `rgba(220,240,255,${headAlpha * 0.85})`);
+        glowGradient.addColorStop(0.3, `rgba(180,220,255,${headAlpha * 0.5})`);
+        glowGradient.addColorStop(0.7, `rgba(100,160,255,${headAlpha * 0.15})`);
+        glowGradient.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = glowGradient;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, CONFIG.shootingStarGlowRadius, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = `rgba(255,255,255,${headAlpha})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, CONFIG.shootingStarHeadRadius, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+class Planet {
+    constructor(canvasWidth, canvasHeight, index) {
+        this.canvasWidth = canvasWidth;
+        this.canvasHeight = canvasHeight;
+        this.index = index;
+        const margin = 100;
+        this.x = rand(margin, canvasWidth - margin);
+        this.y = rand(margin, canvasHeight - margin);
+        this.radius = rand(18, 55);
+        this.depth = rand(0.3, 0.9);
+        this.orbitCenterX = this.x;
+        this.orbitCenterY = this.y;
+        this.orbitRadiusX = rand(15, 80);
+        this.orbitRadiusY = rand(10, 50);
+        this.orbitSpeed = rand(0.015, 0.06);
+        this.orbitAngle = rand(0, Math.PI * 2);
+        this.orbitTilt = rand(0, Math.PI);
+        this.baseColor = this._generateColor();
+        this.hasRings = index === 1 || (Math.random() < 0.3 && index > 0);
+        this.ringTilt = rand(0.4, 0.9);
+        this.ringColor = this._lightenColor(this.baseColor, 0.5);
+        this.atmosphereColor = this._lightenColor(this.baseColor, 0.7);
+        this.bandCount = randInt(3, 7);
+        this.bandOffsets = [];
+        for (let i = 0; i < this.bandCount; i++) {
+            this.bandOffsets.push(rand(-0.35, 0.35));
+        }
+    }
+
+    _generateColor() {
+        const palettes = [
+            { r: 180, g: 140, b: 100 },
+            { r: 100, g: 130, b: 200 },
+            { r: 200, g: 170, b: 120 },
+            { r: 140, g: 100, b: 180 },
+            { r: 80, g: 160, b: 140 },
+            { r: 210, g: 120, b: 100 },
+            { r: 120, g: 150, b: 190 },
+        ];
+        const base = palettes[randInt(0, palettes.length - 1)];
+        return {
+            r: clamp(base.r + randInt(-20, 20), 40, 230),
+            g: clamp(base.g + randInt(-20, 20), 40, 230),
+            b: clamp(base.b + randInt(-20, 20), 40, 230),
+        };
+    }
+
+    _lightenColor(color, factor) {
+        return {
+            r: clamp(Math.round(color.r + (255 - color.r) * factor), 0, 255),
+            g: clamp(Math.round(color.g + (255 - color.g) * factor), 0, 255),
+            b: clamp(Math.round(color.b + (255 - color.b) * factor), 0, 255),
+        };
+    }
+
+    update(dt) {
+        this.orbitAngle += this.orbitSpeed * dt;
+        this.x = this.orbitCenterX + Math.cos(this.orbitAngle) * this.orbitRadiusX;
+        this.y = this.orbitCenterY + Math.sin(this.orbitAngle) * this.orbitRadiusY * Math.cos(this.orbitTilt);
+        const margin = 60;
+        this.x = clamp(this.x, margin, this.canvasWidth - margin);
+        this.y = clamp(this.y, margin, this.canvasHeight - margin);
+    }
+
+    draw(ctx) {
+        const { r, g, b } = this.baseColor;
+        const radius = this.radius;
+
+        const atmoGradient = ctx.createRadialGradient(this.x, this.y, radius * 0.85, this.x, this.y, radius * 1.5);
+        const ar = this.atmosphereColor.r;
+        const ag = this.atmosphereColor.g;
+        const ab = this.atmosphereColor.b;
+        atmoGradient.addColorStop(0, `rgba(${ar},${ag},${ab},0.35)`);
+        atmoGradient.addColorStop(0.5, `rgba(${ar},${ag},${ab},0.12)`);
+        atmoGradient.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = atmoGradient;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, radius * 1.5, 0, Math.PI * 2);
+        ctx.fill();
+
+        const bodyGradient = ctx.createRadialGradient(
+            this.x - radius * 0.3, this.y - radius * 0.35, radius * 0.1,
+            this.x, this.y, radius
+        );
+        bodyGradient.addColorStop(0, `rgba(${clamp(r + 60, 0, 255)},${clamp(g + 60, 0, 255)},${clamp(b + 60, 0, 255)},1)`);
+        bodyGradient.addColorStop(0.5, `rgba(${r},${g},${b},1)`);
+        bodyGradient.addColorStop(1, `rgba(${clamp(r - 50, 0, 255)},${clamp(g - 50, 0, 255)},${clamp(b - 50, 0, 255)},1)`);
+        ctx.fillStyle = bodyGradient;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, radius, 0, Math.PI * 2);
+        ctx.fill();
+
+        for (let i = 0; i < this.bandCount; i++) {
+            const bandY = this.y - radius * 0.7 + (radius * 1.4 / (this.bandCount + 1)) * (i + 1);
+            const bandWidth = radius * 1.6 * (0.5 + Math.abs(this.bandOffsets[i]) * 0.5);
+            const distFromCenter = Math.abs(bandY - this.y) / radius;
+            if (distFromCenter < 0.85) {
+                const bandAlpha = 0.08 + Math.abs(this.bandOffsets[i]) * 0.15;
+                const bandGradient = ctx.createLinearGradient(
+                    this.x - bandWidth, bandY - radius * 0.08,
+                    this.x + bandWidth, bandY + radius * 0.08
+                );
+                bandGradient.addColorStop(0, `rgba(0,0,0,0)`);
+                bandGradient.addColorStop(0.3, `rgba(0,0,0,${bandAlpha})`);
+                bandGradient.addColorStop(0.5, `rgba(255,255,255,${bandAlpha * 0.4})`);
+                bandGradient.addColorStop(0.7, `rgba(0,0,0,${bandAlpha})`);
+                bandGradient.addColorStop(1, `rgba(0,0,0,0)`);
+                ctx.fillStyle = bandGradient;
+                ctx.beginPath();
+                ctx.ellipse(this.x, bandY, bandWidth, radius * 0.12, 0, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        if (this.hasRings) {
+            ctx.save();
+            ctx.translate(this.x, this.y);
+            ctx.rotate(this.ringTilt);
+            const ringGradient = ctx.createLinearGradient(0, -radius * 0.25, 0, radius * 0.25);
+            const rr = this.ringColor.r;
+            const rg = this.ringColor.g;
+            const rb = this.ringColor.b;
+            ringGradient.addColorStop(0, `rgba(${rr},${rg},${rb},0.0)`);
+            ringGradient.addColorStop(0.3, `rgba(${rr},${rg},${rb},0.55)`);
+            ringGradient.addColorStop(0.45, `rgba(${rr},${rg},${rb},0.7)`);
+            ringGradient.addColorStop(0.5, `rgba(255,255,255,0.3)`);
+            ringGradient.addColorStop(0.55, `rgba(${rr},${rg},${rb},0.7)`);
+            ringGradient.addColorStop(0.7, `rgba(${rr},${rg},${rb},0.55)`);
+            ringGradient.addColorStop(1, `rgba(${rr},${rg},${rb},0.0)`);
+            ctx.fillStyle = ringGradient;
+            ctx.beginPath();
+            ctx.ellipse(0, 0, radius * 1.6, radius * 0.32, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = 'rgba(0,0,0,0.6)';
+            ctx.beginPath();
+            ctx.ellipse(0, 0, radius * 1.15, radius * 0.14, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+        }
+
+        const specGradient = ctx.createRadialGradient(
+            this.x - radius * 0.25, this.y - radius * 0.3, radius * 0.05,
+            this.x, this.y, radius
+        );
+        specGradient.addColorStop(0, 'rgba(255,255,255,0.5)');
+        specGradient.addColorStop(0.25, 'rgba(255,255,255,0.15)');
+        specGradient.addColorStop(0.6, 'rgba(0,0,0,0)');
+        specGradient.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = specGradient;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, radius, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+class NebulaCloud {
+    constructor(canvasWidth, canvasHeight) {
+        this.x = rand(-canvasWidth * 0.2, canvasWidth * 1.2);
+        this.y = rand(-canvasHeight * 0.2, canvasHeight * 1.2);
+        this.radiusX = rand(canvasWidth * 0.25, canvasWidth * 0.7);
+        this.radiusY = rand(canvasHeight * 0.2, canvasHeight * 0.55);
+        this.rotation = rand(0, Math.PI);
+        const palettes = [
+            { r: 40, g: 20, b: 80, alpha: 0.06 },
+            { r: 20, g: 40, b: 90, alpha: 0.05 },
+            { r: 30, g: 15, b: 60, alpha: 0.07 },
+            { r: 15, g: 50, b: 70, alpha: 0.05 },
+            { r: 60, g: 20, b: 50, alpha: 0.05 },
+        ];
+        this.color = palettes[randInt(0, palettes.length - 1)];
+    }
+
+    draw(ctx) {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rotation);
+        const gradient = ctx.createRadialGradient(0, 0, 0, 0, 0, this.radiusX);
+        const { r, g, b, alpha } = this.color;
+        gradient.addColorStop(0, `rgba(${r},${g},${b},${alpha})`);
+        gradient.addColorStop(0.5, `rgba(${r},${g},${b},${alpha * 0.5})`);
+        gradient.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.ellipse(0, 0, this.radiusX, this.radiusY, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+    }
+}
+
+class OrbitalPath {
+    constructor(canvasWidth, canvasHeight) {
+        this.centerX = rand(canvasWidth * 0.15, canvasWidth * 0.85);
+        this.centerY = rand(canvasHeight * 0.15, canvasHeight * 0.85);
+        this.radiusX = rand(canvasWidth * 0.2, canvasWidth * 0.65);
+        this.radiusY = rand(canvasHeight * 0.15, canvasHeight * 0.4);
+        this.rotation = rand(0, Math.PI);
+        this.opacity = rand(0.025, 0.07);
+        this.lineWidth = rand(0.4, 1.2);
+        this.dashLength = rand(8, 30);
+        this.dashGap = rand(12, 40);
+    }
+
+    draw(ctx) {
+        ctx.save();
+        ctx.translate(this.centerX, this.centerY);
+        ctx.rotate(this.rotation);
+        ctx.strokeStyle = `rgba(150,180,220,${this.opacity})`;
+        ctx.lineWidth = this.lineWidth;
+        ctx.setLineDash([this.dashLength, this.dashGap]);
+        ctx.beginPath();
+        ctx.ellipse(0, 0, this.radiusX, this.radiusY, 0, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.restore();
+    }
+}
+
+class ConstellationNetwork {
+    constructor(canvasWidth, canvasHeight) {
+        this.nodes = [];
+        const nodeCount = CONFIG.constellationNodeCount;
+        for (let i = 0; i < nodeCount; i++) {
+            this.nodes.push({
+                x: rand(canvasWidth * 0.08, canvasWidth * 0.92),
+                y: rand(canvasHeight * 0.08, canvasHeight * 0.92),
+                radius: rand(1.0, 2.2),
+                pulseOffset: rand(0, Math.PI * 2),
+            });
+        }
+        this.connections = [];
+        for (let i = 0; i < this.nodes.length; i++) {
+            const distances = [];
+            for (let j = 0; j < this.nodes.length; j++) {
+                if (i === j) continue;
+                const dx = this.nodes[i].x - this.nodes[j].x;
+                const dy = this.nodes[i].y - this.nodes[j].y;
+                distances.push({ index: j, dist: Math.sqrt(dx * dx + dy * dy) });
+            }
+            distances.sort((a, b) => a.dist - b.dist);
+            const connectCount = randInt(1, 3);
+            for (let k = 0; k < Math.min(connectCount, distances.length); k++) {
+                const j = distances[k].index;
+                const pairKey = Math.min(i, j) + '_' + Math.max(i, j);
+                if (!this.connections.find(c => c.key === pairKey)) {
+                    this.connections.push({ key: pairKey, from: i, to: j });
+                }
+            }
+        }
+    }
+
+    draw(ctx, time) {
+        for (const conn of this.connections) {
+            const from = this.nodes[conn.from];
+            const to = this.nodes[conn.to];
+            const alpha = 0.04 + Math.sin(time * 0.4 + conn.from) * 0.015;
+            ctx.strokeStyle = `rgba(160,190,230,${clamp(alpha, 0.02, 0.08)})`;
+            ctx.lineWidth = 0.5;
+            ctx.setLineDash([3, 10]);
+            ctx.beginPath();
+            ctx.moveTo(from.x, from.y);
+            ctx.lineTo(to.x, to.y);
+            ctx.stroke();
+            ctx.setLineDash([]);
+        }
+
+        for (const node of this.nodes) {
+            const pulse = Math.sin(time * 1.5 + node.pulseOffset) * 0.5 + 0.5;
+            const alpha = 0.25 + pulse * 0.35;
+            ctx.fillStyle = `rgba(200,220,255,${alpha})`;
+            ctx.beginPath();
+            ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+            ctx.fill();
+            const glowGrad = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, node.radius * 5);
+            glowGrad.addColorStop(0, `rgba(180,200,240,${alpha * 0.6})`);
+            glowGrad.addColorStop(1, 'rgba(0,0,0,0)');
+            ctx.fillStyle = glowGrad;
+            ctx.beginPath();
+            ctx.arc(node.x, node.y, node.radius * 5, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+}
+
+class SpaceSimulation {
+    constructor(canvas) {
+        this.canvas = canvas;
+        this.ctx = canvas.getContext('2d');
+        this.width = 0;
+        this.height = 0;
+        this.stars = [];
+        this.shootingStars = [];
+        this.characterRainParticles = [];
+        this.planets = [];
+        this.nebulae = [];
+        this.orbitalPaths = [];
+        this.constellationNetwork = null;
+        this.lastTime = 0;
+        this.shootingStarCooldown = 0;
+        this.animationId = null;
+        this.running = false;
+    }
+
+    init() {
+        this.handleResize();
+        this._createStars();
+        this._createPlanets();
+        this._createNebulae();
+        this._createOrbitalPaths();
+        this._createConstellationNetwork();
+        this.shootingStarCooldown = rand(
+            CONFIG.shootingStarSpawnIntervalMin,
+            CONFIG.shootingStarSpawnIntervalMax
+        );
+        this.lastTime = performance.now();
+        this.running = true;
+        this.animate(this.lastTime);
+        window.addEventListener('resize', this._onResize.bind(this));
+    }
+
+    _createStars() {
+        const area = this.width * this.height;
+        const count = Math.min(CONFIG.starBaseCount, Math.floor(area / 4500));
+        this.stars = [];
+        for (let i = 0; i < Math.max(count, 80); i++) {
+            this.stars.push(new Star(this.width, this.height));
+        }
+    }
+
+    _createPlanets() {
+        this.planets = [];
+        for (let i = 0; i < CONFIG.planetCount; i++) {
+            this.planets.push(new Planet(this.width, this.height, i));
+        }
+    }
+
+    _createNebulae() {
+        this.nebulae = [];
+        for (let i = 0; i < CONFIG.nebulaCount; i++) {
+            this.nebulae.push(new NebulaCloud(this.width, this.height));
+        }
+    }
+
+    _createOrbitalPaths() {
+        this.orbitalPaths = [];
+        for (let i = 0; i < CONFIG.orbitalPathCount; i++) {
+            this.orbitalPaths.push(new OrbitalPath(this.width, this.height));
+        }
+    }
+
+    _createConstellationNetwork() {
+        this.constellationNetwork = new ConstellationNetwork(this.width, this.height);
+    }
+
+    _spawnShootingStar() {
+        if (this.shootingStars.length >= CONFIG.shootingStarMaxActive) return;
+        const shootingStar = new ShootingStar(this.width, this.height);
+        this.shootingStars.push(shootingStar);
+    }
+
+    _onResize() {
+        this.handleResize();
+        this._createStars();
+        this._createPlanets();
+        this._createNebulae();
+        this._createOrbitalPaths();
+        this._createConstellationNetwork();
+    }
+
+    handleResize() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const newWidth = window.innerWidth;
+        const newHeight = window.innerHeight;
+        this.width = newWidth;
+        this.height = newHeight;
+        this.canvas.width = newWidth * dpr;
+        this.canvas.height = newHeight * dpr;
+        this.canvas.style.width = newWidth + 'px';
+        this.canvas.style.height = newHeight + 'px';
+        this.ctx.setTransform(1, 0, 0, 1, 0, 0);
+        this.ctx.scale(dpr, dpr);
+    }
+
+    update(dt) {
+        const time = performance.now() / 1000;
+
+        for (const star of this.stars) {
+            star.update(time);
+        }
+
+        for (const ss of this.shootingStars) {
+            ss.update(dt);
+        }
+
+        for (const ss of this.shootingStars) {
+            if (ss.spawnedParticles.length > 0) {
+                this.characterRainParticles.push(...ss.spawnedParticles);
+                ss.spawnedParticles = [];
+            }
+        }
+
+        for (const particle of this.characterRainParticles) {
+            particle.update(dt);
+        }
+
+        this.characterRainParticles = this.characterRainParticles.filter(p => !p.isDead);
+        while (this.characterRainParticles.length > CONFIG.charRainMaxTotal) {
+            this.characterRainParticles.shift();
+        }
+
+        this.shootingStars = this.shootingStars.filter(ss => ss.active);
+
+        for (const planet of this.planets) {
+            planet.update(dt);
+        }
+
+        this.shootingStarCooldown -= dt * 1000;
+        if (this.shootingStarCooldown <= 0 && this.shootingStars.length < CONFIG.shootingStarMaxActive) {
+            this._spawnShootingStar();
+            this.shootingStarCooldown = rand(
+                CONFIG.shootingStarSpawnIntervalMin,
+                CONFIG.shootingStarSpawnIntervalMax
+            );
+        }
+    }
+
+    draw() {
+        const ctx = this.ctx;
+        const w = this.width;
+        const h = this.height;
+        const time = performance.now() / 1000;
+
+        ctx.clearRect(0, 0, w, h);
+
+        for (const nebula of this.nebulae) {
+            nebula.draw(ctx);
+        }
+
+        for (const orbitalPath of this.orbitalPaths) {
+            orbitalPath.draw(ctx);
+        }
+
+        if (this.constellationNetwork) {
+            this.constellationNetwork.draw(ctx, time);
+        }
+
+        for (const planet of this.planets) {
+            if (planet.depth > 0.55) {
+                planet.draw(ctx);
+            }
+        }
+
+        for (const star of this.stars) {
+            star.draw(ctx);
+        }
+
+        for (const planet of this.planets) {
+            if (planet.depth <= 0.55) {
+                planet.draw(ctx);
+            }
+        }
+
+        for (const ss of this.shootingStars) {
+            ss.draw(ctx);
+        }
+
+        for (const particle of this.characterRainParticles) {
+            particle.draw(ctx);
+        }
+
+        const vignetteGradient = ctx.createRadialGradient(w / 2, h / 2, w * 0.45, w / 2, h / 2, w * 0.85);
+        vignetteGradient.addColorStop(0, 'rgba(0,0,0,0)');
+        vignetteGradient.addColorStop(1, 'rgba(3,5,10,0.55)');
+        ctx.fillStyle = vignetteGradient;
+        ctx.fillRect(0, 0, w, h);
+    }
+
+    animate(timestamp) {
+        if (!this.running) return;
+        const dt = Math.min((timestamp - this.lastTime) / 1000, 0.1);
+        this.lastTime = timestamp;
+        this.update(dt);
+        this.draw();
+        this.animationId = requestAnimationFrame(this.animate.bind(this));
+    }
+
+    destroy() {
+        this.running = false;
+        if (this.animationId) {
+            cancelAnimationFrame(this.animationId);
+            this.animationId = null;
+        }
+        window.removeEventListener('resize', this._onResize.bind(this));
+        this.stars = [];
+        this.shootingStars = [];
+        this.characterRainParticles = [];
+        this.planets = [];
+        this.nebulae = [];
+        this.orbitalPaths = [];
+        this.constellationNetwork = null;
+    }
+}
+
+(function () {
+    const canvas = document.getElementById('space-canvas');
+    if (!canvas) {
+        console.error('Space canvas element not found.');
+        return;
+    }
+    const simulation = new SpaceSimulation(canvas);
+    simulation.init();
+    window.__spaceSimulation = simulation;
+})();
+</script>
+
+<script>
+// ──────────────────────────────────────
+// ACCORDION ENGINE
+// ──────────────────────────────────────
+function toggleAccordion(elementId) {
+  const currentItem = document.getElementById(elementId);
+  if (!currentItem) return;
+  const currentTrigger = currentItem.querySelector('.accordion-trigger');
+  const isActive = currentItem.classList.contains('active');
+  
+  const allItems = document.querySelectorAll('.accordion-item');
+  allItems.forEach(item => {
+    item.classList.remove('active');
+    const trigger = item.querySelector('.accordion-trigger');
+    if (trigger) trigger.setAttribute('aria-expanded', 'false');
+  });
+
+  if (!isActive) {
+    currentItem.classList.add('active');
+    if (currentTrigger) currentTrigger.setAttribute('aria-expanded', 'true');
+  }
+}
+</script>
+
+</body>
+</html>
