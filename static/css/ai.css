@@ -1506,21 +1506,30 @@ transform:translateY(0);
 
 .celebration-card {
     position: relative;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(11, 15, 25, 0.75);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(0, 229, 255, 0.3);
+    border: 1px solid rgba(0, 229, 255, 0.4);
     border-radius: 16px;
-    padding: 1.5rem;
-    box-shadow: 0 8px 32px 0 rgba(0, 229, 255, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 0.4rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 229, 255, 0.2);
     overflow: hidden;
 }
 
-.celebration-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 40px 0 rgba(0, 229, 255, 0.3);
-    border-color: rgba(0, 229, 255, 0.6);
+#fireworks-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.celebration-card .card-content,
+.celebration-card .card-badge {
+    position: relative;
+    z-index: 2;
 }
 
 .celebration-card .card-badge {
@@ -1542,19 +1551,26 @@ transform:translateY(0);
     font-size: 1.4rem;
     margin-bottom: 0.75rem;
     font-weight: 600;
-}
-
-.celebration-card .card-description {
-    color: #d1d5db;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 0.75rem;
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+    text-align: center;
 }
 
 .celebration-card .card-actions {
     display: flex;
     gap: 0.75rem;
     margin-top: 1.25rem;
+    align-items: center;
+    display: flex;
+    margin: 5px auto;
+    justify-content: center;
+}
+.celebration-card .card-head {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: -20px;
 }
 
 .celebration-card .btn {
@@ -1564,30 +1580,31 @@ transform:translateY(0);
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
-    transition: background 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .celebration-card .btn-primary {
     background: #00e5ff;
     color: #0b0f19;
     border: none;
+    line-height: 1.6;
+    text-align: center;
 }
 
 .celebration-card .btn-primary:hover {
     background: #80f3ff;
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.6);
 }
 
 .celebration-card .btn-secondary {
     background: transparent;
     color: #00e5ff;
     border: 1px solid #00e5ff;
+    line-height: 1.6;
+    text-align: center;
 }
 
 .celebration-card .btn-secondary:hover {
-    background: rgba(0, 229, 255, 0.1);
+    background: rgba(0, 229, 255, 0.15);
 }
-
-/*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
-
-
 
