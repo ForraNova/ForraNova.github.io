@@ -1,20 +1,20 @@
 {
-    "last_update": "September 30, 2026 | 05:18 PM",
+    "last_update": "September 30, 2026 | 09:43 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[17:18:38] SUCCESS: Machine Learning (3 found)",
-        "[17:18:40] SUCCESS: Front-End / React (3 found)",
-        "[17:18:43] SUCCESS: Writing / Creative (0 found)",
-        "[17:18:46] SUCCESS: Virtual Assistant (0 found)"
+        "[21:43:27] SUCCESS: Machine Learning (3 found)",
+        "[21:43:30] SUCCESS: Front-End / React (3 found)",
+        "[21:43:32] SUCCESS: Writing / Creative (0 found)",
+        "[21:43:35] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
             "jobs": [
                 {
-                    "position": "Client Advisor",
-                    "link": "https://remoteok.com/remote-jobs/remote-client-advisor-toptal-1137440"
+                    "position": "Enterprise Sales Development Representative",
+                    "link": "https://remoteok.com/remote-jobs/remote-enterprise-sales-development-representative-toptal-1137451"
                 },
                 {
                     "position": "Client Advisor",
