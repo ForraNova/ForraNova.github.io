@@ -1,12 +1,12 @@
 {
-    "last_update": "October 02, 2026 | 09:13 AM",
+    "last_update": "October 02, 2026 | 05:06 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[09:13:02] SUCCESS: Machine Learning (3 found)",
-        "[09:13:04] SUCCESS: Front-End / React (3 found)",
-        "[09:13:07] SUCCESS: Writing / Creative (0 found)",
-        "[09:13:10] SUCCESS: Virtual Assistant (0 found)"
+        "[17:06:06] SUCCESS: Machine Learning (3 found)",
+        "[17:06:08] SUCCESS: Front-End / React (3 found)",
+        "[17:06:10] SUCCESS: Writing / Creative (0 found)",
+        "[17:06:13] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-client-advisor-toptal-1137439"
                 },
                 {
-                    "position": "Senior Demand Generation Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-demand-generation-manager-testgorilla-1135606"
+                    "position": "Junior Crypto Analyst & Trader",
+                    "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-empire-assets-1137460"
                 }
             ]
         },
