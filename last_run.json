@@ -1,12 +1,12 @@
 {
-    "last_update": "October 08, 2026 | 09:48 AM",
+    "last_update": "October 08, 2026 | 06:13 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[09:48:23] SUCCESS: Machine Learning (3 found)",
-        "[09:48:26] SUCCESS: Front-End / React (3 found)",
-        "[09:48:29] SUCCESS: Writing / Creative (0 found)",
-        "[09:48:32] SUCCESS: Virtual Assistant (0 found)"
+        "[18:13:48] SUCCESS: Machine Learning (3 found)",
+        "[18:13:51] SUCCESS: Front-End / React (3 found)",
+        "[18:13:54] SUCCESS: Writing / Creative (0 found)",
+        "[18:13:57] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -31,15 +31,15 @@
             "jobs": [
                 {
                     "position": "Frontend Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-frontend-engineer-bjak-1137420"
-                },
-                {
-                    "position": "Frontend Engineer",
                     "link": "https://remoteok.com/remote-jobs/remote-frontend-engineer-bjak-1137410"
                 },
                 {
                     "position": "Freelance Designer",
                     "link": "https://remoteok.com/remote-jobs/remote-freelance-designer-control-shift-video-1136213"
+                },
+                {
+                    "position": "Head of Security",
+                    "link": "https://remoteok.com/remote-jobs/remote-head-of-security-tremendous-1136210"
                 }
             ]
         },
