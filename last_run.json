@@ -1,12 +1,12 @@
 {
-    "last_update": "October 09, 2026 | 09:51 AM",
+    "last_update": "October 09, 2026 | 05:47 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[09:51:28] SUCCESS: Machine Learning (3 found)",
-        "[09:51:31] SUCCESS: Front-End / React (3 found)",
-        "[09:51:33] SUCCESS: Writing / Creative (0 found)",
-        "[09:51:36] SUCCESS: Virtual Assistant (0 found)"
+        "[17:47:05] SUCCESS: Machine Learning (3 found)",
+        "[17:47:07] SUCCESS: Front-End / React (3 found)",
+        "[17:47:10] SUCCESS: Writing / Creative (0 found)",
+        "[17:47:13] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-client-advisor-toptal-1137439"
                 },
                 {
-                    "position": "Junior Crypto Analyst & Trader",
-                    "link": "https://remoteok.com/remote-jobs/remote-junior-crypto-analyst-trader-empire-assets-1137460"
+                    "position": "Senior React Full stack Developer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-react-full-stack-developer-lemon-io-1137475"
                 }
             ]
         },
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Senior React Full stack Developer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-react-full-stack-developer-lemon-io-1137475"
+                },
+                {
                     "position": "Frontend Engineer",
                     "link": "https://remoteok.com/remote-jobs/remote-frontend-engineer-bjak-1137410"
                 },
                 {
                     "position": "Freelance Designer",
                     "link": "https://remoteok.com/remote-jobs/remote-freelance-designer-control-shift-video-1136213"
-                },
-                {
-                    "position": "Head of Security",
-                    "link": "https://remoteok.com/remote-jobs/remote-head-of-security-tremendous-1136210"
                 }
             ]
         },
