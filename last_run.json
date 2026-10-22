@@ -1,12 +1,12 @@
 {
-    "last_update": "October 22, 2026 | 02:33 AM",
+    "last_update": "October 22, 2026 | 08:11 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[02:33:37] SUCCESS: Machine Learning (3 found)",
-        "[02:33:40] SUCCESS: Front-End / React (3 found)",
-        "[02:33:42] SUCCESS: Writing / Creative (0 found)",
-        "[02:33:46] SUCCESS: Virtual Assistant (0 found)"
+        "[08:10:58] SUCCESS: Machine Learning (3 found)",
+        "[08:11:01] SUCCESS: Front-End / React (3 found)",
+        "[08:11:03] SUCCESS: Writing / Creative (0 found)",
+        "[08:11:06] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-client-advisor-toptal-1137439"
                 },
                 {
-                    "position": "Accounting & Finance Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-accounting-finance-manager-political-asylum-lawyers-1137555"
+                    "position": "Senior Finance Manager Management Accountant",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-finance-manager-management-accountant-d2b-1137556"
                 }
             ]
         },
