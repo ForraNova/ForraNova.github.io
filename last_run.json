@@ -1,12 +1,12 @@
 {
-    "last_update": "October 23, 2026 | 02:00 PM",
+    "last_update": "October 23, 2026 | 06:51 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[13:59:59] SUCCESS: Machine Learning (3 found)",
-        "[14:00:03] SUCCESS: Front-End / React (3 found)",
-        "[14:00:06] SUCCESS: Writing / Creative (0 found)",
-        "[14:00:10] SUCCESS: Virtual Assistant (0 found)"
+        "[18:51:24] SUCCESS: Machine Learning (3 found)",
+        "[18:51:27] SUCCESS: Front-End / React (3 found)",
+        "[18:51:30] SUCCESS: Writing / Creative (0 found)",
+        "[18:51:33] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Senior Frontend Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-b2spin-1137562"
+                },
+                {
                     "position": "Senior React Full stack Developer",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-react-full-stack-developer-lemon-io-1137475"
                 },
                 {
                     "position": "Sr REACT NATIVE",
                     "link": "https://remoteok.com/remote-jobs/remote-sr-react-native-somnio-software-1137523"
-                },
-                {
-                    "position": "Product Engineering Lead",
-                    "link": "https://remoteok.com/remote-jobs/remote-product-engineering-lead-tether-operations-limited-1137478"
                 }
             ]
         },
