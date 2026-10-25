@@ -154,8 +154,6 @@
 
 
 
-
-
         <div class="project-card mixed pdc mind" data-release-time="2026-11-03 07:00:01">
           <div class="card-content">
             <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
@@ -206,7 +204,7 @@
             <audio controls src="../static/downloads/audio/Ep124.mp3" type="audio/mp3">
             </audio>
             <div class="download-link">
-              <a href="../static/downloads/audio/Ep124.mp3" download="TageName.mp3">⬇ Download</a>
+              <a href="../static/downloads/audio/Ep124.mp3" download="How AI Learns Corporate Doublespeak.mp3">⬇ Download</a>
             </div>
           </div>
         </div>
@@ -215,7 +213,7 @@
           <div class="card-content">
             <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> Bio Tech</i>
             <div class="tagline" startdate-expiry="2026-11-02"><b>NEW !</b></div> 
-            <h3 class="title">The Engineering of Blood in Medicine and Surgry</h3>
+            <h3 class="title">The Safe Use of Blood in Medicine and Surgry</h3>
             <div class="project-date">
               <b>Episode 123</b>  <strong>|</strong>  📅 <i><strong> November 2, 2026</strong></i>
             </div>
@@ -259,19 +257,71 @@
                 <p class="cta">Ready to go under the hood of advanced extracorporeal engineering and cellular life support? Listen to the full episode on the AI Chat Show now to master the medical blueprints transforming modern clinical practice.</p>
               </div>
             </div>
-            <audio controls src="../static/downloads/audio/Ep123.mp3" type="audio/mp3">
+            <audio id="Episode123" controls style="width: 100%; margin-top: 5px;">
+              <source id="Episode123_a" src="../static/downloads/audio/Ep123a.mp3" type="audio/mpeg">
+              Native audio compilation matrix not supported by your browser.
             </audio>
+
+            <script>
+            document.addEventListener('DOMContentLoaded', () => {
+              // 1. Array index containing sequential multi-part audio files split for GitHub hosting bounds
+              const audioSegments = [
+                "../static/downloads/audio/Ep123a.mp3",
+                "../static/downloads/audio/Ep123b.mp3",
+              ];
+
+              let currentAudioIndex = 0;
+
+              // 2. Locate document tree layout targets
+              const audioPlayer = document.getElementById('Episode123');
+              const audioCarrier = document.getElementById('Episode123_a');
+
+              if (!audioPlayer || !audioCarrier) return;
+
+              // 3. Bind the sequential chronological listening driver
+              audioPlayer.addEventListener('ended', function() {
+                // Increment tracking pointer matrix
+                currentAudioIndex++;
+
+                // Validate if further chunks exist in the sequence queue
+                if (currentAudioIndex < audioSegments.length) {
+                  audioPlayer.pause();
+
+                  // Dynamically reassign track references seamlessly
+                  audioCarrier.setAttribute('src', audioSegments[currentAudioIndex]);
+                  
+                  // Instruct audio runtime framework to flush and reload fresh buffer layers
+                  audioPlayer.load();
+
+                  // Trigger hot execution playback
+                  audioPlayer.play().catch(err => {
+                    console.warn("Client interaction barrier delayed automated audio translation sequence:", err);
+                  });
+                } else {
+                  console.log("Audio pipeline array sequence closed cleanly.");
+                  // Optional Loop Anchor: Reset back to item 0 if global loop state is desired
+                  currentAudioIndex = 0;
+                  audioCarrier.setAttribute('src', audioSegments[0]);
+                  audioPlayer.load();
+                }
+              });
+            });
+            </script>
+
             <div class="download-link">
-              <a href="../static/downloads/audio/Ep123.mp3" download="TageName.mp3">⬇ Download</a>
+              <a href="../static/downloads/audio/Ep123a.mp3" download="Safe Use of Blood in Medicine and Surgry-A.mp3">⬇ Download A</a><br>
+              <a href="../static/downloads/audio/Ep123b.mp3" download="Safe Use of Blood in Medicine and Surgry-B.mp3">⬇ Download B</a><br>
             </div>
           </div>
         </div>
+
+
 
         <div class="project-card mixed pdc bio" data-release-time="2026-10-30 07:00:01">
           <div class="card-content">
             <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> Biogenetics</i>
             <div class="tagline" startdate-expiry="2026-10-30"><b>NEW !</b></div> 
-            <h3 class="title">The Human Blood - a Hidden Bioengineering</h3>
+            <h3 class="title">Whole Blood Fractionation - a Hidden Bioengineering</h3>
             <div class="project-date">
               <b>Episode 122</b>  <strong>|</strong>  📅 <i><strong> October 30, 2026</strong></i>
             </div>
@@ -279,7 +329,7 @@
               <img src="https://cdn.mos.cms.futurecdn.net/pYF5YURHV2xggu6L2Dnjfb-800-80.jpg.webp" class="art" alt="Blood">
 
               <div class="pageCade">
-                 <p><strong>Inside Whole Blood Fractionation: How Plasma Proteins, Cellular Micro-Shuttles, and Bio-Medical Therapeutics Power Human Circulation</strong></p><hr class="hr">
+                 <p><strong>Blood (major and minor fractions): How Plasma Proteins, Cellular Micro-Shuttles, and Bio-Medical Therapeutics Power Human Circulation</strong></p><hr class="hr">
                  <p>Human blood is far more than a simple red fluid; it is an extraordinarily complex biochemical reactor and distributed transport network. This episode dives into the microfluidic architecture and cellular fractions of whole blood, exploring how major components like erythrocytes and plasma interact with vital minor fractions such as albumin, immunoglobulins, and clotting factors. By examining how these biological components drive cellular respiration, hemostasis, and clinical pharmacology, we unpack the cutting-edge medical technologies that modern specialists rely on to treat trauma, genetic deficiencies, and severe medical conditions.</p>
                 
                 <p><b>Key_Highlights :</b></p>
@@ -315,10 +365,63 @@
                 <p class="cta">Ready to go under the hood of human hematology and advanced biotherapeutics? Listen to the full episode on the AI Chat Show now to master the biological blueprints transforming modern clinical practice.</p>
               </div>
             </div>
-            <audio controls src="../static/downloads/audio/Ep122.mp3" type="audio/mp3">
+
+            <audio id="Episode122" controls style="width: 100%; margin-top: 5px;">
+              <source id="Episode122_a" src="../static/downloads/audio/Ep122a.mp3" type="audio/mpeg">
+              Native audio compilation matrix not supported by your browser.
             </audio>
+
+            <script>
+            document.addEventListener('DOMContentLoaded', () => {
+              // 1. Array index containing sequential multi-part audio files split for GitHub hosting bounds
+              const audioSegments = [
+                "../static/downloads/audio/Ep122a.mp3",
+                "../static/downloads/audio/Ep122b.mp3",
+                "../static/downloads/audio/Ep122c.mp3",
+              ];
+
+              let currentAudioIndex = 0;
+
+              // 2. Locate document tree layout targets
+              const audioPlayer = document.getElementById('Episode122');
+              const audioCarrier = document.getElementById('Episode122_a');
+
+              if (!audioPlayer || !audioCarrier) return;
+
+              // 3. Bind the sequential chronological listening driver
+              audioPlayer.addEventListener('ended', function() {
+                // Increment tracking pointer matrix
+                currentAudioIndex++;
+
+                // Validate if further chunks exist in the sequence queue
+                if (currentAudioIndex < audioSegments.length) {
+                  audioPlayer.pause();
+
+                  // Dynamically reassign track references seamlessly
+                  audioCarrier.setAttribute('src', audioSegments[currentAudioIndex]);
+                  
+                  // Instruct audio runtime framework to flush and reload fresh buffer layers
+                  audioPlayer.load();
+
+                  // Trigger hot execution playback
+                  audioPlayer.play().catch(err => {
+                    console.warn("Client interaction barrier delayed automated audio translation sequence:", err);
+                  });
+                } else {
+                  console.log("Audio pipeline array sequence closed cleanly.");
+                  // Optional Loop Anchor: Reset back to item 0 if global loop state is desired
+                  currentAudioIndex = 0;
+                  audioCarrier.setAttribute('src', audioSegments[0]);
+                  audioPlayer.load();
+                }
+              });
+            });
+            </script>
+
             <div class="download-link">
-              <a href="../static/downloads/audio/Ep122.mp3" download="TageName.mp3">⬇ Download</a>
+              <a href="../static/downloads/audio/Ep122a.mp3" download="Whole Blood Fractionation-A.mp3">⬇ Download A</a><br>
+              <a href="../static/downloads/audio/Ep122b.mp3" download="Whole Blood Fractionation-B.mp3">⬇ Download B</a><br>
+              <a href="../static/downloads/audio/Ep122c.mp3" download="Whole Blood Fractionation-C.mp3">⬇ Download C</a><br>
             </div>
           </div>
         </div>
@@ -1474,7 +1577,7 @@
               <audio controls src="../static/downloads/audio/Ep100.mp3" type="audio/mp3">
                 </audio>
               <div class="download-link">
-                <a href="../static/downloads/audio/Ep100.mp3" download="FileName.mp3">⬇ Download</a>
+                <a href="../static/downloads/audio/Ep100.mp3" download="About FirraNova.mp3">⬇ Download</a>
               </div>
             </div>
         </div>
@@ -2048,7 +2151,7 @@
             <audio controls src="../static/downloads/audio/Ep090.mp3" type="audio/mp3">
             </audio>
             <div class="download-link">
-              <a href="../static/downloads/audio/Ep090.mp3" download="Space Aging.mp3">⬇ Download</a>
+              <a href="../static/downloads/audio/Ep090.mp3" download="GLP-1: From weight loss to brain protection.mp3">⬇ Download</a>
             </div>
           </div>
         </div>
@@ -2329,7 +2432,7 @@
           <div class="card-content">
             <span class="badge"><b>Podcast</b></span><b class="dot"> • </b><i class="badge_sub"> The Deep Dive</i>
             <div class="tagline" startdate-expiry="2026-09-08"><b>NEW !</b></div> 
-            <h3 class="title">School Growth & Finance: Building a School That Pays For Itself.</h3>
+            <h3 class="title">School Growth & Finance: Building a School That Pays For Itself</h3>
             <div class="project-date">
               <b>Episode 085</b>  <strong>|</strong>  📅 <i><strong> September 8, 2026</strong></i>
             </div>
@@ -2376,7 +2479,7 @@
             <audio controls src="../static/downloads/audio/Ep084.mp3" type="audio/mp3">
             </audio>
             <div class="download-link">
-              <a href="../static/downloads/audio/Ep084.mp3" download="Brain-Machine Interfaces at Work.mp3">⬇ Download</a>
+              <a href="../static/downloads/audio/Ep084.mp3" download="School Growth & Finance: Building a School That Pays For Itself.mp3">⬇ Download</a>
             </div>
           </div>
         </div>
@@ -2432,7 +2535,7 @@
             <audio controls src="../static/downloads/audio/Ep083.mp3" type="audio/mp3">
             </audio>
             <div class="download-link">
-              <a href="../static/downloads/audio/Ep083.mp3" download="fileName.mp3">⬇ Download</a>
+              <a href="../static/downloads/audio/Ep083.mp3" download="Funding Growth — Borrow, Save, or Partner.mp3">⬇ Download</a>
             </div>
           </div>
         </div>
@@ -2488,7 +2591,7 @@
             <audio controls src="../static/downloads/audio/Ep082.mp3" type="audio/mp3">
             </audio>
             <div class="download-link">
-              <a href="../static/downloads/audio/Ep082.mp3" download="fileName.mp3">⬇ Download</a>
+              <a href="../static/downloads/audio/Ep082.mp3" download="Numbers That Guide Decisions — Your Monthly KPI Dashboard.mp3">⬇ Download</a>
             </div>
           </div>
         </div>
@@ -2544,7 +2647,7 @@
             <audio controls src="../static/downloads/audio/Ep081.mp3" type="audio/mp3">
             </audio>
             <div class="download-link">
-              <a href="../static/downloads/audio/Ep081.mp3" download="fileName.mp3">⬇ Download</a>
+              <a href="../static/downloads/audio/Ep081.mp3" download="Beyond Tuition — Diversifying Revenue Streams.mp3">⬇ Download</a>
             </div>
           </div>
         </div>
@@ -2600,7 +2703,7 @@
             <audio controls src="../static/downloads/audio/Ep080.mp3" type="audio/mp3">
             </audio>
             <div class="download-link">
-              <a href="../static/downloads/audio/Ep080.mp3" download="fileName.mp3">⬇ Download</a>
+              <a href="../static/downloads/audio/Ep080.mp3" download="Budgeting That Works — Cost Control Without Cutting Quality.mp3">⬇ Download</a>
             </div>
           </div>
         </div>
@@ -2656,7 +2759,7 @@
             <audio controls src="../static/downloads/audio/Ep079.mp3" type="audio/mp3">
             </audio>
             <div class="download-link">
-              <a href="../static/downloads/audio/Ep079.mp3" download="fileName.mp3">⬇ Download</a>
+              <a href="../static/downloads/audio/Ep079.mp3" download="Stopping the Fee Leak — Tuition Collection & Cash Flow.mp3">⬇ Download</a>
             </div>
           </div>
         </div>
@@ -2709,7 +2812,7 @@
             <audio controls src="../static/downloads/audio/Ep078.mp3" type="audio/mp3">
             </audio>
             <div class="download-link">
-              <a href="../static/downloads/audio/Ep078.mp3" download="fileName.mp3">⬇ Download</a>
+              <a href="../static/downloads/audio/Ep078.mp3" download="Filling More Seats — Enrollment & Retention.mp3">⬇ Download</a>
             </div>
           </div>
         </div>
@@ -5891,7 +5994,7 @@
         <audio controls src="../static/downloads/audio/Ep023.mp3" type="audio/mp3">
         </audio>
         <div class="download-link">
-          <a href="../static/downloads/audio/Ep023.mp3" download="Delimiter Prompting.mp3">⬇ Download</a>
+          <a href="../static/downloads/audio/Ep023.mp3" download="Adversarial Prompting- Red Teaming.mp3">⬇ Download</a>
         </div>
       </div>
     </div>
@@ -6532,7 +6635,7 @@
         <audio controls src="../static/downloads/audio/Ep011.mp3" type="audio/mp3">
         </audio>
         <div class="download-link">
-          <a href="../static/downloads/audio/Ep011.mp3" download="Delimiter Prompting.mp3">⬇ Download</a>
+          <a href="../static/downloads/audio/Ep011.mp3" download="Ethical Gen. AI - The 3 Ps of Responsible AI.mp3">⬇ Download</a>
         </div>
       </div>
     </div>
@@ -6581,7 +6684,7 @@
         <audio controls src="../static/downloads/audio/Ep010.mp3" type="audio/mp3">
         </audio>
         <div class="download-link">
-          <a href="../static/downloads/audio/Ep010.mp3" download="Delimiter Prompting.mp3">⬇ Download</a>
+          <a href="../static/downloads/audio/Ep010.mp3" download="Artifitial SuperIntelligence (ASI).mp3">⬇ Download</a>
         </div>
       </div>
     </div>
@@ -6633,7 +6736,7 @@
         <audio controls src="../static/downloads/audio/Ep009.mp3" type="audio/mp3">
         </audio>
         <div class="download-link">
-          <a href="../static/downloads/audio/Ep009.mp3" download="Delimiter Prompting.mp3">⬇ Download</a>
+          <a href="../static/downloads/audio/Ep009.mp3" download="Rise of Autonomous Agentic AI.mp3">⬇ Download</a>
         </div>
       </div>
     </div>
@@ -8939,11 +9042,11 @@ document.addEventListener("DOMContentLoaded", function() {
         "reply": "<i>Episode 124 — </i><br><b>\"How AI Learns Corporate Doublespeak\" (The Deep Dive):</b><br><br> Language is supposed to communicate truth, but in both institutional boardrooms and advanced neural networks, it is frequently weaponized as a cognitive smoke screen. You can listen or download it right here on the page."
       },
       {
-        "keys": ["episode 123", "ep123", "ep 123", "123", "the engineering of blood in medicine and surgry", "engineering", "blood", "medicine", "surgry"],
+        "keys": ["episode 123", "ep123", "ep 123", "123", "the safe use of blood in medicine and surgry", "blood", "medicine", "safe use of blood", "blood in medicine", "medicine and surgry", "", "surgry"],
         "reply": "<i>Episode 123 — </i><br><b>\"The Engineering of Blood in Medicine and Surgry\" (Bio Tech):</b><br><br> Modern medical engineering has unlocked extraordinary ways to treat, filter, and conserve human blood outside the body during high-stakes surgical procedures. You can listen or download it right here on the page."
       },
       {
-        "keys": ["episode 122", "ep122", "ep 122", "122", "the human blood - a hidden bioengineering", "human", "blood", "hidden", "bioengineering"],
+        "keys": ["episode 122", "ep122", "ep 122", "122", "whole blood fractionation - a hidden bioengineering", "whole blood", "blood", "fractionation", "major fraction", "minor fraction", "major fractions", "minor fractions", "cell salvage",  "hemodilution",  "dialysis",  "",  "", "parts of blood", "hidden", "bioengineering"],
         "reply": "<i>Episode 122 — </i><br><b>\"The Human Blood - a Hidden Bioengineering\" (Biogenetics):</b><br><br> Human blood is far more than a simple red fluid; it is an extraordinarily complex biochemical reactor and distributed transport network. You can listen or download it right here on the page."
       },
       {
