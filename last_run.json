@@ -1,12 +1,12 @@
 {
-    "last_update": "October 26, 2026 | 02:24 AM",
+    "last_update": "October 26, 2026 | 08:21 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[02:24:47] SUCCESS: Machine Learning (3 found)",
-        "[02:24:50] SUCCESS: Front-End / React (3 found)",
-        "[02:24:53] SUCCESS: Writing / Creative (0 found)",
-        "[02:24:56] SUCCESS: Virtual Assistant (0 found)"
+        "[08:21:13] SUCCESS: Machine Learning (3 found)",
+        "[08:21:15] SUCCESS: Front-End / React (3 found)",
+        "[08:21:18] SUCCESS: Writing / Creative (0 found)",
+        "[08:21:21] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Senior Software Engineer LATAM",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-latam-wagmo-1137572"
+                },
+                {
                     "position": "Senior Frontend Engineer",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-b2spin-1137562"
                 },
                 {
                     "position": "Senior React Full stack Developer",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-react-full-stack-developer-lemon-io-1137475"
-                },
-                {
-                    "position": "Sr REACT NATIVE",
-                    "link": "https://remoteok.com/remote-jobs/remote-sr-react-native-somnio-software-1137523"
                 }
             ]
         },
