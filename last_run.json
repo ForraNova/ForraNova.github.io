@@ -1,12 +1,12 @@
 {
-    "last_update": "November 01, 2026 | 03:22 AM",
+    "last_update": "November 01, 2026 | 12:24 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[03:21:49] SUCCESS: Machine Learning (3 found)",
-        "[03:21:52] SUCCESS: Front-End / React (3 found)",
-        "[03:21:54] SUCCESS: Writing / Creative (0 found)",
-        "[03:21:57] SUCCESS: Virtual Assistant (0 found)"
+        "[12:24:08] SUCCESS: Machine Learning (3 found)",
+        "[12:24:11] SUCCESS: Front-End / React (3 found)",
+        "[12:24:14] SUCCESS: Writing / Creative (0 found)",
+        "[12:24:17] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-enterprise-sales-development-representative-toptal-1137451"
                 },
                 {
-                    "position": "Partner Operations Manager",
-                    "link": "https://remoteok.com/remote-jobs/remote-partner-operations-manager-mecka-1137609"
+                    "position": "Virtual Destination Wedding Coordinator",
+                    "link": "https://remoteok.com/remote-jobs/remote-virtual-destination-wedding-coordinator-destination-careers-1137611"
                 },
                 {
-                    "position": "Scientific Account Executive",
-                    "link": "https://remoteok.com/remote-jobs/remote-scientific-account-executive-adaptyv-1137608"
+                    "position": "Virtual Scheduling Assistant",
+                    "link": "https://remoteok.com/remote-jobs/remote-virtual-scheduling-assistant-destination-careers-1137610"
                 }
             ]
         },
