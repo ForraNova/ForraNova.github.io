@@ -1,12 +1,12 @@
 {
-    "last_update": "November 01, 2026 | 07:21 PM",
+    "last_update": "November 02, 2026 | 12:07 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[19:20:56] SUCCESS: Machine Learning (3 found)",
-        "[19:20:58] SUCCESS: Front-End / React (3 found)",
-        "[19:21:00] SUCCESS: Writing / Creative (0 found)",
-        "[19:21:03] SUCCESS: Virtual Assistant (0 found)"
+        "[00:07:38] SUCCESS: Machine Learning (3 found)",
+        "[00:07:41] SUCCESS: Front-End / React (3 found)",
+        "[00:07:43] SUCCESS: Writing / Creative (0 found)",
+        "[00:07:47] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-enterprise-sales-development-representative-toptal-1137451"
                 },
                 {
-                    "position": "Virtual Destination Wedding Coordinator",
-                    "link": "https://remoteok.com/remote-jobs/remote-virtual-destination-wedding-coordinator-destination-careers-1137611"
+                    "position": "Software Engineer Infrastructure",
+                    "link": "https://remoteok.com/remote-jobs/remote-software-engineer-infrastructure-sodalis-inc-1137614"
                 },
                 {
-                    "position": "Virtual Scheduling Assistant",
-                    "link": "https://remoteok.com/remote-jobs/remote-virtual-scheduling-assistant-destination-careers-1137610"
+                    "position": "Team Lead Account Executive",
+                    "link": "https://remoteok.com/remote-jobs/remote-team-lead-account-executive-capmo-1137613"
                 }
             ]
         },
