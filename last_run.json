@@ -1,12 +1,12 @@
 {
-    "last_update": "November 03, 2026 | 04:43 AM",
+    "last_update": "November 03, 2026 | 01:21 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[04:43:23] SUCCESS: Machine Learning (3 found)",
-        "[04:43:26] SUCCESS: Front-End / React (3 found)",
-        "[04:43:29] SUCCESS: Writing / Creative (0 found)",
-        "[04:43:32] SUCCESS: Virtual Assistant (0 found)"
+        "[13:21:17] SUCCESS: Machine Learning (3 found)",
+        "[13:21:20] SUCCESS: Front-End / React (3 found)",
+        "[13:21:22] SUCCESS: Writing / Creative (0 found)",
+        "[13:21:26] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-enterprise-sales-development-representative-toptal-1137451"
                 },
                 {
-                    "position": "Accenture Construct Assistant Resident Engineer ANS",
-                    "link": "https://remoteok.com/remote-jobs/remote-accenture-construct-assistant-resident-engineer-ans-accenture-construct-1137623"
+                    "position": "Senior Property Manager ENG",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-property-manager-eng-staffright-1137624"
                 },
                 {
-                    "position": "Tax Manager Private Client",
-                    "link": "https://remoteok.com/remote-jobs/remote-tax-manager-private-client-aprio-1137622"
+                    "position": "Accenture Construct Assistant Resident Engineer ANS",
+                    "link": "https://remoteok.com/remote-jobs/remote-accenture-construct-assistant-resident-engineer-ans-accenture-construct-1137623"
                 }
             ]
         },
