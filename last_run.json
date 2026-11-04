@@ -1,12 +1,12 @@
 {
-    "last_update": "November 03, 2026 | 09:08 PM",
+    "last_update": "November 04, 2026 | 01:02 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[21:07:50] SUCCESS: Machine Learning (3 found)",
-        "[21:07:53] SUCCESS: Front-End / React (3 found)",
-        "[21:07:55] SUCCESS: Writing / Creative (0 found)",
-        "[21:07:58] SUCCESS: Virtual Assistant (0 found)"
+        "[01:02:30] SUCCESS: Machine Learning (3 found)",
+        "[01:02:33] SUCCESS: Front-End / React (3 found)",
+        "[01:02:35] SUCCESS: Writing / Creative (0 found)",
+        "[01:02:38] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -17,12 +17,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-enterprise-sales-development-representative-toptal-1137451"
                 },
                 {
-                    "position": "AI Training - $20/hr - United States",
-                    "link": "https://remoteok.com/remote-jobs/remote-ai-training-20-hr-united-states-remote-talent-cloud-1137678"
+                    "position": "Entry Level Scheduling & Coordinating Reservations Online",
+                    "link": "https://remoteok.com/remote-jobs/remote-entry-level-scheduling-amp-coordinating-reservations-online-destination-careers-1137680"
                 },
                 {
-                    "position": "M&A Praktikum Intern",
-                    "link": "https://remoteok.com/remote-jobs/remote-ma-praktikum-intern-vogel-1137677"
+                    "position": "AI Training - $20/hr - United States",
+                    "link": "https://remoteok.com/remote-jobs/remote-ai-training-20-hr-united-states-remote-talent-cloud-1137678"
                 }
             ]
         },
@@ -34,12 +34,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-latam-wagmo-1137572"
                 },
                 {
-                    "position": "Senior Frontend Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-frontend-engineer-b2spin-1137562"
-                },
-                {
                     "position": "Senior React Full stack Developer",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-react-full-stack-developer-lemon-io-1137475"
+                },
+                {
+                    "position": "Sr REACT NATIVE",
+                    "link": "https://remoteok.com/remote-jobs/remote-sr-react-native-somnio-software-1137523"
                 }
             ]
         },
