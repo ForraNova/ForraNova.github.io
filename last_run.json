@@ -1,17 +1,21 @@
 {
-    "last_update": "November 04, 2026 | 07:10 PM",
+    "last_update": "November 05, 2026 | 01:14 AM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[19:10:34] SUCCESS: Machine Learning (3 found)",
-        "[19:10:39] SUCCESS: Front-End / React (3 found)",
-        "[19:10:41] SUCCESS: Writing / Creative (0 found)",
-        "[19:10:45] SUCCESS: Virtual Assistant (0 found)"
+        "[01:14:00] SUCCESS: Machine Learning (3 found)",
+        "[01:14:03] SUCCESS: Front-End / React (3 found)",
+        "[01:14:06] SUCCESS: Writing / Creative (0 found)",
+        "[01:14:09] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
             "jobs": [
+                {
+                    "position": "AI Content Reviewer Video Annotation",
+                    "link": "https://remoteok.com/remote-jobs/remote-ai-content-reviewer-video-annotation-imerit-1137686"
+                },
                 {
                     "position": "Enterprise Sales Development Representative",
                     "link": "https://remoteok.com/remote-jobs/remote-enterprise-sales-development-representative-toptal-1137451"
@@ -19,10 +23,6 @@
                 {
                     "position": "Software Engineer",
                     "link": "https://remoteok.com/remote-jobs/remote-software-engineer-claims-1137685"
-                },
-                {
-                    "position": "Entry Level Scheduling &amp; Coordinating Reservations Online",
-                    "link": "https://remoteok.com/remote-jobs/remote-entry-level-scheduling-amp-coordinating-reservations-online-destination-careers-1137680"
                 }
             ]
         },
@@ -38,8 +38,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-react-full-stack-developer-lemon-io-1137475"
                 },
                 {
-                    "position": "Sr REACT NATIVE",
-                    "link": "https://remoteok.com/remote-jobs/remote-sr-react-native-somnio-software-1137523"
+                    "position": "Product Engineering Lead",
+                    "link": "https://remoteok.com/remote-jobs/remote-product-engineering-lead-tether-operations-limited-1137478"
                 }
             ]
         },
