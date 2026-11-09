@@ -1,12 +1,12 @@
 {
-    "last_update": "November 09, 2026 | 10:42 AM",
+    "last_update": "November 09, 2026 | 09:51 PM",
     "status": "Online",
     "total_found": 6,
     "logs": [
-        "[10:42:42] SUCCESS: Machine Learning (3 found)",
-        "[10:42:45] SUCCESS: Front-End / React (3 found)",
-        "[10:42:47] SUCCESS: Writing / Creative (0 found)",
-        "[10:42:50] SUCCESS: Virtual Assistant (0 found)"
+        "[21:51:00] SUCCESS: Machine Learning (3 found)",
+        "[21:51:03] SUCCESS: Front-End / React (3 found)",
+        "[21:51:05] SUCCESS: Writing / Creative (0 found)",
+        "[21:51:09] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Senior Agentic AI Engineer NDA",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-agentic-ai-engineer-nda-gt-1137710"
+                },
+                {
                     "position": "UI Developer",
                     "link": "https://remoteok.com/remote-jobs/remote-ui-developer-rainfocus-1137704"
                 },
                 {
                     "position": "Senior Software Engineer LATAM",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-software-engineer-latam-wagmo-1137572"
-                },
-                {
-                    "position": "Senior React Full stack Developer",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-react-full-stack-developer-lemon-io-1137475"
                 }
             ]
         },
