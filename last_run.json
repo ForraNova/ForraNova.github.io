@@ -1,12 +1,12 @@
 {
-    "last_update": "November 11, 2026 | 01:18 PM",
+    "last_update": "November 11, 2026 | 09:44 PM",
     "status": "Online",
-    "total_found": 6,
+    "total_found": 9,
     "logs": [
-        "[13:18:05] SUCCESS: Machine Learning (3 found)",
-        "[13:18:07] SUCCESS: Front-End / React (3 found)",
-        "[13:18:10] SUCCESS: Writing / Creative (0 found)",
-        "[13:18:13] SUCCESS: Virtual Assistant (0 found)"
+        "[21:44:48] SUCCESS: Machine Learning (3 found)",
+        "[21:44:51] SUCCESS: Front-End / React (3 found)",
+        "[21:44:53] SUCCESS: Writing / Creative (3 found)",
+        "[21:44:56] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -45,7 +45,20 @@
         },
         {
             "query": "Writing / Creative",
-            "jobs": []
+            "jobs": [
+                {
+                    "position": "Communications Lead, Wikimedia Enterprise",
+                    "link": "https://jobspresso.co/job/communications-lead-wikimedia-enterprise/"
+                },
+                {
+                    "position": "Manager, Documentation Engineering",
+                    "link": "https://jobspresso.co/job/manager-documentation-engineering/"
+                },
+                {
+                    "position": "Senior UX Writer",
+                    "link": "https://jobspresso.co/job/senior-ux-writer/"
+                }
+            ]
         },
         {
             "query": "Virtual Assistant",
