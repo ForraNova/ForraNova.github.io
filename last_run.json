@@ -1,12 +1,12 @@
 {
-    "last_update": "November 12, 2026 | 05:01 AM",
+    "last_update": "November 12, 2026 | 02:24 PM",
     "status": "Online",
     "total_found": 9,
     "logs": [
-        "[05:01:07] SUCCESS: Machine Learning (3 found)",
-        "[05:01:10] SUCCESS: Front-End / React (3 found)",
-        "[05:01:12] SUCCESS: Writing / Creative (3 found)",
-        "[05:01:15] SUCCESS: Virtual Assistant (0 found)"
+        "[14:24:33] SUCCESS: Machine Learning (3 found)",
+        "[14:24:35] SUCCESS: Front-End / React (3 found)",
+        "[14:24:38] SUCCESS: Writing / Creative (3 found)",
+        "[14:24:41] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -47,16 +47,16 @@
             "query": "Writing / Creative",
             "jobs": [
                 {
+                    "position": "Image Localization Editor, Rosetta Stone \u2013 Chinese/Japanese/Korean/Hindi",
+                    "link": "https://jobspresso.co/job/image-localization-editor-rosetta-stone-chinese-japanese-korean-hindi/"
+                },
+                {
+                    "position": "Content Marketing Lead",
+                    "link": "https://jobspresso.co/job/content-marketing-lead/"
+                },
+                {
                     "position": "Communications Lead, Wikimedia Enterprise",
                     "link": "https://jobspresso.co/job/communications-lead-wikimedia-enterprise/"
-                },
-                {
-                    "position": "Manager, Documentation Engineering",
-                    "link": "https://jobspresso.co/job/manager-documentation-engineering/"
-                },
-                {
-                    "position": "Senior UX Writer",
-                    "link": "https://jobspresso.co/job/senior-ux-writer/"
                 }
             ]
         },
