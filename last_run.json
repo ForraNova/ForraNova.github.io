@@ -1,12 +1,12 @@
 {
-    "last_update": "November 13, 2026 | 01:44 PM",
+    "last_update": "November 13, 2026 | 09:10 PM",
     "status": "Online",
     "total_found": 9,
     "logs": [
-        "[13:43:51] SUCCESS: Machine Learning (3 found)",
-        "[13:43:53] SUCCESS: Front-End / React (3 found)",
-        "[13:43:56] SUCCESS: Writing / Creative (3 found)",
-        "[13:43:59] SUCCESS: Virtual Assistant (0 found)"
+        "[21:10:23] SUCCESS: Machine Learning (3 found)",
+        "[21:10:26] SUCCESS: Front-End / React (3 found)",
+        "[21:10:28] SUCCESS: Writing / Creative (3 found)",
+        "[21:10:31] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -47,16 +47,16 @@
             "query": "Writing / Creative",
             "jobs": [
                 {
+                    "position": "Content Proofreader, Takeoff",
+                    "link": "https://jobspresso.co/job/content-proofreader-takeoff-2/"
+                },
+                {
+                    "position": "Content Innovation Manager",
+                    "link": "https://jobspresso.co/job/content-innovation-manager/"
+                },
+                {
                     "position": "Seasonal TurboTax Community Tax Expert",
                     "link": "https://jobspresso.co/job/seasonal-turbotax-community-tax-expert/"
-                },
-                {
-                    "position": "Developer Documentation Writer",
-                    "link": "https://jobspresso.co/job/developer-documentation-writer/"
-                },
-                {
-                    "position": "Content Strategist",
-                    "link": "https://jobspresso.co/job/content-strategist/"
                 }
             ]
         },
