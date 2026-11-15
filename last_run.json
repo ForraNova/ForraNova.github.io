@@ -1,12 +1,12 @@
 {
-    "last_update": "November 15, 2026 | 10:14 AM",
+    "last_update": "November 15, 2026 | 06:18 PM",
     "status": "Online",
     "total_found": 9,
     "logs": [
-        "[10:14:14] SUCCESS: Machine Learning (3 found)",
-        "[10:14:16] SUCCESS: Front-End / React (3 found)",
-        "[10:14:19] SUCCESS: Writing / Creative (3 found)",
-        "[10:14:22] SUCCESS: Virtual Assistant (0 found)"
+        "[18:18:23] SUCCESS: Machine Learning (3 found)",
+        "[18:18:25] SUCCESS: Front-End / React (3 found)",
+        "[18:18:28] SUCCESS: Writing / Creative (3 found)",
+        "[18:18:31] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -47,16 +47,16 @@
             "query": "Writing / Creative",
             "jobs": [
                 {
+                    "position": "Sector Project Lead \u2013 Healthcare, Directed Content",
+                    "link": "https://jobspresso.co/job/sector-project-lead-healthcare-directed-content/"
+                },
+                {
                     "position": "Bilingual Seasonal TurboTax Community Tax Expert \u2013 Online Writing Role",
                     "link": "https://jobspresso.co/job/bilingual-seasonal-turbotax-community-tax-expert-online-writing-role/"
                 },
                 {
                     "position": "Staff Content Developer",
                     "link": "https://jobspresso.co/job/staff-content-developer/"
-                },
-                {
-                    "position": "Content Proofreader, Takeoff",
-                    "link": "https://jobspresso.co/job/content-proofreader-takeoff-2/"
                 }
             ]
         },
