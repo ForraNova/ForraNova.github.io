@@ -1,12 +1,12 @@
 {
-    "last_update": "November 16, 2026 | 12:36 AM",
+    "last_update": "November 16, 2026 | 10:27 AM",
     "status": "Online",
     "total_found": 9,
     "logs": [
-        "[00:36:02] SUCCESS: Machine Learning (3 found)",
-        "[00:36:05] SUCCESS: Front-End / React (3 found)",
-        "[00:36:07] SUCCESS: Writing / Creative (3 found)",
-        "[00:36:10] SUCCESS: Virtual Assistant (0 found)"
+        "[10:27:39] SUCCESS: Machine Learning (3 found)",
+        "[10:27:41] SUCCESS: Front-End / React (3 found)",
+        "[10:27:44] SUCCESS: Writing / Creative (3 found)",
+        "[10:27:47] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -47,16 +47,16 @@
             "query": "Writing / Creative",
             "jobs": [
                 {
+                    "position": "Content Writer",
+                    "link": "https://jobspresso.co/job/content-writer-3/"
+                },
+                {
                     "position": "Sr. Technical Editor",
                     "link": "https://jobspresso.co/job/sr-technical-editor/"
                 },
                 {
                     "position": "Sector Project Lead \u2013 Healthcare, Directed Content",
                     "link": "https://jobspresso.co/job/sector-project-lead-healthcare-directed-content/"
-                },
-                {
-                    "position": "Bilingual Seasonal TurboTax Community Tax Expert \u2013 Online Writing Role",
-                    "link": "https://jobspresso.co/job/bilingual-seasonal-turbotax-community-tax-expert-online-writing-role/"
                 }
             ]
         },
