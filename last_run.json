@@ -1,12 +1,12 @@
 {
-    "last_update": "November 17, 2026 | 05:52 AM",
+    "last_update": "November 17, 2026 | 03:18 PM",
     "status": "Online",
     "total_found": 9,
     "logs": [
-        "[05:52:45] SUCCESS: Machine Learning (3 found)",
-        "[05:52:48] SUCCESS: Front-End / React (3 found)",
-        "[05:52:50] SUCCESS: Writing / Creative (3 found)",
-        "[05:52:53] SUCCESS: Virtual Assistant (0 found)"
+        "[15:18:39] SUCCESS: Machine Learning (3 found)",
+        "[15:18:42] SUCCESS: Front-End / React (3 found)",
+        "[15:18:44] SUCCESS: Writing / Creative (3 found)",
+        "[15:18:48] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -47,16 +47,16 @@
             "query": "Writing / Creative",
             "jobs": [
                 {
-                    "position": "Content Writer",
-                    "link": "https://jobspresso.co/job/content-writer-3/"
+                    "position": "Developer Advocate \u2013 Service Management",
+                    "link": "https://jobspresso.co/job/developer-advocate-service-management/"
                 },
                 {
-                    "position": "Sr. Technical Editor",
-                    "link": "https://jobspresso.co/job/sr-technical-editor/"
+                    "position": "Senior Manager, Learning, Content, and Quality",
+                    "link": "https://jobspresso.co/job/senior-manager-learning-content-and-quality/"
                 },
                 {
-                    "position": "Sector Project Lead \u2013 Healthcare, Directed Content",
-                    "link": "https://jobspresso.co/job/sector-project-lead-healthcare-directed-content/"
+                    "position": "Content Marketing Specialist",
+                    "link": "https://jobspresso.co/job/content-marketing-specialist/"
                 }
             ]
         },
