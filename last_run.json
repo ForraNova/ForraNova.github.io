@@ -1,12 +1,12 @@
 {
-    "last_update": "November 16, 2026 | 09:33 PM",
+    "last_update": "November 17, 2026 | 05:52 AM",
     "status": "Online",
     "total_found": 9,
     "logs": [
-        "[21:32:51] SUCCESS: Machine Learning (3 found)",
-        "[21:32:54] SUCCESS: Front-End / React (3 found)",
-        "[21:32:56] SUCCESS: Writing / Creative (3 found)",
-        "[21:33:00] SUCCESS: Virtual Assistant (0 found)"
+        "[05:52:45] SUCCESS: Machine Learning (3 found)",
+        "[05:52:48] SUCCESS: Front-End / React (3 found)",
+        "[05:52:50] SUCCESS: Writing / Creative (3 found)",
+        "[05:52:53] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-enterprise-sales-development-representative-toptal-1137451"
                 },
                 {
-                    "position": "Head of Technology",
-                    "link": "https://remoteok.com/remote-jobs/remote-head-of-technology-sanctuary-computer-1137537"
+                    "position": "Expert Talent Pool Physical AI",
+                    "link": "https://remoteok.com/remote-jobs/remote-expert-talent-pool-physical-ai-clera-1137799"
                 }
             ]
         },
