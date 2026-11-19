@@ -1,12 +1,12 @@
 {
-    "last_update": "November 19, 2026 | 02:15 AM",
+    "last_update": "November 19, 2026 | 11:00 AM",
     "status": "Online",
     "total_found": 9,
     "logs": [
-        "[02:15:39] SUCCESS: Machine Learning (3 found)",
-        "[02:15:42] SUCCESS: Front-End / React (3 found)",
-        "[02:15:44] SUCCESS: Writing / Creative (3 found)",
-        "[02:15:48] SUCCESS: Virtual Assistant (0 found)"
+        "[11:00:24] SUCCESS: Machine Learning (3 found)",
+        "[11:00:27] SUCCESS: Front-End / React (3 found)",
+        "[11:00:29] SUCCESS: Writing / Creative (3 found)",
+        "[11:00:32] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -47,16 +47,16 @@
             "query": "Writing / Creative",
             "jobs": [
                 {
-                    "position": "Science Media Producer",
-                    "link": "https://jobspresso.co/job/science-media-producer/"
+                    "position": "Hindi Content Specialist",
+                    "link": "https://jobspresso.co/job/hindi-content-specialist/"
                 },
                 {
-                    "position": "Briefing Content Strategist",
-                    "link": "https://jobspresso.co/job/briefing-content-strategist/"
+                    "position": "French Content Specialist",
+                    "link": "https://jobspresso.co/job/french-content-specialist/"
                 },
                 {
-                    "position": "Content & Communications Manager",
-                    "link": "https://jobspresso.co/job/content-and-communications-manager/"
+                    "position": "Content Producer",
+                    "link": "https://jobspresso.co/job/content-producer/"
                 }
             ]
         },
