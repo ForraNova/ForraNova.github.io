@@ -1,28 +1,28 @@
 {
-    "last_update": "November 18, 2026 | 07:51 PM",
+    "last_update": "November 19, 2026 | 02:15 AM",
     "status": "Online",
     "total_found": 9,
     "logs": [
-        "[19:51:32] SUCCESS: Machine Learning (3 found)",
-        "[19:51:35] SUCCESS: Front-End / React (3 found)",
-        "[19:51:38] SUCCESS: Writing / Creative (3 found)",
-        "[19:51:42] SUCCESS: Virtual Assistant (0 found)"
+        "[02:15:39] SUCCESS: Machine Learning (3 found)",
+        "[02:15:42] SUCCESS: Front-End / React (3 found)",
+        "[02:15:44] SUCCESS: Writing / Creative (3 found)",
+        "[02:15:48] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
             "jobs": [
                 {
-                    "position": "AI Content Reviewer Video Annotation",
-                    "link": "https://remoteok.com/remote-jobs/remote-ai-content-reviewer-video-annotation-imerit-1137686"
+                    "position": "Automation Engineer (UIPath) for innovative AI Project",
+                    "link": "https://remoteok.com/remote-jobs/remote-automation-engineer-uipath-for-innovative-ai-project-toptal-1137103"
                 },
                 {
                     "position": "Enterprise Sales Development Representative",
                     "link": "https://remoteok.com/remote-jobs/remote-enterprise-sales-development-representative-toptal-1137451"
                 },
                 {
-                    "position": "Software Engineer C",
-                    "link": "https://remoteok.com/remote-jobs/remote-software-engineer-c-octo-horizon-1128583"
+                    "position": "AI Content Reviewer Video Annotation",
+                    "link": "https://remoteok.com/remote-jobs/remote-ai-content-reviewer-video-annotation-imerit-1137686"
                 }
             ]
         },
