@@ -1,12 +1,12 @@
 {
-    "last_update": "November 19, 2026 | 11:00 AM",
+    "last_update": "November 19, 2026 | 07:53 PM",
     "status": "Online",
     "total_found": 9,
     "logs": [
-        "[11:00:24] SUCCESS: Machine Learning (3 found)",
-        "[11:00:27] SUCCESS: Front-End / React (3 found)",
-        "[11:00:29] SUCCESS: Writing / Creative (3 found)",
-        "[11:00:32] SUCCESS: Virtual Assistant (0 found)"
+        "[19:53:33] SUCCESS: Machine Learning (3 found)",
+        "[19:53:35] SUCCESS: Front-End / React (3 found)",
+        "[19:53:38] SUCCESS: Writing / Creative (3 found)",
+        "[19:53:41] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -47,16 +47,16 @@
             "query": "Writing / Creative",
             "jobs": [
                 {
+                    "position": "SEO Content Writer \u2013 Spanish",
+                    "link": "https://jobspresso.co/job/seo-content-writer-spanish/"
+                },
+                {
+                    "position": "SEO Content Writer \u2013 Italian",
+                    "link": "https://jobspresso.co/job/seo-content-writer-italian/"
+                },
+                {
                     "position": "Hindi Content Specialist",
                     "link": "https://jobspresso.co/job/hindi-content-specialist/"
-                },
-                {
-                    "position": "French Content Specialist",
-                    "link": "https://jobspresso.co/job/french-content-specialist/"
-                },
-                {
-                    "position": "Content Producer",
-                    "link": "https://jobspresso.co/job/content-producer/"
                 }
             ]
         },
