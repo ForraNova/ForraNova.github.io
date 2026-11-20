@@ -1,21 +1,17 @@
 {
-    "last_update": "November 19, 2026 | 07:53 PM",
+    "last_update": "November 20, 2026 | 02:03 AM",
     "status": "Online",
     "total_found": 9,
     "logs": [
-        "[19:53:33] SUCCESS: Machine Learning (3 found)",
-        "[19:53:35] SUCCESS: Front-End / React (3 found)",
-        "[19:53:38] SUCCESS: Writing / Creative (3 found)",
-        "[19:53:41] SUCCESS: Virtual Assistant (0 found)"
+        "[02:03:23] SUCCESS: Machine Learning (3 found)",
+        "[02:03:26] SUCCESS: Front-End / React (3 found)",
+        "[02:03:28] SUCCESS: Writing / Creative (3 found)",
+        "[02:03:31] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
             "query": "Machine Learning",
             "jobs": [
-                {
-                    "position": "Automation Engineer (UIPath) for innovative AI Project",
-                    "link": "https://remoteok.com/remote-jobs/remote-automation-engineer-uipath-for-innovative-ai-project-toptal-1137103"
-                },
                 {
                     "position": "Enterprise Sales Development Representative",
                     "link": "https://remoteok.com/remote-jobs/remote-enterprise-sales-development-representative-toptal-1137451"
@@ -23,6 +19,10 @@
                 {
                     "position": "AI Content Reviewer Video Annotation",
                     "link": "https://remoteok.com/remote-jobs/remote-ai-content-reviewer-video-annotation-imerit-1137686"
+                },
+                {
+                    "position": "Product Designer",
+                    "link": "https://remoteok.com/remote-jobs/remote-product-designer-tebra-1137873"
                 }
             ]
         },
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Senior Product Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-product-engineer-arbor-education-1137865"
+                },
+                {
                     "position": "SEO Full Stack Engineer",
                     "link": "https://remoteok.com/remote-jobs/remote-seo-full-stack-engineer-treatwell-1137805"
                 },
                 {
                     "position": "Senior Agentic AI Engineer NDA",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-agentic-ai-engineer-nda-gt-1137710"
-                },
-                {
-                    "position": "UI Developer",
-                    "link": "https://remoteok.com/remote-jobs/remote-ui-developer-rainfocus-1137704"
                 }
             ]
         },
