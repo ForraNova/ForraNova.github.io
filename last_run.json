@@ -1,12 +1,12 @@
 {
-    "last_update": "November 20, 2026 | 10:49 AM",
+    "last_update": "November 20, 2026 | 07:35 PM",
     "status": "Online",
     "total_found": 9,
     "logs": [
-        "[10:48:54] SUCCESS: Machine Learning (3 found)",
-        "[10:48:57] SUCCESS: Front-End / React (3 found)",
-        "[10:48:59] SUCCESS: Writing / Creative (3 found)",
-        "[10:49:03] SUCCESS: Virtual Assistant (0 found)"
+        "[19:35:28] SUCCESS: Machine Learning (3 found)",
+        "[19:35:30] SUCCESS: Front-End / React (3 found)",
+        "[19:35:33] SUCCESS: Writing / Creative (3 found)",
+        "[19:35:36] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-ai-content-reviewer-video-annotation-imerit-1137686"
                 },
                 {
-                    "position": "Senior Manager, Product Analytics (Growth)",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-manager-product-analytics-growth-ifit-1137912"
+                    "position": "Quality Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-quality-engineer-quartermaster-1137914"
                 }
             ]
         },
@@ -47,16 +47,16 @@
             "query": "Writing / Creative",
             "jobs": [
                 {
+                    "position": "Content Strategy & Orchestration Lead",
+                    "link": "https://jobspresso.co/job/content-strategy-and-orchestration-lead/"
+                },
+                {
                     "position": "Video Editor",
                     "link": "https://jobspresso.co/job/video-editor/"
                 },
                 {
                     "position": "SEO Content Writer \u2013 Spanish",
                     "link": "https://jobspresso.co/job/seo-content-writer-spanish/"
-                },
-                {
-                    "position": "SEO Content Writer \u2013 Italian",
-                    "link": "https://jobspresso.co/job/seo-content-writer-italian/"
                 }
             ]
         },
