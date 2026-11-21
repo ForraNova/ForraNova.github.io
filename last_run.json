@@ -1,12 +1,12 @@
 {
-    "last_update": "November 21, 2026 | 10:33 AM",
+    "last_update": "November 21, 2026 | 06:33 PM",
     "status": "Online",
     "total_found": 9,
     "logs": [
-        "[10:32:53] SUCCESS: Machine Learning (3 found)",
-        "[10:32:56] SUCCESS: Front-End / React (3 found)",
-        "[10:32:58] SUCCESS: Writing / Creative (3 found)",
-        "[10:33:01] SUCCESS: Virtual Assistant (0 found)"
+        "[18:33:17] SUCCESS: Machine Learning (3 found)",
+        "[18:33:20] SUCCESS: Front-End / React (3 found)",
+        "[18:33:22] SUCCESS: Writing / Creative (3 found)",
+        "[18:33:25] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-ai-content-reviewer-video-annotation-imerit-1137686"
                 },
                 {
-                    "position": "Corporate Counsel, Commercial",
-                    "link": "https://remoteok.com/remote-jobs/remote-corporate-counsel-commercial-carrot-1137959"
+                    "position": "Sr Analyst, Analytics & Insights",
+                    "link": "https://remoteok.com/remote-jobs/remote-sr-analyst-analytics-insights-beyondtrust-1137962"
                 }
             ]
         },
