@@ -1,12 +1,12 @@
 {
-    "last_update": "November 20, 2026 | 07:35 PM",
+    "last_update": "November 21, 2026 | 01:58 AM",
     "status": "Online",
     "total_found": 9,
     "logs": [
-        "[19:35:28] SUCCESS: Machine Learning (3 found)",
-        "[19:35:30] SUCCESS: Front-End / React (3 found)",
-        "[19:35:33] SUCCESS: Writing / Creative (3 found)",
-        "[19:35:36] SUCCESS: Virtual Assistant (0 found)"
+        "[01:57:58] SUCCESS: Machine Learning (3 found)",
+        "[01:58:01] SUCCESS: Front-End / React (3 found)",
+        "[01:58:04] SUCCESS: Writing / Creative (3 found)",
+        "[01:58:07] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-ai-content-reviewer-video-annotation-imerit-1137686"
                 },
                 {
-                    "position": "Quality Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-quality-engineer-quartermaster-1137914"
+                    "position": "Manager, Product Design",
+                    "link": "https://remoteok.com/remote-jobs/remote-manager-product-design-carrot-1137927"
                 }
             ]
         },
@@ -47,16 +47,16 @@
             "query": "Writing / Creative",
             "jobs": [
                 {
+                    "position": "Content Manager",
+                    "link": "https://jobspresso.co/job/content-manager/"
+                },
+                {
+                    "position": "Science Curriculum Designer, Biology",
+                    "link": "https://jobspresso.co/job/science-curriculum-designer-biology-2/"
+                },
+                {
                     "position": "Content Strategy & Orchestration Lead",
                     "link": "https://jobspresso.co/job/content-strategy-and-orchestration-lead/"
-                },
-                {
-                    "position": "Video Editor",
-                    "link": "https://jobspresso.co/job/video-editor/"
-                },
-                {
-                    "position": "SEO Content Writer \u2013 Spanish",
-                    "link": "https://jobspresso.co/job/seo-content-writer-spanish/"
                 }
             ]
         },
