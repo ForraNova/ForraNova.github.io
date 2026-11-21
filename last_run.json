@@ -1,12 +1,12 @@
 {
-    "last_update": "November 21, 2026 | 01:58 AM",
+    "last_update": "November 21, 2026 | 10:33 AM",
     "status": "Online",
     "total_found": 9,
     "logs": [
-        "[01:57:58] SUCCESS: Machine Learning (3 found)",
-        "[01:58:01] SUCCESS: Front-End / React (3 found)",
-        "[01:58:04] SUCCESS: Writing / Creative (3 found)",
-        "[01:58:07] SUCCESS: Virtual Assistant (0 found)"
+        "[10:32:53] SUCCESS: Machine Learning (3 found)",
+        "[10:32:56] SUCCESS: Front-End / React (3 found)",
+        "[10:32:58] SUCCESS: Writing / Creative (3 found)",
+        "[10:33:01] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-ai-content-reviewer-video-annotation-imerit-1137686"
                 },
                 {
-                    "position": "Manager, Product Design",
-                    "link": "https://remoteok.com/remote-jobs/remote-manager-product-design-carrot-1137927"
+                    "position": "Corporate Counsel, Commercial",
+                    "link": "https://remoteok.com/remote-jobs/remote-corporate-counsel-commercial-carrot-1137959"
                 }
             ]
         },
@@ -47,16 +47,16 @@
             "query": "Writing / Creative",
             "jobs": [
                 {
+                    "position": "Staff Technical Writer",
+                    "link": "https://jobspresso.co/job/staff-technical-writer/"
+                },
+                {
                     "position": "Content Manager",
                     "link": "https://jobspresso.co/job/content-manager/"
                 },
                 {
                     "position": "Science Curriculum Designer, Biology",
                     "link": "https://jobspresso.co/job/science-curriculum-designer-biology-2/"
-                },
-                {
-                    "position": "Content Strategy & Orchestration Lead",
-                    "link": "https://jobspresso.co/job/content-strategy-and-orchestration-lead/"
                 }
             ]
         },
