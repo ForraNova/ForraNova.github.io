@@ -1,12 +1,12 @@
 {
-    "last_update": "November 21, 2026 | 06:33 PM",
+    "last_update": "November 22, 2026 | 12:51 AM",
     "status": "Online",
     "total_found": 9,
     "logs": [
-        "[18:33:17] SUCCESS: Machine Learning (3 found)",
-        "[18:33:20] SUCCESS: Front-End / React (3 found)",
-        "[18:33:22] SUCCESS: Writing / Creative (3 found)",
-        "[18:33:25] SUCCESS: Virtual Assistant (0 found)"
+        "[00:51:43] SUCCESS: Machine Learning (3 found)",
+        "[00:51:46] SUCCESS: Front-End / React (3 found)",
+        "[00:51:48] SUCCESS: Writing / Creative (3 found)",
+        "[00:51:51] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-ai-content-reviewer-video-annotation-imerit-1137686"
                 },
                 {
-                    "position": "Sr Analyst, Analytics & Insights",
-                    "link": "https://remoteok.com/remote-jobs/remote-sr-analyst-analytics-insights-beyondtrust-1137962"
+                    "position": "Advanced Practice Provider - Virtual Urgent Care",
+                    "link": "https://remoteok.com/remote-jobs/remote-advanced-practice-provider-virtual-urgent-care-oscar-health-1137968"
                 }
             ]
         },
@@ -47,16 +47,16 @@
             "query": "Writing / Creative",
             "jobs": [
                 {
+                    "position": "Editor, International",
+                    "link": "https://jobspresso.co/job/editor-international/"
+                },
+                {
                     "position": "Staff Technical Writer",
                     "link": "https://jobspresso.co/job/staff-technical-writer/"
                 },
                 {
                     "position": "Content Manager",
                     "link": "https://jobspresso.co/job/content-manager/"
-                },
-                {
-                    "position": "Science Curriculum Designer, Biology",
-                    "link": "https://jobspresso.co/job/science-curriculum-designer-biology-2/"
                 }
             ]
         },
