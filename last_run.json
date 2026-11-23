@@ -1,12 +1,12 @@
 {
-    "last_update": "November 23, 2026 | 11:39 AM",
+    "last_update": "November 23, 2026 | 11:09 PM",
     "status": "Online",
-    "total_found": 9,
+    "total_found": 6,
     "logs": [
-        "[11:39:20] SUCCESS: Machine Learning (3 found)",
-        "[11:39:23] SUCCESS: Front-End / React (3 found)",
-        "[11:39:25] SUCCESS: Writing / Creative (3 found)",
-        "[11:39:28] SUCCESS: Virtual Assistant (0 found)"
+        "[23:09:08] SUCCESS: Machine Learning (3 found)",
+        "[23:09:11] SUCCESS: Front-End / React (3 found)",
+        "[23:09:13] SUCCESS: Writing / Creative (0 found)",
+        "[23:09:15] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-ai-content-reviewer-video-annotation-imerit-1137686"
                 },
                 {
-                    "position": "Remote Nurse Practitioner - NC License Required",
-                    "link": "https://remoteok.com/remote-jobs/remote-remote-nurse-practitioner-nc-license-required-cadence-health-1138073"
+                    "position": "Strategic Technical Advisor",
+                    "link": "https://remoteok.com/remote-jobs/remote-strategic-technical-advisor-thrive-1138074"
                 }
             ]
         },
@@ -45,20 +45,7 @@
         },
         {
             "query": "Writing / Creative",
-            "jobs": [
-                {
-                    "position": "Creative Director Copy, Social",
-                    "link": "https://jobspresso.co/job/creative-director-copy-social/"
-                },
-                {
-                    "position": "Editor, International",
-                    "link": "https://jobspresso.co/job/editor-international/"
-                },
-                {
-                    "position": "Staff Technical Writer",
-                    "link": "https://jobspresso.co/job/staff-technical-writer/"
-                }
-            ]
+            "jobs": []
         },
         {
             "query": "Virtual Assistant",
