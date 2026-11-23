@@ -1,12 +1,12 @@
 {
-    "last_update": "November 22, 2026 | 06:56 PM",
+    "last_update": "November 23, 2026 | 01:20 AM",
     "status": "Online",
     "total_found": 9,
     "logs": [
-        "[18:56:27] SUCCESS: Machine Learning (3 found)",
-        "[18:56:30] SUCCESS: Front-End / React (3 found)",
-        "[18:56:32] SUCCESS: Writing / Creative (3 found)",
-        "[18:56:36] SUCCESS: Virtual Assistant (0 found)"
+        "[01:19:51] SUCCESS: Machine Learning (3 found)",
+        "[01:19:54] SUCCESS: Front-End / React (3 found)",
+        "[01:19:56] SUCCESS: Writing / Creative (3 found)",
+        "[01:19:59] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-ai-content-reviewer-video-annotation-imerit-1137686"
                 },
                 {
-                    "position": "Product Manager, Developer Ecosystem",
-                    "link": "https://remoteok.com/remote-jobs/remote-product-manager-developer-ecosystem-reddit-1137977"
+                    "position": "Threat Research Engineer, Security Factory: Threat Research",
+                    "link": "https://remoteok.com/remote-jobs/remote-threat-research-engineer-security-factory-threat-research-gitlab-1138067"
                 }
             ]
         },
