@@ -1,12 +1,12 @@
 {
-    "last_update": "November 23, 2026 | 01:20 AM",
+    "last_update": "November 23, 2026 | 11:39 AM",
     "status": "Online",
     "total_found": 9,
     "logs": [
-        "[01:19:51] SUCCESS: Machine Learning (3 found)",
-        "[01:19:54] SUCCESS: Front-End / React (3 found)",
-        "[01:19:56] SUCCESS: Writing / Creative (3 found)",
-        "[01:19:59] SUCCESS: Virtual Assistant (0 found)"
+        "[11:39:20] SUCCESS: Machine Learning (3 found)",
+        "[11:39:23] SUCCESS: Front-End / React (3 found)",
+        "[11:39:25] SUCCESS: Writing / Creative (3 found)",
+        "[11:39:28] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-ai-content-reviewer-video-annotation-imerit-1137686"
                 },
                 {
-                    "position": "Threat Research Engineer, Security Factory: Threat Research",
-                    "link": "https://remoteok.com/remote-jobs/remote-threat-research-engineer-security-factory-threat-research-gitlab-1138067"
+                    "position": "Remote Nurse Practitioner - NC License Required",
+                    "link": "https://remoteok.com/remote-jobs/remote-remote-nurse-practitioner-nc-license-required-cadence-health-1138073"
                 }
             ]
         },
