@@ -1,12 +1,12 @@
 {
-    "last_update": "November 23, 2026 | 11:09 PM",
+    "last_update": "November 24, 2026 | 07:46 AM",
     "status": "Online",
-    "total_found": 6,
+    "total_found": 9,
     "logs": [
-        "[23:09:08] SUCCESS: Machine Learning (3 found)",
-        "[23:09:11] SUCCESS: Front-End / React (3 found)",
-        "[23:09:13] SUCCESS: Writing / Creative (0 found)",
-        "[23:09:15] SUCCESS: Virtual Assistant (0 found)"
+        "[07:46:01] SUCCESS: Machine Learning (3 found)",
+        "[07:46:03] SUCCESS: Front-End / React (3 found)",
+        "[07:46:06] SUCCESS: Writing / Creative (3 found)",
+        "[07:46:09] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-ai-content-reviewer-video-annotation-imerit-1137686"
                 },
                 {
-                    "position": "Strategic Technical Advisor",
-                    "link": "https://remoteok.com/remote-jobs/remote-strategic-technical-advisor-thrive-1138074"
+                    "position": "Senior Manager, Enterprise Application Development Engineering",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-manager-enterprise-application-development-engineering-gitlab-1138079"
                 }
             ]
         },
@@ -45,7 +45,20 @@
         },
         {
             "query": "Writing / Creative",
-            "jobs": []
+            "jobs": [
+                {
+                    "position": "Director, Brand & Editorial",
+                    "link": "https://jobspresso.co/job/director-brand-and-editorial-juniper-square/"
+                },
+                {
+                    "position": "Senior Copywriter (Sports Emphasis)",
+                    "link": "https://jobspresso.co/job/senior-copywriter-sports-emphasis/"
+                },
+                {
+                    "position": "Creative Director Copy, Social",
+                    "link": "https://jobspresso.co/job/creative-director-copy-social/"
+                }
+            ]
         },
         {
             "query": "Virtual Assistant",
