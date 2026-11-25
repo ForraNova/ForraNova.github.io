@@ -1,0 +1,1340 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Victor Roland — Computer Science Student, Developer, Cybersecurity Enthusiast and Technology Innovator.">
+    <meta name="theme-color" content="#f2f4f9">
+    <meta property="og:title" content="Victor Roland | Technology & Innovation">
+    <meta property="og:description"
+        content="Computer Science student, developer and cybersecurity enthusiast building with Python, Linux, networking and AI.">
+    <meta property="og:type" content="website">
+    <title>Victor Roland | Technology & Innovation</title>
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23101a33'/%3E%3Cpath d='M7 9l5 14 4-10 4 10 5-14' fill='none' stroke='%23f2f4f9' stroke-width='2.6'/%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --paper: #f2f4f9;
+            --panel: #ffffff;
+            --ink: #101a33;
+            --muted: #4a5670;
+            --line: #c9d1e2;
+            --cobalt: #2340e8;
+            --signal: #ff6b2c;
+            --signal-ink: #b43f0c;
+            --font: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+            --header-h: 68px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--font);
+            font-size: 1.0625rem;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--cobalt);
+            outline-offset: 3px;
+            border-radius: 2px;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: 16px;
+            top: -60px;
+            z-index: 2000;
+            background: var(--ink);
+            color: var(--paper);
+            padding: 10px 16px;
+            border-radius: 4px;
+            transition: top .2s;
+        }
+
+        .skip-link:focus {
+            top: 12px;
+        }
+
+        .container {
+            width: min(1180px, 100% - 48px);
+            margin-inline: auto;
+        }
+
+        /* ---------- Header ---------- */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(242, 244, 249, .93);
+            border-bottom: 1px solid var(--line);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar {
+            min-height: var(--header-h);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            letter-spacing: -.01em;
+        }
+
+        .logo-mark {
+            width: 30px;
+            height: 30px;
+            background: var(--ink);
+            color: var(--paper);
+            display: grid;
+            place-items: center;
+            font-size: .8rem;
+            border-radius: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 4px;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 6px 10px;
+            font-size: .9rem;
+            color: var(--muted);
+            border-radius: 4px;
+            transition: color .2s, background .2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--ink);
+            background: #e3e8f4;
+        }
+
+        .nav-links a[aria-current="true"] {
+            color: var(--cobalt);
+            font-weight: 600;
+        }
+
+        .menu-btn {
+            display: none;
+            font: inherit;
+            font-weight: 600;
+            font-size: .9rem;
+            color: var(--ink);
+            background: transparent;
+            border: 1.5px solid var(--ink);
+            padding: 6px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* ---------- Sections ---------- */
+        section {
+            padding: 96px 0;
+            border-top: 1px solid var(--line);
+            scroll-margin-top: var(--header-h);
+        }
+
+        .split {
+            display: grid;
+            grid-template-columns: 220px minmax(0, 1fr);
+            gap: 48px;
+        }
+
+        .split>h2 {
+            font-size: 1.7rem;
+            line-height: 1.15;
+            font-weight: 700;
+            letter-spacing: -.02em;
+            align-self: start;
+            position: sticky;
+            top: calc(var(--header-h) + 28px);
+        }
+
+        .lead {
+            font-size: 1.25rem;
+            line-height: 1.55;
+            max-width: 38em;
+            margin-bottom: 40px;
+            letter-spacing: -.005em;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            border-top: 0;
+            padding: 72px 0 88px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr);
+            gap: 64px;
+            align-items: start;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.4rem, 10vw, 8rem);
+            font-weight: 800;
+            font-stretch: 88%;
+            line-height: .92;
+            letter-spacing: -.045em;
+            margin-bottom: 28px;
+        }
+
+        .hero .role {
+            font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+            font-weight: 500;
+            line-height: 1.3;
+            letter-spacing: -.01em;
+            margin-bottom: 16px;
+            max-width: 22em;
+        }
+
+        .hero .intro {
+            color: var(--muted);
+            max-width: 34em;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 24px;
+            font-weight: 600;
+            border: 1.5px solid var(--ink);
+            border-radius: 4px;
+            transition: background .2s, color .2s, border-color .2s;
+        }
+
+        .btn.primary {
+            background: var(--ink);
+            color: var(--paper);
+        }
+
+        .btn:hover {
+            background: var(--cobalt);
+            border-color: var(--cobalt);
+            color: #fff;
+        }
+
+        /* The one signature element: a header-style readout of the key facts */
+        .packet {
+            margin-top: 56px;
+            background: var(--panel);
+            border: 1.5px solid var(--ink);
+            max-width: 640px;
+        }
+
+        .ruler {
+            height: 14px;
+            border-bottom: 1.5px solid var(--ink);
+            background: repeating-linear-gradient(90deg, var(--ink) 0 1px, transparent 1px 3.125%) bottom / 100% 7px no-repeat;
+        }
+
+        .packet dl {
+            display: grid;
+        }
+
+        .packet .field {
+            display: grid;
+            grid-template-columns: 120px minmax(0, 1fr);
+            gap: 16px;
+            padding: 11px 16px;
+            border-top: 1px solid var(--line);
+            animation: fill .55s cubic-bezier(.2, .7, .2, 1) both;
+            animation-delay: calc(var(--i) * 110ms + 250ms);
+        }
+
+        .packet .field:first-child {
+            border-top: 0;
+        }
+
+        .packet dt {
+            color: var(--muted);
+            font-size: .9rem;
+        }
+
+        .packet dd {
+            font-weight: 600;
+        }
+
+        @keyframes fill {
+            from {
+                opacity: 0;
+                transform: translateX(-12px);
+                background: #dde4ff;
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        .portrait {
+            position: relative;
+            aspect-ratio: 4 / 5;
+            max-width: 380px;
+            width: 100%;
+            margin-left: auto;
+            background: var(--ink);
+            box-shadow: 12px 12px 0 var(--cobalt);
+            display: grid;
+            place-items: center;
+            color: var(--paper);
+            font-size: 5rem;
+            font-weight: 800;
+            font-stretch: 85%;
+            letter-spacing: -.04em;
+            overflow: hidden;
+        }
+
+        .portrait img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 25%;
+        }
+
+        /* ---------- Shared building blocks ---------- */
+        .rows {
+            border-bottom: 1px solid var(--line);
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.6fr) auto;
+            gap: 12px 32px;
+            align-items: start;
+            padding: 26px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .row h3 {
+            font-size: 1.2rem;
+            line-height: 1.3;
+            font-weight: 700;
+            letter-spacing: -.01em;
+        }
+
+        .row p {
+            color: var(--muted);
+        }
+
+        .row p+p {
+            margin-top: 2px;
+        }
+
+        .row .project-tech {
+            margin-top: 10px;
+            color: var(--ink);
+            font-size: .95rem;
+        }
+
+        .row .project-tech b {
+            font-weight: 700;
+        }
+
+        .status {
+            display: inline-block;
+            justify-self: end;
+            white-space: nowrap;
+            font-size: .85rem;
+            font-weight: 600;
+            padding: 3px 12px;
+            border-radius: 99px;
+            border: 1.5px solid var(--ink);
+        }
+
+        .status.done {
+            background: var(--ink);
+            color: var(--paper);
+        }
+
+        .status.progress {
+            border-color: var(--signal);
+            color: var(--signal-ink);
+            background: #fff1ea;
+        }
+
+        .status.planned {
+            border-style: dashed;
+            border-color: var(--muted);
+            color: var(--muted);
+        }
+
+        .status.current {
+            border-color: var(--cobalt);
+            color: var(--cobalt);
+            background: #e9edff;
+        }
+
+        /* ---------- About ---------- */
+        .triple {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 32px;
+        }
+
+        .triple>div {
+            border-top: 3px solid var(--ink);
+            padding-top: 16px;
+        }
+
+        .triple h3 {
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .triple p {
+            color: var(--muted);
+            font-size: 1rem;
+        }
+
+        /* ---------- Skills ---------- */
+        .skill-group+.skill-group {
+            margin-top: 40px;
+        }
+
+        .skill-group h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .skill-list li {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 10px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .skill-list li:last-child {
+            border-bottom: 1px solid var(--line);
+        }
+
+        .skill-list .level {
+            color: var(--muted);
+            font-size: .95rem;
+            text-align: right;
+        }
+
+        .skill-list.plain {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-list.plain li {
+            display: block;
+            border: 1px solid var(--line);
+            background: var(--panel);
+            border-radius: 4px;
+            padding: 6px 14px;
+            font-size: .95rem;
+        }
+
+        .skill-list.plain li:last-child {
+            border-bottom: 1px solid var(--line);
+        }
+
+        /* ---------- Security ---------- */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 40px 48px;
+        }
+
+        .grid-2>div {
+            border-top: 3px solid var(--cobalt);
+            padding-top: 16px;
+        }
+
+        .grid-2 h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .grid-2 p {
+            color: var(--muted);
+        }
+
+        /* ---------- Timeline ---------- */
+        .timeline {
+            border-left: 2px solid var(--ink);
+            padding-left: 32px;
+            margin-left: 6px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 36px;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -40px;
+            top: 8px;
+            width: 14px;
+            height: 14px;
+            background: var(--paper);
+            border: 3px solid var(--ink);
+        }
+
+        .timeline-item.now::before {
+            background: var(--cobalt);
+            border-color: var(--cobalt);
+        }
+
+        .timeline-item h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .timeline-item .when {
+            color: var(--cobalt);
+            font-weight: 600;
+            font-size: .95rem;
+        }
+
+        .timeline-item p:last-child {
+            color: var(--muted);
+            margin-top: 4px;
+            max-width: 40em;
+        }
+
+        /* ---------- Vision ---------- */
+        .vision-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 32px;
+        }
+
+        .vision-list h3 {
+            font-size: clamp(1.5rem, 2.6vw, 2rem);
+            line-height: 1.1;
+            letter-spacing: -.025em;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .vision-list p {
+            color: var(--muted);
+        }
+
+        /* ---------- Contact + footer ---------- */
+        .contact {
+            background: var(--ink);
+            color: var(--paper);
+            border-top: 0;
+        }
+
+        .contact .lead {
+            color: #d7def0;
+        }
+
+        .contact-links a {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 24px;
+            padding: 20px 0;
+            border-top: 1px solid #36425f;
+            transition: padding .25s, color .2s;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-links li:last-child a {
+            border-bottom: 1px solid #36425f;
+        }
+
+        .contact-links .label {
+            color: #aab6d3;
+            font-size: .95rem;
+            flex: none;
+        }
+
+        .contact-links .value {
+            font-size: clamp(1.1rem, 2.4vw, 1.6rem);
+            font-weight: 600;
+            letter-spacing: -.01em;
+            text-align: right;
+        }
+
+        .contact-links a:hover {
+            padding-left: 12px;
+            color: #9fb1ff;
+        }
+
+        .contact :focus-visible {
+            outline-color: #9fb1ff;
+        }
+
+        footer {
+            background: var(--ink);
+            color: #aab6d3;
+            border-top: 1px solid #36425f;
+            padding: 28px 0 36px;
+            font-size: .9rem;
+        }
+
+        footer .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 8px 24px;
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 1040px) {
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                padding: 12px 24px 20px;
+                background: var(--paper);
+                border-bottom: 1px solid var(--line);
+                max-height: calc(100vh - var(--header-h));
+                overflow-y: auto;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 12px 4px;
+                font-size: 1rem;
+                border-radius: 0;
+                border-bottom: 1px solid var(--line);
+            }
+        }
+
+        @media (max-width: 900px) {
+            section {
+                padding: 72px 0;
+            }
+
+            .split {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .split>h2 {
+                position: static;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .portrait {
+                order: -1;
+                max-width: 260px;
+                margin: 0 12px 0 0;
+                box-shadow: 9px 9px 0 var(--cobalt);
+                font-size: 4rem;
+            }
+
+            .triple,
+            .vision-list {
+                grid-template-columns: 1fr;
+            }
+
+            .row {
+                grid-template-columns: 1fr;
+            }
+
+            .status {
+                justify-self: start;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: min(1180px, 100% - 36px);
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .packet .field {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .contact-links a {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .contact-links .value {
+                text-align: left;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header>
+        <div class="container navbar">
+            <a class="logo" href="#home" aria-label="Victor Roland, back to top">
+                <span class="logo-mark" aria-hidden="true">VR</span>
+                Victor Roland
+            </a>
+
+            <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="navLinks">
+                Menu
+            </button>
+
+            <nav aria-label="Main">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#cybersecurity">Cybersecurity</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#certifications">Training</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#vision">Vision</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+
+        <section class="hero" id="home">
+            <div class="container hero-grid">
+                <div>
+                    <h1>Victor Roland</h1>
+
+                    <p class="role">Developer, cybersecurity enthusiast and technology innovator.</p>
+
+                    <p class="intro">
+                        I love to develop things, write code and explore the possibilities
+                        of technology. I am passionate about building innovative solutions,
+                        cybersecurity and artificial intelligence.
+                    </p>
+
+                    <div class="buttons">
+                        <a href="#projects" class="btn primary">Explore my projects</a>
+                        <a href="#contact" class="btn">Contact me</a>
+                    </div>
+
+                    <div class="packet" role="group" aria-label="Quick facts">
+                        <div class="ruler" aria-hidden="true"></div>
+                        <dl>
+                            <div class="field" style="--i:0">
+                                <dt>Name</dt>
+                                <dd>Victor Obelejor Roland</dd>
+                            </div>
+                            <div class="field" style="--i:1">
+                                <dt>Studying</dt>
+                                <dd>B.Sc. Computer Science, Level 100</dd>
+                            </div>
+                            <div class="field" style="--i:2">
+                                <dt>Focus</dt>
+                                <dd>Cybersecurity, networking and AI</dd>
+                            </div>
+                            <div class="field" style="--i:3">
+                                <dt>Based in</dt>
+                                <dd>Rivers State, Nigeria</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="portrait">
+                    <span aria-hidden="true">VR</span>
+                    <img src="https://victoroland.github.io/profile.jpg" alt="Victor Roland profile photograph" width="380" height="475"
+                        fetchpriority="high" onerror="this.remove()">
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container split">
+                <h2>About me</h2>
+                <div>
+                    <p class="lead">
+                        I am Victor Obelejor Roland, a Computer Science student,
+                        aspiring developer and cybersecurity enthusiast with a strong
+                        interest in artificial intelligence and technology innovation.
+                    </p>
+
+                    <div class="triple">
+                        <div>
+                            <h3>Who I am</h3>
+                            <p>
+                                I am curious about how technology works and how software can
+                                solve everyday problems. I enjoy learning, experimenting
+                                and turning ideas into practical projects.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3>My philosophy</h3>
+                            <p>
+                                I believe that learning never ends. Every challenge is an
+                                opportunity to improve my knowledge, develop my skills
+                                and become better.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3>My ambition</h3>
+                            <p>
+                                My long-term ambition is to become a cybersecurity and AI
+                                pioneer, build meaningful technology products and eventually
+                                establish my own technology company.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <div class="container split">
+                <h2>Education and academic journey</h2>
+                <div class="rows">
+                    <div class="row">
+                        <h3>Federal University of Environment and Technology</h3>
+                        <div>
+                            <p>B.Sc. Computer Science</p>
+                            <p>Level 100</p>
+                            <p>Ogoni, Rivers State, Nigeria</p>
+                        </div>
+                        <span class="status current">Currently studying</span>
+                    </div>
+
+                    <div class="row">
+                        <h3>Secondary education</h3>
+                        <div>
+                            <p>Milly International Academy</p>
+                            <p>Alode, Eleme, Rivers State</p>
+                            <p>WAEC, 2021</p>
+                            <p>Eight credits in one sitting.</p>
+                        </div>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container split">
+                <h2>Technical skills</h2>
+                <div>
+                    <p class="lead">
+                        My current technical interests and self-assessed skill levels.
+                        I continue to improve through practical learning and projects.
+                    </p>
+
+                    <div class="skill-group">
+                        <h3>Programming and web development</h3>
+                        <ul class="skill-list">
+                            <li><span>Python</span><span class="level">Learning</span></li>
+                            <li><span>HTML5</span><span class="level">Beginner</span></li>
+                            <li><span>CSS3</span><span class="level">Learning</span></li>
+                            <li><span>JavaScript</span><span class="level">Learning</span></li>
+                            <li><span>Responsive web design</span><span class="level">Not started</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3>Cybersecurity and IT</h3>
+                        <ul class="skill-list">
+                            <li><span>Cybersecurity</span><span class="level">Intermediate</span></li>
+                            <li><span>Linux</span><span class="level">Intermediate</span></li>
+                            <li><span>Computer networking</span><span class="level">Intermediate</span></li>
+                            <li><span>Penetration testing</span><span class="level">Beginner</span></li>
+                            <li><span>IT support</span><span class="level">Learning</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3>Artificial intelligence</h3>
+                        <ul class="skill-list">
+                            <li><span>Artificial intelligence</span><span class="level">Intermediate</span></li>
+                            <li><span>Prompt engineering</span><span class="level">Intermediate</span></li>
+                            <li><span>AI-assisted development</span><span class="level"></span></li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3>Tools and platforms</h3>
+                        <ul class="skill-list plain">
+                            <li>Visual Studio Code</li>
+                            <li>GitHub</li>
+                            <li>Windows 11</li>
+                            <li>Cisco Networking Academy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container split">
+                <h2>My projects</h2>
+                <div>
+                    <p class="lead">
+                        I believe in learning by building. These are some of my
+                        personal development projects.
+                    </p>
+
+                    <div class="rows">
+                        <div class="row">
+                            <h3>Python File Encryptor</h3>
+                            <div>
+                                <p>
+                                    A Python project designed to encrypt files and protect
+                                    their contents from unauthorised access.
+                                </p>
+                                <p class="project-tech"><b>Technology:</b> Python</p>
+                            </div>
+                            <span class="status progress">In development</span>
+                        </div>
+
+                        <div class="row">
+                            <h3>Personal Portfolio Website</h3>
+                            <div>
+                                <p>
+                                    My professional online presence, showcasing my background,
+                                    skills, projects and technology interests.
+                                </p>
+                                <p class="project-tech"><b>Technology:</b> HTML, CSS, JavaScript</p>
+                            </div>
+                            <span class="status progress">In development</span>
+                        </div>
+
+                        <div class="row">
+                            <h3>Future AI Projects</h3>
+                            <div>
+                                <p>
+                                    I intend to explore and develop AI-powered applications
+                                    that can address real-world challenges.
+                                </p>
+                                <p class="project-tech"><b>Focus:</b> Artificial Intelligence</p>
+                            </div>
+                            <span class="status planned">Planned</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cybersecurity">
+            <div class="container split">
+                <h2>Cybersecurity interests</h2>
+                <div>
+                    <p class="lead">
+                        I am working towards becoming a skilled cybersecurity
+                        professional, with an interest in ethical and responsible security.
+                    </p>
+
+                    <div class="grid-2">
+                        <div>
+                            <h3>Ethical hacking</h3>
+                            <p>
+                                Learning authorised security testing methods to identify
+                                vulnerabilities and help improve system security.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3>Penetration testing</h3>
+                            <p>
+                                Developing practical skills for assessing applications,
+                                networks and systems within authorised environments.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3>Network security</h3>
+                            <p>
+                                Exploring networking concepts, network protection,
+                                security monitoring and defensive techniques.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3>Linux and security tools</h3>
+                            <p>
+                                Improving my Linux knowledge and learning how security
+                                professionals use technical tools responsibly.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <div class="container split">
+                <h2>Work experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>Teacher and IT support staff</h3>
+                        <p class="when">2022 – 2024</p>
+                        <p>
+                            Worked in a school environment, teaching Data Processing
+                            and Basic Science while also providing IT support.
+                        </p>
+                    </div>
+
+                    <div class="timeline-item now">
+                        <h3>Computer Science student</h3>
+                        <p class="when">Current</p>
+                        <p>
+                            Developing my academic knowledge and technical abilities
+                            through university studies and independent projects.
+                        </p>
+                    </div>
+
+                    <div class="timeline-item now">
+                        <h3>Technology and cybersecurity development</h3>
+                        <p class="when">Current</p>
+                        <p>
+                            Building practical knowledge in programming, networking,
+                            cybersecurity and artificial intelligence.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications">
+            <div class="container split">
+                <h2>Certifications and training</h2>
+                <div>
+                    <p class="lead">
+                        My professional development journey includes completed training
+                        and ongoing technical programmes.
+                    </p>
+
+                    <div class="rows">
+                        <div class="row">
+                            <h3>3MTT</h3>
+                            <p>Training certificate obtained.</p>
+                            <span class="status done">Completed</span>
+                        </div>
+
+                        <div class="row">
+                            <h3>Harvoxx Tech Hub</h3>
+                            <p>Cybersecurity training, 2024.</p>
+                            <span class="status done">Completed</span>
+                        </div>
+
+                        <div class="row">
+                            <h3>Junior Cybersecurity Analyst</h3>
+                            <p>Cisco Networking Academy.</p>
+                            <span class="status progress">In progress</span>
+                        </div>
+
+                        <div class="row">
+                            <h3>CCNA Networking</h3>
+                            <p>Networking studies and professional development.</p>
+                            <span class="status progress">In progress</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container split">
+                <h2>Services and capabilities</h2>
+                <div>
+                    <p class="lead">
+                        Areas in which I am developing practical skills and can
+                        offer appropriate beginner-level assistance.
+                    </p>
+
+                    <div class="grid-2">
+                        <div>
+                            <h3>IT support</h3>
+                            <p>
+                                Basic computer troubleshooting, technical assistance
+                                and user support.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3>Cybersecurity awareness</h3>
+                            <p>
+                                Basic security awareness, safer computing practices
+                                and cybersecurity education.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3>Python development</h3>
+                            <p>
+                                Learning to build practical Python scripts
+                                and software projects.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3>Technology learning</h3>
+                            <p>
+                                Exploring emerging technologies and helping others
+                                understand basic digital tools.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="vision">
+            <div class="container split">
+                <h2>My vision for the future</h2>
+                <div>
+                    <p class="lead">
+                        I want to contribute to the future of technology through
+                        innovation, discipline, research and continuous learning.
+                    </p>
+
+                    <div class="vision-list">
+                        <div>
+                            <h3>Cybersecurity pioneer</h3>
+                            <p>
+                                Become a knowledgeable cybersecurity professional
+                                and contribute to safer digital environments.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3>AI innovation</h3>
+                            <p>
+                                Develop intelligent technology solutions that
+                                help solve meaningful problems.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3>Technology entrepreneurship</h3>
+                            <p>
+                                Build a technology company that creates useful
+                                products and opportunities.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="container split">
+                <h2>Let's connect</h2>
+                <div>
+                    <p class="lead">
+                        I welcome meaningful conversations, learning opportunities,
+                        professional connections and technology collaborations.
+                    </p>
+
+                    <ul class="contact-links">
+                        <li>
+                            <a href="mailto:victoroland696@gmail.com">
+                                <span class="label">Email</span>
+                                <span class="value">victoroland696@gmail.com</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/2349015825696" target="_blank" rel="noopener noreferrer">
+                                <span class="label">WhatsApp</span>
+                                <span class="value">Send me a message</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/Victoroland" target="_blank" rel="noopener noreferrer">
+                                <span class="label">GitHub</span>
+                                <span class="value">Victoroland</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/victor-roland-7567582aa/" target="_blank"
+                                rel="noopener noreferrer">
+                                <span class="label">LinkedIn</span>
+                                <span class="value">Connect professionally</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="year">2026</span> Victor Obelejor Roland.</p>
+            <p>Building. Learning. Innovating. Beyond limits.</p>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var btn = document.getElementById("menuBtn");
+            var nav = document.getElementById("navLinks");
+
+            function setMenu(open) {
+                nav.classList.toggle("show", open);
+                btn.setAttribute("aria-expanded", String(open));
+                btn.textContent = open ? "Close" : "Menu";
+            }
+
+            btn.addEventListener("click", function () {
+                setMenu(!nav.classList.contains("show"));
+            });
+
+            nav.querySelectorAll("a").forEach(function (link) {
+                link.addEventListener("click", function () { setMenu(false); });
+            });
+
+            document.addEventListener("keydown", function (e) {
+                if (e.key === "Escape" && nav.classList.contains("show")) {
+                    setMenu(false);
+                    btn.focus();
+                }
+            });
+
+            document.addEventListener("click", function (e) {
+                if (nav.classList.contains("show") && !nav.contains(e.target) && !btn.contains(e.target)) {
+                    setMenu(false);
+                }
+            });
+
+            window.addEventListener("resize", function () {
+                if (window.innerWidth > 1040) setMenu(false);
+            });
+
+            document.getElementById("year").textContent = new Date().getFullYear();
+
+            // Highlight the nav link for the section currently in view
+            var links = {};
+            nav.querySelectorAll("a").forEach(function (a) {
+                links[a.getAttribute("href").slice(1)] = a;
+            });
+
+            if ("IntersectionObserver" in window) {
+                var observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            Object.keys(links).forEach(function (id) {
+                                links[id].removeAttribute("aria-current");
+                            });
+                            var active = links[entry.target.id];
+                            if (active) active.setAttribute("aria-current", "true");
+                        }
+                    });
+                }, { rootMargin: "-45% 0px -50% 0px" });
+
+                document.querySelectorAll("main section[id]").forEach(function (s) {
+                    observer.observe(s);
+                });
+            }
+        })();
+    </script>
+
+</body>
+
+</html>

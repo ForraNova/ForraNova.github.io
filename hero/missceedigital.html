@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Miss Cee Portfolio</title>
+<meta name="description" content="Miss Cee (Rowland Cynthia): freelance community manager, brand social media responder, customer care representative, and host and presenter.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="img/logo.svg" type="image/svg+xml">
+<style>
+/* ============================================================
+   Miss Cee Portfolio — style.css
+   Author: Senior Front-End Engineer
+   Description: Full stylesheet for the Miss Cee portfolio site.
+   ============================================================ */
+
+/* ---------- 1. Design Tokens ---------- */
+:root {
+  /* Color palette */
+  --green-900: #1a3c2e;
+  --green-800: #234d3a;
+  --green-700: #2f6b4f;
+  --green-600: #3d8a64;
+  --green-500: #4fa97a;
+  --green-100: #e6f4ec;
+  --green-50:  #f3faf6;
+
+  --ink-900: #151b18;
+  --ink-700: #2e3733;
+  --ink-500: #5a6660;
+  --ink-400: #7c8882;
+
+  --cream: #faf8f3;
+  --white: #ffffff;
+  --line: #e0e4e0;
+
+  --accent: #c9a227;
+  --accent-dark: #a8871c;
+
+  --focus-ring: #4fa97a;
+
+  /* Typography */
+  --font-display: 'Bricolage Grotesque', 'Trebuchet MS', system-ui, sans-serif;
+  --font-body: 'DM Sans', 'Segoe UI', system-ui, sans-serif;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1.25rem;
+  --space-lg: 2rem;
+  --space-xl: 3.5rem;
+  --space-2xl: 5rem;
+
+  /* Layout */
+  --wrap-max: 1120px;
+  --wrap-pad: 1.25rem;
+  --radius: 14px;
+  --radius-sm: 8px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(21, 27, 24, 0.06);
+  --shadow-md: 0 8px 24px rgba(21, 27, 24, 0.08);
+  --shadow-lg: 0 18px 48px rgba(21, 27, 24, 0.14);
+  --shadow-focus: 0 0 0 3px rgba(79, 169, 122, 0.35);
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur: 260ms;
+}
+
+/* ---------- 2. Reset & Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem; /* offset for sticky header */
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--ink-700);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body > main { flex: 1 0 auto; }
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--ink-900);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+h1 { font-size: clamp(2.4rem, 6vw, 4rem); }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.4rem); margin-bottom: var(--space-md); }
+h3 { font-size: clamp(1.1rem, 1.8vw, 1.3rem); margin-bottom: 0.35rem; }
+
+p { text-wrap: pretty; }
+
+a {
+  color: var(--green-700);
+  text-decoration: none;
+  transition: color var(--dur) var(--ease);
+}
+
+a:hover { color: var(--green-500); }
+
+ul, ol { list-style: none; }
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Accessible focus styles */
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Skip link (added via JS if missing) */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 200;
+  padding: 0.75rem 1.25rem;
+  background: var(--green-800);
+  color: var(--white);
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  transition: top 200ms var(--ease);
+}
+.skip-link:focus {
+  top: 1rem;
+  color: var(--white);
+}
+
+/* ---------- 3. Layout Helpers ---------- */
+.wrap {
+  width: 100%;
+  max-width: var(--wrap-max);
+  margin-inline: auto;
+  padding-inline: var(--wrap-pad);
+}
+
+.wrap.narrow { max-width: 760px; }
+
+.section {
+  padding-block: var(--space-2xl);
+  scroll-margin-top: 5.5rem;
+}
+
+.section.alt {
+  background: var(--green-50);
+  border-block: 1px solid var(--line);
+}
+
+.sub {
+  color: var(--ink-500);
+  margin-top: calc(var(--space-md) * -0.5);
+  margin-bottom: var(--space-lg);
+  font-size: 0.95rem;
+}
+
+/* ---------- 4. Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  border: 1.5px solid var(--green-700);
+  color: var(--green-800);
+  background: transparent;
+  transition: background var(--dur) var(--ease),
+              color var(--dur) var(--ease),
+              transform var(--dur) var(--ease),
+              box-shadow var(--dur) var(--ease);
+  will-change: transform;
+}
+
+.btn:hover {
+  background: var(--green-100);
+  color: var(--green-900);
+  transform: translateY(-1px);
+}
+
+.btn:active { transform: translateY(0); }
+
+.btn.primary {
+  background: var(--green-800);
+  border-color: var(--green-800);
+  color: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn.primary:hover {
+  background: var(--green-700);
+  border-color: var(--green-700);
+  color: var(--white);
+  box-shadow: var(--shadow-md);
+}
+
+/* ---------- 5. Header & Navigation ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 248, 243, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  transition: box-shadow var(--dur) var(--ease);
+}
+
+.site-header.scrolled {
+  box-shadow: 0 2px 16px rgba(21, 27, 24, 0.07);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  min-height: 4.25rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--ink-900);
+  letter-spacing: -0.02em;
+}
+
+.brand:hover { color: var(--green-700); }
+
+.brand img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--green-100);
+  object-fit: contain;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nav a {
+  display: inline-block;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  color: var(--ink-700);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+.nav a:hover {
+  background: var(--green-100);
+  color: var(--green-800);
+}
+
+.nav a.nav-cta {
+  margin-left: 0.35rem;
+  background: var(--green-800);
+  color: var(--white);
+  font-weight: 700;
+}
+
+.nav a.nav-cta:hover {
+  background: var(--green-700);
+  color: var(--white);
+}
+
+/* Mobile menu button */
+.menu-btn {
+  display: none;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--line);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--ink-900);
+  background: var(--white);
+  transition: border-color var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+
+.menu-btn:hover { border-color: var(--green-600); }
+
+.menu-btn[aria-expanded="true"] {
+  background: var(--green-100);
+  border-color: var(--green-600);
+}
+
+/* ---------- 6. Hero ---------- */
+.hero {
+  padding-block: clamp(3rem, 8vw, 6rem);
+  background:
+    radial-gradient(ellipse 70% 55% at 88% 0%, rgba(79, 169, 122, 0.16), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 0% 100%, rgba(201, 162, 39, 0.10), transparent 70%),
+    var(--cream);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.kicker {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green-700);
+  background: var(--green-100);
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: var(--space-sm);
+}
+
+.hero-text h1 { margin-bottom: var(--space-md); }
+
+.lead {
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  color: var(--ink-500);
+  max-width: 46ch;
+  margin-bottom: var(--space-lg);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.hero-photo {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: var(--green-100);
+  aspect-ratio: 16 / 10;
+}
+
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms var(--ease);
+}
+
+.hero-photo:hover img { transform: scale(1.03); }
+
+.hero-photo figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2.5rem 1.25rem 1rem;
+  background: linear-gradient(to top, rgba(21, 27, 24, 0.82), transparent);
+  color: var(--white);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- 7. About ---------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.about-photo {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: var(--green-100);
+}
+
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 4 / 5;
+}
+
+.about-text p + p { margin-top: var(--space-md); }
+
+.about-text p { color: var(--ink-500); }
+
+/* ---------- 8. Cards (Services & Work) ---------- */
+.cards {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: 1fr;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur) var(--ease),
+              box-shadow var(--dur) var(--ease),
+              border-color var(--dur) var(--ease);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(79, 169, 122, 0.45);
+}
+
+.card p {
+  color: var(--ink-500);
+  font-size: 0.97rem;
+}
+
+/* Services grid */
+.cards.services { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+
+/* Work cards */
+.cards.work { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+
+.work-card {
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.thumb {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: var(--green-100);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  position: relative;
+  cursor: zoom-in;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 600ms var(--ease);
+}
+
+.thumb:hover img,
+.thumb:focus-visible img { transform: scale(1.06); }
+
+.thumb::after {
+  content: "View";
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(21, 27, 24, 0.72);
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+  pointer-events: none;
+}
+
+.thumb:hover::after,
+.thumb:focus-visible::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Light background thumbs (logos) need a subtle inner border */
+.thumb.light {
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.card-body {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1;
+}
+
+/* ---------- 9. Timeline (Training) ---------- */
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  padding-left: 1.75rem;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--green-500), var(--green-100));
+  border-radius: 2px;
+}
+
+.timeline li {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-md) var(--space-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -1.75rem;
+  top: 1.35rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 3px solid var(--green-500);
+  box-shadow: 0 0 0 3px var(--green-50);
+  transform: translateX(calc(-50% + 8px));
+}
+
+.timeline li:has(.tag.done)::before {
+  border-color: var(--green-700);
+  background: var(--green-700);
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--ink-900);
+  margin-bottom: 0.6rem;
+}
+
+.tag.done {
+  background: var(--green-100);
+  color: var(--green-800);
+}
+
+.timeline li p {
+  color: var(--ink-500);
+  font-size: 0.95rem;
+}
+
+/* ---------- 10. Contact ---------- */
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+
+.contact li { display: contents; }
+
+.contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.35rem;
+  border-radius: 999px;
+  background: var(--white);
+  border: 1.5px solid var(--line);
+  color: var(--ink-900);
+  font-weight: 500;
+  font-size: 0.95rem;
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--dur) var(--ease),
+              background var(--dur) var(--ease),
+              transform var(--dur) var(--ease),
+              box-shadow var(--dur) var(--ease);
+  word-break: break-word;
+}
+
+.contact a:hover {
+  border-color: var(--green-600);
+  background: var(--green-50);
+  color: var(--green-800);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.contact a::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green-500);
+  flex-shrink: 0;
+}
+
+/* ---------- 11. Footer ---------- */
+.site-footer {
+  background: var(--green-900);
+  color: rgba(255, 255, 255, 0.75);
+  padding-block: var(--space-lg);
+  margin-top: auto;
+}
+
+.site-footer p {
+  font-size: 0.92rem;
+  text-align: center;
+}
+
+.site-footer a { color: var(--white); }
+
+/* ---------- 12. Lightbox Dialog ---------- */
+dialog#lightbox {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(92vw, 960px);
+  max-height: 92vh;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--ink-900);
+  color: var(--white);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+dialog#lightbox::backdrop {
+  background: rgba(10, 14, 12, 0.82);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Animate dialog entry */
+dialog#lightbox[open] {
+  animation: lb-in 300ms var(--ease) both;
+}
+
+@keyframes lb-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+dialog#lightbox form {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 2;
+}
+
+dialog#lightbox .close {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--white);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: background var(--dur) var(--ease);
+}
+
+dialog#lightbox .close:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+dialog#lightbox img {
+  width: 100%;
+  max-height: calc(92vh - 4.5rem);
+  object-fit: contain;
+  background: #000;
+}
+
+dialog#lightbox p {
+  padding: 0.85rem 1.25rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+body.lb-open { overflow: hidden; }
+
+/* ---------- 13. Responsive Breakpoints ---------- */
+
+/* Small tablets */
+@media (min-width: 600px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .cards.services { grid-template-columns: repeat(2, 1fr); }
+  .timeline { padding-left: 2rem; }
+}
+
+/* Tablets */
+@media (min-width: 760px) {
+  .hero-grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: var(--space-xl);
+  }
+
+  .about-grid {
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: var(--space-xl);
+  }
+
+  .hero-photo { aspect-ratio: auto; min-height: 340px; }
+  .hero-photo img { height: 100%; }
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+  :root { --wrap-pad: 2rem; }
+
+  .cards.services { grid-template-columns: repeat(3, 1fr); }
+  .cards.work { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ---------- 14. Mobile Navigation (max 767px) ---------- */
+@media (max-width: 767px) {
+  .menu-btn { display: inline-block; }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.35rem;
+    padding: 0.75rem var(--wrap-pad) 1.25rem;
+    background: var(--cream);
+    border-bottom: 1px solid var(--line);
+    box-shadow: var(--shadow-md);
+
+    /* Collapsed state */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity var(--dur) var(--ease),
+                transform var(--dur) var(--ease),
+                visibility var(--dur) var(--ease);
+  }
+
+  .nav.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav a {
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+  }
+
+  .nav a.nav-cta {
+    margin-left: 0;
+    margin-top: 0.35rem;
+    text-align: center;
+  }
+}
+
+/* ---------- 15. Reduced Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .hero-photo:hover img { transform: none; }
+  .thumb:hover img { transform: none; }
+  .card:hover { transform: none; }
+}
+
+/* ---------- 16. Print ---------- */
+@media print {
+  .site-header,
+  .menu-btn,
+  .site-footer,
+  dialog#lightbox,
+  .actions,
+  .thumb::after {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+  }
+
+  .section { padding-block: 1.5rem; break-inside: avoid; }
+  .card, .timeline li { box-shadow: none; border: 1px solid #ccc; }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #555;
+  }
+}
+
+/* ---------- 17. High Contrast / Forced Colors ---------- */
+@media (forced-colors: active) {
+  .btn,
+  .card,
+  .thumb,
+  .contact a {
+    border: 1px solid CanvasText;
+  }
+
+  .thumb::after { forced-color-adjust: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Miss Cee, home"><img src="https://missceedigital.github.io/logo.svg" alt="" width="38" height="38"><span>Miss Cee</span></a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav id="nav" class="nav" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#training">Training</a>
+      <a class="nav-cta" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <p class="kicker">Freelancer · Nigeria</p>
+        <h1>Miss Cee</h1>
+        <p class="lead">I manage communities, answer for brands on social media, and host and present. I also hold a BSc in Computer Science and I am training in social media management, content creation and AI.</p>
+        <div class="actions">
+          <a class="btn primary" href="#work">See my work</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <figure class="hero-photo">
+        <img src="https://missceedigital.github.io/hosting.jpg" alt="Miss Cee hosting a podcast episode, seated on a couch and speaking" width="691" height="386">
+        <figcaption>Hosting on the DE'14 Podcast</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="wrap about-grid">
+      <figure class="about-photo">
+        <img src="https://missceedigital.github.io/miss-cee.jpg" alt="Portrait of Miss Cee in a green headwrap and green top" width="640" height="800">
+      </figure>
+      <div class="about-text">
+        <h2>About</h2>
+        <p>I am Rowland Cynthia, known as Miss Cee. I help brands stay close to their audience by managing their communities, answering customers and keeping social pages active.</p>
+        <p>I hold a BSc in Computer Science from Ignatius Ajuru University of Education, and I am now training in social media management, content creation and AI. That mix gives me a clear, organised approach to online work.</p>
+        <p>I also host a podcast, so speaking to an audience feels natural to me, and I run my own hair brand, where I put what I learn into practice.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="section alt">
+    <div class="wrap">
+      <h2>Services</h2>
+      <ul class="cards services">
+        <li class="card"><h3>Community management</h3><p>Looking after a brand's online community and keeping the conversation active and respectful.</p></li>
+        <li class="card"><h3>Customer care representative</h3><p>Answering customer questions and complaints clearly and politely.</p></li>
+        <li class="card"><h3>Brand social media responder</h3><p>Replying to comments and messages on behalf of a brand.</p></li>
+        <li class="card"><h3>Scheduling and engagement</h3><p>Scheduling posts and engaging with followers so pages stay active.</p></li>
+        <li class="card"><h3>Host and presenter</h3><p>Hosting podcasts and presenting on camera.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="work" class="section">
+    <div class="wrap">
+      <h2>Work</h2>
+      <p class="sub">Tap an image to view it larger.</p>
+      <ul class="cards work">
+        <li class="card work-card">
+          <button class="thumb" data-full="https://missceedigital.github.io/hosting.jpg" data-cap="Hosting on the DE'14 Podcast" aria-label="View larger: hosting on the DE'14 Podcast">
+            <img src="https://missceedigital.github.io/hosting.jpg" alt="Miss Cee hosting a podcast episode" loading="lazy" width="691" height="386">
+          </button>
+          <div class="card-body"><h3>Podcast host</h3><p>I host episodes on the DE'14 Podcast.</p></div>
+        </li>
+        <li class="card work-card">
+          <button class="thumb" data-full="https://missceedigital.github.io/d14-podcast.jpg" data-cap="DE'14 Podcast logo" aria-label="View larger: DE'14 Podcast logo">
+            <img src="https://missceedigital.github.io/d14-podcast.jpg" alt="DE'14 Podcast logo in white and yellow on black, with a microphone" loading="lazy" width="900" height="600">
+          </button>
+          <div class="card-body"><h3>DE'14 Podcast</h3><p>The podcast I work with as a host.</p></div>
+        </li>
+        <li class="card work-card">
+          <button class="thumb light" data-full="https://missceedigital.github.io/dim-group.jpg" data-cap="DIM Group logo, created for a client" aria-label="View larger: DIM Group logo">
+            <img src="https://missceedigital.github.io/dim-group.jpg" alt="DIM Group logo in black and gold with a building icon" loading="lazy" width="900" height="900">
+          </button>
+          <div class="card-body"><h3>Logo for DIM Group</h3><p>A logo I created for a client.</p></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="training" class="section alt">
+    <div class="wrap narrow">
+      <h2>Education and training</h2>
+      <ol class="timeline">
+        <li>
+          <span class="tag done">Completed</span>
+          <h3>BSc, Computer Science</h3>
+          <p>Ignatius Ajuru University of Education</p>
+        </li>
+        <li>
+          <span class="tag">In progress · ends December 2026</span>
+          <h3>Social Media Management and Content Creation</h3>
+          <p>Prime Skills Academy, 6 months. To be certified by the Computer Professionals of Nigeria.</p>
+        </li>
+        <li>
+          <span class="tag">In progress · ends January 2027</span>
+          <h3>AI Training</h3>
+          <p>Teadro Technology, 3 months.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="wrap narrow">
+      <h2>Contact</h2>
+      <p>Need someone to manage your community or respond for your brand, or want a host for your show? Reach out.</p>
+      <ul class="contact" id="contactList"></ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap"><p>© <span id="year"></span> Rowland Cynthia (Miss Cee)</p></div>
+</footer>
+
+<dialog id="lightbox" aria-label="Image viewer">
+  <form method="dialog"><button class="close" aria-label="Close image">Close</button></form>
+  <img id="lbImg" alt="">
+  <p id="lbCap"></p>
+</dialog>
+
+<script>
+  /* ============================================================
+   Miss Cee Portfolio — main.js
+   Description: Interactive behaviours for the portfolio site.
+   ============================================================ */
+
+(function () {
+  'use strict';
+
+  /* ----------------------------------------------------------
+     Utility helpers
+     ---------------------------------------------------------- */
+  const $  = (sel, ctx = document) => ctx.querySelector(sel);
+  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+
+  const prefersReducedMotion = () =>
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ----------------------------------------------------------
+     1. Footer year
+     ---------------------------------------------------------- */
+  const yearEl = $('#year');
+  if (yearEl) {
+    yearEl.textContent = String(new Date().getFullYear());
+  }
+
+  /* ----------------------------------------------------------
+     2. Skip link (accessibility)
+     ---------------------------------------------------------- */
+  (function addSkipLink() {
+    if ($('.skip-link')) return;
+    const main = $('#top');
+    if (!main) return;
+
+    const link = document.createElement('a');
+    link.href = '#top';
+    link.className = 'skip-link';
+    link.textContent = 'Skip to main content';
+    document.body.insertBefore(link, document.body.firstChild);
+  })();
+
+  /* ----------------------------------------------------------
+     3. Mobile navigation toggle
+     ---------------------------------------------------------- */
+  (function initMobileNav() {
+    const menuBtn = $('#menuBtn');
+    const nav = $('#nav');
+    if (!menuBtn || !nav) return;
+
+    const openNav = () => {
+      nav.classList.add('open');
+      menuBtn.setAttribute('aria-expanded', 'true');
+    };
+
+    const closeNav = () => {
+      nav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    };
+
+    const toggleNav = () => {
+      if (nav.classList.contains('open')) {
+        closeNav();
+      } else {
+        openNav();
+      }
+    };
+
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleNav();
+    });
+
+    // Close when a nav link is clicked
+    nav.addEventListener('click', (e) => {
+      if (e.target.closest('a')) closeNav();
+    });
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!nav.classList.contains('open')) return;
+      if (nav.contains(e.target) || menuBtn.contains(e.target)) return;
+      closeNav();
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && nav.classList.contains('open')) {
+        closeNav();
+        menuBtn.focus();
+      }
+    });
+
+    // Reset state when resizing to desktop
+    const mq = window.matchMedia('(min-width: 768px)');
+    const handleMq = (ev) => {
+      if (ev.matches) closeNav();
+    };
+    if (typeof mq.addEventListener === 'function') {
+      mq.addEventListener('change', handleMq);
+    } else if (typeof mq.addListener === 'function') {
+      mq.addListener(handleMq); // legacy Safari
+    }
+  })();
+
+  /* ----------------------------------------------------------
+     4. Sticky header shadow on scroll
+     ---------------------------------------------------------- */
+  (function initHeaderShadow() {
+    const header = $('.site-header');
+    if (!header) return;
+
+    let ticking = false;
+
+    const update = () => {
+      header.classList.toggle('scrolled', window.scrollY > 8);
+      ticking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    update();
+  })();
+
+  /* ----------------------------------------------------------
+     5. Smooth in-page anchor scrolling
+        (honours reduced motion; falls back if CSS smooth
+        scrolling is unsupported)
+     ---------------------------------------------------------- */
+  (function initSmoothAnchors() {
+    const supportsSmooth = 'scrollBehavior' in document.documentElement.style;
+
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a[href^="#"]');
+      if (!link) return;
+
+      const hash = link.getAttribute('href');
+      if (!hash || hash === '#') return;
+
+      const target = document.querySelector(hash);
+      if (!target) return;
+
+      e.preventDefault();
+
+      const headerOffset = (() => {
+        const header = $('.site-header');
+        return header ? header.offsetHeight : 0;
+      })();
+
+      const top = target.getBoundingClientRect().top +
+                  window.pageYOffset -
+                  headerOffset +
+                  1;
+
+      if (prefersReducedMotion() || !supportsSmooth) {
+        window.scrollTo(0, top);
+      } else {
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+
+      // Update focus for a11y without jumping
+      if (!target.hasAttribute('tabindex')) {
+        target.setAttribute('tabindex', '-1');
+      }
+      target.focus({ preventScroll: true });
+
+      // Update the URL hash without a jump
+      if (history.replaceState) {
+        history.replaceState(null, '', hash);
+      }
+    });
+  })();
+
+  /* ----------------------------------------------------------
+     6. Lightbox for work images
+     ---------------------------------------------------------- */
+  (function initLightbox() {
+    const dialog = $('#lightbox');
+    const lbImg = $('#lbImg');
+    const lbCap = $('#lbCap');
+    if (!dialog || !lbImg || !lbCap) return;
+
+    // Graceful fallback for browsers without <dialog>
+    const supportsDialog =
+      typeof dialog.showModal === 'function';
+
+    let lastFocused = null;
+
+    const open = (trigger) => {
+      const full = trigger.getAttribute('data-full');
+      const cap = trigger.getAttribute('data-cap') || '';
+      const img = trigger.querySelector('img');
+
+      if (!full) return;
+
+      lbImg.src = full;
+      lbImg.alt = img ? img.alt : cap;
+      lbCap.textContent = cap;
+
+      lastFocused = trigger;
+
+      if (supportsDialog) {
+        dialog.showModal();
+        document.body.classList.add('lb-open');
+      } else {
+        // Fallback: open image in a new tab
+        window.open(full, '_blank', 'noopener');
+        lastFocused = null;
+      }
+    };
+
+    const close = () => {
+      if (!supportsDialog) return;
+      if (dialog.open) dialog.close();
+      document.body.classList.remove('lb-open');
+      if (lastFocused && typeof lastFocused.focus === 'function') {
+        lastFocused.focus();
+      }
+      lastFocused = null;
+    };
+
+    // Delegate clicks on thumbnails
+    document.addEventListener('click', (e) => {
+      const thumb = e.target.closest('.thumb');
+      if (!thumb) return;
+      e.preventDefault();
+      open(thumb);
+    });
+
+    // Close via form[method="dialog"] button (native) or fallback
+    dialog.addEventListener('click', (e) => {
+      // Click on backdrop (outside the dialog content)
+      if (e.target === dialog) {
+        close();
+      }
+    });
+
+    // Native close event (fires when form[method=dialog] submits)
+    dialog.addEventListener('close', () => {
+      document.body.classList.remove('lb-open');
+      if (lastFocused && typeof lastFocused.focus === 'function') {
+        lastFocused.focus();
+      }
+      lastFocused = null;
+      // Reset after animation
+      setTimeout(() => {
+        lbImg.removeAttribute('src');
+        lbCap.textContent = '';
+      }, 200);
+    });
+
+    // Keyboard: Escape handled by dialog natively, but add safety
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && dialog.open) {
+        close();
+      }
+    });
+
+    // Close button (in case form[method=dialog] is unsupported)
+    const closeBtn = dialog.querySelector('.close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
+        if (!supportsDialog) return;
+        e.preventDefault();
+        close();
+      });
+    }
+  })();
+
+  /* ----------------------------------------------------------
+     7. Contact list — build from data with safe fallbacks
+        (the HTML leaves #contactList empty; we populate it)
+     ---------------------------------------------------------- */
+  (function initContactList() {
+    const list = $('#contactList');
+    if (!list) return;
+
+    // No hardcoded contact data in the HTML, so we provide a
+    // sensible default set. Replace these with real details.
+    const contacts = [
+      { label: 'Email', value: 'hello@misscee.example', href: 'mailto:hello@misscee.example' },
+      { label: 'Instagram', value: '@misscee', href: 'https://instagram.com/' },
+      { label: 'LinkedIn', value: 'Rowland Cynthia', href: 'https://linkedin.com/' }
+    ];
+
+    // Respect any data-* hints if present on the list element
+    // e.g. data-email / data-phone
+    const email = list.getAttribute('data-email');
+    const phone = list.getAttribute('data-phone');
+    const instagram = list.getAttribute('data-instagram');
+    const linkedin = list.getAttribute('data-linkedin');
+
+    const resolved = [];
+
+    if (email) resolved.push({ label: 'Email', value: email, href: `mailto:${email}` });
+    if (phone) resolved.push({ label: 'Phone', value: phone, href: `tel:${phone.replace(/[^\d+]/g, '')}` });
+    if (instagram) resolved.push({ label: 'Instagram', value: instagram, href: instagram.startsWith('http') ? instagram : `https://instagram.com/${instagram.replace(/^@/, '')}` });
+    if (linkedin) resolved.push({ label: 'LinkedIn', value: linkedin, href: linkedin.startsWith('http') ? linkedin : `https://linkedin.com/in/${linkedin}` });
+
+    const finalContacts = resolved.length ? resolved : contacts;
+
+    const frag = document.createDocumentFragment();
+
+    finalContacts.forEach((c) => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = c.href;
+      a.textContent = `${c.label}: ${c.value}`;
+
+      if (c.href.startsWith('http')) {
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+      }
+
+      li.appendChild(a);
+      frag.appendChild(li);
+    });
+
+    list.appendChild(frag);
+  })();
+
+  /* ----------------------------------------------------------
+     8. Lazy-load images: add native fallback + fade-in
+     ---------------------------------------------------------- */
+  (function initImageReveal() {
+    const imgs = $$('img[loading="lazy"]');
+    if (!imgs.length) return;
+
+    const reveal = (img) => {
+      img.style.opacity = '1';
+    };
+
+    imgs.forEach((img) => {
+      img.style.opacity = '0';
+      img.style.transition = 'opacity 400ms ease';
+
+      if (img.complete) {
+        reveal(img);
+      } else {
+        img.addEventListener('load', () => reveal(img), { once: true });
+        img.addEventListener('error', () => {
+          img.style.opacity = '1';
+          img.style.background = '#e6f4ec';
+        }, { once: true });
+      }
+    });
+  })();
+
+  /* ----------------------------------------------------------
+     9. Reveal-on-scroll for cards & sections
+        (IntersectionObserver, respects reduced motion)
+     ---------------------------------------------------------- */
+  (function initScrollReveal() {
+    if (prefersReducedMotion()) return;
+    if (!('IntersectionObserver' in window)) return;
+
+    const targets = $$('.card, .timeline li, .about-photo, .hero-photo');
+    if (!targets.length) return;
+
+    const style = document.createElement('style');
+    style.textContent = `
+      .reveal-init { opacity: 0; transform: translateY(18px); }
+      .reveal-in { opacity: 1; transform: none; transition: opacity 600ms var(--ease), transform 600ms var(--ease); }
+    `;
+    document.head.appendChild(style);
+
+    targets.forEach((el, i) => {
+      el.classList.add('reveal-init');
+      // Stagger by index within its group, capped
+      el.style.transitionDelay = `${Math.min(i % 6, 5) * 70}ms`;
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('reveal-in');
+        entry.target.classList.remove('reveal-init');
+        observer.unobserve(entry.target);
+      });
+    }, {
+      root: null,
+      rootMargin: '0px 0px -8% 0px',
+      threshold: 0.12
+    });
+
+    targets.forEach((el) => observer.observe(el));
+  })();
+
+  /* ----------------------------------------------------------
+     10. Active nav link highlighting (scroll spy)
+     ---------------------------------------------------------- */
+  (function initScrollSpy() {
+    if (!('IntersectionObserver' in window)) return;
+
+    const navLinks = $$('#nav a[href^="#"]');
+    if (!navLinks.length) return;
+
+    const sections = navLinks
+      .map((link) => {
+        const id = link.getAttribute('href');
+        const el = id && id !== '#' ? document.querySelector(id) : null;
+        return el ? { link, el } : null;
+      })
+      .filter(Boolean);
+
+    if (!sections.length) return;
+
+    const setActive = (activeLink) => {
+      navLinks.forEach((l) => l.classList.remove('is-active'));
+      if (activeLink) activeLink.classList.add('is-active');
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const match = sections.find((s) => s.el === entry.target);
+        if (match) setActive(match.link);
+      });
+    }, {
+      rootMargin: '-45% 0px -50% 0px',
+      threshold: 0
+    });
+
+    sections.forEach((s) => observer.observe(s.el));
+
+    // Clear highlight when at the very top (hero)
+    window.addEventListener('scroll', () => {
+      if (window.scrollY < 120) setActive(null);
+    }, { passive: true });
+  })();
+
+  /* ----------------------------------------------------------
+     11. Keyboard support: Enter/Space on custom thumbs
+          (buttons already handle this natively, but we
+           ensure the whole card is accessible)
+     ---------------------------------------------------------- */
+  (function initThumbKeyboard() {
+    $$('.thumb').forEach((thumb) => {
+      if (thumb.tagName === 'BUTTON') return; // native
+      thumb.setAttribute('role', 'button');
+      thumb.setAttribute('tabindex', '0');
+      thumb.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          thumb.click();
+        }
+      });
+    });
+  })();
+
+  /* ----------------------------------------------------------
+     12. Prevent body scroll lock stuck state on load
+     ---------------------------------------------------------- */
+  window.addEventListener('pageshow', () => {
+    document.body.classList.remove('lb-open');
+  });
+
+})();
+</script>
+</body>
+</html>
