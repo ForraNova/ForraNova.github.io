@@ -1,12 +1,12 @@
 {
-    "last_update": "November 24, 2026 | 07:54 PM",
+    "last_update": "November 25, 2026 | 04:36 PM",
     "status": "Online",
     "total_found": 9,
     "logs": [
-        "[19:54:30] SUCCESS: Machine Learning (3 found)",
-        "[19:54:32] SUCCESS: Front-End / React (3 found)",
-        "[19:54:35] SUCCESS: Writing / Creative (3 found)",
-        "[19:54:38] SUCCESS: Virtual Assistant (0 found)"
+        "[16:36:19] SUCCESS: Machine Learning (3 found)",
+        "[16:36:21] SUCCESS: Front-End / React (3 found)",
+        "[16:36:24] SUCCESS: Writing / Creative (3 found)",
+        "[16:36:27] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-ai-content-reviewer-video-annotation-imerit-1137686"
                 },
                 {
-                    "position": "Senior Global Partner Specialist - USA",
-                    "link": "https://remoteok.com/remote-jobs/remote-senior-global-partner-specialist-usa-storyblok-1138100"
+                    "position": "Commercial Manager - Europe",
+                    "link": "https://remoteok.com/remote-jobs/remote-commercial-manager-europe-lyra-health-1138149"
                 }
             ]
         },
@@ -47,16 +47,16 @@
             "query": "Writing / Creative",
             "jobs": [
                 {
+                    "position": "Specialist III, Knowledge Base",
+                    "link": "https://jobspresso.co/job/specialist-iii-knowledge-base-grow-therapy/"
+                },
+                {
                     "position": "Content Writer",
                     "link": "https://jobspresso.co/job/content-writer-togetherwork/"
                 },
                 {
                     "position": "Director, Brand & Editorial",
                     "link": "https://jobspresso.co/job/director-brand-and-editorial-juniper-square/"
-                },
-                {
-                    "position": "Senior Copywriter (Sports Emphasis)",
-                    "link": "https://jobspresso.co/job/senior-copywriter-sports-emphasis/"
                 }
             ]
         },
