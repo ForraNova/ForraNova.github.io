@@ -1,12 +1,12 @@
 {
-    "last_update": "November 26, 2026 | 01:24 AM",
+    "last_update": "November 26, 2026 | 11:47 AM",
     "status": "Online",
     "total_found": 9,
     "logs": [
-        "[01:24:04] SUCCESS: Machine Learning (3 found)",
-        "[01:24:07] SUCCESS: Front-End / React (3 found)",
-        "[01:24:09] SUCCESS: Writing / Creative (3 found)",
-        "[01:24:12] SUCCESS: Virtual Assistant (0 found)"
+        "[11:47:38] SUCCESS: Machine Learning (3 found)",
+        "[11:47:41] SUCCESS: Front-End / React (3 found)",
+        "[11:47:43] SUCCESS: Writing / Creative (3 found)",
+        "[11:47:48] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-ai-content-reviewer-video-annotation-imerit-1137686"
                 },
                 {
-                    "position": "Traveling Account Executive - Neurology/Rare Disease",
-                    "link": "https://remoteok.com/remote-jobs/remote-traveling-account-executive-neurology-rare-disease-jobgether-1138154"
+                    "position": "Content Engineer, Developer Documentation",
+                    "link": "https://remoteok.com/remote-jobs/remote-content-engineer-developer-documentation-livekit-1138185"
                 }
             ]
         },
