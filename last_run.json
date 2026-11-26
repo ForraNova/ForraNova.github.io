@@ -1,12 +1,12 @@
 {
-    "last_update": "November 26, 2026 | 11:47 AM",
+    "last_update": "November 26, 2026 | 08:48 PM",
     "status": "Online",
     "total_found": 9,
     "logs": [
-        "[11:47:38] SUCCESS: Machine Learning (3 found)",
-        "[11:47:41] SUCCESS: Front-End / React (3 found)",
-        "[11:47:43] SUCCESS: Writing / Creative (3 found)",
-        "[11:47:48] SUCCESS: Virtual Assistant (0 found)"
+        "[20:47:48] SUCCESS: Machine Learning (3 found)",
+        "[20:47:51] SUCCESS: Front-End / React (3 found)",
+        "[20:47:53] SUCCESS: Writing / Creative (3 found)",
+        "[20:47:56] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-ai-content-reviewer-video-annotation-imerit-1137686"
                 },
                 {
-                    "position": "Content Engineer, Developer Documentation",
-                    "link": "https://remoteok.com/remote-jobs/remote-content-engineer-developer-documentation-livekit-1138185"
+                    "position": "Partner Sales Manager - EMEA Central (Eastern Europe)",
+                    "link": "https://remoteok.com/remote-jobs/remote-partner-sales-manager-emea-central-eastern-europe-snowflake-1138198"
                 }
             ]
         },
@@ -47,16 +47,16 @@
             "query": "Writing / Creative",
             "jobs": [
                 {
-                    "position": "Workout Content Manager",
-                    "link": "https://jobspresso.co/job/workout-content-manager-zwift/"
+                    "position": "Content Lead, Customer Advocacy",
+                    "link": "https://jobspresso.co/job/content-lead-customer-advocacy-ashby/"
                 },
                 {
-                    "position": "Specialist III, Knowledge Base",
-                    "link": "https://jobspresso.co/job/specialist-iii-knowledge-base-grow-therapy/"
+                    "position": "Developer Engagement Team",
+                    "link": "https://jobspresso.co/job/developer-engagement-team-roblox/"
                 },
                 {
-                    "position": "Content Writer",
-                    "link": "https://jobspresso.co/job/content-writer-togetherwork/"
+                    "position": "Creative Strategist & Copywriter \u2013 Consumer",
+                    "link": "https://jobspresso.co/job/creative-strategist-and-copywriter-consumer-kraken/"
                 }
             ]
         },
