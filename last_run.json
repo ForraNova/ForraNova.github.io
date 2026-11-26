@@ -1,12 +1,12 @@
 {
-    "last_update": "November 25, 2026 | 04:36 PM",
+    "last_update": "November 26, 2026 | 01:24 AM",
     "status": "Online",
     "total_found": 9,
     "logs": [
-        "[16:36:19] SUCCESS: Machine Learning (3 found)",
-        "[16:36:21] SUCCESS: Front-End / React (3 found)",
-        "[16:36:24] SUCCESS: Writing / Creative (3 found)",
-        "[16:36:27] SUCCESS: Virtual Assistant (0 found)"
+        "[01:24:04] SUCCESS: Machine Learning (3 found)",
+        "[01:24:07] SUCCESS: Front-End / React (3 found)",
+        "[01:24:09] SUCCESS: Writing / Creative (3 found)",
+        "[01:24:12] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-ai-content-reviewer-video-annotation-imerit-1137686"
                 },
                 {
-                    "position": "Commercial Manager - Europe",
-                    "link": "https://remoteok.com/remote-jobs/remote-commercial-manager-europe-lyra-health-1138149"
+                    "position": "Traveling Account Executive - Neurology/Rare Disease",
+                    "link": "https://remoteok.com/remote-jobs/remote-traveling-account-executive-neurology-rare-disease-jobgether-1138154"
                 }
             ]
         },
@@ -34,12 +34,12 @@
                     "link": "https://remoteok.com/remote-jobs/remote-senior-product-engineer-arbor-education-1137865"
                 },
                 {
-                    "position": "SEO Full Stack Engineer",
-                    "link": "https://remoteok.com/remote-jobs/remote-seo-full-stack-engineer-treatwell-1137805"
-                },
-                {
                     "position": "Senior Agentic AI Engineer NDA",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-agentic-ai-engineer-nda-gt-1137710"
+                },
+                {
+                    "position": "UI Developer",
+                    "link": "https://remoteok.com/remote-jobs/remote-ui-developer-rainfocus-1137704"
                 }
             ]
         },
@@ -47,16 +47,16 @@
             "query": "Writing / Creative",
             "jobs": [
                 {
+                    "position": "Workout Content Manager",
+                    "link": "https://jobspresso.co/job/workout-content-manager-zwift/"
+                },
+                {
                     "position": "Specialist III, Knowledge Base",
                     "link": "https://jobspresso.co/job/specialist-iii-knowledge-base-grow-therapy/"
                 },
                 {
                     "position": "Content Writer",
                     "link": "https://jobspresso.co/job/content-writer-togetherwork/"
-                },
-                {
-                    "position": "Director, Brand & Editorial",
-                    "link": "https://jobspresso.co/job/director-brand-and-editorial-juniper-square/"
                 }
             ]
         },
