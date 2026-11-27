@@ -1,12 +1,12 @@
 {
-    "last_update": "November 26, 2026 | 08:48 PM",
+    "last_update": "November 27, 2026 | 03:29 AM",
     "status": "Online",
     "total_found": 9,
     "logs": [
-        "[20:47:48] SUCCESS: Machine Learning (3 found)",
-        "[20:47:51] SUCCESS: Front-End / React (3 found)",
-        "[20:47:53] SUCCESS: Writing / Creative (3 found)",
-        "[20:47:56] SUCCESS: Virtual Assistant (0 found)"
+        "[03:29:32] SUCCESS: Machine Learning (3 found)",
+        "[03:29:35] SUCCESS: Front-End / React (3 found)",
+        "[03:29:38] SUCCESS: Writing / Creative (3 found)",
+        "[03:29:41] SUCCESS: Virtual Assistant (0 found)"
     ],
     "findings": [
         {
@@ -21,8 +21,8 @@
                     "link": "https://remoteok.com/remote-jobs/remote-ai-content-reviewer-video-annotation-imerit-1137686"
                 },
                 {
-                    "position": "Partner Sales Manager - EMEA Central (Eastern Europe)",
-                    "link": "https://remoteok.com/remote-jobs/remote-partner-sales-manager-emea-central-eastern-europe-snowflake-1138198"
+                    "position": "Founding Engineer",
+                    "link": "https://remoteok.com/remote-jobs/remote-founding-engineer-3y-health-1138213"
                 }
             ]
         },
@@ -30,16 +30,16 @@
             "query": "Front-End / React",
             "jobs": [
                 {
+                    "position": "Senior Software Developer",
+                    "link": "https://remoteok.com/remote-jobs/remote-senior-software-developer-loopio-inc-1138202"
+                },
+                {
                     "position": "Senior Product Engineer",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-product-engineer-arbor-education-1137865"
                 },
                 {
                     "position": "Senior Agentic AI Engineer NDA",
                     "link": "https://remoteok.com/remote-jobs/remote-senior-agentic-ai-engineer-nda-gt-1137710"
-                },
-                {
-                    "position": "UI Developer",
-                    "link": "https://remoteok.com/remote-jobs/remote-ui-developer-rainfocus-1137704"
                 }
             ]
         },
